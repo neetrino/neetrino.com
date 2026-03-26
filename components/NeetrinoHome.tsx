@@ -316,24 +316,21 @@ function Awwwards({ className }: { className?: string }) {
     <div className={className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1240px]"} data-name="Awwwards" data-node-id="10:442">
       <div className="-translate-x-1/2 absolute bg-[rgba(40,43,103,0.38)] h-[48px] left-[calc(50%-70px)] rounded-[28px] top-[8px] w-[798px]" data-name="Link [button]" data-node-id="10:443">
         <div className="-translate-x-1/2 absolute content-stretch flex font-['Inter:Semi_Bold',sans-serif] font-semibold gap-[41px] items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap" data-node-id="10:444">
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="10:445">
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:445" href="/">
             <p className="leading-[15.6px]">Home</p>
-          </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="10:446">
+          </Link>
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:446" href="/services">
             <p className="leading-[15.6px]">Services</p>
-          </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="10:447">
+          </Link>
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:447" href="/portfolio">
             <p className="leading-[15.6px]">Portfolio</p>
-          </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="10:448">
-            <p className="leading-[15.6px]">Story</p>
-          </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="10:449">
-            <p className="leading-[15.6px]">Blog</p>
-          </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="10:450">
+          </Link>
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:448" href="/about-us">
+            <p className="leading-[15.6px]">About Us</p>
+          </Link>
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:450" href="/#contact">
             <p className="leading-[15.6px]">Contact</p>
-          </div>
+          </Link>
         </div>
       </div>
       <div className="absolute bg-[#473dff] h-[48px] left-[986px] rounded-[28px] top-[8px] w-[144px]" data-name="Link [button]" data-node-id="10:451">
@@ -341,9 +338,15 @@ function Awwwards({ className }: { className?: string }) {
           <p className="leading-[15.6px]">Get a Quote</p>
         </div>
       </div>
-      <div className="absolute h-[37px] left-[20px] top-[13px] w-[130px]" data-name="Neetrino-it-comapny-(2)png 1" data-node-id="10:453">
+      <Link
+        href="/"
+        aria-label="Go to home page"
+        className="absolute h-[37px] left-[20px] top-[13px] w-[130px]"
+        data-name="Neetrino-it-comapny-(2)png 1"
+        data-node-id="10:453"
+      >
         <Image alt="" unoptimized width={2400} height={2400} className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgNeetrinoItComapny2Png1} />
-      </div>
+      </Link>
       <div className="absolute bg-white left-[1141px] rounded-full size-[48px] top-[8px]" data-node-id="10:454">
         <div className="absolute left-[11px] size-[25px] top-[11px]" data-name="Vector" data-node-id="10:456">
           <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgVector} />
@@ -459,7 +462,7 @@ export function NeetrinoHome() {
           </div>
         </div>
       </div>
-      <div className="-translate-x-1/2 absolute h-[571px] left-[calc(50%-0.5px)] top-[3279px] w-[1439px]" data-name="WHO WE ARE" data-node-id="10:510">
+      <div className="-translate-x-1/2 absolute h-[571px] left-[calc(50%-0.5px)] top-[3379px] w-[1439px]" data-name="WHO WE ARE" data-node-id="10:510" id="story">
         <div className="absolute content-stretch flex flex-col gap-[27px] items-start leading-[0] left-[64px] text-white top-[147px] w-[563px]" data-node-id="10:511">
           <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0 whitespace-nowrap" data-node-id="10:512">
             <div className="col-1 flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center ml-[3px] mt-0 not-italic relative row-1 text-[16px]" data-node-id="10:513">
@@ -521,12 +524,12 @@ export function NeetrinoHome() {
         </div>
       </div>
       <div className="absolute contents left-[606px] top-[4086px]" data-node-id="10:222">
-        <div className="absolute h-[563px] left-[606px] mix-blend-lighten opacity-70 top-[4089px] w-[633px]" data-name="10" data-node-id="10:223">
+        <div className="absolute h-[563px] left-[606px] mix-blend-lighten opacity-70 top-[4189px] w-[633px]" data-name="10" data-node-id="10:223">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Image alt="" unoptimized width={2400} height={2400} className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full" src={img10} />
           </div>
         </div>
-        <div className="absolute h-[563px] left-[606px] opacity-70 top-[4086px] w-[633px]" data-name="101" data-node-id="10:224">
+        <div className="absolute h-[563px] left-[606px] opacity-70 top-[4186px] w-[633px]" data-name="101" data-node-id="10:224">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Image alt="" unoptimized width={2400} height={2400} className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full" src={img10} />
           </div>
@@ -547,8 +550,8 @@ export function NeetrinoHome() {
           <Image alt="" unoptimized width={2400} height={2400} className="block max-w-none size-full" src={imgRectangle17415} />
         </div>
       </div>
-      <div className="absolute contents left-0 top-[4062px]" data-name="Footer v2" data-node-id="10:236">
-        <div className="absolute h-[590px] left-0 overflow-clip top-[4062px] w-[1440px]" data-name="Footer v2" data-node-id="10:237">
+      <div className="absolute contents left-0 top-[4162px]" data-name="Footer v2" data-node-id="10:236" id="contact">
+        <div className="absolute h-[590px] left-0 overflow-clip top-[4162px] w-[1440px]" data-name="Footer v2" data-node-id="10:237">
           <div className="absolute h-0 left-[99px] top-[497.76px] w-[1241px]" data-name="Footer Bottom" data-node-id="10:238">
             <div className="absolute inset-[0_0_-1px_0]">
               <Image alt="" unoptimized width={2400} height={2400} className="block max-w-none size-full" src={imgFooterBottom} />
@@ -763,7 +766,7 @@ export function NeetrinoHome() {
           </p>
         </div>
       </div>
-      <div className="absolute h-[1173px] left-px top-[2106px] w-[1440px]" data-name="PROJECTS" data-node-id="10:489">
+      <div className="absolute h-[1173px] left-px top-[2106px] w-[1440px]" data-name="PROJECTS" data-node-id="10:489" id="blog">
         <div className="absolute contents leading-[0] left-[51px] text-white top-[51px] whitespace-nowrap" data-node-id="10:506">
           <div className="-translate-y-1/2 absolute flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center left-[57px] not-italic text-[16px] top-[68.5px]" data-node-id="10:507">
             <p className="leading-[35px]">PORTFOLIO</p>

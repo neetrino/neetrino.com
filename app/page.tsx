@@ -17,9 +17,7 @@ export default function Home() {
         <Navbar />
         <main>
           <HeroSection />
-          <div className="mt-8 md:mt-10">
-            <WhoWeAre />
-          </div>
+          <WhoWeAre />
           <WhatWeDo />
           <Projects />
           <div className="hidden">
@@ -30,15 +28,15 @@ export default function Home() {
         <Footer />
       </div>
 
-      {/* Desktop layout: canvas (full 4652px with Footer v2 inside) + Partners overlay */}
+      {/* Desktop layout: canvas (full 4752px with Footer v2 inside) + Partners overlay */}
       {/* position:relative here so Partners can be absolute inside without adding page height */}
       <div className="hidden lg:block relative">
-        <CanvasScaler>
+        <CanvasScaler canvasHeight={4752}>
           <NeetrinoHome />
         </CanvasScaler>
         {/*
           Partners is absolutely positioned so it doesn't contribute to page height.
-          bottom = (4652 - 4062) / 1440 * 100vw = 40.97vw (4062 = Footer start in canvas).
+          bottom = (4752 - 4162) / 1440 * 100vw = 40.97vw (4162 = Footer start in canvas).
           Partners height ~124px fits in the 145px gap before Footer.
         */}
         <div

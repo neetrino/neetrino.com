@@ -35,6 +35,7 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer
+      id="contact"
       className="border-t border-white/20 bg-[#151515] font-[family-name:var(--font-dm-sans)]"
       style={{ fontVariationSettings: "'opsz' 14" }}
     >

@@ -24,6 +24,7 @@ const projects = [
 export function Projects() {
   return (
     <section
+      id="blog"
       className={`section-container py-16 md:py-24 ${inter.className}`}
       aria-labelledby="projects-heading"
     >

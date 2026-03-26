@@ -6,12 +6,11 @@ import { useState, useEffect } from "react";
 import { FIGMA_ASSETS } from "@/components/assets";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#" },
-  { label: "Services", href: "#" },
-  { label: "Portfolio", href: "#" },
-  { label: "Story", href: "#" },
-  { label: "Blog", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 const navLinkClassName =

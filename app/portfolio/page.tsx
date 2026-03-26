@@ -1,4 +1,5 @@
 import { CanvasScaler } from "@/components/CanvasScaler";
+import Link from "next/link";
 
 const imgOutlineArrowsAltArrowLeft = "https://www.figma.com/api/mcp/asset/031826db-89e9-4cd4-965e-cfc21f657a61";
 const imgOutlineArrowsAltArrowRight = "https://www.figma.com/api/mcp/asset/0be8fa84-92a8-4ed0-bd51-698de1107438";
@@ -27,7 +28,6 @@ const imgVector27398 = "https://www.figma.com/api/mcp/asset/385a8388-8a45-4486-8
 const imgRectangle240649642 = "https://www.figma.com/api/mcp/asset/721b87b6-4181-4fcf-86be-431330b9b2f3";
 const imgRectangle240650146 = "https://www.figma.com/api/mcp/asset/d741a9e6-79b7-4a26-8f99-33c2b857e3c4";
 const imgRectangle17414 = "https://www.figma.com/api/mcp/asset/ff814312-4b7f-4ff6-91f0-db269f7fb8d5";
-const imgArrow1 = "https://www.figma.com/api/mcp/asset/0ff55c29-24c0-43f3-8d5b-113fccaba79b";
 const imgRectangle17417 = "https://www.figma.com/api/mcp/asset/37b44c82-fc84-4532-91af-94ce4dc3bcff";
 const imgFooterBottom = "https://www.figma.com/api/mcp/asset/97b1da47-4191-400e-9f13-3486f8577b48";
 const imgLine135 = "https://www.figma.com/api/mcp/asset/705265b2-ff9c-41fe-b829-600d1bcd8140";
@@ -121,24 +121,21 @@ function Awwwards({ className }: { className?: string }) {
     <div className={className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1240px]"} data-name="Awwwards" data-node-id="165:646">
       <div className="-translate-x-1/2 absolute bg-[rgba(40,43,103,0.38)] h-[48px] left-[calc(50%-70px)] rounded-[28px] top-[8px] w-[798px]" data-name="Link [button]" data-node-id="165:647">
         <div className="-translate-x-1/2 absolute content-stretch flex font-['Inter:Semi_Bold',sans-serif] font-semibold gap-[41px] items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap" data-node-id="165:648">
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="165:649">
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:649" href="/">
             <p className="leading-[15.6px]">Home</p>
-          </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="165:650">
+          </Link>
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:650" href="/services">
             <p className="leading-[15.6px]">Services</p>
-          </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="165:651">
+          </Link>
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:651" href="/portfolio">
             <p className="leading-[15.6px]">Portfolio</p>
-          </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="165:652">
-            <p className="leading-[15.6px]">Story</p>
-          </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="165:653">
-            <p className="leading-[15.6px]">Blog</p>
-          </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="165:654">
+          </Link>
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:652" href="/about-us">
+            <p className="leading-[15.6px]">About Us</p>
+          </Link>
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:654" href="/#contact">
             <p className="leading-[15.6px]">Contact</p>
-          </div>
+          </Link>
         </div>
       </div>
       <div className="absolute bg-[#473dff] h-[48px] left-[986px] rounded-[28px] top-[8px] w-[144px]" data-name="Link [button]" data-node-id="165:655">
@@ -146,9 +143,15 @@ function Awwwards({ className }: { className?: string }) {
           <p className="leading-[15.6px]">Get a Quote</p>
         </div>
       </div>
-      <div className="absolute h-[37px] left-[20px] top-[13px] w-[130px]" data-name="Neetrino-it-comapny-(2)png 1" data-node-id="165:657">
+      <Link
+        href="/"
+        aria-label="Go to home page"
+        className="absolute h-[37px] left-[20px] top-[13px] w-[130px]"
+        data-name="Neetrino-it-comapny-(2)png 1"
+        data-node-id="165:657"
+      >
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgNeetrinoItComapny2Png1} />
-      </div>
+      </Link>
       <div className="absolute bg-white left-[1141px] rounded-full size-[48px] top-[8px]" data-node-id="165:658">
         <div className="absolute left-[11px] size-[25px] top-[11px]" data-name="Vector" data-node-id="165:660">
           <img alt="" className="absolute block max-w-none size-full" src={imgVector} />
@@ -174,8 +177,8 @@ function Button({ className }: { className?: string }) {
 
 export default function Portfolio() {
   return (
-    <CanvasScaler canvasWidth={1440} canvasHeight={3586}>
-      <div className="bg-[#151515] relative h-[3586px] w-[1440px]" data-name="PORTFOLIO" data-node-id="166:1203">
+    <CanvasScaler canvasWidth={1440} canvasHeight={2662}>
+      <div className="bg-[#151515] relative h-[2662px] w-[1440px]" data-name="PORTFOLIO" data-node-id="166:1203">
         <div className="-translate-x-1/2 absolute contents h-[2233.132px] left-[calc(50%+3586.51px)] mix-blend-hard-light top-[2816px] w-[2229.008px]" data-name="Planet" data-node-id="166:1204">
           <div className="absolute flex h-[1513.932px] items-center justify-center left-[3526.05px] mix-blend-hard-light top-[3123.23px] w-[1554.175px]">
             <div className="flex-none rotate-[-8.02deg]">
@@ -282,12 +285,12 @@ export default function Portfolio() {
             <img alt="" className="block max-w-none size-full" src={imgRectangle17414} />
           </div>
         </div>
-        <div className="-translate-x-1/2 absolute h-[405px] left-[calc(50%+0.5px)] top-[1707px] w-[1437px]" data-node-id="166:1227">
+        <div className="-translate-x-1/2 absolute h-[405px] left-[calc(50%+0.5px)] top-[783px] w-[1437px]" data-node-id="166:1227">
           <div className="absolute inset-[-50.95%_-15.66%_-51.42%_-15.66%]">
             <img alt="" className="block max-w-none size-full" src={imgRectangle17414} />
           </div>
         </div>
-        <div className="-translate-x-1/2 absolute h-[405px] left-[calc(50%+10.5px)] top-[2360px] w-[1437px]" data-node-id="166:1228">
+        <div className="-translate-x-1/2 absolute h-[405px] left-[calc(50%+10.5px)] top-[1436px] w-[1437px]" data-node-id="166:1228">
           <div className="absolute inset-[-50.95%_-15.66%_-51.42%_-15.66%]">
             <img alt="" className="block max-w-none size-full" src={imgRectangle17414} />
           </div>
@@ -321,98 +324,28 @@ export default function Portfolio() {
               </div>
             </div>
           </div>
-          <div className="content-stretch flex gap-[26px] items-center relative shrink-0 w-full" data-name="banners2" data-node-id="166:1238">
-            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="166:1239">
-              <div className="col-1 h-[409.177px] ml-0 mt-0 relative rounded-[35px] row-1 w-[631.601px]" data-name="-266 1" data-node-id="166:1240">
-                <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[35px]">
-                  <img alt="" className="absolute h-[154.19%] left-0 max-w-none top-[-40.85%] w-full" src={img2661} />
-                </div>
-              </div>
-              <div className="col-1 flex items-center justify-center ml-[535.86px] mt-[15.86px] relative row-1 size-[78.276px]">
-                <div className="flex-none rotate-[-36.26deg]">
-                  <Button className="bg-white content-stretch flex gap-[4px] items-center justify-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] size-[56px]" />
-                </div>
-              </div>
-            </div>
-            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="166:1242">
-              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="166:1243">
-                <div className="col-1 h-[409.177px] ml-0 mt-0 relative rounded-[31px] row-1 w-[636.026px]" data-name="biotech _ logo 1" data-node-id="166:1244">
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[31px]">
-                    <img alt="" className="absolute h-[120.37%] left-[-1.69%] max-w-none top-[-13.55%] w-[103.37%]" src={imgBiotechLogo1} />
-                  </div>
-                </div>
-              </div>
-              <div className="col-1 flex items-center justify-center ml-[543.03px] mt-[16px] relative row-1 size-[78.276px]">
-                <div className="flex-none rotate-[-36.26deg]">
-                  <Button className="bg-white content-stretch flex gap-[4px] items-center justify-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] size-[56px]" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="content-stretch flex gap-[26px] items-center relative shrink-0 w-full" data-node-id="166:1246">
-            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="166:1247">
-              <div className="col-1 h-[409.177px] ml-0 mt-0 relative rounded-[35px] row-1 w-[631.601px]" data-name="-266 1" data-node-id="166:1248">
-                <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[35px]">
-                  <img alt="" className="absolute h-[154.19%] left-0 max-w-none top-[-40.85%] w-full" src={img2661} />
-                </div>
-              </div>
-              <div className="col-1 flex items-center justify-center ml-[535.86px] mt-[15.86px] relative row-1 size-[78.276px]">
-                <div className="flex-none rotate-[-36.26deg]">
-                  <Button className="bg-white content-stretch flex gap-[4px] items-center justify-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] size-[56px]" />
-                </div>
-              </div>
-            </div>
-            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="166:1250">
-              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="166:1251">
-                <div className="col-1 h-[409.177px] ml-0 mt-0 relative rounded-[31px] row-1 w-[636.026px]" data-name="biotech _ logo 1" data-node-id="166:1252">
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[31px]">
-                    <img alt="" className="absolute h-[120.37%] left-[-1.69%] max-w-none top-[-13.55%] w-[103.37%]" src={imgBiotechLogo1} />
-                  </div>
-                </div>
-              </div>
-              <div className="col-1 flex items-center justify-center ml-[543.03px] mt-[16px] relative row-1 size-[78.276px]">
-                <div className="flex-none rotate-[-36.26deg]">
-                  <Button className="bg-white content-stretch flex gap-[4px] items-center justify-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] size-[56px]" />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <Awwwards className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1240px]" />
-        <div className="absolute bg-[#473dff] h-[48px] left-[1220px] rounded-[28px] top-[233px] w-[146px]" data-name="Link [button]" data-node-id="166:1255">
-          <div className="-translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Bold',sans-serif] font-extrabold justify-center leading-[0] left-[29px] not-italic text-[16px] text-white top-[24px] whitespace-nowrap" data-node-id="166:1256">
-            <p className="leading-[15.6px]">Sort By</p>
-          </div>
-          <div className="absolute flex h-px items-center justify-center left-[106px] top-[27px] w-0">
-            <div className="flex-none rotate-90">
-              <div className="h-0 relative w-px" data-node-id="166:1257">
-                <div className="absolute inset-[-7.36px_-100%_-7.36px_-636.4%]">
-                  <img alt="" className="block max-w-none size-full" src={imgArrow1} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <Group className="-translate-x-1/2 absolute h-[276px] left-1/2 top-[1683px] w-[642px]" />
-        <div className="-translate-x-1/2 absolute h-[664px] left-[calc(50%-7.5px)] top-[2941px] w-[1437px]" data-node-id="166:1259">
+        <Group className="-translate-x-1/2 absolute h-[276px] left-1/2 top-[759px] w-[642px]" />
+        <div className="-translate-x-1/2 absolute h-[664px] left-[calc(50%-7.5px)] top-[2017px] w-[1437px]" data-node-id="166:1259">
           <div className="absolute inset-[-28.94%_-15.66%_-29.47%_-15.66%]">
             <img alt="" className="block max-w-none size-full" src={imgRectangle17417} />
           </div>
         </div>
-        <div className="absolute contents left-[597px] top-[3023px]" data-node-id="166:1260">
-          <div className="absolute h-[563px] left-[597px] mix-blend-lighten opacity-70 top-[3026px] w-[633px]" data-name="10" data-node-id="166:1261">
+        <div className="absolute contents left-[597px] top-[2099px]" data-node-id="166:1260">
+          <div className="absolute h-[563px] left-[597px] mix-blend-lighten opacity-70 top-[2102px] w-[633px]" data-name="10" data-node-id="166:1261">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full" src={img10} />
             </div>
           </div>
-          <div className="absolute h-[563px] left-[597px] opacity-70 top-[3023px] w-[633px]" data-name="101" data-node-id="166:1262">
+          <div className="absolute h-[563px] left-[597px] opacity-70 top-[2099px] w-[633px]" data-name="101" data-node-id="166:1262">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full" src={img10} />
             </div>
           </div>
         </div>
-        <div className="absolute contents left-[-3px] top-[2996px]" data-name="Footer v2" data-node-id="166:1263">
-          <div className="absolute h-[590px] left-[-3px] overflow-clip top-[2996px] w-[1440px]" data-name="Footer v2" data-node-id="166:1264">
+        <div className="absolute contents left-[-3px] top-[2072px]" data-name="Footer v2" data-node-id="166:1263">
+          <div className="absolute h-[590px] left-[-3px] overflow-clip top-[2072px] w-[1440px]" data-name="Footer v2" data-node-id="166:1264">
             <div className="absolute h-0 left-[99px] top-[497.76px] w-[1241px]" data-name="Footer Bottom" data-node-id="166:1265">
               <div className="absolute inset-[0_0_-1px_0]">
                 <img alt="" className="block max-w-none size-full" src={imgFooterBottom} />
@@ -627,7 +560,7 @@ export default function Portfolio() {
             </p>
           </div>
         </div>
-        <div className="absolute h-[1098px] left-0 overflow-clip top-[1898px] w-[1440px]" data-name="more cases" data-node-id="166:1394">
+        <div className="absolute h-[1098px] left-0 overflow-clip top-[974px] w-[1440px]" data-name="more cases" data-node-id="166:1394">
           <div className="-translate-x-1/2 absolute content-stretch flex gap-[33px] items-center left-[calc(50%+0.5px)] top-[254px]" data-node-id="166:1395">
             <div className="h-[262px] relative shrink-0 w-[423px]" data-name="Portfolio16 1" data-node-id="166:1396">
               <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgPortfolio161} />
