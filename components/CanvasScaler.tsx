@@ -3,7 +3,7 @@
 import { useEffect, useRef, useCallback } from 'react';
 
 const CANVAS_W = 1440;
-const CANVAS_H = 5600;
+const CANVAS_H = 4652;
 
 export function CanvasScaler({ children }: { children: React.ReactNode }) {
   const wrapRef = useRef<HTMLDivElement>(null);
