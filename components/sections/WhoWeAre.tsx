@@ -13,7 +13,7 @@ const inter = Inter({
 export function WhoWeAre() {
   return (
     <section
-      className={`section-container py-16 md:py-24 ${inter.className}`}
+      className={`section-container py-16 md:pt-40 md:pb-24 ${inter.className}`}
       aria-labelledby="who-we-are-heading"
     >
       <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-8">

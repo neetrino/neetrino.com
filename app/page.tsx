@@ -17,7 +17,9 @@ export default function Home() {
         <Navbar />
         <main>
           <HeroSection />
-          <WhoWeAre />
+          <div className="mt-8 md:mt-10">
+            <WhoWeAre />
+          </div>
           <WhatWeDo />
           <Projects />
           <div className="hidden">
