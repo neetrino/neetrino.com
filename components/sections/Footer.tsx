@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FIGMA_ASSETS } from "@/components/assets";
 
 const companyLinks = [
-  { href: "/about", label: "About" },
+  { href: "/about-us", label: "About" },
   { href: "/team", label: "Team" },
   { href: "/contact", label: "Contact us" },
   { href: "/portfolio", label: "Portfolio" },
