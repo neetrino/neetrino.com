@@ -56,8 +56,8 @@ export function Navbar() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 pt-2">
         <div className="w-[calc(100%-24px)] md:w-[calc(100%-40px)] lg:w-[calc(100%-56px)] max-w-[1120px] mx-auto rounded-full bg-white/15 backdrop-blur-xl pl-4 pr-1 md:pl-5 md:pr-1 lg:pl-5 lg:pr-1 py-2.5">
-          <div className="flex items-center justify-between gap-3">
-            <Link href="/" className="relative z-20 h-9 w-[120px] shrink-0 sm:w-[140px]">
+          <div className="flex items-center justify-between gap-3 md:grid md:grid-cols-[190px_1fr_auto] md:gap-4 lg:grid-cols-[210px_1fr_auto]">
+            <Link href="/" className="relative h-9 w-[150px] shrink-0 sm:w-[170px] md:w-[190px] lg:w-[210px]">
               <Image
                 alt="Neetrino"
                 unoptimized
@@ -70,7 +70,7 @@ export function Navbar() {
             </Link>
 
             <nav
-              className="relative z-10 hidden md:flex flex-1 items-center justify-center gap-6 lg:gap-8 min-w-0"
+              className="hidden md:flex items-center justify-center gap-5 lg:gap-6 min-w-0"
               aria-label="Main"
             >
               {NAV_LINKS.map(({ label, href }) => (
