@@ -37,7 +37,7 @@ export default function Home() {
           Gap from canvas end = (5600-4822)/1440 * 100vw = 54.03vw.
           Negative margin pulls Partners up to its correct canvas position.
         */}
-        <div className="relative z-10 bg-[#151515]" style={{ marginTop: "calc(-43.96vw - 124px)" }}>
+        <div className="relative z-10 bg-[#151515] overflow-hidden" style={{ marginTop: "calc(-43.96vw - 124px)" }}>
           <Partners />
         </div>
       </div>

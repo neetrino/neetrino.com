@@ -1,20 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import { FIGMA_ASSETS } from "@/components/assets";
 
 const partnerLogos = [
-  FIGMA_ASSETS.imgLayer1,
-  FIGMA_ASSETS.imgLayer2,
-  FIGMA_ASSETS.imgLayer3,
-  FIGMA_ASSETS.imgLayer4,
-  FIGMA_ASSETS.imgLayer5,
-  FIGMA_ASSETS.imgLayer6,
-  FIGMA_ASSETS.imgVector8,
-  FIGMA_ASSETS.imgVector9,
-] as const;
+  { src: FIGMA_ASSETS.imgLayer1,  w: 78,  h: 73  },
+  { src: FIGMA_ASSETS.imgLayer2,  w: null, h: null },
+  { src: FIGMA_ASSETS.imgLayer3,  w: null, h: null },
+  { src: FIGMA_ASSETS.imgLayer4,  w: null, h: null },
+  { src: FIGMA_ASSETS.imgLayer5,  w: null, h: null },
+  { src: FIGMA_ASSETS.imgLayer6,  w: null, h: null },
+  { src: FIGMA_ASSETS.imgVector8, w: null, h: null },
+  { src: FIGMA_ASSETS.imgVector9, w: null, h: null },
+];
 
 const doubled = [...partnerLogos, ...partnerLogos];
+const MAX_H = 60;
 
 export function Partners() {
   return (
@@ -39,19 +39,19 @@ export function Partners() {
         }
       `}</style>
       <div className="marquee-inner">
-        {doubled.map((src, i) => (
-          <div
+        {doubled.map((logo, i) => (
+          <img
             key={i}
-            style={{ position: "relative", width: 150, height: 44, flexShrink: 0 }}
-          >
-            <Image
-              src={src}
-              alt=""
-              unoptimized
-              fill
-              style={{ objectFit: "contain", opacity: 0.7 }}
-            />
-          </div>
+            src={logo.src}
+            alt=""
+            style={{
+              width:  logo.w ? Math.round(logo.w * MAX_H / logo.h!) : 150,
+              height: logo.h ? MAX_H : 44,
+              opacity: 0.7,
+              flexShrink: 0,
+              display: "block",
+            }}
+          />
         ))}
       </div>
     </section>
