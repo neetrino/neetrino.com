@@ -13,7 +13,6 @@ const partnerLogos = [
   { src: FIGMA_ASSETS.imgVector9, w: null, h: null },
 ];
 
-const doubled = [...partnerLogos, ...partnerLogos];
 const MAX_H = 60;
 
 export function Partners() {
@@ -25,7 +24,7 @@ export function Partners() {
       <style>{`
         @keyframes marquee-scroll {
           from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
+          to   { transform: translateX(-100%); }
         }
         .marquee-inner {
           display: flex;
@@ -39,7 +38,7 @@ export function Partners() {
         }
       `}</style>
       <div className="marquee-inner">
-        {doubled.map((logo, i) => (
+        {partnerLogos.map((logo, i) => (
           <img
             key={i}
             src={logo.src}
