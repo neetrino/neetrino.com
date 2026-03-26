@@ -118,13 +118,17 @@ export function Navbar() {
 
       <div
         id="mobile-nav-overlay"
-        className={`fixed inset-0 z-40 lg:hidden transition-transform duration-300 ease-out ${
-          menuOpen ? "translate-y-0" : "-translate-y-full pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 lg:hidden ${menuOpen ? "block" : "hidden"}`}
         aria-hidden={!menuOpen}
       >
+        <button
+          type="button"
+          aria-label="Close mobile navigation"
+          className="absolute inset-0 bg-black/40"
+          onClick={() => setMenuOpen(false)}
+        />
         <div
-          className="flex min-h-full flex-col bg-[#0f0f14]/95 backdrop-blur-xl px-6 pb-10 pt-24"
+          className="relative flex min-h-full flex-col bg-[#0f0f14]/95 backdrop-blur-xl px-6 pb-10 pt-24"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
