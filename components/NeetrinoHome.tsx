@@ -314,7 +314,7 @@ function Group2({ className, property1 = "Default" }: Group2Props) {
 
 function Awwwards({ className }: { className?: string }) {
   return (
-    <div className={className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1340px]"} data-name="Awwwards" data-node-id="10:442">
+    <div className={className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1240px]"} data-name="Awwwards" data-node-id="10:442">
       <div className="-translate-x-1/2 absolute bg-[rgba(40,43,103,0.38)] h-[48px] left-[calc(50%-107px)] rounded-[28px] top-[8px] w-[798px]" data-name="Link [button]" data-node-id="10:443">
         <div className="-translate-x-1/2 absolute content-stretch flex font-['Inter:Semi_Bold',sans-serif] font-semibold gap-[41px] items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap" data-node-id="10:444">
           <div className="flex flex-col justify-center relative shrink-0" data-node-id="10:445">
@@ -397,7 +397,7 @@ export function NeetrinoHome() {
             <Image alt="" unoptimized width={2400} height={2400} className="absolute h-[166.65%] left-[-22.58%] max-w-none top-[-44.39%] w-[145.15%]" src={img30} loading="eager" priority />
           </div>
         </div>
-        <Awwwards className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1340px]" />
+        <Awwwards className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1240px]" />
         <div
           className="absolute left-0 top-[692px] w-[1440px] h-[457px] backdrop-blur-[14px] pointer-events-none"
           style={{
