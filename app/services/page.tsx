@@ -47,7 +47,7 @@ const imgComponent21 = "https://www.figma.com/api/mcp/asset/cc552c54-6804-4468-8
 function Awwwards({ className }: { className?: string }) {
   return (
     <div className={className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1240px]"} data-name="Awwwards" data-node-id="165:646">
-      <div className="-translate-x-1/2 absolute bg-[rgba(40,43,103,0.38)] h-[48px] left-[calc(50%-107px)] rounded-[28px] top-[8px] w-[798px]" data-name="Link [button]" data-node-id="165:647">
+      <div className="-translate-x-1/2 absolute bg-[rgba(40,43,103,0.38)] h-[48px] left-[calc(50%-70px)] rounded-[28px] top-[8px] w-[798px]" data-name="Link [button]" data-node-id="165:647">
         <div className="-translate-x-1/2 absolute content-stretch flex font-['Inter:Semi_Bold',sans-serif] font-semibold gap-[41px] items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap" data-node-id="165:648">
           <div className="flex flex-col justify-center relative shrink-0" data-node-id="165:649">
             <p className="leading-[15.6px]">Home</p>
