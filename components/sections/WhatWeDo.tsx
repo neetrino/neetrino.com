@@ -55,10 +55,10 @@ export function WhatWeDo() {
         </header>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-5 lg:gap-4">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <article
               key={service.title}
-              className={`relative flex h-[350px] flex-col overflow-hidden rounded-2xl md:h-[400px] lg:h-[450px] ${service.bg}`}
+              className={`relative flex h-[350px] flex-col overflow-hidden rounded-2xl md:h-[400px] lg:h-[450px] ${service.bg} ${index === 4 ? "md:col-span-2 lg:col-span-1" : ""}`}
             >
               <h3
                 className={`shrink-0 px-4 pt-5 font-bold text-lg md:pt-6 md:text-xl ${service.textColor}`}

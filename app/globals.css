@@ -11,18 +11,14 @@
 }
 
 :root {
-  /* Fluid design tokens: 1440px reference = 100% canvas width */
   --background: #151515;
   --foreground: #ededed;
-  --canvas-w: 1440;
-  --canvas-h: 5600;
-  --fluid-unit: clamp(0.5px, 0.0694vw, 1px); /* 1px at 1440px, scales down on narrow */
-  --text-base: clamp(0.875rem, 0.9rem + 0.125vw, 1rem); /* 14–16px */
-  --text-lg: clamp(1rem, 1rem + 0.2vw, 1.125rem); /* 16–18px */
-  --text-xl: clamp(1.125rem, 1.1rem + 0.3vw, 1.25rem); /* 18–20px */
-  --text-2xl: clamp(1.25rem, 1.2rem + 0.4vw, 1.5rem); /* 20–24px */
-  --text-3xl: clamp(2rem, 1.8rem + 0.8vw, 2.25rem); /* 32–36px */
-  --text-4xl: clamp(2.5rem, 2.2rem + 1vw, 3.5rem); /* 40–56px */
+  --text-base: clamp(0.875rem, 0.9rem + 0.125vw, 1rem);
+  --text-lg: clamp(1rem, 1rem + 0.2vw, 1.125rem);
+  --text-xl: clamp(1.125rem, 1.1rem + 0.3vw, 1.25rem);
+  --text-2xl: clamp(1.25rem, 1.2rem + 0.4vw, 1.5rem);
+  --text-3xl: clamp(2rem, 1.8rem + 0.8vw, 2.25rem);
+  --text-4xl: clamp(2.5rem, 2.2rem + 1vw, 3.5rem);
 }
 
 @theme inline {
@@ -30,7 +26,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  /* Hero: семейство совпадает с @font-face "Megatrox" (файлы в public/fonts/) */
   --font-megatrox: "Megatrox", ui-sans-serif, system-ui, sans-serif;
   --font-dm-sans: "DM Sans", ui-sans-serif, sans-serif;
 }
@@ -58,21 +53,26 @@ body {
   color: var(--foreground);
 }
 
-/*
-  Neetrino: fluid canvas — 1440×5600 design scales proportionally to any viewport.
-  Mobile, tablet, desktop — identical layout, just smaller/bigger.
-  JS (CanvasScaler) measures the actual container width and applies scale().
-*/
-.neetrino-canvas-wrap {
-  position: relative;
+/* Responsive content container used by all page sections */
+.section-container {
   width: 100%;
-  overflow: hidden;
-  background-color: #151515;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.neetrino-canvas-inner {
-  width: 1440px;
-  min-height: 5600px;
-  transform-origin: top left;
-  background-color: #151515;
+@media (min-width: 768px) {
+  .section-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }

@@ -26,6 +26,7 @@ export function Partners() {
             <Image
               src={src}
               alt=""
+              unoptimized
               width={200}
               height={48}
               className="h-12 w-auto max-w-full object-contain opacity-70"

@@ -176,10 +176,10 @@ export function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="opacity-80 transition hover:opacity-100"
+                  className="flex items-center justify-center rounded-full p-1 opacity-80 transition hover:opacity-100"
                   aria-label={label}
                 >
-                  <Image src={icon} alt="" width={32} height={32} className="h-8 w-8 object-contain" />
+                  <Image src={icon} alt="" width={40} height={40} className="h-10 w-10 object-contain" />
                 </Link>
               ))}
             </div>

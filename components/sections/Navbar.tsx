@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FIGMA_ASSETS } from "@/components/assets";
 
 const NAV_LINKS = [
@@ -76,6 +76,13 @@ function LanguageSelector() {
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-3 md:px-6 lg:px-8">
@@ -83,7 +90,7 @@ export function Navbar() {
           <div className="flex items-center justify-between gap-3">
             <Link href="/" className="relative h-9 w-[120px] shrink-0 sm:w-[140px]">
               <Image
-                alt=""
+                alt="Neetrino"
                 unoptimized
                 width={200}
                 height={200}
@@ -115,20 +122,20 @@ export function Navbar() {
                 <span className="sr-only">Toggle menu</span>
                 <span className="flex w-6 flex-col gap-1.5">
                   <span
-                    className={`block h-0.5 w-full rounded-full bg-white transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
+                    className={`block h-0.5 w-full rounded-full bg-white transition-transform duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
                   />
                   <span
-                    className={`block h-0.5 w-full rounded-full bg-white transition-opacity ${menuOpen ? "opacity-0" : ""}`}
+                    className={`block h-0.5 w-full rounded-full bg-white transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`}
                   />
                   <span
-                    className={`block h-0.5 w-full rounded-full bg-white transition-transform ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+                    className={`block h-0.5 w-full rounded-full bg-white transition-transform duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
                   />
                 </span>
               </button>
 
               <button
                 type="button"
-                className="hidden md:inline-flex lg:inline-flex items-center justify-center rounded-full bg-[#473dff] px-5 py-2.5 font-['Inter:Semi_Bold',sans-serif] font-semibold text-sm lg:text-base text-white transition-opacity hover:opacity-90"
+                className="inline-flex items-center justify-center rounded-full bg-[#473dff] px-5 py-2.5 font-['Inter:Semi_Bold',sans-serif] font-semibold text-sm lg:text-base text-white transition-opacity hover:opacity-90"
               >
                 Get a Quote
               </button>
@@ -137,7 +144,7 @@ export function Navbar() {
                 <LanguageSelector />
               </div>
 
-              <div className="md:hidden lg:block">
+              <div className="hidden md:block lg:block">
                 <PhoneIcon />
               </div>
             </div>
@@ -158,18 +165,31 @@ export function Navbar() {
           aria-modal="true"
           aria-label="Mobile navigation"
         >
-          <nav className="flex flex-col gap-6">
+          <nav className="flex flex-col gap-2">
             {NAV_LINKS.map(({ label, href }) => (
               <Link
                 key={label}
                 href={href}
-                className={`${navLinkClassName} text-lg`}
+                className="py-3 text-xl font-semibold text-white transition-opacity hover:opacity-70 active:opacity-50"
                 onClick={() => setMenuOpen(false)}
               >
                 {label}
               </Link>
             ))}
           </nav>
+
+          <div className="mt-8 flex flex-col gap-4">
+            <button
+              type="button"
+              className="w-full rounded-full bg-[#473dff] py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
+            >
+              Get a Quote
+            </button>
+            <div className="flex items-center gap-3 text-white/70">
+              <PhoneIcon />
+              <span className="text-sm">+374 44 343 000</span>
+            </div>
+          </div>
         </div>
       </div>
     </>
