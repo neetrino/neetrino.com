@@ -54,8 +54,8 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-3 md:px-6 lg:px-8">
-        <div className="max-w-[1400px] mx-auto rounded-full bg-white/15 backdrop-blur-xl px-4 md:px-6 lg:px-8 py-3">
+      <header className="fixed top-0 left-0 right-0 z-50 pt-2">
+        <div className="w-[calc(100%-24px)] md:w-[calc(100%-40px)] lg:w-[calc(100%-56px)] max-w-[1120px] mx-auto rounded-full bg-white/15 backdrop-blur-xl pl-4 pr-1 md:pl-5 md:pr-1 lg:pl-5 lg:pr-1 py-2.5">
           <div className="flex items-center justify-between gap-3">
             <Link href="/" className="relative h-9 w-[120px] shrink-0 sm:w-[140px]">
               <Image
