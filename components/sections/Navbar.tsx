@@ -145,18 +145,6 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="mt-8 flex flex-col gap-4">
-            <button
-              type="button"
-              className="w-full whitespace-nowrap rounded-full bg-[#473dff] py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
-            >
-              Get a Quote
-            </button>
-            <div className="flex items-center gap-3 text-white/70">
-              <PhoneIcon />
-              <span className="text-sm">+374 44 343 000</span>
-            </div>
-          </div>
         </div>
       </div>
     </>
