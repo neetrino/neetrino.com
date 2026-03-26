@@ -38,7 +38,7 @@ export default function Home() {
           Partners height ~124px fits in the 145px gap before Footer.
         */}
         <div
-          className="absolute left-0 right-0 z-10 bg-[#151515] overflow-hidden"
+          className="absolute left-0 right-0 z-10 bg-[#151515]"
           style={{ bottom: "43.96vw" }}
         >
           <Partners />

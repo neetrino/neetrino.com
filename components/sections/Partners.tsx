@@ -14,6 +14,7 @@ const partnerLogos = [
 ];
 
 const MAX_H = 60;
+const doubledPartnerLogos = [...partnerLogos, ...partnerLogos];
 
 export function Partners() {
   return (
@@ -24,7 +25,7 @@ export function Partners() {
       <style>{`
         @keyframes marquee-scroll {
           from { transform: translateX(0); }
-          to   { transform: translateX(-100%); }
+          to   { transform: translateX(-50%); }
         }
         .marquee-inner {
           display: flex;
@@ -38,11 +39,11 @@ export function Partners() {
         }
       `}</style>
       <div className="marquee-inner">
-        {partnerLogos.map((logo, i) => (
+        {doubledPartnerLogos.map((logo, i) => (
           <img
-            key={i}
+            key={`${logo.src}-${i}`}
             src={logo.src}
-            alt=""
+            alt="Partner logo"
             style={{
               width:  logo.w ? Math.round(logo.w * MAX_H / logo.h!) : 150,
               height: logo.h ? MAX_H : 44,
