@@ -53,7 +53,26 @@ body {
   color: var(--foreground);
 }
 
-/* Responsive content container used by all page sections */
+/*
+  Neetrino: fluid canvas — 1440×5600 design scales proportionally to any viewport.
+  Used by CanvasScaler for the desktop (lg+) layout.
+  JS (CanvasScaler) measures the actual container width and applies scale().
+*/
+.neetrino-canvas-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #151515;
+}
+
+.neetrino-canvas-inner {
+  width: 1440px;
+  min-height: 5600px;
+  transform-origin: top left;
+  background-color: #151515;
+}
+
+/* Responsive content container used by mobile section components */
 .section-container {
   width: 100%;
   max-width: 1400px;
