@@ -55,8 +55,8 @@ export function Navbar() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 pt-2">
         <div className="w-[calc(100%-24px)] md:w-[calc(100%-40px)] lg:w-[calc(100%-56px)] max-w-[1120px] mx-auto rounded-full bg-white/15 backdrop-blur-xl pl-4 pr-1 md:pl-5 md:pr-1 lg:pl-5 lg:pr-1 py-2.5">
-          <div className="flex items-center justify-between gap-3 md:grid md:grid-cols-[190px_1fr_auto] md:gap-4 lg:grid-cols-[210px_1fr_auto]">
-            <Link href="/" className="relative h-9 w-[150px] shrink-0 sm:w-[170px] md:w-[190px] lg:w-[210px]">
+          <div className="flex items-center justify-between gap-2 lg:grid lg:grid-cols-[210px_1fr_auto] lg:gap-4">
+            <Link href="/" className="relative h-9 w-[118px] shrink-0 min-[360px]:w-[140px] sm:w-[170px] md:w-[190px] lg:w-[210px]">
               <Image
                 alt="Neetrino"
                 unoptimized
@@ -69,7 +69,7 @@ export function Navbar() {
             </Link>
 
             <nav
-              className="hidden md:flex items-center justify-center gap-5 lg:gap-6 min-w-0"
+              className="hidden lg:flex items-center justify-center gap-5 lg:gap-6 min-w-0"
               aria-label="Main"
             >
               {NAV_LINKS.map(({ label, href }) => (
@@ -79,10 +79,10 @@ export function Navbar() {
               ))}
             </nav>
 
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-1 min-[360px]:gap-2 sm:gap-3">
               <button
                 type="button"
-                className="md:hidden relative z-[60] flex size-10 items-center justify-center rounded-full text-white"
+                className="lg:hidden relative z-[60] flex size-9 min-[360px]:size-10 items-center justify-center rounded-full text-white"
                 aria-expanded={menuOpen}
                 aria-controls="mobile-nav-overlay"
                 onClick={() => setMenuOpen((o) => !o)}
@@ -103,12 +103,12 @@ export function Navbar() {
 
               <button
                 type="button"
-                className="inline-flex items-center justify-center rounded-full bg-[#473dff] px-5 py-2.5 font-['Inter:Semi_Bold',sans-serif] font-semibold text-sm lg:text-base text-white transition-opacity hover:opacity-90"
+                className="mr-1 inline-flex h-9 min-[360px]:h-10 items-center justify-center whitespace-nowrap rounded-full bg-[#473dff] px-3 min-[360px]:px-4 py-2 font-['Inter:Semi_Bold',sans-serif] font-semibold text-xs min-[360px]:text-sm text-white transition-opacity hover:opacity-90 sm:mr-0 sm:px-5 lg:text-base"
               >
                 Get a Quote
               </button>
 
-              <div className="hidden md:block lg:block">
+              <div className="hidden lg:block">
                 <PhoneIcon />
               </div>
             </div>
@@ -118,7 +118,7 @@ export function Navbar() {
 
       <div
         id="mobile-nav-overlay"
-        className={`fixed inset-0 z-40 md:hidden transition-transform duration-300 ease-out ${
+        className={`fixed inset-0 z-40 lg:hidden transition-transform duration-300 ease-out ${
           menuOpen ? "translate-y-0" : "-translate-y-full pointer-events-none"
         }`}
         aria-hidden={!menuOpen}
@@ -145,7 +145,7 @@ export function Navbar() {
           <div className="mt-8 flex flex-col gap-4">
             <button
               type="button"
-              className="w-full rounded-full bg-[#473dff] py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
+              className="w-full whitespace-nowrap rounded-full bg-[#473dff] py-4 text-base font-semibold text-white transition-opacity hover:opacity-90"
             >
               Get a Quote
             </button>
