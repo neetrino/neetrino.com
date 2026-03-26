@@ -14,21 +14,42 @@ const partnerLogos = [
   FIGMA_ASSETS.imgVector9,
 ] as const;
 
+const doubled = [...partnerLogos, ...partnerLogos];
+
 export function Partners() {
   return (
-    <section className="section-container py-12 md:py-16" aria-label="Partners">
-      <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-12">
-        {partnerLogos.map((src, i) => (
+    <section
+      aria-label="Partners"
+      style={{ overflow: "hidden", padding: "40px 0", background: "#151515" }}
+    >
+      <style>{`
+        @keyframes marquee-scroll {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .marquee-inner {
+          display: flex;
+          align-items: center;
+          gap: 80px;
+          width: max-content;
+          animation: marquee-scroll 25s linear infinite;
+        }
+        .marquee-inner:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+      <div className="marquee-inner">
+        {doubled.map((src, i) => (
           <div
-            key={`${src}-${i}`}
-            className="relative mx-auto h-12 w-full max-w-[160px] lg:flex-initial"
+            key={i}
+            style={{ position: "relative", width: 150, height: 44, flexShrink: 0 }}
           >
             <Image
               src={src}
               alt=""
               unoptimized
               fill
-              className="object-contain opacity-70"
+              style={{ objectFit: "contain", opacity: 0.7 }}
             />
           </div>
         ))}

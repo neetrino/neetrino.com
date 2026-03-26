@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -776,48 +776,6 @@ export function NeetrinoHome() {
           <p className="absolute font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] left-[110px] text-[#dcd5d5] text-[18px] top-[536.01px] whitespace-nowrap" data-node-id="10:366" style={{ fontVariationSettings: "'opsz' 14" }}>
             Copyright © 2017 - 2026 Neetrino IT Company. All Rights Reserved.
           </p>
-        </div>
-      </div>
-      <div className="-translate-x-1/2 absolute bottom-[10.6%] left-1/2 top-[86.11%] w-[1440px]" data-name="PARTNERS" data-node-id="10:368">
-        <div className="absolute inset-[46.99%_74.93%_24.04%_12.92%]" data-name="Vector" data-node-id="10:369">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgVector8} />
-        </div>
-        <div className="absolute inset-[50.27%_17.78%_20.77%_70.07%]" data-name="Vector" data-node-id="39:309">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgVector8} />
-        </div>
-        <div className="absolute inset-[42.08%_67.01%_18.03%_27.57%]" data-name="Layer_1" data-node-id="10:370">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgLayer1} />
-        </div>
-        <div className="absolute inset-[45.36%_9.17%_14.75%_85.42%]" data-name="Layer_1" data-node-id="73:112">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgLayer1} />
-        </div>
-        <div className="absolute inset-[20.77%_-10.07%_27.32%_103.06%]" data-name="Layer_1" data-node-id="39:310">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgLayer2} />
-        </div>
-        <div className="absolute inset-[42.08%_52.92%_19.13%_36.18%]" data-name="Layer_1" data-node-id="10:392">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgLayer3} />
-        </div>
-        <div className="absolute inset-[45.36%_-4.93%_15.85%_94.03%]" data-name="Layer_1" data-node-id="73:134">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgLayer3} />
-        </div>
-        <div className="absolute inset-[20.77%_-28.4%_28.96%_114.24%]" data-name="Layer_1" data-node-id="39:332">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgLayer4} />
-        </div>
-        <div className="absolute inset-[37.7%_89.58%_19.13%_0.97%]" data-name="Vector" data-node-id="10:409">
-          <div className="absolute inset-[-1.27%_-0.74%_-1.29%_-0.8%]">
-            <Image alt="" unoptimized width={2400} height={2400} className="block max-w-none size-full" src={imgVector9} />
-          </div>
-        </div>
-        <div className="absolute inset-[40.98%_32.43%_15.85%_58.13%]" data-name="Vector" data-node-id="39:349">
-          <div className="absolute inset-[-1.27%_-0.74%_-1.29%_-0.8%]">
-            <Image alt="" unoptimized width={2400} height={2400} className="block max-w-none size-full" src={imgVector9} />
-          </div>
-        </div>
-        <div className="absolute inset-[29.51%_44.38%_18.03%_50.97%]" data-name="Layer_1" data-node-id="10:410">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgLayer5} />
-        </div>
-        <div className="absolute inset-[4.37%_-39.44%_27.32%_133.47%]" data-name="Layer_1" data-node-id="39:350">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgLayer6} />
         </div>
       </div>
       <div className="absolute h-[1173px] left-px top-[2106px] w-[1440px]" data-name="PROJECTS" data-node-id="10:489">

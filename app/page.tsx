@@ -26,11 +26,20 @@ export default function Home() {
         <Footer />
       </div>
 
-      {/* Desktop layout: original 1440px canvas from commit 37bd480, shown on lg+ */}
+      {/* Desktop layout: canvas (full 5600px with Footer v2 inside) + Partners overlay */}
       <div className="hidden lg:block">
         <CanvasScaler>
           <NeetrinoHome />
         </CanvasScaler>
+        {/*
+          Partners positioned at canvas y=4822px.
+          Canvas height = 5600 * (vw/1440).
+          Gap from canvas end = (5600-4822)/1440 * 100vw = 54.03vw.
+          Negative margin pulls Partners up to its correct canvas position.
+        */}
+        <div className="relative z-10 bg-[#151515]" style={{ marginTop: "calc(-43.96vw - 124px)" }}>
+          <Partners />
+        </div>
       </div>
     </div>
   );
