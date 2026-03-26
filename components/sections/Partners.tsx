@@ -21,15 +21,14 @@ export function Partners() {
         {partnerLogos.map((src, i) => (
           <div
             key={`${src}-${i}`}
-            className="flex h-12 items-center justify-center lg:h-12 lg:flex-initial"
+            className="relative mx-auto h-12 w-full max-w-[160px] lg:flex-initial"
           >
             <Image
               src={src}
               alt=""
               unoptimized
-              width={200}
-              height={48}
-              className="h-12 w-auto max-w-full object-contain opacity-70"
+              fill
+              className="object-contain opacity-70"
             />
           </div>
         ))}
