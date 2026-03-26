@@ -1,7 +1,6 @@
 import { CanvasScaler } from "@/components/CanvasScaler";
 
 const imgNeetrinoItComapny2Png1 = "https://www.figma.com/api/mcp/asset/85b03d6f-4fbf-441b-b2b5-e7959ada29ed";
-const imgGroup70642 = "https://www.figma.com/api/mcp/asset/41cf9f29-77cf-4fed-a08a-f6fb96b81fa8";
 const imgVector = "https://www.figma.com/api/mcp/asset/167f06c1-2454-43b9-86c6-651aa8279926";
 const imgShieldDone = "https://www.figma.com/api/mcp/asset/0cf0e3cf-69c5-4229-b17a-0899d07517e1";
 const imgEllipse2 = "https://www.figma.com/api/mcp/asset/44a485c4-25f9-429e-aad7-922d1b5dd916";
@@ -78,11 +77,10 @@ function Awwwards({ className }: { className?: string }) {
       <div className="absolute h-[37px] left-[20px] top-[13px] w-[130px]" data-name="Neetrino-it-comapny-(2)png 1" data-node-id="165:657">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgNeetrinoItComapny2Png1} />
       </div>
-      <div className="absolute left-[1141px] size-[48px] top-[8px]" data-node-id="165:658">
-        <img alt="" className="absolute block max-w-none size-full" src={imgGroup70642} />
-      </div>
-      <div className="absolute left-[1153px] size-[25px] top-[19px]" data-name="Vector" data-node-id="165:660">
-        <img alt="" className="absolute block max-w-none size-full" src={imgVector} />
+      <div className="absolute bg-white left-[1141px] rounded-full size-[48px] top-[8px]" data-node-id="165:658">
+        <div className="absolute left-[11px] size-[25px] top-[11px]" data-name="Vector" data-node-id="165:660">
+          <img alt="" className="absolute block max-w-none size-full" src={imgVector} />
+        </div>
       </div>
     </div>
   );

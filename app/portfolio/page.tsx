@@ -7,7 +7,6 @@ const imgChangeColor = "https://www.figma.com/api/mcp/asset/fde0b065-eda1-4276-a
 const imgSafearea = "https://www.figma.com/api/mcp/asset/0a975349-6cb5-426c-9105-122437f1f493";
 const imgEllipse3463 = "https://www.figma.com/api/mcp/asset/3827d56e-88e4-4cc6-9474-52b88a6e0a79";
 const imgNeetrinoItComapny2Png1 = "https://www.figma.com/api/mcp/asset/1afa9f81-036a-4bee-889b-ee12d55876da";
-const imgGroup70642 = "https://www.figma.com/api/mcp/asset/ef43d69d-a31f-4c01-8424-2256db34abef";
 const imgVector = "https://www.figma.com/api/mcp/asset/a73bf0e5-771c-4bb2-831c-7a589c6a9fba";
 const imgSafearea1 = "https://www.figma.com/api/mcp/asset/177d9223-da04-4cd8-877d-da701632ae99";
 const imgPngwing6 = "https://www.figma.com/api/mcp/asset/ab2a4610-6b7a-4ce1-843b-12072e69deef";
@@ -150,11 +149,10 @@ function Awwwards({ className }: { className?: string }) {
       <div className="absolute h-[37px] left-[20px] top-[13px] w-[130px]" data-name="Neetrino-it-comapny-(2)png 1" data-node-id="165:657">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgNeetrinoItComapny2Png1} />
       </div>
-      <div className="absolute left-[1141px] size-[48px] top-[8px]" data-node-id="165:658">
-        <img alt="" className="absolute block max-w-none size-full" src={imgGroup70642} />
-      </div>
-      <div className="absolute left-[1153px] size-[25px] top-[19px]" data-name="Vector" data-node-id="165:660">
-        <img alt="" className="absolute block max-w-none size-full" src={imgVector} />
+      <div className="absolute bg-white left-[1141px] rounded-full size-[48px] top-[8px]" data-node-id="165:658">
+        <div className="absolute left-[11px] size-[25px] top-[11px]" data-name="Vector" data-node-id="165:660">
+          <img alt="" className="absolute block max-w-none size-full" src={imgVector} />
+        </div>
       </div>
     </div>
   );

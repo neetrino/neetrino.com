@@ -83,7 +83,6 @@ const imgSpaceGray1 = FIGMA_ASSETS.imgSpaceGray1;
 const imgAppleIMac27201911 = FIGMA_ASSETS.imgAppleIMac27201911;
 const imgIPhone14Pro1 = FIGMA_ASSETS.imgIPhone14Pro1;
 const imgNeetrinoItComapny2Png1 = FIGMA_ASSETS.imgNeetrinoItComapny2Png1;
-const imgGroup70642 = FIGMA_ASSETS.imgGroup70642;
 const imgVector = FIGMA_ASSETS.imgVector;
 const imgPhilippHubertDVVjhUcdb30Unsplash1 = FIGMA_ASSETS.imgPhilippHubertDVVjhUcdb30Unsplash1;
 const imgEricaAnderson1 = FIGMA_ASSETS.imgEricaAnderson1;
@@ -345,11 +344,10 @@ function Awwwards({ className }: { className?: string }) {
       <div className="absolute h-[37px] left-[20px] top-[13px] w-[130px]" data-name="Neetrino-it-comapny-(2)png 1" data-node-id="10:453">
         <Image alt="" unoptimized width={2400} height={2400} className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgNeetrinoItComapny2Png1} />
       </div>
-      <div className="absolute left-[1141px] size-[48px] top-[8px]" data-node-id="10:454">
-        <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgGroup70642} />
-      </div>
-      <div className="absolute left-[1153px] size-[25px] top-[19px]" data-name="Vector" data-node-id="10:456">
-        <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgVector} />
+      <div className="absolute bg-white left-[1141px] rounded-full size-[48px] top-[8px]" data-node-id="10:454">
+        <div className="absolute left-[11px] size-[25px] top-[11px]" data-name="Vector" data-node-id="10:456">
+          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgVector} />
+        </div>
       </div>
     </div>
   );
