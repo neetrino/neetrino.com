@@ -85,8 +85,6 @@ const imgIPhone14Pro1 = FIGMA_ASSETS.imgIPhone14Pro1;
 const imgNeetrinoItComapny2Png1 = FIGMA_ASSETS.imgNeetrinoItComapny2Png1;
 const imgGroup70642 = FIGMA_ASSETS.imgGroup70642;
 const imgVector = FIGMA_ASSETS.imgVector;
-const imgGroup70643 = FIGMA_ASSETS.imgGroup70643;
-const imgVector1 = FIGMA_ASSETS.imgVector1;
 const imgPhilippHubertDVVjhUcdb30Unsplash1 = FIGMA_ASSETS.imgPhilippHubertDVVjhUcdb30Unsplash1;
 const imgEricaAnderson1 = FIGMA_ASSETS.imgEricaAnderson1;
 const img30 = FIGMA_ASSETS.img30;
@@ -347,22 +345,11 @@ function Awwwards({ className }: { className?: string }) {
       <div className="absolute h-[37px] left-[20px] top-[13px] w-[130px]" data-name="Neetrino-it-comapny-(2)png 1" data-node-id="10:453">
         <Image alt="" unoptimized width={2400} height={2400} className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgNeetrinoItComapny2Png1} />
       </div>
-      <div className="absolute left-[1268px] size-[48px] top-[8px]" data-node-id="10:454">
+      <div className="absolute left-[1141px] size-[48px] top-[8px]" data-node-id="10:454">
         <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgGroup70642} />
       </div>
-      <div className="absolute left-[1280px] size-[25px] top-[19px]" data-name="Vector" data-node-id="10:456">
+      <div className="absolute left-[1153px] size-[25px] top-[19px]" data-name="Vector" data-node-id="10:456">
         <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgVector} />
-      </div>
-      <div className="absolute bg-white h-[48px] left-[1141px] rounded-[28px] top-[7px] w-[115px]" data-name="Link [button]" data-node-id="10:457">
-        <div className="absolute left-[7px] size-[40px] top-[4px]" data-node-id="10:458">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgGroup70643} />
-        </div>
-        <div className="absolute bottom-1/4 left-[13.04%] right-[66.09%] top-1/4" data-name="Vector" data-node-id="10:460">
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={imgVector1} />
-        </div>
-        <div className="-translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Bold',sans-serif] font-extrabold justify-center leading-[0] left-[58px] not-italic text-[#1e1e1e] text-[16px] top-[24px] whitespace-nowrap" data-node-id="10:461">
-          <p className="leading-[15.6px]">ENG</p>
-        </div>
       </div>
     </div>
   );

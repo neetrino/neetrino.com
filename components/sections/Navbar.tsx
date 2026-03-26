@@ -42,37 +42,6 @@ function PhoneIcon({ className }: { className?: string }) {
   );
 }
 
-function LanguageSelector() {
-  return (
-    <button
-      type="button"
-      className="flex items-center gap-2 rounded-full bg-white px-3 py-2 text-sm font-semibold text-[#1e1e1e] shadow-sm"
-    >
-      <span className="relative size-6 shrink-0">
-        <Image
-          alt=""
-          unoptimized
-          width={200}
-          height={200}
-          className="object-contain w-full h-full"
-          src={FIGMA_ASSETS.imgGroup70643}
-        />
-        <div className="pointer-events-none absolute inset-0">
-          <Image
-            alt=""
-            unoptimized
-            width={200}
-            height={200}
-            className="object-contain w-full h-full"
-            src={FIGMA_ASSETS.imgVector1}
-          />
-        </div>
-      </span>
-      <span className="font-['Inter:Semi_Bold',sans-serif]">ENG</span>
-    </button>
-  );
-}
-
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -139,10 +108,6 @@ export function Navbar() {
               >
                 Get a Quote
               </button>
-
-              <div className="hidden lg:block">
-                <LanguageSelector />
-              </div>
 
               <div className="hidden md:block lg:block">
                 <PhoneIcon />

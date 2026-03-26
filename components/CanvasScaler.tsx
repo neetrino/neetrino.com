@@ -2,10 +2,18 @@
 
 import { useEffect, useRef, useCallback } from 'react';
 
-const CANVAS_W = 1440;
-const CANVAS_H = 4652;
+const DEFAULT_CANVAS_W = 1440;
+const DEFAULT_CANVAS_H = 4652;
 
-export function CanvasScaler({ children }: { children: React.ReactNode }) {
+export function CanvasScaler({
+  children,
+  canvasWidth = DEFAULT_CANVAS_W,
+  canvasHeight = DEFAULT_CANVAS_H,
+}: {
+  children: React.ReactNode;
+  canvasWidth?: number;
+  canvasHeight?: number;
+}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
 
@@ -14,10 +22,10 @@ export function CanvasScaler({ children }: { children: React.ReactNode }) {
     const inner = innerRef.current;
     if (!wrap || !inner) return;
 
-    const scale = wrap.offsetWidth / CANVAS_W;
+    const scale = wrap.offsetWidth / canvasWidth;
     inner.style.transform = `scale(${scale})`;
-    wrap.style.height = `${CANVAS_H * scale}px`;
-  }, []);
+    wrap.style.height = `${canvasHeight * scale}px`;
+  }, [canvasHeight, canvasWidth]);
 
   useEffect(() => {
     updateScale();
