@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -530,18 +530,18 @@ export function NeetrinoHome() {
           <div className="bg-[#473dff] h-[536px] w-[604px]" data-name="color" data-node-id="43:448" />
         </div>
       </div>
-      <div className="-translate-x-1/2 absolute h-[487px] left-[calc(50%+1.5px)] top-[4932px] w-[1437px]" data-node-id="10:221">
+      <div className="-translate-x-1/2 absolute h-[487px] left-[calc(50%+1.5px)] top-[4027px] w-[1437px]" data-node-id="10:221">
         <div className="absolute inset-[-41.48%_-15.66%_-41.98%_-15.66%]">
           <Image alt="" unoptimized width={2400} height={2400} className="block max-w-none size-full" src={imgRectangle17416} />
         </div>
       </div>
-      <div className="absolute contents left-[606px] top-[4991px]" data-node-id="10:222">
-        <div className="absolute h-[563px] left-[606px] mix-blend-lighten opacity-70 top-[4994px] w-[633px]" data-name="10" data-node-id="10:223">
+      <div className="absolute contents left-[606px] top-[4086px]" data-node-id="10:222">
+        <div className="absolute h-[563px] left-[606px] mix-blend-lighten opacity-70 top-[4089px] w-[633px]" data-name="10" data-node-id="10:223">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Image alt="" unoptimized width={2400} height={2400} className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full" src={img10} />
           </div>
         </div>
-        <div className="absolute h-[563px] left-[606px] opacity-70 top-[4991px] w-[633px]" data-name="101" data-node-id="10:224">
+        <div className="absolute h-[563px] left-[606px] opacity-70 top-[4086px] w-[633px]" data-name="101" data-node-id="10:224">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Image alt="" unoptimized width={2400} height={2400} className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full" src={img10} />
           </div>
@@ -562,8 +562,8 @@ export function NeetrinoHome() {
           <Image alt="" unoptimized width={2400} height={2400} className="block max-w-none size-full" src={imgRectangle17415} />
         </div>
       </div>
-      <div className="absolute contents left-0 top-[4967px]" data-name="Footer v2" data-node-id="10:236">
-        <div className="absolute h-[590px] left-0 overflow-clip top-[4967px] w-[1440px]" data-name="Footer v2" data-node-id="10:237">
+      <div className="absolute contents left-0 top-[4062px]" data-name="Footer v2" data-node-id="10:236">
+        <div className="absolute h-[590px] left-0 overflow-clip top-[4062px] w-[1440px]" data-name="Footer v2" data-node-id="10:237">
           <div className="absolute h-0 left-[99px] top-[497.76px] w-[1241px]" data-name="Footer Bottom" data-node-id="10:238">
             <div className="absolute inset-[0_0_-1px_0]">
               <Image alt="" unoptimized width={2400} height={2400} className="block max-w-none size-full" src={imgFooterBottom} />
@@ -828,7 +828,7 @@ export function NeetrinoHome() {
           <Image alt="" unoptimized width={2400} height={2400} className="block max-w-none size-full" src={imgEllipse3459} />
         </div>
       </div>
-      <Frame className="-translate-x-1/2 absolute h-[905px] left-[calc(50%-0.5px)] top-[3879px] w-[1609px]" />
+      <Frame className="hidden -translate-x-1/2 absolute h-[905px] left-[calc(50%-0.5px)] top-[3879px] w-[1609px]" />
       <div className="-translate-x-1/2 absolute h-[829px] left-[calc(50%+0.5px)] top-[1277px] w-[1431px]" data-name="WHAT WE DO" data-node-id="90:525">
         <div className="absolute contents left-[1130px] top-[128px]" data-node-id="90:526">
           <div className="absolute bg-[#a2b8ee] h-[553px] left-[1130px] rounded-[19px] top-[128px] w-[258px]" data-node-id="90:527" />

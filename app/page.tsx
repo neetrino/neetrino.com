@@ -20,13 +20,15 @@ export default function Home() {
           <WhoWeAre />
           <WhatWeDo />
           <Projects />
-          <DeviceShowcase />
+          <div className="hidden">
+            <DeviceShowcase />
+          </div>
           <Partners />
         </main>
         <Footer />
       </div>
 
-      {/* Desktop layout: canvas (full 5600px with Footer v2 inside) + Partners overlay */}
+      {/* Desktop layout: canvas (full 4652px with Footer v2 inside) + Partners overlay */}
       {/* position:relative here so Partners can be absolute inside without adding page height */}
       <div className="hidden lg:block relative">
         <CanvasScaler>
@@ -34,12 +36,12 @@ export default function Home() {
         </CanvasScaler>
         {/*
           Partners is absolutely positioned so it doesn't contribute to page height.
-          bottom = (5600 - 4967) / 1440 * 100vw = 43.96vw (4967 = Footer start in canvas).
+          bottom = (4652 - 4062) / 1440 * 100vw = 40.97vw (4062 = Footer start in canvas).
           Partners height ~124px fits in the 145px gap before Footer.
         */}
         <div
-          className="absolute left-0 right-0 z-10 bg-[#151515] overflow-hidden"
-          style={{ bottom: "43.96vw" }}
+          className="absolute left-0 right-0 z-10"
+          style={{ bottom: "40.97vw" }}
         >
           <Partners />
         </div>

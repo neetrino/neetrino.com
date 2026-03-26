@@ -71,20 +71,20 @@ export function HeroSection() {
       <div className="relative z-20 mx-auto w-full max-w-[1440px] px-4 pb-10 pt-8 md:px-6 lg:px-8 lg:pb-14 lg:pt-12">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:min-h-[min(55vh,640px)]">
           {/* 4–2. Logo + robot — mobile first, desktop right column */}
-          <div className="relative order-1 flex min-h-[min(48vh,400px)] w-full flex-col items-center justify-center lg:order-2 lg:min-h-[min(58vh,560px)] lg:flex-1">
+          <div className="relative z-10 order-1 flex min-h-[min(48vh,400px)] w-full flex-col items-center justify-center lg:z-auto lg:order-2 lg:min-h-[min(58vh,560px)] lg:flex-1">
             <div className="pointer-events-none absolute inset-0 z-[5] flex items-center justify-center px-2">
               <Image
                 src="/NEETRINO.svg"
                 alt="NEETRINO"
                 width={1186}
                 height={128}
-                className="h-auto w-[min(92%,280px)] max-w-full opacity-90 md:w-[min(85%,400px)] lg:w-[min(92%,720px)]"
+                className="-mt-12 h-auto w-[min(92%,280px)] max-w-full opacity-90 md:w-[min(85%,400px)] lg:mt-0 lg:w-[min(92%,720px)]"
                 priority
               />
             </div>
 
             <div className="relative z-10 flex w-full justify-center">
-              <div className="relative aspect-[3/4] w-[min(72vw,260px)] md:w-[min(48vw,300px)] lg:w-[min(42vw,380px)]">
+              <div className="relative aspect-[3/4] w-[min(80vw,300px)] md:w-[min(48vw,300px)] lg:w-[min(42vw,380px)]">
                 <Image
                   src={FIGMA_ASSETS.img30}
                   alt=""
@@ -98,15 +98,17 @@ export function HeroSection() {
           </div>
 
           {/* 6. Text — below visual on mobile, left on desktop */}
-          <div className="order-2 max-w-[500px] text-center lg:order-1 lg:shrink-0 lg:text-left">
-            <p className="font-extralight leading-relaxed text-white text-lg md:text-xl px-1 lg:px-0">
-              We build{" "}
-              <span className="font-black text-white">
-                high-performance websites
-              </span>{" "}
-              and digital solutions that help businesses grow, engage audiences,
-              and stand out online.
-            </p>
+          <div className="relative z-20 order-2 -mt-14 max-w-[500px] text-center lg:z-auto lg:order-1 lg:mt-0 lg:shrink-0 lg:text-left">
+            <div className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-md md:px-5 md:py-4 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+              <p className="font-extralight leading-relaxed text-white text-lg md:text-xl px-1 lg:px-0">
+                We build{" "}
+                <span className="font-black text-white">
+                  high-performance websites
+                </span>{" "}
+                and digital solutions that help businesses grow, engage audiences,
+                and stand out online.
+              </p>
+            </div>
           </div>
         </div>
 
