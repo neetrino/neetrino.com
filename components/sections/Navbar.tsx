@@ -121,14 +121,13 @@ export function Navbar() {
         className={`fixed inset-0 z-40 lg:hidden ${menuOpen ? "block" : "hidden"}`}
         aria-hidden={!menuOpen}
       >
-        <button
-          type="button"
-          aria-label="Close mobile navigation"
+        <div
+          aria-hidden="true"
           className="absolute inset-0 bg-black/40"
           onClick={() => setMenuOpen(false)}
         />
         <div
-          className="relative flex min-h-full flex-col bg-[#0f0f14]/95 backdrop-blur-xl px-6 pb-10 pt-24"
+          className="relative z-10 flex min-h-full flex-col bg-[#0f0f14]/95 backdrop-blur-xl px-6 pb-10 pt-24"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
