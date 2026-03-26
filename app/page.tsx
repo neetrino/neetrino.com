@@ -27,17 +27,20 @@ export default function Home() {
       </div>
 
       {/* Desktop layout: canvas (full 5600px with Footer v2 inside) + Partners overlay */}
-      <div className="hidden lg:block">
+      {/* position:relative here so Partners can be absolute inside without adding page height */}
+      <div className="hidden lg:block relative">
         <CanvasScaler>
           <NeetrinoHome />
         </CanvasScaler>
         {/*
-          Partners positioned at canvas y=4822px.
-          Canvas height = 5600 * (vw/1440).
-          Gap from canvas end = (5600-4822)/1440 * 100vw = 54.03vw.
-          Negative margin pulls Partners up to its correct canvas position.
+          Partners is absolutely positioned so it doesn't contribute to page height.
+          bottom = (5600 - 4967) / 1440 * 100vw = 43.96vw (4967 = Footer start in canvas).
+          Partners height ~124px fits in the 145px gap before Footer.
         */}
-        <div className="relative z-10 bg-[#151515] overflow-hidden" style={{ marginTop: "calc(-43.96vw - 124px)" }}>
+        <div
+          className="absolute left-0 right-0 z-10 bg-[#151515] overflow-hidden"
+          style={{ bottom: "43.96vw" }}
+        >
           <Partners />
         </div>
       </div>
