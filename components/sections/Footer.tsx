@@ -8,20 +8,18 @@ import { CONTACT_SOCIALS } from "@/app/contact/content";
 import { cn } from "@/lib/utils";
 
 const companyLinks = [
-  { href: "/about-us", label: "About" },
-  { href: "/team", label: "Team" },
-  { href: "/contact", label: "Contact us" },
-  { href: "/portfolio", label: "Portfolio" },
   { href: "/services", label: "Services" },
-  { href: "/blog", label: "Blog" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/about-us", label: "About Us" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 const serviceLinks = [
-  { href: "/services/website", label: "Website" },
-  { href: "/services/mobile-app", label: "Mobile App" },
-  { href: "/services/crm", label: "CRM Systems" },
-  { href: "/services/saas", label: "SAAS Platforms" },
-  { href: "/services/ai", label: "AI integration" },
+  { href: "/services", label: "Website" },
+  { href: "/services", label: "Mobile App" },
+  { href: "/services", label: "CRM Systems" },
+  { href: "/services", label: "SAAS Platforms" },
+  { href: "/services", label: "AI integration" },
   { href: "/services", label: "All" },
 ] as const;
 
@@ -108,7 +106,7 @@ export function Footer() {
       <div className="section-container py-12 md:py-16">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-8">
           <div>
-            <FooterColumnTitle>Company</FooterColumnTitle>
+            <FooterColumnTitle>Menu</FooterColumnTitle>
             <ul className="mt-4 space-y-2">
               {companyLinks.map(({ href, label }) => (
                 <li key={href}>
@@ -126,11 +124,11 @@ export function Footer() {
           <div>
             <FooterColumnTitle>Services</FooterColumnTitle>
             <ul className="mt-4 space-y-2">
-              {serviceLinks.map(({ href, label }) => (
-                <li key={`${href}-${label}`}>
+              {serviceLinks.map((label) => (
+                <li key={label}>
                   <Link
-                    href={href}
-                    className="text-lg font-normal text-white transition hover:text-gray-300"
+                    href="/services"
+                    className="pointer-events-auto text-lg font-normal text-white transition hover:text-gray-300"
                   >
                     {label}
                   </Link>
@@ -273,9 +271,9 @@ export function CanvasFooter({ className }: CanvasFooterProps) {
         </div>
       </div>
 
-      <div className="absolute left-[69px] top-[116px] flex gap-[94px]">
+      <div className="absolute left-[69px] top-[116px] z-[2] flex gap-[94px]">
         <div className="flex w-[114.275px] flex-col gap-[40px]">
-          <FooterColumnTitle>Company</FooterColumnTitle>
+          <FooterColumnTitle>Menu</FooterColumnTitle>
           <div className="flex flex-col gap-[18px]">
             {companyLinks.map(({ href, label }) => (
               <Link
@@ -293,11 +291,11 @@ export function CanvasFooter({ className }: CanvasFooterProps) {
         <div className="flex w-[130.078px] flex-col gap-[40px]">
           <FooterColumnTitle>Services</FooterColumnTitle>
           <div className="flex flex-col gap-[18px]">
-            {serviceLinks.map(({ href, label }) => (
+            {serviceLinks.map((label) => (
               <Link
-                key={`${href}-${label}`}
-                href={href}
-                className="font-[family-name:var(--font-dm-sans)] text-[18px] font-normal leading-[20px] text-white"
+                key={label}
+                href="/services"
+                className="pointer-events-auto font-[family-name:var(--font-dm-sans)] text-[18px] font-normal leading-[20px] text-white"
                 style={{ fontVariationSettings: "'opsz' 14" }}
               >
                 {label}
