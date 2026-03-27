@@ -1,6 +1,6 @@
 import { CanvasScaler } from "@/components/CanvasScaler";
 import Link from "next/link";
-import { Footer } from "@/components/sections/Footer";
+import { CanvasFooter, Footer } from "@/components/sections/Footer";
 import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 
 const imgNeetrinoItComapny2Png1 = "/figma-assets/85b03d6f-4fbf-441b-b2b5-e7959ada29ed.webp";
@@ -31,20 +31,6 @@ const imgEllipse6 = "/figma-assets/54f9df8e-ddcc-4897-a50c-6a4cd96d45d3.svg";
 const imgLayers = "/figma-assets/c426b7c4-6f02-4195-9385-3422797c4333.svg";
 const imgEllipse7 = "/figma-assets/c029d8e1-e319-49ee-938b-47080361530f.svg";
 const imgEllipse1 = "/figma-assets/a51f8092-1c1d-432a-87d0-53f4ea11cb9b.svg";
-const imgFooterBottom = "/figma-assets/df06f6ed-a0c4-4728-be97-15521900317a.svg";
-const imgLine135 = "/figma-assets/88de3597-c4fa-4594-a411-ac11abe250a6.svg";
-const imgVector3 = "/figma-assets/fd376076-b94d-4864-8db5-787e3abe5159.svg";
-const imgVector4 = "/figma-assets/e88a980f-adec-491e-80c7-93a331b267fb.svg";
-const imgVector5 = "/figma-assets/a882dc99-b473-4439-87b5-fc5b030923ab.svg";
-const imgGroup2087329580 = "/figma-assets/e4c3d543-096a-4ec3-9511-3b8f07355cb5.svg";
-const imgGroup221 = "/figma-assets/0c665b8e-a7ae-48ba-8c51-6efb05a335d1.svg";
-const imgSocialMediaIconSquareFacebook = "/figma-assets/5cd2f470-a780-4ddd-a831-540fe53b6ec2.svg";
-const imgSocialMediaIconSquareInstagram = "/figma-assets/419bf21f-f4b7-4f66-b62c-73aea9ca9363.svg";
-const imgGroup73 = "/figma-assets/c27ac5cb-2947-4983-ae28-7184dad81649.svg";
-const imgGroup1 = "/figma-assets/902c4b42-609c-4fc4-8491-73d0885b62a4.svg";
-const imgGroup74 = "/figma-assets/0ad4b835-a817-4a43-82b0-6f5b3dced791.svg";
-const imgVector6 = "/figma-assets/9af0928b-7fb6-4c30-bfd0-ff068bd4afc2.svg";
-const imgVector7 = "/figma-assets/bde570c1-d846-4b9b-81b4-d7a4a3d9ebc0.svg";
 const imgComponent21 = "/figma-assets/cc552c54-6804-4468-8b51-d6367fcc38bc.svg";
 
 const MOBILE_SERVICE_ITEMS = [
@@ -102,11 +88,6 @@ function Awwwards({ className }: { className?: string }) {
           </Link>
         </div>
       </div>
-      <div className="absolute bg-[#473dff] h-[48px] left-[986px] rounded-[28px] top-[8px] w-[144px]" data-name="Link [button]" data-node-id="165:655">
-        <div className="-translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Bold',sans-serif] font-extrabold justify-center leading-[0] left-[25px] not-italic text-[16px] text-white top-[24px] whitespace-nowrap" data-node-id="165:656">
-          <p className="leading-[15.6px]">Get a Quote</p>
-        </div>
-      </div>
       <Link
         href="/"
         aria-label="Go to home page"
@@ -116,7 +97,7 @@ function Awwwards({ className }: { className?: string }) {
       >
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgNeetrinoItComapny2Png1} />
       </Link>
-      <div className="absolute bg-white left-[1141px] rounded-full size-[48px] top-[8px]" data-node-id="165:658">
+      <div className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]" data-node-id="165:658">
         <div className="absolute left-[11px] size-[25px] top-[11px]" data-name="Vector" data-node-id="165:660">
           <img alt="" className="absolute block max-w-none size-full" src={imgVector} />
         </div>
@@ -551,222 +532,7 @@ export default function Services() {
         </div>
       </div>
       <Awwwards className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1240px]" />
-      <div className="absolute contents left-0 top-[1584px]" data-name="Footer v2" data-node-id="165:701">
-        <div className="absolute h-[590px] left-0 overflow-clip top-[1584px] w-[1440px]" data-name="Footer v2" data-node-id="165:702">
-          <div className="absolute h-0 left-[99px] top-[497.76px] w-[1241px]" data-name="Footer Bottom" data-node-id="165:703">
-            <div className="absolute inset-[0_0_-1px_0]">
-              <img alt="" className="block max-w-none size-full" src={imgFooterBottom} />
-            </div>
-          </div>
-          <div className="absolute h-0 left-0 top-[1.24px] w-[1440px]" data-node-id="165:705">
-            <div className="absolute inset-[-1px_0_0_0]">
-              <img alt="" className="block max-w-none size-full" src={imgLine135} />
-            </div>
-          </div>
-          <div className="absolute contents left-[69px] top-[116px]" data-name="Footer Middle" data-node-id="165:706">
-            <div className="absolute content-stretch flex gap-[94px] items-start left-[69px] top-[116px]" data-node-id="165:707">
-              <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[114.275px]" data-name="Footer Column" data-node-id="165:708">
-                <p className="font-['DM_Sans:Bold',sans-serif] font-bold leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap" data-node-id="165:709" style={{ fontVariationSettings: "'opsz' 14" }}>
-                  Company
-                </p>
-                <div className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0" data-name="Footer Links" data-node-id="165:710">
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:711">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:712">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:714" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        About
-                      </p>
-                    </div>
-                  </div>
-                  <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:716">
-                    <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:718" style={{ fontVariationSettings: "'opsz' 14" }}>
-                      Team
-                    </p>
-                  </div>
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:720">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:721">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:723" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        Contact us
-                      </p>
-                    </div>
-                  </div>
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:725">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:726">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:728" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        Portfolio
-                      </p>
-                    </div>
-                  </div>
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:730">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:731">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:733" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        Services
-                      </p>
-                    </div>
-                  </div>
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:735">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:736">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:738" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        Blog
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[130.078px]" data-name="Footer Column" data-node-id="165:740">
-                <p className="font-['DM_Sans:Bold',sans-serif] font-bold leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap" data-node-id="165:741" style={{ fontVariationSettings: "'opsz' 14" }}>
-                  Services
-                </p>
-                <div className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0" data-name="Footer Links" data-node-id="165:742">
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:743">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:744">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:746" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        Website
-                      </p>
-                    </div>
-                  </div>
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:748">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:749">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:751" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        Mobile App
-                      </p>
-                    </div>
-                  </div>
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:753">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:754">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:756" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        CRM Systems
-                      </p>
-                    </div>
-                  </div>
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:758">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:759">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:761" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        SAAS Platforms
-                      </p>
-                    </div>
-                  </div>
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:763">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:764">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:766" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        AI integration
-                      </p>
-                    </div>
-                  </div>
-                  <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:768" style={{ fontVariationSettings: "'opsz' 14" }}>
-                    All
-                  </p>
-                </div>
-              </div>
-              <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[244px]" data-name="Footer Column" data-node-id="165:769">
-                <p className="font-['DM_Sans:Bold',sans-serif] font-bold leading-[22px] relative shrink-0 text-[20px] text-white whitespace-nowrap" data-node-id="165:770" style={{ fontVariationSettings: "'opsz' 14" }}>
-                  Contact
-                </p>
-                <div className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0" data-name="Footer Links" data-node-id="165:771">
-                  <div className="content-stretch flex items-start relative shrink-0" data-name="Link" data-node-id="165:772">
-                    <div className="content-stretch flex gap-[6px] items-center relative shrink-0" data-name="Master Link" data-node-id="165:773">
-                      <div className="h-[18px] relative shrink-0 w-[14px]" data-name="Vector" data-node-id="165:775">
-                        <img alt="" className="absolute block max-w-none size-full" src={imgVector3} />
-                      </div>
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap" data-node-id="165:776" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        108/10 Andranik Zoravar St.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="content-stretch flex gap-[9px] items-center relative shrink-0" data-node-id="165:778">
-                    <div className="h-[15px] relative shrink-0 w-[20px]" data-name="Vector" data-node-id="165:779">
-                      <img alt="" className="absolute block max-w-none size-full" src={imgVector4} />
-                    </div>
-                    <a className="block font-['DM_Sans:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[0px] text-center text-white whitespace-nowrap" href="tel:%20+374%2044%20343%20000" data-node-id="165:780" style={{ fontVariationSettings: "'opsz' 14" }} target="_blank">
-                      <p className="cursor-pointer font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] text-[18px]" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        info@neetrino.com
-                      </p>
-                    </a>
-                  </div>
-                  <div className="content-stretch flex gap-[9px] items-center relative shrink-0" data-node-id="165:781">
-                    <div className="relative shrink-0 size-[18px]" data-name="Vector" data-node-id="165:782">
-                      <img alt="" className="absolute block max-w-none size-full" src={imgVector5} />
-                    </div>
-                    <a className="block font-['DM_Sans:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[0px] text-center text-white whitespace-nowrap" href="tel:%20+374%2044%20343%20000" data-node-id="165:783" style={{ fontVariationSettings: "'opsz' 14" }} target="_blank">
-                      <p className="cursor-pointer leading-[18px] text-[16px]" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        +374 44 343 000
-                      </p>
-                    </a>
-                  </div>
-                  <div className="content-stretch flex gap-[9px] items-start relative shrink-0" data-node-id="165:784">
-                    <div className="h-[21px] relative shrink-0 w-[21.5px]" data-node-id="165:785">
-                      <img alt="" className="absolute block max-w-none size-full" src={imgGroup2087329580} />
-                    </div>
-                    <p className="font-['DM_Sans:Medium',sans-serif] font-medium leading-[22px] relative shrink-0 text-[16px] text-white whitespace-pre" data-node-id="165:788" style={{ fontVariationSettings: "'opsz' 14" }}>
-                      {`Working Hours `}
-                      <br aria-hidden="true" />
-                      Mon. - Fri. 10AM - 7PM
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="absolute content-stretch flex flex-col items-start left-[902.57px] top-[116.02px] w-[436.431px]" data-name="Footer Column" data-node-id="165:789">
-              <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[436px]" data-name="24px" data-node-id="165:790">
-                <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0" data-node-id="165:791">
-                  <p className="font-['DM_Sans:Bold',sans-serif] font-bold leading-[22px] relative shrink-0 text-[#eee3e3] text-[20px] whitespace-nowrap" data-node-id="165:792" style={{ fontVariationSettings: "'opsz' 14" }}>
-                    Massage us
-                  </p>
-                  <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[#dcd5d5] text-[18px] w-[358.364px]" data-node-id="165:793" style={{ fontVariationSettings: "'opsz' 14" }}>{`Step into the digital world with just one touch—powered by Neetrino. `}</p>
-                </div>
-                <div className="content-stretch flex flex-col items-start relative shrink-0 w-[426px]" data-name="16px" data-node-id="165:794">
-                  <div className="h-[68px] relative shrink-0 w-full" data-name="Input Text" data-node-id="165:795">
-                    <div className="absolute bg-white border border-[#d9dbe9] border-solid inset-0 rounded-[108px] shadow-[0px_2px_12px_0px_rgba(20,20,43,0.08)]" data-name="Input" data-node-id="165:797" />
-                    <div className="absolute content-stretch flex gap-[8px] items-center left-[23px] top-[25px]" data-name="Input Left" data-node-id="165:804">
-                      <p className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[18px] relative shrink-0 text-[#dcd5d5] text-[16px] whitespace-nowrap" data-node-id="165:806" style={{ fontVariationSettings: "'opsz' 14" }}>
-                        Enter your massege
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <button className="block cursor-pointer h-[56px] relative rounded-[35px] shrink-0 w-[120px]" data-name="Send Button" data-node-id="165:807">
-                  <div className="absolute bg-[#4a3aff] inset-0 rounded-[35px]" data-node-id="I165:807;2:6" />
-                  <div className="absolute flex flex-col font-['Poppins:Regular',sans-serif] inset-[28.57%_50.83%_28.57%_15%] justify-center leading-[0] not-italic text-[16px] text-left text-white whitespace-nowrap" data-node-id="I165:807;2:7">
-                    <p className="leading-[24px]">Send</p>
-                  </div>
-                  <div className="absolute left-[71px] size-[42px] top-[7px]" data-node-id="I165:807;2:8">
-                    <img alt="" className="absolute block max-w-none size-full" src={imgGroup221} />
-                  </div>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="absolute content-stretch flex gap-[22px] items-center justify-center left-[1075px] top-[527px]" data-name="Social Media Container" data-node-id="165:808">
-            <div className="h-[19px] relative shrink-0 w-[11px]" data-name="Social Media Icon Square/Facebook" data-node-id="165:809">
-              <img alt="" className="absolute block max-w-none size-full" src={imgSocialMediaIconSquareFacebook} />
-            </div>
-            <div className="relative shrink-0 size-[19px]" data-name="Social Media Icon Square/Instagram" data-node-id="165:812">
-              <img alt="" className="absolute block max-w-none size-full" src={imgSocialMediaIconSquareInstagram} />
-            </div>
-            <div className="h-[18px] relative shrink-0 w-[19px]" data-name="Social Media Icon Square/LinkedIn" data-node-id="165:819">
-              <div className="absolute inset-[4.58%_0.79%_0.19%_4.47%]" data-node-id="165:820">
-                <img alt="" className="absolute block max-w-none size-full" src={imgGroup73} />
-              </div>
-            </div>
-            <div className="h-[15px] relative shrink-0 w-[24px]" data-name="Group" data-node-id="165:823">
-              <img alt="" className="absolute block max-w-none size-full" src={imgGroup1} />
-            </div>
-            <div className="h-[15px] relative shrink-0 w-[21px]" data-name="Social Media Icon Square/YouTube" data-node-id="165:825">
-              <div className="absolute inset-[2.64%_1.19%_4.04%_4.52%]" data-node-id="165:826">
-                <img alt="" className="absolute block max-w-none size-full" src={imgGroup74} />
-              </div>
-            </div>
-            <div className="relative shrink-0 size-[20px]" data-name="Vector" data-node-id="165:829">
-              <img alt="" className="absolute block max-w-none size-full" src={imgVector6} />
-            </div>
-            <div className="h-[20.472px] relative shrink-0 w-[18.796px]" data-name="Vector" data-node-id="165:830">
-              <img alt="" className="absolute block max-w-none size-full" src={imgVector7} />
-            </div>
-          </div>
-          <p className="absolute font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] left-[110px] text-[#dcd5d5] text-[18px] top-[536.01px] whitespace-nowrap" data-node-id="165:831" style={{ fontVariationSettings: "'opsz' 14" }}>
-            Copyright © 2017 - 2026 Neetrino IT Company. All Rights Reserved.
-          </p>
-        </div>
-      </div>
+      <CanvasFooter className="left-0 top-[1584px]" />
       <div className="absolute inset-[-30.68%_-197.36%_118.77%_150.21%]" data-name="Component 21" data-node-id="165:832">
         <img alt="" className="absolute block max-w-none size-full" src={imgComponent21} />
       </div>
@@ -776,3 +542,4 @@ export default function Services() {
     </>
   );
 }
+

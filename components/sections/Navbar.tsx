@@ -101,13 +101,6 @@ export function Navbar() {
                 </span>
               </button>
 
-              <button
-                type="button"
-                className="mr-1 inline-flex h-9 min-[360px]:h-10 items-center justify-center whitespace-nowrap rounded-full bg-[#473dff] px-3 min-[360px]:px-4 py-2 font-['Inter:Semi_Bold',sans-serif] font-semibold text-xs min-[360px]:text-sm text-white transition-opacity hover:opacity-90 sm:mr-0 sm:px-5 lg:text-base"
-              >
-                Get a Quote
-              </button>
-
               <div className="hidden lg:block">
                 <PhoneIcon />
               </div>

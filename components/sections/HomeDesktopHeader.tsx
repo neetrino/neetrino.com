@@ -38,11 +38,6 @@ export function HomeDesktopHeader() {
             </Link>
           </div>
         </div>
-        <div className="absolute bg-[#473dff] h-[48px] left-[986px] rounded-[28px] top-[8px] w-[144px]" data-name="Link [button]" data-node-id="10:451">
-          <div className="-translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Bold',sans-serif] font-extrabold justify-center leading-[0] left-[25px] not-italic text-[16px] text-white top-[24px] whitespace-nowrap" data-node-id="10:452">
-            <p className="leading-[15.6px]">Get a Quote</p>
-          </div>
-        </div>
         <Link
           href="/"
           aria-label="Go to home page"
@@ -52,7 +47,7 @@ export function HomeDesktopHeader() {
         >
           <Image alt="" unoptimized width={2400} height={2400} className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1} />
         </Link>
-        <div className="absolute bg-white left-[1141px] rounded-full size-[48px] top-[8px]" data-node-id="10:454">
+        <div className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]" data-node-id="10:454">
           <div className="absolute left-[11px] size-[25px] top-[11px]" data-name="Vector" data-node-id="10:456">
             <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={FIGMA_ASSETS.imgVector} />
           </div>
