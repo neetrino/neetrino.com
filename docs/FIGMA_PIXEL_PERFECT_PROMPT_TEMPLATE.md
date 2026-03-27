@@ -10,7 +10,7 @@
 ## Готовый шаблон
 
 ```md
-Сделай страницу SERVICES pixel-perfect по Figma URL: <url>.
+Сделай страницу PORTFOLIO pixel-perfect по Figma URL: https://www.figma.com/design/peTGKUcaTLyATMJ5xJVaXl/NEETRINO-WEB?node-id=166-1203&m=dev.
 
 Правила:
 1) Обязательно вызови get_design_context(fileKey,nodeId) и используй код из ответа как единственный источник правды.
