@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FIGMA_ASSETS } from "@/components/assets";
 import sports00065Icon from "@/Sports_00065_.webp";
+import aiIntegrationsIcon from "@/-276 1.webp";
 
 const services = [
   {
@@ -32,13 +33,15 @@ const services = [
     bg: "bg-[#473dff]",
     textColor: "text-white",
     image: sports00065Icon,
+    imageClassName: "scale-[0.86]",
   },
   {
     title: "AI INTEGRATIONS",
     subtitle: "AI Automation",
     bg: "bg-[#a2b8ee]",
     textColor: "text-[#0f0f0f]",
-    image: FIGMA_ASSETS.img2761,
+    image: aiIntegrationsIcon,
+    imageClassName: "scale-[0.84]",
   },
 ] as const;
 
@@ -72,7 +75,7 @@ export function WhatWeDo() {
                   src={service.image}
                   alt=""
                   fill
-                  className="object-contain object-center"
+                  className={`object-contain object-center ${"imageClassName" in service ? service.imageClassName : ""}`}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
                 />
               </div>

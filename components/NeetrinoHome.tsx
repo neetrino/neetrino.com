@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import sports00065Icon from '@/Sports_00065_.webp';
+import aiIntegrationsIcon from '@/-276 1.webp';
 
 const FIGMA_ASSETS = {
   imgPc: 'https://www.figma.com/api/mcp/asset/a959cebf-9659-4aad-8436-2b08cce48288',
@@ -36,7 +37,7 @@ const FIGMA_ASSETS = {
   imgSports00065: sports00065Icon.src,
   imgCloudInfrastructure: 'https://www.figma.com/api/mcp/asset/5bf855cf-5501-4e0b-8460-38f836f731e1',
   imgPc1: 'https://www.figma.com/api/mcp/asset/95e2ad4d-d270-4e1e-9654-be3e4b1ad25a',
-  img2761: 'https://www.figma.com/api/mcp/asset/0f1bd582-7a92-40a5-89e6-eae35b07cf13',
+  img2761: aiIntegrationsIcon.src,
   img28A: 'https://www.figma.com/api/mcp/asset/49fa0ab1-c840-4886-a3d7-979b0620f127',
   imgVector2: 'https://www.figma.com/api/mcp/asset/cbf9401e-6dd0-4522-a66a-96afa82c23cf',
   imgRectangle17399: 'https://www.figma.com/api/mcp/asset/d7cd6cb1-90c9-4884-98a1-1b4fff1226ae',
@@ -858,7 +859,14 @@ export function NeetrinoHome() {
             </div>
             <div className="absolute h-[209px] left-[885px] top-[292px] w-[211px]" data-name="Sports_00065_" data-node-id="90:539">
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <Image alt="" unoptimized width={2400} height={2400} className="absolute h-[131.58%] left-[-15.17%] max-w-none top-[-15.79%] w-[130.33%]" src={imgSports00065} />
+                <Image
+                  alt=""
+                  unoptimized
+                  width={2400}
+                  height={2400}
+                  className="absolute inset-0 h-full w-full max-w-none object-contain p-[14px]"
+                  src={imgSports00065}
+                />
               </div>
             </div>
           </div>
@@ -923,7 +931,14 @@ export function NeetrinoHome() {
         <Group className="-translate-x-1/2 absolute h-[276px] left-[calc(50%+0.5px)] top-[655px] w-[642px]" />
         <div className="absolute h-[231px] left-[1148px] top-[289px] w-[221px]" data-name="-276 1" data-node-id="90:552">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <Image alt="" unoptimized width={2400} height={2400} className="absolute h-[125.97%] left-[-23.2%] max-w-none top-[-19.91%] w-[146.4%]" src={img2761} />
+            <Image
+              alt=""
+              unoptimized
+              width={2400}
+              height={2400}
+              className="absolute inset-0 h-full w-full max-w-none object-contain p-[16px]"
+              src={img2761}
+            />
           </div>
         </div>
         <div className="absolute contents leading-[0] left-[50px] text-white top-[6px] whitespace-nowrap" data-node-id="90:553">
