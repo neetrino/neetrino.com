@@ -1,5 +1,7 @@
 import { CanvasScaler } from "@/components/CanvasScaler";
 import Link from "next/link";
+import { Footer } from "@/components/sections/Footer";
+import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 
 const imgNeetrinoItComapny2Png1 = "https://www.figma.com/api/mcp/asset/85b03d6f-4fbf-441b-b2b5-e7959ada29ed";
 const imgVector = "https://www.figma.com/api/mcp/asset/167f06c1-2454-43b9-86c6-651aa8279926";
@@ -44,6 +46,39 @@ const imgGroup74 = "https://www.figma.com/api/mcp/asset/0ad4b835-a817-4a43-82b0-
 const imgVector6 = "https://www.figma.com/api/mcp/asset/9af0928b-7fb6-4c30-bfd0-ff068bd4afc2";
 const imgVector7 = "https://www.figma.com/api/mcp/asset/bde570c1-d846-4b9b-81b4-d7a4a3d9ebc0";
 const imgComponent21 = "https://www.figma.com/api/mcp/asset/cc552c54-6804-4468-8b51-d6367fcc38bc";
+
+const MOBILE_SERVICE_ITEMS = [
+  {
+    title: "Website Development",
+    description:
+      "Cutting-edge web solutions built with modern technologies, optimized for performance and designed to convert visitors into customers.",
+  },
+  {
+    title: "AI & Bot Solutions",
+    description:
+      "Intelligent automation powered by machine learning and natural language processing to transform your business operations.",
+  },
+  {
+    title: "Mobile App Development",
+    description:
+      "Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android devices.",
+  },
+  {
+    title: "CRM Systems",
+    description:
+      "Powerful customer relationship management solutions to streamline your sales process and boost customer satisfaction.",
+  },
+  {
+    title: "Cloud Solutions",
+    description:
+      "Scalable cloud infrastructure and services to ensure your applications are always available, secure, and performant.",
+  },
+  {
+    title: "SaaS Platforms",
+    description:
+      "Robust and secure software-as-a-service products tailored to your business model and growth goals.",
+  },
+] as const;
 
 function Awwwards({ className }: { className?: string }) {
   return (
@@ -277,8 +312,45 @@ function Card1({ className, property1 = "Secure Transactions default" }: Card1Pr
 
 export default function Services() {
   return (
-    <CanvasScaler canvasWidth={1440} canvasHeight={2174}>
-      <div className="bg-[#151515] relative h-[2174px] w-[1440px]" data-name="SERVICES" data-node-id="165:666">
+    <>
+      <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
+        <NonHomeMobileHeader />
+        <main className="section-container pt-24 pb-14">
+          <section className="py-10">
+            <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">Services</p>
+            <h1 className="mt-3 font-['Megatrox',sans-serif] text-4xl leading-tight text-white">
+              SERVICES
+            </h1>
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/75">
+              Explore our core service directions optimized for fast delivery, clear business value,
+              and long-term scalability.
+            </p>
+          </section>
+
+          <section className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
+            {MOBILE_SERVICE_ITEMS.map((item) => (
+              <article
+                key={item.title}
+                className="min-w-0 rounded-[28px] border border-white/12 bg-gradient-to-b from-[#100b16] to-[#0f0220] p-5 sm:p-6"
+              >
+                <h2 className="text-xl font-black leading-tight text-white">{item.title}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-[#d1d5dc]">{item.description}</p>
+                <Link
+                  href="/contact"
+                  className="mt-5 inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-medium text-[#252525]"
+                >
+                  Continue
+                </Link>
+              </article>
+            ))}
+          </section>
+        </main>
+        <Footer />
+      </div>
+
+      <div className="hidden lg:block">
+        <CanvasScaler canvasWidth={1440} canvasHeight={2174}>
+          <div className="bg-[#151515] relative h-[2174px] w-[1440px]" data-name="SERVICES" data-node-id="165:666">
       <div className="-translate-x-1/2 absolute flex h-[3723px] items-center justify-center left-[calc(50%-38px)] mix-blend-overlay top-[-40px] w-[1722px]">
         <div className="flex-none rotate-90">
           <div className="h-[1722px] relative w-[3723px]" data-name="Vector" data-node-id="165:667">
@@ -698,7 +770,9 @@ export default function Services() {
       <div className="absolute inset-[-30.68%_-197.36%_118.77%_150.21%]" data-name="Component 21" data-node-id="165:832">
         <img alt="" className="absolute block max-w-none size-full" src={imgComponent21} />
       </div>
+          </div>
+        </CanvasScaler>
       </div>
-    </CanvasScaler>
+    </>
   );
 }

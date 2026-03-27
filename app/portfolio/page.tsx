@@ -1,5 +1,7 @@
 import { CanvasScaler } from "@/components/CanvasScaler";
 import Link from "next/link";
+import { Footer } from "@/components/sections/Footer";
+import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 
 const imgOutlineArrowsAltArrowLeft = "https://www.figma.com/api/mcp/asset/031826db-89e9-4cd4-965e-cfc21f657a61";
 const imgOutlineArrowsAltArrowRight = "https://www.figma.com/api/mcp/asset/0be8fa84-92a8-4ed0-bd51-698de1107438";
@@ -43,6 +45,13 @@ const imgGroup = "https://www.figma.com/api/mcp/asset/426a45cb-785c-41a5-9827-5f
 const imgGroup74 = "https://www.figma.com/api/mcp/asset/0269cdf2-e048-48e5-bf2c-e0e1ffd6194e";
 const imgVector6 = "https://www.figma.com/api/mcp/asset/609cfde4-9cc7-4ba8-8550-bcf5e686ab94";
 const imgVector7 = "https://www.figma.com/api/mcp/asset/a559f28c-c291-4954-8106-69c6fd931596";
+
+const MOBILE_PORTFOLIO_ITEMS = [
+  { title: "Landing Platform", image: img2661 },
+  { title: "Biotech Identity", image: imgBiotechLogo1 },
+  { title: "Portfolio Showcase", image: imgPortfolio161 },
+  { title: "Business Experience", image: img2661 },
+] as const;
 
 function PaginationSmallDefault({ className }: { className?: string }) {
   return (
@@ -177,8 +186,53 @@ function Button({ className }: { className?: string }) {
 
 export default function Portfolio() {
   return (
-    <CanvasScaler canvasWidth={1440} canvasHeight={2662}>
-      <div className="bg-[#151515] relative h-[2662px] w-[1440px]" data-name="PORTFOLIO" data-node-id="166:1203">
+    <>
+      <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
+        <NonHomeMobileHeader />
+        <main className="section-container pt-24 pb-14">
+          <section className="py-10">
+            <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">Portfolio</p>
+            <h1 className="mt-3 font-['Megatrox',sans-serif] text-4xl leading-tight text-white">
+              PORTFOLIO
+            </h1>
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/75">
+              A curated selection of digital products and interfaces delivered for growing
+              businesses across different industries.
+            </p>
+          </section>
+
+          <section className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
+            {MOBILE_PORTFOLIO_ITEMS.map((item) => (
+              <article
+                key={item.title}
+                className="min-w-0 overflow-hidden rounded-[24px] border border-white/12 bg-[#1a1a1a]"
+              >
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                  <img
+                    alt={item.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src={item.image}
+                  />
+                </div>
+                <div className="p-4 sm:p-5">
+                  <h2 className="text-lg font-semibold text-white">{item.title}</h2>
+                  <Link
+                    href="/contact"
+                    className="mt-4 inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-medium text-[#252525]"
+                  >
+                    View case
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </section>
+        </main>
+        <Footer />
+      </div>
+
+      <div className="hidden lg:block">
+        <CanvasScaler canvasWidth={1440} canvasHeight={2662}>
+          <div className="bg-[#151515] relative h-[2662px] w-[1440px]" data-name="PORTFOLIO" data-node-id="166:1203">
         <div className="-translate-x-1/2 absolute contents h-[2233.132px] left-[calc(50%+3586.51px)] mix-blend-hard-light top-[2816px] w-[2229.008px]" data-name="Planet" data-node-id="166:1204">
           <div className="absolute flex h-[1513.932px] items-center justify-center left-[3526.05px] mix-blend-hard-light top-[3123.23px] w-[1554.175px]">
             <div className="flex-none rotate-[-8.02deg]">
@@ -588,7 +642,9 @@ export default function Portfolio() {
           </p>
           <PaginationSmallDefault className="-translate-x-1/2 absolute content-stretch flex gap-[6px] items-start justify-center left-1/2 rounded-[8px] top-[939px]" />
         </div>
+          </div>
+        </CanvasScaler>
       </div>
-    </CanvasScaler>
+    </>
   );
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Inter } from "next/font/google";
-import { Navbar } from "@/components/sections/Navbar";
 import { HomeDesktopHeader } from "@/components/sections/HomeDesktopHeader";
+import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { Footer } from "@/components/sections/Footer";
 import {
   CONTACT_CONTENT,
@@ -20,9 +20,7 @@ const inter = Inter({
 export default function ContactPage() {
   return (
     <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515]">
-      <div className="lg:hidden">
-        <Navbar />
-      </div>
+      <NonHomeMobileHeader className="lg:hidden" />
       <HomeDesktopHeader />
 
       <main className={`pt-24 lg:pt-0 ${inter.className}`}>
@@ -45,16 +43,16 @@ export default function ContactPage() {
             {CONTACT_CONTENT.sectionTitles.info}
           </h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <article className="rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
+            <article className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">Email</p>
               <Link
                 href={`mailto:${CONTACT_DETAILS.email}`}
-                className="mt-3 inline-block text-lg font-medium text-white transition hover:opacity-80"
+                className="mt-3 inline-block break-all text-base font-medium text-white transition hover:opacity-80 sm:text-lg"
               >
                 {CONTACT_DETAILS.email}
               </Link>
             </article>
-            <article className="rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
+            <article className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">Phone</p>
               <Link
                 href="tel:+37444343000"
@@ -63,15 +61,15 @@ export default function ContactPage() {
                 {CONTACT_DETAILS.phone}
               </Link>
             </article>
-            <article className="rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
+            <article className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
                 Working hours
               </p>
               <p className="mt-3 text-lg font-medium text-white">{CONTACT_DETAILS.workingHours}</p>
             </article>
-            <article className="rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
+            <article className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">Address</p>
-              <p className="mt-3 text-lg font-medium text-white">{CONTACT_DETAILS.address}</p>
+              <p className="mt-3 break-words text-base font-medium text-white sm:text-lg">{CONTACT_DETAILS.address}</p>
             </article>
           </div>
         </section>
@@ -82,14 +80,14 @@ export default function ContactPage() {
           </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {CONTACT_METHODS.map((method) => (
-              <article key={method.title} className="rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
+              <article key={method.title} className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
                 <p className="text-lg font-semibold text-white">{method.title}</p>
                 <p className="mt-3 text-sm leading-relaxed text-white/70">{method.description}</p>
                 <Link
                   href={method.href}
                   target={method.href.startsWith("http") ? "_blank" : undefined}
                   rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="mt-5 inline-flex items-center justify-center rounded-full bg-[#473dff] px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
+                  className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-[#473dff] px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90 sm:w-auto"
                 >
                   {method.cta}
                 </Link>

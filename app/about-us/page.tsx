@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Inter } from "next/font/google";
-import { Navbar } from "@/components/sections/Navbar";
 import { HomeDesktopHeader } from "@/components/sections/HomeDesktopHeader";
+import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { Footer } from "@/components/sections/Footer";
 import { FIGMA_ASSETS } from "@/components/assets";
 import { ABOUT_CONTENT, ABOUT_STATS } from "./content";
@@ -16,30 +16,28 @@ const inter = Inter({
 export default function AboutUsPage() {
   return (
     <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515]">
-      <div className="lg:hidden">
-        <Navbar />
-      </div>
+      <NonHomeMobileHeader className="lg:hidden" />
       <HomeDesktopHeader />
       <main className={`pt-24 lg:pt-0 ${inter.className}`}>
         <section className="section-container relative overflow-hidden py-16 md:py-20">
           <div className="pointer-events-none absolute inset-x-0 -top-10 mx-auto h-48 w-[90%] max-w-5xl rounded-full bg-[#473dff]/20 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
+            <div className="min-w-0">
               <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/90">
                 {ABOUT_CONTENT.hero.eyebrow}
               </p>
-              <h1 className="mt-3 text-4xl font-black italic leading-tight text-white md:text-5xl">
+              <h1 className="mt-3 text-3xl font-black italic leading-tight text-white sm:text-4xl md:text-5xl">
                 <span>WHO </span>
                 <span className="text-[#ff7500]">WE</span>
                 <span> ARE</span>
               </h1>
-              <div className="mt-6 space-y-4 text-base font-light leading-relaxed text-white/85 md:text-lg">
+              <div className="mt-6 space-y-4 text-sm font-light leading-relaxed text-white/85 sm:text-base md:text-lg">
                 {ABOUT_CONTENT.hero.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
             </div>
-            <div className="relative mx-auto w-full max-w-xl">
+            <div className="relative mx-auto w-full max-w-xl min-w-0">
               <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-[#ff7500]/25 blur-2xl" />
               <div className="absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-[#473dff]/25 blur-2xl" />
               <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#1b1b1b]/80 p-4 backdrop-blur-md">
@@ -99,7 +97,7 @@ export default function AboutUsPage() {
 
         <section className="section-container py-8 md:py-12">
           <div className="grid gap-5 lg:grid-cols-2">
-            <article className="rounded-[24px] border border-white/12 bg-[#1b1b1b] p-6 md:p-8">
+            <article className="min-w-0 rounded-[24px] border border-white/12 bg-[#1b1b1b] p-6 md:p-8">
               <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/65">Purpose</p>
               <h2 className="mt-3 text-2xl font-black text-white md:text-3xl">
                 {ABOUT_CONTENT.mission.title}
@@ -108,7 +106,7 @@ export default function AboutUsPage() {
                 {ABOUT_CONTENT.mission.body}
               </p>
             </article>
-            <article className="rounded-[24px] border border-white/12 bg-[#1b1b1b] p-6 md:p-8">
+            <article className="min-w-0 rounded-[24px] border border-white/12 bg-[#1b1b1b] p-6 md:p-8">
               <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/65">Future</p>
               <h2 className="mt-3 text-2xl font-black text-white md:text-3xl">
                 {ABOUT_CONTENT.vision.title}
@@ -126,7 +124,7 @@ export default function AboutUsPage() {
             {ABOUT_CONTENT.whyChooseUs.items.map((item, index) => (
               <article
                 key={item}
-                className="rounded-2xl border border-white/12 bg-[#1a1a1a] p-5"
+                className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">
                   {String(index + 1).padStart(2, "0")}
@@ -143,7 +141,7 @@ export default function AboutUsPage() {
             {ABOUT_CONTENT.values.items.map((item) => (
               <article
                 key={item}
-                className="rounded-2xl border border-white/12 bg-gradient-to-b from-[#1e1e1e] to-[#151515] p-5 text-center"
+                className="min-w-0 rounded-2xl border border-white/12 bg-gradient-to-b from-[#1e1e1e] to-[#151515] p-5 text-center"
               >
                 <p className="text-lg font-semibold text-white">{item}</p>
               </article>
@@ -167,7 +165,7 @@ export default function AboutUsPage() {
             {ABOUT_STATS.map((stat) => (
               <article
                 key={stat.label}
-                className="rounded-2xl border border-white/12 bg-[#1a1a1a] p-5"
+                className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5"
               >
                 <p className="text-3xl font-black text-[#ff7500] md:text-4xl">{stat.value}</p>
                 <p className="mt-2 text-sm font-medium uppercase tracking-[0.08em] text-white/70">
