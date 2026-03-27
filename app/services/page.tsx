@@ -97,7 +97,7 @@ function Awwwards({ className }: { className?: string }) {
           <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:652" href="/about-us">
             <p className="leading-[15.6px]">About Us</p>
           </Link>
-          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:654" href="/#contact">
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:654" href="/contact">
             <p className="leading-[15.6px]">Contact</p>
           </Link>
         </div>

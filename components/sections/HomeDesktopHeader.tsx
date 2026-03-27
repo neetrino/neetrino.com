@@ -33,7 +33,7 @@ export function HomeDesktopHeader() {
             <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:448" href="/about-us">
               <p className="leading-[15.6px]">About Us</p>
             </Link>
-            <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:450" href="/#contact">
+            <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:450" href="/contact">
               <p className="leading-[15.6px]">Contact</p>
             </Link>
           </div>

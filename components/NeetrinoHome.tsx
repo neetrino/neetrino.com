@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import sports00065Icon from '@/Sports_00065_.webp';
 
 const FIGMA_ASSETS = {
   imgPc: 'https://www.figma.com/api/mcp/asset/a959cebf-9659-4aad-8436-2b08cce48288',
@@ -32,10 +33,10 @@ const FIGMA_ASSETS = {
   img10: 'https://www.figma.com/api/mcp/asset/875f15fe-ca06-476f-8777-0bc66f370884',
   imgBiotechLogo1: 'https://www.figma.com/api/mcp/asset/985fcf17-bf5b-4d96-bed7-0196094e086d',
   imgKleverKleverIoInstagramPhotosAndVideos3: 'https://www.figma.com/api/mcp/asset/a8fa8533-aca9-4bd4-b860-799a1de049bf',
-  imgSports00065: 'https://www.figma.com/api/mcp/asset/947e5fe9-4733-42c1-8a2e-c38828426bc5',
+  imgSports00065: sports00065Icon.src,
   imgCloudInfrastructure: 'https://www.figma.com/api/mcp/asset/5bf855cf-5501-4e0b-8460-38f836f731e1',
   imgPc1: 'https://www.figma.com/api/mcp/asset/95e2ad4d-d270-4e1e-9654-be3e4b1ad25a',
-  img2761: 'https://www.figma.com/api/mcp/asset/d3d4f3fe-88af-450a-9f34-b0eafda48c0b',
+  img2761: 'https://www.figma.com/api/mcp/asset/0f1bd582-7a92-40a5-89e6-eae35b07cf13',
   img28A: 'https://www.figma.com/api/mcp/asset/49fa0ab1-c840-4886-a3d7-979b0620f127',
   imgVector2: 'https://www.figma.com/api/mcp/asset/cbf9401e-6dd0-4522-a66a-96afa82c23cf',
   imgRectangle17399: 'https://www.figma.com/api/mcp/asset/d7cd6cb1-90c9-4884-98a1-1b4fff1226ae',
@@ -328,7 +329,7 @@ function Awwwards({ className }: { className?: string }) {
           <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:448" href="/about-us">
             <p className="leading-[15.6px]">About Us</p>
           </Link>
-          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:450" href="/#contact">
+          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:450" href="/contact">
             <p className="leading-[15.6px]">Contact</p>
           </Link>
         </div>

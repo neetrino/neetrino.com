@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FIGMA_ASSETS } from "@/components/assets";
+import sports00065Icon from "@/Sports_00065_.webp";
 
 const services = [
   {
@@ -30,7 +31,7 @@ const services = [
     subtitle: "Process Automation",
     bg: "bg-[#473dff]",
     textColor: "text-white",
-    image: FIGMA_ASSETS.imgSports00065,
+    image: sports00065Icon,
   },
   {
     title: "AI INTEGRATIONS",
