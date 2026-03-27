@@ -1,7 +1,10 @@
 'use client';
 
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Canvas, useFrame } from '@react-three/fiber';
+import type { Mesh } from 'three';
 import sports00065Icon from '@/Sports_00065_.webp';
 import aiIntegrationsIcon from '@/-276 1.webp';
 
@@ -27,7 +30,6 @@ const FIGMA_ASSETS = {
   imgPhilippHubertDVVjhUcdb30Unsplash1: '/figma-assets/62b9fa74-22e0-4457-865e-43c6218500b5.webp',
   imgEricaAnderson1: '/figma-assets/64738b5b-84dc-4cc4-a77f-049e3df52d77.gif',
   img30: '/figma-assets/4e1596f7-d4cd-49d3-bb93-922d629919db.webp',
-  img1: '/figma-assets/e13d4cdd-fff7-4529-b579-81b60d56576b.gif',
   imgStanislavHristov3: '/figma-assets/7b7b391f-6dd1-4383-bb7b-84682d2ef6ef.webp',
   imgUiDesign21: '/figma-assets/b281255c-1686-47f8-b45d-f6d1a7738309.webp',
   img2661: '/figma-assets/71e356ef-206c-46d7-8d9e-f2dc83b5109c.webp',
@@ -89,7 +91,6 @@ const imgVector = FIGMA_ASSETS.imgVector;
 const imgPhilippHubertDVVjhUcdb30Unsplash1 = FIGMA_ASSETS.imgPhilippHubertDVVjhUcdb30Unsplash1;
 const imgEricaAnderson1 = FIGMA_ASSETS.imgEricaAnderson1;
 const img30 = FIGMA_ASSETS.img30;
-const img1 = FIGMA_ASSETS.img1;
 const imgStanislavHristov3 = FIGMA_ASSETS.imgStanislavHristov3;
 const imgUiDesign21 = FIGMA_ASSETS.imgUiDesign21;
 const img2661 = FIGMA_ASSETS.img2661;
@@ -131,6 +132,23 @@ const imgVector9 = FIGMA_ASSETS.imgVector9;
 const imgLayer5 = FIGMA_ASSETS.imgLayer5;
 const imgLayer6 = FIGMA_ASSETS.imgLayer6;
 const imgEllipse3459 = FIGMA_ASSETS.imgEllipse3459;
+
+function HomeDesktopOrb() {
+  const meshRef = useRef<Mesh>(null);
+
+  useFrame((_state, delta) => {
+    if (!meshRef.current) return;
+    meshRef.current.rotation.y += delta * 0.55;
+    meshRef.current.rotation.x += delta * 0.2;
+  });
+
+  return (
+    <mesh ref={meshRef} scale={1.18}>
+      <torusKnotGeometry args={[0.85, 0.28, 180, 24]} />
+      <meshStandardMaterial color="#d7dcff" metalness={0.6} roughness={0.24} />
+    </mesh>
+  );
+}
 
 type Group1Props = {
   className?: string;
@@ -494,9 +512,13 @@ export function NeetrinoHome() {
         </div>
         <Group2 className="absolute h-[276px] left-[-179px] top-[358px] w-[642px]" />
         <div className="absolute h-[641px] left-[721px] mix-blend-exclusion top-[-34px] w-[685px]" data-name="* 1" data-node-id="10:516">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <Image alt="" unoptimized width={2400} height={2400} className="absolute h-[103.85%] left-0 max-w-none top-0 w-full" src={img1} />
-          </div>
+          <div className="absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_50%_35%,#232445_0%,#111216_66%)] opacity-90" />
+          <Canvas className="absolute inset-0 pointer-events-none">
+            <ambientLight intensity={0.48} />
+            <directionalLight position={[3, 2, 4]} intensity={1.05} />
+            <pointLight position={[-3, -1, 1]} intensity={0.75} color="#7f98ff" />
+            <HomeDesktopOrb />
+          </Canvas>
         </div>
       </div>
       <div className="absolute contents left-[-102px] top-[2334px]" data-node-id="55:378">
