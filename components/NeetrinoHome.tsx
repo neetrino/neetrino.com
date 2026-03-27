@@ -1,10 +1,8 @@
 'use client';
 
-import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Canvas, useFrame } from '@react-three/fiber';
-import type { Mesh } from 'three';
+import Antigravity from '@/components/Antigravity';
 import sports00065Icon from '@/Sports_00065_.webp';
 import aiIntegrationsIcon from '@/-276 1.webp';
 
@@ -132,23 +130,6 @@ const imgVector9 = FIGMA_ASSETS.imgVector9;
 const imgLayer5 = FIGMA_ASSETS.imgLayer5;
 const imgLayer6 = FIGMA_ASSETS.imgLayer6;
 const imgEllipse3459 = FIGMA_ASSETS.imgEllipse3459;
-
-function HomeDesktopOrb() {
-  const meshRef = useRef<Mesh>(null);
-
-  useFrame((_state, delta) => {
-    if (!meshRef.current) return;
-    meshRef.current.rotation.y += delta * 0.55;
-    meshRef.current.rotation.x += delta * 0.2;
-  });
-
-  return (
-    <mesh ref={meshRef} scale={1.18}>
-      <torusKnotGeometry args={[0.85, 0.28, 180, 24]} />
-      <meshStandardMaterial color="#d7dcff" metalness={0.6} roughness={0.24} />
-    </mesh>
-  );
-}
 
 type Group1Props = {
   className?: string;
@@ -513,12 +494,21 @@ export function NeetrinoHome() {
         <Group2 className="absolute h-[276px] left-[-179px] top-[358px] w-[642px]" />
         <div className="absolute h-[641px] left-[721px] mix-blend-exclusion top-[-34px] w-[685px]" data-name="* 1" data-node-id="10:516">
           <div className="absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_50%_35%,#232445_0%,#111216_66%)] opacity-90" />
-          <Canvas className="absolute inset-0 pointer-events-none">
-            <ambientLight intensity={0.48} />
-            <directionalLight position={[3, 2, 4]} intensity={1.05} />
-            <pointLight position={[-3, -1, 1]} intensity={0.75} color="#7f98ff" />
-            <HomeDesktopOrb />
-          </Canvas>
+          <div className="absolute inset-0 pointer-events-none">
+            <Antigravity
+              count={240}
+              color="#cfd7ff"
+              autoAnimate
+              ringRadius={8.5}
+              magnetRadius={11}
+              waveAmplitude={0.85}
+              particleSize={1.65}
+              rotationSpeed={0.18}
+              depthFactor={1.1}
+              fieldStrength={8}
+              particleShape="capsule"
+            />
+          </div>
         </div>
       </div>
       <div className="absolute contents left-[-102px] top-[2334px]" data-node-id="55:378">
