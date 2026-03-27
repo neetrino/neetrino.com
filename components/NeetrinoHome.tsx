@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import Antigravity from '@/components/Antigravity';
+import LiquidEther from '@/components/LiquidEther';
 import sports00065Icon from '@/Sports_00065_.webp';
 import aiIntegrationsIcon from '@/-276 1.webp';
 
@@ -495,18 +495,15 @@ export function NeetrinoHome() {
         <div className="absolute h-[641px] left-[721px] mix-blend-exclusion top-[-34px] w-[685px]" data-name="* 1" data-node-id="10:516">
           <div className="absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_50%_35%,#232445_0%,#111216_66%)] opacity-90" />
           <div className="absolute inset-0 pointer-events-none">
-            <Antigravity
-              count={240}
-              color="#cfd7ff"
-              autoAnimate
-              ringRadius={8.5}
-              magnetRadius={11}
-              waveAmplitude={0.85}
-              particleSize={1.65}
-              rotationSpeed={0.18}
-              depthFactor={1.1}
-              fieldStrength={8}
-              particleShape="capsule"
+            <LiquidEther
+              colors={['#473dff', '#ff7500', '#cfd7ff']}
+              mouseForce={18}
+              cursorSize={92}
+              resolution={0.65}
+              autoDemo
+              autoSpeed={0.42}
+              autoIntensity={1.9}
+              className="rounded-[32px]"
             />
           </div>
         </div>
