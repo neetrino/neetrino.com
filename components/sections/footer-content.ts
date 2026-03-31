@@ -11,7 +11,9 @@ export const SITE_NAV_LINKS = [
 
 export const FOOTER_COMPANY_LINKS = SITE_NAV_LINKS;
 
-export const FOOTER_SERVICE_OVERVIEW_LINKS = [{ href: "/services", label: "All services" }] as const;
+export const FOOTER_SERVICE_OVERVIEW_LINKS = [
+  { href: "/services", label: "All services" },
+] as const;
 
 export const FOOTER_SERVICE_LABELS = [
   "Website Development",

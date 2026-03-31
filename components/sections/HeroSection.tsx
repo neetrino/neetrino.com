@@ -101,12 +101,9 @@ export function HeroSection() {
           <div className="relative z-20 order-2 -mt-14 max-w-[500px] text-center lg:z-auto lg:order-1 lg:mt-0 lg:shrink-0 lg:text-left">
             <div className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-md md:px-5 md:py-4 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
               <p className="font-extralight leading-relaxed text-white text-lg md:text-xl px-1 lg:px-0">
-                We build{" "}
-                <span className="font-black text-white">
-                  high-performance websites
-                </span>{" "}
-                and digital solutions that help businesses grow, engage audiences,
-                and stand out online.
+                We build <span className="font-black text-white">high-performance websites</span>{" "}
+                and digital solutions that help businesses grow, engage audiences, and stand out
+                online.
               </p>
             </div>
           </div>
@@ -115,10 +112,7 @@ export function HeroSection() {
         {/* Stat cards */}
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-4 lg:mt-12 lg:gap-6">
           {stats.map((item) => (
-            <div
-              key={item.label}
-              className={`rounded-2xl p-5 ${item.cardClass}`}
-            >
+            <div key={item.label} className={`rounded-2xl p-5 ${item.cardClass}`}>
               <p className="font-black text-4xl md:text-5xl">{item.value}</p>
               <p className="mt-2 font-extralight text-base">{item.label}</p>
             </div>

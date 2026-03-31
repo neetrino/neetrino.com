@@ -167,8 +167,12 @@ body {
 
 /* Partners marquee */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-track {
@@ -231,5 +235,12 @@ body {
   }
   html {
     @apply font-sans;
+  }
+}
+
+@layer utilities {
+  /* DM Sans variable font — избегаем inline style={{ fontVariationSettings }} в футере */
+  .dm-sans-opsz-14 {
+    font-variation-settings: "opsz" 14;
   }
 }

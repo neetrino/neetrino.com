@@ -3,12 +3,7 @@ import { Inter } from "next/font/google";
 import { HomeDesktopHeader } from "@/components/sections/HomeDesktopHeader";
 import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { Footer } from "@/components/sections/Footer";
-import {
-  CONTACT_CONTENT,
-  CONTACT_DETAILS,
-  CONTACT_METHODS,
-  CONTACT_SOCIALS,
-} from "./content";
+import { CONTACT_CONTENT, CONTACT_DETAILS, CONTACT_METHODS, CONTACT_SOCIALS } from "./content";
 import { ContactInquiryForm } from "./ContactInquiryForm";
 
 const inter = Inter({
@@ -44,7 +39,9 @@ export default function ContactPage() {
           </h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <article className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">Email</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
+                Email
+              </p>
               <Link
                 href={`mailto:${CONTACT_DETAILS.email}`}
                 className="mt-3 inline-block break-all text-base font-medium text-white transition hover:opacity-80 sm:text-lg"
@@ -53,7 +50,9 @@ export default function ContactPage() {
               </Link>
             </article>
             <article className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">Phone</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
+                Phone
+              </p>
               <Link
                 href="tel:+37444343000"
                 className="mt-3 inline-block text-lg font-medium text-white transition hover:opacity-80"
@@ -68,8 +67,12 @@ export default function ContactPage() {
               <p className="mt-3 text-lg font-medium text-white">{CONTACT_DETAILS.workingHours}</p>
             </article>
             <article className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">Address</p>
-              <p className="mt-3 break-words text-base font-medium text-white sm:text-lg">{CONTACT_DETAILS.address}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
+                Address
+              </p>
+              <p className="mt-3 break-words text-base font-medium text-white sm:text-lg">
+                {CONTACT_DETAILS.address}
+              </p>
             </article>
           </div>
         </section>
@@ -80,7 +83,10 @@ export default function ContactPage() {
           </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {CONTACT_METHODS.map((method) => (
-              <article key={method.title} className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5">
+              <article
+                key={method.title}
+                className="min-w-0 rounded-2xl border border-white/12 bg-[#1a1a1a] p-5"
+              >
                 <p className="text-lg font-semibold text-white">{method.title}</p>
                 <p className="mt-3 text-sm leading-relaxed text-white/70">{method.description}</p>
                 <Link
@@ -148,8 +154,8 @@ export default function ContactPage() {
               {CONTACT_CONTENT.sectionTitles.inquiry}
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-white/70 md:text-base">
-              Share your idea, scope, or timeline. We will follow up and help you choose the
-              fastest path to launch.
+              Share your idea, scope, or timeline. We will follow up and help you choose the fastest
+              path to launch.
             </p>
             <div className="mt-6">
               <ContactInquiryForm />

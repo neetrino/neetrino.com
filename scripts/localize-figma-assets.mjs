@@ -3,16 +3,9 @@ import path from "node:path";
 
 const PROJECT_ROOT = process.cwd();
 const OUTPUT_DIR = path.join(PROJECT_ROOT, "public", "figma-assets");
-const FIGMA_ASSET_REGEX =
-  /https:\/\/www\.figma\.com\/api\/mcp\/asset\/([a-f0-9-]+)/g;
+const FIGMA_ASSET_REGEX = /https:\/\/www\.figma\.com\/api\/mcp\/asset\/([a-f0-9-]+)/g;
 
-const IGNORED_DIRS = new Set([
-  ".git",
-  ".next",
-  "node_modules",
-  ".cursor",
-  "public",
-]);
+const IGNORED_DIRS = new Set([".git", ".next", "node_modules", ".cursor", "public"]);
 
 const TEXT_FILE_EXTENSIONS = new Set([
   ".ts",
@@ -99,9 +92,7 @@ async function main() {
   let downloadedCount = 0;
 
   for (const url of uniqueUrls) {
-    const idMatch = url.match(
-      /https:\/\/www\.figma\.com\/api\/mcp\/asset\/([a-f0-9-]+)/
-    );
+    const idMatch = url.match(/https:\/\/www\.figma\.com\/api\/mcp\/asset\/([a-f0-9-]+)/);
 
     if (!idMatch) continue;
     const assetId = idMatch[1];

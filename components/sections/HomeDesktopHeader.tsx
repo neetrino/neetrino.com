@@ -21,19 +21,39 @@ export function HomeDesktopHeader() {
             className="-translate-x-1/2 absolute content-stretch flex font-['Inter:Semi_Bold',sans-serif] font-semibold gap-[41px] items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap"
             data-node-id="10:444"
           >
-            <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:445" href="/">
+            <Link
+              className="flex flex-col justify-center relative shrink-0"
+              data-node-id="10:445"
+              href="/"
+            >
               <p className="leading-[15.6px]">Home</p>
             </Link>
-            <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:446" href="/services">
+            <Link
+              className="flex flex-col justify-center relative shrink-0"
+              data-node-id="10:446"
+              href="/services"
+            >
               <p className="leading-[15.6px]">Services</p>
             </Link>
-            <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:447" href="/portfolio">
+            <Link
+              className="flex flex-col justify-center relative shrink-0"
+              data-node-id="10:447"
+              href="/portfolio"
+            >
               <p className="leading-[15.6px]">Portfolio</p>
             </Link>
-            <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:448" href="/about-us">
+            <Link
+              className="flex flex-col justify-center relative shrink-0"
+              data-node-id="10:448"
+              href="/about-us"
+            >
               <p className="leading-[15.6px]">About Us</p>
             </Link>
-            <Link className="flex flex-col justify-center relative shrink-0" data-node-id="10:450" href="/contact">
+            <Link
+              className="flex flex-col justify-center relative shrink-0"
+              data-node-id="10:450"
+              href="/contact"
+            >
               <p className="leading-[15.6px]">Contact</p>
             </Link>
           </div>
@@ -45,11 +65,32 @@ export function HomeDesktopHeader() {
           data-name="Neetrino-it-comapny-(2)png 1"
           data-node-id="10:453"
         >
-          <Image alt="" unoptimized width={2400} height={2400} className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1} />
+          <Image
+            alt=""
+            unoptimized
+            width={2400}
+            height={2400}
+            className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"
+            src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1}
+          />
         </Link>
-        <div className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]" data-node-id="10:454">
-          <div className="absolute left-[11px] size-[25px] top-[11px]" data-name="Vector" data-node-id="10:456">
-            <Image alt="" unoptimized width={2400} height={2400} className="absolute block max-w-none size-full" src={FIGMA_ASSETS.imgVector} />
+        <div
+          className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]"
+          data-node-id="10:454"
+        >
+          <div
+            className="absolute left-[11px] size-[25px] top-[11px]"
+            data-name="Vector"
+            data-node-id="10:456"
+          >
+            <Image
+              alt=""
+              unoptimized
+              width={2400}
+              height={2400}
+              className="absolute block max-w-none size-full"
+              src={FIGMA_ASSETS.imgVector}
+            />
           </div>
         </div>
       </div>

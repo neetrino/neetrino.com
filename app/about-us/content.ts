@@ -34,12 +34,7 @@ export const ABOUT_CONTENT = {
   },
   values: {
     title: "The values that always drive us",
-    items: [
-      "Love to work",
-      "Transparency",
-      "Continuous learning",
-      "Respect for each other",
-    ],
+    items: ["Love to work", "Transparency", "Continuous learning", "Respect for each other"],
   },
   geography: {
     title: "We work with more than 10 countries",

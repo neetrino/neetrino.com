@@ -3,9 +3,9 @@
 import { FIGMA_ASSETS } from "@/components/assets";
 
 const partnerLogos = [
-  { src: FIGMA_ASSETS.imgLayer1,  w: 78,  h: 73  },
-  { src: FIGMA_ASSETS.imgLayer3,  w: 157, h: 71, fixed: true },
-  { src: FIGMA_ASSETS.imgLayer5,  w: 67,  h: 96, fixed: true },
+  { src: FIGMA_ASSETS.imgLayer1, w: 78, h: 73 },
+  { src: FIGMA_ASSETS.imgLayer3, w: 157, h: 71, fixed: true },
+  { src: FIGMA_ASSETS.imgLayer5, w: 67, h: 96, fixed: true },
   { src: FIGMA_ASSETS.imgVector8, w: 175, h: 53, fixed: true },
   { src: FIGMA_ASSETS.imgVector9, w: 136, h: 79, fixed: true },
 ];
@@ -61,7 +61,7 @@ export function Partners() {
             src={logo.src}
             alt="Partner logo"
             style={{
-              width:  logo.fixed ? logo.w : logo.w ? Math.round(logo.w * MAX_H / logo.h!) : 150,
+              width: logo.fixed ? logo.w : logo.w ? Math.round((logo.w * MAX_H) / logo.h!) : 150,
               height: logo.fixed ? logo.h : logo.h ? MAX_H : 44,
               opacity: 0.7,
               flexShrink: 0,
@@ -77,9 +77,9 @@ export function Partners() {
             src={logo.src}
             alt="Partner logo"
             style={{
-              width:  logo.fixed ? logo.w : logo.w ? Math.round(logo.w * MAX_H / logo.h!) : 150,
+              width: logo.fixed ? logo.w : logo.w ? Math.round((logo.w * MAX_H) / logo.h!) : 150,
               height: logo.fixed ? logo.h : logo.h ? MAX_H : 44,
-                opacity: 0.7,
+              opacity: 0.7,
               flexShrink: 0,
               display: "block",
             }}

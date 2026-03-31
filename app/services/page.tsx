@@ -68,22 +68,55 @@ const MOBILE_SERVICE_ITEMS = [
 
 function Awwwards({ className }: { className?: string }) {
   return (
-    <div className={className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1240px]"} data-name="Awwwards" data-node-id="165:646">
-      <div className="-translate-x-1/2 absolute bg-[rgba(40,43,103,0.38)] h-[48px] left-[calc(50%-70px)] rounded-[28px] top-[8px] w-[798px]" data-name="Link [button]" data-node-id="165:647">
-        <div className="-translate-x-1/2 absolute content-stretch flex font-['Inter:Semi_Bold',sans-serif] font-semibold gap-[41px] items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap" data-node-id="165:648">
-          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:649" href="/">
+    <div
+      className={
+        className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1240px]"
+      }
+      data-name="Awwwards"
+      data-node-id="165:646"
+    >
+      <div
+        className="-translate-x-1/2 absolute bg-[rgba(40,43,103,0.38)] h-[48px] left-[calc(50%-70px)] rounded-[28px] top-[8px] w-[798px]"
+        data-name="Link [button]"
+        data-node-id="165:647"
+      >
+        <div
+          className="-translate-x-1/2 absolute content-stretch flex font-['Inter:Semi_Bold',sans-serif] font-semibold gap-[41px] items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap"
+          data-node-id="165:648"
+        >
+          <Link
+            className="flex flex-col justify-center relative shrink-0"
+            data-node-id="165:649"
+            href="/"
+          >
             <p className="leading-[15.6px]">Home</p>
           </Link>
-          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:650" href="/services">
+          <Link
+            className="flex flex-col justify-center relative shrink-0"
+            data-node-id="165:650"
+            href="/services"
+          >
             <p className="leading-[15.6px]">Services</p>
           </Link>
-          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:651" href="/portfolio">
+          <Link
+            className="flex flex-col justify-center relative shrink-0"
+            data-node-id="165:651"
+            href="/portfolio"
+          >
             <p className="leading-[15.6px]">Portfolio</p>
           </Link>
-          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:652" href="/about-us">
+          <Link
+            className="flex flex-col justify-center relative shrink-0"
+            data-node-id="165:652"
+            href="/about-us"
+          >
             <p className="leading-[15.6px]">About Us</p>
           </Link>
-          <Link className="flex flex-col justify-center relative shrink-0" data-node-id="165:654" href="/contact">
+          <Link
+            className="flex flex-col justify-center relative shrink-0"
+            data-node-id="165:654"
+            href="/contact"
+          >
             <p className="leading-[15.6px]">Contact</p>
           </Link>
         </div>
@@ -95,10 +128,21 @@ function Awwwards({ className }: { className?: string }) {
         data-name="Neetrino-it-comapny-(2)png 1"
         data-node-id="165:657"
       >
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgNeetrinoItComapny2Png1} />
+        <img
+          alt=""
+          className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"
+          src={imgNeetrinoItComapny2Png1}
+        />
       </Link>
-      <div className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]" data-node-id="165:658">
-        <div className="absolute left-[11px] size-[25px] top-[11px]" data-name="Vector" data-node-id="165:660">
+      <div
+        className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]"
+        data-node-id="165:658"
+      >
+        <div
+          className="absolute left-[11px] size-[25px] top-[11px]"
+          data-name="Vector"
+          data-node-id="165:660"
+        >
           <img alt="" className="absolute block max-w-none size-full" src={imgVector} />
         </div>
       </div>
@@ -112,18 +156,37 @@ type Card3Props = {
 
 function Card3({ className, property1 = "Secure Transactions default" }: Card3Props) {
   return (
-    <div className={className || "content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"} data-node-id="165:628">
-      <div aria-hidden="true" className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]" />
+    <div
+      className={
+        className ||
+        "content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"
+      }
+      data-node-id="165:628"
+    >
+      <div
+        aria-hidden="true"
+        className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]"
+      />
       <div className="relative shrink-0 size-[40px]" data-name="Shield done" data-node-id="165:629">
         <img alt="" className="absolute block max-w-none size-full" src={imgShieldDone} />
       </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full" data-node-id="165:632">
-        <div className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-[282px]" data-node-id="165:633">
+      <div
+        className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
+        data-node-id="165:632"
+      >
+        <div
+          className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-[282px]"
+          data-node-id="165:633"
+        >
           <p className="leading-[40px] mb-0">Cloud</p>
           <p className="leading-[40px]">Solutions</p>
         </div>
-        <p className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]" data-node-id="165:634">
-          Scalable cloud infrastructure and services to ensure your applications are always available, secure, and performant.
+        <p
+          className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+          data-node-id="165:634"
+        >
+          Scalable cloud infrastructure and services to ensure your applications are always
+          available, secure, and performant.
         </p>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">
@@ -135,14 +198,37 @@ function Card3({ className, property1 = "Secure Transactions default" }: Card3Pr
           </div>
         </div>
       </div>
-      <div className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0" data-name="Button 13" data-node-id="165:636">
-        <div className="absolute bg-[#ff28d0] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:636;13:52" />
-        <p className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap" data-node-id="I165:636;13:33">
+      <div
+        className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0"
+        data-name="Button 13"
+        data-node-id="165:636"
+      >
+        <div
+          className="absolute bg-[#ff28d0] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+          data-name="glow"
+          data-node-id="I165:636;13:52"
+        />
+        <p
+          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+          data-node-id="I165:636;13:33"
+        >
           Continue
         </p>
-        <div className="absolute bg-[#ff28d0] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:636;13:44" />
-        <div className="overflow-clip relative shrink-0 size-[20px]" data-name="Right" data-node-id="I165:636;13:34">
-          <div className="absolute inset-[8.33%]" data-name="safearea" data-node-id="I165:636;13:34;21:1594">
+        <div
+          className="absolute bg-[#ff28d0] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+          data-name="glow"
+          data-node-id="I165:636;13:44"
+        />
+        <div
+          className="overflow-clip relative shrink-0 size-[20px]"
+          data-name="Right"
+          data-node-id="I165:636;13:34"
+        >
+          <div
+            className="absolute inset-[8.33%]"
+            data-name="safearea"
+            data-node-id="I165:636;13:34;21:1594"
+          >
             <img alt="" className="absolute block max-w-none size-full" src={imgSafearea} />
           </div>
         </div>
@@ -158,18 +244,37 @@ type Card2Props = {
 
 function Card2({ className, property1 = "Secure Transactions default" }: Card2Props) {
   return (
-    <div className={className || "content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"} data-node-id="165:609">
-      <div aria-hidden="true" className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]" />
+    <div
+      className={
+        className ||
+        "content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"
+      }
+      data-node-id="165:609"
+    >
+      <div
+        aria-hidden="true"
+        className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]"
+      />
       <div className="relative shrink-0 size-[40px]" data-name="Shield done" data-node-id="165:610">
         <img alt="" className="absolute block max-w-none size-full" src={imgShieldDone} />
       </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full" data-node-id="165:613">
-        <div className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-[282px]" data-node-id="165:614">
+      <div
+        className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
+        data-node-id="165:613"
+      >
+        <div
+          className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-[282px]"
+          data-node-id="165:614"
+        >
           <p className="leading-[40px] mb-0">Cloud</p>
           <p className="leading-[40px]">Solutions</p>
         </div>
-        <p className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]" data-node-id="165:615">
-          Scalable cloud infrastructure and services to ensure your applications are always available, secure, and performant.
+        <p
+          className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+          data-node-id="165:615"
+        >
+          Scalable cloud infrastructure and services to ensure your applications are always
+          available, secure, and performant.
         </p>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">
@@ -181,14 +286,37 @@ function Card2({ className, property1 = "Secure Transactions default" }: Card2Pr
           </div>
         </div>
       </div>
-      <div className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0" data-name="Button 13" data-node-id="165:617">
-        <div className="absolute bg-[#46ff62] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:617;13:52" />
-        <p className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap" data-node-id="I165:617;13:33">
+      <div
+        className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0"
+        data-name="Button 13"
+        data-node-id="165:617"
+      >
+        <div
+          className="absolute bg-[#46ff62] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+          data-name="glow"
+          data-node-id="I165:617;13:52"
+        />
+        <p
+          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+          data-node-id="I165:617;13:33"
+        >
           Continue
         </p>
-        <div className="absolute bg-[#46ff62] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:617;13:44" />
-        <div className="overflow-clip relative shrink-0 size-[20px]" data-name="Right" data-node-id="I165:617;13:34">
-          <div className="absolute inset-[8.33%]" data-name="safearea" data-node-id="I165:617;13:34;21:1594">
+        <div
+          className="absolute bg-[#46ff62] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+          data-name="glow"
+          data-node-id="I165:617;13:44"
+        />
+        <div
+          className="overflow-clip relative shrink-0 size-[20px]"
+          data-name="Right"
+          data-node-id="I165:617;13:34"
+        >
+          <div
+            className="absolute inset-[8.33%]"
+            data-name="safearea"
+            data-node-id="I165:617;13:34;21:1594"
+          >
             <img alt="" className="absolute block max-w-none size-full" src={imgSafearea} />
           </div>
         </div>
@@ -204,18 +332,37 @@ type CardProps = {
 
 function Card({ className, property1 = "Secure Transactions default" }: CardProps) {
   return (
-    <div className={className || "content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"} data-node-id="165:590">
-      <div aria-hidden="true" className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]" />
+    <div
+      className={
+        className ||
+        "content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"
+      }
+      data-node-id="165:590"
+    >
+      <div
+        aria-hidden="true"
+        className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]"
+      />
       <div className="relative shrink-0 size-[40px]" data-name="Shield done" data-node-id="165:591">
         <img alt="" className="absolute block max-w-none size-full" src={imgShieldDone} />
       </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full" data-node-id="165:594">
-        <div className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-[282px]" data-node-id="165:595">
+      <div
+        className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
+        data-node-id="165:594"
+      >
+        <div
+          className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-[282px]"
+          data-node-id="165:595"
+        >
           <p className="leading-[40px] mb-0">CRM</p>
           <p className="leading-[40px]">Systems</p>
         </div>
-        <p className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]" data-node-id="165:596">
-          Powerful customer relationship management solutions to streamline your sales process and boost customer satisfaction.
+        <p
+          className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+          data-node-id="165:596"
+        >
+          Powerful customer relationship management solutions to streamline your sales process and
+          boost customer satisfaction.
         </p>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">
@@ -227,14 +374,37 @@ function Card({ className, property1 = "Secure Transactions default" }: CardProp
           </div>
         </div>
       </div>
-      <div className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0" data-name="Button 13" data-node-id="165:598">
-        <div className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:598;13:52" />
-        <p className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap" data-node-id="I165:598;13:33">
+      <div
+        className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0"
+        data-name="Button 13"
+        data-node-id="165:598"
+      >
+        <div
+          className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+          data-name="glow"
+          data-node-id="I165:598;13:52"
+        />
+        <p
+          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+          data-node-id="I165:598;13:33"
+        >
           Continue
         </p>
-        <div className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:598;13:44" />
-        <div className="overflow-clip relative shrink-0 size-[20px]" data-name="Right" data-node-id="I165:598;13:34">
-          <div className="absolute inset-[8.33%]" data-name="safearea" data-node-id="I165:598;13:34;21:1594">
+        <div
+          className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+          data-name="glow"
+          data-node-id="I165:598;13:44"
+        />
+        <div
+          className="overflow-clip relative shrink-0 size-[20px]"
+          data-name="Right"
+          data-node-id="I165:598;13:34"
+        >
+          <div
+            className="absolute inset-[8.33%]"
+            data-name="safearea"
+            data-node-id="I165:598;13:34;21:1594"
+          >
             <img alt="" className="absolute block max-w-none size-full" src={imgSafearea} />
           </div>
         </div>
@@ -250,19 +420,46 @@ type Card1Props = {
 
 function Card1({ className, property1 = "Secure Transactions default" }: Card1Props) {
   return (
-    <div className={className || "content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"} data-node-id="165:569">
-      <div aria-hidden="true" className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]" />
-      <div className="overflow-clip relative shrink-0 size-[40px]" data-name="Shield done" data-node-id="165:570">
-        <div className="absolute inset-[5%_21.72%_10%_25.16%]" data-name="Group" data-node-id="165:571">
+    <div
+      className={
+        className ||
+        "content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"
+      }
+      data-node-id="165:569"
+    >
+      <div
+        aria-hidden="true"
+        className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]"
+      />
+      <div
+        className="overflow-clip relative shrink-0 size-[40px]"
+        data-name="Shield done"
+        data-node-id="165:570"
+      >
+        <div
+          className="absolute inset-[5%_21.72%_10%_25.16%]"
+          data-name="Group"
+          data-node-id="165:571"
+        >
           <img alt="" className="absolute block max-w-none size-full" src={imgGroup} />
         </div>
       </div>
-      <div className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full" data-node-id="165:574">
-        <p className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]" data-node-id="165:575">
+      <div
+        className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
+        data-node-id="165:574"
+      >
+        <p
+          className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
+          data-node-id="165:575"
+        >
           Mobile App Development
         </p>
-        <p className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]" data-node-id="165:576">
-          Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android devices.
+        <p
+          className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+          data-node-id="165:576"
+        >
+          Native and cross-platform mobile applications that deliver exceptional user experiences on
+          iOS and Android devices.
         </p>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">
@@ -274,14 +471,37 @@ function Card1({ className, property1 = "Secure Transactions default" }: Card1Pr
           </div>
         </div>
       </div>
-      <div className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0" data-name="Button 13" data-node-id="165:578">
-        <div className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:578;13:52" />
-        <p className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap" data-node-id="I165:578;13:33">
+      <div
+        className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0"
+        data-name="Button 13"
+        data-node-id="165:578"
+      >
+        <div
+          className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+          data-name="glow"
+          data-node-id="I165:578;13:52"
+        />
+        <p
+          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+          data-node-id="I165:578;13:33"
+        >
           Continue
         </p>
-        <div className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:578;13:44" />
-        <div className="overflow-clip relative shrink-0 size-[20px]" data-name="Right" data-node-id="I165:578;13:34">
-          <div className="absolute inset-[8.33%]" data-name="safearea" data-node-id="I165:578;13:34;21:1594">
+        <div
+          className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+          data-name="glow"
+          data-node-id="I165:578;13:44"
+        />
+        <div
+          className="overflow-clip relative shrink-0 size-[20px]"
+          data-name="Right"
+          data-node-id="I165:578;13:34"
+        >
+          <div
+            className="absolute inset-[8.33%]"
+            data-name="safearea"
+            data-node-id="I165:578;13:34;21:1594"
+          >
             <img alt="" className="absolute block max-w-none size-full" src={imgSafearea} />
           </div>
         </div>
@@ -298,7 +518,9 @@ export default function Services() {
         <NonHomeMobileHeader />
         <main className="section-container pt-24 pb-14">
           <section className="py-10">
-            <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">Services</p>
+            <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">
+              Services
+            </p>
             <h1 className="mt-3 font-['Megatrox',sans-serif] text-4xl leading-tight text-white">
               SERVICES
             </h1>
@@ -331,215 +553,418 @@ export default function Services() {
 
       <div className="hidden lg:block">
         <CanvasScaler canvasWidth={1440} canvasHeight={2174}>
-          <div className="bg-[#151515] relative h-[2174px] w-[1440px]" data-name="SERVICES" data-node-id="165:666">
-      <div className="-translate-x-1/2 absolute flex h-[3723px] items-center justify-center left-[calc(50%-38px)] mix-blend-overlay top-[-40px] w-[1722px]">
-        <div className="flex-none rotate-90">
-          <div className="h-[1722px] relative w-[3723px]" data-name="Vector" data-node-id="165:667">
-            <img alt="" className="absolute block max-w-none size-full" src={imgVector2} />
-          </div>
-        </div>
-      </div>
-      <div className="-translate-x-1/2 absolute h-[664px] left-[calc(50%-4.5px)] top-[1529px] w-[1437px]" data-node-id="165:668">
-        <div className="absolute inset-[-28.94%_-15.66%_-29.47%_-15.66%]">
-          <img alt="" className="block max-w-none size-full" src={imgRectangle17416} />
-        </div>
-      </div>
-      <div className="absolute contents left-[600px] top-[1611px]" data-node-id="165:669">
-        <div className="absolute h-[563px] left-[600px] mix-blend-lighten opacity-70 top-[1614px] w-[633px]" data-name="10" data-node-id="165:670">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="" className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full" src={img10} />
-          </div>
-        </div>
-        <div className="absolute h-[563px] left-[600px] opacity-70 top-[1611px] w-[633px]" data-name="101" data-node-id="165:671">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img alt="" className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full" src={img10} />
-          </div>
-        </div>
-      </div>
-      <div className="-translate-x-1/2 absolute h-[405px] left-[calc(50%+0.5px)] top-[1013px] w-[1437px]" data-node-id="165:672">
-        <div className="absolute inset-[-50.95%_-15.66%_-51.42%_-15.66%]">
-          <img alt="" className="block max-w-none size-full" src={imgRectangle17414} />
-        </div>
-      </div>
-      <div className="-translate-x-1/2 absolute h-[1585px] left-[calc(50%+1px)] top-0 w-[1438px]" data-name="Light Rays Effect" data-node-id="165:673">
-        <div className="-translate-x-1/2 absolute bottom-[64.13%] left-[calc(50%+62.8px)] top-[-26.19%] w-[1047.338px]" data-node-id="165:674">
-          <div className="absolute inset-[-52.12%_-48.95%]">
-            <img alt="" className="block max-w-none size-full" src={imgEllipse27} />
-          </div>
-        </div>
-        <div className="-translate-x-1/2 absolute bottom-[53.71%] left-[calc(50%+793.12px)] top-[-15.77%] w-[1047.338px]" data-node-id="165:675">
-          <div className="absolute inset-[-52.12%_-48.95%]">
-            <img alt="" className="block max-w-none size-full" src={imgEllipse28} />
-          </div>
-        </div>
-        <div className="absolute flex h-[5878.103px] items-center justify-center left-[-797.93px] mix-blend-plus-lighter top-[-3956.96px] w-[5638.546px]">
-          <div className="flex-none rotate-[24.39deg]">
-            <div className="h-[4590.797px] relative w-[4109.595px]" data-node-id="165:676">
-              <div className="absolute inset-[-2.59%_-2.9%]">
-                <img alt="" className="block max-w-none size-full" height="4828.797" src={imgStar22} width="4347.595" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <p className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap" data-node-id="165:677">
-          SERVICES
-        </p>
-        <div className="absolute contents left-[-29px] top-[-415px]" data-node-id="165:678">
-          <div className="absolute contents left-[927.52px] top-[-415px]" data-node-id="165:679">
-            <div className="absolute flex h-[759.42px] items-center justify-center left-[947.82px] mix-blend-plus-lighter top-[-415px] w-0">
+          <div
+            className="bg-[#151515] relative h-[2174px] w-[1440px]"
+            data-name="SERVICES"
+            data-node-id="165:666"
+          >
+            <div className="-translate-x-1/2 absolute flex h-[3723px] items-center justify-center left-[calc(50%-38px)] mix-blend-overlay top-[-40px] w-[1722px]">
               <div className="flex-none rotate-90">
-                <div className="h-0 relative w-[759.42px]" data-node-id="165:680">
-                  <div className="absolute inset-[-14.04px_-1.23%]">
-                    <img alt="" className="block max-w-none size-full" src={imgLine734} />
+                <div
+                  className="h-[1722px] relative w-[3723px]"
+                  data-name="Vector"
+                  data-node-id="165:667"
+                >
+                  <img alt="" className="absolute block max-w-none size-full" src={imgVector2} />
+                </div>
+              </div>
+            </div>
+            <div
+              className="-translate-x-1/2 absolute h-[664px] left-[calc(50%-4.5px)] top-[1529px] w-[1437px]"
+              data-node-id="165:668"
+            >
+              <div className="absolute inset-[-28.94%_-15.66%_-29.47%_-15.66%]">
+                <img alt="" className="block max-w-none size-full" src={imgRectangle17416} />
+              </div>
+            </div>
+            <div className="absolute contents left-[600px] top-[1611px]" data-node-id="165:669">
+              <div
+                className="absolute h-[563px] left-[600px] mix-blend-lighten opacity-70 top-[1614px] w-[633px]"
+                data-name="10"
+                data-node-id="165:670"
+              >
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <img
+                    alt=""
+                    className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
+                    src={img10}
+                  />
+                </div>
+              </div>
+              <div
+                className="absolute h-[563px] left-[600px] opacity-70 top-[1611px] w-[633px]"
+                data-name="101"
+                data-node-id="165:671"
+              >
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <img
+                    alt=""
+                    className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
+                    src={img10}
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="-translate-x-1/2 absolute h-[405px] left-[calc(50%+0.5px)] top-[1013px] w-[1437px]"
+              data-node-id="165:672"
+            >
+              <div className="absolute inset-[-50.95%_-15.66%_-51.42%_-15.66%]">
+                <img alt="" className="block max-w-none size-full" src={imgRectangle17414} />
+              </div>
+            </div>
+            <div
+              className="-translate-x-1/2 absolute h-[1585px] left-[calc(50%+1px)] top-0 w-[1438px]"
+              data-name="Light Rays Effect"
+              data-node-id="165:673"
+            >
+              <div
+                className="-translate-x-1/2 absolute bottom-[64.13%] left-[calc(50%+62.8px)] top-[-26.19%] w-[1047.338px]"
+                data-node-id="165:674"
+              >
+                <div className="absolute inset-[-52.12%_-48.95%]">
+                  <img alt="" className="block max-w-none size-full" src={imgEllipse27} />
+                </div>
+              </div>
+              <div
+                className="-translate-x-1/2 absolute bottom-[53.71%] left-[calc(50%+793.12px)] top-[-15.77%] w-[1047.338px]"
+                data-node-id="165:675"
+              >
+                <div className="absolute inset-[-52.12%_-48.95%]">
+                  <img alt="" className="block max-w-none size-full" src={imgEllipse28} />
+                </div>
+              </div>
+              <div className="absolute flex h-[5878.103px] items-center justify-center left-[-797.93px] mix-blend-plus-lighter top-[-3956.96px] w-[5638.546px]">
+                <div className="flex-none rotate-[24.39deg]">
+                  <div className="h-[4590.797px] relative w-[4109.595px]" data-node-id="165:676">
+                    <div className="absolute inset-[-2.59%_-2.9%]">
+                      <img
+                        alt=""
+                        className="block max-w-none size-full"
+                        height="4828.797"
+                        src={imgStar22}
+                        width="4347.595"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p
+                className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap"
+                data-node-id="165:677"
+              >
+                SERVICES
+              </p>
+              <div className="absolute contents left-[-29px] top-[-415px]" data-node-id="165:678">
+                <div
+                  className="absolute contents left-[927.52px] top-[-415px]"
+                  data-node-id="165:679"
+                >
+                  <div className="absolute flex h-[759.42px] items-center justify-center left-[947.82px] mix-blend-plus-lighter top-[-415px] w-0">
+                    <div className="flex-none rotate-90">
+                      <div className="h-0 relative w-[759.42px]" data-node-id="165:680">
+                        <div className="absolute inset-[-14.04px_-1.23%]">
+                          <img alt="" className="block max-w-none size-full" src={imgLine734} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute flex h-[759.42px] items-center justify-center left-[947.82px] mix-blend-plus-lighter top-[-415px] w-0">
+                    <div className="flex-none rotate-90">
+                      <div className="h-0 relative w-[759.42px]" data-node-id="165:681">
+                        <div className="absolute inset-[-23.4px_-2.47%]">
+                          <img alt="" className="block max-w-none size-full" src={imgLine735} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="absolute bg-gradient-to-b blur-[35.104px] from-[rgba(255,255,255,0)] h-[759.42px] left-[927.52px] mix-blend-plus-lighter opacity-50 to-[#1797ff] top-[-415px] via-[#ff6613] via-[80%] w-[45.68px]"
+                    data-node-id="165:682"
+                  />
+                  <div
+                    className="absolute bg-gradient-to-b blur-[15.212px] from-[rgba(255,255,255,0)] h-[759.42px] left-[927.52px] mix-blend-plus-lighter opacity-20 to-[#1797ff] top-[-415px] via-[#ff6613] via-[80%] w-[45.68px]"
+                    data-node-id="165:683"
+                  />
+                  <div
+                    className="absolute bg-gradient-to-b blur-[24.573px] from-[rgba(255,255,255,0)] h-[759.42px] left-[927.52px] mix-blend-plus-lighter opacity-10 to-[#1797ff] top-[-415px] via-[#ff6613] via-[80%] w-[45.68px]"
+                    data-node-id="165:684"
+                  />
+                </div>
+                <div
+                  className="absolute h-[440.557px] left-[262.63px] mix-blend-plus-lighter top-[209.27px] w-[1100.749px]"
+                  data-node-id="165:685"
+                >
+                  <div className="absolute inset-[-20.19%_-8.08%]">
+                    <img alt="" className="block max-w-none size-full" src={imgVector27397} />
+                  </div>
+                </div>
+                <div
+                  className="absolute h-[435.5px] left-[67.39px] mix-blend-plus-lighter top-[176px] w-[1295.834px]"
+                  data-node-id="165:686"
+                >
+                  <div className="absolute inset-[-20.42%_-6.86%]">
+                    <img alt="" className="block max-w-none size-full" src={imgVector27398} />
+                  </div>
+                </div>
+                <div
+                  className="absolute h-[645.917px] left-[1056.94px] mix-blend-plus-lighter top-[339.74px] w-[336.252px]"
+                  data-node-id="165:687"
+                >
+                  <div className="absolute inset-[-21.01%_-40.37%]">
+                    <img
+                      alt=""
+                      className="block max-w-none size-full"
+                      src={imgRectangle240649642}
+                    />
+                  </div>
+                </div>
+                <div className="absolute flex h-[645.917px] items-center justify-center left-[-29px] mix-blend-plus-lighter top-[288px] w-[336.252px]">
+                  <div className="-scale-y-100 flex-none rotate-180">
+                    <div className="h-[645.917px] relative w-[336.252px]" data-node-id="165:688">
+                      <div className="absolute inset-[-21.01%_-40.37%]">
+                        <img
+                          alt=""
+                          className="block max-w-none size-full"
+                          src={imgRectangle240650146}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="-translate-x-1/2 absolute content-stretch flex gap-[58px] items-center left-[calc(50%+0.5px)] top-[370px]"
+                data-node-id="165:689"
+              >
+                <div
+                  className="content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]"
+                  data-name="Card 4"
+                  data-node-id="165:690"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="absolute bg-gradient-to-b from-[#0d0c12] inset-0 pointer-events-none rounded-[38px] to-[#0d111d]"
+                  />
+                  <div
+                    className="relative shrink-0 size-[40px]"
+                    data-name="Building"
+                    data-node-id="I165:690;406:2853"
+                  >
+                    <img alt="" className="absolute block max-w-none size-full" src={imgBuilding} />
+                  </div>
+                  <div
+                    className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
+                    data-node-id="I165:690;406:2861"
+                  >
+                    <p
+                      className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-full"
+                      data-node-id="I165:690;406:2862"
+                    >
+                      Website Development
+                    </p>
+                    <p
+                      className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-full"
+                      data-node-id="I165:690;406:2863"
+                    >
+                      Cutting-edge web solutions built with modern technologies, optimized for
+                      performance and designed to convert visitors into customers.
+                    </p>
+                  </div>
+                  <div className="absolute flex h-[99.524px] items-center justify-center left-[-42px] top-[-59px] w-[97.992px]">
+                    <div className="flex-none rotate-[51.41deg]">
+                      <div
+                        className="h-[65.42px] relative w-[75.124px]"
+                        data-node-id="I165:690;406:2871"
+                      >
+                        <div className="absolute inset-[-82.24%_-71.61%]">
+                          <img alt="" className="block max-w-none size-full" src={imgEllipse6} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0"
+                    data-name="Button 13"
+                    data-node-id="I165:690;406:3012"
+                  >
+                    <div
+                      className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+                      data-name="glow"
+                      data-node-id="I165:690;406:3012;13:52"
+                    />
+                    <p
+                      className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+                      data-node-id="I165:690;406:3012;13:33"
+                    >
+                      Continue
+                    </p>
+                    <div
+                      className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+                      data-name="glow"
+                      data-node-id="I165:690;406:3012;13:44"
+                    />
+                    <div
+                      className="overflow-clip relative shrink-0 size-[20px]"
+                      data-name="Right"
+                      data-node-id="I165:690;406:3012;13:34"
+                    >
+                      <div
+                        className="absolute inset-[8.33%]"
+                        data-name="safearea"
+                        data-node-id="I165:690;406:3012;13:34;21:1594"
+                      >
+                        <img
+                          alt=""
+                          className="absolute block max-w-none size-full"
+                          src={imgSafearea}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-1px_10.8px_0px_rgba(102,148,255,0.2),inset_0px_-30px_12px_-1px_rgba(35,101,255,0.15),inset_0px_-24px_16.7px_-9px_rgba(255,255,255,0.64),inset_0px_-34px_26.7px_-10px_rgba(102,148,255,0.5),inset_0px_-30px_46.8px_-33px_#144ccd]" />
+                </div>
+                <div
+                  className="content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]"
+                  data-name="Card 2"
+                  data-node-id="165:691"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="absolute bg-gradient-to-b from-[#120a0b] inset-0 pointer-events-none rounded-[38px] to-[#1b0a03]"
+                  />
+                  <div
+                    className="relative shrink-0 size-[40px]"
+                    data-name="Layers"
+                    data-node-id="I165:691;406:3043"
+                  >
+                    <img alt="" className="absolute block max-w-none size-full" src={imgLayers} />
+                  </div>
+                  <div
+                    className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
+                    data-node-id="I165:691;406:3047"
+                  >
+                    <div
+                      className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-full"
+                      data-node-id="I165:691;406:3048"
+                    >
+                      <p className="leading-[40px] mb-0">{`AI & Bo`}</p>
+                      <p className="leading-[40px]">Solutions</p>
+                    </div>
+                    <p
+                      className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-full"
+                      data-node-id="I165:691;406:3049"
+                    >
+                      Intelligent automation powered by machine learning and natural language
+                      processing to transform your business operations.
+                    </p>
+                  </div>
+                  <div className="absolute flex h-[99.524px] items-center justify-center left-[-42px] top-[-59px] w-[97.992px]">
+                    <div className="flex-none rotate-[51.41deg]">
+                      <div
+                        className="h-[65.42px] relative w-[75.124px]"
+                        data-node-id="I165:691;406:3057"
+                      >
+                        <div className="absolute inset-[-82.24%_-71.61%]">
+                          <img alt="" className="block max-w-none size-full" src={imgEllipse7} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0"
+                    data-name="Button 13"
+                    data-node-id="I165:691;406:3091"
+                  >
+                    <div
+                      className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+                      data-name="glow"
+                      data-node-id="I165:691;406:3091;13:52"
+                    />
+                    <p
+                      className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+                      data-node-id="I165:691;406:3091;13:33"
+                    >
+                      Continue
+                    </p>
+                    <div
+                      className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
+                      data-name="glow"
+                      data-node-id="I165:691;406:3091;13:44"
+                    />
+                    <div
+                      className="overflow-clip relative shrink-0 size-[20px]"
+                      data-name="Right"
+                      data-node-id="I165:691;406:3091;13:34"
+                    >
+                      <div
+                        className="absolute inset-[8.33%]"
+                        data-name="safearea"
+                        data-node-id="I165:691;406:3091;13:34;21:1594"
+                      >
+                        <img
+                          alt=""
+                          className="absolute block max-w-none size-full"
+                          src={imgSafearea}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-1px_10.8px_0px_rgba(255,237,102,0.2),inset_0px_-30px_12px_-1px_rgba(255,233,177,0.17),inset_0px_-37px_16px_-36px_rgba(255,255,255,0.25),inset_0px_-34px_26.7px_-15px_rgba(255,240,126,0.5),inset_0px_-40px_46.8px_-30px_#e63e28]" />
+                </div>
+                <Card1 className="content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]" />
+              </div>
+              <Card className="absolute content-stretch flex flex-col gap-[30px] h-[463px] items-start left-[108px] overflow-clip px-[40px] py-[60px] rounded-[38px] top-[906px] w-[369px]" />
+              <Card2 className="absolute content-stretch flex flex-col gap-[30px] h-[463px] items-start left-[535px] overflow-clip px-[40px] py-[60px] rounded-[38px] top-[906px] w-[369px]" />
+              <Card3 className="absolute content-stretch flex flex-col gap-[30px] h-[463px] items-start left-[962px] overflow-clip px-[40px] py-[60px] rounded-[38px] top-[906px] w-[369px]" />
+            </div>
+            <div
+              className="-translate-x-1/2 absolute contents h-[2233.132px] left-[calc(50%+3586.51px)] mix-blend-hard-light top-[2816px] w-[2229.008px]"
+              data-name="Planet"
+              data-node-id="165:696"
+            >
+              <div className="absolute flex h-[1513.932px] items-center justify-center left-[3526.05px] mix-blend-hard-light top-[3123.23px] w-[1554.175px]">
+                <div className="flex-none rotate-[-8.02deg]">
+                  <div
+                    className="h-[1334.261px] opacity-40 relative w-[1381.565px]"
+                    data-node-id="165:697"
+                  >
+                    <div className="absolute inset-[-1.5%_-1.45%]">
+                      <img alt="" className="block max-w-none size-full" src={imgEllipse1} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="-translate-x-1/2 absolute flex h-[1885.436px] items-center justify-center left-[calc(50%+3586.51px)] mix-blend-hard-light top-[2989.85px] w-[1878.113px]">
+                <div className="flex-none rotate-[-68.02deg]">
+                  <div
+                    className="h-[1439.104px] opacity-40 relative w-[1452.347px]"
+                    data-name="pngwing 6"
+                    data-node-id="165:698"
+                  >
+                    <img
+                      alt=""
+                      className="absolute block max-w-none size-full"
+                      height="1439.104"
+                      src={imgPngwing6}
+                      width="1452.347"
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <div className="absolute flex h-[759.42px] items-center justify-center left-[947.82px] mix-blend-plus-lighter top-[-415px] w-0">
-              <div className="flex-none rotate-90">
-                <div className="h-0 relative w-[759.42px]" data-node-id="165:681">
-                  <div className="absolute inset-[-23.4px_-2.47%]">
-                    <img alt="" className="block max-w-none size-full" src={imgLine735} />
-                  </div>
-                </div>
-              </div>
+            <Awwwards className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1240px]" />
+            <CanvasFooter className="left-0 top-[1584px]" />
+            <div
+              className="absolute inset-[-30.68%_-197.36%_118.77%_150.21%]"
+              data-name="Component 21"
+              data-node-id="165:832"
+            >
+              <img alt="" className="absolute block max-w-none size-full" src={imgComponent21} />
             </div>
-            <div className="absolute bg-gradient-to-b blur-[35.104px] from-[rgba(255,255,255,0)] h-[759.42px] left-[927.52px] mix-blend-plus-lighter opacity-50 to-[#1797ff] top-[-415px] via-[#ff6613] via-[80%] w-[45.68px]" data-node-id="165:682" />
-            <div className="absolute bg-gradient-to-b blur-[15.212px] from-[rgba(255,255,255,0)] h-[759.42px] left-[927.52px] mix-blend-plus-lighter opacity-20 to-[#1797ff] top-[-415px] via-[#ff6613] via-[80%] w-[45.68px]" data-node-id="165:683" />
-            <div className="absolute bg-gradient-to-b blur-[24.573px] from-[rgba(255,255,255,0)] h-[759.42px] left-[927.52px] mix-blend-plus-lighter opacity-10 to-[#1797ff] top-[-415px] via-[#ff6613] via-[80%] w-[45.68px]" data-node-id="165:684" />
-          </div>
-          <div className="absolute h-[440.557px] left-[262.63px] mix-blend-plus-lighter top-[209.27px] w-[1100.749px]" data-node-id="165:685">
-            <div className="absolute inset-[-20.19%_-8.08%]">
-              <img alt="" className="block max-w-none size-full" src={imgVector27397} />
-            </div>
-          </div>
-          <div className="absolute h-[435.5px] left-[67.39px] mix-blend-plus-lighter top-[176px] w-[1295.834px]" data-node-id="165:686">
-            <div className="absolute inset-[-20.42%_-6.86%]">
-              <img alt="" className="block max-w-none size-full" src={imgVector27398} />
-            </div>
-          </div>
-          <div className="absolute h-[645.917px] left-[1056.94px] mix-blend-plus-lighter top-[339.74px] w-[336.252px]" data-node-id="165:687">
-            <div className="absolute inset-[-21.01%_-40.37%]">
-              <img alt="" className="block max-w-none size-full" src={imgRectangle240649642} />
-            </div>
-          </div>
-          <div className="absolute flex h-[645.917px] items-center justify-center left-[-29px] mix-blend-plus-lighter top-[288px] w-[336.252px]">
-            <div className="-scale-y-100 flex-none rotate-180">
-              <div className="h-[645.917px] relative w-[336.252px]" data-node-id="165:688">
-                <div className="absolute inset-[-21.01%_-40.37%]">
-                  <img alt="" className="block max-w-none size-full" src={imgRectangle240650146} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="-translate-x-1/2 absolute content-stretch flex gap-[58px] items-center left-[calc(50%+0.5px)] top-[370px]" data-node-id="165:689">
-          <div className="content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]" data-name="Card 4" data-node-id="165:690">
-            <div aria-hidden="true" className="absolute bg-gradient-to-b from-[#0d0c12] inset-0 pointer-events-none rounded-[38px] to-[#0d111d]" />
-            <div className="relative shrink-0 size-[40px]" data-name="Building" data-node-id="I165:690;406:2853">
-              <img alt="" className="absolute block max-w-none size-full" src={imgBuilding} />
-            </div>
-            <div className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full" data-node-id="I165:690;406:2861">
-              <p className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-full" data-node-id="I165:690;406:2862">
-                Website Development
-              </p>
-              <p className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-full" data-node-id="I165:690;406:2863">
-                Cutting-edge web solutions built with modern technologies, optimized for performance and designed to convert visitors into customers.
-              </p>
-            </div>
-            <div className="absolute flex h-[99.524px] items-center justify-center left-[-42px] top-[-59px] w-[97.992px]">
-              <div className="flex-none rotate-[51.41deg]">
-                <div className="h-[65.42px] relative w-[75.124px]" data-node-id="I165:690;406:2871">
-                  <div className="absolute inset-[-82.24%_-71.61%]">
-                    <img alt="" className="block max-w-none size-full" src={imgEllipse6} />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0" data-name="Button 13" data-node-id="I165:690;406:3012">
-              <div className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:690;406:3012;13:52" />
-              <p className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap" data-node-id="I165:690;406:3012;13:33">
-                Continue
-              </p>
-              <div className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:690;406:3012;13:44" />
-              <div className="overflow-clip relative shrink-0 size-[20px]" data-name="Right" data-node-id="I165:690;406:3012;13:34">
-                <div className="absolute inset-[8.33%]" data-name="safearea" data-node-id="I165:690;406:3012;13:34;21:1594">
-                  <img alt="" className="absolute block max-w-none size-full" src={imgSafearea} />
-                </div>
-              </div>
-            </div>
-            <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-1px_10.8px_0px_rgba(102,148,255,0.2),inset_0px_-30px_12px_-1px_rgba(35,101,255,0.15),inset_0px_-24px_16.7px_-9px_rgba(255,255,255,0.64),inset_0px_-34px_26.7px_-10px_rgba(102,148,255,0.5),inset_0px_-30px_46.8px_-33px_#144ccd]" />
-          </div>
-          <div className="content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]" data-name="Card 2" data-node-id="165:691">
-            <div aria-hidden="true" className="absolute bg-gradient-to-b from-[#120a0b] inset-0 pointer-events-none rounded-[38px] to-[#1b0a03]" />
-            <div className="relative shrink-0 size-[40px]" data-name="Layers" data-node-id="I165:691;406:3043">
-              <img alt="" className="absolute block max-w-none size-full" src={imgLayers} />
-            </div>
-            <div className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full" data-node-id="I165:691;406:3047">
-              <div className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-full" data-node-id="I165:691;406:3048">
-                <p className="leading-[40px] mb-0">{`AI & Bo`}</p>
-                <p className="leading-[40px]">Solutions</p>
-              </div>
-              <p className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-full" data-node-id="I165:691;406:3049">
-                Intelligent automation powered by machine learning and natural language processing to transform your business operations.
-              </p>
-            </div>
-            <div className="absolute flex h-[99.524px] items-center justify-center left-[-42px] top-[-59px] w-[97.992px]">
-              <div className="flex-none rotate-[51.41deg]">
-                <div className="h-[65.42px] relative w-[75.124px]" data-node-id="I165:691;406:3057">
-                  <div className="absolute inset-[-82.24%_-71.61%]">
-                    <img alt="" className="block max-w-none size-full" src={imgEllipse7} />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0" data-name="Button 13" data-node-id="I165:691;406:3091">
-              <div className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:691;406:3091;13:52" />
-              <p className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap" data-node-id="I165:691;406:3091;13:33">
-                Continue
-              </p>
-              <div className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]" data-name="glow" data-node-id="I165:691;406:3091;13:44" />
-              <div className="overflow-clip relative shrink-0 size-[20px]" data-name="Right" data-node-id="I165:691;406:3091;13:34">
-                <div className="absolute inset-[8.33%]" data-name="safearea" data-node-id="I165:691;406:3091;13:34;21:1594">
-                  <img alt="" className="absolute block max-w-none size-full" src={imgSafearea} />
-                </div>
-              </div>
-            </div>
-            <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-1px_10.8px_0px_rgba(255,237,102,0.2),inset_0px_-30px_12px_-1px_rgba(255,233,177,0.17),inset_0px_-37px_16px_-36px_rgba(255,255,255,0.25),inset_0px_-34px_26.7px_-15px_rgba(255,240,126,0.5),inset_0px_-40px_46.8px_-30px_#e63e28]" />
-          </div>
-          <Card1 className="content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]" />
-        </div>
-        <Card className="absolute content-stretch flex flex-col gap-[30px] h-[463px] items-start left-[108px] overflow-clip px-[40px] py-[60px] rounded-[38px] top-[906px] w-[369px]" />
-        <Card2 className="absolute content-stretch flex flex-col gap-[30px] h-[463px] items-start left-[535px] overflow-clip px-[40px] py-[60px] rounded-[38px] top-[906px] w-[369px]" />
-        <Card3 className="absolute content-stretch flex flex-col gap-[30px] h-[463px] items-start left-[962px] overflow-clip px-[40px] py-[60px] rounded-[38px] top-[906px] w-[369px]" />
-      </div>
-      <div className="-translate-x-1/2 absolute contents h-[2233.132px] left-[calc(50%+3586.51px)] mix-blend-hard-light top-[2816px] w-[2229.008px]" data-name="Planet" data-node-id="165:696">
-        <div className="absolute flex h-[1513.932px] items-center justify-center left-[3526.05px] mix-blend-hard-light top-[3123.23px] w-[1554.175px]">
-          <div className="flex-none rotate-[-8.02deg]">
-            <div className="h-[1334.261px] opacity-40 relative w-[1381.565px]" data-node-id="165:697">
-              <div className="absolute inset-[-1.5%_-1.45%]">
-                <img alt="" className="block max-w-none size-full" src={imgEllipse1} />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="-translate-x-1/2 absolute flex h-[1885.436px] items-center justify-center left-[calc(50%+3586.51px)] mix-blend-hard-light top-[2989.85px] w-[1878.113px]">
-          <div className="flex-none rotate-[-68.02deg]">
-            <div className="h-[1439.104px] opacity-40 relative w-[1452.347px]" data-name="pngwing 6" data-node-id="165:698">
-              <img alt="" className="absolute block max-w-none size-full" height="1439.104" src={imgPngwing6} width="1452.347" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <Awwwards className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1240px]" />
-      <CanvasFooter className="left-0 top-[1584px]" />
-      <div className="absolute inset-[-30.68%_-197.36%_118.77%_150.21%]" data-name="Component 21" data-node-id="165:832">
-        <img alt="" className="absolute block max-w-none size-full" src={imgComponent21} />
-      </div>
           </div>
         </CanvasScaler>
       </div>
     </>
   );
 }
-

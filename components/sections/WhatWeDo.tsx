@@ -50,9 +50,7 @@ export function WhatWeDo() {
     <section className="py-16 md:py-24">
       <div className="section-container">
         <header className="mb-10 md:mb-14 [font-family:Inter,sans-serif]">
-          <p className="font-medium text-sm uppercase tracking-wider text-white">
-            SERVICES
-          </p>
+          <p className="font-medium text-sm uppercase tracking-wider text-white">SERVICES</p>
           <h2 className="mt-2 font-black italic text-2xl text-white md:text-3xl lg:text-[35px]">
             WHAT WE <span className="text-[#ff7500]">DO</span>
           </h2>
@@ -81,9 +79,7 @@ export function WhatWeDo() {
               </div>
 
               <div className="flex shrink-0 flex-col gap-3 px-4 pb-5 md:pb-6">
-                <p
-                  className={`text-base font-extralight ${service.textColor}`}
-                >
+                <p className={`text-base font-extralight ${service.textColor}`}>
                   {service.subtitle}
                 </p>
                 <button

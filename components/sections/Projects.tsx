@@ -29,9 +29,7 @@ export function Projects() {
       aria-labelledby="projects-heading"
     >
       <header className="mb-10 md:mb-12">
-        <p className="text-sm font-medium uppercase tracking-wider text-white">
-          PORTFOLIO
-        </p>
+        <p className="text-sm font-medium uppercase tracking-wider text-white">PORTFOLIO</p>
         <h2
           id="projects-heading"
           className="mt-2 text-2xl font-black italic md:text-3xl lg:text-[35px]"
@@ -43,14 +41,7 @@ export function Projects() {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-6 lg:gap-6">
         {projects.map((project, index) => (
-          <article
-            key={project.title}
-            className={
-              index < 3
-                ? "lg:col-span-2"
-                : "lg:col-span-3"
-            }
-          >
+          <article key={project.title} className={index < 3 ? "lg:col-span-2" : "lg:col-span-3"}>
             <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl md:rounded-3xl">
               <Image
                 src={project.image}

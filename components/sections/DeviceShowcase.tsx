@@ -5,10 +5,7 @@ import { FIGMA_ASSETS } from "@/components/assets";
 
 export function DeviceShowcase() {
   return (
-    <section
-      className="relative overflow-hidden py-16 md:py-24"
-      aria-label="Device showcase"
-    >
+    <section className="relative overflow-hidden py-16 md:py-24" aria-label="Device showcase">
       <div className="relative mx-auto max-w-[1200px] px-4 md:px-8">
         <div className="relative mx-auto min-h-[280px] md:min-h-[340px] lg:min-h-[420px]">
           {/* iMac — desktop only */}

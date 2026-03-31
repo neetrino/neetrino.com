@@ -1,6 +1,7 @@
 # Desktop Restore Plan
 
 ## Source of Truth
+
 Commit: `37bd480445e824457b2a03895310a90b5dcb90ac`
 
 ---
@@ -27,11 +28,13 @@ on desktop** — `NeetrinoHome` is a self-contained Figma export that includes a
 ## Current State (HEAD / commit 94e760f)
 
 `app/page.tsx` renders only section components:
+
 ```tsx
-<Navbar /> + <main>sections</main> + <Footer />
+<Navbar /> + <main>sections</main> + <Footer />;
 ```
 
 `app/globals.css` has `.section-container` but is **missing** the canvas CSS:
+
 - `.neetrino-canvas-wrap` (required by CanvasScaler)
 - `.neetrino-canvas-inner` (required by CanvasScaler)
 
@@ -39,20 +42,21 @@ on desktop** — `NeetrinoHome` is a self-contained Figma export that includes a
 
 ## Files That Differ from Commit
 
-| File | Difference | Action |
-|---|---|---|
-| `app/page.tsx` | No CanvasScaler/NeetrinoHome, sections only | Add desktop canvas block |
-| `app/globals.css` | Missing canvas CSS classes | Add back canvas CSS |
-| `components/sections/Navbar.tsx` | scroll lock, CTA always visible, mobile menu changes | Keep (mobile only) |
-| `components/sections/WhatWeDo.tsx` | 5th card col-span | Keep (mobile only) |
-| `components/sections/Footer.tsx` | Larger social icons | Keep (mobile only) |
-| `components/sections/Partners.tsx` | `unoptimized` on logos | Keep (mobile only) |
+| File                               | Difference                                           | Action                   |
+| ---------------------------------- | ---------------------------------------------------- | ------------------------ |
+| `app/page.tsx`                     | No CanvasScaler/NeetrinoHome, sections only          | Add desktop canvas block |
+| `app/globals.css`                  | Missing canvas CSS classes                           | Add back canvas CSS      |
+| `components/sections/Navbar.tsx`   | scroll lock, CTA always visible, mobile menu changes | Keep (mobile only)       |
+| `components/sections/WhatWeDo.tsx` | 5th card col-span                                    | Keep (mobile only)       |
+| `components/sections/Footer.tsx`   | Larger social icons                                  | Keep (mobile only)       |
+| `components/sections/Partners.tsx` | `unoptimized` on logos                               | Keep (mobile only)       |
 
 ---
 
 ## Restoration Strategy
 
 ### Breakpoint Discipline
+
 - `base / sm / md` (< 1024px) → current section-based mobile layout (UNCHANGED)
 - `lg / xl / 2xl` (≥ 1024px) → CanvasScaler + NeetrinoHome from commit 37bd480
 
@@ -61,19 +65,23 @@ on desktop** — `NeetrinoHome` is a self-contained Figma export that includes a
 **`app/page.tsx`** — two layout blocks, separated by `lg:hidden` / `hidden lg:block`:
 
 ```tsx
-{/* Mobile: section-based (unchanged, hidden on lg+) */}
+{
+  /* Mobile: section-based (unchanged, hidden on lg+) */
+}
 <div className="lg:hidden">
   <Navbar />
   <main>...</main>
   <Footer />
-</div>
+</div>;
 
-{/* Desktop: original canvas layout from commit 37bd480 (shown on lg+) */}
+{
+  /* Desktop: original canvas layout from commit 37bd480 (shown on lg+) */
+}
 <div className="hidden lg:block">
   <CanvasScaler>
     <NeetrinoHome />
   </CanvasScaler>
-</div>
+</div>;
 ```
 
 **`app/globals.css`** — add back `.neetrino-canvas-wrap` and `.neetrino-canvas-inner` which are

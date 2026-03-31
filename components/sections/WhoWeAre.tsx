@@ -33,13 +33,12 @@ export function WhoWeAre() {
           <div className="mt-6 space-y-4 text-sm font-light leading-relaxed text-white md:text-base">
             <p>
               Over the past 8 years, <strong className="font-bold">Neetrino IT</strong> has
-              developed more than{" "}
-              <strong className="font-extrabold">400 online resources</strong>, ranging from
-              simple websites to large-scale internet portals and e-commerce platforms
+              developed more than <strong className="font-extrabold">400 online resources</strong>,
+              ranging from simple websites to large-scale internet portals and e-commerce platforms
             </p>
             <p>
-              We specialize in website development, AI and bot solutions, CRM system
-              integration, mobile app development, as well as SEO and SMM optimization—
+              We specialize in website development, AI and bot solutions, CRM system integration,
+              mobile app development, as well as SEO and SMM optimization—
               <strong className="font-extrabold">
                 delivering a comprehensive digital presence for your business.
               </strong>

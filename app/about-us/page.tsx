@@ -98,7 +98,9 @@ export default function AboutUsPage() {
         <section className="section-container py-8 md:py-12">
           <div className="grid gap-5 lg:grid-cols-2">
             <article className="min-w-0 rounded-[24px] border border-white/12 bg-[#1b1b1b] p-6 md:p-8">
-              <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/65">Purpose</p>
+              <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/65">
+                Purpose
+              </p>
               <h2 className="mt-3 text-2xl font-black text-white md:text-3xl">
                 {ABOUT_CONTENT.mission.title}
               </h2>
@@ -107,7 +109,9 @@ export default function AboutUsPage() {
               </p>
             </article>
             <article className="min-w-0 rounded-[24px] border border-white/12 bg-[#1b1b1b] p-6 md:p-8">
-              <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/65">Future</p>
+              <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/65">
+                Future
+              </p>
               <h2 className="mt-3 text-2xl font-black text-white md:text-3xl">
                 {ABOUT_CONTENT.vision.title}
               </h2>
@@ -119,7 +123,9 @@ export default function AboutUsPage() {
         </section>
 
         <section className="section-container py-8 md:py-12">
-          <h2 className="text-2xl font-black text-white md:text-3xl">{ABOUT_CONTENT.whyChooseUs.title}</h2>
+          <h2 className="text-2xl font-black text-white md:text-3xl">
+            {ABOUT_CONTENT.whyChooseUs.title}
+          </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {ABOUT_CONTENT.whyChooseUs.items.map((item, index) => (
               <article
@@ -136,7 +142,9 @@ export default function AboutUsPage() {
         </section>
 
         <section className="section-container py-8 md:py-12">
-          <h2 className="text-2xl font-black text-white md:text-3xl">{ABOUT_CONTENT.values.title}</h2>
+          <h2 className="text-2xl font-black text-white md:text-3xl">
+            {ABOUT_CONTENT.values.title}
+          </h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {ABOUT_CONTENT.values.items.map((item) => (
               <article
@@ -151,7 +159,9 @@ export default function AboutUsPage() {
 
         <section className="section-container py-8 md:py-12">
           <div className="rounded-[24px] border border-white/12 bg-[#181818] p-6 md:p-8">
-            <h2 className="text-2xl font-black text-white md:text-3xl">{ABOUT_CONTENT.geography.title}</h2>
+            <h2 className="text-2xl font-black text-white md:text-3xl">
+              {ABOUT_CONTENT.geography.title}
+            </h2>
             <p className="mt-4 text-base font-light leading-relaxed text-white/80">
               {ABOUT_CONTENT.geography.body}
             </p>
@@ -159,7 +169,9 @@ export default function AboutUsPage() {
         </section>
 
         <section className="section-container py-8 md:py-12">
-          <h2 className="text-2xl font-black text-white md:text-3xl">{ABOUT_CONTENT.stats.title}</h2>
+          <h2 className="text-2xl font-black text-white md:text-3xl">
+            {ABOUT_CONTENT.stats.title}
+          </h2>
           <p className="mt-3 text-sm text-white/60">{ABOUT_CONTENT.stats.subtitle}</p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {ABOUT_STATS.map((stat) => (

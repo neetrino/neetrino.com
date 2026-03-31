@@ -39,10 +39,7 @@ export default function Home() {
           bottom = (4752 - 4162) / 1440 * 100vw = 40.97vw (4162 = Footer start in canvas).
           Partners height ~124px fits in the 145px gap before Footer.
         */}
-        <div
-          className="absolute left-0 right-0 z-10"
-          style={{ bottom: "40.97vw" }}
-        >
+        <div className="absolute left-0 right-0 z-10" style={{ bottom: "40.97vw" }}>
           <Partners />
         </div>
       </div>
