@@ -1,5 +1,5 @@
 ---
-description: Neetrino — размер A, npm, язык docs, исключения Next.js
+description: Neetrino — размер A, pnpm, язык docs, исключения Next.js
 globs: ["**/*"]
 alwaysApply: true
 ---
@@ -8,7 +8,7 @@ alwaysApply: true
 
 - **Чат с разработчиком:** русский.
 - **Размер:** **A** — маркетинговый сайт на Next.js; структура `app/`, `components/`, `lib/` (без обязательного префикса `src/`).
-- **Менеджер пакетов:** **npm** в репозитории и CI — осознанное отклонение от pnpm из шаблона; зафиксировано в `docs/TECH_CARD.md`.
+- **Менеджер пакетов:** **pnpm** (см. `packageManager` в `package.json`, lockfile `pnpm-lock.yaml`).
 - **Документация в `docs/`:** русский язык (BRIEF, TECH_CARD, архитектура, прогресс).
 - **Default export:** только там, где требует Next.js — `app/**/page.tsx`, `app/**/layout.tsx`, `next.config.ts`; прочие модули по возможности с **именованными** экспортами.
 - **Шаблон правил:** см. клон `rules-template/` (в `.gitignore`); актуальные `.mdc` скопированы в `.cursor/rules/`.

@@ -8,17 +8,19 @@
 - **ESLint** — `next/core-web-vitals` через `eslint-config-next`.
 - **Vitest** — unit-тесты; скрипт `test`.
 - **Husky** — `pre-commit` (lint-staged), `commit-msg` (commitlint).
-- **CI** — `.github/workflows/ci.yml`: install, format check, lint, typecheck, test, build.
+- **CI** — `.github/workflows/ci.yml`: pnpm install, format check, lint, typecheck, test, build.
 
 ## Команды
 
 ```bash
-npm run format        # записать формат
-npm run format:check  # проверка без записи
-npm run lint
-npm run typecheck
-npm run test
-npm run build
+pnpm install          # зависимости
+pnpm run format       # записать формат
+pnpm run format:check # проверка без записи
+pnpm run lint
+pnpm run typecheck
+pnpm run test
+pnpm run build
+pnpm dev
 ```
 
 ## Расширение
