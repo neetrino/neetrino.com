@@ -124,10 +124,10 @@ export function Footer() {
           <div>
             <FooterColumnTitle>Services</FooterColumnTitle>
             <ul className="mt-4 space-y-2">
-              {serviceLinks.map((label) => (
+              {serviceLinks.map(({ href, label }) => (
                 <li key={label}>
                   <Link
-                    href="/services"
+                    href={href}
                     className="pointer-events-auto text-lg font-normal text-white transition hover:text-gray-300"
                   >
                     {label}
@@ -291,10 +291,10 @@ export function CanvasFooter({ className }: CanvasFooterProps) {
         <div className="flex w-[130.078px] flex-col gap-[40px]">
           <FooterColumnTitle>Services</FooterColumnTitle>
           <div className="flex flex-col gap-[18px]">
-            {serviceLinks.map((label) => (
+            {serviceLinks.map(({ href, label }) => (
               <Link
                 key={label}
-                href="/services"
+                href={href}
                 className="pointer-events-auto font-[family-name:var(--font-dm-sans)] text-[18px] font-normal leading-[20px] text-white"
                 style={{ fontVariationSettings: "'opsz' 14" }}
               >
