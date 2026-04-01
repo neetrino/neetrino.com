@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Inter } from "next/font/google";
 import { HomeDesktopHeader } from "@/components/sections/HomeDesktopHeader";
 import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { Footer } from "@/components/sections/Footer";
@@ -10,12 +9,7 @@ import {
   CONTACT_SOCIALS,
 } from "@/components/contact/content";
 import { ContactInquiryForm } from "@/components/contact/ContactInquiryForm";
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-});
+import { interSans } from "@/lib/fonts";
 
 export default function ContactPage() {
   return (
@@ -23,7 +17,7 @@ export default function ContactPage() {
       <NonHomeMobileHeader className="lg:hidden" />
       <HomeDesktopHeader />
 
-      <main className={`pt-24 lg:pt-0 ${inter.className}`}>
+      <main className={`pt-24 lg:pt-0 ${interSans.className}`}>
         <section className="section-container py-16 md:py-20">
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/90">

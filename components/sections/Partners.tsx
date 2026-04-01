@@ -1,17 +1,26 @@
-"use client";
-
+import Image from "next/image";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 const partnerLogos = [
   { src: FIGMA_ASSETS.imgLayer1, w: 78, h: 73 },
-  { src: FIGMA_ASSETS.imgLayer3, w: 157, h: 71, fixed: true },
-  { src: FIGMA_ASSETS.imgLayer5, w: 67, h: 96, fixed: true },
-  { src: FIGMA_ASSETS.imgVector8, w: 175, h: 53, fixed: true },
-  { src: FIGMA_ASSETS.imgVector9, w: 136, h: 79, fixed: true },
+  { src: FIGMA_ASSETS.imgLayer3, w: 157, h: 71, fixed: true as const },
+  { src: FIGMA_ASSETS.imgLayer5, w: 67, h: 96, fixed: true as const },
+  { src: FIGMA_ASSETS.imgVector8, w: 175, h: 53, fixed: true as const },
+  { src: FIGMA_ASSETS.imgVector9, w: 136, h: 79, fixed: true as const },
 ];
 
 const MAX_H = 60;
-// Build a longer base sequence so repeats are less obvious on wide screens.
+
+function logoDimensions(logo: (typeof partnerLogos)[number]) {
+  if ("fixed" in logo && logo.fixed) {
+    return { width: logo.w, height: logo.h };
+  }
+  if (logo.w && logo.h) {
+    return { width: Math.round((logo.w * MAX_H) / logo.h), height: MAX_H };
+  }
+  return { width: 150, height: 44 };
+}
+
 const marqueeBaseLogos = [...partnerLogos, ...partnerLogos, ...partnerLogos];
 const doubledPartnerLogos = [...marqueeBaseLogos, ...marqueeBaseLogos];
 
@@ -55,36 +64,36 @@ export function Partners() {
         }
       `}</style>
       <div className="marquee-inner">
-        {doubledPartnerLogos.map((logo, i) => (
-          <img
-            key={`${logo.src}-${i}`}
-            src={logo.src}
-            alt="Partner logo"
-            style={{
-              width: logo.fixed ? logo.w : logo.w ? Math.round((logo.w * MAX_H) / logo.h!) : 150,
-              height: logo.fixed ? logo.h : logo.h ? MAX_H : 44,
-              opacity: 0.7,
-              flexShrink: 0,
-              display: "block",
-            }}
-          />
-        ))}
+        {doubledPartnerLogos.map((logo, i) => {
+          const { width, height } = logoDimensions(logo);
+          return (
+            <Image
+              key={`${logo.src}-${i}`}
+              src={logo.src}
+              alt="Partner logo"
+              width={width}
+              height={height}
+              className="block shrink-0 opacity-70"
+              sizes="(max-width: 1024px) 120px, 160px"
+            />
+          );
+        })}
       </div>
       <div className="marquee-inner mobile-extra-row">
-        {doubledPartnerLogos.map((logo, i) => (
-          <img
-            key={`mobile-${logo.src}-${i}`}
-            src={logo.src}
-            alt="Partner logo"
-            style={{
-              width: logo.fixed ? logo.w : logo.w ? Math.round((logo.w * MAX_H) / logo.h!) : 150,
-              height: logo.fixed ? logo.h : logo.h ? MAX_H : 44,
-              opacity: 0.7,
-              flexShrink: 0,
-              display: "block",
-            }}
-          />
-        ))}
+        {doubledPartnerLogos.map((logo, i) => {
+          const { width, height } = logoDimensions(logo);
+          return (
+            <Image
+              key={`mobile-${logo.src}-${i}`}
+              src={logo.src}
+              alt="Partner logo"
+              width={width}
+              height={height}
+              className="block shrink-0 opacity-70"
+              sizes="(max-width: 1024px) 120px, 160px"
+            />
+          );
+        })}
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { dmSans, interSans } from "@/lib/fonts";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full w-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} ${dmSans.variable} h-full w-full antialiased`}
       suppressHydrationWarning
     >
       <body

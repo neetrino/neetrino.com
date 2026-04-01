@@ -28,11 +28,25 @@ export function CanvasScaler({
   }, [canvasHeight, canvasWidth]);
 
   useEffect(() => {
-    updateScale();
+    let rafId = 0;
+    const scheduleUpdate = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        updateScale();
+      });
+    };
 
-    const ro = new ResizeObserver(updateScale);
-    ro.observe(wrapRef.current!);
-    return () => ro.disconnect();
+    scheduleUpdate();
+
+    const wrap = wrapRef.current;
+    if (!wrap) return () => cancelAnimationFrame(rafId);
+
+    const ro = new ResizeObserver(scheduleUpdate);
+    ro.observe(wrap);
+    return () => {
+      cancelAnimationFrame(rafId);
+      ro.disconnect();
+    };
   }, [updateScale]);
 
   return (

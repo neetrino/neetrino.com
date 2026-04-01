@@ -1,14 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["500", "900"],
-  style: ["normal", "italic"],
-});
+import { interSans } from "@/lib/fonts";
 
 const projects = [
   { image: FIGMA_ASSETS.imgStanislavHristov3, title: "Web Design" },
@@ -25,7 +17,7 @@ export function Projects() {
   return (
     <section
       id="blog"
-      className={`section-container py-16 md:py-24 ${inter.className}`}
+      className={`section-container py-16 md:py-24 ${interSans.className}`}
       aria-labelledby="projects-heading"
     >
       <header className="mb-10 md:mb-12">

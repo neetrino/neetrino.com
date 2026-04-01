@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 

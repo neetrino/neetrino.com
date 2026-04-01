@@ -1,14 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
-
-const inter = Inter({
-  subsets: ["latin", "cyrillic"],
-  weight: ["200", "900"],
-  display: "swap",
-});
+import { interSans } from "@/lib/fonts";
 
 const stats = [
   {
@@ -31,7 +23,7 @@ const stats = [
 export function HeroSection() {
   return (
     <section
-      className={`relative overflow-hidden bg-[#151515] min-h-[80vh] md:min-h-[70vh] lg:min-h-[90vh] ${inter.className}`}
+      className={`relative overflow-hidden bg-[#151515] min-h-[80vh] md:min-h-[70vh] lg:min-h-[90vh] ${interSans.className}`}
     >
       {/* 1. Background — flipped vertically */}
       <div className="pointer-events-none absolute inset-0 z-0">
@@ -54,6 +46,8 @@ export function HeroSection() {
           fill
           className="rotate-[12deg] scale-110 object-cover"
           sizes="100vw"
+          loading="lazy"
+          unoptimized
         />
       </div>
 

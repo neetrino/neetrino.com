@@ -1,13 +1,9 @@
-import { CanvasScaler } from "@/components/layout/CanvasScaler";
 import Link from "next/link";
+import { CanvasScaler } from "@/components/layout/CanvasScaler";
 import { Footer } from "@/components/sections/Footer";
 import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { MOBILE_SERVICE_ITEMS } from "@/components/services/services-assets";
-import { ServicesDesktopBackdrop } from "@/components/services/ServicesDesktopBackdrop";
-import { ServicesDesktopCardsScene } from "@/components/services/ServicesDesktopCardsScene";
-import { ServicesDesktopLightRays } from "@/components/services/ServicesDesktopLightRays";
-import { ServicesDesktopLightRaysDecor } from "@/components/services/ServicesDesktopLightRaysDecor";
-import { ServicesDesktopOrbitChrome } from "@/components/services/ServicesDesktopOrbitChrome";
+import { ServicesDesktopScene } from "@/components/services/ServicesDesktopScene";
 
 export default function Services() {
   return (
@@ -51,18 +47,7 @@ export default function Services() {
 
       <div className="hidden lg:block">
         <CanvasScaler canvasWidth={1440} canvasHeight={2174}>
-          <div
-            className="bg-[#151515] relative h-[2174px] w-[1440px]"
-            data-name="SERVICES"
-            data-node-id="165:666"
-          >
-            <ServicesDesktopBackdrop />
-            <ServicesDesktopLightRays>
-              <ServicesDesktopLightRaysDecor />
-              <ServicesDesktopCardsScene />
-            </ServicesDesktopLightRays>
-            <ServicesDesktopOrbitChrome />
-          </div>
+          <ServicesDesktopScene />
         </CanvasScaler>
       </div>
     </>

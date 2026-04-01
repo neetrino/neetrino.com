@@ -1,20 +1,12 @@
-"use client";
-
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "500", "700", "800", "900"],
-  style: ["normal", "italic"],
-});
+import { interSans } from "@/lib/fonts";
 
 export function WhoWeAre() {
   return (
     <section
       id="story"
-      className={`section-container py-16 md:py-24 ${inter.className}`}
+      className={`section-container py-16 md:py-24 ${interSans.className}`}
       aria-labelledby="who-we-are-heading"
     >
       <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-8">
