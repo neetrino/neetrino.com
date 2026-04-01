@@ -609,38 +609,40 @@ export function PortfolioDesktopScene() {
           />
         </div>
       </div>
-      <div className="absolute contents left-[597px] top-[2099px]" data-node-id="166:1260">
-        <div
-          className="absolute h-[563px] left-[597px] mix-blend-lighten opacity-70 top-[2102px] w-[633px]"
-          data-name="10"
-          data-node-id="166:1261"
-        >
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img
-              alt=""
-              className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
-              src={figma.img10}
-              loading="lazy"
-              decoding="async"
-            />
+      <DeferredMount topClassName="top-[1980px]" rootMargin="280px 0px 280px 0px">
+        <div className="absolute contents left-[597px] top-[2099px]" data-node-id="166:1260">
+          <div
+            className="absolute h-[563px] left-[597px] mix-blend-lighten opacity-70 top-[2102px] w-[633px]"
+            data-name="10"
+            data-node-id="166:1261"
+          >
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img
+                alt=""
+                className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
+                src={figma.img10}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+          <div
+            className="absolute h-[563px] left-[597px] opacity-70 top-[2099px] w-[633px]"
+            data-name="101"
+            data-node-id="166:1262"
+          >
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img
+                alt=""
+                className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
+                src={figma.img10}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
         </div>
-        <div
-          className="absolute h-[563px] left-[597px] opacity-70 top-[2099px] w-[633px]"
-          data-name="101"
-          data-node-id="166:1262"
-        >
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img
-              alt=""
-              className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
-              src={figma.img10}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </div>
+      </DeferredMount>
       <CanvasFooter className="left-[-3px] top-[2072px]" />
       <DeferredMount topClassName="top-[700px]" rootMargin="320px 0px 320px 0px">
         <PortfolioMoreCases />

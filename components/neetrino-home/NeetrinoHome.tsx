@@ -17,7 +17,7 @@ export function NeetrinoHome() {
     >
       <NeetrinoHomeSegment1 />
       {/* ~below first screen on most viewports — defers images + Three chunk until scroll */}
-      <DeferredMount topClassName="top-[1500px]">
+      <DeferredMount topClassName="top-[1500px]" rootMargin="120px 0px 120px 0px">
         <NeetrinoHomeSegment2 />
         <NeetrinoHomeSegment3 />
         <NeetrinoHomeSegment4 />

@@ -5,6 +5,8 @@ import { useEffect, useRef, useCallback } from "react";
 const DEFAULT_CANVAS_W = 1440;
 const DEFAULT_CANVAS_H = 4652;
 
+const SCALE_EPSILON = 0.0001;
+
 export function CanvasScaler({
   children,
   canvasWidth = DEFAULT_CANVAS_W,
@@ -16,6 +18,7 @@ export function CanvasScaler({
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
+  const lastScaleRef = useRef<number | null>(null);
 
   const updateScale = useCallback(() => {
     const wrap = wrapRef.current;
@@ -23,6 +26,11 @@ export function CanvasScaler({
     if (!wrap || !inner) return;
 
     const scale = wrap.offsetWidth / canvasWidth;
+    const prev = lastScaleRef.current;
+    if (prev !== null && Math.abs(prev - scale) < SCALE_EPSILON) {
+      return;
+    }
+    lastScaleRef.current = scale;
     inner.style.transform = `scale(${scale})`;
     wrap.style.height = `${canvasHeight * scale}px`;
   }, [canvasHeight, canvasWidth]);

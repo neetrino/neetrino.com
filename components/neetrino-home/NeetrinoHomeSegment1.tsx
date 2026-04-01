@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { DeferredMount } from "@/components/layout/DeferredMount";
 import { Awwwards } from "./Awwwards";
 import {
   img30,
@@ -13,19 +14,25 @@ import {
 export function NeetrinoHomeSegment1() {
   return (
     <>
-      <div className="-translate-x-1/2 absolute flex h-[4462px] items-center justify-center left-1/2 mix-blend-overlay top-[633px] w-[1722px]">
-        <div className="flex-none rotate-90">
-          <div className="h-[1722px] relative w-[4462px]" data-name="Vector" data-node-id="10:225">
-            <Image
-              alt=""
-              width={2400}
-              height={2400}
-              className="absolute block max-w-none size-full"
-              src={imgVector2}
-            />
+      <DeferredMount topClassName="top-[560px]" rootMargin="360px 0px 360px 0px">
+        <div className="-translate-x-1/2 absolute flex h-[4462px] items-center justify-center left-1/2 mix-blend-overlay top-[633px] w-[1722px]">
+          <div className="flex-none rotate-90">
+            <div
+              className="h-[1722px] relative w-[4462px]"
+              data-name="Vector"
+              data-node-id="10:225"
+            >
+              <Image
+                alt=""
+                width={2400}
+                height={2400}
+                className="absolute block max-w-none size-full"
+                src={imgVector2}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </DeferredMount>
       <div className="absolute h-[1149px] left-0 top-0 w-[1440px]" data-node-id="10:421">
         <div className="absolute flex h-[844px] items-center justify-center left-0 top-0 w-[1440px]">
           <div className="-scale-y-100 flex-none">
@@ -58,6 +65,8 @@ export function NeetrinoHomeSegment1() {
                 unoptimized
                 width={2400}
                 height={2400}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none size-full"
                 src={imgEricaAnderson1}
               />

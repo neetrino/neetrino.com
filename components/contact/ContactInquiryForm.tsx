@@ -1,13 +1,8 @@
-"use client";
+import { submitContactInquiry } from "@/app/contact/actions";
 
 export function ContactInquiryForm() {
   return (
-    <form
-      className="grid gap-3 md:grid-cols-2"
-      onSubmit={(event) => {
-        event.preventDefault();
-      }}
-    >
+    <form action={submitContactInquiry} className="grid gap-3 md:grid-cols-2">
       <label className="sr-only" htmlFor="contact-name">
         Name
       </label>
