@@ -1,9 +1,25 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { CanvasScaler } from "@/components/layout/CanvasScaler";
 import { Footer } from "@/components/sections/Footer";
 import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { MOBILE_SERVICE_ITEMS } from "@/components/services/services-assets";
-import { ServicesDesktopScene } from "@/components/services/ServicesDesktopScene";
+import { SERVICES_DESKTOP_CANVAS_MIN_H_CLASS } from "@/lib/canvas-route-placeholders";
+
+const ServicesDesktopCanvas = dynamic(
+  () =>
+    import("@/components/services/ServicesDesktopCanvas").then((m) => ({
+      default: m.ServicesDesktopCanvas,
+    })),
+  {
+    loading: () => (
+      <div
+        className={`pointer-events-none hidden w-full bg-[#151515] lg:block ${SERVICES_DESKTOP_CANVAS_MIN_H_CLASS}`}
+        aria-hidden
+      />
+    ),
+    ssr: true,
+  },
+);
 
 export default function Services() {
   return (
@@ -45,11 +61,7 @@ export default function Services() {
         <Footer />
       </div>
 
-      <div className="hidden lg:block">
-        <CanvasScaler canvasWidth={1440} canvasHeight={2174}>
-          <ServicesDesktopScene />
-        </CanvasScaler>
-      </div>
+      <ServicesDesktopCanvas />
     </>
   );
 }
