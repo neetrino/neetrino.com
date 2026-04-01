@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { FIGMA_ASSETS } from "@/components/assets";
+import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },

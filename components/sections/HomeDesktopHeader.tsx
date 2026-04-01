@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FIGMA_ASSETS } from "@/components/assets";
+import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 export function HomeDesktopHeader() {
   return (

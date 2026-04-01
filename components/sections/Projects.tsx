@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { FIGMA_ASSETS } from "@/components/assets";
+import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 const inter = Inter({
   subsets: ["latin"],

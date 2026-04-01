@@ -11,16 +11,18 @@
 
 ```
 app/                 # App Router: страницы, layout, маршруты
-components/          # UI-секции; футер — `components/sections/site-footer/`
-lib/                 # Утилиты (cn, прочее)
-public/              # Статика, шрифты
-docs/                # BRIEF, TECH_CARD, архитектура, прогресс
+components/          # UI: sections/, layout/, neetrino-home/, liquid-ether/, services/, …
+config/              # ESLint, Prettier, Vitest, commitlint (см. scripts в package.json)
+lib/                 # Утилиты, `figma-assets.ts`, `public-image-paths.ts`, `__tests__/`
+public/              # Статика (`figma-assets/`, `images/`, шрифты)
+scripts/             # `assets/`, `neetrino/`, `legacy/` — вспомогательные Node-скрипты
+docs/                # BRIEF, TECH_CARD, архитектура; планы — `docs/plans/`
 ```
 
 ## Поток данных
 
 - Контент: в основном статический в компонентах и небольших модулях `app/*/content.ts`.
-- Изображения: `next/image`, ассеты из Figma в `components/assets` / `public`.
+- Изображения: `next/image`, URL Figma-экспорта в `lib/figma-assets.ts`, файлы в `public/figma-assets` и `public/images`.
 
 ## Решения
 

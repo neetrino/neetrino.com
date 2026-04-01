@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 import { HomeDesktopHeader } from "@/components/sections/HomeDesktopHeader";
 import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { Footer } from "@/components/sections/Footer";
-import { FIGMA_ASSETS } from "@/components/assets";
-import { ABOUT_CONTENT, ABOUT_STATS } from "./content";
+import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { ABOUT_CONTENT, ABOUT_STATS } from "@/components/about-us/content";
 
 const inter = Inter({
   subsets: ["latin"],

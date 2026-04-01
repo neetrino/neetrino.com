@@ -1,5 +1,5 @@
-import { FIGMA_ASSETS } from "@/components/assets";
-import { CONTACT_SOCIALS } from "@/app/contact/content";
+import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { CONTACT_SOCIALS } from "@/components/contact/content";
 
 export const companyLinks = [
   { href: "/services", label: "Services" },

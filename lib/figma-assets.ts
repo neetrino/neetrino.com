@@ -1,3 +1,5 @@
+import { PUBLIC_IMAGES } from "@/lib/public-image-paths";
+
 export const FIGMA_ASSETS = {
   imgPc: "/figma-assets/a959cebf-9659-4aad-8436-2b08cce48288.webp",
   imgSafearea: "/figma-assets/e0371b9e-b246-4314-ac88-c931348cd579.svg",
@@ -28,10 +30,10 @@ export const FIGMA_ASSETS = {
   imgBiotechLogo1: "/figma-assets/985fcf17-bf5b-4d96-bed7-0196094e086d.webp",
   imgKleverKleverIoInstagramPhotosAndVideos3:
     "/figma-assets/a8fa8533-aca9-4bd4-b860-799a1de049bf.webp",
-  imgSports00065: "/figma-assets/0d34f345-b691-4601-bfcb-ed136ade90bb.webp",
+  imgSports00065: PUBLIC_IMAGES.whatWeDo.sports00065,
   imgCloudInfrastructure: "/figma-assets/5bf855cf-5501-4e0b-8460-38f836f731e1.webp",
   imgPc1: "/figma-assets/95e2ad4d-d270-4e1e-9654-be3e4b1ad25a.webp",
-  img2761: "/figma-assets/0f1bd582-7a92-40a5-89e6-eae35b07cf13.webp",
+  img2761: PUBLIC_IMAGES.whatWeDo.aiIntegrations276,
   img28A: "/figma-assets/49fa0ab1-c840-4886-a3d7-979b0620f127.webp",
   imgVector2: "/figma-assets/cbf9401e-6dd0-4522-a66a-96afa82c23cf.svg",
   imgRectangle17399: "/figma-assets/d7cd6cb1-90c9-4884-98a1-1b4fff1226ae.svg",

@@ -7,27 +7,26 @@
     "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint -c config/eslint.config.mjs .",
     "typecheck": "tsc --noEmit",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "format": "prettier --write . --config config/prettier.config.cjs",
+    "format:check": "prettier --check . --config config/prettier.config.cjs",
+    "test": "vitest run --config config/vitest.config.ts",
+    "test:watch": "vitest --config config/vitest.config.ts",
     "prepare": "husky",
-    "assets:localize-figma": "node scripts/localize-figma-assets.mjs",
-    "assets:optimize-local": "node scripts/optimize-local-assets.mjs"
+    "assets:localize-figma": "node scripts/assets/localize-figma-assets.mjs",
+    "assets:optimize-local": "node scripts/assets/optimize-local-assets.mjs"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json,md,css}": [
-      "prettier --write"
+      "prettier --write --config config/prettier.config.cjs"
     ],
     "*.{ts,tsx,js,jsx}": [
-      "eslint"
+      "eslint -c config/eslint.config.mjs"
     ]
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
-    "@react-three/fiber": "^9.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.7.0",

@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/sections/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { WhoWeAre } from "@/components/sections/WhoWeAre";
@@ -6,8 +7,17 @@ import { Projects } from "@/components/sections/Projects";
 import { Partners } from "@/components/sections/Partners";
 import { DeviceShowcase } from "@/components/sections/DeviceShowcase";
 import { Footer } from "@/components/sections/Footer";
-import { NeetrinoHome } from "@/components/NeetrinoHome";
-import { CanvasScaler } from "@/components/CanvasScaler";
+import { CanvasScaler } from "@/components/layout/CanvasScaler";
+
+const NeetrinoHome = dynamic(
+  () =>
+    import("@/components/neetrino-home/NeetrinoHome").then((m) => ({ default: m.NeetrinoHome })),
+  {
+    loading: () => (
+      <div className="relative min-h-[min(100dvh,4752px)] w-full bg-[#151515]" aria-hidden />
+    ),
+  },
+);
 
 export default function Home() {
   return (

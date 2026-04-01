@@ -1,6 +1,6 @@
 "use client";
 
-import { FIGMA_ASSETS } from "@/components/assets";
+import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 const partnerLogos = [
   { src: FIGMA_ASSETS.imgLayer1, w: 78, h: 73 },

@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FIGMA_ASSETS } from "@/components/assets";
-import sports00065Icon from "@/Sports_00065_.webp";
-import aiIntegrationsIcon from "@/-276 1.webp";
+import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 const services = [
   {
@@ -32,7 +30,7 @@ const services = [
     subtitle: "Process Automation",
     bg: "bg-[#473dff]",
     textColor: "text-white",
-    image: sports00065Icon,
+    image: FIGMA_ASSETS.imgSports00065,
     imageClassName: "scale-[0.86]",
   },
   {
@@ -40,7 +38,7 @@ const services = [
     subtitle: "AI Automation",
     bg: "bg-[#a2b8ee]",
     textColor: "text-[#0f0f0f]",
-    image: aiIntegrationsIcon,
+    image: FIGMA_ASSETS.img2761,
     imageClassName: "scale-[0.84]",
   },
 ] as const;

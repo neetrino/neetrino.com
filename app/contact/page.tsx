@@ -3,8 +3,13 @@ import { Inter } from "next/font/google";
 import { HomeDesktopHeader } from "@/components/sections/HomeDesktopHeader";
 import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { Footer } from "@/components/sections/Footer";
-import { CONTACT_CONTENT, CONTACT_DETAILS, CONTACT_METHODS, CONTACT_SOCIALS } from "./content";
-import { ContactInquiryForm } from "./ContactInquiryForm";
+import {
+  CONTACT_CONTENT,
+  CONTACT_DETAILS,
+  CONTACT_METHODS,
+  CONTACT_SOCIALS,
+} from "@/components/contact/content";
+import { ContactInquiryForm } from "@/components/contact/ContactInquiryForm";
 
 const inter = Inter({
   subsets: ["latin"],
