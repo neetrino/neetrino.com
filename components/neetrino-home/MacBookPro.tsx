@@ -24,7 +24,6 @@ export function MacBookPro({ className }: { className?: string }) {
             <div className="absolute inset-[-44.96%_-0.6%_-1.53%_-1.05%]">
               <Image
                 alt=""
-                unoptimized
                 width={2400}
                 height={2400}
                 className="block max-w-none size-full"
@@ -40,7 +39,6 @@ export function MacBookPro({ className }: { className?: string }) {
         >
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="absolute block max-w-none size-full"
@@ -75,7 +73,6 @@ export function MacBookPro({ className }: { className?: string }) {
               >
                 <Image
                   alt=""
-                  unoptimized
                   width={2400}
                   height={2400}
                   className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"

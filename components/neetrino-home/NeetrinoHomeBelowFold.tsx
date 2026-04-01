@@ -16,7 +16,6 @@ export function NeetrinoHomeBelowFold() {
         <div className="absolute inset-[-5.13%_-2.41%]">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="block max-w-none size-full"

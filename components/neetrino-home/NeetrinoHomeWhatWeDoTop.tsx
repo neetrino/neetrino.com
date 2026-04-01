@@ -73,7 +73,6 @@ export function NeetrinoHomeWhatWeDoTop() {
           >
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute block max-w-none size-full"
@@ -108,7 +107,6 @@ export function NeetrinoHomeWhatWeDoTop() {
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <Image
                 alt=""
-                unoptimized
                 width={2400}
                 height={2400}
                 className="absolute inset-0 h-full w-full max-w-none object-contain p-[14px]"
@@ -150,7 +148,6 @@ export function NeetrinoHomeWhatWeDoTop() {
             >
               <Image
                 alt=""
-                unoptimized
                 width={2400}
                 height={2400}
                 className="absolute block max-w-none size-full"

@@ -65,9 +65,9 @@ export function HomeDesktopHeader() {
         >
           <Image
             alt=""
-            unoptimized
-            width={2400}
-            height={2400}
+            width={260}
+            height={260}
+            sizes="130px"
             className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"
             src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1}
           />
@@ -83,9 +83,9 @@ export function HomeDesktopHeader() {
           >
             <Image
               alt=""
-              unoptimized
-              width={2400}
-              height={2400}
+              width={50}
+              height={50}
+              sizes="25px"
               className="absolute block max-w-none size-full"
               src={FIGMA_ASSETS.imgVector}
             />

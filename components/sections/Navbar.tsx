@@ -9,18 +9,18 @@ function PhoneIcon({ className }: { className?: string }) {
     <div className={`relative size-10 shrink-0 ${className ?? ""}`}>
       <Image
         alt=""
-        unoptimized
         width={200}
         height={200}
+        sizes="40px"
         className="h-full w-full object-contain"
         src={FIGMA_ASSETS.imgGroup70642}
       />
       <div className="pointer-events-none absolute inset-0">
         <Image
           alt=""
-          unoptimized
           width={200}
           height={200}
+          sizes="40px"
           className="h-full w-full object-contain"
           src={FIGMA_ASSETS.imgVector}
         />
@@ -40,9 +40,9 @@ export function Navbar() {
           >
             <Image
               alt="Neetrino"
-              unoptimized
-              width={200}
-              height={200}
+              width={400}
+              height={400}
+              sizes="(max-width: 1024px) 190px, 210px"
               className="h-full w-full object-contain"
               src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1}
               priority

@@ -15,7 +15,8 @@
     "test:watch": "vitest --config config/vitest.config.ts",
     "prepare": "husky",
     "assets:localize-figma": "node scripts/assets/localize-figma-assets.mjs",
-    "assets:optimize-local": "node scripts/assets/optimize-local-assets.mjs"
+    "assets:optimize-local": "node scripts/assets/optimize-local-assets.mjs",
+    "assets:convert-png-webp": "node scripts/convert-images.mjs"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json,md,css}": [
@@ -53,6 +54,7 @@
     "jsdom": "^27.0.0",
     "lint-staged": "^16.0.0",
     "prettier": "^3.5.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^3.0.0"

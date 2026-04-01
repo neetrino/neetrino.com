@@ -68,7 +68,6 @@ export function Awwwards({ className }: { className?: string }) {
       >
         <Image
           alt=""
-          unoptimized
           width={2400}
           height={2400}
           className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"
@@ -86,7 +85,6 @@ export function Awwwards({ className }: { className?: string }) {
         >
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="absolute block max-w-none size-full"

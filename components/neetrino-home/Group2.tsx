@@ -63,7 +63,6 @@ export function Group2({ className, property1 = "Default" }: Group2Props) {
           >
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute block max-w-none size-full"
@@ -75,7 +74,6 @@ export function Group2({ className, property1 = "Default" }: Group2Props) {
           <div className="absolute inset-[-45.16%_-15.91%]">
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="block max-w-none size-full"

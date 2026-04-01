@@ -43,6 +43,7 @@ export function WhoWeAre() {
               src={FIGMA_ASSETS.img1}
               alt=""
               fill
+              unoptimized
               className="object-contain object-center"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />

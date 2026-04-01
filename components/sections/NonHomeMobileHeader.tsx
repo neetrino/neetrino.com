@@ -10,9 +10,9 @@ export function NonHomeMobileHeader({ className = "" }: { className?: string }) 
       <Link href="/" className="relative h-8 w-[118px] shrink-0 min-[360px]:w-[132px]">
         <Image
           alt="Neetrino"
-          unoptimized
-          width={200}
-          height={200}
+          width={400}
+          height={400}
+          sizes="(max-width: 359px) 118px, 132px"
           className="h-full w-full object-contain"
           src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1}
           priority

@@ -12,7 +12,6 @@ export function NeetrinoHomeEndCap() {
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <Image
                 alt=""
-                unoptimized
                 width={2400}
                 height={2400}
                 className="absolute h-[214.48%] left-0 max-w-none top-[-70.38%] w-full"

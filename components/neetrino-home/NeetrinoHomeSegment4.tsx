@@ -51,7 +51,6 @@ export function NeetrinoHomeSegment4() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[31px]">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="absolute h-[120.37%] left-[-1.69%] max-w-none top-[-13.55%] w-[103.37%]"
@@ -67,7 +66,6 @@ export function NeetrinoHomeSegment4() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[31px]">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="absolute h-[120.37%] left-[-1.69%] max-w-none top-[-13.55%] w-[103.37%]"
@@ -82,7 +80,6 @@ export function NeetrinoHomeSegment4() {
       >
         <Image
           alt=""
-          unoptimized
           width={2400}
           height={2400}
           className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[32px] size-full"
@@ -100,7 +97,6 @@ export function NeetrinoHomeSegment4() {
         >
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[32px] size-full"
@@ -114,7 +110,6 @@ export function NeetrinoHomeSegment4() {
         >
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[43px] size-full"
@@ -129,7 +124,6 @@ export function NeetrinoHomeSegment4() {
           <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[45px]">
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute h-[104.76%] left-[-4.55%] max-w-none top-[-4.76%] w-[104.55%]"
@@ -145,7 +139,6 @@ export function NeetrinoHomeSegment4() {
           <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[35px]">
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute h-[154.19%] left-0 max-w-none top-[-40.85%] w-full"

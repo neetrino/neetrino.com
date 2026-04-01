@@ -18,7 +18,6 @@ export function NeetrinoHomeSegment1() {
           <div className="h-[1722px] relative w-[4462px]" data-name="Vector" data-node-id="10:225">
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute block max-w-none size-full"
@@ -38,7 +37,6 @@ export function NeetrinoHomeSegment1() {
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <Image
                   alt=""
-                  unoptimized
                   width={2400}
                   height={2400}
                   className="absolute h-[130.92%] left-[-15.08%] max-w-none top-0 w-[115.09%]"
@@ -80,7 +78,6 @@ export function NeetrinoHomeSegment1() {
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute h-[166.65%] left-[-22.58%] max-w-none top-[-44.39%] w-[145.15%]"
@@ -103,7 +100,6 @@ export function NeetrinoHomeSegment1() {
             <div className="h-[457px] relative w-[1440px]" data-node-id="10:426">
               <Image
                 alt=""
-                unoptimized
                 width={2400}
                 height={2400}
                 className="absolute block max-w-none size-full"

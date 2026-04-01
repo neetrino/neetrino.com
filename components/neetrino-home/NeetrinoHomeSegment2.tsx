@@ -24,7 +24,6 @@ export function NeetrinoHomeSegment2() {
             <div className="absolute inset-[-28.36%_-17.23%_-28.95%_-17.23%]">
               <Image
                 alt=""
-                unoptimized
                 width={2400}
                 height={2400}
                 className="block max-w-none size-full"

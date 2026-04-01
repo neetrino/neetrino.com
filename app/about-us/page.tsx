@@ -40,6 +40,7 @@ export default function AboutUsPage() {
                     src={FIGMA_ASSETS.img1}
                     alt="Neetrino team visual"
                     fill
+                    unoptimized
                     className="object-cover object-center mix-blend-exclusion"
                     sizes="(min-width: 1024px) 42vw, 100vw"
                   />

@@ -21,7 +21,6 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute h-[177.11%] left-[-29%] max-w-none top-[-38.55%] w-[158%]"
@@ -75,7 +74,6 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
           >
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute block max-w-none size-full"

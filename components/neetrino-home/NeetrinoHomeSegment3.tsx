@@ -23,7 +23,6 @@ export function NeetrinoHomeSegment3() {
         >
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[43px] size-full"
@@ -38,7 +37,6 @@ export function NeetrinoHomeSegment3() {
           <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[45px]">
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute h-[104.76%] left-[-4.55%] max-w-none top-[-4.76%] w-[104.55%]"
@@ -55,7 +53,6 @@ export function NeetrinoHomeSegment3() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[35px]">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="absolute h-[154.19%] left-0 max-w-none top-[-40.85%] w-full"
@@ -83,7 +80,6 @@ export function NeetrinoHomeSegment3() {
         <div className="absolute inset-[-41.48%_-15.66%_-41.98%_-15.66%]">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="block max-w-none size-full"
@@ -100,7 +96,6 @@ export function NeetrinoHomeSegment3() {
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
@@ -116,7 +111,6 @@ export function NeetrinoHomeSegment3() {
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
@@ -132,7 +126,6 @@ export function NeetrinoHomeSegment3() {
         <div className="absolute inset-[-90.97%_-15.66%_-91.4%_-15.66%]">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="block max-w-none size-full"
@@ -147,7 +140,6 @@ export function NeetrinoHomeSegment3() {
         <div className="absolute inset-[-50.95%_-15.66%_-51.42%_-15.66%]">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="block max-w-none size-full"
@@ -162,7 +154,6 @@ export function NeetrinoHomeSegment3() {
         <div className="absolute inset-[-28.94%_-15.66%_-29.47%_-15.66%]">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="block max-w-none size-full"

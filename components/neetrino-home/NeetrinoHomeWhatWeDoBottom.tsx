@@ -41,7 +41,6 @@ export function NeetrinoHomeWhatWeDoBottom() {
           >
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute block max-w-none size-full"
@@ -102,7 +101,6 @@ export function NeetrinoHomeWhatWeDoBottom() {
             >
               <Image
                 alt=""
-                unoptimized
                 width={2400}
                 height={2400}
                 className="absolute block max-w-none size-full"
@@ -119,7 +117,6 @@ export function NeetrinoHomeWhatWeDoBottom() {
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Image
               alt=""
-              unoptimized
               width={2400}
               height={2400}
               className="absolute h-[140.91%] left-[-17.24%] max-w-none top-[-16.67%] w-[137.44%]"
@@ -136,7 +133,6 @@ export function NeetrinoHomeWhatWeDoBottom() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="absolute h-[155.42%] left-[-74.48%] max-w-none top-[-27.71%] w-[248.96%]"
@@ -153,7 +149,6 @@ export function NeetrinoHomeWhatWeDoBottom() {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="absolute inset-0 h-full w-full max-w-none object-contain p-[16px]"

@@ -20,7 +20,6 @@ export function CanvasFooter({ className }: CanvasFooterProps) {
         <div className="absolute inset-[0_0_-1px_0]">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="block size-full max-w-none"
@@ -32,7 +31,6 @@ export function CanvasFooter({ className }: CanvasFooterProps) {
         <div className="absolute inset-[-1px_0_0_0]">
           <Image
             alt=""
-            unoptimized
             width={2400}
             height={2400}
             className="block size-full max-w-none"
