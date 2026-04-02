@@ -5,7 +5,10 @@ import { desktopPortfolioRows } from "@/components/portfolio/portfolio-data";
 import { PortfolioDesktopStarRayDeferred } from "@/components/portfolio/PortfolioDesktopStarRayDeferred";
 import { PortfolioDesktopVectorDecorDeferred } from "@/components/portfolio/PortfolioDesktopVectorDecorDeferred";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
+import { DesktopHeaderQuoteLink } from "@/components/shared/DesktopHeaderQuoteLink";
 import { CanvasFooter } from "@/components/sections/Footer";
+import { DESKTOP_HEADER_PHONE_LEFT_PX } from "@/lib/desktop-header-quote.constants";
+import { COMPANY_PHONE_TEL_HREF } from "@/lib/nav-links";
 
 function Group({ className }: { className?: string }) {
   const { imgChangeColor1, imgChangeColor, imgSafearea, imgEllipse3463 } = figma;
@@ -143,8 +146,12 @@ function Awwwards({ className }: { className?: string }) {
           src={imgNeetrinoItComapny2Png1}
         />
       </Link>
-      <div
-        className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]"
+      <DesktopHeaderQuoteLink />
+      <a
+        href={COMPANY_PHONE_TEL_HREF}
+        aria-label="Call Neetrino"
+        className="absolute bg-white rounded-full size-[48px] top-[8px]"
+        style={{ left: DESKTOP_HEADER_PHONE_LEFT_PX }}
         data-node-id="165:658"
       >
         <div
@@ -154,7 +161,7 @@ function Awwwards({ className }: { className?: string }) {
         >
           <img alt="" className="absolute block max-w-none size-full" src={imgVector} />
         </div>
-      </div>
+      </a>
     </div>
   );
 }

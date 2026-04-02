@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { DesktopHeaderQuoteLink } from "@/components/shared/DesktopHeaderQuoteLink";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { DESKTOP_HEADER_PHONE_LEFT_PX } from "@/lib/desktop-header-quote.constants";
 import { COMPANY_PHONE_TEL_HREF } from "@/lib/nav-links";
 
 export function HomeDesktopHeader() {
@@ -73,10 +75,12 @@ export function HomeDesktopHeader() {
             src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1}
           />
         </Link>
+        <DesktopHeaderQuoteLink />
         <a
           href={COMPANY_PHONE_TEL_HREF}
           aria-label="Call Neetrino"
-          className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]"
+          className="absolute bg-white rounded-full size-[48px] top-[8px]"
+          style={{ left: DESKTOP_HEADER_PHONE_LEFT_PX }}
           data-node-id="10:454"
         >
           <div
