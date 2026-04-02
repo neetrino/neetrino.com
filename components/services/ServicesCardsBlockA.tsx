@@ -1,4 +1,5 @@
-import { imgEllipse2, imgEllipse3, imgSafearea, imgShieldDone } from "./services-assets";
+import { Brain } from "lucide-react";
+import { imgEllipse2, imgEllipse3, imgLayers, imgSafearea } from "./services-assets";
 
 type Card3Props = {
   className?: string;
@@ -21,26 +22,25 @@ export function ServicesCard3({
         aria-hidden="true"
         className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]"
       />
-      <div className="relative shrink-0 size-[40px]" data-name="Shield done" data-node-id="165:629">
-        <img alt="" className="absolute block max-w-none size-full" src={imgShieldDone} />
+      <div className="relative shrink-0 size-[40px]" data-name="Layers" data-node-id="165:629">
+        <img alt="" className="absolute block max-w-none size-full" src={imgLayers} />
       </div>
       <div
         className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
         data-node-id="165:632"
       >
-        <div
-          className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-[282px]"
+        <p
+          className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
           data-node-id="165:633"
         >
-          <p className="leading-[40px] mb-0">Cloud</p>
-          <p className="leading-[40px]">Solutions</p>
-        </div>
+          ERP System
+        </p>
         <p
           className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
           data-node-id="165:634"
         >
-          Scalable cloud infrastructure and services to ensure your applications are always
-          available, secure, and performant.
+          All-in-one systems for managing business operations. Control data, processes, and
+          resources in one place.
         </p>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">
@@ -113,26 +113,29 @@ export function ServicesCard2({
         aria-hidden="true"
         className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]"
       />
-      <div className="relative shrink-0 size-[40px]" data-name="Shield done" data-node-id="165:610">
-        <img alt="" className="absolute block max-w-none size-full" src={imgShieldDone} />
+      <div
+        className="relative flex shrink-0 size-[40px] items-center justify-start text-white"
+        data-name="Brain"
+        data-node-id="165:610"
+      >
+        <Brain aria-hidden className="size-[40px]" strokeWidth={1.5} />
       </div>
       <div
         className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
         data-node-id="165:613"
       >
-        <div
-          className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-[282px]"
+        <p
+          className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
           data-node-id="165:614"
         >
-          <p className="leading-[40px] mb-0">Cloud</p>
-          <p className="leading-[40px]">Solutions</p>
-        </div>
+          AI Product Development
+        </p>
         <p
           className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
           data-node-id="165:615"
         >
-          Scalable cloud infrastructure and services to ensure your applications are always
-          available, secure, and performant.
+          Intelligent automation powered by machine learning and natural language processing to
+          transform your business operations.
         </p>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">

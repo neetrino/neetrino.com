@@ -1,4 +1,11 @@
-import { imgBuilding, imgEllipse6, imgEllipse7, imgLayers, imgSafearea } from "./services-assets";
+import { LayoutGrid } from "lucide-react";
+import {
+  imgBuilding,
+  imgEllipse6,
+  imgEllipse7,
+  imgSafearea,
+  imgShieldDone,
+} from "./services-assets";
 import {
   ServicesCard3 as ServicesLowerCard3,
   ServicesCard2 as ServicesLowerCard2,
@@ -23,10 +30,10 @@ export function ServicesDesktopCardsScene() {
           />
           <div
             className="relative shrink-0 size-[40px]"
-            data-name="Building"
+            data-name="Shield done"
             data-node-id="I165:690;406:2853"
           >
-            <img alt="" className="absolute block max-w-none size-full" src={imgBuilding} />
+            <img alt="" className="absolute block max-w-none size-full" src={imgShieldDone} />
           </div>
           <div
             className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
@@ -36,14 +43,14 @@ export function ServicesDesktopCardsScene() {
               className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-full"
               data-node-id="I165:690;406:2862"
             >
-              Website Development
+              SaaS Development
             </p>
             <p
               className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-full"
               data-node-id="I165:690;406:2863"
             >
-              Cutting-edge web solutions built with modern technologies, optimized for performance
-              and designed to convert visitors into customers.
+              Scalable SaaS platforms built for growth. Secure, flexible, and ready to evolve with
+              your product.
             </p>
           </div>
           <div className="absolute flex h-[99.524px] items-center justify-center left-[-42px] top-[-59px] w-[97.992px]">
@@ -102,29 +109,28 @@ export function ServicesDesktopCardsScene() {
             className="absolute bg-gradient-to-b from-[#120a0b] inset-0 pointer-events-none rounded-[38px] to-[#1b0a03]"
           />
           <div
-            className="relative shrink-0 size-[40px]"
-            data-name="Layers"
+            className="relative flex shrink-0 size-[40px] items-center justify-center text-white"
+            data-name="CRM grid"
             data-node-id="I165:691;406:3043"
           >
-            <img alt="" className="absolute block max-w-none size-full" src={imgLayers} />
+            <LayoutGrid aria-hidden className="size-[40px]" strokeWidth={1.5} />
           </div>
           <div
             className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
             data-node-id="I165:691;406:3047"
           >
-            <div
-              className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-full"
+            <p
+              className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-full"
               data-node-id="I165:691;406:3048"
             >
-              <p className="leading-[40px] mb-0">{`AI & Bo`}</p>
-              <p className="leading-[40px]">Solutions</p>
-            </div>
+              CRM Systems
+            </p>
             <p
               className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-full"
               data-node-id="I165:691;406:3049"
             >
-              Intelligent automation powered by machine learning and natural language processing to
-              transform your business operations.
+              Powerful customer relationship management solutions to streamline your sales process
+              and boost customer satisfaction.
             </p>
           </div>
           <div className="absolute flex h-[99.524px] items-center justify-center left-[-42px] top-[-59px] w-[97.992px]">

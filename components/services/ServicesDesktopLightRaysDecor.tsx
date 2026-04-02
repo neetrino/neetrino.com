@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { SERVICES_LIGHT_RAYS_DECOR_IDLE_TIMEOUT_MS } from "@/lib/desktop-scene-mount.constants";
 import {
   imgEllipse27,
   imgEllipse28,
@@ -12,6 +16,43 @@ import {
 
 /** Hero rays + title + line art inside the Light Rays layer (above the card row). */
 export function ServicesDesktopLightRaysDecor() {
+  const [showDecor, setShowDecor] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    let idleId: number | undefined;
+    /** DOM timer id (number in browser; avoid NodeJS.Timeout mismatch in tsc). */
+    let fallbackTimer: number | undefined;
+
+    const reveal = () => {
+      if (!cancelled) {
+        setShowDecor(true);
+      }
+    };
+
+    if (typeof requestIdleCallback === "function") {
+      idleId = requestIdleCallback(reveal, {
+        timeout: SERVICES_LIGHT_RAYS_DECOR_IDLE_TIMEOUT_MS,
+      });
+    } else {
+      fallbackTimer = window.setTimeout(reveal, 48) as unknown as number;
+    }
+
+    return () => {
+      cancelled = true;
+      if (idleId !== undefined && typeof cancelIdleCallback === "function") {
+        cancelIdleCallback(idleId);
+      }
+      if (fallbackTimer !== undefined) {
+        window.clearTimeout(fallbackTimer);
+      }
+    };
+  }, []);
+
+  if (!showDecor) {
+    return null;
+  }
+
   return (
     <>
       <div
@@ -19,7 +60,13 @@ export function ServicesDesktopLightRaysDecor() {
         data-node-id="165:674"
       >
         <div className="absolute inset-[-52.12%_-48.95%]">
-          <img alt="" className="block max-w-none size-full" src={imgEllipse27} />
+          <img
+            alt=""
+            className="block max-w-none size-full"
+            src={imgEllipse27}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
       <div
@@ -27,7 +74,13 @@ export function ServicesDesktopLightRaysDecor() {
         data-node-id="165:675"
       >
         <div className="absolute inset-[-52.12%_-48.95%]">
-          <img alt="" className="block max-w-none size-full" src={imgEllipse28} />
+          <img
+            alt=""
+            className="block max-w-none size-full"
+            src={imgEllipse28}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
       <div className="absolute flex h-[5878.103px] items-center justify-center left-[-797.93px] mix-blend-plus-lighter top-[-3956.96px] w-[5638.546px]">
@@ -40,6 +93,8 @@ export function ServicesDesktopLightRaysDecor() {
                 height="4828.797"
                 src={imgStar22}
                 width="4347.595"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -57,7 +112,13 @@ export function ServicesDesktopLightRaysDecor() {
             <div className="flex-none rotate-90">
               <div className="h-0 relative w-[759.42px]" data-node-id="165:680">
                 <div className="absolute inset-[-14.04px_-1.23%]">
-                  <img alt="" className="block max-w-none size-full" src={imgLine734} />
+                  <img
+                    alt=""
+                    className="block max-w-none size-full"
+                    src={imgLine734}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </div>
@@ -66,7 +127,13 @@ export function ServicesDesktopLightRaysDecor() {
             <div className="flex-none rotate-90">
               <div className="h-0 relative w-[759.42px]" data-node-id="165:681">
                 <div className="absolute inset-[-23.4px_-2.47%]">
-                  <img alt="" className="block max-w-none size-full" src={imgLine735} />
+                  <img
+                    alt=""
+                    className="block max-w-none size-full"
+                    src={imgLine735}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </div>
@@ -89,7 +156,13 @@ export function ServicesDesktopLightRaysDecor() {
           data-node-id="165:685"
         >
           <div className="absolute inset-[-20.19%_-8.08%]">
-            <img alt="" className="block max-w-none size-full" src={imgVector27397} />
+            <img
+              alt=""
+              className="block max-w-none size-full"
+              src={imgVector27397}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
         <div
@@ -97,7 +170,13 @@ export function ServicesDesktopLightRaysDecor() {
           data-node-id="165:686"
         >
           <div className="absolute inset-[-20.42%_-6.86%]">
-            <img alt="" className="block max-w-none size-full" src={imgVector27398} />
+            <img
+              alt=""
+              className="block max-w-none size-full"
+              src={imgVector27398}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
         <div
@@ -105,14 +184,26 @@ export function ServicesDesktopLightRaysDecor() {
           data-node-id="165:687"
         >
           <div className="absolute inset-[-21.01%_-40.37%]">
-            <img alt="" className="block max-w-none size-full" src={imgRectangle240649642} />
+            <img
+              alt=""
+              className="block max-w-none size-full"
+              src={imgRectangle240649642}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
         <div className="absolute flex h-[645.917px] items-center justify-center left-[-29px] mix-blend-plus-lighter top-[288px] w-[336.252px]">
           <div className="-scale-y-100 flex-none rotate-180">
             <div className="h-[645.917px] relative w-[336.252px]" data-node-id="165:688">
               <div className="absolute inset-[-21.01%_-40.37%]">
-                <img alt="" className="block max-w-none size-full" src={imgRectangle240650146} />
+                <img
+                  alt=""
+                  className="block max-w-none size-full"
+                  src={imgRectangle240650146}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
