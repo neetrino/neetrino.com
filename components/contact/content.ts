@@ -1,21 +1,28 @@
+import { COMPANY_PHONE_TEL_HREF } from "@/lib/nav-links";
+
+/** Single source for phone display + tel: / wa.me / viber. */
+const PHONE_E164_DIGITS = "37444343000" as const;
+
 export const CONTACT_CONTENT = {
   hero: {
     eyebrow: "GET IN TOUCH",
     title: "CONTACT US",
-    body: "We are here to help you build, launch, and grow your digital presence. Reach out through your preferred channel, visit our office location, or send us an inquiry directly.",
+    body: "Reach us by email or phone, visit our office, or send a project inquiry — we respond on business days.",
   },
   sectionTitles: {
-    info: "Contact information",
-    methods: "Choose your preferred channel",
-    location: "Visit our office",
-    socials: "Social channels",
+    reachUs: "Reach us",
+    office: "Office",
+    location: "Location",
+    followUs: "Follow us",
     inquiry: "Send an inquiry",
   },
 } as const;
 
 export const CONTACT_DETAILS = {
   email: "info@neetrino.com",
-  phone: "+374 44 343 000",
+  /** Formatted for display */
+  phoneDisplay: "+374 44 343 000",
+  phoneTelHref: COMPANY_PHONE_TEL_HREF,
   workingHours: "Mon - Fri, 10:00 - 19:00",
   address: "108/10 Andranik Zoravar St., Yerevan, Armenia",
   mapsUrl:
@@ -23,38 +30,25 @@ export const CONTACT_DETAILS = {
   mapsEmbedUrl: "https://www.google.com/maps?q=40.1684703,44.4458742&z=15&output=embed",
 } as const;
 
-export const CONTACT_METHODS = [
+/**
+ * Social / messenger links — shown as icons only (labels are for accessibility).
+ * No duplicate of email/phone blocks; messaging apps listed here only.
+ */
+export const CONTACT_SOCIAL_LINKS = [
+  { id: "facebook", href: "https://www.facebook.com/Neetrino", label: "Facebook" },
+  { id: "instagram", href: "https://www.instagram.com/neetrino_it_agency/", label: "Instagram" },
   {
-    title: "Email us",
-    description: "Send project details and get a response from our team.",
-    href: `mailto:${CONTACT_DETAILS.email}`,
-    cta: CONTACT_DETAILS.email,
+    id: "linkedin",
+    href: "https://www.linkedin.com/company/neetrino-it-agency/",
+    label: "LinkedIn",
   },
+  { id: "telegram", href: "https://telegram.me/neetrino", label: "Telegram" },
+  { id: "whatsapp", href: `https://wa.me/${PHONE_E164_DIGITS}`, label: "WhatsApp" },
   {
-    title: "Call us",
-    description: "Speak directly with us during working hours.",
-    href: "tel:+37444343000",
-    cta: CONTACT_DETAILS.phone,
-  },
-  {
-    title: "WhatsApp",
-    description: "Quick communication for updates and follow-ups.",
-    href: "https://wa.me/37444343000",
-    cta: "Open WhatsApp",
-  },
-  {
-    title: "Telegram",
-    description: "Message our team on Telegram.",
-    href: "https://telegram.me/neetrino",
-    cta: "Open Telegram",
+    id: "viber",
+    href: `viber://chat?number=%2B${PHONE_E164_DIGITS}`,
+    label: "Viber",
   },
 ] as const;
 
-export const CONTACT_SOCIALS = [
-  { label: "Facebook", href: "https://www.facebook.com/Neetrino" },
-  { label: "Instagram", href: "https://www.instagram.com/neetrino_it_agency/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/neetrino-it-agency/" },
-  { label: "Telegram", href: "https://telegram.me/neetrino" },
-  { label: "WhatsApp", href: "https://wa.me/37444343000" },
-  { label: "Viber", href: "viber://chat?number=%2B37444343000" },
-] as const;
+export type ContactSocialId = (typeof CONTACT_SOCIAL_LINKS)[number]["id"];

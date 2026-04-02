@@ -53,7 +53,7 @@ fs.writeFileSync(
 
 import Link from "next/link";
 import { Footer } from "@/components/sections/Footer";
-import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
+import { MobileHeader } from "@/components/shared/MobileHeader";
 import { MOBILE_SERVICE_ITEMS } from "./services-constants";
 
 export function ServicesMobile() {

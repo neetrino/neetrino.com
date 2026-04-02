@@ -1,5 +1,5 @@
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
-import { CONTACT_SOCIALS } from "@/components/contact/content";
+import { CONTACT_SOCIAL_LINKS } from "@/components/contact/content";
 
 export const companyLinks = [
   { href: "/services", label: "Services" },
@@ -18,7 +18,7 @@ export const serviceLinks = [
 ] as const;
 
 const contactSocialHrefByLabel = Object.fromEntries(
-  CONTACT_SOCIALS.map(({ label, href }) => [label, href]),
+  CONTACT_SOCIAL_LINKS.map(({ label, href }) => [label, href]),
 ) as Record<string, string>;
 
 export const socialLinks = [

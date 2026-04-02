@@ -1,4 +1,4 @@
-import { CONTACT_DETAILS, CONTACT_SOCIALS } from "@/components/contact/content";
+import { CONTACT_DETAILS, CONTACT_SOCIAL_LINKS } from "@/components/contact/content";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 export const SITE_NAV_LINKS = [
@@ -26,32 +26,32 @@ export const FOOTER_SERVICE_LABELS = [
 
 export const FOOTER_SOCIALS = [
   {
-    href: CONTACT_SOCIALS.find(({ label }) => label === "Facebook")?.href,
+    href: CONTACT_SOCIAL_LINKS.find(({ label }) => label === "Facebook")?.href,
     icon: FIGMA_ASSETS.imgSocialMediaIconSquareFacebook,
     label: "Facebook",
   },
   {
-    href: CONTACT_SOCIALS.find(({ label }) => label === "Instagram")?.href,
+    href: CONTACT_SOCIAL_LINKS.find(({ label }) => label === "Instagram")?.href,
     icon: FIGMA_ASSETS.imgSocialMediaIconSquareInstagram,
     label: "Instagram",
   },
   {
-    href: CONTACT_SOCIALS.find(({ label }) => label === "LinkedIn")?.href,
+    href: CONTACT_SOCIAL_LINKS.find(({ label }) => label === "LinkedIn")?.href,
     icon: FIGMA_ASSETS.imgGroup73,
     label: "LinkedIn",
   },
   {
-    href: CONTACT_SOCIALS.find(({ label }) => label === "Telegram")?.href,
+    href: CONTACT_SOCIAL_LINKS.find(({ label }) => label === "Telegram")?.href,
     icon: FIGMA_ASSETS.imgGroup,
     label: "Telegram",
   },
   {
-    href: CONTACT_SOCIALS.find(({ label }) => label === "WhatsApp")?.href,
+    href: CONTACT_SOCIAL_LINKS.find(({ label }) => label === "WhatsApp")?.href,
     icon: FIGMA_ASSETS.imgGroup74,
     label: "WhatsApp",
   },
   {
-    href: CONTACT_SOCIALS.find(({ label }) => label === "Viber")?.href,
+    href: CONTACT_SOCIAL_LINKS.find(({ label }) => label === "Viber")?.href,
     icon: FIGMA_ASSETS.imgVector6,
     label: "Viber",
   },
@@ -67,8 +67,8 @@ export const FOOTER_CONTACT_LINKS = {
     href: `mailto:${CONTACT_DETAILS.email}`,
   },
   phone: {
-    label: CONTACT_DETAILS.phone,
-    href: "tel:+37444343000",
+    label: CONTACT_DETAILS.phoneDisplay,
+    href: CONTACT_DETAILS.phoneTelHref,
   },
   hours: CONTACT_DETAILS.workingHours,
 } as const;

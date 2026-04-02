@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { SERVICES_LIGHT_RAYS_DECOR_IDLE_TIMEOUT_MS } from "@/lib/desktop-scene-mount.constants";
+import { useIdleMount } from "@/lib/hooks/useIdleMount";
 import {
   imgEllipse27,
   imgEllipse28,
@@ -14,44 +13,13 @@ import {
   imgVector27398,
 } from "./services-assets";
 
+/** Optimized star raster intrinsic size (matches `25e37262-…webp` after sharp resize). */
+const STAR22_WIDTH = 1844;
+const STAR22_HEIGHT = 2048;
+
 /** Hero rays + title + line art inside the Light Rays layer (above the card row). */
 export function ServicesDesktopLightRaysDecor() {
-  const [showDecor, setShowDecor] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-    let idleId: number | undefined;
-    /** DOM timer id (number in browser; avoid NodeJS.Timeout mismatch in tsc). */
-    let fallbackTimer: number | undefined;
-
-    const reveal = () => {
-      if (!cancelled) {
-        setShowDecor(true);
-      }
-    };
-
-    if (typeof requestIdleCallback === "function") {
-      idleId = requestIdleCallback(reveal, {
-        timeout: SERVICES_LIGHT_RAYS_DECOR_IDLE_TIMEOUT_MS,
-      });
-    } else {
-      fallbackTimer = window.setTimeout(reveal, 48) as unknown as number;
-    }
-
-    return () => {
-      cancelled = true;
-      if (idleId !== undefined && typeof cancelIdleCallback === "function") {
-        cancelIdleCallback(idleId);
-      }
-      if (fallbackTimer !== undefined) {
-        window.clearTimeout(fallbackTimer);
-      }
-    };
-  }, []);
-
-  if (!showDecor) {
-    return null;
-  }
+  const showStarRay = useIdleMount();
 
   return (
     <>
@@ -63,9 +31,9 @@ export function ServicesDesktopLightRaysDecor() {
           <img
             alt=""
             className="block max-w-none size-full"
-            src={imgEllipse27}
-            loading="lazy"
             decoding="async"
+            loading="lazy"
+            src={imgEllipse27}
           />
         </div>
       </div>
@@ -77,29 +45,31 @@ export function ServicesDesktopLightRaysDecor() {
           <img
             alt=""
             className="block max-w-none size-full"
-            src={imgEllipse28}
-            loading="lazy"
             decoding="async"
+            loading="lazy"
+            src={imgEllipse28}
           />
         </div>
       </div>
-      <div className="absolute flex h-[5878.103px] items-center justify-center left-[-797.93px] mix-blend-plus-lighter top-[-3956.96px] w-[5638.546px]">
-        <div className="flex-none rotate-[24.39deg]">
-          <div className="h-[4590.797px] relative w-[4109.595px]" data-node-id="165:676">
-            <div className="absolute inset-[-2.59%_-2.9%]">
-              <img
-                alt=""
-                className="block max-w-none size-full"
-                height="4828.797"
-                src={imgStar22}
-                width="4347.595"
-                loading="lazy"
-                decoding="async"
-              />
+      {showStarRay ? (
+        <div className="absolute flex h-[5878.103px] items-center justify-center left-[-797.93px] mix-blend-plus-lighter top-[-3956.96px] w-[5638.546px]">
+          <div className="flex-none rotate-[24.39deg]">
+            <div className="h-[4590.797px] relative w-[4109.595px]" data-node-id="165:676">
+              <div className="absolute inset-[-2.59%_-2.9%]">
+                <img
+                  alt=""
+                  className="block max-w-none size-full"
+                  decoding="async"
+                  height={STAR22_HEIGHT}
+                  loading="lazy"
+                  src={imgStar22}
+                  width={STAR22_WIDTH}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : null}
       <p
         className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap"
         data-node-id="165:677"
@@ -115,9 +85,9 @@ export function ServicesDesktopLightRaysDecor() {
                   <img
                     alt=""
                     className="block max-w-none size-full"
-                    src={imgLine734}
-                    loading="lazy"
                     decoding="async"
+                    loading="lazy"
+                    src={imgLine734}
                   />
                 </div>
               </div>
@@ -130,9 +100,9 @@ export function ServicesDesktopLightRaysDecor() {
                   <img
                     alt=""
                     className="block max-w-none size-full"
-                    src={imgLine735}
-                    loading="lazy"
                     decoding="async"
+                    loading="lazy"
+                    src={imgLine735}
                   />
                 </div>
               </div>
@@ -159,9 +129,9 @@ export function ServicesDesktopLightRaysDecor() {
             <img
               alt=""
               className="block max-w-none size-full"
-              src={imgVector27397}
-              loading="lazy"
               decoding="async"
+              loading="lazy"
+              src={imgVector27397}
             />
           </div>
         </div>
@@ -173,9 +143,9 @@ export function ServicesDesktopLightRaysDecor() {
             <img
               alt=""
               className="block max-w-none size-full"
-              src={imgVector27398}
-              loading="lazy"
               decoding="async"
+              loading="lazy"
+              src={imgVector27398}
             />
           </div>
         </div>
@@ -187,9 +157,9 @@ export function ServicesDesktopLightRaysDecor() {
             <img
               alt=""
               className="block max-w-none size-full"
-              src={imgRectangle240649642}
-              loading="lazy"
               decoding="async"
+              loading="lazy"
+              src={imgRectangle240649642}
             />
           </div>
         </div>
@@ -200,9 +170,9 @@ export function ServicesDesktopLightRaysDecor() {
                 <img
                   alt=""
                   className="block max-w-none size-full"
-                  src={imgRectangle240650146}
-                  loading="lazy"
                   decoding="async"
+                  loading="lazy"
+                  src={imgRectangle240650146}
                 />
               </div>
             </div>
