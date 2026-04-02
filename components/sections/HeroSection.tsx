@@ -39,21 +39,21 @@ function HeroBackground() {
 function HeroTitleBlock() {
   return (
     <div className="relative z-10 min-h-[360px] w-full text-left">
-      <h1 className="relative z-30 max-w-[210px] pl-6 pr-2 pt-2 font-[family-name:var(--font-megatrox)] text-[clamp(3.1rem,15vw,5.2rem)] font-normal leading-[0.9] tracking-[-0.04em] text-[#fffcfc]">
+      <h1 className="relative z-30 max-w-[170px] pl-6 pr-2 pt-1 font-[family-name:var(--font-megatrox)] text-[clamp(3.05rem,15vw,5.2rem)] font-normal leading-[0.88] tracking-[-0.04em] text-[#fffcfc]">
         <span className="block">NEET</span>
         <span className="block">RIN</span>
         <span className="block">O</span>
       </h1>
 
-      <div className="pointer-events-none absolute right-[-120px] top-[32px] z-[5] h-[min(78vh,680px)] w-[min(205vw,860px)] max-w-none">
+      <div className="pointer-events-none absolute right-[-150px] top-[115px] z-[5] h-[620px] w-[860px] max-w-none">
         <div className="relative h-full w-full">
           <Image
             src={FIGMA_ASSETS.img30}
             alt=""
             fill
             className="object-contain object-right object-top"
-            style={{ objectPosition: "88% 0%" }}
-            sizes="(max-width: 768px) 205vw, 860px"
+            style={{ objectPosition: "100% 0%" }}
+            sizes="860px"
             priority
           />
         </div>
@@ -64,7 +64,7 @@ function HeroTitleBlock() {
 
 function HeroBodyCopy() {
   return (
-    <div className="relative z-30 mt-[10px] max-w-[170px] pl-6 text-left text-[15px] font-extralight leading-[21px] text-white">
+    <div className="relative z-30 mt-[2px] max-w-[185px] pl-6 text-left text-[15px] font-extralight leading-[20px] text-white">
       <p>We build</p>
       <p className="font-black">high-performance</p>
       <p>
