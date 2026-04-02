@@ -1,3 +1,6 @@
+"use client";
+
+import { useIdleMount } from "@/lib/hooks/useIdleMount";
 import {
   imgEllipse27,
   imgEllipse28,
@@ -10,8 +13,14 @@ import {
   imgVector27398,
 } from "./services-assets";
 
+/** Optimized star raster intrinsic size (matches `25e37262-…webp` after sharp resize). */
+const STAR22_WIDTH = 1844;
+const STAR22_HEIGHT = 2048;
+
 /** Hero rays + title + line art inside the Light Rays layer (above the card row). */
 export function ServicesDesktopLightRaysDecor() {
+  const showStarRay = useIdleMount();
+
   return (
     <>
       <div
@@ -19,7 +28,13 @@ export function ServicesDesktopLightRaysDecor() {
         data-node-id="165:674"
       >
         <div className="absolute inset-[-52.12%_-48.95%]">
-          <img alt="" className="block max-w-none size-full" src={imgEllipse27} />
+          <img
+            alt=""
+            className="block max-w-none size-full"
+            decoding="async"
+            loading="lazy"
+            src={imgEllipse27}
+          />
         </div>
       </div>
       <div
@@ -27,24 +42,34 @@ export function ServicesDesktopLightRaysDecor() {
         data-node-id="165:675"
       >
         <div className="absolute inset-[-52.12%_-48.95%]">
-          <img alt="" className="block max-w-none size-full" src={imgEllipse28} />
+          <img
+            alt=""
+            className="block max-w-none size-full"
+            decoding="async"
+            loading="lazy"
+            src={imgEllipse28}
+          />
         </div>
       </div>
-      <div className="absolute flex h-[5878.103px] items-center justify-center left-[-797.93px] mix-blend-plus-lighter top-[-3956.96px] w-[5638.546px]">
-        <div className="flex-none rotate-[24.39deg]">
-          <div className="h-[4590.797px] relative w-[4109.595px]" data-node-id="165:676">
-            <div className="absolute inset-[-2.59%_-2.9%]">
-              <img
-                alt=""
-                className="block max-w-none size-full"
-                height="4828.797"
-                src={imgStar22}
-                width="4347.595"
-              />
+      {showStarRay ? (
+        <div className="absolute flex h-[5878.103px] items-center justify-center left-[-797.93px] mix-blend-plus-lighter top-[-3956.96px] w-[5638.546px]">
+          <div className="flex-none rotate-[24.39deg]">
+            <div className="h-[4590.797px] relative w-[4109.595px]" data-node-id="165:676">
+              <div className="absolute inset-[-2.59%_-2.9%]">
+                <img
+                  alt=""
+                  className="block max-w-none size-full"
+                  decoding="async"
+                  height={STAR22_HEIGHT}
+                  loading="lazy"
+                  src={imgStar22}
+                  width={STAR22_WIDTH}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : null}
       <p
         className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap"
         data-node-id="165:677"
@@ -57,7 +82,13 @@ export function ServicesDesktopLightRaysDecor() {
             <div className="flex-none rotate-90">
               <div className="h-0 relative w-[759.42px]" data-node-id="165:680">
                 <div className="absolute inset-[-14.04px_-1.23%]">
-                  <img alt="" className="block max-w-none size-full" src={imgLine734} />
+                  <img
+                    alt=""
+                    className="block max-w-none size-full"
+                    decoding="async"
+                    loading="lazy"
+                    src={imgLine734}
+                  />
                 </div>
               </div>
             </div>
@@ -66,7 +97,13 @@ export function ServicesDesktopLightRaysDecor() {
             <div className="flex-none rotate-90">
               <div className="h-0 relative w-[759.42px]" data-node-id="165:681">
                 <div className="absolute inset-[-23.4px_-2.47%]">
-                  <img alt="" className="block max-w-none size-full" src={imgLine735} />
+                  <img
+                    alt=""
+                    className="block max-w-none size-full"
+                    decoding="async"
+                    loading="lazy"
+                    src={imgLine735}
+                  />
                 </div>
               </div>
             </div>
@@ -89,7 +126,13 @@ export function ServicesDesktopLightRaysDecor() {
           data-node-id="165:685"
         >
           <div className="absolute inset-[-20.19%_-8.08%]">
-            <img alt="" className="block max-w-none size-full" src={imgVector27397} />
+            <img
+              alt=""
+              className="block max-w-none size-full"
+              decoding="async"
+              loading="lazy"
+              src={imgVector27397}
+            />
           </div>
         </div>
         <div
@@ -97,7 +140,13 @@ export function ServicesDesktopLightRaysDecor() {
           data-node-id="165:686"
         >
           <div className="absolute inset-[-20.42%_-6.86%]">
-            <img alt="" className="block max-w-none size-full" src={imgVector27398} />
+            <img
+              alt=""
+              className="block max-w-none size-full"
+              decoding="async"
+              loading="lazy"
+              src={imgVector27398}
+            />
           </div>
         </div>
         <div
@@ -105,14 +154,26 @@ export function ServicesDesktopLightRaysDecor() {
           data-node-id="165:687"
         >
           <div className="absolute inset-[-21.01%_-40.37%]">
-            <img alt="" className="block max-w-none size-full" src={imgRectangle240649642} />
+            <img
+              alt=""
+              className="block max-w-none size-full"
+              decoding="async"
+              loading="lazy"
+              src={imgRectangle240649642}
+            />
           </div>
         </div>
         <div className="absolute flex h-[645.917px] items-center justify-center left-[-29px] mix-blend-plus-lighter top-[288px] w-[336.252px]">
           <div className="-scale-y-100 flex-none rotate-180">
             <div className="h-[645.917px] relative w-[336.252px]" data-node-id="165:688">
               <div className="absolute inset-[-21.01%_-40.37%]">
-                <img alt="" className="block max-w-none size-full" src={imgRectangle240650146} />
+                <img
+                  alt=""
+                  className="block max-w-none size-full"
+                  decoding="async"
+                  loading="lazy"
+                  src={imgRectangle240650146}
+                />
               </div>
             </div>
           </div>
