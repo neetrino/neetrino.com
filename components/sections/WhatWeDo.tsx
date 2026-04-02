@@ -1,87 +1,101 @@
 import Image from "next/image";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { interSans } from "@/lib/fonts";
 
 const services = [
   {
-    title: "WEBSITE",
-    subtitle: "Custom Development",
+    titleLines: ["WEBSITE"] as const,
+    subtitleLines: ["Custom", "Development"] as const,
     bg: "bg-[#e8e8f4]",
     textColor: "text-black",
     image: FIGMA_ASSETS.imgPc,
+    imageClassName: "object-contain object-left scale-[1.15]",
   },
   {
-    title: "MOBILE APP",
-    subtitle: "App Development",
+    titleLines: ["MOBILE APP"] as const,
+    subtitleLines: ["App", "Development"] as const,
     bg: "bg-[#ff7500]",
     textColor: "text-white",
     image: FIGMA_ASSETS.imgPc1,
+    imageClassName: "object-contain object-left scale-[1.05]",
   },
   {
-    title: "SAAS PLATFORMS",
-    subtitle: "Cloud Solutions",
+    titleLines: ["SAAS", "PLATFORMS"] as const,
+    subtitleLines: ["Cloud Solutions"] as const,
     bg: "bg-[#292929]",
     textColor: "text-white",
     image: FIGMA_ASSETS.imgCloudInfrastructure,
+    imageClassName: "object-contain object-left",
   },
   {
-    title: "CRM SYSTEMS",
-    subtitle: "Process Automation",
+    titleLines: ["CRM SYSTEMS"] as const,
+    subtitleLines: ["Process", "Automation"] as const,
     bg: "bg-[#473dff]",
     textColor: "text-white",
     image: FIGMA_ASSETS.imgSports00065,
-    imageClassName: "scale-[0.86]",
+    imageClassName: "object-cover object-center scale-[0.86]",
   },
   {
-    title: "AI INTEGRATIONS",
-    subtitle: "AI Automation",
+    titleLines: ["AI", "INTEGRATIONS"] as const,
+    subtitleLines: ["AI Automation"] as const,
     bg: "bg-[#a2b8ee]",
     textColor: "text-[#0f0f0f]",
     image: FIGMA_ASSETS.img2761,
-    imageClassName: "scale-[0.84]",
+    imageClassName: "object-contain object-left scale-[0.88]",
   },
 ] as const;
 
+/** Mobile-only section — matches Figma 241:821 service cards (horizontal tiles). */
 export function WhatWeDo() {
   return (
-    <section className="py-16 md:py-24">
-      <div className="section-container">
-        <header className="mb-10 md:mb-14 [font-family:Inter,sans-serif]">
-          <p className="font-medium text-sm uppercase tracking-wider text-white">SERVICES</p>
-          <h2 className="mt-2 font-black italic text-2xl text-white md:text-3xl lg:text-[35px]">
+    <section className={`bg-[#151515] py-12 ${interSans.className}`}>
+      <div className="mx-auto w-full max-w-[480px] px-4 md:px-6">
+        <header className="mb-8">
+          <p className="text-base font-medium uppercase leading-[35px] tracking-normal text-white">
+            SERVICES
+          </p>
+          <h2 className="mt-1 font-black italic text-[35px] leading-[35px] text-white">
             WHAT WE <span className="text-[#ff7500]">DO</span>
           </h2>
         </header>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-5 lg:gap-4">
-          {services.map((service, index) => (
+        <div className="flex flex-col gap-4">
+          {services.map((service) => (
             <article
-              key={service.title}
-              className={`relative flex h-[350px] flex-col overflow-hidden rounded-2xl md:h-[400px] lg:h-[450px] ${service.bg} ${index === 4 ? "md:col-span-2 lg:col-span-1" : ""}`}
+              key={service.titleLines.join("-")}
+              className={`relative flex h-[194px] min-h-[194px] w-full overflow-hidden rounded-[19px] ${service.bg}`}
             >
-              <h3
-                className={`shrink-0 px-4 pt-5 font-bold text-lg md:pt-6 md:text-xl ${service.textColor}`}
-              >
-                {service.title}
-              </h3>
-
-              <div className="relative min-h-0 flex-1 overflow-hidden px-3">
+              <div className="relative h-full w-[48%] shrink-0 overflow-hidden">
                 <Image
                   src={service.image}
                   alt=""
                   fill
-                  className={`object-contain object-center ${"imageClassName" in service ? service.imageClassName : ""}`}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                  className={`${service.imageClassName}`}
+                  sizes="(max-width: 1024px) 48vw, 240px"
                   loading="lazy"
                 />
               </div>
-
-              <div className="flex shrink-0 flex-col gap-3 px-4 pb-5 md:pb-6">
-                <p className={`text-base font-extralight ${service.textColor}`}>
-                  {service.subtitle}
-                </p>
+              <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-between px-3 py-3 pr-2">
+                <div>
+                  {service.titleLines.map((line) => (
+                    <h3
+                      key={line}
+                      className={`font-bold text-lg leading-tight ${service.textColor}`}
+                    >
+                      {line}
+                    </h3>
+                  ))}
+                  <div
+                    className={`mt-1 text-base font-extralight leading-[19px] ${service.textColor}`}
+                  >
+                    {service.subtitleLines.map((line) => (
+                      <p key={line}>{line}</p>
+                    ))}
+                  </div>
+                </div>
                 <button
                   type="button"
-                  className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 text-[15px] font-medium text-[#252525] transition-opacity hover:opacity-90"
+                  className="ml-auto inline-flex w-fit items-center gap-2 self-end rounded-[40px] bg-white px-5 py-3 text-[18px] font-medium text-[#252525] transition-opacity hover:opacity-90"
                 >
                   Continue
                   <Image

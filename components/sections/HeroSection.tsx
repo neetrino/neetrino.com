@@ -1,31 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
+import {
+  MOBILE_HERO_STAT_WIDE,
+  MOBILE_HERO_STATS_TOP,
+} from "@/components/sections/mobile-home-hero.constants";
 
-const stats = [
-  {
-    value: "8+",
-    label: "Years of experience",
-    cardClass: "bg-[#ff7500] text-white",
-  },
-  {
-    value: "97%",
-    label: "Satisfied clients",
-    cardClass: "bg-white text-[#0d266c]",
-  },
-  {
-    value: "450+",
-    label: "Creations",
-    cardClass: "bg-[#473dff] text-white",
-  },
-] as const;
-
-export function HeroSection() {
+function HeroBackground() {
   return (
-    <section
-      className={`relative overflow-hidden bg-[#151515] min-h-[80vh] md:min-h-[70vh] lg:min-h-[90vh] ${interSans.className}`}
-    >
-      {/* 1. Background — flipped vertically */}
+    <>
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
           src={FIGMA_ASSETS.imgPhilippHubertDVVjhUcdb30Unsplash1}
@@ -37,82 +21,149 @@ export function HeroSection() {
           loading="eager"
         />
       </div>
-
-      {/* 3. Erica Anderson — tablet+ only */}
-      <div className="pointer-events-none absolute inset-0 z-[6] hidden mix-blend-lighten opacity-60 md:block">
+      <div className="pointer-events-none absolute inset-0 z-[6] mix-blend-lighten opacity-60">
         <Image
           src={FIGMA_ASSETS.imgEricaAnderson1}
           alt=""
           fill
-          className="rotate-[12deg] scale-110 object-cover"
+          className="object-cover"
           sizes="100vw"
           loading="lazy"
           unoptimized
         />
       </div>
+    </>
+  );
+}
 
-      {/* 5. Bottom gradient overlay */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[15] h-40 md:h-52 lg:h-64">
-        <Image
-          src={FIGMA_ASSETS.imgRectangle17399}
-          alt=""
-          fill
-          className="object-cover object-bottom"
-          sizes="100vw"
-          loading="lazy"
-        />
+function HeroTitleBlock() {
+  return (
+    <div className="relative z-10 min-h-[min(52vh,440px)] w-full text-left">
+      <h1 className="relative z-30 max-w-[min(58vw,240px)] pl-6 pr-2 font-[family-name:var(--font-megatrox)] text-[clamp(3.25rem,16vw,5.6875rem)] font-normal leading-[0.86] tracking-tight text-[#fffcfc]">
+        <span className="block">NEET</span>
+        <span className="block">RINO</span>
+      </h1>
+      {/* Right-anchored, bleeds past viewport — must stay cropped (section overflow-hidden). */}
+      <div className="pointer-events-none absolute right-[-72px] top-[-4px] z-[5] h-[min(82vh,720px)] w-[min(175vw,720px)] max-w-none md:right-[-96px]">
+        <div className="relative h-full w-full">
+          <Image
+            src={FIGMA_ASSETS.img30}
+            alt=""
+            fill
+            className="object-contain object-right object-top"
+            style={{ objectPosition: "72% 4%" }}
+            sizes="(max-width: 768px) 175vw, 720px"
+            priority
+          />
+        </div>
       </div>
+    </div>
+  );
+}
 
-      <div className="relative z-20 mx-auto w-full max-w-[1440px] px-4 pb-10 pt-8 md:px-6 lg:px-8 lg:pb-14 lg:pt-12">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:min-h-[min(55vh,640px)]">
-          {/* 4–2. Logo + robot — mobile first, desktop right column */}
-          <div className="relative z-10 order-1 flex min-h-[min(48vh,400px)] w-full flex-col items-center justify-center lg:z-auto lg:order-2 lg:min-h-[min(58vh,560px)] lg:flex-1">
-            <div className="pointer-events-none absolute inset-0 z-[5] flex items-center justify-center px-2">
-              <Image
-                src="/NEETRINO.svg"
-                alt="NEETRINO"
-                width={1186}
-                height={128}
-                className="-mt-12 h-auto w-[min(92%,280px)] max-w-full opacity-90 md:w-[min(85%,400px)] lg:mt-0 lg:w-[min(92%,720px)]"
-                loading="eager"
-              />
-            </div>
+function HeroBodyCopy() {
+  return (
+    <div className="relative z-30 mt-28 max-w-[227px] pl-6 text-left text-base font-extralight leading-[23px] text-white">
+      <p>We build</p>
+      <p className="font-black">high-performance</p>
+      <p>
+        <span className="font-black">websites</span>
+        <span> and digital solutions</span>
+      </p>
+      <p>that help</p>
+      <p>businesses grow,</p>
+      <p>scale, and stand</p>
+      <p>out online.</p>
+    </div>
+  );
+}
 
-            <div className="relative z-10 flex w-full justify-center">
-              <div className="relative aspect-[3/4] w-[min(80vw,300px)] md:w-[min(48vw,300px)] lg:w-[min(42vw,380px)]">
-                <Image
-                  src={FIGMA_ASSETS.img30}
-                  alt=""
-                  fill
-                  className="object-contain object-bottom"
-                  sizes="(max-width: 768px) 72vw, (max-width: 1024px) 48vw, 42vw"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
+function HeroGradientStrip() {
+  return (
+    <div className="relative z-[15] mt-10 h-[min(42vw,249px)] w-full overflow-hidden">
+      <Image
+        src={FIGMA_ASSETS.imgRectangle17399}
+        alt=""
+        fill
+        className="object-cover object-center rotate-180"
+        sizes="100vw"
+        loading="lazy"
+      />
+    </div>
+  );
+}
 
-          {/* 6. Text — below visual on mobile, left on desktop */}
-          <div className="relative z-20 order-2 -mt-14 max-w-[500px] text-center lg:z-auto lg:order-1 lg:mt-0 lg:shrink-0 lg:text-left">
-            <div className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-md md:px-5 md:py-4 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
-              <p className="font-extralight leading-relaxed text-white text-lg md:text-xl px-1 lg:px-0">
-                We build <span className="font-black text-white">high-performance websites</span>{" "}
-                and digital solutions that help businesses grow, engage audiences, and stand out
-                online.
-              </p>
-            </div>
+function HeroCtas() {
+  const btn =
+    "flex h-14 w-full items-center justify-center rounded-[28px] text-base font-extrabold transition-opacity hover:opacity-95";
+  return (
+    <div className="relative z-20 mt-6 flex w-full flex-col gap-2 px-6">
+      <Link href="/contact" className={`${btn} bg-[#473dff] text-white`}>
+        Get a Quote
+      </Link>
+      <Link href="/contact" className={`${btn} bg-white text-[#473dff]`}>
+        Contact
+      </Link>
+    </div>
+  );
+}
+
+function HeroStatsTop() {
+  return (
+    <div className="relative z-20 mt-10 grid grid-cols-2 gap-3 px-6">
+      {MOBILE_HERO_STATS_TOP.map((item) => (
+        <div
+          key={item.value}
+          className={`rounded-[39px] px-5 pb-6 pt-7 text-left ${item.bg} ${item.text}`}
+        >
+          <p className="text-[56px] font-black leading-9">{item.value}</p>
+          <div className="mt-2 text-base font-extralight leading-[18px]">
+            {item.labelLines.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
           </div>
         </div>
+      ))}
+    </div>
+  );
+}
 
-        {/* Stat cards */}
-        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-4 lg:mt-12 lg:gap-6">
-          {stats.map((item) => (
-            <div key={item.label} className={`rounded-2xl p-5 ${item.cardClass}`}>
-              <p className="font-black text-4xl md:text-5xl">{item.value}</p>
-              <p className="mt-2 font-extralight text-base">{item.label}</p>
-            </div>
-          ))}
+function HeroStatWide() {
+  const s = MOBILE_HERO_STAT_WIDE;
+  return (
+    <div className="relative z-20 mt-3 min-h-[167px] w-full px-6">
+      <div className={`relative overflow-hidden rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}>
+        <p className={`text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
+        <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
+        <div className="pointer-events-none absolute bottom-0 right-0 h-[min(52vw,224px)] w-[62%] max-w-[270px]">
+          <div className="relative h-full w-full -scale-y-100 rotate-180">
+            <Image
+              src={FIGMA_ASSETS.img28A}
+              alt=""
+              fill
+              className="object-contain object-bottom"
+              sizes="(max-width: 768px) 62vw, 270px"
+              loading="lazy"
+            />
+          </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/** Mobile home hero — matches Figma frame 241:821 (desktop uses NeetrinoHome canvas). */
+export function HeroSection() {
+  return (
+    <section className={`relative overflow-hidden bg-[#151515] pb-10 ${interSans.className}`}>
+      <HeroBackground />
+      <div className="relative z-20 w-full pb-2 pt-14 text-left">
+        <HeroTitleBlock />
+        <HeroBodyCopy />
+        <HeroGradientStrip />
+        <HeroCtas />
+        <HeroStatsTop />
+        <HeroStatWide />
       </div>
     </section>
   );
