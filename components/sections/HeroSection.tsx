@@ -38,21 +38,22 @@ function HeroBackground() {
 
 function HeroTitleBlock() {
   return (
-    <div className="relative z-10 min-h-[min(52vh,440px)] w-full text-left">
-      <h1 className="relative z-30 max-w-[min(58vw,240px)] pl-6 pr-2 font-[family-name:var(--font-megatrox)] text-[clamp(3.25rem,16vw,5.6875rem)] font-normal leading-[0.86] tracking-tight text-[#fffcfc]">
+    <div className="relative z-10 min-h-[360px] w-full text-left">
+      <h1 className="relative z-30 max-w-[210px] pl-6 pr-2 pt-2 font-[family-name:var(--font-megatrox)] text-[clamp(3.1rem,15vw,5.2rem)] font-normal leading-[0.9] tracking-[-0.04em] text-[#fffcfc]">
         <span className="block">NEET</span>
-        <span className="block">RINO</span>
+        <span className="block">RIN</span>
+        <span className="block">O</span>
       </h1>
-      {/* Right-anchored, bleeds past viewport — must stay cropped (section overflow-hidden). */}
-      <div className="pointer-events-none absolute right-[-72px] top-[-4px] z-[5] h-[min(82vh,720px)] w-[min(175vw,720px)] max-w-none md:right-[-96px]">
+
+      <div className="pointer-events-none absolute right-[-120px] top-[32px] z-[5] h-[min(78vh,680px)] w-[min(205vw,860px)] max-w-none">
         <div className="relative h-full w-full">
           <Image
             src={FIGMA_ASSETS.img30}
             alt=""
             fill
             className="object-contain object-right object-top"
-            style={{ objectPosition: "72% 4%" }}
-            sizes="(max-width: 768px) 175vw, 720px"
+            style={{ objectPosition: "88% 0%" }}
+            sizes="(max-width: 768px) 205vw, 860px"
             priority
           />
         </div>
@@ -63,7 +64,7 @@ function HeroTitleBlock() {
 
 function HeroBodyCopy() {
   return (
-    <div className="relative z-30 mt-28 max-w-[227px] pl-6 text-left text-base font-extralight leading-[23px] text-white">
+    <div className="relative z-30 mt-[10px] max-w-[170px] pl-6 text-left text-[15px] font-extralight leading-[21px] text-white">
       <p>We build</p>
       <p className="font-black">high-performance</p>
       <p>
