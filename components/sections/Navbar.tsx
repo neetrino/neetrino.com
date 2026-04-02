@@ -36,7 +36,7 @@ function PhoneIcon({ className }: { className?: string }) {
 export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pt-2">
-      <div className="w-[calc(100%-24px)] md:w-[calc(100%-40px)] lg:w-[calc(100%-56px)] max-w-[1120px] mx-auto rounded-full bg-white/15 backdrop-blur-xl pl-4 pr-1 md:pl-5 md:pr-1 lg:pl-5 lg:pr-1 py-2.5">
+      <div className="mx-auto w-[calc(100%-24px)] max-w-[1120px] bg-transparent py-2.5 pl-4 pr-1 md:w-[calc(100%-40px)] md:pl-5 md:pr-1 lg:w-[calc(100%-56px)] lg:pl-5 lg:pr-1">
         <div className="flex items-center justify-between gap-2 lg:grid lg:grid-cols-[210px_1fr_auto] lg:gap-4">
           <Link
             href="/"

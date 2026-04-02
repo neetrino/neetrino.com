@@ -1,31 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
+import {
+  MOBILE_HERO_STAT_WIDE,
+  MOBILE_HERO_STATS_TOP,
+} from "@/components/sections/mobile-home-hero.constants";
 
-const stats = [
-  {
-    value: "8+",
-    label: "Years of experience",
-    cardClass: "bg-[#ff7500] text-white",
-  },
-  {
-    value: "97%",
-    label: "Satisfied clients",
-    cardClass: "bg-white text-[#0d266c]",
-  },
-  {
-    value: "450+",
-    label: "Creations",
-    cardClass: "bg-[#473dff] text-white",
-  },
-] as const;
-
-export function HeroSection() {
+function HeroBackground() {
   return (
-    <section
-      className={`relative overflow-hidden bg-[#151515] min-h-[80vh] md:min-h-[70vh] lg:min-h-[90vh] ${interSans.className}`}
-    >
-      {/* 1. Background — flipped vertically */}
+    <>
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
           src={FIGMA_ASSETS.imgPhilippHubertDVVjhUcdb30Unsplash1}
@@ -37,82 +21,168 @@ export function HeroSection() {
           loading="eager"
         />
       </div>
-
-      {/* 3. Erica Anderson — tablet+ only */}
-      <div className="pointer-events-none absolute inset-0 z-[6] hidden mix-blend-lighten opacity-60 md:block">
+      <div className="pointer-events-none absolute inset-0 z-[6] mix-blend-lighten opacity-60">
         <Image
           src={FIGMA_ASSETS.imgEricaAnderson1}
           alt=""
           fill
-          className="rotate-[12deg] scale-110 object-cover"
+          className="object-cover"
           sizes="100vw"
           loading="lazy"
           unoptimized
         />
       </div>
+    </>
+  );
+}
 
-      {/* 5. Bottom gradient overlay */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[15] h-40 md:h-52 lg:h-64">
-        <Image
-          src={FIGMA_ASSETS.imgRectangle17399}
-          alt=""
-          fill
-          className="object-cover object-bottom"
-          sizes="100vw"
-          loading="lazy"
-        />
+/**
+ * Figma 241:827–828 — absolute title + robot (fixed px match 393px frame; no vh min-height).
+ */
+function HeroTitleAndRobot() {
+  return (
+    <>
+      <h1 className="absolute left-[calc(50%-191px)] top-[66px] z-30 max-w-[260px] font-[family-name:var(--font-megatrox)] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]">
+        <span className="block">NEET</span>
+        <span className="block">RIN</span>
+        <span className="block">O</span>
+      </h1>
+
+      <div className="pointer-events-none absolute left-[calc(50%+207px)] top-[61px] z-[1] h-[759px] w-[576px] max-w-[min(576px,148vw)] -translate-x-1/2 overflow-hidden">
+        <div className="relative h-full w-full">
+          {/* Figma 241:828 — crop inside 576×759 */}
+          <Image
+            src={FIGMA_ASSETS.img30}
+            alt=""
+            width={836}
+            height={1491}
+            priority
+            className="absolute left-[-22.58%] top-[-60.36%] h-[196.49%] w-[145.15%] max-w-none object-cover"
+            sizes="576px"
+          />
+        </div>
       </div>
+    </>
+  );
+}
 
-      <div className="relative z-20 mx-auto w-full max-w-[1440px] px-4 pb-10 pt-8 md:px-6 lg:px-8 lg:pb-14 lg:pt-12">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:min-h-[min(55vh,640px)]">
-          {/* 4–2. Logo + robot — mobile first, desktop right column */}
-          <div className="relative z-10 order-1 flex min-h-[min(48vh,400px)] w-full flex-col items-center justify-center lg:z-auto lg:order-2 lg:min-h-[min(58vh,560px)] lg:flex-1">
-            <div className="pointer-events-none absolute inset-0 z-[5] flex items-center justify-center px-2">
-              <Image
-                src="/NEETRINO.svg"
-                alt="NEETRINO"
-                width={1186}
-                height={128}
-                className="-mt-12 h-auto w-[min(92%,280px)] max-w-full opacity-90 md:w-[min(85%,400px)] lg:mt-0 lg:w-[min(92%,720px)]"
-                loading="eager"
-              />
-            </div>
+/** Figma 241:840 — vertical center at Y=549 (frame); inner top = 461px with -translate-y-1/2. */
+function HeroBodyCopy() {
+  return (
+    <div className="absolute left-6 top-[461px] z-30 flex h-[200px] w-[227px] -translate-y-1/2 flex-col justify-center text-left text-base font-extralight leading-[23px] text-white">
+      <p>We build</p>
+      <p className="font-black">high-performance </p>
+      <p className="mb-0">
+        <span className="font-black">websites</span>
+        <span> </span>
+      </p>
+      <p>and digital solutions</p>
+      <p>that help</p>
+      <p>businesses grow,</p>
+      <p>scale, and stand</p>
+      <p>out online.</p>
+    </div>
+  );
+}
 
-            <div className="relative z-10 flex w-full justify-center">
-              <div className="relative aspect-[3/4] w-[min(80vw,300px)] md:w-[min(48vw,300px)] lg:w-[min(42vw,380px)]">
-                <Image
-                  src={FIGMA_ASSETS.img30}
-                  alt=""
-                  fill
-                  className="object-contain object-bottom"
-                  sizes="(max-width: 768px) 72vw, (max-width: 1024px) 48vw, 42vw"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
+function HeroCtas() {
+  const baseLink =
+    "absolute left-1/2 z-[25] flex h-14 w-[min(393px,calc(100%-48px))] -translate-x-1/2 items-center justify-center rounded-[28px] text-base font-extrabold transition-opacity hover:opacity-95";
 
-          {/* 6. Text — below visual on mobile, left on desktop */}
-          <div className="relative z-20 order-2 -mt-14 max-w-[500px] text-center lg:z-auto lg:order-1 lg:mt-0 lg:shrink-0 lg:text-left">
-            <div className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-md md:px-5 md:py-4 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
-              <p className="font-extralight leading-relaxed text-white text-lg md:text-xl px-1 lg:px-0">
-                We build <span className="font-black text-white">high-performance websites</span>{" "}
-                and digital solutions that help businesses grow, engage audiences, and stand out
-                online.
-              </p>
-            </div>
+  /** Frosted glass: strong backdrop blur; label stays sharp on a separate layer. */
+  const glassLayer =
+    "pointer-events-none absolute inset-0 rounded-[28px] backdrop-blur-3xl backdrop-saturate-150";
+
+  return (
+    <>
+      <Link
+        href="/contact"
+        className={`${baseLink} top-[693px] isolate text-white shadow-lg shadow-black/25`}
+      >
+        <span className={`${glassLayer} border border-white/30 bg-[#473dff]/20`} aria-hidden />
+        <span className="relative z-10">Get a Quote</span>
+      </Link>
+      <Link
+        href="/contact"
+        className={`${baseLink} top-[761px] isolate text-[#473dff] shadow-lg shadow-black/15`}
+      >
+        <span className={`${glassLayer} border border-white/55 bg-white/14`} aria-hidden />
+        <span className="relative z-10">Contact</span>
+      </Link>
+    </>
+  );
+}
+
+function HeroStatsTop() {
+  return (
+    <div className="relative z-20 mt-0 grid grid-cols-2 gap-3 px-6">
+      {MOBILE_HERO_STATS_TOP.map((item) => (
+        <div
+          key={item.value}
+          className={`rounded-[39px] px-5 pb-6 pt-7 text-left ${item.bg} ${item.text}`}
+        >
+          <p className="text-[56px] font-black leading-9">{item.value}</p>
+          <div className="mt-2 text-base font-extralight leading-[18px]">
+            {item.labelLines.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
           </div>
         </div>
+      ))}
+    </div>
+  );
+}
 
-        {/* Stat cards */}
-        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-4 lg:mt-12 lg:gap-6">
-          {stats.map((item) => (
-            <div key={item.label} className={`rounded-2xl p-5 ${item.cardClass}`}>
-              <p className="font-black text-4xl md:text-5xl">{item.value}</p>
-              <p className="mt-2 font-extralight text-base">{item.label}</p>
-            </div>
-          ))}
+function HeroStatWide() {
+  const s = MOBILE_HERO_STAT_WIDE;
+  return (
+    <div className="relative z-20 mt-[34px] min-h-[167px] w-full px-6">
+      <div className={`relative overflow-hidden rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}>
+        <p className={`text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
+        <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
+        <div className="pointer-events-none absolute bottom-0 right-0 h-[min(52vw,224px)] w-[62%] max-w-[270px]">
+          <div className="relative h-full w-full -scale-y-100 rotate-180">
+            <Image
+              src={FIGMA_ASSETS.img28A}
+              alt=""
+              fill
+              className="object-contain object-bottom"
+              sizes="(max-width: 768px) 62vw, 270px"
+              loading="lazy"
+            />
+          </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Mobile home hero — Figma 241:821 absolute layout (Y / padding vs frame in mobile-home-hero.constants).
+ * `min-h-[853px]` positions flow stats at frame Y=941 (88 + 853).
+ */
+/** Blur panel: top edge aligned with first CTA (pt-[88px] + top-[693px]) — no empty frosted strip above buttons. */
+const HERO_LOWER_BLUR_TOP = "top-[calc(88px+660px)]";
+const HERO_LOWER_BLUR_RADIUS = "rounded-[32px]";
+
+export function HeroSection() {
+  return (
+    <section
+      className={`relative min-w-0 overflow-x-hidden bg-[#151515] pb-10 ${interSans.className}`}
+    >
+      <HeroBackground />
+      <div className="relative z-20 mx-auto w-full max-w-[393px] pt-[88px] text-left">
+        <div
+          className={`pointer-events-none absolute inset-x-0 ${HERO_LOWER_BLUR_TOP} bottom-0 z-[16] ${HERO_LOWER_BLUR_RADIUS} bg-[#151515]/30 backdrop-blur-2xl backdrop-saturate-150`}
+          aria-hidden
+        />
+        <div className="relative min-h-[853px] w-full">
+          <HeroTitleAndRobot />
+          <HeroBodyCopy />
+          <HeroCtas />
+        </div>
+        <HeroStatsTop />
+        <HeroStatWide />
       </div>
     </section>
   );
