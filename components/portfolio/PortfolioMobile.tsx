@@ -31,7 +31,7 @@ export function PortfolioMobile() {
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
-                  loading={index < 2 ? "eager" : "lazy"}
+                  loading={index === 0 ? "eager" : "lazy"}
                   priority={index === 0}
                   decoding="async"
                 />

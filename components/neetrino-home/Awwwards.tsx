@@ -72,6 +72,7 @@ export function Awwwards({ className }: { className?: string }) {
           height={2400}
           className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"
           src={imgNeetrinoItComapny2Png1}
+          sizes="130px"
         />
       </Link>
       <div
@@ -89,6 +90,7 @@ export function Awwwards({ className }: { className?: string }) {
             height={2400}
             className="absolute block max-w-none size-full"
             src={imgVector}
+            sizes="25px"
           />
         </div>
       </div>

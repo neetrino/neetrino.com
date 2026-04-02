@@ -75,6 +75,7 @@ export function Partners() {
               height={height}
               className="block shrink-0 opacity-70"
               sizes="(max-width: 1024px) 120px, 160px"
+              loading="lazy"
             />
           );
         })}
@@ -91,6 +92,7 @@ export function Partners() {
               height={height}
               className="block shrink-0 opacity-70"
               sizes="(max-width: 1024px) 120px, 160px"
+              loading="lazy"
             />
           );
         })}

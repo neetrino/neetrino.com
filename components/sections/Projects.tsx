@@ -41,6 +41,7 @@ export function Projects() {
                 fill
                 sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 50vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
               />
               <div
                 className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-black/55 to-transparent"

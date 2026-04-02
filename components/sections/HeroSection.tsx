@@ -34,7 +34,7 @@ export function HeroSection() {
           className="object-cover"
           style={{ transform: "scaleY(-1)" }}
           sizes="100vw"
-          priority
+          loading="eager"
         />
       </div>
 
@@ -59,6 +59,7 @@ export function HeroSection() {
           fill
           className="object-cover object-bottom"
           sizes="100vw"
+          loading="lazy"
         />
       </div>
 
@@ -73,7 +74,7 @@ export function HeroSection() {
                 width={1186}
                 height={128}
                 className="-mt-12 h-auto w-[min(92%,280px)] max-w-full opacity-90 md:w-[min(85%,400px)] lg:mt-0 lg:w-[min(92%,720px)]"
-                priority
+                loading="eager"
               />
             </div>
 

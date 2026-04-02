@@ -46,6 +46,7 @@ export function WhoWeAre() {
               unoptimized
               className="object-contain object-center"
               sizes="(min-width: 1024px) 50vw, 100vw"
+              loading="lazy"
             />
           </div>
         </div>

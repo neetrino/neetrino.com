@@ -48,6 +48,8 @@ export function NeetrinoHomeSegment1() {
                   height={2400}
                   className="absolute h-[130.92%] left-[-15.08%] max-w-none top-0 w-[115.09%]"
                   src={imgPhilippHubertDVVjhUcdb30Unsplash1}
+                  sizes="1440px"
+                  loading="eager"
                 />
               </div>
             </div>
@@ -91,6 +93,7 @@ export function NeetrinoHomeSegment1() {
               height={2400}
               className="absolute h-[166.65%] left-[-22.58%] max-w-none top-[-44.39%] w-[145.15%]"
               src={img30}
+              sizes="629px"
               loading="eager"
               priority
             />
@@ -113,6 +116,8 @@ export function NeetrinoHomeSegment1() {
                 height={2400}
                 className="absolute block max-w-none size-full"
                 src={imgRectangle17399}
+                sizes="1440px"
+                loading="lazy"
               />
             </div>
           </div>

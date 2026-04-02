@@ -71,6 +71,7 @@ export function WhatWeDo() {
                   fill
                   className={`object-contain object-center ${"imageClassName" in service ? service.imageClassName : ""}`}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                  loading="lazy"
                 />
               </div>
 

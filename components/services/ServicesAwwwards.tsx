@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { imgNeetrinoItComapny2Png1, imgVector } from "./services-assets";
 
@@ -59,26 +60,32 @@ export function ServicesAwwwards({ className }: { className?: string }) {
       <Link
         href="/"
         aria-label="Go to home page"
-        className="absolute h-[37px] left-[20px] top-[13px] w-[130px]"
+        className="absolute left-[20px] top-[13px] h-[37px] w-[130px]"
         data-name="Neetrino-it-comapny-(2)png 1"
         data-node-id="165:657"
       >
-        <img
-          alt=""
-          className="absolute inset-0 max-w-none object-cover pointer-events-none size-full"
-          src={imgNeetrinoItComapny2Png1}
-        />
+        <span className="relative block size-full">
+          <Image
+            alt=""
+            src={imgNeetrinoItComapny2Png1}
+            fill
+            sizes="130px"
+            className="object-cover pointer-events-none"
+          />
+        </span>
       </Link>
       <div
-        className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]"
+        className="absolute left-[1172px] top-[8px] size-[48px] rounded-full bg-white"
         data-node-id="165:658"
       >
         <div
-          className="absolute left-[11px] size-[25px] top-[11px]"
+          className="absolute left-[11px] top-[11px] size-[25px]"
           data-name="Vector"
           data-node-id="165:660"
         >
-          <img alt="" className="absolute block max-w-none size-full" src={imgVector} />
+          <span className="relative block size-full">
+            <Image alt="" src={imgVector} fill sizes="25px" className="object-contain" />
+          </span>
         </div>
       </div>
     </div>
