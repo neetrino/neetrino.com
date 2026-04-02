@@ -1,3 +1,6 @@
+/** Same destination as hero “Get a Quote” — contact form. */
+export const GET_A_QUOTE_HREF = "/contact" as const;
+
 /** Click-to-call for header phone button (E.164 in tel URI, no spaces). */
 export const COMPANY_PHONE_TEL_HREF = "tel:+37444343000" as const;
 

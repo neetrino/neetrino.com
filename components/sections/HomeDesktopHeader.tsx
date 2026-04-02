@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { DesktopHeaderQuoteLink } from "@/components/shared/DesktopHeaderQuoteLink";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { DESKTOP_HEADER_PHONE_LEFT_PX } from "@/lib/desktop-header-quote.constants";
 import { COMPANY_PHONE_TEL_HREF } from "@/lib/nav-links";
 
 export function HomeDesktopHeader() {
   return (
     <div className="relative hidden h-[91px] lg:block">
       <div
-        className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1240px]"
+        className="absolute z-[100] -translate-x-1/2 bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1240px]"
         data-name="Awwwards"
         data-node-id="10:442"
       >
@@ -73,10 +75,12 @@ export function HomeDesktopHeader() {
             src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1}
           />
         </Link>
+        <DesktopHeaderQuoteLink />
         <a
           href={COMPANY_PHONE_TEL_HREF}
           aria-label="Call Neetrino"
-          className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]"
+          className="pointer-events-auto absolute z-[110] bg-white rounded-full size-[48px] top-[8px]"
+          style={{ left: DESKTOP_HEADER_PHONE_LEFT_PX }}
           data-node-id="10:454"
         >
           <div

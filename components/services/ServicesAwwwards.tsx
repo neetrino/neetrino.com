@@ -1,13 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { DesktopHeaderQuoteLink } from "@/components/shared/DesktopHeaderQuoteLink";
+import { DESKTOP_HEADER_PHONE_LEFT_PX } from "@/lib/desktop-header-quote.constants";
+import { COMPANY_PHONE_TEL_HREF } from "@/lib/nav-links";
+import { cn } from "@/lib/utils";
 import { imgNeetrinoItComapny2Png1, imgVector } from "./services-assets";
 
 export function ServicesAwwwards({ className }: { className?: string }) {
   return (
     <div
-      className={
-        className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1240px]"
-      }
+      className={cn(
+        "z-[100]",
+        className ?? "relative bg-[rgba(255,255,255,0.21)] h-[64px] rounded-[72px] w-[1240px]",
+      )}
       data-name="Awwwards"
       data-node-id="165:646"
     >
@@ -74,8 +79,12 @@ export function ServicesAwwwards({ className }: { className?: string }) {
           />
         </span>
       </Link>
-      <div
-        className="absolute left-[1172px] top-[8px] size-[48px] rounded-full bg-white"
+      <DesktopHeaderQuoteLink />
+      <a
+        href={COMPANY_PHONE_TEL_HREF}
+        aria-label="Call Neetrino"
+        className="pointer-events-auto absolute z-[110] top-[8px] size-[48px] rounded-full bg-white"
+        style={{ left: DESKTOP_HEADER_PHONE_LEFT_PX }}
         data-node-id="165:658"
       >
         <div
@@ -87,7 +96,7 @@ export function ServicesAwwwards({ className }: { className?: string }) {
             <Image alt="" src={imgVector} fill sizes="25px" className="object-contain" />
           </span>
         </div>
-      </div>
+      </a>
     </div>
   );
 }
