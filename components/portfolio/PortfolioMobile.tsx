@@ -1,9 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/sections/Footer";
-import { MOBILE_PORTFOLIO_ITEMS } from "@/components/portfolio/portfolio-data";
+import {
+  MOBILE_PORTFOLIO_CARD_IMAGE_SIZES,
+  MOBILE_PORTFOLIO_INITIAL_VISIBLE,
+  MOBILE_PORTFOLIO_ITEMS,
+  MOBILE_PORTFOLIO_LOAD_MORE_STEP,
+} from "@/components/portfolio/portfolio-data";
+import { useIntersectionLoadMore } from "@/lib/hooks/useIntersectionLoadMore";
 
 export function PortfolioMobile() {
+  const total = MOBILE_PORTFOLIO_ITEMS.length;
+  const { visibleCount, sentinelRef } = useIntersectionLoadMore({
+    totalCount: total,
+    initialVisible: MOBILE_PORTFOLIO_INITIAL_VISIBLE,
+    step: MOBILE_PORTFOLIO_LOAD_MORE_STEP,
+  });
+
+  const visibleItems = MOBILE_PORTFOLIO_ITEMS.slice(0, visibleCount);
+  const hasMore = visibleCount < total;
+
   return (
     <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
       <main className="section-container pt-24 pb-14">
@@ -19,7 +37,7 @@ export function PortfolioMobile() {
         </section>
 
         <section className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
-          {MOBILE_PORTFOLIO_ITEMS.map((item, index) => (
+          {visibleItems.map((item, index) => (
             <article
               key={item.title}
               className="min-w-0 overflow-hidden rounded-[24px] border border-white/12 bg-[#1a1a1a]"
@@ -29,7 +47,7 @@ export function PortfolioMobile() {
                   alt={item.title}
                   src={item.image}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
                   className="object-cover"
                   loading={index === 0 ? "eager" : "lazy"}
                   priority={index === 0}
@@ -47,6 +65,9 @@ export function PortfolioMobile() {
               </div>
             </article>
           ))}
+          {hasMore ? (
+            <div ref={sentinelRef} className="col-span-full h-1 w-full min-h-[1px]" aria-hidden />
+          ) : null}
         </section>
       </main>
       <Footer />

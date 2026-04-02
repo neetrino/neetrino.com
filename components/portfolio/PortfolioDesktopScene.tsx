@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DeferredMount } from "@/components/layout/DeferredMount";
 import { desktopPortfolioRows } from "@/components/portfolio/portfolio-data";
-import { PortfolioDesktopLightRaysDecor } from "@/components/portfolio/PortfolioDesktopLightRaysDecor";
+import { PortfolioDesktopStarRayDeferred } from "@/components/portfolio/PortfolioDesktopStarRayDeferred";
 import { PortfolioDesktopVectorDecorDeferred } from "@/components/portfolio/PortfolioDesktopVectorDecorDeferred";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
 import { CanvasFooter } from "@/components/sections/Footer";
@@ -298,7 +298,58 @@ export function PortfolioDesktopScene() {
       <DeferredMount topClassName="top-[2400px]" rootMargin="400px 0px 400px 0px">
         <PortfolioPlanet />
       </DeferredMount>
-      <PortfolioDesktopLightRaysDecor />
+      <div
+        className="-translate-x-1/2 absolute h-[1898px] left-[calc(50%+1px)] overflow-clip top-0 w-[1438px]"
+        data-name="Light Rays Effect"
+        data-node-id="166:1208"
+      >
+        <div
+          className="-translate-x-1/2 absolute bottom-[70.05%] left-[calc(50%+62.8px)] top-[-21.87%] w-[1047.338px]"
+          data-node-id="166:1209"
+        >
+          <div className="absolute inset-[-52.12%_-48.95%]">
+            <img
+              alt=""
+              className="block max-w-none size-full"
+              src={figma.imgEllipse27}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+        <div
+          className="-translate-x-1/2 absolute bottom-[61.34%] left-[calc(50%+793.12px)] top-[-13.17%] w-[1047.338px]"
+          data-node-id="166:1210"
+        >
+          <div className="absolute inset-[-52.12%_-48.95%]">
+            <img
+              alt=""
+              className="block max-w-none size-full"
+              src={figma.imgEllipse28}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+        <PortfolioDesktopStarRayDeferred />
+        <div
+          className="absolute h-[1137px] left-0 mix-blend-soft-light opacity-58 top-0 w-[1758px]"
+          data-name="Noise"
+          data-node-id="166:1212"
+        >
+          <div
+            aria-hidden="true"
+            className="absolute bg-size-[1253.707855939865px_417.9026186466217px] bg-top-left inset-0 opacity-74 pointer-events-none"
+            style={{ backgroundImage: `url('${figma.imgNoise}')` }}
+          />
+        </div>
+        <p
+          className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap"
+          data-node-id="166:1213"
+        >
+          PORTFOLIO
+        </p>
+      </div>
       <PortfolioDesktopVectorDecorDeferred />
       <div
         className="-translate-x-1/2 absolute h-[405px] left-[calc(50%+0.5px)] top-[1013px] w-[1437px]"
