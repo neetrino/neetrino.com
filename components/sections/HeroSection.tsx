@@ -36,41 +36,47 @@ function HeroBackground() {
   );
 }
 
-function HeroTitleBlock() {
+/**
+ * Figma 241:827–828 — absolute title + robot (fixed px match 393px frame; no vh min-height).
+ */
+function HeroTitleAndRobot() {
   return (
-    <div className="relative z-10 min-h-[360px] w-full text-left">
-      <h1 className="relative z-30 max-w-[170px] pl-6 pr-2 pt-1 font-[family-name:var(--font-megatrox)] text-[clamp(3.05rem,15vw,5.2rem)] font-normal leading-[0.88] tracking-[-0.04em] text-[#fffcfc]">
+    <>
+      <h1 className="absolute left-[calc(50%-191px)] top-[66px] z-30 max-w-[260px] font-[family-name:var(--font-megatrox)] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]">
         <span className="block">NEET</span>
         <span className="block">RIN</span>
         <span className="block">O</span>
       </h1>
 
-      <div className="pointer-events-none absolute right-[-150px] top-[115px] z-[5] h-[620px] w-[860px] max-w-none">
+      <div className="pointer-events-none absolute left-[calc(50%+207px)] top-[61px] z-[1] h-[759px] w-[576px] max-w-[min(576px,148vw)] -translate-x-1/2 overflow-hidden">
         <div className="relative h-full w-full">
+          {/* Figma 241:828 — crop inside 576×759 */}
           <Image
             src={FIGMA_ASSETS.img30}
             alt=""
-            fill
-            className="object-contain object-right object-top"
-            style={{ objectPosition: "100% 0%" }}
-            sizes="860px"
+            width={836}
+            height={1491}
             priority
+            className="absolute left-[-22.58%] top-[-60.36%] h-[196.49%] w-[145.15%] max-w-none object-cover"
+            sizes="576px"
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
+/** Figma 241:840 — vertical center at Y=549 (frame); inner top = 461px with -translate-y-1/2. */
 function HeroBodyCopy() {
   return (
-    <div className="relative z-30 mt-[2px] max-w-[185px] pl-6 text-left text-[15px] font-extralight leading-[20px] text-white">
+    <div className="absolute left-6 top-[461px] z-30 flex h-[200px] w-[227px] -translate-y-1/2 flex-col justify-center text-left text-base font-extralight leading-[23px] text-white">
       <p>We build</p>
-      <p className="font-black">high-performance</p>
-      <p>
+      <p className="font-black">high-performance </p>
+      <p className="mb-0">
         <span className="font-black">websites</span>
-        <span> and digital solutions</span>
+        <span> </span>
       </p>
+      <p>and digital solutions</p>
       <p>that help</p>
       <p>businesses grow,</p>
       <p>scale, and stand</p>
@@ -79,39 +85,37 @@ function HeroBodyCopy() {
   );
 }
 
-function HeroGradientStrip() {
-  return (
-    <div className="relative z-[15] mt-10 h-[min(42vw,249px)] w-full overflow-hidden">
-      <Image
-        src={FIGMA_ASSETS.imgRectangle17399}
-        alt=""
-        fill
-        className="object-cover object-center rotate-180"
-        sizes="100vw"
-        loading="lazy"
-      />
-    </div>
-  );
-}
-
 function HeroCtas() {
-  const btn =
-    "flex h-14 w-full items-center justify-center rounded-[28px] text-base font-extrabold transition-opacity hover:opacity-95";
+  const baseLink =
+    "absolute left-1/2 z-[25] flex h-14 w-[min(393px,calc(100%-48px))] -translate-x-1/2 items-center justify-center rounded-[28px] text-base font-extrabold transition-opacity hover:opacity-95";
+
+  /** Frosted glass: strong backdrop blur; label stays sharp on a separate layer. */
+  const glassLayer =
+    "pointer-events-none absolute inset-0 rounded-[28px] backdrop-blur-3xl backdrop-saturate-150";
+
   return (
-    <div className="relative z-20 mt-6 flex w-full flex-col gap-2 px-6">
-      <Link href="/contact" className={`${btn} bg-[#473dff] text-white`}>
-        Get a Quote
+    <>
+      <Link
+        href="/contact"
+        className={`${baseLink} top-[693px] isolate text-white shadow-lg shadow-black/25`}
+      >
+        <span className={`${glassLayer} border border-white/30 bg-[#473dff]/20`} aria-hidden />
+        <span className="relative z-10">Get a Quote</span>
       </Link>
-      <Link href="/contact" className={`${btn} bg-white text-[#473dff]`}>
-        Contact
+      <Link
+        href="/contact"
+        className={`${baseLink} top-[761px] isolate text-[#473dff] shadow-lg shadow-black/15`}
+      >
+        <span className={`${glassLayer} border border-white/55 bg-white/14`} aria-hidden />
+        <span className="relative z-10">Contact</span>
       </Link>
-    </div>
+    </>
   );
 }
 
 function HeroStatsTop() {
   return (
-    <div className="relative z-20 mt-10 grid grid-cols-2 gap-3 px-6">
+    <div className="relative z-20 mt-0 grid grid-cols-2 gap-3 px-6">
       {MOBILE_HERO_STATS_TOP.map((item) => (
         <div
           key={item.value}
@@ -132,7 +136,7 @@ function HeroStatsTop() {
 function HeroStatWide() {
   const s = MOBILE_HERO_STAT_WIDE;
   return (
-    <div className="relative z-20 mt-3 min-h-[167px] w-full px-6">
+    <div className="relative z-20 mt-[34px] min-h-[167px] w-full px-6">
       <div className={`relative overflow-hidden rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}>
         <p className={`text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
         <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
@@ -153,16 +157,30 @@ function HeroStatWide() {
   );
 }
 
-/** Mobile home hero — matches Figma frame 241:821 (desktop uses NeetrinoHome canvas). */
+/**
+ * Mobile home hero — Figma 241:821 absolute layout (Y / padding vs frame in mobile-home-hero.constants).
+ * `min-h-[853px]` positions flow stats at frame Y=941 (88 + 853).
+ */
+/** Blur panel: top edge aligned with first CTA (pt-[88px] + top-[693px]) — no empty frosted strip above buttons. */
+const HERO_LOWER_BLUR_TOP = "top-[calc(88px+660px)]";
+const HERO_LOWER_BLUR_RADIUS = "rounded-[32px]";
+
 export function HeroSection() {
   return (
-    <section className={`relative overflow-hidden bg-[#151515] pb-10 ${interSans.className}`}>
+    <section
+      className={`relative min-w-0 overflow-x-hidden bg-[#151515] pb-10 ${interSans.className}`}
+    >
       <HeroBackground />
-      <div className="relative z-20 w-full pb-2 pt-14 text-left">
-        <HeroTitleBlock />
-        <HeroBodyCopy />
-        <HeroGradientStrip />
-        <HeroCtas />
+      <div className="relative z-20 mx-auto w-full max-w-[393px] pt-[88px] text-left">
+        <div
+          className={`pointer-events-none absolute inset-x-0 ${HERO_LOWER_BLUR_TOP} bottom-0 z-[16] ${HERO_LOWER_BLUR_RADIUS} bg-[#151515]/30 backdrop-blur-2xl backdrop-saturate-150`}
+          aria-hidden
+        />
+        <div className="relative min-h-[853px] w-full">
+          <HeroTitleAndRobot />
+          <HeroBodyCopy />
+          <HeroCtas />
+        </div>
         <HeroStatsTop />
         <HeroStatWide />
       </div>
