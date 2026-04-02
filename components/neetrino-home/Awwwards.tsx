@@ -5,14 +5,16 @@ import Link from "next/link";
 import { DesktopHeaderQuoteLink } from "@/components/shared/DesktopHeaderQuoteLink";
 import { DESKTOP_HEADER_PHONE_LEFT_PX } from "@/lib/desktop-header-quote.constants";
 import { COMPANY_PHONE_TEL_HREF } from "@/lib/nav-links";
+import { cn } from "@/lib/utils";
 import { imgNeetrinoItComapny2Png1, imgVector } from "./figma-assets";
 
 export function Awwwards({ className }: { className?: string }) {
   return (
     <div
-      className={
-        className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1240px]"
-      }
+      className={cn(
+        "z-[100]",
+        className ?? "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1240px]",
+      )}
       data-name="Awwwards"
       data-node-id="10:442"
     >
@@ -82,7 +84,7 @@ export function Awwwards({ className }: { className?: string }) {
       <a
         href={COMPANY_PHONE_TEL_HREF}
         aria-label="Call Neetrino"
-        className="absolute bg-white rounded-full size-[48px] top-[8px]"
+        className="pointer-events-auto absolute z-[110] bg-white rounded-full size-[48px] top-[8px]"
         style={{ left: DESKTOP_HEADER_PHONE_LEFT_PX }}
         data-node-id="10:454"
       >

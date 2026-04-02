@@ -20,7 +20,7 @@ export function DesktopHeaderQuoteLink({ className }: DesktopHeaderQuoteLinkProp
     <a
       href={GET_A_QUOTE_HREF}
       className={cn(
-        "absolute z-[1] bg-[#473dff] h-[48px] w-[144px] rounded-[28px] no-underline transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60",
+        "pointer-events-auto absolute z-[105] bg-[#473dff] h-[48px] w-[144px] rounded-[28px] no-underline transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60",
         className,
       )}
       style={{
