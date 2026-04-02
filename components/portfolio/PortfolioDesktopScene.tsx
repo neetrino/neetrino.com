@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DeferredMount } from "@/components/layout/DeferredMount";
 import { desktopPortfolioRows } from "@/components/portfolio/portfolio-data";
+import { PortfolioDesktopStarRayDeferred } from "@/components/portfolio/PortfolioDesktopStarRayDeferred";
 import { PortfolioDesktopVectorDecorDeferred } from "@/components/portfolio/PortfolioDesktopVectorDecorDeferred";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
 import { CanvasFooter } from "@/components/sections/Footer";
@@ -330,23 +331,7 @@ export function PortfolioDesktopScene() {
             />
           </div>
         </div>
-        <div className="absolute flex h-[5878.103px] items-center justify-center left-[-797.93px] mix-blend-plus-lighter top-[-3956.96px] w-[5638.546px]">
-          <div className="flex-none rotate-[24.39deg]">
-            <div className="h-[4590.797px] relative w-[4109.595px]" data-node-id="166:1211">
-              <div className="absolute inset-[-2.59%_-2.9%]">
-                <img
-                  alt=""
-                  className="block max-w-none size-full"
-                  height={4829}
-                  src={figma.imgStar22}
-                  width={4348}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <PortfolioDesktopStarRayDeferred />
         <div
           className="absolute h-[1137px] left-0 mix-blend-soft-light opacity-58 top-0 w-[1758px]"
           data-name="Noise"
