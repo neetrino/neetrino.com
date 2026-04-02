@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HomeDesktopHeader } from "@/components/sections/HomeDesktopHeader";
-import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { Footer } from "@/components/sections/Footer";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { ABOUT_CONTENT, ABOUT_STATS } from "@/components/about-us/content";
@@ -10,8 +8,6 @@ import { interSans } from "@/lib/fonts";
 export default function AboutUsPage() {
   return (
     <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515]">
-      <NonHomeMobileHeader className="lg:hidden" />
-      <HomeDesktopHeader />
       <main className={`pt-24 lg:pt-0 ${interSans.className}`}>
         <section className="section-container relative overflow-hidden py-16 md:py-20">
           <div className="pointer-events-none absolute inset-x-0 -top-10 mx-auto h-48 w-[90%] max-w-5xl rounded-full bg-[#473dff]/20 blur-3xl" />

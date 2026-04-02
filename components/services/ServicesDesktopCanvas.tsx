@@ -1,4 +1,5 @@
 import { CanvasScaler } from "@/components/layout/CanvasScaler";
+import { DesktopSceneMountGate } from "@/components/layout/DesktopSceneMountGate";
 import { ServicesDesktopScene } from "@/components/services/ServicesDesktopScene";
 
 /**
@@ -8,7 +9,9 @@ export function ServicesDesktopCanvas() {
   return (
     <div className="hidden lg:block">
       <CanvasScaler canvasWidth={1440} canvasHeight={2174}>
-        <ServicesDesktopScene />
+        <DesktopSceneMountGate canvasWidth={1440} canvasHeight={2174}>
+          <ServicesDesktopScene />
+        </DesktopSceneMountGate>
       </CanvasScaler>
     </div>
   );

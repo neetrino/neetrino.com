@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { COMPANY_PHONE_TEL_HREF } from "@/lib/nav-links";
 
 export function HomeDesktopHeader() {
   return (
@@ -72,7 +73,9 @@ export function HomeDesktopHeader() {
             src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1}
           />
         </Link>
-        <div
+        <a
+          href={COMPANY_PHONE_TEL_HREF}
+          aria-label="Call Neetrino"
           className="absolute bg-white left-[1172px] rounded-full size-[48px] top-[8px]"
           data-node-id="10:454"
         >
@@ -90,7 +93,7 @@ export function HomeDesktopHeader() {
               src={FIGMA_ASSETS.imgVector}
             />
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );

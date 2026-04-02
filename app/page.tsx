@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import { Navbar } from "@/components/sections/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { WhoWeAre } from "@/components/sections/WhoWeAre";
 import { WhatWeDo } from "@/components/sections/WhatWeDo";
@@ -24,7 +23,6 @@ export default function Home() {
     <div className="min-h-dvh w-full min-w-0 overflow-x-hidden">
       {/* Mobile layout: section-based, hidden on lg+ */}
       <div className="lg:hidden">
-        <Navbar />
         <main>
           <HeroSection />
           <WhoWeAre />

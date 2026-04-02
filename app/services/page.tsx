@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Footer } from "@/components/sections/Footer";
-import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { MOBILE_SERVICE_ITEMS } from "@/components/services/services-assets";
 import { SERVICES_DESKTOP_CANVAS_MIN_H_CLASS } from "@/lib/canvas-route-placeholders";
 
@@ -25,7 +24,6 @@ export default function Services() {
   return (
     <>
       <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
-        <NonHomeMobileHeader />
         <main className="section-container pt-24 pb-14">
           <section className="py-10">
             <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">

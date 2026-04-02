@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { HomeDesktopHeader } from "@/components/sections/HomeDesktopHeader";
-import { NonHomeMobileHeader } from "@/components/sections/NonHomeMobileHeader";
 import { Footer } from "@/components/sections/Footer";
 import {
   CONTACT_CONTENT,
@@ -14,9 +12,6 @@ import { interSans } from "@/lib/fonts";
 export default function ContactPage() {
   return (
     <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515]">
-      <NonHomeMobileHeader className="lg:hidden" />
-      <HomeDesktopHeader />
-
       <main className={`pt-24 lg:pt-0 ${interSans.className}`}>
         <section className="section-container py-16 md:py-20">
           <div className="mx-auto max-w-4xl text-center">

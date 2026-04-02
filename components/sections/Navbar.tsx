@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NavbarMobileShell } from "@/components/nav/NavbarMobileShell";
-import { PRIMARY_NAV_LINK_DESKTOP_CLASS, PRIMARY_NAV_LINKS } from "@/lib/nav-links";
+import {
+  COMPANY_PHONE_TEL_HREF,
+  PRIMARY_NAV_LINK_DESKTOP_CLASS,
+  PRIMARY_NAV_LINKS,
+} from "@/lib/nav-links";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 function PhoneIcon({ className }: { className?: string }) {
@@ -62,9 +66,13 @@ export function Navbar() {
 
           <div className="flex items-center gap-1 min-[360px]:gap-2 sm:gap-3">
             <NavbarMobileShell links={PRIMARY_NAV_LINKS} />
-            <div className="hidden lg:block">
+            <a
+              href={COMPANY_PHONE_TEL_HREF}
+              aria-label="Call Neetrino"
+              className="hidden lg:inline-flex shrink-0 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
+            >
               <PhoneIcon />
-            </div>
+            </a>
           </div>
         </div>
       </div>
