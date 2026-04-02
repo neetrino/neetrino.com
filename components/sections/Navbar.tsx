@@ -1,11 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { NavbarMobileShell } from "@/components/nav/NavbarMobileShell";
+import { useScrolledPastThreshold } from "@/lib/hooks/useScrolledPastThreshold";
 import {
   COMPANY_PHONE_TEL_HREF,
   PRIMARY_NAV_LINK_DESKTOP_CLASS,
   PRIMARY_NAV_LINKS,
 } from "@/lib/nav-links";
+import { cn } from "@/lib/utils";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 function PhoneIcon({ className }: { className?: string }) {
@@ -34,9 +38,18 @@ function PhoneIcon({ className }: { className?: string }) {
 }
 
 export function Navbar() {
+  const stickyChrome = useScrolledPastThreshold();
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pt-2">
-      <div className="mx-auto w-[calc(100%-24px)] max-w-[1120px] bg-transparent py-2.5 pl-4 pr-1 md:w-[calc(100%-40px)] md:pl-5 md:pr-1 lg:w-[calc(100%-56px)] lg:pl-5 lg:pr-1">
+      <div
+        className={cn(
+          "mx-auto w-[calc(100%-24px)] max-w-[1120px] py-2.5 pl-4 pr-1 transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-out md:w-[calc(100%-40px)] md:pl-5 md:pr-1 lg:w-[calc(100%-56px)] lg:pl-5 lg:pr-1",
+          stickyChrome
+            ? "rounded-2xl border border-white/10 bg-[#0f0f14]/60 shadow-lg shadow-black/25 backdrop-blur-xl backdrop-saturate-150"
+            : "border border-transparent bg-transparent",
+        )}
+      >
         <div className="flex items-center justify-between gap-2 lg:grid lg:grid-cols-[210px_1fr_auto] lg:gap-4">
           <Link
             href="/"
