@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { HomeDesktopHeader } from "@/components/shared/HomeDesktopHeader";
 import {
   NEETRINO_DESKTOP_HEADER_BAR_WIDTH_PX,
@@ -9,12 +8,11 @@ import {
 import { useNeetrinoDesktopScale } from "@/lib/hooks/useNeetrinoDesktopScale";
 
 /**
- * Fixed desktop chrome: same Home `Awwwards` bar, scaled like `CanvasScaler` so it aligns
- * with in-canvas layouts when the fluid canvas is present.
+ * Fixed desktop chrome: same Home `Awwwards` bar, scaled from `NeetrinoDesktopScaleReference`
+ * in the root layout (same width contract as `CanvasScaler` on canvas routes).
  */
 export function DesktopSiteHeader() {
-  const pathname = usePathname();
-  const scale = useNeetrinoDesktopScale(pathname);
+  const scale = useNeetrinoDesktopScale();
   const topPx = NEETRINO_DESKTOP_HEADER_TOP_DESIGN_PX * scale;
 
   return (

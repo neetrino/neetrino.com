@@ -1,20 +1,28 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { NEETRINO_DESKTOP_CANVAS_WIDTH_PX } from "@/lib/desktop-header-layout.constants";
+import {
+  NEETRINO_DESKTOP_CANVAS_WIDTH_PX,
+  NEETRINO_DESKTOP_SCALE_REF_SELECTOR,
+} from "@/lib/desktop-header-layout.constants";
+
+const MIN_LAYOUT_WIDTH_PX = 1;
 
 /**
- * Matches `CanvasScaler`: scale = (canvas wrap width or viewport) / 1440.
- * Re-subscribes on `pathname` so routes with/without `[data-neetrino-canvas]` update correctly.
+ * Matches `CanvasScaler`: scale = layout reference width / 1440.
+ * The reference is always mounted in `app/layout.tsx` (`NeetrinoDesktopScaleReference`) so
+ * canvas and non-canvas desktop routes share one geometry contract (no canvas vs clientWidth split).
  */
-export function useNeetrinoDesktopScale(pathname: string): number {
+export function useNeetrinoDesktopScale(): number {
   const [scale, setScale] = useState(1);
 
   const updateScale = useCallback(() => {
     if (typeof document === "undefined") return;
-    const canvas = document.querySelector<HTMLElement>("[data-neetrino-canvas]");
-    const w = canvas?.offsetWidth ?? document.documentElement.clientWidth;
-    setScale(w / NEETRINO_DESKTOP_CANVAS_WIDTH_PX);
+    const refEl = document.querySelector<HTMLElement>(NEETRINO_DESKTOP_SCALE_REF_SELECTOR);
+    const w = refEl?.offsetWidth;
+    const widthPx =
+      w !== undefined && w >= MIN_LAYOUT_WIDTH_PX ? w : document.documentElement.clientWidth;
+    setScale(widthPx / NEETRINO_DESKTOP_CANVAS_WIDTH_PX);
   }, []);
 
   useEffect(() => {
@@ -28,9 +36,9 @@ export function useNeetrinoDesktopScale(pathname: string): number {
 
     scheduleRead();
     const ro = new ResizeObserver(scheduleRead);
-    const canvas = document.querySelector<HTMLElement>("[data-neetrino-canvas]");
-    if (canvas) {
-      ro.observe(canvas);
+    const refEl = document.querySelector<HTMLElement>(NEETRINO_DESKTOP_SCALE_REF_SELECTOR);
+    if (refEl) {
+      ro.observe(refEl);
     } else {
       ro.observe(document.documentElement);
     }
@@ -40,7 +48,7 @@ export function useNeetrinoDesktopScale(pathname: string): number {
       ro.disconnect();
       window.removeEventListener("resize", scheduleRead);
     };
-  }, [pathname, updateScale]);
+  }, [updateScale]);
 
   return scale;
 }

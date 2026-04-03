@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { NeetrinoDesktopScaleReference } from "@/components/layout/NeetrinoDesktopScaleReference";
 import { AppHeader } from "@/components/sections/AppHeader";
 import { dmSans, interSans } from "@/lib/fonts";
 import "./globals.css";
@@ -44,6 +45,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <AppHeader />
+        <NeetrinoDesktopScaleReference />
         {children}
       </body>
     </html>

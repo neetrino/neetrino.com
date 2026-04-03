@@ -1,6 +1,13 @@
 /** 1440px Figma desktop width — matches `CanvasScaler` / `.neetrino-canvas-inner`. */
 export const NEETRINO_DESKTOP_CANVAS_WIDTH_PX = 1440;
 
+/**
+ * Layout-mounted element (`NeetrinoDesktopScaleReference`) — same width contract as
+ * `.neetrino-canvas-wrap` so desktop header scale is route-agnostic.
+ */
+export const NEETRINO_DESKTOP_SCALE_REF_SELECTOR =
+  "[data-neetrino-desktop-scale-reference]" as const;
+
 /** Home desktop header offset from top of scaled canvas (design px @1×). */
 export const NEETRINO_DESKTOP_HEADER_TOP_DESIGN_PX = 27;
 
