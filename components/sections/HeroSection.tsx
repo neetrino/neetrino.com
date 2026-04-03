@@ -137,19 +137,24 @@ function HeroStatWide() {
   const s = MOBILE_HERO_STAT_WIDE;
   return (
     <div className="relative z-20 mt-[34px] min-h-[167px] w-full px-6">
-      <div className={`relative overflow-hidden rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}>
-        <p className={`text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
-        <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
-        <div className="pointer-events-none absolute bottom-0 right-0 h-[min(52vw,224px)] w-[62%] max-w-[270px]">
-          <div className="relative h-full w-full -scale-y-100 rotate-180">
-            <Image
-              src={FIGMA_ASSETS.img28A}
-              alt=""
-              fill
-              className="object-contain object-bottom"
-              sizes="(max-width: 768px) 62vw, 270px"
-              loading="lazy"
-            />
+      <div className={`relative overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}>
+        <p className={`relative z-10 text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
+        <p className={`relative z-10 mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
+        <div
+          className="pointer-events-none absolute -bottom-6 -right-11 z-[1] h-[260px] w-[300px] max-[380px]:-right-8 max-[380px]:h-[228px] max-[380px]:w-[264px]"
+          aria-hidden
+        >
+          <div className="relative size-full origin-bottom-right scale-[1.38] max-[380px]:scale-[1.25]">
+            <div className="absolute inset-0 -scale-y-100 rotate-180">
+              <Image
+                src={FIGMA_ASSETS.img28A}
+                alt=""
+                fill
+                className="object-contain object-bottom-right"
+                sizes="(max-width: 768px) 300px, 300px"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>

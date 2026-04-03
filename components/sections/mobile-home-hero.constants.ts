@@ -21,3 +21,15 @@ export const MOBILE_HERO_STAT_WIDE = {
   bg: "bg-[#473dff]",
   text: "text-[#fffcfc]",
 } as const;
+
+/**
+ * Robot-hand overlay on the 450+ card (mobile hero only).
+ * Keep in sync with `HeroStatWide` Tailwind: `w-[300px] h-[260px] -right-11 -bottom-6 scale-[1.38]`.
+ */
+export const MOBILE_HERO_STAT_WIDE_HAND = {
+  widthPx: 300,
+  heightPx: 260,
+  offsetRightPx: 44,
+  offsetBottomPx: 24,
+  scale: 1.38,
+} as const;
