@@ -1,12 +1,25 @@
 import { Smartphone } from "lucide-react";
-import { imgBuilding, imgEllipse4, imgEllipse5, imgSafearea } from "./services-assets";
+import { imgBuilding, imgEllipse4, imgEllipse5 } from "./services-assets";
+import {
+  ServicesCardContinueLink,
+  type ServicesContinueGlowVariant,
+} from "./ServicesCardContinueLink";
 
 type CardProps = {
   className?: string;
   property1?: "Secure Transactions default" | "Secure Transactions hover";
+  continueHref: string;
+  continueAriaLabel: string;
+  continueGlow: ServicesContinueGlowVariant;
 };
 
-export function ServicesCard({ className, property1 = "Secure Transactions default" }: CardProps) {
+export function ServicesCard({
+  className,
+  property1 = "Secure Transactions default",
+  continueHref,
+  continueAriaLabel,
+  continueGlow,
+}: CardProps) {
   return (
     <div
       className={
@@ -53,41 +66,11 @@ export function ServicesCard({ className, property1 = "Secure Transactions defau
           </div>
         </div>
       </div>
-      <div
-        className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0"
-        data-name="Button 13"
-        data-node-id="165:598"
-      >
-        <div
-          className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-          data-name="glow"
-          data-node-id="I165:598;13:52"
-        />
-        <p
-          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
-          data-node-id="I165:598;13:33"
-        >
-          Continue
-        </p>
-        <div
-          className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-          data-name="glow"
-          data-node-id="I165:598;13:44"
-        />
-        <div
-          className="overflow-clip relative shrink-0 size-[20px]"
-          data-name="Right"
-          data-node-id="I165:598;13:34"
-        >
-          <div
-            className="absolute inset-[8.33%]"
-            data-name="safearea"
-            data-node-id="I165:598;13:34;21:1594"
-          >
-            <img alt="" className="absolute block max-w-none size-full" src={imgSafearea} />
-          </div>
-        </div>
-      </div>
+      <ServicesCardContinueLink
+        ariaLabel={continueAriaLabel}
+        glowVariant={continueGlow}
+        href={continueHref}
+      />
       <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-1px_10.8px_0px_rgba(54,158,255,0.2),inset_0px_-23px_12px_-1px_rgba(27,255,221,0.17),inset_0px_-47px_16px_-33px_rgba(255,255,255,0.7),inset_0px_-30px_26.7px_-27px_rgba(48,183,207,0.5),inset_0px_-40px_46.3px_-30px_#30ccc4]" />
     </div>
   );
@@ -96,11 +79,17 @@ export function ServicesCard({ className, property1 = "Secure Transactions defau
 type Card1Props = {
   className?: string;
   property1?: "Secure Transactions default" | "Secure Transactions hover";
+  continueHref: string;
+  continueAriaLabel: string;
+  continueGlow: ServicesContinueGlowVariant;
 };
 
 export function ServicesCard1({
   className,
   property1 = "Secure Transactions default",
+  continueHref,
+  continueAriaLabel,
+  continueGlow,
 }: Card1Props) {
   return (
     <div
@@ -144,41 +133,11 @@ export function ServicesCard1({
           </div>
         </div>
       </div>
-      <div
-        className="bg-white content-stretch flex gap-[4px] items-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] shrink-0"
-        data-name="Button 13"
-        data-node-id="165:578"
-      >
-        <div
-          className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-          data-name="glow"
-          data-node-id="I165:578;13:52"
-        />
-        <p
-          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
-          data-node-id="I165:578;13:33"
-        >
-          Continue
-        </p>
-        <div
-          className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-          data-name="glow"
-          data-node-id="I165:578;13:44"
-        />
-        <div
-          className="overflow-clip relative shrink-0 size-[20px]"
-          data-name="Right"
-          data-node-id="I165:578;13:34"
-        >
-          <div
-            className="absolute inset-[8.33%]"
-            data-name="safearea"
-            data-node-id="I165:578;13:34;21:1594"
-          >
-            <img alt="" className="absolute block max-w-none size-full" src={imgSafearea} />
-          </div>
-        </div>
-      </div>
+      <ServicesCardContinueLink
+        ariaLabel={continueAriaLabel}
+        glowVariant={continueGlow}
+        href={continueHref}
+      />
       <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-1px_10.8px_0px_rgba(238,54,255,0.2),inset_0px_-23px_12px_-1px_rgba(111,27,255,0.17),inset_0px_-47px_16px_-33px_rgba(255,255,255,0.7),inset_0px_-30px_26.7px_-27px_rgba(72,48,207,0.5),inset_0px_-40px_46.3px_-30px_#305fcc]" />
     </div>
   );

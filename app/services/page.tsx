@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Footer } from "@/components/sections/Footer";
-import { MOBILE_SERVICE_ITEMS } from "@/components/services/services-assets";
+import { SERVICES_CATALOG, serviceDetailHref } from "@/components/services/service-pages-data";
 import { SERVICES_DESKTOP_CANVAS_MIN_H_CLASS } from "@/lib/canvas-route-placeholders";
 
 const ServicesDesktopCanvas = dynamic(
@@ -39,15 +39,15 @@ export default function Services() {
           </section>
 
           <section className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
-            {MOBILE_SERVICE_ITEMS.map((item) => (
+            {SERVICES_CATALOG.map((item) => (
               <article
-                key={item.title}
+                key={item.slug}
                 className="min-w-0 rounded-[28px] border border-white/12 bg-gradient-to-b from-[#100b16] to-[#0f0220] p-5 sm:p-6"
               >
                 <h2 className="text-xl font-black leading-tight text-white">{item.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-[#d1d5dc]">{item.description}</p>
                 <Link
-                  href="/contact"
+                  href={serviceDetailHref(item.slug)}
                   className="mt-5 inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-medium text-[#252525]"
                 >
                   Continue

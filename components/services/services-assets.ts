@@ -1,3 +1,5 @@
+import { SERVICES_CATALOG } from "./service-pages-data";
+
 export const imgNeetrinoItComapny2Png1 = "/figma-assets/85b03d6f-4fbf-441b-b2b5-e7959ada29ed.webp";
 export const imgVector = "/figma-assets/167f06c1-2454-43b9-86c6-651aa8279926.svg";
 export const imgShieldDone = "/figma-assets/506fbbd3-853b-4d8b-bdbd-1d4f57750afd.svg";
@@ -27,35 +29,7 @@ export const imgEllipse7 = "/figma-assets/c029d8e1-e319-49ee-938b-47080361530f.s
 export const imgEllipse1 = "/figma-assets/a51f8092-1c1d-432a-87d0-53f4ea11cb9b.svg";
 export const imgComponent21 = "/figma-assets/cc552c54-6804-4468-8b51-d6367fcc38bc.svg";
 
-export const MOBILE_SERVICE_ITEMS = [
-  {
-    title: "SaaS Development",
-    description:
-      "Scalable SaaS platforms built for growth. Secure, flexible, and ready to evolve with your product.",
-  },
-  {
-    title: "CRM Systems",
-    description:
-      "Powerful customer relationship management solutions to streamline your sales process and boost customer satisfaction.",
-  },
-  {
-    title: "Website Development",
-    description:
-      "Cutting-edge web solutions built with modern technologies, optimized for performance and designed to convert visitors into customers.",
-  },
-  {
-    title: "Mobile App Development",
-    description:
-      "Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android devices.",
-  },
-  {
-    title: "AI Product Development",
-    description:
-      "Intelligent automation powered by machine learning and natural language processing to transform your business operations.",
-  },
-  {
-    title: "ERP System",
-    description:
-      "All-in-one systems for managing business operations. Control data, processes, and resources in one place.",
-  },
-] as const;
+export const MOBILE_SERVICE_ITEMS = SERVICES_CATALOG.map(({ title, description }) => ({
+  title,
+  description,
+}));
