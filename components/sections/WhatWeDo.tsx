@@ -1,50 +1,64 @@
 import Image from "next/image";
 import Link from "next/link";
+import { serviceDetailHref, type ServiceSlug } from "@/components/services/service-pages-data";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
 
-const services = [
+const services: readonly {
+  titleLines: readonly string[];
+  subtitleLines: readonly string[];
+  bg: string;
+  textColor: string;
+  image: string;
+  imageClassName: string;
+  slug: ServiceSlug;
+}[] = [
   {
-    titleLines: ["WEBSITE"] as const,
-    subtitleLines: ["Custom", "Development"] as const,
+    titleLines: ["WEBSITE"],
+    subtitleLines: ["Custom", "Development"],
     bg: "bg-[#e8e8f4]",
     textColor: "text-black",
     image: FIGMA_ASSETS.imgPc,
     imageClassName: "object-contain object-left scale-[1.15]",
+    slug: "website-development",
   },
   {
-    titleLines: ["MOBILE APP"] as const,
-    subtitleLines: ["App", "Development"] as const,
+    titleLines: ["MOBILE APP"],
+    subtitleLines: ["App", "Development"],
     bg: "bg-[#ff7500]",
     textColor: "text-white",
     image: FIGMA_ASSETS.imgPc1,
     imageClassName: "object-contain object-left scale-[1.05]",
+    slug: "mobile-app-development",
   },
   {
-    titleLines: ["SAAS", "PLATFORMS"] as const,
-    subtitleLines: ["Cloud Solutions"] as const,
+    titleLines: ["SAAS", "PLATFORMS"],
+    subtitleLines: ["Cloud Solutions"],
     bg: "bg-[#292929]",
     textColor: "text-white",
     image: FIGMA_ASSETS.imgCloudInfrastructure,
     imageClassName: "object-contain object-left",
+    slug: "saas-development",
   },
   {
-    titleLines: ["CRM SYSTEMS"] as const,
-    subtitleLines: ["Process", "Automation"] as const,
+    titleLines: ["CRM SYSTEMS"],
+    subtitleLines: ["Process", "Automation"],
     bg: "bg-[#473dff]",
     textColor: "text-white",
     image: FIGMA_ASSETS.imgSports00065,
     imageClassName: "object-cover object-center scale-[0.86]",
+    slug: "crm-systems",
   },
   {
-    titleLines: ["AI", "INTEGRATIONS"] as const,
-    subtitleLines: ["AI Automation"] as const,
+    titleLines: ["AI", "INTEGRATIONS"],
+    subtitleLines: ["AI Automation"],
     bg: "bg-[#a2b8ee]",
     textColor: "text-[#0f0f0f]",
     image: FIGMA_ASSETS.img2761,
     imageClassName: "object-contain object-left scale-[0.88]",
+    slug: "ai-product-development",
   },
-] as const;
+];
 
 /** Mobile-only section — matches Figma 241:821 service cards (horizontal tiles). */
 export function WhatWeDo() {
@@ -95,7 +109,7 @@ export function WhatWeDo() {
                   </div>
                 </div>
                 <Link
-                  href="/services"
+                  href={serviceDetailHref(service.slug)}
                   className="ml-auto inline-flex w-fit items-center gap-2 self-end rounded-[40px] bg-white px-5 py-3 text-[18px] font-medium text-[#252525] transition-opacity hover:opacity-90"
                 >
                   Continue
