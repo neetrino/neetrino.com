@@ -71,7 +71,7 @@ export function ServicesDesktopLightRaysDecor() {
         </div>
       ) : null}
       <p
-        className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap"
+        className="absolute font-[family-name:var(--font-megatrox)] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap"
         data-node-id="165:677"
       >
         SERVICES
