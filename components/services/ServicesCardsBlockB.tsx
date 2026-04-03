@@ -1,4 +1,5 @@
-import { imgEllipse4, imgEllipse5, imgGroup, imgSafearea, imgShieldDone } from "./services-assets";
+import { Smartphone } from "lucide-react";
+import { imgBuilding, imgEllipse4, imgEllipse5, imgSafearea } from "./services-assets";
 
 type CardProps = {
   className?: string;
@@ -18,26 +19,29 @@ export function ServicesCard({ className, property1 = "Secure Transactions defau
         aria-hidden="true"
         className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]"
       />
-      <div className="relative shrink-0 size-[40px]" data-name="Shield done" data-node-id="165:591">
-        <img alt="" className="absolute block max-w-none size-full" src={imgShieldDone} />
+      <div
+        className="relative flex shrink-0 size-[40px] items-center justify-start text-white"
+        data-name="Smartphone"
+        data-node-id="165:591"
+      >
+        <Smartphone aria-hidden className="size-[40px]" strokeWidth={1.5} />
       </div>
       <div
         className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
         data-node-id="165:594"
       >
-        <div
-          className="font-['Inter:Black',sans-serif] font-black leading-[0] relative shrink-0 text-[32px] text-white w-[282px]"
+        <p
+          className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
           data-node-id="165:595"
         >
-          <p className="leading-[40px] mb-0">CRM</p>
-          <p className="leading-[40px]">Systems</p>
-        </div>
+          Mobile App Development
+        </p>
         <p
           className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
           data-node-id="165:596"
         >
-          Powerful customer relationship management solutions to streamline your sales process and
-          boost customer satisfaction.
+          Native and cross-platform mobile applications that deliver exceptional user experiences on
+          iOS and Android devices.
         </p>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">
@@ -110,18 +114,8 @@ export function ServicesCard1({
         aria-hidden="true"
         className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]"
       />
-      <div
-        className="overflow-clip relative shrink-0 size-[40px]"
-        data-name="Shield done"
-        data-node-id="165:570"
-      >
-        <div
-          className="absolute inset-[5%_21.72%_10%_25.16%]"
-          data-name="Group"
-          data-node-id="165:571"
-        >
-          <img alt="" className="absolute block max-w-none size-full" src={imgGroup} />
-        </div>
+      <div className="relative shrink-0 size-[40px]" data-name="Building" data-node-id="165:570">
+        <img alt="" className="absolute block max-w-none size-full" src={imgBuilding} />
       </div>
       <div
         className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
@@ -131,14 +125,14 @@ export function ServicesCard1({
           className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
           data-node-id="165:575"
         >
-          Mobile App Development
+          Website Development
         </p>
         <p
           className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
           data-node-id="165:576"
         >
-          Native and cross-platform mobile applications that deliver exceptional user experiences on
-          iOS and Android devices.
+          Cutting-edge web solutions built with modern technologies, optimized for performance and
+          designed to convert visitors into customers.
         </p>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">
