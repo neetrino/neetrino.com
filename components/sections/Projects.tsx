@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
 
@@ -53,12 +54,12 @@ export function Projects() {
       </div>
 
       <div className="mt-10 flex justify-center">
-        <button
-          type="button"
+        <Link
+          href="/portfolio"
           className="rounded-full border border-[#6a92ff] bg-black px-8 py-4 text-lg font-medium text-white transition-opacity hover:opacity-90"
         >
           Explore
-        </button>
+        </Link>
       </div>
     </section>
   );

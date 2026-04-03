@@ -1,6 +1,5 @@
 import { CanvasFooter } from "@/components/sections/Footer";
 import { imgComponent21, imgEllipse1, imgPngwing6 } from "./services-assets";
-import { ServicesAwwwards } from "./ServicesAwwwards";
 
 export function ServicesDesktopOrbitChrome() {
   return (
@@ -40,7 +39,6 @@ export function ServicesDesktopOrbitChrome() {
           </div>
         </div>
       </div>
-      <ServicesAwwwards className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1240px]" />
       <CanvasFooter className="left-0 top-[1584px]" />
       <div
         className="pointer-events-none absolute inset-[-30.68%_-197.36%_118.77%_150.21%]"

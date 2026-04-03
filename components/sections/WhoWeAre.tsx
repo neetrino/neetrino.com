@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
 
@@ -50,6 +51,15 @@ export function WhoWeAre() {
             />
           </div>
         </div>
+      </div>
+
+      <div className="relative z-10 mt-10 flex justify-center">
+        <Link
+          href="/about-us"
+          className="relative inline-flex rounded-full border border-[#6a92ff] bg-black px-8 py-4 text-lg font-medium text-white transition-opacity hover:opacity-90"
+        >
+          Explore
+        </Link>
       </div>
     </section>
   );

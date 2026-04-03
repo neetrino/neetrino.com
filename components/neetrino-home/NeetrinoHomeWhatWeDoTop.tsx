@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { imgSafearea, imgSports00065 } from "./figma-assets";
 
 export function NeetrinoHomeWhatWeDoTop() {
@@ -40,8 +41,9 @@ export function NeetrinoHomeWhatWeDoTop() {
       >
         <p className="leading-[35px]">MOBILE APP</p>
       </div>
-      <div
-        className="absolute bg-white content-stretch flex gap-[4px] items-center left-[373px] overflow-clip px-[24px] py-[16px] rounded-[40px] top-[607px]"
+      <Link
+        href="/services"
+        className="absolute bg-white content-stretch flex gap-[4px] items-center left-[373px] overflow-clip px-[24px] py-[16px] rounded-[40px] top-[607px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
         data-name="Button 13"
         data-node-id="90:533"
       >
@@ -80,7 +82,7 @@ export function NeetrinoHomeWhatWeDoTop() {
             />
           </div>
         </div>
-      </div>
+      </Link>
       <div className="absolute contents left-[860px] top-[129px]" data-node-id="90:534">
         <div className="absolute contents left-[860px] top-[129px]" data-node-id="90:535">
           <div
@@ -115,8 +117,9 @@ export function NeetrinoHomeWhatWeDoTop() {
             </div>
           </div>
         </div>
-        <div
-          className="absolute bg-white content-stretch flex gap-[4px] items-center left-[914px] overflow-clip px-[24px] py-[16px] rounded-[40px] top-[609px]"
+        <Link
+          href="/services"
+          className="absolute bg-white content-stretch flex gap-[4px] items-center left-[914px] overflow-clip px-[24px] py-[16px] rounded-[40px] top-[609px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
           data-name="Button 14"
           data-node-id="90:540"
         >
@@ -155,7 +158,7 @@ export function NeetrinoHomeWhatWeDoTop() {
               />
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </>
   );

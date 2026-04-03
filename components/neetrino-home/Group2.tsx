@@ -1,18 +1,23 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { imgChangeColor, imgChangeColor1, imgEllipse3463, imgSafearea1 } from "./figma-assets";
 
 type Group2Props = {
   className?: string;
   property1?: "Default" | "Variant2";
+  exploreHref: string;
 };
 
-export function Group2({ className, property1 = "Default" }: Group2Props) {
+export function Group2({ className, property1 = "Default", exploreHref }: Group2Props) {
   return (
-    <div className={className || "h-[276px] relative w-[642px]"} data-node-id="19:364">
+    <div
+      className={className ? `z-20 ${className}` : "relative z-20 h-[276px] w-[642px]"}
+      data-node-id="19:364"
+    >
       <div
-        className="absolute inset-[-105.8%_-69%] opacity-0"
+        className="pointer-events-none absolute inset-[-105.8%_-69%] opacity-0"
         data-name="σàëµûæ flare"
         data-node-id="19:365"
       >
@@ -29,8 +34,9 @@ export function Group2({ className, property1 = "Default" }: Group2Props) {
           />
         </div>
       </div>
-      <div
-        className="absolute border border-[#6a92ff] border-solid inset-[39.86%_39.72%_39.86%_39.41%] overflow-clip rounded-[40px]"
+      <Link
+        href={exploreHref}
+        className="pointer-events-auto absolute z-10 border border-[#6a92ff] border-solid inset-[39.86%_39.72%_39.86%_39.41%] overflow-clip rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]"
         data-name="Button 2"
         data-node-id="19:370"
       >
@@ -81,7 +87,7 @@ export function Group2({ className, property1 = "Default" }: Group2Props) {
             />
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

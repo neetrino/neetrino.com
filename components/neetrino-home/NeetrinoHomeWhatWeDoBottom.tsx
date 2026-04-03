@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Group } from "./Group";
 import { Group1 } from "./Group1";
 import { img2761, imgCloudInfrastructure, imgPc1, imgSafearea } from "./figma-assets";
@@ -8,8 +9,9 @@ import { img2761, imgCloudInfrastructure, imgPc1, imgSafearea } from "./figma-as
 export function NeetrinoHomeWhatWeDoBottom() {
   return (
     <>
-      <div
-        className="absolute bg-white content-stretch flex gap-[4px] items-center left-[1189px] overflow-clip px-[24px] py-[16px] rounded-[40px] top-[607px]"
+      <Link
+        href="/services"
+        className="absolute bg-white content-stretch flex gap-[4px] items-center left-[1189px] overflow-clip px-[24px] py-[16px] rounded-[40px] top-[607px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
         data-name="Button 16"
         data-node-id="90:541"
       >
@@ -48,7 +50,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
             />
           </div>
         </div>
-      </div>
+      </Link>
       <div className="absolute contents left-[590px] top-[129px]" data-node-id="90:542">
         <div className="absolute contents left-[590px] top-[129px]" data-node-id="90:543">
           <div
@@ -68,8 +70,9 @@ export function NeetrinoHomeWhatWeDoBottom() {
             <p className="leading-[35px]">SAAS PLATFORMS</p>
           </div>
         </div>
-        <div
-          className="absolute bg-white content-stretch flex gap-[4px] items-center left-[644px] overflow-clip px-[24px] py-[16px] rounded-[40px] top-[608px]"
+        <Link
+          href="/services"
+          className="absolute bg-white content-stretch flex gap-[4px] items-center left-[644px] overflow-clip px-[24px] py-[16px] rounded-[40px] top-[608px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
           data-name="Button 15"
           data-node-id="90:547"
         >
@@ -108,7 +111,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
               />
             </div>
           </div>
-        </div>
+        </Link>
         <div
           className="absolute h-[190px] left-[622px] top-[310px] w-[195px]"
           data-name="Cloud Infrastructure"
@@ -140,7 +143,10 @@ export function NeetrinoHomeWhatWeDoBottom() {
           />
         </div>
       </div>
-      <Group className="-translate-x-1/2 absolute h-[276px] left-[calc(50%+0.5px)] top-[655px] w-[642px]" />
+      <Group
+        className="-translate-x-1/2 absolute h-[276px] left-[calc(50%+0.5px)] top-[655px] w-[642px]"
+        exploreHref="/services"
+      />
       <div
         className="absolute h-[231px] left-[1148px] top-[289px] w-[221px]"
         data-name="-276 1"

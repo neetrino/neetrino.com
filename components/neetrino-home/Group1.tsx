@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { imgPc, imgSafearea } from "./figma-assets";
 
 type Group1Props = {
@@ -41,8 +42,9 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
           <p className="leading-[35px]">WEBSITE</p>
         </div>
       </div>
-      <div
-        className="absolute bg-white content-stretch flex gap-[4px] inset-[86.62%_20.54%_3.25%_20.93%] items-center overflow-clip px-[24px] py-[16px] rounded-[40px]"
+      <Link
+        href="/services"
+        className="absolute bg-white content-stretch flex gap-[4px] inset-[86.62%_20.54%_3.25%_20.93%] items-center overflow-clip px-[24px] py-[16px] rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
         data-name="Button 12"
         data-node-id="1:713"
       >
@@ -81,7 +83,7 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
             />
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

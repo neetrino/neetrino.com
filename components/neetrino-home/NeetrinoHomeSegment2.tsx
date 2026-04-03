@@ -93,14 +93,17 @@ export function NeetrinoHomeSegment2() {
             </p>
           </div>
         </div>
-        <Group2 className="absolute h-[276px] left-[-179px] top-[358px] w-[642px]" />
+        <Group2
+          className="absolute h-[276px] left-[-179px] top-[358px] w-[642px]"
+          exploreHref="/about-us"
+        />
         <div
-          className="absolute h-[641px] left-[721px] mix-blend-exclusion top-[-34px] w-[685px]"
+          className="pointer-events-none absolute h-[641px] left-[721px] mix-blend-exclusion top-[-34px] w-[685px]"
           data-name="* 1"
           data-node-id="10:516"
         >
-          <div className="absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_50%_35%,#232445_0%,#111216_66%)] opacity-90" />
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_50%_35%,#232445_0%,#111216_66%)] opacity-90" />
+          <div className="absolute inset-0 pointer-events-auto">
             <LiquidEther
               colors={["#473dff", "#ff7500", "#cfd7ff"]}
               mouseForce={18}

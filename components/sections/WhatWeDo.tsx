@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
 
@@ -93,8 +94,8 @@ export function WhatWeDo() {
                     ))}
                   </div>
                 </div>
-                <button
-                  type="button"
+                <Link
+                  href="/services"
                   className="ml-auto inline-flex w-fit items-center gap-2 self-end rounded-[40px] bg-white px-5 py-3 text-[18px] font-medium text-[#252525] transition-opacity hover:opacity-90"
                 >
                   Continue
@@ -105,7 +106,7 @@ export function WhatWeDo() {
                     height={20}
                     className="size-5 shrink-0"
                   />
-                </button>
+                </Link>
               </div>
             </article>
           ))}
