@@ -52,7 +52,7 @@ export function MobileHeader() {
           "mx-auto w-[calc(100%-24px)] max-w-[1120px] py-2.5 pl-4 pr-1 transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-out md:w-[calc(100%-40px)] md:pl-5 md:pr-1 lg:w-[calc(100%-56px)] lg:pl-5 lg:pr-1",
           stickyChrome
             ? "rounded-2xl border border-white/10 bg-[#0f0f14]/60 shadow-lg shadow-black/25 backdrop-blur-xl backdrop-saturate-150"
-            : "border border-transparent bg-transparent",
+            : "border border-transparent bg-transparent backdrop-blur-md",
         )}
       >
         <div className="flex items-center justify-between gap-2 lg:grid lg:grid-cols-[210px_1fr_auto] lg:gap-4">

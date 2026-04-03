@@ -30,7 +30,7 @@ export function DesktopSiteHeader() {
           width: NEETRINO_DESKTOP_HEADER_BAR_WIDTH_PX,
         }}
       >
-        <HomeDesktopHeader className="relative bg-[rgba(255,255,255,0.21)] h-[64px] rounded-[72px] w-[1240px]" />
+        <HomeDesktopHeader className="relative h-[64px] w-[1240px] rounded-[72px] bg-[rgba(255,255,255,0.21)] backdrop-blur-xl backdrop-saturate-150" />
       </div>
     </div>
   );
