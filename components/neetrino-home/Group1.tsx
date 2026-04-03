@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { serviceDetailHref } from "@/components/services/service-pages-data";
 import { imgPc, imgSafearea } from "./figma-assets";
 
 type Group1Props = {
@@ -11,7 +12,10 @@ type Group1Props = {
 
 export function Group1({ className, property1 = "Default" }: Group1Props) {
   return (
-    <div className={className || "h-[553px] relative w-[258px]"} data-node-id="1:707">
+    <div
+      className={`pointer-events-none ${className || "h-[553px] relative w-[258px]"}`}
+      data-node-id="1:707"
+    >
       <div className="absolute contents inset-0" data-node-id="1:708">
         <div className="absolute bg-[#e8e8f4] inset-0 rounded-[19px]" data-node-id="1:709" />
         <div
@@ -43,8 +47,8 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
         </div>
       </div>
       <Link
-        href="/services"
-        className="absolute bg-white content-stretch flex gap-[4px] inset-[86.62%_20.54%_3.25%_20.93%] items-center overflow-clip px-[24px] py-[16px] rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+        href={serviceDetailHref("website-development")}
+        className="pointer-events-auto absolute z-30 bg-white content-stretch flex gap-[4px] inset-[86.62%_20.54%_3.25%_20.93%] items-center overflow-clip px-[24px] py-[16px] rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
         data-name="Button 12"
         data-node-id="1:713"
       >

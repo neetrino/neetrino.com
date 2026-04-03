@@ -12,7 +12,10 @@ type GroupProps = {
 
 export function Group({ className, property1 = "Default", exploreHref }: GroupProps) {
   return (
-    <div className={className || "h-[276px] relative w-[642px]"} data-node-id="1:140">
+    <div
+      className={`pointer-events-none ${className || "h-[276px] relative w-[642px]"}`}
+      data-node-id="1:140"
+    >
       <div
         className="absolute inset-[-105.8%_-69%] opacity-0"
         data-name="σàëµûæ flare"
@@ -33,7 +36,7 @@ export function Group({ className, property1 = "Default", exploreHref }: GroupPr
       </div>
       <Link
         href={exploreHref}
-        className="absolute border border-[#6a92ff] border-solid inset-[39.86%_39.72%_39.86%_39.41%] overflow-clip rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]"
+        className="pointer-events-auto absolute border border-[#6a92ff] border-solid inset-[39.86%_39.72%_39.86%_39.41%] overflow-clip rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]"
         data-name="Button 2"
         data-node-id="1:146"
       >

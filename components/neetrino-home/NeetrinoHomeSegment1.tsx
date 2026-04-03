@@ -14,7 +14,7 @@ export function NeetrinoHomeSegment1() {
   return (
     <>
       <DeferredMount topClassName="top-[560px]" rootMargin="360px 0px 360px 0px">
-        <div className="-translate-x-1/2 absolute flex h-[4462px] items-center justify-center left-1/2 mix-blend-overlay top-[633px] w-[1722px]">
+        <div className="pointer-events-none -translate-x-1/2 absolute flex h-[4462px] items-center justify-center left-1/2 mix-blend-overlay top-[633px] w-[1722px]">
           <div className="flex-none rotate-90">
             <div
               className="h-[1722px] relative w-[4462px]"

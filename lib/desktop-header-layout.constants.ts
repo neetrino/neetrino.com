@@ -10,5 +10,12 @@ export const NEETRINO_DESKTOP_HEADER_TOP_DESIGN_PX = 27;
  */
 export const NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX = 91;
 
+/**
+ * Extra top inset under desktop chrome (design px @1×): base clearance plus gap so the first
+ * content row sits lower — visually “drops” the page below the pill.
+ */
+export const NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX =
+  NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX + 16;
+
 /** Home desktop header pill width (design px @1×). */
 export const NEETRINO_DESKTOP_HEADER_BAR_WIDTH_PX = 1240;
