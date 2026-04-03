@@ -1,14 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { imgChangeColor, imgChangeColor1, imgEllipse3463, imgSafearea1 } from "./figma-assets";
 
 type GroupProps = {
   className?: string;
   property1?: "Default" | "Variant2";
+  exploreHref: string;
 };
 
-export function Group({ className, property1 = "Default" }: GroupProps) {
+export function Group({ className, property1 = "Default", exploreHref }: GroupProps) {
   return (
     <div className={className || "h-[276px] relative w-[642px]"} data-node-id="1:140">
       <div
@@ -29,8 +31,9 @@ export function Group({ className, property1 = "Default" }: GroupProps) {
           />
         </div>
       </div>
-      <div
-        className="absolute border border-[#6a92ff] border-solid inset-[39.86%_39.72%_39.86%_39.41%] overflow-clip rounded-[40px]"
+      <Link
+        href={exploreHref}
+        className="absolute border border-[#6a92ff] border-solid inset-[39.86%_39.72%_39.86%_39.41%] overflow-clip rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]"
         data-name="Button 2"
         data-node-id="1:146"
       >
@@ -81,7 +84,7 @@ export function Group({ className, property1 = "Default" }: GroupProps) {
             />
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

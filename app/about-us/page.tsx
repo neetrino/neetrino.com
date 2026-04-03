@@ -4,11 +4,17 @@ import { Footer } from "@/components/sections/Footer";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { ABOUT_CONTENT, ABOUT_STATS } from "@/components/about-us/content";
 import { interSans } from "@/lib/fonts";
+import {
+  NEETRINO_DESKTOP_CANVAS_WIDTH_PX,
+  NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX,
+} from "@/lib/desktop-header-layout.constants";
 
 export default function AboutUsPage() {
   return (
     <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515]">
-      <main className={`pt-24 lg:pt-0 ${interSans.className}`}>
+      <main
+        className={`pt-24 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${interSans.className}`}
+      >
         <section className="section-container relative overflow-hidden py-16 md:py-20">
           <div className="pointer-events-none absolute inset-x-0 -top-10 mx-auto h-48 w-[90%] max-w-5xl rounded-full bg-[#473dff]/20 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">

@@ -41,7 +41,10 @@ export function NeetrinoHomeSegment4() {
             </p>
           </div>
         </div>
-        <Group className="-translate-x-1/2 absolute h-[276px] left-1/2 top-[987px] w-[642px]" />
+        <Group
+          className="-translate-x-1/2 absolute h-[276px] left-1/2 top-[987px] w-[642px]"
+          exploreHref="/portfolio"
+        />
       </div>
       <div
         className="absolute h-[378px] left-[1540px] rounded-[31px] top-[2334px] w-[587px]"

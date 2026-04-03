@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { DeferredMount } from "@/components/layout/DeferredMount";
-import { Awwwards } from "./Awwwards";
 import {
   img30,
   imgEricaAnderson1,
@@ -99,7 +98,6 @@ export function NeetrinoHomeSegment1() {
             />
           </div>
         </div>
-        <Awwwards className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1240px]" />
         <div
           className="absolute left-0 top-[692px] w-[1440px] h-[457px] backdrop-blur-[14px] pointer-events-none"
           style={{
