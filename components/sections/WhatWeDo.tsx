@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { serviceDetailHref, type ServiceSlug } from "@/components/services/service-pages-data";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
-import { roboto } from "@/lib/fonts";
+import { interSans } from "@/lib/fonts";
 
 const services: readonly {
   titleLines: readonly string[];
@@ -63,7 +63,7 @@ const services: readonly {
 /** Mobile-only section — matches Figma 241:821 service cards (horizontal tiles). */
 export function WhatWeDo() {
   return (
-    <section className={`bg-[#151515] py-12 ${roboto.className}`}>
+    <section className={`bg-[#151515] py-12 ${interSans.className}`}>
       <div className="mx-auto w-full max-w-[480px] px-4 md:px-6">
         <header className="mb-8">
           <p className="text-base font-medium uppercase leading-[35px] tracking-normal text-white">

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
-import { roboto } from "@/lib/fonts";
+import { interSans } from "@/lib/fonts";
 import {
   MOBILE_HERO_STAT_WIDE,
   MOBILE_HERO_STATS_TOP,
@@ -170,7 +170,7 @@ const HERO_LOWER_BLUR_RADIUS = "rounded-[32px]";
 export function HeroSection() {
   return (
     <section
-      className={`relative min-w-0 overflow-x-hidden bg-[#151515] pb-10 ${roboto.className}`}
+      className={`relative min-w-0 overflow-x-hidden bg-[#151515] pb-10 ${interSans.className}`}
     >
       <HeroBackground />
       <div className="relative z-20 mx-auto w-full max-w-[393px] pt-[88px] text-left">

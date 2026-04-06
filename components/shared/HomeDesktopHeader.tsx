@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { DesktopHeaderLanguageButton } from "@/components/shared/DesktopHeaderLanguageButton";
 import { DesktopHeaderQuoteLink } from "@/components/shared/DesktopHeaderQuoteLink";
-import { DESKTOP_HEADER_PHONE_LEFT_PX } from "@/lib/desktop-header-quote.constants";
+import { PrimaryNavMoreDropdown } from "@/components/shared/PrimaryNavMoreDropdown";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
-import { COMPANY_PHONE_TEL_HREF } from "@/lib/nav-links";
+import {
+  DESKTOP_HEADER_LOGO_LEFT_PX,
+  DESKTOP_HEADER_NAV_LINK_GAP_PX,
+  DESKTOP_HEADER_NAV_PILL_CENTER_OFFSET_PX,
+  DESKTOP_HEADER_NAV_PILL_WIDTH_PX,
+} from "@/lib/desktop-header-nav-pill.constants";
+import { PRIMARY_NAV_LINKS } from "@/lib/nav-links";
 import { cn } from "@/lib/utils";
 
 /**
@@ -23,55 +30,40 @@ export function HomeDesktopHeader({ className }: { className?: string }) {
       data-node-id="10:442"
     >
       <div
-        className="-translate-x-1/2 absolute bg-[rgba(40,43,103,0.38)] h-[48px] left-[calc(50%-70px)] rounded-[28px] top-[8px] w-[798px]"
+        className="-translate-x-1/2 absolute z-[100] bg-[rgba(40,43,103,0.38)] h-[48px] rounded-[28px] top-[8px]"
+        style={{
+          left: `calc(50% - ${DESKTOP_HEADER_NAV_PILL_CENTER_OFFSET_PX}px)`,
+          width: DESKTOP_HEADER_NAV_PILL_WIDTH_PX,
+        }}
         data-name="Link [button]"
         data-node-id="10:443"
       >
         <div
-          className="-translate-x-1/2 absolute content-stretch flex font-semibold gap-[41px] items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap"
+          className="-translate-x-1/2 absolute content-stretch flex font-semibold items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap"
+          style={{ gap: `${DESKTOP_HEADER_NAV_LINK_GAP_PX}px` }}
           data-node-id="10:444"
         >
-          <Link
-            className="flex flex-col justify-center relative shrink-0"
-            data-node-id="10:445"
-            href="/"
-          >
-            <p className="leading-[15.6px]">Home</p>
-          </Link>
-          <Link
-            className="flex flex-col justify-center relative shrink-0"
-            data-node-id="10:446"
-            href="/services"
-          >
-            <p className="leading-[15.6px]">Services</p>
-          </Link>
-          <Link
-            className="flex flex-col justify-center relative shrink-0"
-            data-node-id="10:447"
-            href="/portfolio"
-          >
-            <p className="leading-[15.6px]">Portfolio</p>
-          </Link>
-          <Link
-            className="flex flex-col justify-center relative shrink-0"
-            data-node-id="10:448"
-            href="/about-us"
-          >
-            <p className="leading-[15.6px]">About Us</p>
-          </Link>
-          <Link
-            className="flex flex-col justify-center relative shrink-0"
-            data-node-id="10:450"
-            href="/contact"
-          >
-            <p className="leading-[15.6px]">Contact</p>
-          </Link>
+          {PRIMARY_NAV_LINKS.map((item) =>
+            item.kind === "link" ? (
+              <Link
+                key={item.href}
+                className="relative flex shrink-0 flex-col justify-center"
+                data-node-id="10:445"
+                href={item.href}
+              >
+                <p className="leading-[15.6px]">{item.label}</p>
+              </Link>
+            ) : (
+              <PrimaryNavMoreDropdown key={item.label} variant="pill" items={item.items} />
+            ),
+          )}
         </div>
       </div>
       <Link
         href="/"
         aria-label="Go to home page"
-        className="absolute h-[37px] left-[20px] top-[13px] w-[130px]"
+        className="absolute z-[106] h-[37px] top-[13px] w-[130px]"
+        style={{ left: DESKTOP_HEADER_LOGO_LEFT_PX }}
         data-name="Neetrino-it-comapny-(2)png 1"
         data-node-id="10:453"
       >
@@ -85,28 +77,7 @@ export function HomeDesktopHeader({ className }: { className?: string }) {
         />
       </Link>
       <DesktopHeaderQuoteLink />
-      <a
-        href={COMPANY_PHONE_TEL_HREF}
-        aria-label="Call Neetrino"
-        className="pointer-events-auto absolute z-[110] bg-white rounded-full size-[48px] top-[8px]"
-        style={{ left: DESKTOP_HEADER_PHONE_LEFT_PX }}
-        data-node-id="10:454"
-      >
-        <div
-          className="absolute left-[11px] size-[25px] top-[11px]"
-          data-name="Vector"
-          data-node-id="10:456"
-        >
-          <Image
-            alt=""
-            width={2400}
-            height={2400}
-            className="absolute block max-w-none size-full"
-            src={FIGMA_ASSETS.imgVector}
-            sizes="25px"
-          />
-        </div>
-      </a>
+      <DesktopHeaderLanguageButton />
     </div>
   );
 }

@@ -5,7 +5,6 @@ import {
   DESKTOP_HEADER_QUOTE_LEFT_PX,
   DESKTOP_HEADER_QUOTE_TOP_PX,
 } from "@/lib/desktop-header-quote.constants";
-import { interHeaderQuote } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 
 type DesktopHeaderQuoteLinkProps = {
@@ -34,10 +33,7 @@ export function DesktopHeaderQuoteLink({ className }: DesktopHeaderQuoteLinkProp
       data-node-id="10:451"
     >
       <div
-        className={cn(
-          "-translate-y-1/2 absolute flex flex-col font-extrabold justify-center leading-[0] left-[25px] not-italic text-[16px] text-white top-[24px] whitespace-nowrap",
-          interHeaderQuote.className,
-        )}
+        className="-translate-y-1/2 absolute flex flex-col font-extrabold justify-center leading-[0] left-[25px] not-italic text-[16px] text-white top-[24px] whitespace-nowrap"
         data-node-id="10:452"
       >
         <p className="leading-[15.6px]">Get a Quote</p>

@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Footer } from "@/components/sections/Footer";
 import { SERVICES_CATALOG, serviceDetailHref } from "@/components/services/service-pages-data";
 import { SERVICES_DESKTOP_CANVAS_MIN_H_CLASS } from "@/lib/canvas-route-placeholders";
-import { roboto } from "@/lib/fonts";
+import { interSans } from "@/lib/fonts";
 
 const ServicesDesktopCanvas = dynamic(
   () =>
@@ -26,7 +26,7 @@ export default function Services() {
   return (
     <>
       <div
-        className={`min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden ${roboto.className}`}
+        className={`min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden ${interSans.className}`}
       >
         <main className="section-container pb-16 pt-24">
           <section className="border-b border-white/[0.06] pb-12 pt-6 md:pb-14 md:pt-8">

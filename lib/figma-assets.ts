@@ -18,6 +18,8 @@ export const FIGMA_ASSETS = {
   imgGroup70642: "/figma-assets/4a556455-c353-4d65-bd75-d9036716686c.svg",
   imgVector: "/figma-assets/e0ed9f9f-1d4d-4625-b46f-b974ad46ae6a.svg",
   imgGroup70643: "/figma-assets/0865d53f-6e78-4bdf-97cd-a71b18f431cc.svg",
+  /** Desktop header language pill — white globe on blue disc (Figma NEETRINO-WEB 10:460) */
+  imgHeaderLanguageGlobeWhite: "/figma-assets/7c2a8f41-4e9b-4d1c-9f3a-6b8e4d2c1a0f.svg",
   imgVector1: "/figma-assets/f4f7d792-bfb2-4323-bbcc-29d4c1829179.svg",
   imgPhilippHubertDVVjhUcdb30Unsplash1: "/figma-assets/62b9fa74-22e0-4457-865e-43c6218500b5.webp",
   imgEricaAnderson1: "/figma-assets/64738b5b-84dc-4cc4-a77f-049e3df52d77.gif",

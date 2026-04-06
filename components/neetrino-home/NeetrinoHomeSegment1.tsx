@@ -75,10 +75,10 @@ export function NeetrinoHomeSegment1() {
           </div>
         </div>
         <div
-          className="absolute left-[8.4%] top-[18.9%] h-[15.7%] w-auto max-w-[min(82.4%,calc(100%-10%))]"
+          className="absolute left-0 right-0 top-[18.9%] flex justify-center px-4"
           data-node-id="10:424"
         >
-          <img src="/NEETRINO.svg" alt="NEETRINO" className="block h-full w-auto" />
+          <img src="/NEETRINO.svg" alt="NEETRINO" className="neetrino-hero-neetrino-svg block" />
         </div>
         <div
           className="-translate-x-1/2 absolute h-[975px] left-[calc(50%+0.5px)] top-[45px] w-[629px]"

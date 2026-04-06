@@ -8,7 +8,7 @@ import {
   CONTACT_SOCIAL_LINKS,
 } from "@/components/contact/content";
 import { ContactInquiryForm } from "@/components/contact/ContactInquiryForm";
-import { roboto } from "@/lib/fonts";
+import { interSans } from "@/lib/fonts";
 import {
   NEETRINO_DESKTOP_CANVAS_WIDTH_PX,
   NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX,
@@ -18,7 +18,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515]">
       <main
-        className={`pt-24 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${roboto.className}`}
+        className={`pt-24 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${interSans.className}`}
       >
         <section className="section-container border-b border-white/[0.06] py-14 md:py-20">
           <div className="mx-auto max-w-4xl text-center">

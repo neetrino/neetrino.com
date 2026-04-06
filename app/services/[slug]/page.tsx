@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Footer } from "@/components/sections/Footer";
 import { SERVICES_CATALOG, getServiceBySlug } from "@/components/services/service-pages-data";
-import { roboto } from "@/lib/fonts";
+import { interSans } from "@/lib/fonts";
 import {
   NEETRINO_DESKTOP_CANVAS_WIDTH_PX,
   NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX,
@@ -60,7 +60,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const titleParts = serviceTitleMegatroxParts(service.title);
 
   return (
-    <div className={`min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] ${roboto.className}`}>
+    <div
+      className={`min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] ${interSans.className}`}
+    >
       <main
         className={`section-container pb-20 pt-28 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})]`}
       >
