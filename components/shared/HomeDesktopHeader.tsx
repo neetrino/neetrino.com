@@ -28,7 +28,7 @@ export function HomeDesktopHeader({ className }: { className?: string }) {
         data-node-id="10:443"
       >
         <div
-          className="-translate-x-1/2 absolute content-stretch flex font-['Inter:Semi_Bold',sans-serif] font-semibold gap-[41px] items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap"
+          className="-translate-x-1/2 absolute content-stretch flex font-semibold gap-[41px] items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap"
           data-node-id="10:444"
         >
           <Link

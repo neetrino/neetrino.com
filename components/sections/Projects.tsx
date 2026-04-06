@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
-import { interSans } from "@/lib/fonts";
+import { roboto } from "@/lib/fonts";
 
 const projects = [
   { image: FIGMA_ASSETS.imgStanislavHristov3, title: "Web Design" },
@@ -18,7 +18,7 @@ export function Projects() {
   return (
     <section
       id="blog"
-      className={`section-container py-16 md:py-24 ${interSans.className}`}
+      className={`section-container py-16 md:py-24 ${roboto.className}`}
       aria-labelledby="projects-heading"
     >
       <header className="mb-10 md:mb-12">

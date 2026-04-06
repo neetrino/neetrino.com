@@ -35,7 +35,7 @@ export function ServicesCardContinueLink({
   return (
     <Link href={href} className={BASE_CLASS} aria-label={ariaLabel}>
       <span className={GLOW_TOP[glowVariant]} aria-hidden />
-      <span className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap">
+      <span className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap">
         Continue
       </span>
       <span className={GLOW_BOTTOM[glowVariant]} aria-hidden />

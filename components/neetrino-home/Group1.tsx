@@ -34,13 +34,13 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
           </div>
         </div>
         <div
-          className="absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight inset-[78.84%_11.24%_16.64%_11.24%] justify-center leading-[0] not-italic text-[#1f2123] text-[20px] text-right whitespace-nowrap"
+          className="absolute flex flex-col font-extralight inset-[78.84%_11.24%_16.64%_11.24%] justify-center leading-[0] not-italic text-[#1f2123] text-[20px] text-right whitespace-nowrap"
           data-node-id="1:711"
         >
           <p className="leading-[25px]">Custom Development</p>
         </div>
         <div
-          className="absolute flex flex-col font-['Inter:Bold',sans-serif] font-bold inset-[9.58%_30.62%_84.09%_30.62%] justify-center leading-[0] not-italic text-[22px] text-black whitespace-nowrap"
+          className="absolute flex flex-col font-bold inset-[9.58%_30.62%_84.09%_30.62%] justify-center leading-[0] not-italic text-[22px] text-black whitespace-nowrap"
           data-node-id="1:712"
         >
           <p className="leading-[35px]">WEBSITE</p>
@@ -58,7 +58,7 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
           data-node-id="I1:713;13:52"
         />
         <p
-          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+          className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
           data-node-id="I1:713;13:33"
         >
           Continue

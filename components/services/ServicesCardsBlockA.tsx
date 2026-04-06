@@ -40,13 +40,13 @@ export function ServicesCard3({
         data-node-id="165:632"
       >
         <p
-          className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
+          className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
           data-node-id="165:633"
         >
           ERP System
         </p>
         <p
-          className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+          className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
           data-node-id="165:634"
         >
           All-in-one systems for managing business operations. Control data, processes, and
@@ -111,13 +111,13 @@ export function ServicesCard2({
         data-node-id="165:613"
       >
         <p
-          className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
+          className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
           data-node-id="165:614"
         >
           AI Product Development
         </p>
         <p
-          className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+          className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
           data-node-id="165:615"
         >
           Intelligent automation powered by machine learning and natural language processing to

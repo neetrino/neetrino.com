@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
-import { interSans } from "@/lib/fonts";
+import { roboto } from "@/lib/fonts";
 
 export function WhoWeAre() {
   return (
     <section
       id="story"
-      className={`section-container py-16 md:py-24 ${interSans.className}`}
+      className={`section-container py-16 md:py-24 ${roboto.className}`}
       aria-labelledby="who-we-are-heading"
     >
       <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-8">

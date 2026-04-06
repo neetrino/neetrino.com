@@ -17,13 +17,13 @@ export function NeetrinoHomeWhatWeDoBottom() {
             data-node-id="90:544"
           />
           <div
-            className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[792px] not-italic text-[20px] text-right text-white top-[577.5px] whitespace-nowrap"
+            className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[792px] not-italic text-[20px] text-right text-white top-[577.5px] whitespace-nowrap"
             data-node-id="90:545"
           >
             <p className="leading-[25px]">Cloud Solutions</p>
           </div>
           <div
-            className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] left-[619px] not-italic text-[22px] text-white top-[199.5px] whitespace-nowrap"
+            className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-bold justify-center leading-[0] left-[619px] not-italic text-[22px] text-white top-[199.5px] whitespace-nowrap"
             data-node-id="90:546"
           >
             <p className="leading-[35px]">SAAS PLATFORMS</p>
@@ -84,13 +84,13 @@ export function NeetrinoHomeWhatWeDoBottom() {
         data-node-id="90:553"
       >
         <div
-          className="-translate-y-1/2 absolute flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center left-[56px] not-italic text-[16px] top-[23.5px]"
+          className="-translate-y-1/2 absolute flex flex-col font-medium justify-center left-[56px] not-italic text-[16px] top-[23.5px]"
           data-node-id="90:554"
         >
           <p className="leading-[35px]">SERVICES</p>
         </div>
         <div
-          className="-translate-y-1/2 absolute flex flex-col font-['Inter:Black_Italic',sans-serif] font-black italic justify-center left-[50px] text-[35px] top-[58.5px]"
+          className="-translate-y-1/2 absolute flex flex-col font-black italic justify-center left-[50px] text-[35px] top-[58.5px]"
           data-node-id="90:555"
         >
           <p>
@@ -112,7 +112,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
           data-node-id="I90:547;13:52"
         />
         <p
-          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+          className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
           data-node-id="I90:547;13:33"
         >
           Continue
@@ -154,7 +154,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
           data-node-id="I90:541;13:52"
         />
         <p
-          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+          className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
           data-node-id="I90:541;13:33"
         >
           Continue

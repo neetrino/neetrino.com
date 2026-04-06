@@ -26,13 +26,13 @@ export function NeetrinoHomeSegment4() {
           data-node-id="10:506"
         >
           <div
-            className="-translate-y-1/2 absolute flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center left-[57px] not-italic text-[16px] top-[68.5px]"
+            className="-translate-y-1/2 absolute flex flex-col font-medium justify-center left-[57px] not-italic text-[16px] top-[68.5px]"
             data-node-id="10:507"
           >
             <p className="leading-[35px]">PORTFOLIO</p>
           </div>
           <div
-            className="-translate-y-1/2 absolute flex flex-col font-['Inter:Black_Italic',sans-serif] font-black italic justify-center left-[51px] text-[35px] top-[103.5px]"
+            className="-translate-y-1/2 absolute flex flex-col font-black italic justify-center left-[51px] text-[35px] top-[103.5px]"
             data-node-id="10:508"
           >
             <p>

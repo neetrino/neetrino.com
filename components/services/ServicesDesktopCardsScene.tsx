@@ -36,13 +36,13 @@ export function ServicesDesktopCardsScene() {
             data-node-id="I165:690;406:2861"
           >
             <p
-              className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-full"
+              className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-full"
               data-node-id="I165:690;406:2862"
             >
               SaaS Development
             </p>
             <p
-              className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-full"
+              className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-full"
               data-node-id="I165:690;406:2863"
             >
               Scalable SaaS platforms built for growth. Secure, flexible, and ready to evolve with
@@ -86,13 +86,13 @@ export function ServicesDesktopCardsScene() {
             data-node-id="I165:691;406:3047"
           >
             <p
-              className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-full"
+              className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-full"
               data-node-id="I165:691;406:3048"
             >
               CRM Systems
             </p>
             <p
-              className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-full"
+              className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-full"
               data-node-id="I165:691;406:3049"
             >
               Powerful customer relationship management solutions to streamline your sales process

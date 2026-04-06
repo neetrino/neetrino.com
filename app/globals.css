@@ -1,4 +1,4 @@
-/* Шрифты: Inter и DM Sans — через next/font в app/layout.tsx (меньше сети и дублей). Megatrox — public/fonts. */
+/* Шрифты: Roboto и DM Sans — через next/font в app/layout.tsx. Megatrox — public/fonts. */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";

@@ -1,4 +1,4 @@
-/** Same destination as hero “Get a Quote” — contact form. */
+/** Fallback route when quote UI is unavailable; primary CTA opens the quote modal. */
 export const GET_A_QUOTE_HREF = "/contact" as const;
 
 /** Click-to-call for header phone button (E.164 in tel URI, no spaces). */

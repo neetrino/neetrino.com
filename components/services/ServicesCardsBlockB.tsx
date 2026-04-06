@@ -44,13 +44,13 @@ export function ServicesCard({
         data-node-id="165:594"
       >
         <p
-          className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
+          className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
           data-node-id="165:595"
         >
           Mobile App Development
         </p>
         <p
-          className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+          className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
           data-node-id="165:596"
         >
           Native and cross-platform mobile applications that deliver exceptional user experiences on
@@ -111,13 +111,13 @@ export function ServicesCard1({
         data-node-id="165:574"
       >
         <p
-          className="font-['Inter:Black',sans-serif] font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
+          className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
           data-node-id="165:575"
         >
           Website Development
         </p>
         <p
-          className="font-['Inter:Light',sans-serif] font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+          className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
           data-node-id="165:576"
         >
           Cutting-edge web solutions built with modern technologies, optimized for performance and

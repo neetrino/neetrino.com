@@ -14,13 +14,13 @@ export function NeetrinoHomeWhatWeDoTop() {
           data-node-id="90:527"
         />
         <div
-          className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[1329px] not-italic text-[#0f0f0f] text-[20px] text-right top-[576.5px] whitespace-nowrap"
+          className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[1329px] not-italic text-[#0f0f0f] text-[20px] text-right top-[576.5px] whitespace-nowrap"
           data-node-id="90:528"
         >
           <p className="leading-[25px]">AI Automation</p>
         </div>
         <div
-          className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] left-[1162px] not-italic text-[#0f0f0f] text-[22px] top-[198.5px] whitespace-nowrap"
+          className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-bold justify-center leading-[0] left-[1162px] not-italic text-[#0f0f0f] text-[22px] top-[198.5px] whitespace-nowrap"
           data-node-id="90:529"
         >
           <p className="leading-[35px]">AI INTEGRATIONS</p>
@@ -31,13 +31,13 @@ export function NeetrinoHomeWhatWeDoTop() {
         data-node-id="90:530"
       />
       <div
-        className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[524px] not-italic text-[20px] text-right text-white top-[576.5px] whitespace-nowrap"
+        className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[524px] not-italic text-[20px] text-right text-white top-[576.5px] whitespace-nowrap"
         data-node-id="90:531"
       >
         <p className="leading-[25px]">App Development</p>
       </div>
       <div
-        className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] left-[382px] not-italic text-[22px] text-white top-[198.5px] whitespace-nowrap"
+        className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-bold justify-center leading-[0] left-[382px] not-italic text-[22px] text-white top-[198.5px] whitespace-nowrap"
         data-node-id="90:532"
       >
         <p className="leading-[35px]">MOBILE APP</p>
@@ -49,13 +49,13 @@ export function NeetrinoHomeWhatWeDoTop() {
             data-node-id="90:536"
           />
           <div
-            className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[1081px] not-italic text-[20px] text-right text-white top-[578.5px] whitespace-nowrap"
+            className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[1081px] not-italic text-[20px] text-right text-white top-[578.5px] whitespace-nowrap"
             data-node-id="90:537"
           >
             <p className="leading-[25px]">Process Automation</p>
           </div>
           <div
-            className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] left-[909px] not-italic text-[22px] text-white top-[200.5px] whitespace-nowrap"
+            className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-bold justify-center leading-[0] left-[909px] not-italic text-[22px] text-white top-[200.5px] whitespace-nowrap"
             data-node-id="90:538"
           >
             <p className="leading-[35px]">CRM SYSTEMS</p>
@@ -89,7 +89,7 @@ export function NeetrinoHomeWhatWeDoTop() {
           data-node-id="I90:533;13:52"
         />
         <p
-          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+          className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
           data-node-id="I90:533;13:33"
         >
           Continue
@@ -131,7 +131,7 @@ export function NeetrinoHomeWhatWeDoTop() {
           data-node-id="I90:540;13:52"
         />
         <p
-          className="font-['Inter:Medium',sans-serif] font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
+          className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
           data-node-id="I90:540;13:33"
         >
           Continue

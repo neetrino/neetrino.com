@@ -24,12 +24,12 @@ export const MOBILE_HERO_STAT_WIDE = {
 
 /**
  * Robot-hand overlay on the 450+ card (mobile hero only).
- * Keep in sync with `HeroStatWide` Tailwind: `w-[300px] h-[260px] -right-11 -bottom-6 scale-[1.38]`.
+ * Sync with `HeroStatWide`: `top-[42%] -translate-y-1/2`, `-right-[48px]`, `w-[310px] h-[328px]`.
+ * Text column: literal `max-w-[56%]` in `HeroSection`.
  */
 export const MOBILE_HERO_STAT_WIDE_HAND = {
-  widthPx: 300,
-  heightPx: 260,
-  offsetRightPx: 44,
-  offsetBottomPx: 24,
-  scale: 1.38,
+  widthPx: 310,
+  heightPx: 328,
+  offsetRightPx: 48,
+  anchorTopPercent: 42,
 } as const;

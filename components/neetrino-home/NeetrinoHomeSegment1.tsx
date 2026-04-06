@@ -121,14 +121,12 @@ export function NeetrinoHomeSegment1() {
           </div>
         </div>
         <div
-          className="-translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[3.5%] not-italic text-[24px] text-white top-[68%] w-[35.8%]"
+          className="-translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[3.5%] not-italic text-[24px] text-white top-[68%] w-[35.8%]"
           data-node-id="10:427"
         >
           <p>
             <span className="leading-[35px]">{`We build `}</span>
-            <span className="font-['Inter:Black',sans-serif] font-black leading-[35px] not-italic">
-              high-performance websites
-            </span>
+            <span className="font-black leading-[35px] not-italic">high-performance websites</span>
             <span className="leading-[35px]">{` and digital solutions that help businesses grow, scale, and stand out online.`}</span>
           </p>
         </div>
@@ -150,13 +148,13 @@ export function NeetrinoHomeSegment1() {
                 data-node-id="10:431"
               />
               <div
-                className="col-1 flex flex-col font-['Inter:Black',sans-serif] font-black h-[41px] justify-center ml-[18px] mt-[36px] not-italic relative row-1 text-[56px] text-white w-[78px]"
+                className="col-1 flex flex-col font-black h-[41px] justify-center ml-[18px] mt-[36px] not-italic relative row-1 text-[56px] text-white w-[78px]"
                 data-node-id="10:432"
               >
                 <p className="leading-[36px]">8+</p>
               </div>
               <div
-                className="col-1 flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[25px] ml-[18px] mt-[86px] not-italic relative row-1 text-[#fffcfc] text-[20px] whitespace-nowrap"
+                className="col-1 flex flex-col font-extralight justify-center leading-[25px] ml-[18px] mt-[86px] not-italic relative row-1 text-[#fffcfc] text-[20px] whitespace-nowrap"
                 data-node-id="10:433"
               >
                 <p className="mb-0">Years of</p>
@@ -173,13 +171,13 @@ export function NeetrinoHomeSegment1() {
                 data-node-id="10:435"
               />
               <div
-                className="col-1 flex flex-col font-['Inter:Black',sans-serif] font-black h-[43px] justify-center ml-[26px] mt-[36px] not-italic relative row-1 text-[#0d266c] text-[56px] w-[122px]"
+                className="col-1 flex flex-col font-black h-[43px] justify-center ml-[26px] mt-[36px] not-italic relative row-1 text-[#0d266c] text-[56px] w-[122px]"
                 data-node-id="10:436"
               >
                 <p className="leading-[36px]">97%</p>
               </div>
               <div
-                className="col-1 flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center ml-[26px] mt-[99px] not-italic relative row-1 text-[#0d266c] text-[20px] text-right whitespace-nowrap"
+                className="col-1 flex flex-col font-extralight justify-center ml-[26px] mt-[99px] not-italic relative row-1 text-[#0d266c] text-[20px] text-right whitespace-nowrap"
                 data-node-id="10:437"
               >
                 <p className="leading-[25px]">Satisfied clients</p>
@@ -196,13 +194,13 @@ export function NeetrinoHomeSegment1() {
               data-node-id="10:439"
             />
             <div
-              className="col-1 flex flex-col font-['Inter:Black',sans-serif] font-black justify-center ml-[44px] mt-[33px] not-italic relative row-1 text-[#fffcfc] text-[56px] whitespace-nowrap"
+              className="col-1 flex flex-col font-black justify-center ml-[44px] mt-[33px] not-italic relative row-1 text-[#fffcfc] text-[56px] whitespace-nowrap"
               data-node-id="10:440"
             >
               <p className="leading-[36px]">450+</p>
             </div>
             <div
-              className="col-1 flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center ml-[44px] mt-[87px] not-italic relative row-1 text-[#fffcfc] text-[20px] text-right whitespace-nowrap"
+              className="col-1 flex flex-col font-extralight justify-center ml-[44px] mt-[87px] not-italic relative row-1 text-[#fffcfc] text-[20px] text-right whitespace-nowrap"
               data-node-id="10:441"
             >
               <p className="leading-[25px]">Creations</p>

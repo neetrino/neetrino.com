@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
-import { interSans } from "@/lib/fonts";
+import { roboto } from "@/lib/fonts";
 import {
   MOBILE_HERO_STAT_WIDE,
   MOBILE_HERO_STATS_TOP,
@@ -95,13 +96,7 @@ function HeroCtas() {
 
   return (
     <>
-      <Link
-        href="/contact"
-        className={`${baseLink} top-[693px] isolate text-white shadow-lg shadow-black/25`}
-      >
-        <span className={`${glassLayer} border border-white/30 bg-[#473dff]/20`} aria-hidden />
-        <span className="relative z-10">Get a Quote</span>
-      </Link>
+      <HeroGetQuoteCta />
       <Link
         href="/contact"
         className={`${baseLink} top-[761px] isolate text-[#473dff] shadow-lg shadow-black/15`}
@@ -138,20 +133,22 @@ function HeroStatWide() {
   return (
     <div className="relative z-20 mt-[34px] min-h-[167px] w-full px-6">
       <div className={`relative overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}>
-        <p className={`relative z-10 text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
-        <p className={`relative z-10 mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
+        <div className="relative z-[2] max-w-[56%]">
+          <p className={`text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
+          <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
+        </div>
         <div
-          className="pointer-events-none absolute -bottom-6 -right-11 z-[1] h-[260px] w-[300px] max-[380px]:-right-8 max-[380px]:h-[228px] max-[380px]:w-[264px]"
+          className="pointer-events-none absolute top-[42%] z-[1] h-[328px] w-[310px] -translate-y-1/2 -right-[48px] max-[380px]:top-[40%] max-[380px]:h-[288px] max-[380px]:w-[268px] max-[380px]:-right-10"
           aria-hidden
         >
-          <div className="relative size-full origin-bottom-right scale-[1.38] max-[380px]:scale-[1.25]">
+          <div className="relative size-full">
             <div className="absolute inset-0 -scale-y-100 rotate-180">
               <Image
                 src={FIGMA_ASSETS.img28A}
                 alt=""
                 fill
-                className="object-contain object-bottom-right"
-                sizes="(max-width: 768px) 300px, 300px"
+                className="object-contain object-[right_center]"
+                sizes="(max-width: 768px) 310px, 310px"
                 loading="lazy"
               />
             </div>
@@ -173,7 +170,7 @@ const HERO_LOWER_BLUR_RADIUS = "rounded-[32px]";
 export function HeroSection() {
   return (
     <section
-      className={`relative min-w-0 overflow-x-hidden bg-[#151515] pb-10 ${interSans.className}`}
+      className={`relative min-w-0 overflow-x-hidden bg-[#151515] pb-10 ${roboto.className}`}
     >
       <HeroBackground />
       <div className="relative z-20 mx-auto w-full max-w-[393px] pt-[88px] text-left">

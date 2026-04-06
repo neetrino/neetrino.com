@@ -48,13 +48,13 @@ export function NeetrinoHomeSegment2() {
             data-node-id="10:512"
           >
             <div
-              className="col-1 flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center ml-[3px] mt-0 not-italic relative row-1 text-[16px]"
+              className="col-1 flex flex-col font-medium justify-center ml-[3px] mt-0 not-italic relative row-1 text-[16px]"
               data-node-id="10:513"
             >
               <p className="leading-[35px]">BUILD WITH PURPOSE</p>
             </div>
             <div
-              className="col-1 flex flex-col font-['Inter:Black_Italic',sans-serif] font-black italic justify-center ml-0 mt-[35px] relative row-1 text-[35px]"
+              className="col-1 flex flex-col font-black italic justify-center ml-0 mt-[35px] relative row-1 text-[35px]"
               data-node-id="10:514"
             >
               <p>
@@ -65,18 +65,14 @@ export function NeetrinoHomeSegment2() {
             </div>
           </div>
           <div
-            className="flex flex-col font-['Inter:Light',sans-serif] font-light justify-center min-w-full not-italic relative shrink-0 text-[16px] w-[min-content]"
+            className="flex flex-col font-light justify-center min-w-full not-italic relative shrink-0 text-[16px] w-[min-content]"
             data-node-id="10:515"
           >
             <p className="mb-0">
               <span className="leading-[24px]">{`Over the past 8 years, `}</span>
-              <span className="font-['Inter:Bold',sans-serif] font-bold leading-[24px] not-italic">
-                Neetrino IT
-              </span>
+              <span className="font-bold leading-[24px] not-italic">Neetrino IT</span>
               <span className="leading-[24px]">{` has developed more than `}</span>
-              <span className="font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[24px] not-italic">
-                400 online resources
-              </span>
+              <span className="font-extrabold leading-[24px] not-italic">400 online resources</span>
               <span className="leading-[24px]">
                 , ranging from simple websites to large-scale internet portals and e-commerce
                 platforms
@@ -87,7 +83,7 @@ export function NeetrinoHomeSegment2() {
                 We specialize in website development, AI and bot solutions, CRM system integration,
                 mobile app development, as well as SEO and SMM optimization—
               </span>
-              <span className="font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[24px] not-italic">
+              <span className="font-extrabold leading-[24px] not-italic">
                 delivering a comprehensive digital presence for your business.
               </span>
             </p>
