@@ -24,10 +24,10 @@ export function HomeDesktopHeader({ className }: { className?: string }) {
       className={cn(
         "z-[100]",
         className ??
-          "relative h-[64px] w-[1240px] rounded-[72px] bg-[rgba(255,255,255,0.21)] backdrop-blur-xl backdrop-saturate-150",
+          "relative h-[64px] w-full rounded-[72px] bg-[rgba(255,255,255,0.21)] backdrop-blur-xl backdrop-saturate-150",
       )}
       data-name="Awwwards"
-      data-node-id="10:442"
+      data-node-id="335:1424"
     >
       <div
         className="-translate-x-1/2 absolute z-[100] bg-[rgba(40,43,103,0.38)] h-[48px] rounded-[28px] top-[8px]"
@@ -36,12 +36,12 @@ export function HomeDesktopHeader({ className }: { className?: string }) {
           width: DESKTOP_HEADER_NAV_PILL_WIDTH_PX,
         }}
         data-name="Link [button]"
-        data-node-id="10:443"
+        data-node-id="335:1425"
       >
         <div
-          className="-translate-x-1/2 absolute content-stretch flex font-semibold items-center leading-[0] left-1/2 not-italic text-[16px] text-white top-[16px] whitespace-nowrap"
+          className="absolute inset-x-0 top-[16px] flex items-center justify-center font-semibold leading-[0] not-italic text-[16px] text-white whitespace-nowrap"
           style={{ gap: `${DESKTOP_HEADER_NAV_LINK_GAP_PX}px` }}
-          data-node-id="10:444"
+          data-node-id="335:1426"
         >
           {PRIMARY_NAV_LINKS.map((item) =>
             item.kind === "link" ? (

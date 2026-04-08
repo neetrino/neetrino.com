@@ -24,5 +24,5 @@ export const NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX = 91;
 export const NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX =
   NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX + 16;
 
-/** Home desktop header pill width (design px @1×). */
-export const NEETRINO_DESKTOP_HEADER_BAR_WIDTH_PX = 1240;
+/** Home desktop header pill width — Figma ABOUT `Awwwards` (335:1424): `w-[1340px]`. */
+export const NEETRINO_DESKTOP_HEADER_BAR_WIDTH_PX = 1340;

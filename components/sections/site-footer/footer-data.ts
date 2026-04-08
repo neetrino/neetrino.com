@@ -4,7 +4,6 @@ import { CONTACT_SOCIAL_LINKS } from "@/components/contact/content";
 export const companyLinks = [
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/about-us", label: "About Us" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

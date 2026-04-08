@@ -91,7 +91,7 @@ export function NeetrinoHomeSegment2() {
         </div>
         <Group2
           className="absolute h-[276px] left-[-179px] top-[358px] w-[642px]"
-          exploreHref="/about-us"
+          exploreHref="/contact"
         />
         <div
           className="pointer-events-none absolute h-[641px] left-[721px] mix-blend-exclusion top-[-34px] w-[685px]"

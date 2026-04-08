@@ -597,7 +597,7 @@ function Awwwards({ className }: { className?: string }) {
   return (
     <div
       className={
-        className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1240px]"
+        className || "bg-[rgba(255,255,255,0.21)] h-[64px] relative rounded-[72px] w-[1340px]"
       }
       data-name="Awwwards"
       data-node-id="10:442"
@@ -631,13 +631,6 @@ function Awwwards({ className }: { className?: string }) {
             href="/portfolio"
           >
             <p className="leading-[15.6px]">Portfolio</p>
-          </Link>
-          <Link
-            className="flex flex-col justify-center relative shrink-0"
-            data-node-id="10:448"
-            href="/about-us"
-          >
-            <p className="leading-[15.6px]">About Us</p>
           </Link>
           <Link
             className="flex flex-col justify-center relative shrink-0"
@@ -771,7 +764,7 @@ export function NeetrinoHome() {
             />
           </div>
         </div>
-        <Awwwards className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1240px]" />
+        <Awwwards className="-translate-x-1/2 absolute bg-[rgba(255,255,255,0.21)] h-[64px] left-1/2 rounded-[72px] top-[27px] w-[1340px]" />
         <div
           className="absolute left-0 top-[692px] w-[1440px] h-[457px] backdrop-blur-[14px] pointer-events-none"
           style={{

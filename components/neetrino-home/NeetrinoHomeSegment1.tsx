@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { DeferredMount } from "@/components/layout/DeferredMount";
+import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
   img30,
   imgEricaAnderson1,
@@ -27,6 +28,9 @@ export function NeetrinoHomeSegment1() {
                 height={2400}
                 className="absolute block max-w-none size-full"
                 src={imgVector2}
+                quality={DEFAULT_IMAGE_QUALITY}
+                sizes="100vw"
+                loading="lazy"
               />
             </div>
           </div>
@@ -48,7 +52,9 @@ export function NeetrinoHomeSegment1() {
                   className="absolute h-[130.92%] left-[-15.08%] max-w-none top-0 w-[115.09%]"
                   src={imgPhilippHubertDVVjhUcdb30Unsplash1}
                   sizes="1440px"
+                  quality={HERO_IMAGE_QUALITY}
                   loading="eager"
+                  priority
                 />
               </div>
             </div>
@@ -78,7 +84,15 @@ export function NeetrinoHomeSegment1() {
           className="absolute left-0 right-0 top-[18.9%] flex justify-center px-4"
           data-node-id="10:424"
         >
-          <img src="/NEETRINO.svg" alt="NEETRINO" className="neetrino-hero-neetrino-svg block" />
+          <Image
+            src="/NEETRINO.svg"
+            alt="NEETRINO"
+            width={1186}
+            height={128}
+            className="neetrino-hero-neetrino-svg block"
+            priority
+            unoptimized
+          />
         </div>
         <div
           className="-translate-x-1/2 absolute h-[975px] left-[calc(50%+0.5px)] top-[45px] w-[629px]"
@@ -93,6 +107,7 @@ export function NeetrinoHomeSegment1() {
               className="absolute h-[166.65%] left-[-22.58%] max-w-none top-[-44.39%] w-[145.15%]"
               src={img30}
               sizes="629px"
+              quality={HERO_IMAGE_QUALITY}
               loading="eager"
               priority
             />
@@ -115,6 +130,7 @@ export function NeetrinoHomeSegment1() {
                 className="absolute block max-w-none size-full"
                 src={imgRectangle17399}
                 sizes="1440px"
+                quality={DEFAULT_IMAGE_QUALITY}
                 loading="lazy"
               />
             </div>

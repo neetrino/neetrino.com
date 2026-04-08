@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { imgSafearea } from "./services-assets";
 
 const BASE_CLASS =
@@ -41,7 +42,7 @@ export function ServicesCardContinueLink({
       <span className={GLOW_BOTTOM[glowVariant]} aria-hidden />
       <span className="overflow-clip relative shrink-0 size-[20px]">
         <span className="absolute inset-[8.33%]">
-          <img alt="" className="absolute block max-w-none size-full" src={imgSafearea} />
+          <FigmaFillImage src={imgSafearea} sizes="20px" />
         </span>
       </span>
     </Link>

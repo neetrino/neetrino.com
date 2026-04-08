@@ -1,6 +1,7 @@
 "use client";
 
 import { DeferAfterPaint } from "@/components/layout/DeferAfterPaint";
+import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
 
 /**
@@ -17,13 +18,7 @@ export function PortfolioDesktopVectorDecorDeferred() {
               data-name="Vector"
               data-node-id="166:1214"
             >
-              <img
-                alt=""
-                className="absolute block max-w-none size-full"
-                src={figma.imgVector2}
-                loading="lazy"
-                decoding="async"
-              />
+              <FigmaFillImage src={figma.imgVector2} />
             </div>
           </div>
         </div>
@@ -33,13 +28,7 @@ export function PortfolioDesktopVectorDecorDeferred() {
               <div className="flex-none rotate-90">
                 <div className="h-0 relative w-[759.42px]" data-node-id="166:1217">
                   <div className="absolute inset-[-14.04px_-1.23%]">
-                    <img
-                      alt=""
-                      className="block max-w-none size-full"
-                      src={figma.imgLine734}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <FigmaFillImage src={figma.imgLine734} />
                   </div>
                 </div>
               </div>
@@ -48,13 +37,7 @@ export function PortfolioDesktopVectorDecorDeferred() {
               <div className="flex-none rotate-90">
                 <div className="h-0 relative w-[759.42px]" data-node-id="166:1218">
                   <div className="absolute inset-[-23.4px_-2.47%]">
-                    <img
-                      alt=""
-                      className="block max-w-none size-full"
-                      src={figma.imgLine735}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <FigmaFillImage src={figma.imgLine735} />
                   </div>
                 </div>
               </div>
@@ -77,13 +60,7 @@ export function PortfolioDesktopVectorDecorDeferred() {
             data-node-id="166:1222"
           >
             <div className="absolute inset-[-20.19%_-7.95%]">
-              <img
-                alt=""
-                className="block max-w-none size-full"
-                src={figma.imgVector27397}
-                loading="lazy"
-                decoding="async"
-              />
+              <FigmaFillImage src={figma.imgVector27397} />
             </div>
           </div>
           <div
@@ -91,13 +68,7 @@ export function PortfolioDesktopVectorDecorDeferred() {
             data-node-id="166:1223"
           >
             <div className="absolute inset-[-20.42%_-6.75%]">
-              <img
-                alt=""
-                className="block max-w-none size-full"
-                src={figma.imgVector27398}
-                loading="lazy"
-                decoding="async"
-              />
+              <FigmaFillImage src={figma.imgVector27398} />
             </div>
           </div>
           <div
@@ -105,26 +76,14 @@ export function PortfolioDesktopVectorDecorDeferred() {
             data-node-id="166:1224"
           >
             <div className="absolute inset-[-21.01%_-39.7%]">
-              <img
-                alt=""
-                className="block max-w-none size-full"
-                src={figma.imgRectangle240649642}
-                loading="lazy"
-                decoding="async"
-              />
+              <FigmaFillImage src={figma.imgRectangle240649642} />
             </div>
           </div>
           <div className="absolute flex h-[645.917px] items-center justify-center left-[-20px] mix-blend-plus-lighter top-[288px] w-[341.879px]">
             <div className="-scale-y-100 flex-none rotate-180">
               <div className="h-[645.917px] relative w-[341.879px]" data-node-id="166:1225">
                 <div className="absolute inset-[-21.01%_-39.7%]">
-                  <img
-                    alt=""
-                    className="block max-w-none size-full"
-                    src={figma.imgRectangle240650146}
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <FigmaFillImage src={figma.imgRectangle240650146} />
                 </div>
               </div>
             </div>

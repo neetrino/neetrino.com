@@ -1,8 +1,8 @@
 /**
  * Figma desktop header — language pill (nodes 10:457–10:461).
- * `DESKTOP_HEADER_LANGUAGE_LEFT_PX` is derived after the quote pill.
+ * Pinned to the bar’s right edge via `DESKTOP_HEADER_LANGUAGE_RIGHT_INSET_PX`.
  */
-export { DESKTOP_HEADER_LANGUAGE_LEFT_PX } from "@/lib/desktop-header-nav-pill.constants";
+export { DESKTOP_HEADER_LANGUAGE_RIGHT_INSET_PX } from "@/lib/desktop-header-nav-pill.constants";
 export const DESKTOP_HEADER_LANGUAGE_TOP_PX = 7;
 export const DESKTOP_HEADER_LANGUAGE_WIDTH_PX = 115;
 export const DESKTOP_HEADER_LANGUAGE_HEIGHT_PX = 48;

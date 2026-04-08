@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { DeferredMount } from "@/components/layout/DeferredMount";
+import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { desktopPortfolioRows } from "@/components/portfolio/portfolio-data";
 import { PortfolioDesktopStarRayDeferred } from "@/components/portfolio/PortfolioDesktopStarRayDeferred";
 import { PortfolioDesktopVectorDecorDeferred } from "@/components/portfolio/PortfolioDesktopVectorDecorDeferred";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
 import { CanvasFooter } from "@/components/sections/Footer";
+import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 
 function Group({ className }: { className?: string }) {
   const { imgChangeColor1, imgChangeColor, imgSafearea, imgEllipse3463 } = figma;
@@ -62,12 +64,12 @@ function Group({ className }: { className?: string }) {
             data-name="safearea"
             data-node-id="I1:150;21:1594"
           >
-            <img alt="" className="absolute block max-w-none size-full" src={imgSafearea} />
+            <FigmaFillImage src={imgSafearea} sizes="20px" />
           </div>
         </div>
         <div className="absolute h-[31px] left-[22px] top-[39px] w-[88px]" data-node-id="1:151">
           <div className="absolute inset-[-45.16%_-15.91%]">
-            <img alt="" className="block max-w-none size-full" src={imgEllipse3463} />
+            <FigmaFillImage src={imgEllipse3463} sizes="88px" />
           </div>
         </div>
       </Link>
@@ -105,7 +107,7 @@ function Button({ className }: { className?: string }) {
           data-name="safearea"
           data-node-id="I166:1044;21:1594"
         >
-          <img alt="" className="absolute block max-w-none size-full" src={imgSafearea1} />
+          <FigmaFillImage src={imgSafearea1} sizes="20px" />
         </div>
       </div>
     </div>
@@ -127,13 +129,7 @@ function PortfolioPlanet() {
             data-node-id="166:1205"
           >
             <div className="absolute inset-[-1.5%_-1.45%]">
-              <img
-                alt=""
-                className="block max-w-none size-full"
-                src={imgEllipse1}
-                loading="lazy"
-                decoding="async"
-              />
+              <FigmaFillImage src={imgEllipse1} sizes="(max-width: 1536px) 90vw, 1382px" />
             </div>
           </div>
         </div>
@@ -145,14 +141,15 @@ function PortfolioPlanet() {
             data-name="pngwing 6"
             data-node-id="166:1206"
           >
-            <img
+            <Image
               alt=""
               className="absolute block max-w-none size-full"
               height={1439}
               src={imgPngwing6}
               width={1452}
+              quality={DEFAULT_IMAGE_QUALITY}
+              sizes="(max-width: 1536px) 90vw, 1452px"
               loading="lazy"
-              decoding="async"
             />
           </div>
         </div>
@@ -186,6 +183,7 @@ function PortfolioMoreCases() {
                 src={image}
                 fill
                 sizes="423px"
+                quality={DEFAULT_IMAGE_QUALITY}
                 className="object-cover pointer-events-none"
                 loading="lazy"
                 decoding="async"
@@ -224,13 +222,7 @@ export function PortfolioDesktopScene() {
           data-node-id="166:1209"
         >
           <div className="absolute inset-[-52.12%_-48.95%]">
-            <img
-              alt=""
-              className="block max-w-none size-full"
-              src={figma.imgEllipse27}
-              loading="lazy"
-              decoding="async"
-            />
+            <FigmaFillImage src={figma.imgEllipse27} />
           </div>
         </div>
         <div
@@ -238,13 +230,7 @@ export function PortfolioDesktopScene() {
           data-node-id="166:1210"
         >
           <div className="absolute inset-[-52.12%_-48.95%]">
-            <img
-              alt=""
-              className="block max-w-none size-full"
-              src={figma.imgEllipse28}
-              loading="lazy"
-              decoding="async"
-            />
+            <FigmaFillImage src={figma.imgEllipse28} />
           </div>
         </div>
         <PortfolioDesktopStarRayDeferred />
@@ -272,13 +258,7 @@ export function PortfolioDesktopScene() {
         data-node-id="166:1226"
       >
         <div className="absolute inset-[-50.95%_-15.66%_-51.42%_-15.66%]">
-          <img
-            alt=""
-            className="block max-w-none size-full"
-            src={figma.imgRectangle17414}
-            loading="lazy"
-            decoding="async"
-          />
+          <FigmaFillImage src={figma.imgRectangle17414} />
         </div>
       </div>
       <div
@@ -286,13 +266,7 @@ export function PortfolioDesktopScene() {
         data-node-id="166:1227"
       >
         <div className="absolute inset-[-50.95%_-15.66%_-51.42%_-15.66%]">
-          <img
-            alt=""
-            className="block max-w-none size-full"
-            src={figma.imgRectangle17414}
-            loading="lazy"
-            decoding="async"
-          />
+          <FigmaFillImage src={figma.imgRectangle17414} />
         </div>
       </div>
       <div
@@ -300,13 +274,7 @@ export function PortfolioDesktopScene() {
         data-node-id="166:1228"
       >
         <div className="absolute inset-[-50.95%_-15.66%_-51.42%_-15.66%]">
-          <img
-            alt=""
-            className="block max-w-none size-full"
-            src={figma.imgRectangle17414}
-            loading="lazy"
-            decoding="async"
-          />
+          <FigmaFillImage src={figma.imgRectangle17414} />
         </div>
       </div>
       <div
@@ -329,12 +297,15 @@ export function PortfolioDesktopScene() {
               data-node-id="166:1232"
             >
               <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[35px]">
-                <img
+                <Image
                   alt=""
                   className="absolute h-[154.19%] left-0 max-w-none top-[-40.85%] w-full"
                   src={figma.img2661}
+                  width={2400}
+                  height={2400}
+                  quality={DEFAULT_IMAGE_QUALITY}
+                  sizes="632px"
                   loading="lazy"
-                  decoding="async"
                 />
               </div>
             </div>
@@ -358,12 +329,15 @@ export function PortfolioDesktopScene() {
                 data-node-id="166:1236"
               >
                 <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[31px]">
-                  <img
+                  <Image
                     alt=""
                     className="absolute h-[120.37%] left-[-1.69%] max-w-none top-[-13.55%] w-[103.37%]"
                     src={figma.imgBiotechLogo1}
+                    width={2400}
+                    height={2400}
+                    quality={DEFAULT_IMAGE_QUALITY}
+                    sizes="636px"
                     loading="lazy"
-                    decoding="async"
                   />
                 </div>
               </div>
@@ -382,13 +356,7 @@ export function PortfolioDesktopScene() {
         data-node-id="166:1259"
       >
         <div className="absolute inset-[-28.94%_-15.66%_-29.47%_-15.66%]">
-          <img
-            alt=""
-            className="block max-w-none size-full"
-            src={figma.imgRectangle17417}
-            loading="lazy"
-            decoding="async"
-          />
+          <FigmaFillImage src={figma.imgRectangle17417} />
         </div>
       </div>
       <DeferredMount topClassName="top-[1980px]" rootMargin="280px 0px 280px 0px">
@@ -399,12 +367,15 @@ export function PortfolioDesktopScene() {
             data-node-id="166:1261"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
                 src={figma.img10}
+                width={2400}
+                height={2400}
+                quality={DEFAULT_IMAGE_QUALITY}
+                sizes="633px"
                 loading="lazy"
-                decoding="async"
               />
             </div>
           </div>
@@ -414,12 +385,15 @@ export function PortfolioDesktopScene() {
             data-node-id="166:1262"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <img
+              <Image
                 alt=""
                 className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
                 src={figma.img10}
+                width={2400}
+                height={2400}
+                quality={DEFAULT_IMAGE_QUALITY}
+                sizes="633px"
                 loading="lazy"
-                decoding="async"
               />
             </div>
           </div>

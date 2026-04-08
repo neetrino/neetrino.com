@@ -1,4 +1,5 @@
 import { LayoutGrid } from "lucide-react";
+import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { imgEllipse6, imgEllipse7, imgShieldDone } from "./services-assets";
 import { serviceDetailHref } from "./service-pages-data";
 import {
@@ -29,7 +30,7 @@ export function ServicesDesktopCardsScene() {
             data-name="Shield done"
             data-node-id="I165:690;406:2853"
           >
-            <img alt="" className="absolute block max-w-none size-full" src={imgShieldDone} />
+            <FigmaFillImage src={imgShieldDone} sizes="40px" />
           </div>
           <div
             className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
@@ -53,7 +54,7 @@ export function ServicesDesktopCardsScene() {
             <div className="flex-none rotate-[51.41deg]">
               <div className="h-[65.42px] relative w-[75.124px]" data-node-id="I165:690;406:2871">
                 <div className="absolute inset-[-82.24%_-71.61%]">
-                  <img alt="" className="block max-w-none size-full" src={imgEllipse6} />
+                  <FigmaFillImage src={imgEllipse6} sizes="200px" />
                 </div>
               </div>
             </div>
@@ -103,7 +104,7 @@ export function ServicesDesktopCardsScene() {
             <div className="flex-none rotate-[51.41deg]">
               <div className="h-[65.42px] relative w-[75.124px]" data-node-id="I165:691;406:3057">
                 <div className="absolute inset-[-82.24%_-71.61%]">
-                  <img alt="" className="block max-w-none size-full" src={imgEllipse7} />
+                  <FigmaFillImage src={imgEllipse7} sizes="200px" />
                 </div>
               </div>
             </div>

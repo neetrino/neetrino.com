@@ -55,7 +55,7 @@ export function WhoWeAre() {
 
       <div className="relative z-10 mt-10 flex justify-center">
         <Link
-          href="/about-us"
+          href="/contact"
           className="relative inline-flex rounded-full border border-[#6a92ff] bg-black px-8 py-4 text-lg font-medium text-white transition-opacity hover:opacity-90"
         >
           Explore

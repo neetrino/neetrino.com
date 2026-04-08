@@ -9,7 +9,7 @@ import {
   DESKTOP_HEADER_LANGUAGE_ICON_OFFSET_TOP_PX,
   DESKTOP_HEADER_LANGUAGE_ICON_PX,
   DESKTOP_HEADER_LANGUAGE_LABEL_LEFT_PX,
-  DESKTOP_HEADER_LANGUAGE_LEFT_PX,
+  DESKTOP_HEADER_LANGUAGE_RIGHT_INSET_PX,
   DESKTOP_HEADER_LANGUAGE_TOP_PX,
   DESKTOP_HEADER_LANGUAGE_WIDTH_PX,
 } from "@/lib/desktop-header-language.constants";
@@ -31,7 +31,7 @@ export function DesktopHeaderLanguageButton({ className }: DesktopHeaderLanguage
         className,
       )}
       style={{
-        left: DESKTOP_HEADER_LANGUAGE_LEFT_PX,
+        right: DESKTOP_HEADER_LANGUAGE_RIGHT_INSET_PX,
         top: DESKTOP_HEADER_LANGUAGE_TOP_PX,
         width: DESKTOP_HEADER_LANGUAGE_WIDTH_PX,
         height: DESKTOP_HEADER_LANGUAGE_HEIGHT_PX,

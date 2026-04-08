@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { interSans } from "@/lib/fonts";
 import {
   MOBILE_HERO_STAT_WIDE,
@@ -19,7 +20,9 @@ function HeroBackground() {
           className="object-cover"
           style={{ transform: "scaleY(-1)" }}
           sizes="100vw"
+          quality={HERO_IMAGE_QUALITY}
           loading="eager"
+          priority
         />
       </div>
       <div className="pointer-events-none absolute inset-0 z-[6] mix-blend-lighten opacity-60">
@@ -58,6 +61,7 @@ function HeroTitleAndRobot() {
             width={836}
             height={1491}
             priority
+            quality={HERO_IMAGE_QUALITY}
             className="absolute left-[-22.58%] top-[-60.36%] h-[196.49%] w-[145.15%] max-w-none object-cover"
             sizes="576px"
           />
@@ -149,6 +153,7 @@ function HeroStatWide() {
                 fill
                 className="object-contain object-[right_center]"
                 sizes="(max-width: 768px) 310px, 310px"
+                quality={DEFAULT_IMAGE_QUALITY}
                 loading="lazy"
               />
             </div>

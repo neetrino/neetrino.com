@@ -1,4 +1,5 @@
 import { Smartphone } from "lucide-react";
+import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { imgBuilding, imgEllipse4, imgEllipse5 } from "./services-assets";
 import {
   ServicesCardContinueLink,
@@ -61,7 +62,7 @@ export function ServicesCard({
         <div className="flex-none rotate-[57.05deg]">
           <div className="h-[65.42px] relative w-[75.124px]" data-node-id="165:597">
             <div className="absolute inset-[-82.24%_-71.61%]">
-              <img alt="" className="block max-w-none size-full" src={imgEllipse4} />
+              <FigmaFillImage src={imgEllipse4} sizes="200px" />
             </div>
           </div>
         </div>
@@ -104,7 +105,7 @@ export function ServicesCard1({
         className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]"
       />
       <div className="relative shrink-0 size-[40px]" data-name="Building" data-node-id="165:570">
-        <img alt="" className="absolute block max-w-none size-full" src={imgBuilding} />
+        <FigmaFillImage src={imgBuilding} sizes="40px" />
       </div>
       <div
         className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
@@ -128,7 +129,7 @@ export function ServicesCard1({
         <div className="flex-none rotate-[57.05deg]">
           <div className="h-[65.42px] relative w-[75.124px]" data-node-id="165:577">
             <div className="absolute inset-[-82.24%_-71.61%]">
-              <img alt="" className="block max-w-none size-full" src={imgEllipse5} />
+              <FigmaFillImage src={imgEllipse5} sizes="200px" />
             </div>
           </div>
         </div>
