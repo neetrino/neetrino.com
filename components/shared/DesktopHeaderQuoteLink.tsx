@@ -1,10 +1,10 @@
 "use client";
 
+import { useQuoteModal } from "@/components/quote/quote-modal-context";
 import {
   DESKTOP_HEADER_QUOTE_LEFT_PX,
   DESKTOP_HEADER_QUOTE_TOP_PX,
 } from "@/lib/desktop-header-quote.constants";
-import { GET_A_QUOTE_HREF } from "@/lib/nav-links";
 import { cn } from "@/lib/utils";
 
 type DesktopHeaderQuoteLinkProps = {
@@ -12,15 +12,17 @@ type DesktopHeaderQuoteLinkProps = {
 };
 
 /**
- * Desktop header “Get a Quote” — matches original Figma block (purple pill, Inter Extra Bold).
- * Plain `<a>` keeps SSR/client DOM identical for hydration.
+ * Desktop header “Get a Quote” — opens the quote modal (same intent as former `/contact` link).
  */
 export function DesktopHeaderQuoteLink({ className }: DesktopHeaderQuoteLinkProps) {
+  const { openQuoteModal } = useQuoteModal();
+
   return (
-    <a
-      href={GET_A_QUOTE_HREF}
+    <button
+      type="button"
+      onClick={openQuoteModal}
       className={cn(
-        "pointer-events-auto absolute z-[105] bg-[#473dff] h-[48px] w-[144px] rounded-[28px] no-underline transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60",
+        "pointer-events-auto absolute z-[105] cursor-pointer border-0 bg-[#473dff] h-[48px] w-[144px] rounded-[28px] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60",
         className,
       )}
       style={{
@@ -31,11 +33,11 @@ export function DesktopHeaderQuoteLink({ className }: DesktopHeaderQuoteLinkProp
       data-node-id="10:451"
     >
       <div
-        className="-translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Bold',sans-serif] font-extrabold justify-center leading-[0] left-[25px] not-italic text-[16px] text-white top-[24px] whitespace-nowrap"
+        className="-translate-y-1/2 absolute flex flex-col font-extrabold justify-center leading-[0] left-[25px] not-italic text-[16px] text-white top-[24px] whitespace-nowrap"
         data-node-id="10:452"
       >
         <p className="leading-[15.6px]">Get a Quote</p>
       </div>
-    </a>
+    </button>
   );
 }

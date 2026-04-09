@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { DeferredMount } from "@/components/layout/DeferredMount";
+import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
   img30,
   imgEricaAnderson1,
@@ -27,6 +28,9 @@ export function NeetrinoHomeSegment1() {
                 height={2400}
                 className="absolute block max-w-none size-full"
                 src={imgVector2}
+                quality={DEFAULT_IMAGE_QUALITY}
+                sizes="100vw"
+                loading="lazy"
               />
             </div>
           </div>
@@ -48,7 +52,9 @@ export function NeetrinoHomeSegment1() {
                   className="absolute h-[130.92%] left-[-15.08%] max-w-none top-0 w-[115.09%]"
                   src={imgPhilippHubertDVVjhUcdb30Unsplash1}
                   sizes="1440px"
+                  quality={HERO_IMAGE_QUALITY}
                   loading="eager"
+                  priority
                 />
               </div>
             </div>
@@ -75,10 +81,18 @@ export function NeetrinoHomeSegment1() {
           </div>
         </div>
         <div
-          className="absolute left-[8.4%] top-[18.9%] h-[15.7%] w-auto max-w-[min(82.4%,calc(100%-10%))]"
+          className="absolute left-0 right-0 top-[18.9%] flex justify-center px-4"
           data-node-id="10:424"
         >
-          <img src="/NEETRINO.svg" alt="NEETRINO" className="block h-full w-auto" />
+          <Image
+            src="/NEETRINO.svg"
+            alt="NEETRINO"
+            width={1186}
+            height={128}
+            className="neetrino-hero-neetrino-svg block"
+            priority
+            unoptimized
+          />
         </div>
         <div
           className="-translate-x-1/2 absolute h-[975px] left-[calc(50%+0.5px)] top-[45px] w-[629px]"
@@ -93,6 +107,7 @@ export function NeetrinoHomeSegment1() {
               className="absolute h-[166.65%] left-[-22.58%] max-w-none top-[-44.39%] w-[145.15%]"
               src={img30}
               sizes="629px"
+              quality={HERO_IMAGE_QUALITY}
               loading="eager"
               priority
             />
@@ -115,20 +130,19 @@ export function NeetrinoHomeSegment1() {
                 className="absolute block max-w-none size-full"
                 src={imgRectangle17399}
                 sizes="1440px"
+                quality={DEFAULT_IMAGE_QUALITY}
                 loading="lazy"
               />
             </div>
           </div>
         </div>
         <div
-          className="-translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[3.5%] not-italic text-[24px] text-white top-[68%] w-[35.8%]"
+          className="-translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[3.5%] not-italic text-[24px] text-white top-[68%] w-[35.8%]"
           data-node-id="10:427"
         >
           <p>
             <span className="leading-[35px]">{`We build `}</span>
-            <span className="font-['Inter:Black',sans-serif] font-black leading-[35px] not-italic">
-              high-performance websites
-            </span>
+            <span className="font-black leading-[35px] not-italic">high-performance websites</span>
             <span className="leading-[35px]">{` and digital solutions that help businesses grow, scale, and stand out online.`}</span>
           </p>
         </div>
@@ -150,13 +164,13 @@ export function NeetrinoHomeSegment1() {
                 data-node-id="10:431"
               />
               <div
-                className="col-1 flex flex-col font-['Inter:Black',sans-serif] font-black h-[41px] justify-center ml-[18px] mt-[36px] not-italic relative row-1 text-[56px] text-white w-[78px]"
+                className="col-1 flex flex-col font-black h-[41px] justify-center ml-[18px] mt-[36px] not-italic relative row-1 text-[56px] text-white w-[78px]"
                 data-node-id="10:432"
               >
                 <p className="leading-[36px]">8+</p>
               </div>
               <div
-                className="col-1 flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[25px] ml-[18px] mt-[86px] not-italic relative row-1 text-[#fffcfc] text-[20px] whitespace-nowrap"
+                className="col-1 flex flex-col font-extralight justify-center leading-[25px] ml-[18px] mt-[86px] not-italic relative row-1 text-[#fffcfc] text-[20px] whitespace-nowrap"
                 data-node-id="10:433"
               >
                 <p className="mb-0">Years of</p>
@@ -173,13 +187,13 @@ export function NeetrinoHomeSegment1() {
                 data-node-id="10:435"
               />
               <div
-                className="col-1 flex flex-col font-['Inter:Black',sans-serif] font-black h-[43px] justify-center ml-[26px] mt-[36px] not-italic relative row-1 text-[#0d266c] text-[56px] w-[122px]"
+                className="col-1 flex flex-col font-black h-[43px] justify-center ml-[26px] mt-[36px] not-italic relative row-1 text-[#0d266c] text-[56px] w-[122px]"
                 data-node-id="10:436"
               >
                 <p className="leading-[36px]">97%</p>
               </div>
               <div
-                className="col-1 flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center ml-[26px] mt-[99px] not-italic relative row-1 text-[#0d266c] text-[20px] text-right whitespace-nowrap"
+                className="col-1 flex flex-col font-extralight justify-center ml-[26px] mt-[99px] not-italic relative row-1 text-[#0d266c] text-[20px] text-right whitespace-nowrap"
                 data-node-id="10:437"
               >
                 <p className="leading-[25px]">Satisfied clients</p>
@@ -196,13 +210,13 @@ export function NeetrinoHomeSegment1() {
               data-node-id="10:439"
             />
             <div
-              className="col-1 flex flex-col font-['Inter:Black',sans-serif] font-black justify-center ml-[44px] mt-[33px] not-italic relative row-1 text-[#fffcfc] text-[56px] whitespace-nowrap"
+              className="col-1 flex flex-col font-black justify-center ml-[44px] mt-[33px] not-italic relative row-1 text-[#fffcfc] text-[56px] whitespace-nowrap"
               data-node-id="10:440"
             >
               <p className="leading-[36px]">450+</p>
             </div>
             <div
-              className="col-1 flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center ml-[44px] mt-[87px] not-italic relative row-1 text-[#fffcfc] text-[20px] text-right whitespace-nowrap"
+              className="col-1 flex flex-col font-extralight justify-center ml-[44px] mt-[87px] not-italic relative row-1 text-[#fffcfc] text-[20px] text-right whitespace-nowrap"
               data-node-id="10:441"
             >
               <p className="leading-[25px]">Creations</p>

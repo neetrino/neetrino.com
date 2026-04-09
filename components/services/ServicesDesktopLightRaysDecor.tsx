@@ -1,6 +1,9 @@
 "use client";
 
+import Image from "next/image";
+import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { useIdleMount } from "@/lib/hooks/useIdleMount";
+import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
   imgEllipse27,
   imgEllipse28,
@@ -28,13 +31,7 @@ export function ServicesDesktopLightRaysDecor() {
         data-node-id="165:674"
       >
         <div className="absolute inset-[-52.12%_-48.95%]">
-          <img
-            alt=""
-            className="block max-w-none size-full"
-            decoding="async"
-            loading="lazy"
-            src={imgEllipse27}
-          />
+          <FigmaFillImage src={imgEllipse27} />
         </div>
       </div>
       <div
@@ -42,13 +39,7 @@ export function ServicesDesktopLightRaysDecor() {
         data-node-id="165:675"
       >
         <div className="absolute inset-[-52.12%_-48.95%]">
-          <img
-            alt=""
-            className="block max-w-none size-full"
-            decoding="async"
-            loading="lazy"
-            src={imgEllipse28}
-          />
+          <FigmaFillImage src={imgEllipse28} />
         </div>
       </div>
       {showStarRay ? (
@@ -56,14 +47,15 @@ export function ServicesDesktopLightRaysDecor() {
           <div className="flex-none rotate-[24.39deg]">
             <div className="h-[4590.797px] relative w-[4109.595px]" data-node-id="165:676">
               <div className="absolute inset-[-2.59%_-2.9%]">
-                <img
+                <Image
                   alt=""
                   className="block max-w-none size-full"
-                  decoding="async"
                   height={STAR22_HEIGHT}
                   loading="lazy"
                   src={imgStar22}
                   width={STAR22_WIDTH}
+                  quality={DEFAULT_IMAGE_QUALITY}
+                  sizes="120vw"
                 />
               </div>
             </div>
@@ -82,13 +74,7 @@ export function ServicesDesktopLightRaysDecor() {
             <div className="flex-none rotate-90">
               <div className="h-0 relative w-[759.42px]" data-node-id="165:680">
                 <div className="absolute inset-[-14.04px_-1.23%]">
-                  <img
-                    alt=""
-                    className="block max-w-none size-full"
-                    decoding="async"
-                    loading="lazy"
-                    src={imgLine734}
-                  />
+                  <FigmaFillImage src={imgLine734} />
                 </div>
               </div>
             </div>
@@ -97,13 +83,7 @@ export function ServicesDesktopLightRaysDecor() {
             <div className="flex-none rotate-90">
               <div className="h-0 relative w-[759.42px]" data-node-id="165:681">
                 <div className="absolute inset-[-23.4px_-2.47%]">
-                  <img
-                    alt=""
-                    className="block max-w-none size-full"
-                    decoding="async"
-                    loading="lazy"
-                    src={imgLine735}
-                  />
+                  <FigmaFillImage src={imgLine735} />
                 </div>
               </div>
             </div>
@@ -126,13 +106,7 @@ export function ServicesDesktopLightRaysDecor() {
           data-node-id="165:685"
         >
           <div className="absolute inset-[-20.19%_-8.08%]">
-            <img
-              alt=""
-              className="block max-w-none size-full"
-              decoding="async"
-              loading="lazy"
-              src={imgVector27397}
-            />
+            <FigmaFillImage src={imgVector27397} />
           </div>
         </div>
         <div
@@ -140,13 +114,7 @@ export function ServicesDesktopLightRaysDecor() {
           data-node-id="165:686"
         >
           <div className="absolute inset-[-20.42%_-6.86%]">
-            <img
-              alt=""
-              className="block max-w-none size-full"
-              decoding="async"
-              loading="lazy"
-              src={imgVector27398}
-            />
+            <FigmaFillImage src={imgVector27398} />
           </div>
         </div>
         <div
@@ -154,26 +122,14 @@ export function ServicesDesktopLightRaysDecor() {
           data-node-id="165:687"
         >
           <div className="absolute inset-[-21.01%_-40.37%]">
-            <img
-              alt=""
-              className="block max-w-none size-full"
-              decoding="async"
-              loading="lazy"
-              src={imgRectangle240649642}
-            />
+            <FigmaFillImage src={imgRectangle240649642} />
           </div>
         </div>
         <div className="absolute flex h-[645.917px] items-center justify-center left-[-29px] mix-blend-plus-lighter top-[288px] w-[336.252px]">
           <div className="-scale-y-100 flex-none rotate-180">
             <div className="h-[645.917px] relative w-[336.252px]" data-node-id="165:688">
               <div className="absolute inset-[-21.01%_-40.37%]">
-                <img
-                  alt=""
-                  className="block max-w-none size-full"
-                  decoding="async"
-                  loading="lazy"
-                  src={imgRectangle240650146}
-                />
+                <FigmaFillImage src={imgRectangle240650146} />
               </div>
             </div>
           </div>

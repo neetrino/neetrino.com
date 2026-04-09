@@ -1,9 +1,9 @@
 import { DM_Sans, Inter } from "next/font/google";
 
-/** Единый Inter для маркетинговых секций (вместо дублирования в каждом компоненте). */
+/** Основной UI/маркетинговый шрифт — Inter (latin + cyrillic). */
 export const interSans = Inter({
   subsets: ["latin", "cyrillic"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
   display: "swap",
   variable: "--font-inter",

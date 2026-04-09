@@ -18,6 +18,8 @@ export const FIGMA_ASSETS = {
   imgGroup70642: "/figma-assets/4a556455-c353-4d65-bd75-d9036716686c.svg",
   imgVector: "/figma-assets/e0ed9f9f-1d4d-4625-b46f-b974ad46ae6a.svg",
   imgGroup70643: "/figma-assets/0865d53f-6e78-4bdf-97cd-a71b18f431cc.svg",
+  /** Desktop header language pill — white globe on blue disc (Figma NEETRINO-WEB 10:460) */
+  imgHeaderLanguageGlobeWhite: "/figma-assets/7c2a8f41-4e9b-4d1c-9f3a-6b8e4d2c1a0f.svg",
   imgVector1: "/figma-assets/f4f7d792-bfb2-4323-bbcc-29d4c1829179.svg",
   imgPhilippHubertDVVjhUcdb30Unsplash1: "/figma-assets/62b9fa74-22e0-4457-865e-43c6218500b5.webp",
   imgEricaAnderson1: "/figma-assets/64738b5b-84dc-4cc4-a77f-049e3df52d77.gif",
@@ -65,4 +67,12 @@ export const FIGMA_ASSETS = {
   imgLayer5: "/figma-assets/e7dfad2d-9713-42e8-a94f-58efe590c07c.svg",
   imgLayer6: "/figma-assets/bac8f51c-6725-40af-9a0a-29b39a19aa24.svg",
   imgEllipse3459: "/figma-assets/b4f67cf5-2bee-4b09-bc67-35a2f498d5ac.svg",
+  /** About Us (Figma NEETRINO-WEB node 335:905) */
+  imgAboutHeroRobot: "/figma-assets/8cdedc9f-fe09-4bd1-9533-813d3fbbb7b7.webp",
+  imgAboutWhyPanel: "/figma-assets/54223e6e-6ab4-48b3-ab13-dc41458d5063.svg",
+  imgAboutValuesBar: "/figma-assets/ae1d3856-b423-48ee-abf0-7b0d846f8259.svg",
+  imgAboutWhyRocket: "/figma-assets/2fbc6890-e597-4755-870e-b38b137d4784.webp",
+  imgAboutWhySpark: "/figma-assets/5cb347ac-1d77-4f22-a043-c036d8ed1e05.webp",
+  imgAboutWhyHelmet: "/figma-assets/24c0ed51-de21-4698-b5d0-2c4c937d5cec.webp",
+  imgVector10: "/figma-assets/4c86716c-d6b3-49d5-9a52-000806be645d.svg",
 } as const;

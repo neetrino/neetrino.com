@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { interSans } from "@/lib/fonts";
 import {
   MOBILE_HERO_STAT_WIDE,
@@ -18,7 +20,9 @@ function HeroBackground() {
           className="object-cover"
           style={{ transform: "scaleY(-1)" }}
           sizes="100vw"
+          quality={HERO_IMAGE_QUALITY}
           loading="eager"
+          priority
         />
       </div>
       <div className="pointer-events-none absolute inset-0 z-[6] mix-blend-lighten opacity-60">
@@ -42,24 +46,34 @@ function HeroBackground() {
 function HeroTitleAndRobot() {
   return (
     <>
-      <h1 className="absolute left-[calc(50%-191px)] top-[66px] z-30 max-w-[260px] font-[family-name:var(--font-megatrox)] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]">
+      {/* Min left 24px — see MOBILE_HERO_TITLE_MIN_INSET_PX; keeps megatrox title off the edge on narrow viewports. */}
+      <h1 className="absolute left-[max(24px,calc(50%-191px))] top-[66px] z-30 max-w-[260px] font-[family-name:var(--font-megatrox)] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]">
         <span className="block">NEET</span>
         <span className="block">RIN</span>
         <span className="block">O</span>
       </h1>
 
-      <div className="pointer-events-none absolute left-[calc(50%+207px)] top-[61px] z-[1] h-[759px] w-[576px] max-w-[min(576px,148vw)] -translate-x-1/2 overflow-hidden">
-        <div className="relative h-full w-full">
-          {/* Figma 241:828 — crop inside 576×759 */}
-          <Image
-            src={FIGMA_ASSETS.img30}
-            alt=""
-            width={836}
-            height={1491}
-            priority
-            className="absolute left-[-22.58%] top-[-60.36%] h-[196.49%] w-[145.15%] max-w-none object-cover"
-            sizes="576px"
-          />
+      {/* Full-bleed clip at viewport width; inner column preserves Figma left/% math vs 393px frame. */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-[61px] z-[1] h-[759px] w-screen max-w-[100vw] -translate-x-1/2 overflow-x-clip"
+        aria-hidden
+      >
+        <div className="relative mx-auto h-full w-full max-w-[393px]">
+          <div className="pointer-events-none absolute left-[calc(50%+207px)] top-0 h-full w-[576px] max-w-[min(576px,148vw)] -translate-x-1/2 overflow-hidden">
+            <div className="relative h-full w-full">
+              {/* Figma 241:828 — crop inside 576×759 */}
+              <Image
+                src={FIGMA_ASSETS.img30}
+                alt=""
+                width={836}
+                height={1491}
+                priority
+                quality={HERO_IMAGE_QUALITY}
+                className="absolute left-[-22.58%] top-[-60.36%] h-[196.49%] w-[145.15%] max-w-none object-cover"
+                sizes="576px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </>
@@ -95,13 +109,7 @@ function HeroCtas() {
 
   return (
     <>
-      <Link
-        href="/contact"
-        className={`${baseLink} top-[693px] isolate text-white shadow-lg shadow-black/25`}
-      >
-        <span className={`${glassLayer} border border-white/30 bg-[#473dff]/20`} aria-hidden />
-        <span className="relative z-10">Get a Quote</span>
-      </Link>
+      <HeroGetQuoteCta />
       <Link
         href="/contact"
         className={`${baseLink} top-[761px] isolate text-[#473dff] shadow-lg shadow-black/15`}
@@ -136,20 +144,31 @@ function HeroStatsTop() {
 function HeroStatWide() {
   const s = MOBILE_HERO_STAT_WIDE;
   return (
-    <div className="relative z-20 mt-[34px] min-h-[167px] w-full px-6">
-      <div className={`relative overflow-hidden rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}>
-        <p className={`text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
-        <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
-        <div className="pointer-events-none absolute bottom-0 right-0 h-[min(52vw,224px)] w-[62%] max-w-[270px]">
-          <div className="relative h-full w-full -scale-y-100 rotate-180">
-            <Image
-              src={FIGMA_ASSETS.img28A}
-              alt=""
-              fill
-              className="object-contain object-bottom"
-              sizes="(max-width: 768px) 62vw, 270px"
-              loading="lazy"
-            />
+    <div className="relative z-20 mt-[34px] min-h-[167px] w-full min-w-0 px-6">
+      <div
+        className={`relative overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg} w-[calc(100%+24px)] mr-[-24px]`}
+      >
+        <div className="relative z-[2] max-w-[56%]">
+          <p className={`text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
+          <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
+        </div>
+        <div
+          className="pointer-events-none absolute top-[87%] z-[1] h-[287px] w-[271px] -translate-y-1/2 max-[380px]:top-[85%] max-[380px]:h-[252px] max-[380px]:w-[235px]"
+          style={{ right: "calc(clamp(-999px, calc((393px - 100vw) / 2), 0px) - 12px)" }}
+          aria-hidden
+        >
+          <div className="relative size-full overflow-hidden">
+            <div className="absolute inset-0 -scale-y-100 rotate-180">
+              <Image
+                src={FIGMA_ASSETS.img28A}
+                alt=""
+                fill
+                className="object-cover object-right"
+                sizes="(max-width: 768px) 271px, 271px"
+                quality={DEFAULT_IMAGE_QUALITY}
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -168,21 +187,24 @@ const HERO_LOWER_BLUR_RADIUS = "rounded-[32px]";
 export function HeroSection() {
   return (
     <section
-      className={`relative min-w-0 overflow-x-hidden bg-[#151515] pb-10 ${interSans.className}`}
+      className={`relative min-w-0 overflow-x-clip touch-pan-y [overscroll-behavior-x:contain] bg-[#151515] pb-10 ${interSans.className}`}
     >
       <HeroBackground />
-      <div className="relative z-20 mx-auto w-full max-w-[393px] pt-[88px] text-left">
-        <div
-          className={`pointer-events-none absolute inset-x-0 ${HERO_LOWER_BLUR_TOP} bottom-0 z-[16] ${HERO_LOWER_BLUR_RADIUS} bg-[#151515]/30 backdrop-blur-2xl backdrop-saturate-150`}
-          aria-hidden
-        />
-        <div className="relative min-h-[853px] w-full">
-          <HeroTitleAndRobot />
-          <HeroBodyCopy />
-          <HeroCtas />
+      {/* Full viewport width: absolutes are laid out from the 393px column but overflow must clip at the screen edge, not the column edge. */}
+      <div className="relative z-20 w-full min-w-0 overflow-x-clip">
+        <div className="relative mx-auto w-full max-w-[393px] pt-[88px] text-left">
+          <div
+            className={`pointer-events-none absolute inset-x-0 ${HERO_LOWER_BLUR_TOP} bottom-0 z-[16] ${HERO_LOWER_BLUR_RADIUS} bg-[#151515]/30 backdrop-blur-2xl backdrop-saturate-150`}
+            aria-hidden
+          />
+          <div className="relative min-h-[853px] w-full min-w-0">
+            <HeroTitleAndRobot />
+            <HeroBodyCopy />
+            <HeroCtas />
+          </div>
+          <HeroStatsTop />
+          <HeroStatWide />
         </div>
-        <HeroStatsTop />
-        <HeroStatWide />
       </div>
     </section>
   );

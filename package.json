@@ -16,6 +16,8 @@
     "test:watch": "vitest --config config/vitest.config.ts",
     "prepare": "husky",
     "assets:localize-figma": "node scripts/assets/localize-figma-assets.mjs",
+    "assets:about-us-webp": "node scripts/assets/localize-about-us-mcp-assets.mjs",
+    "assets:optimize-large-webp": "node scripts/assets/optimize-large-public-images.mjs",
     "assets:optimize-local": "node scripts/assets/optimize-local-assets.mjs",
     "assets:convert-png-webp": "node scripts/convert-images.mjs"
   },

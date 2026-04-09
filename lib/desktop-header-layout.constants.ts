@@ -1,6 +1,13 @@
 /** 1440px Figma desktop width — matches `CanvasScaler` / `.neetrino-canvas-inner`. */
 export const NEETRINO_DESKTOP_CANVAS_WIDTH_PX = 1440;
 
+/**
+ * Layout-mounted element (`NeetrinoDesktopScaleReference`) — same width contract as
+ * `.neetrino-canvas-wrap` so desktop header scale is route-agnostic.
+ */
+export const NEETRINO_DESKTOP_SCALE_REF_SELECTOR =
+  "[data-neetrino-desktop-scale-reference]" as const;
+
 /** Home desktop header offset from top of scaled canvas (design px @1×). */
 export const NEETRINO_DESKTOP_HEADER_TOP_DESIGN_PX = 27;
 
@@ -17,5 +24,5 @@ export const NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX = 91;
 export const NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX =
   NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX + 16;
 
-/** Home desktop header pill width (design px @1×). */
-export const NEETRINO_DESKTOP_HEADER_BAR_WIDTH_PX = 1240;
+/** Home desktop header pill width — Figma ABOUT `Awwwards` (335:1424): `w-[1340px]`. */
+export const NEETRINO_DESKTOP_HEADER_BAR_WIDTH_PX = 1340;

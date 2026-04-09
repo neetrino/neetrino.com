@@ -1,4 +1,7 @@
+import Image from "next/image";
 import { CanvasFooter } from "@/components/sections/Footer";
+import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
+import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { imgComponent21, imgEllipse1, imgPngwing6 } from "./services-assets";
 
 export function ServicesDesktopOrbitChrome() {
@@ -16,7 +19,7 @@ export function ServicesDesktopOrbitChrome() {
               data-node-id="165:697"
             >
               <div className="absolute inset-[-1.5%_-1.45%]">
-                <img alt="" className="block max-w-none size-full" src={imgEllipse1} />
+                <FigmaFillImage src={imgEllipse1} sizes="(max-width: 1536px) 90vw, 1382px" />
               </div>
             </div>
           </div>
@@ -28,12 +31,15 @@ export function ServicesDesktopOrbitChrome() {
               data-name="pngwing 6"
               data-node-id="165:698"
             >
-              <img
+              <Image
                 alt=""
                 className="absolute block max-w-none size-full"
-                height="1439.104"
+                height={1439}
                 src={imgPngwing6}
-                width="1452.347"
+                width={1452}
+                quality={DEFAULT_IMAGE_QUALITY}
+                sizes="(max-width: 1536px) 90vw, 1452px"
+                loading="lazy"
               />
             </div>
           </div>
@@ -45,7 +51,7 @@ export function ServicesDesktopOrbitChrome() {
         data-name="Component 21"
         data-node-id="165:832"
       >
-        <img alt="" className="absolute block max-w-none size-full" src={imgComponent21} />
+        <FigmaFillImage src={imgComponent21} />
       </div>
     </>
   );
