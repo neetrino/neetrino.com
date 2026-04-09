@@ -137,7 +137,9 @@ function HeroStatWide() {
   const s = MOBILE_HERO_STAT_WIDE;
   return (
     <div className="relative z-20 mt-[34px] min-h-[167px] w-full px-6">
-      <div className={`relative overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}>
+      <div
+        className={`relative overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg} w-[calc(100%+24px)] mr-[-24px]`}
+      >
         <div className="relative z-[2] max-w-[56%]">
           <p className={`text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
           <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
@@ -152,7 +154,7 @@ function HeroStatWide() {
                 src={FIGMA_ASSETS.img28A}
                 alt=""
                 fill
-                className="object-contain object-[80%_center]"
+                className="object-contain"
                 sizes="(max-width: 768px) 310px, 310px"
                 quality={DEFAULT_IMAGE_QUALITY}
                 loading="lazy"
