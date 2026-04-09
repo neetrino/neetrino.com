@@ -46,7 +46,8 @@ function HeroBackground() {
 function HeroTitleAndRobot() {
   return (
     <>
-      <h1 className="absolute left-[calc(50%-191px)] top-[66px] z-30 max-w-[260px] font-[family-name:var(--font-megatrox)] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]">
+      {/* Min left 24px — see MOBILE_HERO_TITLE_MIN_INSET_PX; keeps megatrox title off the edge on narrow viewports. */}
+      <h1 className="absolute left-[max(24px,calc(50%-191px))] top-[66px] z-30 max-w-[260px] font-[family-name:var(--font-megatrox)] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]">
         <span className="block">NEET</span>
         <span className="block">RIN</span>
         <span className="block">O</span>

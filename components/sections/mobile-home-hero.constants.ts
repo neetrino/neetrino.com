@@ -1,5 +1,12 @@
 /** Mobile home hero (Figma 241:821) — stat cards. */
 
+/**
+ * Minimum inset of the megatrox title from the content edge so “NEET/RIN/O” never touches
+ * the viewport — pairs with `left-[max(<this>px,calc(50%-191px))]` in `HeroSection`.
+ * Aligns with section horizontal rhythm (`px-6`, body copy `left-6`).
+ */
+export const MOBILE_HERO_TITLE_MIN_INSET_PX = 24;
+
 export const MOBILE_HERO_STATS_TOP = [
   {
     value: "8+",
