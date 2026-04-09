@@ -143,7 +143,7 @@ function HeroStatWide() {
           <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
         </div>
         <div
-          className="pointer-events-none absolute top-[42%] z-[1] h-[328px] w-[310px] -translate-y-1/2 -right-[48px] max-[380px]:top-[40%] max-[380px]:h-[288px] max-[380px]:w-[268px] max-[380px]:-right-10"
+          className="pointer-events-none absolute top-[42%] z-[1] h-[328px] w-[310px] -translate-y-1/2 right-0 max-[380px]:top-[40%] max-[380px]:h-[288px] max-[380px]:w-[268px] max-[380px]:right-0"
           aria-hidden
         >
           <div className="relative size-full">
@@ -152,7 +152,7 @@ function HeroStatWide() {
                 src={FIGMA_ASSETS.img28A}
                 alt=""
                 fill
-                className="object-contain object-[right_center]"
+                className="object-contain object-[80%_center]"
                 sizes="(max-width: 768px) 310px, 310px"
                 quality={DEFAULT_IMAGE_QUALITY}
                 loading="lazy"
