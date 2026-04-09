@@ -53,19 +53,27 @@ function HeroTitleAndRobot() {
         <span className="block">O</span>
       </h1>
 
-      <div className="pointer-events-none absolute left-[calc(50%+207px)] top-[61px] z-[1] h-[759px] w-[576px] max-w-[min(576px,148vw)] -translate-x-1/2 overflow-hidden">
-        <div className="relative h-full w-full">
-          {/* Figma 241:828 — crop inside 576×759 */}
-          <Image
-            src={FIGMA_ASSETS.img30}
-            alt=""
-            width={836}
-            height={1491}
-            priority
-            quality={HERO_IMAGE_QUALITY}
-            className="absolute left-[-22.58%] top-[-60.36%] h-[196.49%] w-[145.15%] max-w-none object-cover"
-            sizes="576px"
-          />
+      {/* Full-bleed clip at viewport width; inner column preserves Figma left/% math vs 393px frame. */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-[61px] z-[1] h-[759px] w-screen max-w-[100vw] -translate-x-1/2 overflow-x-clip"
+        aria-hidden
+      >
+        <div className="relative mx-auto h-full w-full max-w-[393px]">
+          <div className="pointer-events-none absolute left-[calc(50%+207px)] top-0 h-full w-[576px] max-w-[min(576px,148vw)] -translate-x-1/2 overflow-hidden">
+            <div className="relative h-full w-full">
+              {/* Figma 241:828 — crop inside 576×759 */}
+              <Image
+                src={FIGMA_ASSETS.img30}
+                alt=""
+                width={836}
+                height={1491}
+                priority
+                quality={HERO_IMAGE_QUALITY}
+                className="absolute left-[-22.58%] top-[-60.36%] h-[196.49%] w-[145.15%] max-w-none object-cover"
+                sizes="576px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </>
@@ -136,7 +144,7 @@ function HeroStatsTop() {
 function HeroStatWide() {
   const s = MOBILE_HERO_STAT_WIDE;
   return (
-    <div className="relative z-20 mt-[34px] min-h-[167px] w-full px-6">
+    <div className="relative z-20 mt-[34px] min-h-[167px] w-full min-w-0 px-6">
       <div
         className={`relative overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg} w-[calc(100%+24px)] mr-[-24px]`}
       >
@@ -179,21 +187,24 @@ const HERO_LOWER_BLUR_RADIUS = "rounded-[32px]";
 export function HeroSection() {
   return (
     <section
-      className={`relative min-w-0 overflow-x-hidden bg-[#151515] pb-10 ${interSans.className}`}
+      className={`relative min-w-0 overflow-x-clip touch-pan-y [overscroll-behavior-x:contain] bg-[#151515] pb-10 ${interSans.className}`}
     >
       <HeroBackground />
-      <div className="relative z-20 mx-auto w-full max-w-[393px] pt-[88px] text-left">
-        <div
-          className={`pointer-events-none absolute inset-x-0 ${HERO_LOWER_BLUR_TOP} bottom-0 z-[16] ${HERO_LOWER_BLUR_RADIUS} bg-[#151515]/30 backdrop-blur-2xl backdrop-saturate-150`}
-          aria-hidden
-        />
-        <div className="relative min-h-[853px] w-full">
-          <HeroTitleAndRobot />
-          <HeroBodyCopy />
-          <HeroCtas />
+      {/* Full viewport width: absolutes are laid out from the 393px column but overflow must clip at the screen edge, not the column edge. */}
+      <div className="relative z-20 w-full min-w-0 overflow-x-clip">
+        <div className="relative mx-auto w-full max-w-[393px] pt-[88px] text-left">
+          <div
+            className={`pointer-events-none absolute inset-x-0 ${HERO_LOWER_BLUR_TOP} bottom-0 z-[16] ${HERO_LOWER_BLUR_RADIUS} bg-[#151515]/30 backdrop-blur-2xl backdrop-saturate-150`}
+            aria-hidden
+          />
+          <div className="relative min-h-[853px] w-full min-w-0">
+            <HeroTitleAndRobot />
+            <HeroBodyCopy />
+            <HeroCtas />
+          </div>
+          <HeroStatsTop />
+          <HeroStatWide />
         </div>
-        <HeroStatsTop />
-        <HeroStatWide />
       </div>
     </section>
   );
