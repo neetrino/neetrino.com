@@ -31,12 +31,15 @@ export const MOBILE_HERO_STAT_WIDE = {
 
 /**
  * Robot-hand overlay on the 450+ card (mobile hero only).
- * Sync with `HeroStatWide`: `top-[42%] -translate-y-1/2`, `-right-[48px]`, `w-[310px] h-[328px]`.
+ * Vertical: `HeroStatWide` uses `top-[87%]` / `-translate-y-1/2` (narrow: `top-[85%]`).
+ * Sizes: `w-[271px] h-[287px]` (narrow: `235×252`). Horizontal: `style.right` in `HeroSection`
+ * uses `calc(clamp(-999px, (393px - 100vw) / 2, 0px) - 12px)` so the hand aligns to the
+ * real viewport right edge, not only the centered 393px column.
  * Text column: literal `max-w-[56%]` in `HeroSection`.
  */
 export const MOBILE_HERO_STAT_WIDE_HAND = {
-  widthPx: 310,
-  heightPx: 328,
+  widthPx: 271,
+  heightPx: 287,
   offsetRightPx: 48,
-  anchorTopPercent: 42,
+  anchorTopPercent: 87,
 } as const;

@@ -145,17 +145,18 @@ function HeroStatWide() {
           <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
         </div>
         <div
-          className="pointer-events-none absolute top-[42%] z-[1] h-[328px] w-[310px] -translate-y-1/2 right-0 max-[380px]:top-[40%] max-[380px]:h-[288px] max-[380px]:w-[268px] max-[380px]:right-0"
+          className="pointer-events-none absolute top-[87%] z-[1] h-[287px] w-[271px] -translate-y-1/2 max-[380px]:top-[85%] max-[380px]:h-[252px] max-[380px]:w-[235px]"
+          style={{ right: "calc(clamp(-999px, calc((393px - 100vw) / 2), 0px) - 12px)" }}
           aria-hidden
         >
-          <div className="relative size-full">
+          <div className="relative size-full overflow-hidden">
             <div className="absolute inset-0 -scale-y-100 rotate-180">
               <Image
                 src={FIGMA_ASSETS.img28A}
                 alt=""
                 fill
-                className="object-contain"
-                sizes="(max-width: 768px) 310px, 310px"
+                className="object-cover object-right"
+                sizes="(max-width: 768px) 271px, 271px"
                 quality={DEFAULT_IMAGE_QUALITY}
                 loading="lazy"
               />
