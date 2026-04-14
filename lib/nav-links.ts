@@ -22,6 +22,7 @@ export const PRIMARY_NAV_LINKS: readonly NavItem[] = [
   { kind: "link", label: "Services", href: "/services" },
   { kind: "link", label: "Portfolio", href: "/portfolio" },
   { kind: "link", label: "About", href: "/about-us" },
+  { kind: "link", label: "Contact", href: "/contact" },
   {
     kind: "group",
     label: "More",
@@ -30,5 +31,4 @@ export const PRIMARY_NAV_LINKS: readonly NavItem[] = [
       { label: "Team", href: "/team" },
     ],
   },
-  { kind: "link", label: "Contact", href: "/contact" },
 ] as const;

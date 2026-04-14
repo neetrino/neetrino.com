@@ -12,6 +12,14 @@ const SELECT_CLASS =
 
 const LABEL_CLASS = "mb-1.5 block text-xs font-semibold uppercase tracking-[0.12em] text-white/70";
 
+function RequiredMark() {
+  return (
+    <span className="text-red-400" aria-hidden="true">
+      {" *"}
+    </span>
+  );
+}
+
 type GetQuoteModalFormProps = {
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
   pending: boolean;
@@ -39,6 +47,7 @@ function QuoteNamePhoneFields() {
       <div>
         <label htmlFor="quote-name" className={LABEL_CLASS}>
           Name
+          <RequiredMark />
         </label>
         <input
           id="quote-name"
@@ -54,6 +63,7 @@ function QuoteNamePhoneFields() {
       <div>
         <label htmlFor="quote-phone" className={LABEL_CLASS}>
           Phone number
+          <RequiredMark />
         </label>
         <input
           id="quote-phone"
@@ -76,6 +86,7 @@ function QuoteProjectBudgetFields() {
       <div>
         <label htmlFor="quote-project-type" className={LABEL_CLASS}>
           Project type
+          <RequiredMark />
         </label>
         <select
           id="quote-project-type"

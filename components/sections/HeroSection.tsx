@@ -112,9 +112,9 @@ function HeroCtas() {
       <HeroGetQuoteCta />
       <Link
         href="/contact"
-        className={`${baseLink} top-[761px] isolate text-[#473dff] shadow-lg shadow-black/15`}
+        className={`${baseLink} top-[761px] isolate text-[#a8b4ff] shadow-lg shadow-black/10`}
       >
-        <span className={`${glassLayer} border border-white/55 bg-white/14`} aria-hidden />
+        <span className={`${glassLayer} border border-white/75 bg-white/28`} aria-hidden />
         <span className="relative z-10">Contact</span>
       </Link>
     </>
