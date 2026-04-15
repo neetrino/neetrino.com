@@ -24,9 +24,14 @@ export function AboutUsFigmaBlock1c() {
         <p className="leading-[24px]">{`We envision a world where businesses of all sizes can effortlessly establish a strong digital presence using our fast, cutting-edge technological solutions. Our aim is to lead the transformation of website and app development, making these tools accessible to everyone, everywhere. `}</p>
       </div>
       <div
-        className="-translate-x-1/2 absolute bg-[rgba(0,0,0,0)] h-[2156px] left-[calc(50%-11px)] rounded-[151px] top-[1285px] w-[236px]"
+        className="-translate-x-1/2 absolute h-[2156px] left-[calc(50%-11px)] overflow-hidden rounded-[151px] top-[1285px] w-[236px]"
         data-node-id="335:981"
-      />
+      >
+        <div className="absolute inset-0 rounded-[151px] border border-white/18 bg-white/[0.05] backdrop-blur-[22px]" />
+        <div className="absolute inset-[8px] rounded-[143px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.03)_18%,rgba(255,255,255,0.02)_82%,rgba(255,255,255,0.09)_100%)]" />
+        <div className="absolute left-[18px] right-[18px] top-[18px] h-[180px] rounded-[120px] bg-[linear-gradient(180deg,rgba(255,255,255,0.32)_0%,rgba(255,255,255,0.08)_55%,rgba(255,255,255,0)_100%)] blur-[10px]" />
+        <div className="absolute inset-0 rounded-[151px] shadow-[inset_0_1px_0_rgba(255,255,255,0.24),inset_0_-1px_0_rgba(255,255,255,0.06),0_30px_80px_rgba(7,10,20,0.28)]" />
+      </div>
       <div
         className="-translate-x-1/2 absolute flex h-[252px] items-center justify-center left-[calc(50%+0.5px)] top-[2325px] w-[1343px]"
         style={transformStyle}

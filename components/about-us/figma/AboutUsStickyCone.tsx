@@ -2,23 +2,23 @@
 
 import { useEffect, useState, type RefObject } from "react";
 import { ConeDefault } from "@/components/about-us/figma/ConeDefault";
+import { ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX } from "@/lib/about-us-figma-layout.constants";
 
 const CONE_WRAPPER_WIDTH_PX = 191.206;
 const CONE_WRAPPER_HEIGHT_PX = 191.206;
-const CONE_CENTER_OFFSET_X_PX = -11.4;
 const ABOUT_CONE_INITIAL_TOP_PX = 1097;
-const ABOUT_WORLD_MAP_TOP_PX = 2823;
-
-type StickyMode = "before" | "stuck" | "after";
+const ABOUT_CAPSULE_TOP_PX = 1285;
+const ABOUT_WORLD_MAP_BOTTOM_PX = ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX * (1 - 0.0813);
+const ABOUT_CAPSULE_BOTTOM_PX = ABOUT_WORLD_MAP_BOTTOM_PX;
+const ABOUT_CAPSULE_START_TOP_PX = Math.max(ABOUT_CONE_INITIAL_TOP_PX, ABOUT_CAPSULE_TOP_PX);
 
 type AboutUsStickyConeProps = {
   containerRef: RefObject<HTMLDivElement | null>;
 };
 
 export function AboutUsStickyCone({ containerRef }: AboutUsStickyConeProps) {
-  const [mode, setMode] = useState<StickyMode>("before");
-  const [fixedLeft, setFixedLeft] = useState(0);
-  const [fixedTop, setFixedTop] = useState(0);
+  const [absoluteLeft, setAbsoluteLeft] = useState(0);
+  const [absoluteTop, setAbsoluteTop] = useState(ABOUT_CONE_INITIAL_TOP_PX);
 
   useEffect(() => {
     const updatePosition = () => {
@@ -31,20 +31,13 @@ export function AboutUsStickyCone({ containerRef }: AboutUsStickyConeProps) {
       const rect = container.getBoundingClientRect();
       const containerTopPage = window.scrollY + rect.top;
       const viewportCenteredTop = window.innerHeight / 2 - CONE_WRAPPER_HEIGHT_PX / 2;
-      const stickyStart = containerTopPage + ABOUT_CONE_INITIAL_TOP_PX - viewportCenteredTop;
-      const finalAbsoluteTop = ABOUT_WORLD_MAP_TOP_PX - CONE_WRAPPER_HEIGHT_PX / 2;
-      const stickyEnd = containerTopPage + finalAbsoluteTop - viewportCenteredTop;
+      const finalAbsoluteTop = ABOUT_CAPSULE_BOTTOM_PX - CONE_WRAPPER_HEIGHT_PX;
+      const centeredAbsoluteTop = window.scrollY - containerTopPage + viewportCenteredTop;
 
-      if (window.scrollY < stickyStart) {
-        setMode("before");
-      } else if (window.scrollY >= stickyEnd) {
-        setMode("after");
-      } else {
-        setMode("stuck");
-      }
-
-      setFixedTop(viewportCenteredTop);
-      setFixedLeft(rect.left + rect.width / 2 + CONE_CENTER_OFFSET_X_PX - CONE_WRAPPER_WIDTH_PX / 2);
+      setAbsoluteTop(
+        Math.min(finalAbsoluteTop, Math.max(ABOUT_CAPSULE_START_TOP_PX, centeredAbsoluteTop)),
+      );
+      setAbsoluteLeft(rect.width / 2);
     };
 
     updatePosition();
@@ -58,29 +51,12 @@ export function AboutUsStickyCone({ containerRef }: AboutUsStickyConeProps) {
     };
   }, [containerRef]);
 
-  if (mode === "stuck") {
-    return (
-      <div
-        className="pointer-events-none fixed z-10 flex items-center justify-center"
-        style={{
-          left: fixedLeft,
-          top: fixedTop,
-          width: CONE_WRAPPER_WIDTH_PX,
-          height: CONE_WRAPPER_HEIGHT_PX,
-        }}
-      >
-        <div className="flex-none rotate-[21.44deg] size-[147.503px]">
-          <ConeDefault className="relative size-full" />
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div
-      className="-translate-x-1/2 absolute bottom-auto flex items-center justify-center left-[calc(50%-11.4px)] z-10"
+      className="-translate-x-1/2 absolute bottom-auto flex items-center justify-center left-1/2 z-0"
       style={{
-        top: mode === "after" ? ABOUT_WORLD_MAP_TOP_PX - CONE_WRAPPER_HEIGHT_PX / 2 : ABOUT_CONE_INITIAL_TOP_PX,
+        left: absoluteLeft,
+        top: absoluteTop,
         width: CONE_WRAPPER_WIDTH_PX,
         height: CONE_WRAPPER_HEIGHT_PX,
       }}
