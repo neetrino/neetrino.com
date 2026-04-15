@@ -1,22 +1,28 @@
 "use client";
 
+import { useRef } from "react";
 import { AboutUsFigmaBlock1a } from "@/components/about-us/figma/AboutUsFigmaBlock1a";
 import { AboutUsFigmaBlock1b } from "@/components/about-us/figma/AboutUsFigmaBlock1b";
 import { AboutUsFigmaBlock1bLower } from "@/components/about-us/figma/AboutUsFigmaBlock1bLower";
 import { AboutUsFigmaBlock1c } from "@/components/about-us/figma/AboutUsFigmaBlock1c";
 import { AboutUsFigmaBlock2 } from "@/components/about-us/figma/AboutUsFigmaBlock2";
 import { AboutUsFigmaBlock3 } from "@/components/about-us/figma/AboutUsFigmaBlock3";
+import { AboutUsStickyCone } from "@/components/about-us/figma/AboutUsStickyCone";
 import { ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX } from "@/lib/about-us-figma-layout.constants";
 
-/** Figma node 335:905 — page body only (no Awwwards / no Footer v2 per master prompt §3.2). */
+/** Figma node 335:905 - page body only (no Awwwards / no Footer v2 per master prompt §3.2). */
 export function AboutUsFigmaPageContent() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
     <div
-      className="bg-[#151515] relative mx-auto w-full max-w-[1440px]"
+      ref={containerRef}
+      className="relative mx-auto w-full max-w-[1440px] bg-[#151515]"
       style={{ minHeight: ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX }}
       data-name="ABOUT"
       data-node-id="335:905"
     >
+      <AboutUsStickyCone containerRef={containerRef} />
       <AboutUsFigmaBlock1a />
       <AboutUsFigmaBlock1b />
       <AboutUsFigmaBlock1bLower />
