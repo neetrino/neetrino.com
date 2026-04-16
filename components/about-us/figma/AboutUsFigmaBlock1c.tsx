@@ -1,6 +1,6 @@
 "use client";
 
-import type { CSSProperties, RefObject } from "react";
+import type { CSSProperties } from "react";
 import { AboutUsLiquidCapsule } from "@/components/about-us/figma/AboutUsLiquidCapsule";
 
 const transformStyle = {
@@ -8,12 +8,8 @@ const transformStyle = {
   "--transform-inner-height": "0",
 } as CSSProperties;
 
-type AboutUsFigmaBlock1cProps = {
-  containerRef: RefObject<HTMLDivElement | null>;
-};
-
 /** Figma ABOUT fragment — nodes 335:978–335:982 (split from block1b for 300-line limit). */
-export function AboutUsFigmaBlock1c({ containerRef }: AboutUsFigmaBlock1cProps) {
+export function AboutUsFigmaBlock1c() {
   return (
     <>
       <div
@@ -28,7 +24,7 @@ export function AboutUsFigmaBlock1c({ containerRef }: AboutUsFigmaBlock1cProps) 
       >
         <p className="leading-[24px]">{`We envision a world where businesses of all sizes can effortlessly establish a strong digital presence using our fast, cutting-edge technological solutions. Our aim is to lead the transformation of website and app development, making these tools accessible to everyone, everywhere. `}</p>
       </div>
-      <AboutUsLiquidCapsule mouseContainerRef={containerRef} />
+      <AboutUsLiquidCapsule />
       <div
         className="-translate-x-1/2 absolute flex h-[252px] items-center justify-center left-[calc(50%+0.5px)] top-[2325px] w-[1343px]"
         style={transformStyle}
