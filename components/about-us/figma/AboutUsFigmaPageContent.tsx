@@ -24,7 +24,7 @@ export function AboutUsFigmaPageContent() {
       <AboutUsFigmaBlock1a containerRef={containerRef} />
       <AboutUsFigmaBlock1b />
       <AboutUsFigmaBlock1bLower />
-      <AboutUsFigmaBlock1c />
+      <AboutUsFigmaBlock1c containerRef={containerRef} />
       <AboutUsFigmaBlock2 />
       <AboutUsFigmaBlock3 />
     </div>
