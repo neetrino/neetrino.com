@@ -5,7 +5,7 @@ import LiquidGlass from "liquid-glass-react";
 const CAPSULE_WIDTH_PX = 236;
 const CAPSULE_HEIGHT_PX = 2156;
 const CAPSULE_CORNER_RADIUS_PX = 151;
-const CAPSULE_TOP_PX = 1333;
+const CAPSULE_TOP_PX = 2333;
 const CAPSULE_LEFT_OFFSET_PX = -11;
 
 const CAPSULE_DISPLACEMENT_SCALE = 45;
@@ -24,7 +24,7 @@ const FROZEN_MOUSE_POS = { x: 0, y: 0 } as const;
  */
 export function AboutUsLiquidCapsule() {
   return (
-    <div className="[&>span:last-of-type]:hidden">
+    <div className="pointer-events-none [&>span:last-of-type]:hidden">
       <LiquidGlass
         globalMousePos={FROZEN_MOUSE_POS}
         mouseOffset={FROZEN_MOUSE_POS}
@@ -41,7 +41,9 @@ export function AboutUsLiquidCapsule() {
           top: CAPSULE_TOP_PX,
           left: `calc(50% + ${CAPSULE_LEFT_OFFSET_PX}px)`,
           transform: "translateX(-50%)",
-          zIndex: 1,
+          /** Above background blocks; below `z-10` foreground in AboutUsFigmaBlock1c. */
+          zIndex: 0,
+          pointerEvents: "none",
         }}
       >
         <div style={{ width: CAPSULE_WIDTH_PX, height: CAPSULE_HEIGHT_PX }} />

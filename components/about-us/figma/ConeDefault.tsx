@@ -36,7 +36,7 @@ export function ConeDefault({ className }: ConeDefaultProps) {
         data-node-id="335:917"
       >
         <div
-          className="-translate-x-1/2 absolute bg-[#f17e1c] bottom-[-0.28%] left-[calc(50%-19.88px)] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[1111.948px_436.556px] mask-size-[192.148px_192.149px] mix-blend-hard-light top-[-0.22%] w-[2500px]"
+          className="-translate-x-1/2 absolute bottom-[-0.28%] left-[calc(50%-19.88px)] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[1111.948px_436.556px] mask-size-[192.148px_192.149px] mix-blend-color top-[-0.22%] w-[2500px] bg-[#ff7500]"
           data-node-id="335:919"
           style={{ maskImage: `url('${imgRectangle15}')` } as CSSProperties}
         />
