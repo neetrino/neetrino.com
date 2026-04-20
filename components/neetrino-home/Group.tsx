@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { imgChangeColor, imgChangeColor1, imgEllipse3463, imgSafearea1 } from "./figma-assets";
+import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
+import { imgEllipse3463, imgSafearea1 } from "./figma-assets";
 
 type GroupProps = {
   className?: string;
@@ -10,33 +11,15 @@ type GroupProps = {
   exploreHref: string;
 };
 
-export function Group({ className, property1 = "Default", exploreHref }: GroupProps) {
+export function Group({ className, exploreHref }: GroupProps) {
   return (
     <div
       className={`pointer-events-none ${className || "h-[276px] relative w-[642px]"}`}
       data-node-id="1:140"
     >
-      <div
-        className="absolute inset-[-105.8%_-69%] opacity-0"
-        data-name="σàëµûæ flare"
-        data-node-id="1:141"
-      >
-        <div className="absolute contents inset-0" data-name="glow" data-node-id="1:143">
-          <div
-            className="absolute inset-0 mask-position-[0px_0px,_0px_0px]"
-            data-name="µö╣σÅÿΘó£Φë▓ change color"
-            data-node-id="1:145"
-            style={{
-              backgroundImage:
-                "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1528 860\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(6.1295e-15 -43 76.4 2.3112e-13 764 430)\\'><stop stop-color=\\'rgba(211,255,248,1)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(164,235,248,1)\\' offset=\\'0.026042\\'/><stop stop-color=\\'rgba(116,214,249,1)\\' offset=\\'0.052083\\'/><stop stop-color=\\'rgba(68,194,249,1)\\' offset=\\'0.078125\\'/><stop stop-color=\\'rgba(45,184,249,1)\\' offset=\\'0.091146\\'/><stop stop-color=\\'rgba(21,173,250,1)\\' offset=\\'0.10417\\'/><stop stop-color=\\'rgba(11,138,227,1)\\' offset=\\'0.29688\\'/><stop stop-color=\\'rgba(1,102,204,1)\\' offset=\\'0.48958\\'/><stop stop-color=\\'rgba(1,81,165,1)\\' offset=\\'0.61719\\'/><stop stop-color=\\'rgba(1,60,125,1)\\' offset=\\'0.74479\\'/><stop stop-color=\\'rgba(2,38,86,1)\\' offset=\\'0.8724\\'/><stop stop-color=\\'rgba(2,17,47,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')",
-              maskImage: `url('${imgChangeColor}'), url('${imgChangeColor1}')`,
-            }}
-          />
-        </div>
-      </div>
       <Link
         href={exploreHref}
-        className="pointer-events-auto absolute border border-[#6a92ff] border-solid inset-[39.86%_39.72%_39.86%_39.41%] overflow-clip rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]"
+        className="peer pointer-events-auto absolute z-10 border border-[#6a92ff] border-solid inset-[39.86%_39.72%_39.86%_39.41%] overflow-clip rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]"
         data-name="Button 2"
         data-node-id="1:146"
       >
@@ -88,6 +71,7 @@ export function Group({ className, property1 = "Default", exploreHref }: GroupPr
           </div>
         </div>
       </Link>
+      <ExploreHoverFlare positionClassName="inset-[-105.8%_-69%]" />
     </div>
   );
 }

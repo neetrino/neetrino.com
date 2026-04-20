@@ -13,7 +13,7 @@ export type BlogIndexCardProps = {
  * Blog index tile — dark glass card aligned with site header tokens (border-white/10, soft shadow).
  */
 export function BlogIndexCard({ item, className }: BlogIndexCardProps) {
-  const anchorHref = `/blog#${item.id}`;
+  const anchorHref = `/blog/${item.slug}`;
 
   return (
     <article

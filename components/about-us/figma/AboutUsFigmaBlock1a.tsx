@@ -1,7 +1,7 @@
 "use client";
 
-import type { CSSProperties } from "react";
-import { ConeDefault } from "@/components/about-us/figma/ConeDefault";
+import type { CSSProperties, RefObject } from "react";
+import { AboutUsStickyCone } from "@/components/about-us/figma/AboutUsStickyCone";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import {
   imgBottomA,
@@ -25,7 +25,11 @@ const transformStyle = {
 } as CSSProperties;
 
 /** Figma ABOUT fragment — nodes 335:906–335:930 (split for 300-line limit). */
-export function AboutUsFigmaBlock1a() {
+export function AboutUsFigmaBlock1a({
+  containerRef,
+}: {
+  containerRef: RefObject<HTMLDivElement | null>;
+}) {
   return (
     <>
       <div
@@ -109,11 +113,7 @@ export function AboutUsFigmaBlock1a() {
           data-node-id="335:914"
         />
       </div>
-      <div className="-translate-x-1/2 absolute bottom-[65.5%] flex items-center justify-center left-[calc(50%-11.4px)] top-[30.12%] w-[191.206px]">
-        <div className="flex-none rotate-[21.44deg] size-[147.503px]">
-          <ConeDefault className="relative size-full" />
-        </div>
-      </div>
+      <AboutUsStickyCone containerRef={containerRef} />
       <div className="absolute contents left-[70px] top-[-471px]" data-node-id="335:920">
         <div className="absolute contents left-[1042.53px] top-[-471px]" data-node-id="335:921">
           <div

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
 
@@ -54,12 +55,15 @@ export function WhoWeAre() {
       </div>
 
       <div className="relative z-10 mt-10 flex justify-center">
-        <Link
-          href="/contact"
-          className="relative inline-flex rounded-full border border-[#6a92ff] bg-black px-8 py-4 text-lg font-medium text-white transition-opacity hover:opacity-90"
-        >
-          Explore
-        </Link>
+        <div className="relative inline-flex items-center justify-center">
+          <Link
+            href="/contact"
+            className="peer relative z-10 inline-flex rounded-full border border-[#6a92ff] bg-black px-8 py-4 text-lg font-medium text-white transition-opacity hover:opacity-90"
+          >
+            Explore
+          </Link>
+          <ExploreHoverFlare positionClassName="left-1/2 top-1/2 h-[100px] w-[min(100vw-2rem,360px)] max-w-none -translate-x-1/2 -translate-y-1/2" />
+        </div>
       </div>
     </section>
   );
