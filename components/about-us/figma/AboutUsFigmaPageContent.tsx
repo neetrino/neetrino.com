@@ -16,7 +16,7 @@ export function AboutUsFigmaPageContent() {
   return (
     <div
       ref={containerRef}
-      className="relative mx-auto w-full max-w-[1440px] bg-[#151515]"
+      className="relative mx-auto hidden w-full max-w-[1440px] bg-[#151515] lg:block"
       style={{ minHeight: ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX }}
       data-name="ABOUT"
       data-node-id="335:905"

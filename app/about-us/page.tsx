@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AboutUsMobile } from "@/components/about-us/AboutUsMobile";
 import { AboutUsFigmaPageContent } from "@/components/about-us/figma/AboutUsFigmaPageContent";
 import { Footer } from "@/components/sections/Footer";
 import {
@@ -18,6 +19,7 @@ export default function AboutUsRoutePage() {
       <main
         className={`w-full min-w-0 pt-24 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${interSans.className}`}
       >
+        <AboutUsMobile />
         <AboutUsFigmaPageContent />
       </main>
       <Footer />
