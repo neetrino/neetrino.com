@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
@@ -82,24 +83,27 @@ function HeroTitleAndRobot() {
 
 /** Figma 241:840 — vertical center at Y=549 (frame); inner top = 461px with -translate-y-1/2. */
 function HeroBodyCopy() {
+  const t = useTranslations();
+
   return (
     <div className="absolute left-6 top-[461px] z-30 flex h-[200px] w-[227px] -translate-y-1/2 flex-col justify-center text-left text-base font-extralight leading-[23px] text-white">
-      <p>We build</p>
-      <p className="font-black">high-performance </p>
+      <p>{t("home.hero.body.line1")}</p>
+      <p className="font-black">{t("home.hero.body.line2")}</p>
       <p className="mb-0">
-        <span className="font-black">websites</span>
+        <span className="font-black">{t("home.hero.body.line3Strong")}</span>
         <span> </span>
       </p>
-      <p>and digital solutions</p>
-      <p>that help</p>
-      <p>businesses grow,</p>
-      <p>scale, and stand</p>
-      <p>out online.</p>
+      <p>{t("home.hero.body.line4")}</p>
+      <p>{t("home.hero.body.line5")}</p>
+      <p>{t("home.hero.body.line6")}</p>
+      <p>{t("home.hero.body.line7")}</p>
+      <p>{t("home.hero.body.line8")}</p>
     </div>
   );
 }
 
 function HeroCtas() {
+  const t = useTranslations();
   const baseLink =
     "absolute left-1/2 z-[25] flex h-14 w-[min(393px,calc(100%-48px))] -translate-x-1/2 items-center justify-center rounded-[28px] text-base font-extrabold transition-opacity hover:opacity-95";
 
@@ -115,13 +119,15 @@ function HeroCtas() {
         className={`${baseLink} top-[761px] isolate text-[#a8b4ff] shadow-lg shadow-black/10`}
       >
         <span className={`${glassLayer} border border-white/75 bg-white/28`} aria-hidden />
-        <span className="relative z-10">Contact</span>
+        <span className="relative z-10">{t("cta.contact")}</span>
       </Link>
     </>
   );
 }
 
 function HeroStatsTop() {
+  const t = useTranslations();
+
   return (
     <div className="relative z-20 mt-0 grid grid-cols-2 gap-3 px-6">
       {MOBILE_HERO_STATS_TOP.map((item) => (
@@ -131,8 +137,8 @@ function HeroStatsTop() {
         >
           <p className="text-[56px] font-black leading-9">{item.value}</p>
           <div className="mt-2 text-base font-extralight leading-[18px]">
-            {item.labelLines.map((line) => (
-              <p key={line}>{line}</p>
+            {item.labelLineKeys.map((lineKey: string) => (
+              <p key={lineKey}>{t(lineKey)}</p>
             ))}
           </div>
         </div>
@@ -142,6 +148,7 @@ function HeroStatsTop() {
 }
 
 function HeroStatWide() {
+  const t = useTranslations();
   const s = MOBILE_HERO_STAT_WIDE;
   return (
     <div className="relative z-20 mt-[34px] min-h-[167px] w-full min-w-0 px-6">
@@ -150,7 +157,7 @@ function HeroStatWide() {
       >
         <div className="relative z-[2] max-w-[56%]">
           <p className={`text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
-          <p className={`mt-1 text-base font-extralight ${s.text}`}>{s.label}</p>
+          <p className={`mt-1 text-base font-extralight ${s.text}`}>{t(s.labelKey)}</p>
         </div>
         <div
           className="pointer-events-none absolute top-[87%] z-[1] h-[287px] w-[271px] -translate-y-1/2 max-[380px]:top-[85%] max-[380px]:h-[252px] max-[380px]:w-[235px]"

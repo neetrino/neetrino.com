@@ -1,8 +1,8 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { usePrimaryNavDropdownOpen } from "@/lib/hooks/usePrimaryNavDropdownOpen";
 import { isNavHrefActive } from "@/lib/nav-href-active";
 import { PRIMARY_NAV_DROPDOWN_TRANSITION_MS } from "@/lib/primary-nav-dropdown.constants";
@@ -24,6 +24,7 @@ const panelBase =
  * “More” disclosure — timed hover + focus; panel matches desktop header glass / pill tokens.
  */
 export function PrimaryNavMoreDropdown({ items, variant }: PrimaryNavMoreDropdownProps) {
+  const t = useTranslations();
   const pathname = usePathname();
   const { open, wrapperRef, onMouseEnter, onMouseLeave, onFocusCapture, onBlurCapture } =
     usePrimaryNavDropdownOpen();
@@ -62,9 +63,9 @@ export function PrimaryNavMoreDropdown({ items, variant }: PrimaryNavMoreDropdow
         className={triggerClass}
         aria-haspopup="menu"
         aria-expanded={open}
-        aria-label="More navigation"
+        aria-label={t("nav.more")}
       >
-        <span className={variant === "pill" ? "leading-[15.6px]" : undefined}>More</span>
+        <span className={variant === "pill" ? "leading-[15.6px]" : undefined}>{t("nav.more")}</span>
         <ChevronDown
           className={cn(
             "size-4 shrink-0 text-white/90 transition-transform duration-150 ease-out",
@@ -83,7 +84,7 @@ export function PrimaryNavMoreDropdown({ items, variant }: PrimaryNavMoreDropdow
       >
         <ul
           role="menu"
-          aria-label="More links"
+          aria-label={t("nav.more")}
           className={cn(
             panelBase,
             "px-1.5",
@@ -109,7 +110,7 @@ export function PrimaryNavMoreDropdown({ items, variant }: PrimaryNavMoreDropdow
                     active && "bg-white/[0.07] text-white",
                   )}
                 >
-                  {sub.label}
+                  {t(`nav.${sub.labelKey}`)}
                 </Link>
               </li>
             );

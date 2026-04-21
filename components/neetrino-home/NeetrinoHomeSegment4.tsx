@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { CanvasFooter } from "@/components/sections/Footer";
 import { Group } from "./Group";
 import {
@@ -12,6 +13,8 @@ import {
 } from "./figma-assets";
 
 export function NeetrinoHomeSegment4() {
+  const t = useTranslations();
+
   return (
     <>
       <CanvasFooter className="left-0 top-[4162px]" />
@@ -29,15 +32,15 @@ export function NeetrinoHomeSegment4() {
             className="-translate-y-1/2 absolute flex flex-col font-medium justify-center left-[57px] not-italic text-[16px] top-[68.5px]"
             data-node-id="10:507"
           >
-            <p className="leading-[35px]">PORTFOLIO</p>
+            <p className="leading-[35px]">{t("portfolioPage.eyebrow")}</p>
           </div>
           <div
             className="-translate-y-1/2 absolute flex flex-col font-black italic justify-center left-[51px] text-[35px] top-[103.5px]"
             data-node-id="10:508"
           >
             <p>
-              <span className="leading-[35px]">OUR</span>
-              <span className="leading-[35px] text-[#ff7500]">{` PROJECTS`}</span>
+              <span className="leading-[35px]">{t("home.projects.titleBefore")}</span>
+              <span className="leading-[35px] text-[#ff7500]">{` ${t("home.projects.titleAccent")}`}</span>
             </p>
           </div>
         </div>

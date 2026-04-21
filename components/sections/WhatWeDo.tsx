@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { serviceDetailHref, type ServiceSlug } from "@/components/services/service-pages-data";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
@@ -7,6 +8,8 @@ import { interSans } from "@/lib/fonts";
 const services: readonly {
   titleLines: readonly string[];
   subtitleLines: readonly string[];
+  titleLineKeys: readonly string[];
+  subtitleLineKeys: readonly string[];
   bg: string;
   textColor: string;
   image: string;
@@ -15,7 +18,12 @@ const services: readonly {
 }[] = [
   {
     titleLines: ["WEBSITE"],
+    titleLineKeys: ["home.whatWeDo.cards.website.title1"],
     subtitleLines: ["Custom", "Development"],
+    subtitleLineKeys: [
+      "home.whatWeDo.cards.website.subtitle1",
+      "home.whatWeDo.cards.website.subtitle2",
+    ],
     bg: "bg-[#e8e8f4]",
     textColor: "text-black",
     image: FIGMA_ASSETS.imgPc,
@@ -24,7 +32,12 @@ const services: readonly {
   },
   {
     titleLines: ["MOBILE APP"],
+    titleLineKeys: ["home.whatWeDo.cards.mobile.title1"],
     subtitleLines: ["App", "Development"],
+    subtitleLineKeys: [
+      "home.whatWeDo.cards.mobile.subtitle1",
+      "home.whatWeDo.cards.mobile.subtitle2",
+    ],
     bg: "bg-[#ff7500]",
     textColor: "text-white",
     image: FIGMA_ASSETS.imgPc1,
@@ -33,7 +46,9 @@ const services: readonly {
   },
   {
     titleLines: ["SAAS", "PLATFORMS"],
+    titleLineKeys: ["home.whatWeDo.cards.saas.title1", "home.whatWeDo.cards.saas.title2"],
     subtitleLines: ["Cloud Solutions"],
+    subtitleLineKeys: ["home.whatWeDo.cards.saas.subtitle1"],
     bg: "bg-[#292929]",
     textColor: "text-white",
     image: FIGMA_ASSETS.imgCloudInfrastructure,
@@ -42,7 +57,9 @@ const services: readonly {
   },
   {
     titleLines: ["CRM SYSTEMS"],
+    titleLineKeys: ["home.whatWeDo.cards.crm.title1"],
     subtitleLines: ["Process", "Automation"],
+    subtitleLineKeys: ["home.whatWeDo.cards.crm.subtitle1", "home.whatWeDo.cards.crm.subtitle2"],
     bg: "bg-[#473dff]",
     textColor: "text-white",
     image: FIGMA_ASSETS.imgSports00065,
@@ -51,7 +68,9 @@ const services: readonly {
   },
   {
     titleLines: ["AI", "INTEGRATIONS"],
+    titleLineKeys: ["home.whatWeDo.cards.ai.title1", "home.whatWeDo.cards.ai.title2"],
     subtitleLines: ["AI Automation"],
+    subtitleLineKeys: ["home.whatWeDo.cards.ai.subtitle1"],
     bg: "bg-[#a2b8ee]",
     textColor: "text-[#0f0f0f]",
     image: FIGMA_ASSETS.img2761,
@@ -62,15 +81,18 @@ const services: readonly {
 
 /** Mobile-only section — matches Figma 241:821 service cards (horizontal tiles). */
 export function WhatWeDo() {
+  const t = useTranslations();
+
   return (
     <section className={`bg-[#151515] py-12 ${interSans.className}`}>
       <div className="mx-auto w-full max-w-[480px] px-4 md:px-6">
         <header className="mb-8">
           <p className="text-base font-medium uppercase leading-[35px] tracking-normal text-white">
-            SERVICES
+            {t("nav.services")}
           </p>
           <h2 className="mt-1 font-black italic text-[35px] leading-[35px] text-white">
-            WHAT WE <span className="text-[#ff7500]">DO</span>
+            {t("home.whatWeDo.titleBefore")}{" "}
+            <span className="text-[#ff7500]">{t("home.whatWeDo.titleAccent")}</span>
           </h2>
         </header>
 
@@ -92,19 +114,19 @@ export function WhatWeDo() {
               </div>
               <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-between px-3 py-3 pr-2">
                 <div>
-                  {service.titleLines.map((line) => (
+                  {service.titleLineKeys.map((lineKey, index) => (
                     <h3
-                      key={line}
+                      key={`${lineKey}-${index}`}
                       className={`font-bold text-lg leading-tight ${service.textColor}`}
                     >
-                      {line}
+                      {t(lineKey)}
                     </h3>
                   ))}
                   <div
                     className={`mt-1 text-base font-extralight leading-[19px] ${service.textColor}`}
                   >
-                    {service.subtitleLines.map((line) => (
-                      <p key={line}>{line}</p>
+                    {service.subtitleLineKeys.map((lineKey, index) => (
+                      <p key={`${lineKey}-${index}`}>{t(lineKey)}</p>
                     ))}
                   </div>
                 </div>
@@ -112,7 +134,7 @@ export function WhatWeDo() {
                   href={serviceDetailHref(service.slug)}
                   className="ml-auto inline-flex w-fit items-center gap-2 self-end rounded-[40px] bg-white px-5 py-3 text-[18px] font-medium text-[#252525] transition-opacity hover:opacity-90"
                 >
-                  Continue
+                  {t("cta.continue")}
                   <Image
                     src={FIGMA_ASSETS.imgSafearea}
                     alt=""

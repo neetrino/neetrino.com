@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
 import { imgPc, imgSafearea } from "./figma-assets";
 
@@ -11,6 +12,8 @@ type Group1Props = {
 };
 
 export function Group1({ className, property1 = "Default" }: Group1Props) {
+  const t = useTranslations();
+
   return (
     <div
       className={`pointer-events-none ${className || "h-[553px] relative w-[258px]"}`}
@@ -37,13 +40,16 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
           className="absolute flex flex-col font-extralight inset-[78.84%_11.24%_16.64%_11.24%] justify-center leading-[0] not-italic text-[#1f2123] text-[20px] text-right whitespace-nowrap"
           data-node-id="1:711"
         >
-          <p className="leading-[25px]">Custom Development</p>
+          <p className="leading-[25px]">
+            {t("home.whatWeDo.cards.website.subtitle1")}{" "}
+            {t("home.whatWeDo.cards.website.subtitle2")}
+          </p>
         </div>
         <div
           className="absolute flex flex-col font-bold inset-[9.58%_30.62%_84.09%_30.62%] justify-center leading-[0] not-italic text-[22px] text-black whitespace-nowrap"
           data-node-id="1:712"
         >
-          <p className="leading-[35px]">WEBSITE</p>
+          <p className="leading-[35px]">{t("home.whatWeDo.cards.website.title1")}</p>
         </div>
       </div>
       <Link
@@ -61,7 +67,7 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
           className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
           data-node-id="I1:713;13:33"
         >
-          Continue
+          {t("cta.continue")}
         </p>
         <div
           className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"

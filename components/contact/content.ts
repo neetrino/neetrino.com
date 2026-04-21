@@ -3,21 +3,6 @@ import { COMPANY_PHONE_TEL_HREF } from "@/lib/nav-links";
 /** Single source for phone display + tel: / wa.me / viber. */
 const PHONE_E164_DIGITS = "37444343000" as const;
 
-export const CONTACT_CONTENT = {
-  hero: {
-    eyebrow: "GET IN TOUCH",
-    title: "CONTACT US",
-    body: "Reach us by email or phone, visit our office, or send a project inquiry — we respond on business days.",
-  },
-  sectionTitles: {
-    reachUs: "Reach us",
-    office: "Office",
-    location: "Location",
-    followUs: "Follow us",
-    inquiry: "Send an inquiry",
-  },
-} as const;
-
 export const CONTACT_DETAILS = {
   email: "info@neetrino.com",
   /** Formatted for display */

@@ -1,14 +1,14 @@
 export const companyLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact" },
+  { href: "/services", labelKey: "services" },
+  { href: "/portfolio", labelKey: "portfolio" },
+  { href: "/contact", labelKey: "contact" },
 ] as const;
 
 export const serviceLinks = [
-  { href: "/services", label: "Website" },
-  { href: "/services", label: "Mobile App" },
-  { href: "/services", label: "CRM Systems" },
-  { href: "/services", label: "SAAS Platforms" },
-  { href: "/services", label: "AI integration" },
-  { href: "/services", label: "All" },
+  { href: "/services", labelKey: "website" },
+  { href: "/services", labelKey: "mobileApp" },
+  { href: "/services", labelKey: "crmSystems" },
+  { href: "/services", labelKey: "saasPlatforms" },
+  { href: "/services", labelKey: "aiIntegration" },
+  { href: "/services", labelKey: "all" },
 ] as const;

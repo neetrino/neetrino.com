@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { DesktopHeaderLanguageButton } from "@/components/shared/DesktopHeaderLanguageButton";
 import { DesktopHeaderQuoteLink } from "@/components/shared/DesktopHeaderQuoteLink";
 import { PrimaryNavMoreDropdown } from "@/components/shared/PrimaryNavMoreDropdown";
@@ -19,6 +20,8 @@ import { cn } from "@/lib/utils";
  * Desktop nav chrome from the Home Figma canvas (`Awwwards` block) — canonical site header bar.
  */
 export function HomeDesktopHeader({ className }: { className?: string }) {
+  const t = useTranslations();
+
   return (
     <div
       className={cn(
@@ -51,17 +54,17 @@ export function HomeDesktopHeader({ className }: { className?: string }) {
                 data-node-id="10:445"
                 href={item.href}
               >
-                <p className="leading-[15.6px]">{item.label}</p>
+                <p className="leading-[15.6px]">{t(`nav.${item.labelKey}`)}</p>
               </Link>
             ) : (
-              <PrimaryNavMoreDropdown key={item.label} variant="pill" items={item.items} />
+              <PrimaryNavMoreDropdown key={item.labelKey} variant="pill" items={item.items} />
             ),
           )}
         </div>
       </div>
       <Link
         href="/"
-        aria-label="Go to home page"
+        aria-label={t("nav.goHome")}
         className="absolute z-[106] h-[37px] top-[13px] w-[130px]"
         style={{ left: DESKTOP_HEADER_LOGO_LEFT_PX }}
         data-name="Neetrino-it-comapny-(2)png 1"

@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import type { BlogIndexItem } from "@/lib/blog-page.constants";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +14,7 @@ export type BlogIndexCardProps = {
  * Blog index tile — dark glass card aligned with site header tokens (border-white/10, soft shadow).
  */
 export function BlogIndexCard({ item, className }: BlogIndexCardProps) {
+  const t = useTranslations();
   const anchorHref = `/blog/${item.slug}`;
 
   return (
@@ -42,7 +44,7 @@ export function BlogIndexCard({ item, className }: BlogIndexCardProps) {
           href={anchorHref}
           className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-[#473dff] transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#473dff]/80"
         >
-          Read more
+          {t("cta.readMore")}
           <ChevronRight className="size-4 shrink-0" aria-hidden />
         </Link>
       </div>

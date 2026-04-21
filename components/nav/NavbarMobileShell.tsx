@@ -1,8 +1,9 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { useBodyScrollLock } from "@/lib/hooks/useBodyScrollLock";
 import type { NavItem } from "@/lib/nav-links";
 import { cn } from "@/lib/utils";
@@ -12,6 +13,7 @@ type NavbarMobileShellProps = {
 };
 
 export function NavbarMobileShell({ links }: NavbarMobileShellProps) {
+  const t = useTranslations();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openGroupLabel, setOpenGroupLabel] = useState<string | null>(null);
   useBodyScrollLock(menuOpen);
@@ -40,7 +42,7 @@ export function NavbarMobileShell({ links }: NavbarMobileShellProps) {
           }
         }}
       >
-        <span className="sr-only">Toggle menu</span>
+        <span className="sr-only">{t("nav.toggleMenu")}</span>
         <span className="flex w-6 flex-col gap-1.5">
           <span
             className={`block h-0.5 w-full rounded-full bg-white transition-transform duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
@@ -64,7 +66,7 @@ export function NavbarMobileShell({ links }: NavbarMobileShellProps) {
           className="relative z-10 flex min-h-full flex-col bg-[#0f0f14]/95 backdrop-blur-xl px-6 pb-10 pt-24"
           role="dialog"
           aria-modal="true"
-          aria-label="Mobile navigation"
+          aria-label={t("nav.mobileNavigationAria")}
         >
           <nav className="flex flex-col gap-2">
             {links.map((item) =>
@@ -75,26 +77,26 @@ export function NavbarMobileShell({ links }: NavbarMobileShellProps) {
                   className="py-3 text-xl font-semibold text-white transition-opacity hover:opacity-70 active:opacity-50"
                   onClick={closeMenu}
                 >
-                  {item.label}
+                  {t(`nav.${item.labelKey}`)}
                 </Link>
               ) : (
-                <div key={item.label} className="flex flex-col">
+                <div key={item.labelKey} className="flex flex-col">
                   <button
                     type="button"
                     className="flex w-full items-center justify-between gap-2 py-3 text-left text-xl font-semibold text-white transition-opacity hover:opacity-80"
-                    aria-expanded={openGroupLabel === item.label}
-                    onClick={() => toggleGroup(item.label)}
+                    aria-expanded={openGroupLabel === item.labelKey}
+                    onClick={() => toggleGroup(item.labelKey)}
                   >
-                    {item.label}
+                    {t(`nav.${item.labelKey}`)}
                     <ChevronDown
                       className={cn(
                         "size-6 shrink-0 transition-transform",
-                        openGroupLabel === item.label && "rotate-180",
+                        openGroupLabel === item.labelKey && "rotate-180",
                       )}
                       aria-hidden
                     />
                   </button>
-                  {openGroupLabel === item.label ? (
+                  {openGroupLabel === item.labelKey ? (
                     <div className="mb-2 ml-3 flex flex-col gap-1 border-l border-white/20 pl-4">
                       {item.items.map((sub) => (
                         <Link
@@ -103,7 +105,7 @@ export function NavbarMobileShell({ links }: NavbarMobileShellProps) {
                           className="py-2 text-lg font-medium text-white/90 transition-opacity hover:opacity-80"
                           onClick={closeMenu}
                         >
-                          {sub.label}
+                          {t(`nav.${sub.labelKey}`)}
                         </Link>
                       ))}
                     </div>

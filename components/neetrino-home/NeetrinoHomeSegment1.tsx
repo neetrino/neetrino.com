@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { DeferredMount } from "@/components/layout/DeferredMount";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
@@ -12,6 +13,8 @@ import {
 } from "./figma-assets";
 
 export function NeetrinoHomeSegment1() {
+  const t = useTranslations();
+
   return (
     <>
       <DeferredMount topClassName="top-[560px]" rootMargin="360px 0px 360px 0px">
@@ -141,9 +144,11 @@ export function NeetrinoHomeSegment1() {
           data-node-id="10:427"
         >
           <p>
-            <span className="leading-[35px]">{`We build `}</span>
-            <span className="font-black leading-[35px] not-italic">high-performance websites</span>
-            <span className="leading-[35px]">{` and digital solutions that help businesses grow, scale, and stand out online.`}</span>
+            <span className="leading-[35px]">{`${t("home.hero.body.line1")} `}</span>
+            <span className="font-black leading-[35px] not-italic">
+              {`${t("home.hero.body.line2")} ${t("home.hero.body.line3Strong")}`}
+            </span>
+            <span className="leading-[35px]">{` ${t("home.hero.body.line4")} ${t("home.hero.body.line5")} ${t("home.hero.body.line6")} ${t("home.hero.body.line7")} ${t("home.hero.body.line8")}`}</span>
           </p>
         </div>
         <div
@@ -173,8 +178,8 @@ export function NeetrinoHomeSegment1() {
                 className="col-1 flex flex-col font-extralight justify-center leading-[25px] ml-[18px] mt-[86px] not-italic relative row-1 text-[#fffcfc] text-[20px] whitespace-nowrap"
                 data-node-id="10:433"
               >
-                <p className="mb-0">Years of</p>
-                <p>{`experience `}</p>
+                <p className="mb-0">{t("home.hero.stats.years")}</p>
+                <p>{t("home.hero.stats.experience")}</p>
               </div>
             </div>
             <div
@@ -196,7 +201,7 @@ export function NeetrinoHomeSegment1() {
                 className="col-1 flex flex-col font-extralight justify-center ml-[26px] mt-[99px] not-italic relative row-1 text-[#0d266c] text-[20px] text-right whitespace-nowrap"
                 data-node-id="10:437"
               >
-                <p className="leading-[25px]">Satisfied clients</p>
+                <p className="leading-[25px]">{t("home.hero.stats.satisfiedClients")}</p>
               </div>
             </div>
           </div>
@@ -219,7 +224,7 @@ export function NeetrinoHomeSegment1() {
               className="col-1 flex flex-col font-extralight justify-center ml-[44px] mt-[87px] not-italic relative row-1 text-[#fffcfc] text-[20px] text-right whitespace-nowrap"
               data-node-id="10:441"
             >
-              <p className="leading-[25px]">Creations</p>
+              <p className="leading-[25px]">{t("home.hero.stats.creations")}</p>
             </div>
           </div>
         </div>

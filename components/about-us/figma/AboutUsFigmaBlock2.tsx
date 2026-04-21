@@ -2,6 +2,7 @@
 
 import type { CSSProperties } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
@@ -25,6 +26,8 @@ const transformStyle = {
 
 /** Figma ABOUT — nodes 335:1114–335:1204 (mission → map; excludes header/footer from frame). */
 export function AboutUsFigmaBlock2() {
+  const t = useTranslations();
+
   return (
     <>
       <div
@@ -44,8 +47,8 @@ export function AboutUsFigmaBlock2() {
           data-node-id="335:1168"
         >
           <p>
-            <span className="leading-[35px]">{` THE `}</span>
-            <span className="leading-[35px] text-[#ff7401]">MISSION</span>
+            <span className="leading-[35px]">{` ${t("aboutPage.the")} `}</span>
+            <span className="leading-[35px] text-[#ff7401]">{t("aboutPage.mission")}</span>
           </p>
         </div>
         <div className="-translate-x-full -translate-y-1/2 absolute flex items-center justify-center left-[552px] top-[1380.5px]">
@@ -55,8 +58,8 @@ export function AboutUsFigmaBlock2() {
               data-node-id="335:1169"
             >
               <p>
-                <span className="leading-[35px]">{` THE `}</span>
-                <span className="leading-[35px] text-[#ff7401]">MISSION</span>
+                <span className="leading-[35px]">{` ${t("aboutPage.the")} `}</span>
+                <span className="leading-[35px] text-[#ff7401]">{t("aboutPage.mission")}</span>
               </p>
             </div>
           </div>
@@ -70,8 +73,8 @@ export function AboutUsFigmaBlock2() {
               data-node-id="335:1171"
             >
               <p>
-                <span className="leading-[35px]">{` THE `}</span>
-                <span className="leading-[35px] text-[#ff7401]">VISION</span>
+                <span className="leading-[35px]">{` ${t("aboutPage.the")} `}</span>
+                <span className="leading-[35px] text-[#ff7401]">{t("aboutPage.vision")}</span>
               </p>
             </div>
           </div>
@@ -81,8 +84,8 @@ export function AboutUsFigmaBlock2() {
           data-node-id="335:1172"
         >
           <p>
-            <span className="leading-[35px]">{` THE `}</span>
-            <span className="leading-[35px] text-[#ff7401]">VISION</span>
+            <span className="leading-[35px]">{` ${t("aboutPage.the")} `}</span>
+            <span className="leading-[35px] text-[#ff7401]">{t("aboutPage.vision")}</span>
           </p>
         </div>
       </div>
@@ -104,9 +107,9 @@ export function AboutUsFigmaBlock2() {
             data-node-id="335:1176"
           >
             <p>
-              <span className="leading-[35px]">{`WHY `}</span>
-              <span className="leading-[35px] text-[#ff7500]">CHOOSE</span>
-              <span className="leading-[35px]">{` US?`}</span>
+              <span className="leading-[35px]">{`${t("aboutPage.why")} `}</span>
+              <span className="leading-[35px] text-[#ff7500]">{t("aboutPage.choose")}</span>
+              <span className="leading-[35px]">{` ${t("aboutPage.usQuestion")}`}</span>
             </p>
           </div>
           <div className="-translate-x-full -translate-y-1/2 absolute flex items-center justify-center left-[485.27px] top-[1771.5px] w-[333.268px]">
@@ -116,9 +119,9 @@ export function AboutUsFigmaBlock2() {
                 data-node-id="335:1177"
               >
                 <p>
-                  <span className="leading-[35px]">{`WHY `}</span>
-                  <span className="leading-[35px] text-[#ff7500]">CHOOSE</span>
-                  <span className="leading-[35px]">{` US?`}</span>
+                  <span className="leading-[35px]">{`${t("aboutPage.why")} `}</span>
+                  <span className="leading-[35px] text-[#ff7500]">{t("aboutPage.choose")}</span>
+                  <span className="leading-[35px]">{` ${t("aboutPage.usQuestion")}`}</span>
                 </p>
               </div>
             </div>
@@ -129,20 +132,20 @@ export function AboutUsFigmaBlock2() {
           data-node-id="335:1178"
         >
           <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1179">
-            <p className="leading-[22px] mb-0">Fast and premium</p>
-            <p className="leading-[22px]">execution delivered in record time</p>
+            <p className="leading-[22px] mb-0">{t("aboutPage.feature1Line1")}</p>
+            <p className="leading-[22px]">{t("aboutPage.feature1Line2")}</p>
           </div>
           <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1180">
-            <p className="leading-[22px] mb-0">A selection of over</p>
-            <p className="leading-[22px]">100,000 design options</p>
+            <p className="leading-[22px] mb-0">{t("aboutPage.feature2Line1")}</p>
+            <p className="leading-[22px]">{t("aboutPage.feature2Line2")}</p>
           </div>
           <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1181">
-            <p className="leading-[22px] mb-0">Websites created 10 times</p>
-            <p className="leading-[22px]">faster than traditional methods</p>
+            <p className="leading-[22px] mb-0">{t("aboutPage.feature3Line1")}</p>
+            <p className="leading-[22px]">{t("aboutPage.feature3Line2")}</p>
           </div>
           <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1182">
-            <p className="leading-[22px] mb-0">24/7 technical support</p>
-            <p className="leading-[22px]">and free consultations</p>
+            <p className="leading-[22px] mb-0">{t("aboutPage.feature4Line1")}</p>
+            <p className="leading-[22px]">{t("aboutPage.feature4Line2")}</p>
           </div>
         </div>
       </div>
@@ -151,16 +154,16 @@ export function AboutUsFigmaBlock2() {
         data-node-id="335:1183"
       >
         <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1184">
-          <p className="leading-[22px]">Love to work</p>
+          <p className="leading-[22px]">{t("aboutPage.value1")}</p>
         </div>
         <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1185">
-          <p className="leading-[22px]">Transparency</p>
+          <p className="leading-[22px]">{t("aboutPage.value2")}</p>
         </div>
         <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1186">
-          <p className="leading-[22px]">Continuous learning</p>
+          <p className="leading-[22px]">{t("aboutPage.value3")}</p>
         </div>
         <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1187">
-          <p className="leading-[22px]">Respect for each other</p>
+          <p className="leading-[22px]">{t("aboutPage.value4")}</p>
         </div>
       </div>
       <div
@@ -244,9 +247,9 @@ export function AboutUsFigmaBlock2() {
           data-node-id="335:1195"
         >
           <p>
-            <span className="leading-[35px]">{`THE `}</span>
-            <span className="leading-[35px] text-[#ff7500]">VALUES</span>
-            <span className="leading-[35px]">{` THAT ALWAYS DRIVE US`}</span>
+            <span className="leading-[35px]">{`${t("aboutPage.the")} `}</span>
+            <span className="leading-[35px] text-[#ff7500]">{t("aboutPage.values")}</span>
+            <span className="leading-[35px]">{` ${t("aboutPage.valuesSuffix")}`}</span>
           </p>
         </div>
         <div
@@ -254,8 +257,8 @@ export function AboutUsFigmaBlock2() {
           data-node-id="335:1196"
         >
           <p>
-            <span className="leading-[35px]">{`WE WORK WITH MORE THAN `}</span>
-            <span className="leading-[35px] text-[#ff7500]">10 COUNTRIES</span>
+            <span className="leading-[35px]">{`${t("aboutPage.countriesPrefix")} `}</span>
+            <span className="leading-[35px] text-[#ff7500]">{t("aboutPage.countriesAccent")}</span>
           </p>
         </div>
         <div className="-translate-x-full -translate-y-1/2 absolute flex items-center justify-center left-[1051px] top-[2281.5px]">
@@ -265,9 +268,9 @@ export function AboutUsFigmaBlock2() {
               data-node-id="335:1197"
             >
               <p>
-                <span className="leading-[35px]">{`THE `}</span>
-                <span className="leading-[35px] text-[#ff7500]">VALUES</span>
-                <span className="leading-[35px]">{` THAT ALWAYS DRIVE US`}</span>
+                <span className="leading-[35px]">{`${t("aboutPage.the")} `}</span>
+                <span className="leading-[35px] text-[#ff7500]">{t("aboutPage.values")}</span>
+                <span className="leading-[35px]">{` ${t("aboutPage.valuesSuffix")}`}</span>
               </p>
             </div>
           </div>
@@ -279,8 +282,10 @@ export function AboutUsFigmaBlock2() {
               data-node-id="335:1198"
             >
               <p>
-                <span className="leading-[35px]">{`WE WORK WITH MORE THAN `}</span>
-                <span className="leading-[35px] text-[#ff7500]">10 COUNTRIES</span>
+                <span className="leading-[35px]">{`${t("aboutPage.countriesPrefix")} `}</span>
+                <span className="leading-[35px] text-[#ff7500]">
+                  {t("aboutPage.countriesAccent")}
+                </span>
               </p>
             </div>
           </div>

@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Group2 } from "./Group2";
 
 const LiquidEther = dynamic(() => import("@/components/liquid-ether/LiquidEther"), {
@@ -16,6 +17,8 @@ const LiquidEther = dynamic(() => import("@/components/liquid-ether/LiquidEther"
 import { imgRectangle17417 } from "./figma-assets";
 
 export function NeetrinoHomeSegment2() {
+  const t = useTranslations();
+
   return (
     <>
       <div className="-translate-x-1/2 absolute flex h-[1306px] items-center justify-center left-[calc(50%+11px)] mix-blend-screen top-[3245px] w-[664px]">
@@ -51,16 +54,18 @@ export function NeetrinoHomeSegment2() {
               className="col-1 flex flex-col font-medium justify-center ml-[3px] mt-0 not-italic relative row-1 text-[16px]"
               data-node-id="10:513"
             >
-              <p className="leading-[35px]">BUILD WITH PURPOSE</p>
+              <p className="leading-[35px]">{t("home.whoWeAre.eyebrow")}</p>
             </div>
             <div
               className="col-1 flex flex-col font-black italic justify-center ml-0 mt-[35px] relative row-1 text-[35px]"
               data-node-id="10:514"
             >
               <p>
-                <span className="leading-[35px]">{`WHO `}</span>
-                <span className="leading-[35px] text-[#ff7500]">WE</span>
-                <span className="leading-[35px]">{` ARE`}</span>
+                <span className="leading-[35px]">{`${t("home.whoWeAre.titleBefore")} `}</span>
+                <span className="leading-[35px] text-[#ff7500]">
+                  {t("home.whoWeAre.titleAccent")}
+                </span>
+                <span className="leading-[35px]">{` ${t("home.whoWeAre.titleAfter")}`}</span>
               </p>
             </div>
           </div>
@@ -69,22 +74,18 @@ export function NeetrinoHomeSegment2() {
             data-node-id="10:515"
           >
             <p className="mb-0">
-              <span className="leading-[24px]">{`Over the past 8 years, `}</span>
+              <span className="leading-[24px]">{`${t("home.whoWeAre.paragraph1Prefix")} `}</span>
               <span className="font-bold leading-[24px] not-italic">Neetrino IT</span>
-              <span className="leading-[24px]">{` has developed more than `}</span>
-              <span className="font-extrabold leading-[24px] not-italic">400 online resources</span>
-              <span className="leading-[24px]">
-                , ranging from simple websites to large-scale internet portals and e-commerce
-                platforms
+              <span className="leading-[24px]">{` ${t("home.whoWeAre.paragraph1Middle")} `}</span>
+              <span className="font-extrabold leading-[24px] not-italic">
+                {t("home.whoWeAre.paragraph1Strong")}
               </span>
+              <span className="leading-[24px]">{t("home.whoWeAre.paragraph1Suffix")}</span>
             </p>
             <p>
-              <span className="leading-[24px]">
-                We specialize in website development, AI and bot solutions, CRM system integration,
-                mobile app development, as well as SEO and SMM optimization—
-              </span>
+              <span className="leading-[24px]">{t("home.whoWeAre.paragraph2Prefix")}</span>
               <span className="font-extrabold leading-[24px] not-italic">
-                delivering a comprehensive digital presence for your business.
+                {t("home.whoWeAre.paragraph2Strong")}
               </span>
             </p>
           </div>

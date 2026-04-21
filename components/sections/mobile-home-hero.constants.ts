@@ -10,13 +10,13 @@ export const MOBILE_HERO_TITLE_MIN_INSET_PX = 24;
 export const MOBILE_HERO_STATS_TOP = [
   {
     value: "8+",
-    labelLines: ["Years of", "experience"] as const,
+    labelLineKeys: ["home.hero.stats.years", "home.hero.stats.experience"],
     bg: "bg-[#ff7500]",
     text: "text-white",
   },
   {
     value: "97+",
-    labelLines: ["Satisfied clients"] as const,
+    labelLineKeys: ["home.hero.stats.satisfiedClients"],
     bg: "bg-white",
     text: "text-[#0d266c]",
   },
@@ -24,7 +24,7 @@ export const MOBILE_HERO_STATS_TOP = [
 
 export const MOBILE_HERO_STAT_WIDE = {
   value: "450+",
-  label: "Creations",
+  labelKey: "home.hero.stats.creations",
   bg: "bg-[#473dff]",
   text: "text-[#fffcfc]",
 } as const;

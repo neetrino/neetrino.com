@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
 import { imgEllipse3463, imgSafearea1 } from "./figma-assets";
 
@@ -12,6 +13,8 @@ type Group2Props = {
 };
 
 export function Group2({ className, exploreHref }: Group2Props) {
+  const t = useTranslations();
+
   return (
     <div
       className={className ? `z-20 ${className}` : "relative z-20 h-[276px] w-[642px]"}
@@ -38,7 +41,7 @@ export function Group2({ className, exploreHref }: Group2Props) {
           data-node-id="19:373"
           style={{ fontVariationSettings: "'opsz' 14" }}
         >
-          Explore
+          {t("cta.explore")}
         </p>
         <div
           className="absolute left-[89px] overflow-clip size-[20px] top-[17px]"

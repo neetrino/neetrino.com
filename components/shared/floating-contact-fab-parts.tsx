@@ -1,9 +1,12 @@
 import { Globe, Phone } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { ContactSocialIcon } from "@/components/contact/ContactSocialIcon";
 import { CONTACT_DETAILS, CONTACT_SOCIAL_LINKS } from "@/components/contact/content";
 import { FLOATING_CONTACT_WEBSITE_HREF } from "@/lib/floating-contact.constants";
+import { localizeHref } from "@/lib/i18n/href";
+import type { AppLocale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
 
 export const MENU_PANEL_CLASS =
@@ -44,17 +47,19 @@ type ContactFlyoutMenuProps = {
 };
 
 export function ContactFlyoutMenu({ menuId }: ContactFlyoutMenuProps) {
+  const t = useTranslations();
+  const locale = useLocale() as AppLocale;
   return (
     <div
       id={menuId}
       role="region"
-      aria-label="Contact options"
+      aria-label={t("contactFab.contactOptions")}
       className={cn(MENU_PANEL_CLASS, "transition-opacity duration-200")}
     >
       <div className="flex flex-col items-center gap-3">
         <a
           href={CONTACT_DETAILS.phoneTelHref}
-          aria-label="Call Neetrino"
+          aria-label={t("contactFab.callNeetrino")}
           className={MENU_ICON_RING}
         >
           <Phone className="size-5" strokeWidth={2} aria-hidden />
@@ -64,7 +69,10 @@ export function ContactFlyoutMenu({ menuId }: ContactFlyoutMenuProps) {
             <ContactSocialIcon id={social.id} />
           </SocialMenuLink>
         ))}
-        <SocialMenuLink href={FLOATING_CONTACT_WEBSITE_HREF} label="Neetrino website">
+        <SocialMenuLink
+          href={localizeHref(FLOATING_CONTACT_WEBSITE_HREF, locale)}
+          label={t("contactFab.siteLabel")}
+        >
           <Globe className="size-[22px] shrink-0" strokeWidth={2} aria-hidden />
         </SocialMenuLink>
       </div>
@@ -79,6 +87,7 @@ type ContactFabTriggerProps = {
 };
 
 export function ContactFabTrigger({ open, menuId, onToggle }: ContactFabTriggerProps) {
+  const t = useTranslations();
   return (
     <button
       type="button"
@@ -91,7 +100,9 @@ export function ContactFabTrigger({ open, menuId, onToggle }: ContactFabTriggerP
       )}
     >
       <Phone className="size-7 text-white" strokeWidth={2.5} aria-hidden />
-      <span className="sr-only">{open ? "Close contact menu" : "Open contact menu"}</span>
+      <span className="sr-only">
+        {open ? t("contactFab.closeContactMenu") : t("contactFab.openContactMenu")}
+      </span>
     </button>
   );
 }
