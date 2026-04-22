@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { imgSafearea } from "./services-assets";
 
@@ -25,6 +25,7 @@ type ServicesCardContinueLinkProps = {
   href: string;
   glowVariant: ServicesContinueGlowVariant;
   ariaLabel: string;
+  label: string;
 };
 
 /** Figma-style “Continue” pill as an internal link (desktop service cards). */
@@ -32,12 +33,13 @@ export function ServicesCardContinueLink({
   href,
   glowVariant,
   ariaLabel,
+  label,
 }: ServicesCardContinueLinkProps) {
   return (
     <Link href={href} className={BASE_CLASS} aria-label={ariaLabel}>
       <span className={GLOW_TOP[glowVariant]} aria-hidden />
       <span className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap">
-        Continue
+        {label}
       </span>
       <span className={GLOW_BOTTOM[glowVariant]} aria-hidden />
       <span className="overflow-clip relative shrink-0 size-[20px]">

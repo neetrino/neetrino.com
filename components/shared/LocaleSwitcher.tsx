@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
+import { Globe } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { locales } from "@/i18n/routing";
 import { stripLocalePrefix } from "@/lib/i18n/href";
-import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { LOCALE_LABELS, LOCALE_SHORT_LABELS, type AppLocale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
 
@@ -66,13 +65,7 @@ export function LocaleSwitcher({ className, compact = false, style }: LocaleSwit
         onClick={() => setOpen((value) => !value)}
       >
         <span className="relative flex size-7 items-center justify-center rounded-full bg-white">
-          <Image
-            alt=""
-            width={24}
-            height={24}
-            className="pointer-events-none block size-6 object-contain"
-            src={FIGMA_ASSETS.imgGroup70643}
-          />
+          <Globe className="pointer-events-none size-6 text-[#473dff]" aria-hidden />
         </span>
         <span className="text-sm font-extrabold leading-none">{activeLabel}</span>
       </button>

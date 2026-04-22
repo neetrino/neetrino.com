@@ -157,6 +157,7 @@
   },
   "portfolioPage": {
     "eyebrow": "Portfolio",
+    "moreCases": "More cases",
     "description": "A curated selection of digital products and interfaces delivered for growing businesses across different industries.",
     "metaTitle": "Portfolio",
     "metaDescription": "Selected Neetrino projects across web, product design, and digital experiences."

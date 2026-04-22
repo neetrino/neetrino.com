@@ -31,7 +31,7 @@ export function GetQuoteModalForm({ onSubmit, pending, errorMessage }: GetQuoteM
   const t = useTranslations();
 
   return (
-    <form className="grid gap-4" onSubmit={onSubmit}>
+    <form className="mx-auto grid w-full max-w-sm gap-4" onSubmit={onSubmit}>
       <QuoteNamePhoneFields />
       <QuoteProjectBudgetFields />
       {errorMessage ? (

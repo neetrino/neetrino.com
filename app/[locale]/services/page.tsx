@@ -102,7 +102,7 @@ export default async function Services({ params }: ServicesPageProps) {
         <Footer />
       </div>
 
-      <ServicesDesktopCanvas />
+      <ServicesDesktopCanvas locale={locale} />
     </>
   );
 }

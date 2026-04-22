@@ -35,7 +35,7 @@ export function PortfolioMobile() {
             {t("portfolioPage.eyebrow")}
           </p>
           <h1 className="mt-3 font-['Megatrox',sans-serif] text-4xl leading-tight text-white">
-            PORTFOLIO
+            {t("portfolioPage.metaTitle")}
           </h1>
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/75">
             {t("portfolioPage.description")}

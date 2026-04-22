@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { DeferredMount } from "@/components/layout/DeferredMount";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
+import { Link } from "@/i18n/navigation";
 import { desktopPortfolioRows } from "@/components/portfolio/portfolio-data";
 import { PortfolioDesktopStarRayDeferred } from "@/components/portfolio/PortfolioDesktopStarRayDeferred";
 import { PortfolioDesktopVectorDecorDeferred } from "@/components/portfolio/PortfolioDesktopVectorDecorDeferred";
@@ -9,7 +12,12 @@ import * as figma from "@/components/portfolio/portfolio-figma-assets";
 import { CanvasFooter } from "@/components/sections/Footer";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 
-function Group({ className }: { className?: string }) {
+type GroupProps = {
+  className?: string;
+  exploreLabel: string;
+};
+
+function Group({ className, exploreLabel }: GroupProps) {
   const { imgChangeColor1, imgChangeColor, imgSafearea, imgEllipse3463 } = figma;
   return (
     <div className={className || "h-[276px] relative w-[642px]"} data-node-id="1:140">
@@ -52,7 +60,7 @@ function Group({ className }: { className?: string }) {
           data-node-id="1:149"
           style={{ fontVariationSettings: "'opsz' 14" }}
         >
-          Explore
+          {exploreLabel}
         </p>
         <div
           className="absolute left-[89px] overflow-clip size-[20px] top-[17px]"
@@ -158,7 +166,7 @@ function PortfolioPlanet() {
   );
 }
 
-function PortfolioMoreCases() {
+function PortfolioMoreCases({ title }: { title: string }) {
   return (
     <div
       className="absolute h-[1098px] left-0 overflow-clip top-[974px] w-[1440px]"
@@ -196,13 +204,15 @@ function PortfolioMoreCases() {
         className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-635px)] not-italic text-[#fffcfc] text-[90px] top-[82px] whitespace-nowrap"
         data-node-id="166:1403"
       >
-        MORE CASES
+        {title}
       </p>
     </div>
   );
 }
 
 export function PortfolioDesktopScene() {
+  const t = useTranslations();
+
   return (
     <div
       className="bg-[#151515] relative h-[2662px] w-[1440px]"
@@ -249,7 +259,7 @@ export function PortfolioDesktopScene() {
           className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap"
           data-node-id="166:1213"
         >
-          PORTFOLIO
+          {t("portfolioPage.metaTitle")}
         </p>
       </div>
       <PortfolioDesktopVectorDecorDeferred />
@@ -350,7 +360,10 @@ export function PortfolioDesktopScene() {
           </div>
         </div>
       </div>
-      <Group className="-translate-x-1/2 absolute h-[276px] left-1/2 top-[759px] w-[642px]" />
+      <Group
+        className="-translate-x-1/2 absolute h-[276px] left-1/2 top-[759px] w-[642px]"
+        exploreLabel={t("cta.explore")}
+      />
       <div
         className="-translate-x-1/2 absolute h-[664px] left-[calc(50%-7.5px)] top-[2017px] w-[1437px]"
         data-node-id="166:1259"
@@ -401,7 +414,7 @@ export function PortfolioDesktopScene() {
       </DeferredMount>
       <CanvasFooter className="left-[-3px] top-[2072px]" />
       <DeferredMount topClassName="top-[700px]" rootMargin="320px 0px 320px 0px">
-        <PortfolioMoreCases />
+        <PortfolioMoreCases title={t("portfolioPage.moreCases")} />
       </DeferredMount>
     </div>
   );
