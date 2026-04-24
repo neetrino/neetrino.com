@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { ArrowUpRight, Clock, Mail, MapPin, Phone, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import { Footer } from "@/components/sections/Footer";
 import { ContactSocialIcon } from "@/components/contact/ContactSocialIcon";
 import { CONTACT_DETAILS, CONTACT_SOCIAL_LINKS } from "@/components/contact/content";
 import { ContactInquiryForm } from "@/components/contact/ContactInquiryForm";
@@ -33,9 +32,9 @@ export default function ContactPage() {
   const t = useTranslations();
 
   return (
-    <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515]">
+    <div className="w-full min-w-0 overflow-x-hidden bg-[#151515]">
       <main
-        className={`relative isolate pt-24 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${interSans.className}`}
+        className={`relative isolate pb-20 pt-24 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${interSans.className}`}
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[760px] bg-[radial-gradient(circle_at_18%_14%,rgba(71,61,255,0.52),transparent_42%),radial-gradient(circle_at_80%_2%,rgba(147,77,255,0.35),transparent_38%),radial-gradient(circle_at_86%_62%,rgba(56,135,255,0.2),transparent_34%),linear-gradient(to_bottom,rgba(255,255,255,0.05),transparent)]" />
 
@@ -155,8 +154,6 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default async function ServiceDetailLoading() {
 
   return (
     <div
-      className="min-h-dvh w-full bg-[#151515]"
+      className="w-full min-h-[100vh] bg-[#151515]"
       aria-busy="true"
       aria-label={t("loading.service")}
     >

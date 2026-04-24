@@ -108,7 +108,6 @@ fs.writeFileSync(
   "app/services/ServicesDesktopLower.tsx",
   `"use client";
 
-import { CanvasFooter } from "@/components/sections/Footer";
 import {
   img10,
   imgComponent21,

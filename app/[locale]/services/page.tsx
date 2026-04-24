@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
-import { Footer } from "@/components/sections/Footer";
 import { getServicesCatalog, serviceDetailHref } from "@/components/services/service-pages-data";
 import { ServicesTechMarquee } from "@/components/services/ServicesTechMarquee";
 import { getLocaleAlternates } from "@/lib/metadata";
@@ -49,7 +48,7 @@ export default async function Services({ params }: ServicesPageProps) {
   return (
     <>
       <div
-        className={`min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden ${interSans.className}`}
+        className={`w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden ${interSans.className}`}
       >
         <main className="section-container pb-16 pt-24">
           <section className="border-b border-white/[0.06] pb-12 pt-6 md:pb-14 md:pt-8">
@@ -99,7 +98,6 @@ export default async function Services({ params }: ServicesPageProps) {
           </section>
         </main>
         <ServicesTechMarquee compact />
-        <Footer />
       </div>
 
       <ServicesDesktopCanvas locale={locale} />

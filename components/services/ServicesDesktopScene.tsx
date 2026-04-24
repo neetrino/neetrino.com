@@ -12,7 +12,7 @@ type ServicesDesktopSceneProps = {
 export function ServicesDesktopScene({ locale }: ServicesDesktopSceneProps) {
   return (
     <div
-      className="bg-[#151515] relative h-[2174px] w-[1440px]"
+      className="bg-[#151515] relative h-[1584px] w-[1440px]"
       data-name="SERVICES"
       data-node-id="165:666"
     >

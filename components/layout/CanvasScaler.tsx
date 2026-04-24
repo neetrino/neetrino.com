@@ -58,7 +58,7 @@ export function CanvasScaler({
   }, [updateScale]);
 
   return (
-    <div ref={wrapRef} className="neetrino-canvas-wrap" data-neetrino-canvas>
+    <div ref={wrapRef} className="neetrino-canvas-wrap overflow-hidden" data-neetrino-canvas>
       <div ref={innerRef} className="neetrino-canvas-inner">
         {children}
       </div>

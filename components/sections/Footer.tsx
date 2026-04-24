@@ -1,2 +1,1 @@
-export { Footer, CanvasFooter } from "./site-footer";
-export type { CanvasFooterProps } from "./site-footer";
+export { Footer } from "./site-footer";

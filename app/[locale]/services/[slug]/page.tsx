@@ -2,7 +2,6 @@ import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { Footer } from "@/components/sections/Footer";
 import { getServiceBySlug, getServicesCatalog } from "@/components/services/service-pages-data";
 import { locales } from "@/i18n/routing";
 import type { AppLocale } from "@/lib/i18n/locales";
@@ -69,9 +68,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const titleParts = serviceTitleMegatroxParts(service.title);
 
   return (
-    <div
-      className={`min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] ${interSans.className}`}
-    >
+    <div className={`w-full min-w-0 overflow-x-hidden bg-[#151515] ${interSans.className}`}>
       <main
         className={`section-container pb-20 pt-28 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})]`}
       >
@@ -151,7 +148,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </Link>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

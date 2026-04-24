@@ -7,7 +7,11 @@ export default async function PortfolioLoading() {
   const t = await getTranslations();
 
   return (
-    <div className="min-h-dvh w-full bg-[#151515]" aria-busy="true" aria-label={t("loading.page")}>
+    <div
+      className="w-full min-h-[100vh] bg-[#151515]"
+      aria-busy="true"
+      aria-label={t("loading.page")}
+    >
       <div className="h-0.5 w-full animate-pulse bg-white/15" />
     </div>
   );

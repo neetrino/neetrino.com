@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { Footer } from "@/components/sections/Footer";
 import { getBlogPostBySlug, getBlogPosts, type BlogPost } from "@/lib/blog-posts-data";
 import type { AppLocale } from "@/lib/i18n/locales";
 import { locales } from "@/i18n/routing";
@@ -98,9 +97,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <div
-      className={`min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] ${interSans.className}`}
-    >
+    <div className={`w-full min-w-0 overflow-x-hidden bg-[#151515] ${interSans.className}`}>
       <main
         className={`section-container pb-20 pt-28 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})]`}
       >
@@ -180,7 +177,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </Link>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

@@ -44,7 +44,7 @@ const segments = [
     start: 1139,
     end: 1278,
     name: "NeetrinoHomeSegment4",
-    extraImports: `import { CanvasFooter } from "@/components/sections/Footer";\nimport { Group } from "./Group";\n`,
+    extraImports: `import { Group } from "./Group";\n`,
   },
 ];
 
