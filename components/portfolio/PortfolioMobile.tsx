@@ -27,7 +27,7 @@ export function PortfolioMobile() {
   const hasMore = visibleCount < total;
 
   return (
-    <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
+    <div className="w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
       <main className="section-container pt-24 pb-14">
         <section className="py-10">
           <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">

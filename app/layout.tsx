@@ -39,11 +39,11 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} ${dmSans.variable} ${notoSansArmenian.variable} h-full w-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} ${dmSans.variable} ${notoSansArmenian.variable} w-full antialiased`}
       suppressHydrationWarning
     >
       <body
-        className={`${interSans.className} m-0 min-h-full w-full overflow-x-hidden p-0 bg-[#151515]`}
+        className={`${interSans.className} m-0 w-full p-0 bg-[#151515]`}
         suppressHydrationWarning
       >
         {children}

@@ -16,7 +16,7 @@ const NeetrinoHome = dynamic(
     import("@/components/neetrino-home/NeetrinoHome").then((m) => ({ default: m.NeetrinoHome })),
   {
     loading: () => (
-      <div className="relative min-h-[min(100dvh,4162px)] w-full bg-[#151515]" aria-hidden />
+      <div className="relative min-h-[min(100vh,4162px)] w-full bg-[#151515]" aria-hidden />
     ),
   },
 );
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 
 export default function Home() {
   return (
-    <div className="min-h-dvh w-full min-w-0 overflow-x-hidden">
+    <div className="w-full min-w-0 overflow-x-hidden">
       {/* Mobile layout: section-based, hidden on lg+ */}
       <div className="lg:hidden pb-24">
         <main>

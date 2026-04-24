@@ -48,7 +48,7 @@ export default async function Services({ params }: ServicesPageProps) {
   return (
     <>
       <div
-        className={`min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden ${interSans.className}`}
+        className={`w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden ${interSans.className}`}
       >
         <main className="section-container pb-16 pt-24">
           <section className="border-b border-white/[0.06] pb-12 pt-6 md:pb-14 md:pt-8">

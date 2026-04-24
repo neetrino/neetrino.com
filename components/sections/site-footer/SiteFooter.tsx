@@ -43,16 +43,67 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      className="border-t border-white/20 bg-[#151515] font-[family-name:var(--font-dm-sans)]"
+      className="w-full overflow-hidden border-t border-white/20 bg-[#151515] font-[family-name:var(--font-dm-sans)]"
     >
-      <div className="mx-auto w-full max-w-[1440px]">
+      <div className="relative w-full min-w-0 overflow-hidden">
+        {/* Viewport-wide gradient (Figma 10:221) — full footer height so #151515 does not show as top/bottom bars. */}
         <div
-          className="relative mx-auto h-[590px] w-full max-w-[1440px]"
+          className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-[#151515]"
+          aria-hidden
+        >
+          <div className="absolute inset-[-45%_-55%_-45%_-55%] min-h-[130%] min-w-[120%]">
+            <Image
+              alt=""
+              width={2400}
+              height={2400}
+              unoptimized
+              className="block size-full max-h-none max-w-none object-cover object-center"
+              src={FIGMA_ASSETS.imgRectangle17416}
+            />
+          </div>
+        </div>
+        <div
+          className="relative isolate mx-auto h-[590px] w-full max-w-[1440px] overflow-hidden"
           data-node-id="10:237"
           data-name="Footer v2"
         >
+          {/* Background / glow art — below copy (paint order + z-0). */}
+          <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+            <div
+              className="absolute h-[563px] left-[638px] opacity-70 top-[27px] w-[633px]"
+              data-node-id="10:224"
+              data-name="101"
+            >
+              <div className="absolute inset-0 overflow-hidden">
+                <Image
+                  alt=""
+                  width={2400}
+                  height={2400}
+                  unoptimized
+                  className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
+                  src={FIGMA_ASSETS.img101}
+                />
+              </div>
+            </div>
+            <div
+              className="absolute h-[563px] left-[640px] mix-blend-lighten opacity-70 top-[26px] w-[633px]"
+              data-node-id="10:223"
+              data-name="10"
+            >
+              <div className="absolute inset-0 overflow-hidden">
+                <Image
+                  alt=""
+                  width={2400}
+                  height={2400}
+                  unoptimized
+                  className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
+                  src={FIGMA_ASSETS.img101}
+                />
+              </div>
+            </div>
+          </div>
           <div
-            className="absolute h-0 left-[99px] top-[497.76px] w-[1241px]"
+            className="absolute z-10 h-0 left-[99px] top-[497.76px] w-[1241px]"
             data-node-id="10:238"
             data-name="Footer Bottom"
           >
@@ -67,7 +118,7 @@ export function Footer() {
               />
             </div>
           </div>
-          <div className="absolute h-0 left-0 top-[1.24px] w-[1440px]" data-node-id="10:240">
+          <div className="absolute z-10 h-0 left-0 top-[1.24px] w-[1440px]" data-node-id="10:240">
             <div className="absolute inset-[-1px_0_0_0]">
               <Image
                 alt=""
@@ -85,7 +136,7 @@ export function Footer() {
             data-name="Footer Middle"
           >
             <div
-              className="absolute content-stretch flex gap-[94px] items-start left-[99px] top-[116px] w-[660.376px]"
+              className="absolute z-10 content-stretch flex gap-[94px] items-start left-[99px] top-[116px] w-[660.376px]"
               data-node-id="10:242"
             >
               <div
@@ -498,7 +549,7 @@ export function Footer() {
               </div>
             </div>
             <div
-              className="absolute content-stretch flex flex-col items-start left-[912.88px] top-[116.02px] w-[426.122px]"
+              className="absolute z-10 content-stretch flex flex-col items-start left-[912.88px] top-[116.02px] w-[426.122px]"
               data-node-id="10:324"
               data-name="Footer Column"
             >
@@ -588,7 +639,7 @@ export function Footer() {
             </div>
           </div>
           <div
-            className="absolute content-stretch flex gap-[22px] items-center justify-center left-[1075px] top-[527px]"
+            className="absolute z-10 content-stretch flex gap-[22px] items-center justify-center left-[1075px] top-[527px]"
             data-node-id="10:343"
             data-name="Social Media Container"
           >
@@ -724,59 +775,12 @@ export function Footer() {
             </a>
           </div>
           <p
-            className="absolute font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] left-[110px] text-[#dcd5d5] text-[18px] top-[536.01px] whitespace-nowrap"
+            className="absolute z-10 font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] left-[110px] text-[#dcd5d5] text-[18px] top-[536.01px] whitespace-nowrap"
             data-node-id="10:366"
             style={{ fontVariationSettings: "'opsz' 14" }}
           >
             Copyright © 2017 - 2026 Neetrino IT Company. All Rights Reserved.
           </p>
-          <div
-            className="absolute h-[563px] left-[638px] opacity-70 top-[27px] w-[633px]"
-            data-node-id="10:224"
-            data-name="101"
-          >
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <Image
-                alt=""
-                width={2400}
-                height={2400}
-                unoptimized
-                className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
-                src={FIGMA_ASSETS.img101}
-              />
-            </div>
-          </div>
-          <div
-            className="-translate-x-1/2 absolute h-[487px] left-[calc(50%+2px)] top-[59.39px] w-[1437px]"
-            data-node-id="10:221"
-          >
-            <div className="absolute inset-[-41.48%_-15.66%_-41.98%_-15.66%]">
-              <Image
-                alt=""
-                width={2400}
-                height={2400}
-                unoptimized
-                className="block max-w-none size-full"
-                src={FIGMA_ASSETS.imgRectangle17416}
-              />
-            </div>
-          </div>
-          <div
-            className="absolute h-[563px] left-[640px] mix-blend-lighten opacity-70 top-[26px] w-[633px]"
-            data-node-id="10:223"
-            data-name="10"
-          >
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <Image
-                alt=""
-                width={2400}
-                height={2400}
-                unoptimized
-                className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
-                src={FIGMA_ASSETS.img101}
-              />
-            </div>
-          </div>
         </div>
       </div>
     </footer>

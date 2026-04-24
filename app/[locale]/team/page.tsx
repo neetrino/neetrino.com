@@ -26,7 +26,7 @@ export default async function TeamPage() {
   const t = await getTranslations();
 
   return (
-    <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515]">
+    <div className="w-full min-w-0 overflow-x-hidden bg-[#151515]">
       <main
         className={`mx-auto max-w-3xl px-6 pt-24 pb-16 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${interSans.className}`}
       >

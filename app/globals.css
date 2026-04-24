@@ -106,6 +106,8 @@ html {
   width: 100%;
   min-height: 100dvh;
   overflow-x: hidden;
+  /* Single document scrollbar: avoid nested scroll with body (see root layout — no h-full chain). */
+  overflow-y: auto;
   background-color: #151515;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;

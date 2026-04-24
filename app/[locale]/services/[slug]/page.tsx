@@ -68,9 +68,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const titleParts = serviceTitleMegatroxParts(service.title);
 
   return (
-    <div
-      className={`min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] ${interSans.className}`}
-    >
+    <div className={`w-full min-w-0 overflow-x-hidden bg-[#151515] ${interSans.className}`}>
       <main
         className={`section-container pb-20 pt-28 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})]`}
       >
