@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { Footer } from "@/components/sections/Footer";
 import { getBlogPostBySlug, getBlogPosts, type BlogPost } from "@/lib/blog-posts-data";
 import type { AppLocale } from "@/lib/i18n/locales";
 import { locales } from "@/i18n/routing";
@@ -180,7 +179,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </Link>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

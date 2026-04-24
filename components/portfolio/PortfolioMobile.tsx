@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Footer } from "@/components/sections/Footer";
 import {
   MOBILE_PORTFOLIO_CARD_IMAGE_SIZES,
   MOBILE_PORTFOLIO_INITIAL_VISIBLE,
@@ -76,7 +75,6 @@ export function PortfolioMobile() {
           ) : null}
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

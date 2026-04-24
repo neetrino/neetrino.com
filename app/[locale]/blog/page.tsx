@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { BlogIndexCard } from "@/components/blog/BlogIndexCard";
-import { Footer } from "@/components/sections/Footer";
 import { getBlogIndexItems } from "@/lib/blog-page.constants";
 import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/lib/i18n/locales";
@@ -45,7 +44,6 @@ export default async function BlogPage({ params }: BlogPageProps) {
           ))}
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

@@ -9,7 +9,6 @@ import { desktopPortfolioRows } from "@/components/portfolio/portfolio-data";
 import { PortfolioDesktopStarRayDeferred } from "@/components/portfolio/PortfolioDesktopStarRayDeferred";
 import { PortfolioDesktopVectorDecorDeferred } from "@/components/portfolio/PortfolioDesktopVectorDecorDeferred";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
-import { CanvasFooter } from "@/components/sections/Footer";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 
 type GroupProps = {
@@ -215,7 +214,7 @@ export function PortfolioDesktopScene() {
 
   return (
     <div
-      className="bg-[#151515] relative h-[2662px] w-[1440px]"
+      className="bg-[#151515] relative h-[2072px] w-[1440px]"
       data-name="PORTFOLIO"
       data-node-id="166:1203"
     >
@@ -412,7 +411,6 @@ export function PortfolioDesktopScene() {
           </div>
         </div>
       </DeferredMount>
-      <CanvasFooter className="left-[-3px] top-[2072px]" />
       <DeferredMount topClassName="top-[700px]" rootMargin="320px 0px 320px 0px">
         <PortfolioMoreCases title={t("portfolioPage.moreCases")} />
       </DeferredMount>

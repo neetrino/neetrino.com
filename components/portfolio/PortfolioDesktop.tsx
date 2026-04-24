@@ -5,8 +5,8 @@ import { PortfolioDesktopScene } from "@/components/portfolio/PortfolioDesktopSc
 export function PortfolioDesktop() {
   return (
     <div className="hidden lg:block">
-      <CanvasScaler canvasWidth={1440} canvasHeight={2662}>
-        <DesktopSceneMountGate canvasWidth={1440} canvasHeight={2662}>
+      <CanvasScaler canvasWidth={1440} canvasHeight={2072}>
+        <DesktopSceneMountGate canvasWidth={1440} canvasHeight={2072}>
           <PortfolioDesktopScene />
         </DesktopSceneMountGate>
       </CanvasScaler>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/sections/Footer";
 import { getTranslations } from "next-intl/server";
 import { interSans } from "@/lib/fonts";
 import { getLocaleAlternates } from "@/lib/metadata";
@@ -34,7 +33,6 @@ export default async function TeamPage() {
         <h1 className="text-3xl font-bold text-white md:text-4xl">{t("teamPage.title")}</h1>
         <p className="mt-4 text-lg text-white/70">{t("teamPage.placeholder")}</p>
       </main>
-      <Footer />
     </div>
   );
 }

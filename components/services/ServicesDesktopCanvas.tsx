@@ -13,8 +13,8 @@ type ServicesDesktopCanvasProps = {
 export function ServicesDesktopCanvas({ locale }: ServicesDesktopCanvasProps) {
   return (
     <div className="hidden lg:block">
-      <CanvasScaler canvasWidth={1440} canvasHeight={2174}>
-        <DesktopSceneMountGate canvasWidth={1440} canvasHeight={2174}>
+      <CanvasScaler canvasWidth={1440} canvasHeight={1584}>
+        <DesktopSceneMountGate canvasWidth={1440} canvasHeight={1584}>
           <ServicesDesktopScene locale={locale} />
         </DesktopSceneMountGate>
       </CanvasScaler>

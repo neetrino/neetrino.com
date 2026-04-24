@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import LiquidEther from "@/components/liquid-ether/LiquidEther";
-import { CanvasFooter } from "@/components/sections/Footer";
 import { PUBLIC_IMAGES } from "@/lib/public-image-paths";
 
 const FIGMA_ASSETS = {
@@ -1122,7 +1121,6 @@ export function NeetrinoHome() {
           />
         </div>
       </div>
-      <CanvasFooter className="left-0 top-[4162px]" />
       <div
         className="absolute h-[1173px] left-px top-[2106px] w-[1440px]"
         data-name="PROJECTS"

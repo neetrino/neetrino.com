@@ -2,7 +2,6 @@ import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { Footer } from "@/components/sections/Footer";
 import { getServiceBySlug, getServicesCatalog } from "@/components/services/service-pages-data";
 import { locales } from "@/i18n/routing";
 import type { AppLocale } from "@/lib/i18n/locales";
@@ -151,7 +150,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </Link>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

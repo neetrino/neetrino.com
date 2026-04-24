@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
-import { Footer } from "@/components/sections/Footer";
 import { getServicesCatalog, serviceDetailHref } from "@/components/services/service-pages-data";
 import { ServicesTechMarquee } from "@/components/services/ServicesTechMarquee";
 import { getLocaleAlternates } from "@/lib/metadata";
@@ -99,7 +98,6 @@ export default async function Services({ params }: ServicesPageProps) {
           </section>
         </main>
         <ServicesTechMarquee compact />
-        <Footer />
       </div>
 
       <ServicesDesktopCanvas locale={locale} />
