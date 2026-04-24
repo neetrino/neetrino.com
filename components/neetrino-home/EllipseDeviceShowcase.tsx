@@ -6,30 +6,45 @@ import { DEVICE_SHOWCASE_FRAMES } from "@/lib/device-showcase-assets";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { cn } from "@/lib/utils";
+import {
+  ORBIT_DURATION_MS,
+  orbitPercentPosition,
+  useDeviceOrbitAngles,
+  type OrbitDeviceId as DeviceId,
+  type OrbitSlotOrder as DeviceSlotOrder,
+} from "./use-device-orbit-angles";
 
-/** Arrow from `safearea.svg` (right); prev uses horizontal flip. Served from `public/icons/safearea-arrow.svg`. */
+/** Right arrow; prev uses horizontal flip. `currentColor` so hover / focus can tint the stroke. */
 function DeviceFrameNavArrow({ direction }: { direction: "prev" | "next" }) {
   return (
-    <span
-      className={`inline-flex shrink-0 ${direction === "prev" ? "scale-x-[-1]" : ""}`}
+    <svg
+      width={17}
+      height={17}
+      viewBox="0 0 17 17"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={cn("block shrink-0", direction === "prev" && "scale-x-[-1]")}
       aria-hidden
     >
-      <Image
-        src="/icons/safearea-arrow.svg"
-        width={15}
-        height={15}
-        alt=""
-        className="block h-[15px] w-[15px]"
+      <path
+        d="M10.8333 14.1665L15.8333 8.33317M15.8333 8.33317L10.8333 2.49984M15.8333 8.33317L0.833315 8.33317"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-    </span>
+    </svg>
   );
 }
 
-/** 0 = iPhone, 1 = iPad, 2 = MacBook, 3 = iMac */
-type DeviceId = 0 | 1 | 2 | 3;
-
-/** [left, top, center, right] — which device id occupies each fixed slot. */
-type DeviceSlotOrder = readonly [DeviceId, DeviceId, DeviceId, DeviceId];
+const DEVICE_ORBIT_NAV_BUTTON = cn(
+  "group relative flex h-10 min-w-[3rem] cursor-pointer items-center justify-center rounded-full border border-transparent bg-white px-3 text-[#252525] shadow-sm transition-[background-color,border-color,box-shadow,color] duration-[380ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
+  "hover:border-[#a0c4ff] hover:bg-[#111116] hover:text-[#b8d4ff]",
+  "hover:shadow-[0_0_0_1px_rgba(160,196,255,0.35),0_4px_18px_rgba(120,170,255,0.42),0_0_28px_rgba(100,150,255,0.22),inset_0_-10px_18px_-10px_rgba(160,196,255,0.14)]",
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black/30",
+  "focus-visible:border-[#a0c4ff] focus-visible:bg-[#111116] focus-visible:text-[#b8d4ff]",
+  "focus-visible:shadow-[0_0_0_1px_rgba(160,196,255,0.35),0_4px_18px_rgba(120,170,255,0.42),0_0_28px_rgba(100,150,255,0.22),inset_0_-10px_18px_-10px_rgba(160,196,255,0.14)]",
+);
 
 const INITIAL_ORDER: DeviceSlotOrder = [0, 1, 2, 3];
 
@@ -44,46 +59,36 @@ function rotateLeftOrder(prev: DeviceSlotOrder): DeviceSlotOrder {
 }
 
 /**
- * Slot anchors: 0 left, 1 top, 2 center, 3 right (no width — width is per device so size stays correct in every slot).
- */
-const SLOT_POSITION = [
-  "left-[16.5%] top-[20%] z-[3] translate-x-[8px] max-md:left-[12%] max-md:top-[19%]",
-  "left-1/2 top-[0.5%] z-[3] min-w-0 -translate-x-1/2 -translate-y-[42px] max-md:top-[0.5%]",
-  "left-1/2 top-[38%] z-[3] -translate-x-1/2 -translate-y-[42px] max-md:top-[40%]",
-  "right-[9%] top-[21%] z-[2] -translate-x-[65px] max-md:right-[5%] max-md:top-[20%]",
-] as const;
-
-/**
  * Tailwind size / nudge for each device (columns) when a given device is in the front / center slot (rows).
  * Strings can include `w-*`, `max-md:w-*`, `translate-*`, etc.
  */
 const DEVICE_WIDTH_WHEN_FRONT: Record<DeviceId, Record<DeviceId, string>> = {
   // iPhone in front: larger iPhone + inner nudge up; larger iPad / iMac; smaller MacBook.
   0: {
-    0: "w-[12%] max-md:w-[13%]",
+    0: "w-[11%] max-md:w-[12%]",
     1: "w-[15%] max-md:w-[15%]",
     2: "w-[26%] max-md:w-[30%]",
-    3: "w-[20%] max-md:w-[24%]",
+    3: "w-[21%] max-md:w-[25%]",
   },
   // iPad in front: larger iPad + lower; larger iMac + left; smaller MacBook + higher (inner transforms below).
   1: {
     0: "w-[7%]",
     1: "w-[18%] max-md:w-[22%]",
     2: "w-[26%] max-md:w-[30%]",
-    3: "w-[21%] max-md:w-[24%]",
+    3: "w-[22%] max-md:w-[25%]",
   },
   2: {
     0: "w-[7%]",
-    1: "w-[12%] max-md:w-[12%]",
-    2: "w-[32%] max-md:w-[36%]",
-    3: "w-[16.6%] max-md:w-[19.7%]",
+    1: "w-[15.5%] max-md:w-[16%]",
+    2: "w-[34%] max-md:w-[38%]",
+    3: "w-[18%] max-md:w-[21%]",
   },
   // iMac in front: larger iMac + slight lower (inner translate); smaller MacBook + nudge left (inner translate).
   3: {
-    0: "w-[7%]",
+    0: "w-[8%] max-md:w-[8.5%]",
     1: "w-[14%] max-md:w-[14%]",
     2: "w-[24%] max-md:w-[28%]",
-    3: "w-[26%] max-md:w-[30%]",
+    3: "w-[27%] max-md:w-[31%]",
   },
 };
 
@@ -95,22 +100,20 @@ function deviceWidthClass(frontDeviceId: DeviceId, deviceId: DeviceId): string {
  * Motion tuned for spatial UI: short enough to feel responsive, ease-out-heavy so motion
  * reads natural (strong deceleration into rest — not linear, not symmetric slow-in-out).
  */
-const ORBIT_MS = "duration-[720ms]";
+const ORBIT_MS = `duration-[${ORBIT_DURATION_MS}ms]`;
 const ORBIT_EASE = "ease-[cubic-bezier(0.22,1,0.36,1)]";
-const SLOT_TRANSITION = cn(
-  "transition-[left,top,right,width,max-width,min-width,transform]",
-  ORBIT_MS,
-  ORBIT_EASE,
-);
+/** Position is driven by rAF + angles; only size / inner transforms use CSS transitions. */
+const ORBIT_SHELL_TRANSITION = cn("transition-[width,max-width,min-width]", ORBIT_MS, ORBIT_EASE);
 const DEVICE_INNER_TRANSITION = cn("transition-transform", ORBIT_MS, ORBIT_EASE);
 
 /**
  * Figma 546:3027 — ellipse glow centered with phone, tablet, laptop, desktop frames around it.
- * Right button brings the device from the right slot to the center; left button brings the device from the left slot to the center.
- * Device widths can depend on `frontDeviceId` (`deviceAtSlot[2]`) — see `DEVICE_WIDTH_WHEN_FRONT`.
+ * Devices follow a shared ellipse in percent space (see `useDeviceOrbitAngles`); slot order still
+ * drives z-index and widths via `frontDeviceId` / `DEVICE_WIDTH_WHEN_FRONT`.
  */
 export function EllipseDeviceShowcase() {
   const [deviceAtSlot, setDeviceAtSlot] = useState<DeviceSlotOrder>(INITIAL_ORDER);
+  const orbitAngles = useDeviceOrbitAngles(deviceAtSlot);
 
   /** Who is in the front (center) slot — drives per-device widths via `DEVICE_WIDTH_WHEN_FRONT`. */
   const frontDeviceId = deviceAtSlot[2];
@@ -151,17 +154,22 @@ export function EllipseDeviceShowcase() {
       <div
         className={cn(
           "absolute flex justify-center",
-          SLOT_TRANSITION,
-          SLOT_POSITION[slotForDevice(0)],
+          ORBIT_SHELL_TRANSITION,
+          slotForDevice(0) === 2 ? "z-[4]" : "z-[3]",
           deviceWidthClass(frontDeviceId, 0),
         )}
+        style={{
+          ...orbitPercentPosition(orbitAngles[0], frontDeviceId),
+          transform: "translate(-50%, -50%)",
+        }}
       >
         <div
           className={cn(
             "relative aspect-[124/252] w-full",
             DEVICE_INNER_TRANSITION,
-            frontDeviceId === 1 && "-translate-x-[70px] -translate-y-[10px]",
-            frontDeviceId === 0 && "-translate-y-[40px]",
+            frontDeviceId === 3 && "-translate-y-[22px]",
+            frontDeviceId === 1 && "-translate-x-[9px] -translate-y-[10px]",
+            frontDeviceId === 0 && "-translate-y-[15px]",
           )}
         >
           <Image
@@ -178,18 +186,23 @@ export function EllipseDeviceShowcase() {
       <div
         className={cn(
           "absolute flex min-w-0 justify-center",
-          SLOT_TRANSITION,
-          SLOT_POSITION[slotForDevice(1)],
+          ORBIT_SHELL_TRANSITION,
+          slotForDevice(1) === 2 ? "z-[4]" : "z-[3]",
           deviceWidthClass(frontDeviceId, 1),
         )}
+        style={{
+          ...orbitPercentPosition(orbitAngles[1], frontDeviceId),
+          transform: "translate(-50%, -50%)",
+        }}
       >
         <div
           className={cn(
             "flex min-w-0 aspect-[305/213] w-full max-w-full items-center justify-center",
             DEVICE_INNER_TRANSITION,
-            frontDeviceId === 3 && "-translate-y-[109px] -translate-x-[20px]",
-            frontDeviceId === 1 && "-translate-y-[18px] translate-x-[2px]",
-            frontDeviceId === 0 && "-translate-y-[66px] -translate-x-[58px]",
+            frontDeviceId === 3 && "-translate-y-[51px] -translate-x-[12px]",
+            frontDeviceId === 1 && "-translate-y-[-30px] translate-x-[2px]",
+            frontDeviceId === 2 && "-translate-y-[32px]",
+            frontDeviceId === 0 && "-translate-y-[-5px] -translate-x-[38px]",
           )}
         >
           <div
@@ -214,10 +227,14 @@ export function EllipseDeviceShowcase() {
       <div
         className={cn(
           "absolute flex flex-col items-center",
-          SLOT_TRANSITION,
-          SLOT_POSITION[slotForDevice(2)],
+          ORBIT_SHELL_TRANSITION,
+          slotForDevice(2) === 2 ? "z-[4]" : "z-[3]",
           deviceWidthClass(frontDeviceId, 2),
         )}
+        style={{
+          ...orbitPercentPosition(orbitAngles[2], frontDeviceId),
+          transform: "translate(-50%, -50%)",
+        }}
       >
         <div
           className={cn(
@@ -230,10 +247,10 @@ export function EllipseDeviceShowcase() {
             className={cn(
               "w-full",
               DEVICE_INNER_TRANSITION,
-              frontDeviceId === 3 && "-translate-x-[128px] -translate-y-[62px]",
-              frontDeviceId === 2 && "-translate-x-[1px]",
-              frontDeviceId === 1 && "-translate-y-[16px] translate-x-[-2px]",
-              frontDeviceId === 0 && "-translate-y-[30px] translate-x-[90px]",
+              frontDeviceId === 3 && "-translate-x-[18px] -translate-y-[48px]",
+              frontDeviceId === 2 && "-translate-x-[1px] -translate-y-[4px]",
+              frontDeviceId === 1 && "-translate-y-[32px] -translate-x-[2px]",
+              frontDeviceId === 0 && "-translate-y-[18px] translate-x-[90px]",
             )}
           >
             <Image
@@ -251,18 +268,22 @@ export function EllipseDeviceShowcase() {
       <div
         className={cn(
           "absolute flex justify-center",
-          SLOT_TRANSITION,
-          SLOT_POSITION[slotForDevice(3)],
+          ORBIT_SHELL_TRANSITION,
+          slotForDevice(3) === 2 ? "z-[4]" : "z-[3]",
           deviceWidthClass(frontDeviceId, 3),
         )}
+        style={{
+          ...orbitPercentPosition(orbitAngles[3], frontDeviceId),
+          transform: "translate(calc(-50% + 1px), -50%)",
+        }}
       >
         <div
           className={cn(
             "relative aspect-[326/270] w-full",
             DEVICE_INNER_TRANSITION,
-            frontDeviceId === 3 && "-translate-y-[12px]",
-            frontDeviceId === 0 && "-translate-y-[28px]",
-            frontDeviceId === 1 && "-translate-x-[110px] -translate-y-[25px]",
+            frontDeviceId === 3 && "translate-y-[5px]",
+            frontDeviceId === 0 && "-translate-y-[46px]",
+            frontDeviceId === 1 && "-translate-x-[21px] -translate-y-[25px]",
           )}
         >
           <Image
@@ -283,7 +304,7 @@ export function EllipseDeviceShowcase() {
       >
         <button
           type="button"
-          className="flex h-8 min-w-[2.625rem] items-center justify-center rounded-full bg-white px-2.5 text-black shadow-sm transition hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black/30"
+          className={DEVICE_ORBIT_NAV_BUTTON}
           aria-label="Bring front device from the left"
           onClick={goLeft}
         >
@@ -291,7 +312,7 @@ export function EllipseDeviceShowcase() {
         </button>
         <button
           type="button"
-          className="flex h-8 min-w-[2.625rem] items-center justify-center rounded-full bg-white px-2.5 text-black shadow-sm transition hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black/30"
+          className={DEVICE_ORBIT_NAV_BUTTON}
           aria-label="Bring front device from the right"
           onClick={goRight}
         >
