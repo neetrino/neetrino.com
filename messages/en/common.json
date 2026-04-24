@@ -1,0 +1,283 @@
+{
+  "locale": {
+    "code": "en",
+    "name": "English"
+  },
+  "meta": {
+    "siteTitle": "NEETRINO - Web",
+    "siteDescription": "NEETRINO digital agency",
+    "siteName": "NEETRINO"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog",
+    "team": "Team",
+    "more": "More",
+    "mainAria": "Main",
+    "mobileNavigationAria": "Mobile navigation",
+    "toggleMenu": "Toggle menu",
+    "goHome": "Go to home page"
+  },
+  "language": {
+    "current": "Site language: {language}",
+    "switcherLabel": "Language",
+    "english": "English",
+    "russian": "Russian",
+    "armenian": "Armenian"
+  },
+  "cta": {
+    "getQuote": "Get a Quote",
+    "contact": "Contact",
+    "continue": "Continue",
+    "explore": "Explore",
+    "startProject": "Start a project",
+    "allServices": "All services",
+    "allPosts": "All posts",
+    "readMore": "Read more",
+    "viewCase": "View case",
+    "emailUs": "Email us"
+  },
+  "footer": {
+    "menu": "Menu",
+    "services": "Services",
+    "contact": "Contact",
+    "messageUs": "Message us",
+    "messageDescription": "Step into the digital world with one message. Our team will get back to you shortly.",
+    "placeholder": "Enter your message",
+    "send": "Send",
+    "copyright": "Copyright © 2017 - 2026 Neetrino IT Company. All Rights Reserved.",
+    "workingHoursLabel": "Working Hours",
+    "workingHoursValue": "Mon. - Fri. 10AM - 7PM",
+    "address": "108/10 Andranik Zoravar St.",
+    "serviceLabels": {
+      "website": "Website",
+      "mobileApp": "Mobile App",
+      "crmSystems": "CRM Systems",
+      "saasPlatforms": "SaaS Platforms",
+      "aiIntegration": "AI Integration",
+      "all": "All"
+    }
+  },
+  "forms": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "yourName": "Your name",
+    "yourEmail": "Your email",
+    "yourMessage": "Tell us about your project",
+    "sendInquiry": "Send inquiry",
+    "phoneNumber": "Phone number",
+    "projectType": "Project type",
+    "budget": "Budget",
+    "selectProjectType": "Select project type",
+    "selectBudgetRange": "Select budget range",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "sending": "Sending..."
+  },
+  "quote": {
+    "title": "Get a quote",
+    "description": "Tell us briefly about your project — we will get back to you.",
+    "close": "Close",
+    "projectTypes": {
+      "website": "Website",
+      "mobileApp": "Mobile app",
+      "crmAutomation": "CRM / automation",
+      "saasPlatform": "SaaS platform",
+      "aiIntegration": "AI integration",
+      "other": "Other"
+    },
+    "budgets": {
+      "under5k": "Under $5,000",
+      "5kTo15k": "$5,000 - $15,000",
+      "15kTo50k": "$15,000 - $50,000",
+      "50kTo150k": "$50,000 - $150,000",
+      "150kPlus": "$150,000+",
+      "discuss": "Prefer to discuss"
+    },
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "nameTooLong": "Name is too long.",
+      "phoneInvalid": "Please enter a valid phone number.",
+      "phoneTooLong": "Phone number is too long.",
+      "projectTypeRequired": "Please select a project type.",
+      "budgetRequired": "Please select a budget range."
+    }
+  },
+  "contactFab": {
+    "contactOptions": "Contact options",
+    "callNeetrino": "Call Neetrino",
+    "openContactMenu": "Open contact menu",
+    "closeContactMenu": "Close contact menu",
+    "siteLabel": "Neetrino website"
+  },
+  "partners": {
+    "sectionAria": "Partners",
+    "logoAlt": "Partner logo"
+  },
+  "loading": {
+    "page": "Loading page",
+    "service": "Loading service"
+  },
+  "contactPage": {
+    "heroEyebrow": "GET IN TOUCH",
+    "heroTitle": "CONTACT US",
+    "heroBody": "Reach us by email or phone, visit our office, or send a project inquiry - we respond on business days.",
+    "reachUs": "Reach us",
+    "office": "Office",
+    "location": "Location",
+    "followUs": "Follow us",
+    "inquiry": "Send an inquiry",
+    "email": "Email",
+    "phone": "Phone",
+    "openMaps": "Open in Google Maps",
+    "mapTitle": "Neetrino IT Company location map",
+    "inquiryDescription": "Share your idea or timeline - we will reply on business days.",
+    "address": "108/10 Andranik Zoravar St., Yerevan, Armenia",
+    "workingHours": "Mon - Fri, 10:00 - 19:00",
+    "metaTitle": "Contact us",
+    "metaDescription": "Contact Neetrino to discuss your website, mobile, AI, or product development project."
+  },
+  "servicesPage": {
+    "eyebrow": "What we deliver",
+    "description": "Core directions we ship with: fast delivery, clear business value, and room to scale as you grow.",
+    "breadcrumbAria": "Breadcrumb",
+    "serviceFallbackTitle": "Service",
+    "metaTitle": "Services",
+    "metaDescription": "Explore Neetrino services: websites, mobile apps, SaaS, CRM, AI solutions, and ERP systems."
+  },
+  "blogPage": {
+    "title": "Blog",
+    "description": "Insights and notes from Neetrino about product engineering and delivery.",
+    "breadcrumbAria": "Breadcrumb"
+  },
+  "portfolioPage": {
+    "eyebrow": "Portfolio",
+    "moreCases": "More cases",
+    "description": "A curated selection of digital products and interfaces delivered for growing businesses across different industries.",
+    "metaTitle": "Portfolio",
+    "metaDescription": "Selected Neetrino projects across web, product design, and digital experiences."
+  },
+  "teamPage": {
+    "title": "Team",
+    "placeholder": "Content coming soon.",
+    "metaTitle": "Team",
+    "metaDescription": "Meet the team behind Neetrino."
+  },
+  "aboutPage": {
+    "metaTitle": "About us",
+    "metaDescription": "Learn about Neetrino mission, values, expertise, and global delivery experience.",
+    "the": "THE",
+    "mission": "MISSION",
+    "vision": "VISION",
+    "why": "WHY",
+    "choose": "CHOOSE",
+    "usQuestion": "US?",
+    "values": "VALUES",
+    "valuesSuffix": "THAT ALWAYS DRIVE US",
+    "countriesPrefix": "WE WORK WITH MORE THAN",
+    "countriesAccent": "10 COUNTRIES",
+    "hero": {
+      "with": "WITH",
+      "us": "US",
+      "everyIdea": "EVERY IDEA",
+      "becomes": "BECOMES",
+      "possible": "POSSIBLE"
+    },
+    "storyShort": "Over the past 7 years, Neetrino IT has developed more than 400 online resources, ranging from simple websites to large-scale internet portals and e-commerce platforms.",
+    "storySpecialization": "We specialize in website development, AI and bot solutions, CRM system integration, mobile app development, as well as SEO and SMM optimization - delivering a comprehensive digital presence for your business.",
+    "platformParagraph": "Neetrino is the first company to offer website sales through a platform that provides access to over 100,000 professional designs. Our platform enables businesses to quickly and affordably create fully functional websites tailored to modern business needs.",
+    "missionBody": "Our goal is to deliver fast, affordable, and high-quality digital solutions, empowering businesses to effortlessly build and expand their online presence, no matter how complex the project.",
+    "visionBody": "We envision a world where businesses of all sizes can effortlessly establish a strong digital presence using our fast, cutting-edge technological solutions.",
+    "feature1Line1": "Fast and premium",
+    "feature1Line2": "execution delivered in record time",
+    "feature2Line1": "A selection of over",
+    "feature2Line2": "100,000 design options",
+    "feature3Line1": "Websites created 10 times",
+    "feature3Line2": "faster than traditional methods",
+    "feature4Line1": "24/7 technical support",
+    "feature4Line2": "and free consultations",
+    "value1": "Love to work",
+    "value2": "Transparency",
+    "value3": "Continuous learning",
+    "value4": "Respect for each other"
+  },
+  "home": {
+    "hero": {
+      "body": {
+        "line1": "We build",
+        "line2": "high-performance",
+        "line3Strong": "websites",
+        "line4": "and digital solutions",
+        "line5": "that help",
+        "line6": "businesses grow,",
+        "line7": "scale, and stand",
+        "line8": "out online."
+      },
+      "stats": {
+        "years": "Years of",
+        "experience": "experience",
+        "satisfiedClients": "Satisfied clients",
+        "creations": "Creations"
+      }
+    },
+    "whoWeAre": {
+      "eyebrow": "BUILD WITH PURPOSE",
+      "titleBefore": "WHO",
+      "titleAccent": "WE",
+      "titleAfter": "ARE",
+      "paragraph1Prefix": "Over the past 8 years,",
+      "paragraph1Middle": "has developed more than",
+      "paragraph1Strong": "400 online resources",
+      "paragraph1Suffix": ", ranging from simple websites to large-scale internet portals and e-commerce platforms.",
+      "paragraph2Prefix": "We specialize in website development, AI and bot solutions, CRM system integration, mobile app development, as well as SEO and SMM optimization - ",
+      "paragraph2Strong": "delivering a comprehensive digital presence for your business."
+    },
+    "whatWeDo": {
+      "titleBefore": "WHAT WE",
+      "titleAccent": "DO",
+      "cards": {
+        "website": {
+          "title1": "WEBSITE",
+          "subtitle1": "Custom",
+          "subtitle2": "Development"
+        },
+        "mobile": {
+          "title1": "MOBILE APP",
+          "subtitle1": "App",
+          "subtitle2": "Development"
+        },
+        "saas": {
+          "title1": "SAAS",
+          "title2": "PLATFORMS",
+          "subtitle1": "Cloud Solutions"
+        },
+        "crm": {
+          "title1": "CRM SYSTEMS",
+          "subtitle1": "Process",
+          "subtitle2": "Automation"
+        },
+        "ai": {
+          "title1": "AI",
+          "title2": "INTEGRATIONS",
+          "subtitle1": "AI Automation"
+        }
+      }
+    },
+    "projects": {
+      "titleBefore": "OUR",
+      "titleAccent": "PROJECTS",
+      "items": {
+        "webDesign": "Web Design",
+        "uiDesign": "UI Design",
+        "ecommerce": "E-Commerce",
+        "biotech": "Biotech",
+        "blockchain": "Blockchain"
+      }
+    }
+  }
+}

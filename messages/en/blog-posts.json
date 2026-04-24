@@ -1,0 +1,71 @@
+{
+  "megatrox-intro": {
+    "dateLabel": "March 7, 2026",
+    "title": "Why we chose Megatrox for our orchestration layer",
+    "excerpt": "A quick look at how Megatrox fits into our stack and what it unlocks for client delivery and internal tooling.",
+    "imageAlt": "UI design abstract preview",
+    "intro": "Orchestration glue is easy to underestimate until it becomes the bottleneck. Here is how we use Megatrox without turning every workflow into a maze.",
+    "sections": [
+      {
+        "heading": "Fit with our delivery model",
+        "paragraphs": [
+          "We ship in tight loops with design, engineering, and client stakeholders in the same room. Megatrox gives us a single place to describe flows so nobody has to reverse-engineer YAML across three repos.",
+          "That clarity compounds: onboarding a teammate onto a client stack takes hours instead of days, because the orchestration story matches what we show in reviews."
+        ]
+      },
+      {
+        "heading": "What we watch out for",
+        "paragraphs": [
+          "No tool replaces good boundaries. We keep Megatrox graphs shallow where possible, version changes like product features, and document failure modes next to the happy path.",
+          "The result is orchestration that feels boring in production - which is exactly what we want when traffic spikes or an integration misbehaves."
+        ]
+      }
+    ]
+  },
+  "megatrox-pipelines": {
+    "dateLabel": "February 22, 2026",
+    "title": "Pipelines that stay readable as they grow",
+    "excerpt": "Patterns we use to keep Megatrox workflows maintainable when requirements change mid-project.",
+    "imageAlt": "Cloud infrastructure illustration",
+    "intro": "Pipelines rarely fail on day one. They fail six months later when the team that built them is on another project. These are the patterns we lean on.",
+    "sections": [
+      {
+        "heading": "Name stages like product milestones",
+        "paragraphs": [
+          "We avoid anonymous \"step 7\" labels. Each stage reads like a sentence you could explain to a PM: ingest, validate, enrich, notify. That discipline pays off when we split or merge flows.",
+          "Megatrox makes the graph visible; naming makes it legible."
+        ]
+      },
+      {
+        "heading": "Isolate experiments",
+        "paragraphs": [
+          "Spikes and one-off client requests go behind feature flags or sibling graphs - never wedged into the trunk of a shared pipeline. We merge back only when the behavior is stable.",
+          "That keeps the main path reviewable in a single screen and prevents temporary branches from fossilizing."
+        ]
+      }
+    ]
+  },
+  "megatrox-observability": {
+    "dateLabel": "January 15, 2026",
+    "title": "Observability without the noise",
+    "excerpt": "Balancing metrics and logs when Megatrox sits between services - what we surface to teams first.",
+    "imageAlt": "Motion and animation preview",
+    "intro": "When Megatrox sits between services, every alert can feel like the orchestrator's fault. We pick a small set of signals and build dashboards around decisions, not raw volume.",
+    "sections": [
+      {
+        "heading": "Golden signals first",
+        "paragraphs": [
+          "Latency, error rate, and saturation at integration edges tell us whether users feel pain before we open trace waterfalls. Megatrox spans get correlation IDs so we can drill down when needed.",
+          "We resist the temptation to chart everything - noisy dashboards hide regressions."
+        ]
+      },
+      {
+        "heading": "Who sees what",
+        "paragraphs": [
+          "Engineers get traces and structured logs; client-facing teams get human-readable run summaries and SLA-style counters. The same run, two lenses, no duplicate paging.",
+          "That split keeps on-call sustainable and avoids alert fatigue from orchestration plumbing."
+        ]
+      }
+    ]
+  }
+}

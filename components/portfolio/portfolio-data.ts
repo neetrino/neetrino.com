@@ -1,4 +1,5 @@
 import { PUBLIC_IMAGES } from "@/lib/public-image-paths";
+import type { AppLocale } from "@/lib/i18n/locales";
 import { imgBiotechLogo1, imgPortfolio161, img2661 } from "./portfolio-figma-assets";
 
 export { imgPortfolio161, img2661, imgBiotechLogo1 };
@@ -25,7 +26,7 @@ export const MOBILE_PORTFOLIO_LOAD_MORE_STEP = 2;
 export const MOBILE_PORTFOLIO_CARD_IMAGE_SIZES =
   "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 0vw" as const;
 
-export const MOBILE_PORTFOLIO_ITEMS = [
+const MOBILE_PORTFOLIO_ITEMS_BASE = [
   { title: "Landing Platform", image: img2661 },
   { title: "Biotech Identity", image: imgBiotechLogo1 },
   { title: "Portfolio Showcase", image: imgPortfolio161 },
@@ -35,6 +36,37 @@ export const MOBILE_PORTFOLIO_ITEMS = [
   { title: "Visual System", image: portfolio10 },
   { title: "Launch Experience", image: portfolio14 },
 ] as const;
+
+const MOBILE_PORTFOLIO_TITLES_BY_LOCALE: Record<AppLocale, readonly string[]> = {
+  en: MOBILE_PORTFOLIO_ITEMS_BASE.map((item) => item.title),
+  ru: [
+    "Платформа лендингов",
+    "Айдентика Biotech",
+    "Портфолио-витрина",
+    "Продуктовая кампания",
+    "История бренда",
+    "Креативный запуск",
+    "Визуальная система",
+    "Запуск продукта",
+  ],
+  hy: [
+    "Լենդինգ հարթակ",
+    "Biotech ինքնություն",
+    "Պորտֆոլիո վիտրինա",
+    "Պրոդուկտային արշավ",
+    "Բրենդի պատմություն",
+    "Կրեատիվ թողարկում",
+    "Վիզուալ համակարգ",
+    "Թողարկման փորձ",
+  ],
+};
+
+export function getMobilePortfolioItems(locale: AppLocale) {
+  return MOBILE_PORTFOLIO_ITEMS_BASE.map((item, index) => ({
+    ...item,
+    title: MOBILE_PORTFOLIO_TITLES_BY_LOCALE[locale][index] ?? item.title,
+  }));
+}
 
 export const desktopPortfolioRows = [
   PORTFOLIO_CASE_IMAGES.slice(0, 3),

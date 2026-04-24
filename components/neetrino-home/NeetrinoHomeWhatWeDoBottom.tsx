@@ -2,12 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
 import { Group } from "./Group";
 import { Group1 } from "./Group1";
 import { img2761, imgCloudInfrastructure, imgPc1, imgSafearea } from "./figma-assets";
 
 export function NeetrinoHomeWhatWeDoBottom() {
+  const t = useTranslations();
+
   return (
     <>
       <div className="absolute contents left-[590px] top-[129px]" data-node-id="90:542">
@@ -20,13 +23,15 @@ export function NeetrinoHomeWhatWeDoBottom() {
             className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[792px] not-italic text-[20px] text-right text-white top-[577.5px] whitespace-nowrap"
             data-node-id="90:545"
           >
-            <p className="leading-[25px]">Cloud Solutions</p>
+            <p className="leading-[25px]">{t("home.whatWeDo.cards.saas.subtitle1")}</p>
           </div>
           <div
             className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-bold justify-center leading-[0] left-[619px] not-italic text-[22px] text-white top-[199.5px] whitespace-nowrap"
             data-node-id="90:546"
           >
-            <p className="leading-[35px]">SAAS PLATFORMS</p>
+            <p className="leading-[35px]">
+              {t("home.whatWeDo.cards.saas.title1")} {t("home.whatWeDo.cards.saas.title2")}
+            </p>
           </div>
         </div>
         <div
@@ -87,15 +92,15 @@ export function NeetrinoHomeWhatWeDoBottom() {
           className="-translate-y-1/2 absolute flex flex-col font-medium justify-center left-[56px] not-italic text-[16px] top-[23.5px]"
           data-node-id="90:554"
         >
-          <p className="leading-[35px]">SERVICES</p>
+          <p className="leading-[35px]">{t("nav.services")}</p>
         </div>
         <div
           className="-translate-y-1/2 absolute flex flex-col font-black italic justify-center left-[50px] text-[35px] top-[58.5px]"
           data-node-id="90:555"
         >
           <p>
-            <span className="leading-[35px]">{`WHAT WE `}</span>
-            <span className="leading-[35px] text-[#ff7500]">DO</span>
+            <span className="leading-[35px]">{`${t("home.whatWeDo.titleBefore")} `}</span>
+            <span className="leading-[35px] text-[#ff7500]">{t("home.whatWeDo.titleAccent")}</span>
           </p>
         </div>
       </div>
@@ -115,7 +120,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
           className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
           data-node-id="I90:547;13:33"
         >
-          Continue
+          {t("cta.continue")}
         </p>
         <div
           className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
@@ -157,7 +162,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
           className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
           data-node-id="I90:541;13:33"
         >
-          Continue
+          {t("cta.continue")}
         </p>
         <div
           className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"

@@ -9,26 +9,26 @@ export const PRIMARY_NAV_LINK_DESKTOP_CLASS =
   "font-['Inter:Semi_Bold',sans-serif] font-semibold text-white text-sm lg:text-base whitespace-nowrap transition-opacity hover:opacity-80";
 
 export type NavSubLink = {
-  readonly label: string;
+  readonly labelKey: string;
   readonly href: string;
 };
 
 export type NavItem =
-  | { readonly kind: "link"; readonly label: string; readonly href: string }
-  | { readonly kind: "group"; readonly label: string; readonly items: readonly NavSubLink[] };
+  | { readonly kind: "link"; readonly labelKey: string; readonly href: string }
+  | { readonly kind: "group"; readonly labelKey: string; readonly items: readonly NavSubLink[] };
 
 export const PRIMARY_NAV_LINKS: readonly NavItem[] = [
-  { kind: "link", label: "Home", href: "/" },
-  { kind: "link", label: "Services", href: "/services" },
-  { kind: "link", label: "Portfolio", href: "/portfolio" },
-  { kind: "link", label: "About", href: "/about-us" },
-  { kind: "link", label: "Contact", href: "/contact" },
+  { kind: "link", labelKey: "home", href: "/" },
+  { kind: "link", labelKey: "services", href: "/services" },
+  { kind: "link", labelKey: "portfolio", href: "/portfolio" },
+  { kind: "link", labelKey: "about", href: "/about-us" },
+  { kind: "link", labelKey: "contact", href: "/contact" },
   {
     kind: "group",
-    label: "More",
+    labelKey: "more",
     items: [
-      { label: "Blog", href: "/blog" },
-      { label: "Team", href: "/team" },
+      { labelKey: "blog", href: "/blog" },
+      { labelKey: "team", href: "/team" },
     ],
   },
 ] as const;

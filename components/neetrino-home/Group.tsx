@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
 import { imgEllipse3463, imgSafearea1 } from "./figma-assets";
 
@@ -12,6 +13,8 @@ type GroupProps = {
 };
 
 export function Group({ className, exploreHref }: GroupProps) {
+  const t = useTranslations();
+
   return (
     <div
       className={`pointer-events-none ${className || "h-[276px] relative w-[642px]"}`}
@@ -38,7 +41,7 @@ export function Group({ className, exploreHref }: GroupProps) {
           data-node-id="1:149"
           style={{ fontVariationSettings: "'opsz' 14" }}
         >
-          Explore
+          {t("cta.explore")}
         </p>
         <div
           className="absolute left-[89px] overflow-clip size-[20px] top-[17px]"

@@ -3,8 +3,13 @@ import { ServicesDesktopCardsScene } from "@/components/services/ServicesDesktop
 import { ServicesDesktopLightRays } from "@/components/services/ServicesDesktopLightRays";
 import { ServicesDesktopLightRaysDecor } from "@/components/services/ServicesDesktopLightRaysDecor";
 import { ServicesDesktopOrbitChrome } from "@/components/services/ServicesDesktopOrbitChrome";
+import type { AppLocale } from "@/lib/i18n/locales";
 
-export function ServicesDesktopScene() {
+type ServicesDesktopSceneProps = {
+  locale: AppLocale;
+};
+
+export function ServicesDesktopScene({ locale }: ServicesDesktopSceneProps) {
   return (
     <div
       className="bg-[#151515] relative h-[2174px] w-[1440px]"
@@ -14,7 +19,7 @@ export function ServicesDesktopScene() {
       <ServicesDesktopBackdrop />
       <ServicesDesktopLightRays>
         <ServicesDesktopLightRaysDecor />
-        <ServicesDesktopCardsScene />
+        <ServicesDesktopCardsScene locale={locale} />
       </ServicesDesktopLightRays>
       <ServicesDesktopOrbitChrome />
     </div>

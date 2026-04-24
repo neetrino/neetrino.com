@@ -121,6 +121,16 @@ body {
   background-color: #151515;
 }
 
+html[lang="hy"] {
+  --font-megatrox:
+    var(--font-noto-sans-armenian), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+html[lang="hy"] body {
+  font-family:
+    var(--font-noto-sans-armenian), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
 /*
   Neetrino: fluid canvas — 1440×5600 design scales proportionally to any viewport.
   Used by CanvasScaler for the desktop (lg+) layout.

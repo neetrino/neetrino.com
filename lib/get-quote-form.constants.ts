@@ -1,18 +1,18 @@
 /** Options for the Get a quote modal (aligned with site services). */
 export const GET_QUOTE_PROJECT_TYPES = [
-  { value: "website", label: "Website" },
-  { value: "mobile-app", label: "Mobile app" },
-  { value: "crm", label: "CRM / automation" },
-  { value: "saas", label: "SaaS platform" },
-  { value: "ai", label: "AI integration" },
-  { value: "other", label: "Other" },
+  { value: "website", labelKey: "website" },
+  { value: "mobile-app", labelKey: "mobileApp" },
+  { value: "crm", labelKey: "crmAutomation" },
+  { value: "saas", labelKey: "saasPlatform" },
+  { value: "ai", labelKey: "aiIntegration" },
+  { value: "other", labelKey: "other" },
 ] as const;
 
 export const GET_QUOTE_BUDGETS = [
-  { value: "under-5k", label: "Under $5,000" },
-  { value: "5k-15k", label: "$5,000 – $15,000" },
-  { value: "15k-50k", label: "$15,000 – $50,000" },
-  { value: "50k-150k", label: "$50,000 – $150,000" },
-  { value: "150k-plus", label: "$150,000+" },
-  { value: "discuss", label: "Prefer to discuss" },
+  { value: "under-5k", labelKey: "under5k" },
+  { value: "5k-15k", labelKey: "5kTo15k" },
+  { value: "15k-50k", labelKey: "15kTo50k" },
+  { value: "50k-150k", labelKey: "50kTo150k" },
+  { value: "150k-plus", labelKey: "150kPlus" },
+  { value: "discuss", labelKey: "discuss" },
 ] as const;

@@ -1,47 +1,50 @@
-import { submitContactInquiry } from "@/app/contact/actions";
+import { useTranslations } from "next-intl";
+import { submitContactInquiry } from "@/app/actions/contact";
 
 export function ContactInquiryForm() {
+  const t = useTranslations();
+
   return (
     <form action={submitContactInquiry} className="grid gap-3 md:grid-cols-2">
       <label className="sr-only" htmlFor="contact-name">
-        Name
+        {t("forms.name")}
       </label>
       <input
         id="contact-name"
         name="name"
         type="text"
-        placeholder="Your name"
-        className="min-h-12 rounded-full border-0 bg-white px-5 py-3 text-[#151515] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4a3aff]"
+        placeholder={t("forms.yourName")}
+        className="min-h-12 rounded-full border border-white/15 bg-white/[0.08] px-5 py-3 text-white placeholder:text-white/55 focus:outline-none focus:ring-2 focus:ring-[#6c63ff]"
       />
 
       <label className="sr-only" htmlFor="contact-email">
-        Email
+        {t("forms.email")}
       </label>
       <input
         id="contact-email"
         name="email"
         type="email"
-        placeholder="Your email"
-        className="min-h-12 rounded-full border-0 bg-white px-5 py-3 text-[#151515] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4a3aff]"
+        placeholder={t("forms.yourEmail")}
+        className="min-h-12 rounded-full border border-white/15 bg-white/[0.08] px-5 py-3 text-white placeholder:text-white/55 focus:outline-none focus:ring-2 focus:ring-[#6c63ff]"
       />
 
       <label className="sr-only" htmlFor="contact-message">
-        Message
+        {t("forms.message")}
       </label>
       <textarea
         id="contact-message"
         name="message"
-        placeholder="Tell us about your project"
+        placeholder={t("forms.yourMessage")}
         rows={5}
-        className="min-h-[148px] resize-y rounded-3xl border-0 bg-white px-5 py-4 text-[#151515] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4a3aff] md:col-span-2"
+        className="min-h-[148px] resize-y rounded-3xl border border-white/15 bg-white/[0.08] px-5 py-4 text-white placeholder:text-white/55 focus:outline-none focus:ring-2 focus:ring-[#6c63ff] md:col-span-2"
       />
 
       <div className="md:col-span-2">
         <button
           type="submit"
-          className="inline-flex items-center justify-center rounded-full bg-[#4a3aff] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#3d2fe0]"
+          className="inline-flex items-center justify-center rounded-full border border-[#756cff] bg-[#4d43ff]/85 px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#5a51ff]"
         >
-          Send inquiry
+          {t("forms.sendInquiry")}
         </button>
       </div>
     </form>

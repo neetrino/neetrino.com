@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { NavbarMobileShell } from "@/components/nav/NavbarMobileShell";
 import { GetQuoteCtaButton } from "@/components/quote/get-quote-cta-button";
 import { useScrolledPastThreshold } from "@/lib/hooks/useScrolledPastThreshold";
 import { PrimaryNavMoreDropdown } from "@/components/shared/PrimaryNavMoreDropdown";
+import { LocaleSwitcher } from "@/components/shared/LocaleSwitcher";
 import { PRIMARY_NAV_LINK_DESKTOP_CLASS, PRIMARY_NAV_LINKS } from "@/lib/nav-links";
 import { cn } from "@/lib/utils";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
@@ -16,6 +18,7 @@ import { FIGMA_ASSETS } from "@/lib/figma-assets";
  * Shown under `lg` via parent `lg:hidden` in `AppHeader`.
  */
 export function MobileHeader() {
+  const t = useTranslations();
   const stickyChrome = useScrolledPastThreshold();
 
   return (
@@ -46,23 +49,24 @@ export function MobileHeader() {
 
           <nav
             className="hidden lg:flex items-center justify-center gap-5 lg:gap-6 min-w-0"
-            aria-label="Main"
+            aria-label={t("nav.mainAria")}
           >
             {PRIMARY_NAV_LINKS.map((item) =>
               item.kind === "link" ? (
                 <Link key={item.href} href={item.href} className={PRIMARY_NAV_LINK_DESKTOP_CLASS}>
-                  {item.label}
+                  {t(`nav.${item.labelKey}`)}
                 </Link>
               ) : (
-                <PrimaryNavMoreDropdown key={item.label} variant="bar" items={item.items} />
+                <PrimaryNavMoreDropdown key={item.labelKey} variant="bar" items={item.items} />
               ),
             )}
           </nav>
 
           <div className="flex items-center gap-1 min-[360px]:gap-2 sm:gap-3">
+            <LocaleSwitcher compact className="lg:hidden" />
             <NavbarMobileShell links={PRIMARY_NAV_LINKS} />
             <GetQuoteCtaButton className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#473dff] px-3 py-2 text-xs font-extrabold text-white transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80 sm:px-4 sm:text-sm">
-              Get a Quote
+              {t("cta.getQuote")}
             </GetQuoteCtaButton>
           </div>
         </div>

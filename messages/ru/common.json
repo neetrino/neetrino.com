@@ -1,0 +1,283 @@
+{
+  "locale": {
+    "code": "ru",
+    "name": "Русский"
+  },
+  "meta": {
+    "siteTitle": "NEETRINO - Web",
+    "siteDescription": "Цифровое агентство NEETRINO",
+    "siteName": "NEETRINO"
+  },
+  "nav": {
+    "home": "Главная",
+    "services": "Услуги",
+    "portfolio": "Портфолио",
+    "about": "О нас",
+    "contact": "Контакты",
+    "blog": "Блог",
+    "team": "Команда",
+    "more": "Еще",
+    "mainAria": "Главная навигация",
+    "mobileNavigationAria": "Мобильная навигация",
+    "toggleMenu": "Открыть меню",
+    "goHome": "Перейти на главную страницу"
+  },
+  "language": {
+    "current": "Язык сайта: {language}",
+    "switcherLabel": "Язык",
+    "english": "Английский",
+    "russian": "Русский",
+    "armenian": "Армянский"
+  },
+  "cta": {
+    "getQuote": "Смета",
+    "contact": "Связаться",
+    "continue": "Подробнее",
+    "explore": "Смотреть",
+    "startProject": "Начать проект",
+    "allServices": "Все услуги",
+    "allPosts": "Все статьи",
+    "readMore": "Читать далее",
+    "viewCase": "Смотреть кейс",
+    "emailUs": "Написать на почту"
+  },
+  "footer": {
+    "menu": "Меню",
+    "services": "Услуги",
+    "contact": "Контакты",
+    "messageUs": "Напишите нам",
+    "messageDescription": "Сделайте шаг в цифровой мир одним сообщением. Наша команда ответит вам в ближайшее время.",
+    "placeholder": "Введите сообщение",
+    "send": "Отправить",
+    "copyright": "Copyright © 2017 - 2026 Neetrino IT Company. Все права защищены.",
+    "workingHoursLabel": "Время работы",
+    "workingHoursValue": "Пн. - Пт. 10:00 - 19:00",
+    "address": "ул. Андраника Зоравара 108/10",
+    "serviceLabels": {
+      "website": "Сайты",
+      "mobileApp": "Мобильные приложения",
+      "crmSystems": "CRM-системы",
+      "saasPlatforms": "SaaS-платформы",
+      "aiIntegration": "AI-интеграции",
+      "all": "Все"
+    }
+  },
+  "forms": {
+    "name": "Имя",
+    "email": "Email",
+    "message": "Сообщение",
+    "yourName": "Ваше имя",
+    "yourEmail": "Ваш email",
+    "yourMessage": "Расскажите о вашем проекте",
+    "sendInquiry": "Отправить заявку",
+    "phoneNumber": "Телефон",
+    "projectType": "Тип проекта",
+    "budget": "Бюджет",
+    "selectProjectType": "Выберите тип проекта",
+    "selectBudgetRange": "Выберите диапазон бюджета",
+    "submit": "Отправить",
+    "cancel": "Отмена",
+    "sending": "Отправка..."
+  },
+  "quote": {
+    "title": "Запросить смету",
+    "description": "Коротко расскажите о проекте — мы свяжемся с вами в ближайшее время.",
+    "close": "Закрыть",
+    "projectTypes": {
+      "website": "Сайт",
+      "mobileApp": "Мобильное приложение",
+      "crmAutomation": "CRM / автоматизация",
+      "saasPlatform": "SaaS-платформа",
+      "aiIntegration": "AI-интеграция",
+      "other": "Другое"
+    },
+    "budgets": {
+      "under5k": "До $5,000",
+      "5kTo15k": "$5,000 - $15,000",
+      "15kTo50k": "$15,000 - $50,000",
+      "50kTo150k": "$50,000 - $150,000",
+      "150kPlus": "От $150,000",
+      "discuss": "Предпочитаю обсудить"
+    },
+    "errors": {
+      "nameRequired": "Пожалуйста, укажите имя.",
+      "nameTooLong": "Слишком длинное имя.",
+      "phoneInvalid": "Пожалуйста, введите корректный номер телефона.",
+      "phoneTooLong": "Слишком длинный номер телефона.",
+      "projectTypeRequired": "Выберите тип проекта.",
+      "budgetRequired": "Выберите диапазон бюджета."
+    }
+  },
+  "contactFab": {
+    "contactOptions": "Варианты связи",
+    "callNeetrino": "Позвонить в Neetrino",
+    "openContactMenu": "Открыть меню контактов",
+    "closeContactMenu": "Закрыть меню контактов",
+    "siteLabel": "Сайт Neetrino"
+  },
+  "partners": {
+    "sectionAria": "Партнеры",
+    "logoAlt": "Логотип партнера"
+  },
+  "loading": {
+    "page": "Загрузка страницы",
+    "service": "Загрузка услуги"
+  },
+  "contactPage": {
+    "heroEyebrow": "СВЯЖИТЕСЬ С НАМИ",
+    "heroTitle": "КОНТАКТЫ",
+    "heroBody": "Свяжитесь с нами по почте или телефону, посетите офис или отправьте заявку - мы отвечаем в рабочие дни.",
+    "reachUs": "Связь",
+    "office": "Офис",
+    "location": "Локация",
+    "followUs": "Мы в соцсетях",
+    "inquiry": "Отправить заявку",
+    "email": "Email",
+    "phone": "Телефон",
+    "openMaps": "Открыть в Google Maps",
+    "mapTitle": "Карта расположения Neetrino IT Company",
+    "inquiryDescription": "Опишите идею или сроки - мы ответим в рабочие дни.",
+    "address": "Армения, Ереван, ул. Андраника Зоравара 108/10",
+    "workingHours": "Пн - Пт, 10:00 - 19:00",
+    "metaTitle": "Контакты",
+    "metaDescription": "Свяжитесь с Neetrino для обсуждения сайта, мобильного приложения, AI-решения или продуктовой разработки."
+  },
+  "servicesPage": {
+    "eyebrow": "Что мы создаем",
+    "description": "Ключевые направления нашей работы: высокая скорость реализации, прозрачная бизнес-ценность и масштабирование вместе с вашим ростом.",
+    "breadcrumbAria": "Навигационная цепочка",
+    "serviceFallbackTitle": "Услуга",
+    "metaTitle": "Услуги",
+    "metaDescription": "Услуги Neetrino: сайты, мобильные приложения, SaaS, CRM, AI и ERP-системы."
+  },
+  "blogPage": {
+    "title": "Блог",
+    "description": "Материалы Neetrino о продуктовой разработке, архитектуре и delivery-практиках.",
+    "breadcrumbAria": "Навигационная цепочка"
+  },
+  "portfolioPage": {
+    "eyebrow": "Портфолио",
+    "moreCases": "Еще кейсы",
+    "description": "Подборка цифровых продуктов и интерфейсов, реализованных для компаний из разных отраслей.",
+    "metaTitle": "Портфолио",
+    "metaDescription": "Избранные проекты Neetrino в вебе, продуктовом дизайне и цифровых сервисах."
+  },
+  "teamPage": {
+    "title": "Команда",
+    "placeholder": "Контент скоро появится.",
+    "metaTitle": "Команда",
+    "metaDescription": "Команда, которая создает решения Neetrino."
+  },
+  "aboutPage": {
+    "metaTitle": "О нас",
+    "metaDescription": "Миссия, ценности и опыт Neetrino в создании цифровых продуктов.",
+    "the": "",
+    "mission": "МИССИЯ",
+    "vision": "ВИДЕНИЕ",
+    "why": "ПОЧЕМУ",
+    "choose": "ВЫБИРАЮТ",
+    "usQuestion": "НАС?",
+    "values": "ЦЕННОСТИ",
+    "valuesSuffix": "КОТОРЫЕ ВСЕГДА ВЕДУТ НАС ВПЕРЕД",
+    "countriesPrefix": "МЫ РАБОТАЕМ БОЛЕЕ ЧЕМ С",
+    "countriesAccent": "10 СТРАНАМИ",
+    "hero": {
+      "with": "С НАМИ",
+      "us": "",
+      "everyIdea": "КАЖДАЯ ИДЕЯ",
+      "becomes": "СТАНОВИТСЯ",
+      "possible": "ВОЗМОЖНОЙ"
+    },
+    "storyShort": "За последние 7 лет Neetrino IT разработала более 400 онлайн-ресурсов: от простых сайтов до крупных интернет-порталов и e-commerce платформ.",
+    "storySpecialization": "Мы специализируемся на разработке сайтов, AI и бот-решениях, CRM-интеграции, мобильной разработке, а также SEO и SMM-оптимизации.",
+    "platformParagraph": "Neetrino первой предложила модель продажи сайтов через платформу с доступом к более чем 100,000 профессиональных дизайнов. Это позволяет бизнесу быстро и доступно запускать полнофункциональные сайты под современные задачи.",
+    "missionBody": "Наша цель - предоставлять быстрые, доступные и качественные цифровые решения, помогая бизнесу уверенно развивать онлайн-присутствие независимо от сложности проекта.",
+    "visionBody": "Мы видим мир, где компании любого масштаба легко строят сильное цифровое присутствие благодаря современным технологическим решениям.",
+    "feature1Line1": "Быстрое и премиальное",
+    "feature1Line2": "исполнение в рекордные сроки",
+    "feature2Line1": "Выбор из более чем",
+    "feature2Line2": "100,000 дизайн-решений",
+    "feature3Line1": "Сайты создаются в 10 раз",
+    "feature3Line2": "быстрее классического подхода",
+    "feature4Line1": "Техническая поддержка 24/7",
+    "feature4Line2": "и бесплатные консультации",
+    "value1": "Любовь к делу",
+    "value2": "Прозрачность",
+    "value3": "Непрерывное развитие",
+    "value4": "Уважение друг к другу"
+  },
+  "home": {
+    "hero": {
+      "body": {
+        "line1": "Мы создаем",
+        "line2": "высокопроизводительные",
+        "line3Strong": "сайты",
+        "line4": "и цифровые решения,",
+        "line5": "которые помогают",
+        "line6": "бизнесу расти,",
+        "line7": "масштабироваться и",
+        "line8": "выделяться онлайн."
+      },
+      "stats": {
+        "years": "Лет",
+        "experience": "опыта",
+        "satisfiedClients": "Довольных клиентов",
+        "creations": "Проектов"
+      }
+    },
+    "whoWeAre": {
+      "eyebrow": "BUILD WITH PURPOSE",
+      "titleBefore": "КТО",
+      "titleAccent": "МЫ",
+      "titleAfter": "",
+      "paragraph1Prefix": "За последние 8 лет",
+      "paragraph1Middle": "разработала более",
+      "paragraph1Strong": "400 онлайн-ресурсов",
+      "paragraph1Suffix": ", от простых сайтов до крупных интернет-порталов и e-commerce платформ.",
+      "paragraph2Prefix": "Мы специализируемся на разработке сайтов, AI и бот-решениях, интеграции CRM-систем, мобильной разработке, а также SEO и SMM-оптимизации - ",
+      "paragraph2Strong": "создавая полноценное цифровое присутствие для вашего бизнеса."
+    },
+    "whatWeDo": {
+      "titleBefore": "ЧТО МЫ",
+      "titleAccent": "ДЕЛАЕМ",
+      "cards": {
+        "website": {
+          "title1": "САЙТЫ",
+          "subtitle1": "Индивидуальная",
+          "subtitle2": "разработка"
+        },
+        "mobile": {
+          "title1": "МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ",
+          "subtitle1": "Разработка",
+          "subtitle2": "приложений"
+        },
+        "saas": {
+          "title1": "SAAS",
+          "title2": "ПЛАТФОРМЫ",
+          "subtitle1": "Облачные решения"
+        },
+        "crm": {
+          "title1": "CRM СИСТЕМЫ",
+          "subtitle1": "Автоматизация",
+          "subtitle2": "процессов"
+        },
+        "ai": {
+          "title1": "AI",
+          "title2": "ИНТЕГРАЦИИ",
+          "subtitle1": "AI автоматизация"
+        }
+      }
+    },
+    "projects": {
+      "titleBefore": "НАШИ",
+      "titleAccent": "ПРОЕКТЫ",
+      "items": {
+        "webDesign": "Веб-дизайн",
+        "uiDesign": "UI-дизайн",
+        "ecommerce": "E-Commerce",
+        "biotech": "Biotech",
+        "blockchain": "Blockchain"
+      }
+    }
+  }
+}

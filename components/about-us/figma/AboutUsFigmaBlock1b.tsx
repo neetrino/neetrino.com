@@ -2,6 +2,7 @@
 
 import type { CSSProperties } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
@@ -24,6 +25,8 @@ const transformStyle = {
 
 /** Figma ABOUT fragment — nodes 335:931–335:954 (split for 300-line limit). */
 export function AboutUsFigmaBlock1b() {
+  const t = useTranslations();
+
   return (
     <>
       <div
@@ -114,11 +117,11 @@ export function AboutUsFigmaBlock1b() {
         >
           <p>
             <span className="font-['Inter:Regular',sans-serif] font-normal leading-[95px] not-italic text-white">
-              WITH
+              {t("aboutPage.hero.with")}
             </span>
             <span className="leading-[95px]">{` `}</span>
             <span className="font-['Inter:Black_Italic',sans-serif] font-black italic leading-[95px]">
-              US
+              {t("aboutPage.hero.us")}
             </span>
           </p>
         </div>
@@ -126,51 +129,32 @@ export function AboutUsFigmaBlock1b() {
           className="-translate-y-1/2 absolute flex flex-col font-['Inter:Black_Italic',sans-serif] font-black italic justify-center leading-[0] left-[87px] text-[105px] text-white top-[621.5px] tracking-[2.1px] whitespace-nowrap"
           data-node-id="335:947"
         >
-          <p className="leading-[95px]">POSSIBLE</p>
+          <p className="leading-[95px]">{t("aboutPage.hero.possible")}</p>
         </div>
         <div
           className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] left-[87px] not-italic text-[105px] text-white top-[521.5px] tracking-[2.1px] whitespace-nowrap"
           data-node-id="335:948"
         >
-          <p className="leading-[95px]">BECOMES</p>
+          <p className="leading-[95px]">{t("aboutPage.hero.becomes")}</p>
         </div>
         <div
           className="-translate-x-full -translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[594px] not-italic text-[16px] text-right text-white top-[742px] w-[367px]"
           data-node-id="335:949"
         >
-          <p className="leading-[24px]">{`Over the past 7 years, Neetrino IT has developed more than 400 online resources, ranging from simple websites to large-scale internet portals and e-commerce platforms. `}</p>
+          <p className="leading-[24px]">{t("aboutPage.storyShort")}</p>
         </div>
         <div
           className="-translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[621px] not-italic text-[16px] text-white top-[790px] w-[246px]"
           data-node-id="335:950"
         >
-          <p className="leading-[24px]">
-            We specialize in website development, AI and bot solutions, CRM system integration,
-            mobile app development, as well as SEO and SMM optimization—delivering a comprehensive
-            digital presence for your business.
-          </p>
+          <p className="leading-[24px]">{t("aboutPage.storySpecialization")}</p>
         </div>
         <div
           className="-translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[49px] not-italic text-[20px] text-white top-[1089px] w-[653px]"
           data-node-id="335:951"
         >
           <p>
-            <span className="font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] not-italic">
-              Neetrino
-            </span>
-            <span className="leading-[28px]">{` is the first company to`}</span>
-            <span className="font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] not-italic">{` offer website sales`}</span>
-            <span className="leading-[28px]">{` through a Platform that provides access to `}</span>
-            <span className="font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] not-italic">
-              over 100,000
-            </span>
-            <span className="leading-[28px]">{` professional designs. Our Platform enables businesses to quickly and affordably create fully functional websites, perfectly tailored to`}</span>
-            <span className="font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] not-italic">{` modern business needs`}</span>
-            <span className="leading-[28px]">{`. We not only save you time and resources but also guarantee high quality, advanced functionality, and ongoing support—maximizing the efficiency and competitiveness of `}</span>
-            <span className="font-['Inter:Extra_Bold',sans-serif] font-extrabold leading-[28px] not-italic">
-              your online presence
-            </span>
-            <span className="leading-[28px]">.</span>
+            <span className="leading-[28px]">{t("aboutPage.platformParagraph")}</span>
           </p>
         </div>
         <div className="absolute z-0 flex h-[1000px] items-center justify-center left-[744px] top-[138px] w-[749px]">
@@ -203,7 +187,7 @@ export function AboutUsFigmaBlock1b() {
           className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] left-[293px] not-italic text-[105px] text-white top-[421.5px] tracking-[2.1px] whitespace-nowrap"
           data-node-id="335:954"
         >
-          <p className="leading-[95px]">EVERY IDEA</p>
+          <p className="leading-[95px]">{t("aboutPage.hero.everyIdea")}</p>
         </div>
       </div>
     </>

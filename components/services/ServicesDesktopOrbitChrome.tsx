@@ -3,6 +3,7 @@ import { CanvasFooter } from "@/components/sections/Footer";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { imgComponent21, imgEllipse1, imgPngwing6 } from "./services-assets";
+import { ServicesTechMarquee } from "./ServicesTechMarquee";
 
 export function ServicesDesktopOrbitChrome() {
   return (
@@ -45,6 +46,7 @@ export function ServicesDesktopOrbitChrome() {
           </div>
         </div>
       </div>
+      <ServicesTechMarquee className="absolute left-0 top-[1460px] w-[1440px]" />
       <CanvasFooter className="left-0 top-[1584px]" />
       <div
         className="pointer-events-none absolute inset-[-30.68%_-197.36%_118.77%_150.21%]"

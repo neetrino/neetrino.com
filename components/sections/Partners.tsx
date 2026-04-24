@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 const partnerLogos = [
@@ -25,9 +26,11 @@ const marqueeBaseLogos = [...partnerLogos, ...partnerLogos, ...partnerLogos];
 const doubledPartnerLogos = [...marqueeBaseLogos, ...marqueeBaseLogos];
 
 export function Partners() {
+  const t = useTranslations();
+
   return (
     <section
-      aria-label="Partners"
+      aria-label={t("partners.sectionAria")}
       style={{
         overflow: "hidden",
         padding: "40px 0",
@@ -70,7 +73,7 @@ export function Partners() {
             <Image
               key={`${logo.src}-${i}`}
               src={logo.src}
-              alt="Partner logo"
+              alt={t("partners.logoAlt")}
               width={width}
               height={height}
               className="block shrink-0 opacity-70"
@@ -87,7 +90,7 @@ export function Partners() {
             <Image
               key={`mobile-${logo.src}-${i}`}
               src={logo.src}
-              alt="Partner logo"
+              alt={t("partners.logoAlt")}
               width={width}
               height={height}
               className="block shrink-0 opacity-70"

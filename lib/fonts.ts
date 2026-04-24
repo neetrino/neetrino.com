@@ -1,4 +1,4 @@
-import { DM_Sans, Inter } from "next/font/google";
+import { DM_Sans, Inter, Noto_Sans_Armenian } from "next/font/google";
 
 /** Основной UI/маркетинговый шрифт — Inter (latin + cyrillic). */
 export const interSans = Inter({
@@ -15,4 +15,11 @@ export const dmSans = DM_Sans({
   weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-dm-sans",
+});
+
+export const notoSansArmenian = Noto_Sans_Armenian({
+  subsets: ["armenian", "latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-noto-sans-armenian",
 });

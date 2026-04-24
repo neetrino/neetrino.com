@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
 import { imgSafearea, imgSports00065 } from "./figma-assets";
 
 export function NeetrinoHomeWhatWeDoTop() {
+  const t = useTranslations();
+
   return (
     <>
       <div className="absolute contents left-[1130px] top-[128px]" data-node-id="90:526">
@@ -17,13 +20,15 @@ export function NeetrinoHomeWhatWeDoTop() {
           className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[1329px] not-italic text-[#0f0f0f] text-[20px] text-right top-[576.5px] whitespace-nowrap"
           data-node-id="90:528"
         >
-          <p className="leading-[25px]">AI Automation</p>
+          <p className="leading-[25px]">{t("home.whatWeDo.cards.ai.subtitle1")}</p>
         </div>
         <div
           className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-bold justify-center leading-[0] left-[1162px] not-italic text-[#0f0f0f] text-[22px] top-[198.5px] whitespace-nowrap"
           data-node-id="90:529"
         >
-          <p className="leading-[35px]">AI INTEGRATIONS</p>
+          <p className="leading-[35px]">
+            {t("home.whatWeDo.cards.ai.title1")} {t("home.whatWeDo.cards.ai.title2")}
+          </p>
         </div>
       </div>
       <div
@@ -34,13 +39,15 @@ export function NeetrinoHomeWhatWeDoTop() {
         className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[524px] not-italic text-[20px] text-right text-white top-[576.5px] whitespace-nowrap"
         data-node-id="90:531"
       >
-        <p className="leading-[25px]">App Development</p>
+        <p className="leading-[25px]">
+          {t("home.whatWeDo.cards.mobile.subtitle1")} {t("home.whatWeDo.cards.mobile.subtitle2")}
+        </p>
       </div>
       <div
         className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-bold justify-center leading-[0] left-[382px] not-italic text-[22px] text-white top-[198.5px] whitespace-nowrap"
         data-node-id="90:532"
       >
-        <p className="leading-[35px]">MOBILE APP</p>
+        <p className="leading-[35px]">{t("home.whatWeDo.cards.mobile.title1")}</p>
       </div>
       <div className="absolute contents left-[860px] top-[129px]" data-node-id="90:534">
         <div className="absolute contents left-[860px] top-[129px]" data-node-id="90:535">
@@ -52,13 +59,15 @@ export function NeetrinoHomeWhatWeDoTop() {
             className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[1081px] not-italic text-[20px] text-right text-white top-[578.5px] whitespace-nowrap"
             data-node-id="90:537"
           >
-            <p className="leading-[25px]">Process Automation</p>
+            <p className="leading-[25px]">
+              {t("home.whatWeDo.cards.crm.subtitle1")} {t("home.whatWeDo.cards.crm.subtitle2")}
+            </p>
           </div>
           <div
             className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-bold justify-center leading-[0] left-[909px] not-italic text-[22px] text-white top-[200.5px] whitespace-nowrap"
             data-node-id="90:538"
           >
-            <p className="leading-[35px]">CRM SYSTEMS</p>
+            <p className="leading-[35px]">{t("home.whatWeDo.cards.crm.title1")}</p>
           </div>
           <div
             className="pointer-events-none absolute h-[209px] left-[885px] top-[292px] w-[211px]"
@@ -92,7 +101,7 @@ export function NeetrinoHomeWhatWeDoTop() {
           className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
           data-node-id="I90:533;13:33"
         >
-          Continue
+          {t("cta.continue")}
         </p>
         <div
           className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
@@ -134,7 +143,7 @@ export function NeetrinoHomeWhatWeDoTop() {
           className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
           data-node-id="I90:540;13:33"
         >
-          Continue
+          {t("cta.continue")}
         </p>
         <div
           className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"

@@ -1,38 +1,44 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Footer } from "@/components/sections/Footer";
 import {
   MOBILE_PORTFOLIO_CARD_IMAGE_SIZES,
   MOBILE_PORTFOLIO_INITIAL_VISIBLE,
-  MOBILE_PORTFOLIO_ITEMS,
   MOBILE_PORTFOLIO_LOAD_MORE_STEP,
+  getMobilePortfolioItems,
 } from "@/components/portfolio/portfolio-data";
 import { useIntersectionLoadMore } from "@/lib/hooks/useIntersectionLoadMore";
+import type { AppLocale } from "@/lib/i18n/locales";
 
 export function PortfolioMobile() {
-  const total = MOBILE_PORTFOLIO_ITEMS.length;
+  const t = useTranslations();
+  const locale = useLocale() as AppLocale;
+  const portfolioItems = getMobilePortfolioItems(locale);
+  const total = portfolioItems.length;
   const { visibleCount, sentinelRef } = useIntersectionLoadMore({
     totalCount: total,
     initialVisible: MOBILE_PORTFOLIO_INITIAL_VISIBLE,
     step: MOBILE_PORTFOLIO_LOAD_MORE_STEP,
   });
 
-  const visibleItems = MOBILE_PORTFOLIO_ITEMS.slice(0, visibleCount);
+  const visibleItems = portfolioItems.slice(0, visibleCount);
   const hasMore = visibleCount < total;
 
   return (
     <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
       <main className="section-container pt-24 pb-14">
         <section className="py-10">
-          <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">Portfolio</p>
+          <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">
+            {t("portfolioPage.eyebrow")}
+          </p>
           <h1 className="mt-3 font-['Megatrox',sans-serif] text-4xl leading-tight text-white">
-            PORTFOLIO
+            {t("portfolioPage.metaTitle")}
           </h1>
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/75">
-            A curated selection of digital products and interfaces delivered for growing businesses
-            across different industries.
+            {t("portfolioPage.description")}
           </p>
         </section>
 
@@ -60,7 +66,7 @@ export function PortfolioMobile() {
                   href="/contact"
                   className="mt-4 inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-medium text-[#252525]"
                 >
-                  View case
+                  {t("cta.viewCase")}
                 </Link>
               </div>
             </article>

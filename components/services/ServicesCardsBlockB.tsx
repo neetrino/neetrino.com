@@ -9,16 +9,22 @@ import {
 type CardProps = {
   className?: string;
   property1?: "Secure Transactions default" | "Secure Transactions hover";
+  title: string;
+  description: string;
   continueHref: string;
   continueAriaLabel: string;
+  continueLabel: string;
   continueGlow: ServicesContinueGlowVariant;
 };
 
 export function ServicesCard({
   className,
   property1 = "Secure Transactions default",
+  title,
+  description,
   continueHref,
   continueAriaLabel,
+  continueLabel,
   continueGlow,
 }: CardProps) {
   return (
@@ -48,14 +54,13 @@ export function ServicesCard({
           className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
           data-node-id="165:595"
         >
-          Mobile App Development
+          {title}
         </p>
         <p
           className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
           data-node-id="165:596"
         >
-          Native and cross-platform mobile applications that deliver exceptional user experiences on
-          iOS and Android devices.
+          {description}
         </p>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">
@@ -71,6 +76,7 @@ export function ServicesCard({
         ariaLabel={continueAriaLabel}
         glowVariant={continueGlow}
         href={continueHref}
+        label={continueLabel}
       />
       <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-1px_10.8px_0px_rgba(54,158,255,0.2),inset_0px_-23px_12px_-1px_rgba(27,255,221,0.17),inset_0px_-47px_16px_-33px_rgba(255,255,255,0.7),inset_0px_-30px_26.7px_-27px_rgba(48,183,207,0.5),inset_0px_-40px_46.3px_-30px_#30ccc4]" />
     </div>
@@ -80,16 +86,22 @@ export function ServicesCard({
 type Card1Props = {
   className?: string;
   property1?: "Secure Transactions default" | "Secure Transactions hover";
+  title: string;
+  description: string;
   continueHref: string;
   continueAriaLabel: string;
+  continueLabel: string;
   continueGlow: ServicesContinueGlowVariant;
 };
 
 export function ServicesCard1({
   className,
   property1 = "Secure Transactions default",
+  title,
+  description,
   continueHref,
   continueAriaLabel,
+  continueLabel,
   continueGlow,
 }: Card1Props) {
   return (
@@ -115,14 +127,13 @@ export function ServicesCard1({
           className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
           data-node-id="165:575"
         >
-          Website Development
+          {title}
         </p>
         <p
           className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
           data-node-id="165:576"
         >
-          Cutting-edge web solutions built with modern technologies, optimized for performance and
-          designed to convert visitors into customers.
+          {description}
         </p>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">
@@ -138,6 +149,7 @@ export function ServicesCard1({
         ariaLabel={continueAriaLabel}
         glowVariant={continueGlow}
         href={continueHref}
+        label={continueLabel}
       />
       <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-1px_10.8px_0px_rgba(238,54,255,0.2),inset_0px_-23px_12px_-1px_rgba(111,27,255,0.17),inset_0px_-47px_16px_-33px_rgba(255,255,255,0.7),inset_0px_-30px_26.7px_-27px_rgba(72,48,207,0.5),inset_0px_-40px_46.3px_-30px_#305fcc]" />
     </div>

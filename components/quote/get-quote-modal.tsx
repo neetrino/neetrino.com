@@ -3,7 +3,8 @@
 import { useState, useTransition, type FormEvent } from "react";
 import { Dialog } from "@base-ui/react/dialog";
 import { X } from "lucide-react";
-import { submitGetQuoteRequest } from "@/app/contact/actions";
+import { useTranslations } from "next-intl";
+import { submitGetQuoteRequest } from "@/app/actions/contact";
 import { GetQuoteModalForm } from "@/components/quote/get-quote-modal-form";
 
 type GetQuoteModalProps = {
@@ -12,6 +13,7 @@ type GetQuoteModalProps = {
 };
 
 export function GetQuoteModal({ open, onOpenChange }: GetQuoteModalProps) {
+  const t = useTranslations();
   const [pending, startTransition] = useTransition();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -33,7 +35,7 @@ export function GetQuoteModal({ open, onOpenChange }: GetQuoteModalProps) {
         form.reset();
         handleOpenChange(false);
       } else {
-        setErrorMessage(result.error);
+        setErrorMessage(t(`quote.errors.${result.errorKey}`));
       }
     });
   }
@@ -43,18 +45,20 @@ export function GetQuoteModal({ open, onOpenChange }: GetQuoteModalProps) {
       <Dialog.Portal>
         <Dialog.Backdrop className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm" />
         <Dialog.Viewport className="fixed inset-0 z-[201] flex items-center justify-center p-4">
-          <Dialog.Popup className="max-h-[min(90dvh,720px)] w-full max-w-md overflow-y-auto rounded-2xl border border-white/10 bg-[#1b1b21] p-6 shadow-2xl outline-none">
+          <Dialog.Popup className="max-h-[min(90dvh,720px)] w-full max-w-xl overflow-y-auto rounded-2xl border border-white/10 bg-[#1b1b21] p-6 shadow-2xl outline-none">
             <div className="mb-4 flex items-start justify-between gap-3">
               <div>
-                <Dialog.Title className="text-xl font-black text-white">Get a quote</Dialog.Title>
+                <Dialog.Title className="text-xl font-black text-white">
+                  {t("quote.title")}
+                </Dialog.Title>
                 <Dialog.Description className="mt-1 text-sm font-light text-white/65">
-                  Tell us briefly about your project — we will get back to you.
+                  {t("quote.description")}
                 </Dialog.Description>
               </div>
               <Dialog.Close
                 type="button"
                 className="shrink-0 rounded-full p-2 text-white/70 transition hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
-                aria-label="Close"
+                aria-label={t("quote.close")}
               >
                 <X className="size-5" strokeWidth={1.75} />
               </Dialog.Close>

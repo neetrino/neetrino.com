@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { cn } from "@/lib/utils";
 import { companyLinks, serviceLinks } from "./footer-data";
@@ -10,6 +11,8 @@ export type CanvasFooterProps = {
 };
 
 export function CanvasFooter({ className }: CanvasFooterProps) {
+  const t = useTranslations();
+
   return (
     <div
       id="contact"
@@ -41,37 +44,37 @@ export function CanvasFooter({ className }: CanvasFooterProps) {
 
       <div className="absolute top-[116px] left-[69px] z-[2] flex gap-[94px]">
         <div className="flex w-[114.275px] flex-col gap-[40px]">
-          <FooterColumnTitle>Menu</FooterColumnTitle>
+          <FooterColumnTitle>{t("footer.menu")}</FooterColumnTitle>
           <div className="flex flex-col gap-[18px]">
-            {companyLinks.map(({ href, label }) => (
+            {companyLinks.map(({ href, labelKey }) => (
               <Link
                 key={href}
                 href={href}
                 className="dm-sans-opsz-14 font-[family-name:var(--font-dm-sans)] text-[18px] font-normal leading-[20px] text-white"
               >
-                {label}
+                {t(`nav.${labelKey}`)}
               </Link>
             ))}
           </div>
         </div>
 
         <div className="flex w-[130.078px] flex-col gap-[40px]">
-          <FooterColumnTitle>Services</FooterColumnTitle>
+          <FooterColumnTitle>{t("footer.services")}</FooterColumnTitle>
           <div className="flex flex-col gap-[18px]">
-            {serviceLinks.map(({ href, label }) => (
+            {serviceLinks.map(({ href, labelKey }) => (
               <Link
-                key={label}
+                key={labelKey}
                 href={href}
                 className="dm-sans-opsz-14 pointer-events-auto font-[family-name:var(--font-dm-sans)] text-[18px] font-normal leading-[20px] text-white"
               >
-                {label}
+                {t(`footer.serviceLabels.${labelKey}`)}
               </Link>
             ))}
           </div>
         </div>
 
         <div className="flex w-[244px] flex-col gap-[40px]">
-          <FooterColumnTitle>Contact</FooterColumnTitle>
+          <FooterColumnTitle>{t("footer.contact")}</FooterColumnTitle>
           <div className="flex flex-col gap-[18px]">
             <div className="flex items-center gap-[6px] text-white">
               <Image
@@ -82,7 +85,7 @@ export function CanvasFooter({ className }: CanvasFooterProps) {
                 className="h-[18px] w-[14px]"
               />
               <p className="dm-sans-opsz-14 font-[family-name:var(--font-dm-sans)] text-[18px] font-normal leading-[20px]">
-                108/10 Andranik Zoravar St.
+                {t("footer.address")}
               </p>
             </div>
             <div className="flex items-center gap-[9px] text-white">
@@ -124,7 +127,7 @@ export function CanvasFooter({ className }: CanvasFooterProps) {
                 className="h-[21px] w-[21.5px]"
               />
               <p className="dm-sans-opsz-14 whitespace-pre font-[family-name:var(--font-dm-sans)] text-[16px] font-medium leading-[22px]">
-                {"Working Hours\nMon. - Fri. 10AM - 7PM"}
+                {`${t("footer.workingHoursLabel")}\n${t("footer.workingHoursValue")}`}
               </p>
             </div>
           </div>
@@ -134,21 +137,21 @@ export function CanvasFooter({ className }: CanvasFooterProps) {
       <div className="absolute top-[116.02px] left-[902.57px] w-[436.431px]">
         <div className="flex w-[436px] flex-col gap-[24px]">
           <div className="flex flex-col gap-[10px]">
-            <FooterColumnTitle>Message us</FooterColumnTitle>
+            <FooterColumnTitle>{t("footer.messageUs")}</FooterColumnTitle>
             <p className="dm-sans-opsz-14 w-[358.364px] font-[family-name:var(--font-dm-sans)] text-[18px] font-normal leading-[30px] text-[#dcd5d5]">
-              Step into the digital world with one message, powered by Neetrino.
+              {t("footer.messageDescription")}
             </p>
           </div>
           <div className="h-[68px] w-full rounded-[108px] border border-[#d9dbe9] bg-white shadow-[0px_2px_12px_0px_rgba(20,20,43,0.08)]">
             <div className="mt-[25px] ml-[23px]">
               <p className="dm-sans-opsz-14 font-[family-name:var(--font-dm-sans)] text-[16px] font-normal leading-[18px] text-[#dcd5d5]">
-                Enter your message
+                {t("footer.placeholder")}
               </p>
             </div>
           </div>
           <button type="button" className="relative h-[56px] w-[120px] rounded-[35px] bg-[#4a3aff]">
             <span className="absolute top-[16px] left-[18px] font-['Poppins:Regular',sans-serif] text-[16px] leading-[24px] text-white">
-              Send
+              {t("footer.send")}
             </span>
             <div className="absolute top-[7px] left-[71px] size-[42px]">
               <Image
@@ -168,7 +171,7 @@ export function CanvasFooter({ className }: CanvasFooterProps) {
       </div>
 
       <p className="dm-sans-opsz-14 absolute top-[536.01px] left-[110px] font-[family-name:var(--font-dm-sans)] text-[18px] font-normal leading-[20px] whitespace-nowrap text-[#dcd5d5]">
-        Copyright © 2017 - 2026 Neetrino IT Company. All Rights Reserved.
+        {t("footer.copyright")}
       </p>
     </div>
   );
