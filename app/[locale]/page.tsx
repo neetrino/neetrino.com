@@ -16,7 +16,7 @@ const NeetrinoHome = dynamic(
     import("@/components/neetrino-home/NeetrinoHome").then((m) => ({ default: m.NeetrinoHome })),
   {
     loading: () => (
-      <div className="relative min-h-[min(100vh,4162px)] w-full bg-[#151515]" aria-hidden />
+      <div className="relative min-h-[min(100vh,5380px)] w-full bg-[#151515]" aria-hidden />
     ),
   },
 );
@@ -52,10 +52,10 @@ export default function Home() {
         </main>
       </div>
 
-      {/* Desktop layout: Figma canvas (1440×4162) + Partners overlay (no footer) */}
+      {/* Desktop layout: Figma canvas (1440×5380) + Partners overlay (no footer) */}
       {/* position:relative here so Partners can be absolute inside without adding page height */}
       <div className="hidden lg:block relative">
-        <CanvasScaler canvasHeight={4162}>
+        <CanvasScaler canvasHeight={5380}>
           <NeetrinoHome />
         </CanvasScaler>
         <div className="absolute bottom-0 left-0 right-0 z-10">

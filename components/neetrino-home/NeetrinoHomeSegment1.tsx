@@ -2,14 +2,12 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { DeferredMount } from "@/components/layout/DeferredMount";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
   img30,
   imgEricaAnderson1,
   imgPhilippHubertDVVjhUcdb30Unsplash1,
   imgRectangle17399,
-  imgVector2,
 } from "./figma-assets";
 
 export function NeetrinoHomeSegment1() {
@@ -17,28 +15,6 @@ export function NeetrinoHomeSegment1() {
 
   return (
     <>
-      <DeferredMount topClassName="top-[560px]" rootMargin="360px 0px 360px 0px">
-        <div className="pointer-events-none -translate-x-1/2 absolute flex h-[4462px] items-center justify-center left-1/2 mix-blend-overlay top-[633px] w-[1722px]">
-          <div className="flex-none rotate-90">
-            <div
-              className="h-[1722px] relative w-[4462px]"
-              data-name="Vector"
-              data-node-id="10:225"
-            >
-              <Image
-                alt=""
-                width={2400}
-                height={2400}
-                className="absolute block max-w-none size-full"
-                src={imgVector2}
-                quality={DEFAULT_IMAGE_QUALITY}
-                sizes="100vw"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </DeferredMount>
       <div className="absolute h-[1149px] left-0 top-0 w-[1440px]" data-node-id="10:421">
         <div className="absolute flex h-[844px] items-center justify-center left-0 top-0 w-[1440px]">
           <div className="-scale-y-100 flex-none">

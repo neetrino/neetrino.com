@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 import {
-  img10,
   img2661,
   imgRectangle17411,
   imgRectangle17414,
   imgRectangle17415,
-  imgRectangle17416,
   imgStanislavHristov3,
   imgUiDesign21,
 } from "./figma-assets";
@@ -64,59 +62,13 @@ export function NeetrinoHomeSegment3() {
         className="pointer-events-none -translate-x-1/2 absolute bg-[rgba(0,0,0,0)] h-[2934px] left-1/2 top-[1463px] w-[88px]"
         data-node-id="55:391"
       />
-      <div className="pointer-events-none absolute flex h-[536px] items-center justify-center left-[-1150px] mix-blend-color top-[4372px] w-[604px]">
+      <div className="pointer-events-none absolute flex h-[536px] items-center justify-center left-[-1150px] mix-blend-color top-[4832px] w-[604px]">
         <div className="-scale-y-100 flex-none rotate-180">
           <div
             className="bg-[#473dff] h-[536px] w-[604px]"
             data-name="color"
             data-node-id="43:448"
           />
-        </div>
-      </div>
-      <div
-        className="pointer-events-none -translate-x-1/2 absolute h-[487px] left-[calc(50%+1.5px)] top-[4027px] w-[1437px]"
-        data-node-id="10:221"
-      >
-        <div className="absolute inset-[-41.48%_-15.66%_-41.98%_-15.66%]">
-          <Image
-            alt=""
-            width={2400}
-            height={2400}
-            className="block max-w-none size-full"
-            src={imgRectangle17416}
-          />
-        </div>
-      </div>
-      <div className="absolute contents left-[606px] top-[4086px]" data-node-id="10:222">
-        <div
-          className="pointer-events-none absolute h-[563px] left-[606px] mix-blend-lighten opacity-70 top-[4189px] w-[633px]"
-          data-name="10"
-          data-node-id="10:223"
-        >
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <Image
-              alt=""
-              width={2400}
-              height={2400}
-              className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
-              src={img10}
-            />
-          </div>
-        </div>
-        <div
-          className="pointer-events-none absolute h-[563px] left-[606px] opacity-70 top-[4186px] w-[633px]"
-          data-name="101"
-          data-node-id="10:224"
-        >
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <Image
-              alt=""
-              width={2400}
-              height={2400}
-              className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
-              src={img10}
-            />
-          </div>
         </div>
       </div>
       <div

@@ -4,13 +4,13 @@ import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 const partnerLogos = [
   { src: FIGMA_ASSETS.imgLayer1, w: 78, h: 73 },
-  { src: FIGMA_ASSETS.imgLayer3, w: 157, h: 71, fixed: true as const },
-  { src: FIGMA_ASSETS.imgLayer5, w: 67, h: 96, fixed: true as const },
-  { src: FIGMA_ASSETS.imgVector8, w: 175, h: 53, fixed: true as const },
-  { src: FIGMA_ASSETS.imgVector9, w: 136, h: 79, fixed: true as const },
+  { src: FIGMA_ASSETS.imgLayer3, w: 126, h: 57, fixed: true as const },
+  { src: FIGMA_ASSETS.imgLayer5, w: 54, h: 77, fixed: true as const },
+  { src: FIGMA_ASSETS.imgVector8, w: 140, h: 42, fixed: true as const },
+  { src: FIGMA_ASSETS.imgVector9, w: 109, h: 63, fixed: true as const },
 ];
 
-const MAX_H = 60;
+const MAX_H = 48;
 
 function logoDimensions(logo: (typeof partnerLogos)[number]) {
   if ("fixed" in logo && logo.fixed) {
@@ -77,7 +77,7 @@ export function Partners() {
               width={width}
               height={height}
               className="block shrink-0 opacity-70"
-              sizes="(max-width: 1024px) 120px, 160px"
+              sizes="(max-width: 1024px) 96px, 128px"
               loading="lazy"
             />
           );
@@ -94,7 +94,7 @@ export function Partners() {
               width={width}
               height={height}
               className="block shrink-0 opacity-70"
-              sizes="(max-width: 1024px) 120px, 160px"
+              sizes="(max-width: 1024px) 96px, 128px"
               loading="lazy"
             />
           );
