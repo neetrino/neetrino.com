@@ -63,6 +63,22 @@ export function Footer() {
           </div>
         </div>
         <div
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px w-full min-w-0"
+          data-node-id="10:240"
+          aria-hidden={true}
+        >
+          {/* Native <img>: next/image can SSR/CSR markup mismatch for ultra-thin remote assets */}
+          <img
+            alt=""
+            src={FIGMA_ASSETS.imgLine135}
+            width={2400}
+            height={8}
+            className="block h-px w-full object-cover object-center"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div
           className="relative isolate mx-auto h-[590px] w-full max-w-[1440px] overflow-hidden"
           data-node-id="10:237"
           data-name="Footer v2"
@@ -115,18 +131,6 @@ export function Footer() {
                 unoptimized
                 className="block max-w-none size-full"
                 src={FIGMA_ASSETS.imgFooterBottom}
-              />
-            </div>
-          </div>
-          <div className="absolute z-10 h-0 left-0 top-[1.24px] w-[1440px]" data-node-id="10:240">
-            <div className="absolute inset-[-1px_0_0_0]">
-              <Image
-                alt=""
-                width={2400}
-                height={2400}
-                unoptimized
-                className="block max-w-none size-full"
-                src={FIGMA_ASSETS.imgLine135}
               />
             </div>
           </div>

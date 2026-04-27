@@ -133,10 +133,10 @@ export function EllipseDeviceShowcase() {
 
   return (
     <div
-      className="relative mx-auto aspect-[1609/905] w-full max-w-[1609px]"
+      className="relative isolate mx-auto aspect-[1609/905] w-full max-w-[1609px]"
       data-node-id="546:3027"
     >
-      <div className="absolute left-1/2 top-[44%] z-[1] w-[min(54%,872px)] -translate-x-1/2 -translate-y-1/2 mix-blend-screen">
+      <div className="absolute left-1/2 top-[44%] z-[2] w-[min(54%,872px)] -translate-x-1/2 -translate-y-1/2 mix-blend-screen">
         <div className="relative aspect-[872/409] w-full">
           <div className="absolute inset-[-5.13%_-2.41%]">
             <Image
@@ -155,7 +155,7 @@ export function EllipseDeviceShowcase() {
         className={cn(
           "absolute flex justify-center",
           ORBIT_SHELL_TRANSITION,
-          slotForDevice(0) === 2 ? "z-[4]" : "z-[3]",
+          slotForDevice(0) === 2 ? "z-[6]" : "z-[5]",
           deviceWidthClass(frontDeviceId, 0),
         )}
         style={{
@@ -187,7 +187,7 @@ export function EllipseDeviceShowcase() {
         className={cn(
           "absolute flex min-w-0 justify-center",
           ORBIT_SHELL_TRANSITION,
-          slotForDevice(1) === 2 ? "z-[4]" : "z-[3]",
+          slotForDevice(1) === 2 ? "z-[6]" : "z-[5]",
           deviceWidthClass(frontDeviceId, 1),
         )}
         style={{
@@ -228,7 +228,7 @@ export function EllipseDeviceShowcase() {
         className={cn(
           "absolute flex flex-col items-center",
           ORBIT_SHELL_TRANSITION,
-          slotForDevice(2) === 2 ? "z-[4]" : "z-[3]",
+          slotForDevice(2) === 2 ? "z-[6]" : "z-[5]",
           deviceWidthClass(frontDeviceId, 2),
         )}
         style={{
@@ -269,7 +269,7 @@ export function EllipseDeviceShowcase() {
         className={cn(
           "absolute flex justify-center",
           ORBIT_SHELL_TRANSITION,
-          slotForDevice(3) === 2 ? "z-[4]" : "z-[3]",
+          slotForDevice(3) === 2 ? "z-[6]" : "z-[5]",
           deviceWidthClass(frontDeviceId, 3),
         )}
         style={{

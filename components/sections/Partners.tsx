@@ -31,9 +31,9 @@ export function Partners() {
   return (
     <section
       aria-label={t("partners.sectionAria")}
+      className="py-10 lg:-mt-14 lg:p-0 lg:leading-none lg:[&_span]:m-0 lg:[&_span]:block lg:[&_span]:leading-none"
       style={{
         overflow: "hidden",
-        padding: "40px 0",
         background: "transparent",
         WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
@@ -56,6 +56,12 @@ export function Partners() {
           animation-direction: reverse;
         }
         @media (min-width: 1024px) {
+          .marquee-inner {
+            align-items: flex-end;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+          }
           .marquee-inner:hover {
             animation-play-state: paused;
           }
@@ -76,7 +82,7 @@ export function Partners() {
               alt={t("partners.logoAlt")}
               width={width}
               height={height}
-              className="block shrink-0 opacity-70"
+              className="block shrink-0 self-end opacity-70"
               sizes="(max-width: 1024px) 96px, 128px"
               loading="lazy"
             />
@@ -93,7 +99,7 @@ export function Partners() {
               alt={t("partners.logoAlt")}
               width={width}
               height={height}
-              className="block shrink-0 opacity-70"
+              className="block shrink-0 self-end opacity-70"
               sizes="(max-width: 1024px) 96px, 128px"
               loading="lazy"
             />

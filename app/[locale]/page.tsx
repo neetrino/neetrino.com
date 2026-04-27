@@ -8,6 +8,7 @@ import { Projects } from "@/components/sections/Projects";
 import { Partners } from "@/components/sections/Partners";
 import { DeviceShowcase } from "@/components/sections/DeviceShowcase";
 import { CanvasScaler } from "@/components/layout/CanvasScaler";
+import { HOME_DESKTOP_PARTNERS_STRIP_BOTTOM_OFFSET_PX } from "@/lib/home-desktop-layout";
 import { getLocaleAlternates } from "@/lib/metadata";
 import type { AppLocale } from "@/lib/i18n/locales";
 
@@ -54,11 +55,14 @@ export default function Home() {
 
       {/* Desktop layout: Figma canvas (1440×5380) + Partners overlay (no footer) */}
       {/* position:relative here so Partners can be absolute inside without adding page height */}
-      <div className="hidden lg:block relative">
+      <div className="hidden lg:block relative lg:-mb-8">
         <CanvasScaler canvasHeight={5380}>
           <NeetrinoHome />
         </CanvasScaler>
-        <div className="absolute bottom-0 left-0 right-0 z-10">
+        <div
+          className="absolute left-0 right-0 z-20"
+          style={{ bottom: HOME_DESKTOP_PARTNERS_STRIP_BOTTOM_OFFSET_PX }}
+        >
           <Partners />
         </div>
       </div>

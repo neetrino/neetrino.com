@@ -54,7 +54,7 @@ export function WhoWeAre() {
         </div>
       </div>
 
-      <div className="relative mt-16 flex w-full justify-center overflow-x-auto overflow-y-visible px-1 md:mt-20">
+      <div className="relative mt-0 flex w-full justify-center overflow-x-auto overflow-y-visible px-1 md:mt-0">
         <div className="origin-top scale-[0.42] min-[400px]:scale-[0.5] min-[480px]:scale-[0.58] sm:scale-[0.72] md:scale-[0.85]">
           <EllipseDeviceShowcase />
         </div>

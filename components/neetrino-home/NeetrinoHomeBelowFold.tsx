@@ -1,6 +1,7 @@
 "use client";
 
 import { EllipseDeviceShowcase } from "@/components/neetrino-home/EllipseDeviceShowcase";
+import { HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX } from "@/lib/home-desktop-layout";
 import { NeetrinoHomeWhatWeDoBottom } from "./NeetrinoHomeWhatWeDoBottom";
 import { NeetrinoHomeWhatWeDoTop } from "./NeetrinoHomeWhatWeDoTop";
 
@@ -8,7 +9,8 @@ export function NeetrinoHomeBelowFold() {
   return (
     <>
       <div
-        className="-translate-x-1/2 pointer-events-none absolute left-[calc(50%+11px)] top-[4280px] z-[6] w-[min(100%,1609px)]"
+        className="-translate-x-1/2 pointer-events-none absolute left-[calc(50%+11px)] z-[12] w-[min(100%,1609px)]"
+        style={{ top: HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX }}
         data-name="Ellipse + device frames"
         data-node-id="546:3027"
       >
