@@ -6,6 +6,7 @@ import { getBlogPosts } from "../lib/blog-posts-data";
 import type { AppLocale } from "../lib/i18n/locales";
 import type { BlogPost, BlogPostSection } from "../lib/blog-posts-data";
 
+// Legacy static blog JSON remains the seed source; runtime public reads come from the DB.
 function getDatabaseUrl(): string {
   const databaseUrl = process.env.DATABASE_URL;
   if (!databaseUrl) {

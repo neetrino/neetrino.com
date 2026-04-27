@@ -6,6 +6,7 @@ import { getMarkdownIntro } from "@/lib/server/blog/markdown";
 import type { BlogIndexItem, BlogPost } from "@/lib/server/blog/types";
 import type { AppLocale } from "@/lib/i18n/locales";
 
+// Public blog runtime reads are DB-backed; legacy JSON is kept only for seeding.
 const PUBLISHED_TRANSLATION_FILTER = {
   slug: { not: "" },
   title: { not: "" },
