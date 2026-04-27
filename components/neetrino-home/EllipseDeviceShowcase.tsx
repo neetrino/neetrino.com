@@ -11,7 +11,10 @@ import {
 import { useIsNearViewportCenter } from "@/components/neetrino-home/use-is-near-viewport-center";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
-import { syncShowcaseVideosToViewportCenter } from "@/lib/sync-showcase-videos-to-viewport-center";
+import {
+  syncShowcaseVideosToViewportCenter,
+  type ShowcaseFrontDeviceId,
+} from "@/lib/sync-showcase-videos-to-viewport-center";
 import { cn } from "@/lib/utils";
 import {
   useDeviceOrbitAngles,
@@ -58,15 +61,24 @@ const DEVICE_ORBIT_NAV_BUTTON = cn(
 export function EllipseDeviceShowcase() {
   const rootRef = useRef<HTMLDivElement>(null);
   const wasCenteredRef = useRef(false);
+  const previousFrontWhileCenteredRef = useRef<ShowcaseFrontDeviceId | null>(null);
   const videoSlotRefs = useRef<(HTMLVideoElement | null)[]>([null, null, null, null]);
 
   const [deviceAtSlot, setDeviceAtSlot] = useState<OrbitSlotOrder>(INITIAL_ORDER);
   const orbitAngles = useDeviceOrbitAngles(deviceAtSlot);
   const isNearViewportCenter = useIsNearViewportCenter(rootRef);
 
+  const frontDeviceId = deviceAtSlot[2];
+
   useEffect(() => {
-    syncShowcaseVideosToViewportCenter(videoSlotRefs.current, isNearViewportCenter, wasCenteredRef);
-  }, [isNearViewportCenter]);
+    syncShowcaseVideosToViewportCenter(
+      videoSlotRefs.current,
+      isNearViewportCenter,
+      wasCenteredRef,
+      frontDeviceId,
+      previousFrontWhileCenteredRef,
+    );
+  }, [isNearViewportCenter, frontDeviceId]);
 
   const fillVideoSlot = useCallback(
     (id: OrbitDeviceId) => (el: HTMLVideoElement | null) => {
