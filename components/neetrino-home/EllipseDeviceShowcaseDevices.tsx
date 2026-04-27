@@ -95,8 +95,15 @@ const ORBIT_SHELL_TRANSITION = cn("transition-[width,max-width,min-width]", ORBI
 /** Orbit slot 1 = top; nudges the iMac shell vs pure ellipse anchor (right / up). */
 const DEVICE_IMAC_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = 14 as const;
 const DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_TOP_SLOT = 8 as const;
+/** Orbit slot 3 = right; nudges the iMac shell slightly down vs ellipse anchor. */
+const DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_RIGHT_SLOT = 20 as const;
 /** Orbit slot 1 = top; nudges the MacBook shell slightly right vs ellipse anchor. */
 const DEVICE_MACBOOK_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = 8 as const;
+/** Orbit slot 3 = right; nudges the iPad shell slightly down vs ellipse anchor. */
+const DEVICE_IPAD_SHELL_NUDGE_Y_PX_WHEN_RIGHT_SLOT = 25 as const;
+/** Orbit slot 1 = top; nudges the iPad shell slightly right / down vs ellipse anchor. */
+const DEVICE_IPAD_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = 8 as const;
+const DEVICE_IPAD_SHELL_NUDGE_Y_PX_WHEN_TOP_SLOT = 12 as const;
 const DEVICE_INNER_TRANSITION = cn("transition-transform", ORBIT_MS, ORBIT_EASE);
 
 export type EllipseDeviceShowcaseDevicesProps = Readonly<{
@@ -174,7 +181,12 @@ export function EllipseDeviceShowcaseDevices({
         )}
         style={{
           ...orbitPercentPosition(orbitAngles[1], frontDeviceId),
-          transform: "translate(-50%, -50%)",
+          transform:
+            slotForDevice(1) === 1
+              ? `translate(calc(-50% + ${DEVICE_IPAD_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT}px), calc(-50% + ${DEVICE_IPAD_SHELL_NUDGE_Y_PX_WHEN_TOP_SLOT}px))`
+              : slotForDevice(1) === 3
+                ? `translate(-50%, calc(-50% + ${DEVICE_IPAD_SHELL_NUDGE_Y_PX_WHEN_RIGHT_SLOT}px))`
+                : "translate(-50%, -50%)",
         }}
       >
         <div
@@ -322,7 +334,9 @@ export function EllipseDeviceShowcaseDevices({
           transform:
             slotForDevice(3) === 1
               ? `translate(calc(-50% + 1px + ${DEVICE_IMAC_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT}px), calc(-50% - ${DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_TOP_SLOT}px))`
-              : "translate(calc(-50% + 1px), -50%)",
+              : slotForDevice(3) === 3
+                ? `translate(calc(-50% + 1px), calc(-50% + ${DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_RIGHT_SLOT}px))`
+                : "translate(calc(-50% + 1px), -50%)",
         }}
       >
         <div
