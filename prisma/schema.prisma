@@ -44,6 +44,7 @@ model BlogPostTranslation {
   updatedAt      DateTime @updatedAt
 
   @@unique([locale, slug])
+  @@unique([postId, locale])
   @@index([postId])
   @@index([locale])
 }
