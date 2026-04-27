@@ -14,6 +14,7 @@ import {
   DEVICE_IPAD_SCREEN_VIDEO_SURFACE_CLASS,
   deviceIpadScreenVideoClipShellPositionStyle,
   DEVICE_IPHONE_FRAME_ASPECT_PADDING_BOTTOM_PERCENT,
+  DEVICE_IPHONE_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS,
   DEVICE_IPHONE_VERTICAL_VIDEO_INSET_PCT,
   DEVICE_IPHONE_VERTICAL_VIDEO_SURFACE_ROUNDED,
   DEVICE_MACBOOK_FRAME_ASSET_WIDTH_PX,
@@ -165,6 +166,7 @@ export function EllipseDeviceShowcaseDevices({
               inset={DEVICE_IPHONE_VERTICAL_VIDEO_INSET_PCT}
               objectFit="cover"
               screenSurfaceClassName={DEVICE_IPHONE_VERTICAL_VIDEO_SURFACE_ROUNDED}
+              videoClassName={DEVICE_IPHONE_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS}
               className="z-[3]"
               setVideoRef={fillVideoSlot(0)}
             />

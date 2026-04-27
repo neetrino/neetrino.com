@@ -78,12 +78,21 @@ function iphoneVerticalVideoInsetPct(): FrameScreenInsetPct {
 export const DEVICE_IPHONE_VERTICAL_VIDEO_INSET_PCT: FrameScreenInsetPct =
   iphoneVerticalVideoInsetPct();
 
-/** Border radius of the iPhone showcase video clip (px). */
+/** Border radius of the iPhone showcase video clip (px). Literal in `…_SURFACE_ROUNDED` must match (JIT). */
 export const DEVICE_IPHONE_VIDEO_SURFACE_BORDER_RADIUS_PX = 15 as const;
 
-/** Clip shell: fixed-radius corners on the video surface. */
+/**
+ * Clip shell: aspect + fixed-radius corners on the iPhone video surface.
+ * **`rounded-[15px]` is a literal** for Tailwind JIT — template `${…}px` classes are often omitted from CSS.
+ */
 export const DEVICE_IPHONE_VERTICAL_VIDEO_SURFACE_ROUNDED =
-  `aspect-[53/115] rounded-[${DEVICE_IPHONE_VIDEO_SURFACE_BORDER_RADIUS_PX}px]` as const;
+  "aspect-[53/115] rounded-[15px]" as const;
+
+/**
+ * Tailwind on the iPhone `<video>` — literal `15px`; sync with `DEVICE_IPHONE_VIDEO_SURFACE_BORDER_RADIUS_PX`.
+ * Helps WebKit paint cleanly inside the rounded shell.
+ */
+export const DEVICE_IPHONE_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS = "rounded-[20px]" as const;
 
 /**
  * ## iPad orbit showcase — tweak here (px; shell width uses `min(px, %)`).
