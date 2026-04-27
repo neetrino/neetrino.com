@@ -91,6 +91,12 @@ function deviceWidthClass(frontDeviceId: OrbitDeviceId, deviceId: OrbitDeviceId)
 const ORBIT_MS = `duration-[${ORBIT_DURATION_MS}ms]`;
 const ORBIT_EASE = "ease-[cubic-bezier(0.22,1,0.36,1)]";
 const ORBIT_SHELL_TRANSITION = cn("transition-[width,max-width,min-width]", ORBIT_MS, ORBIT_EASE);
+
+/** Orbit slot 1 = top; nudges the iMac shell vs pure ellipse anchor (right / up). */
+const DEVICE_IMAC_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = 14 as const;
+const DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_TOP_SLOT = 8 as const;
+/** Orbit slot 1 = top; nudges the MacBook shell slightly right vs ellipse anchor. */
+const DEVICE_MACBOOK_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = 8 as const;
 const DEVICE_INNER_TRANSITION = cn("transition-transform", ORBIT_MS, ORBIT_EASE);
 
 export type EllipseDeviceShowcaseDevicesProps = Readonly<{
@@ -226,7 +232,10 @@ export function EllipseDeviceShowcaseDevices({
         )}
         style={{
           ...orbitPercentPosition(orbitAngles[2], frontDeviceId),
-          transform: "translate(-50%, -50%)",
+          transform:
+            slotForDevice(2) === 1
+              ? `translate(calc(-50% + ${DEVICE_MACBOOK_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT}px), -50%)`
+              : "translate(-50%, -50%)",
         }}
       >
         <div
@@ -310,7 +319,10 @@ export function EllipseDeviceShowcaseDevices({
         )}
         style={{
           ...orbitPercentPosition(orbitAngles[3], frontDeviceId),
-          transform: "translate(calc(-50% + 1px), -50%)",
+          transform:
+            slotForDevice(3) === 1
+              ? `translate(calc(-50% + 1px + ${DEVICE_IMAC_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT}px), calc(-50% - ${DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_TOP_SLOT}px))`
+              : "translate(calc(-50% + 1px), -50%)",
         }}
       >
         <div
