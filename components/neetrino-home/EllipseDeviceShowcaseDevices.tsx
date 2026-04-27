@@ -200,7 +200,10 @@ export function EllipseDeviceShowcaseDevices({
               src={deviceShowcaseScreenVideoSrc(2)}
               inset={DEVICE_MACBOOK_SCREEN_VIDEO_INSET_PCT}
               objectFit="contain"
-              clipShellPositionStyle={deviceIpadScreenVideoClipShellPositionStyle()}
+              clipShellPositionStyle={deviceIpadScreenVideoClipShellPositionStyle({
+                ipadIsFrontDevice: frontDeviceId === 1,
+                ipadOrbitSlot: slotForDevice(1),
+              })}
               className="z-[3]"
               screenSurfaceClassName={DEVICE_IPAD_SCREEN_VIDEO_SURFACE_CLASS}
               videoClassName={cn(

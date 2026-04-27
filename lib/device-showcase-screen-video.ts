@@ -94,7 +94,9 @@ export const DEVICE_IPHONE_VERTICAL_VIDEO_SURFACE_ROUNDED =
  * | **Height** of the video glass (taller / shorter) | `DEVICE_IPAD_SCREEN_VIDEO_CLIP_HEIGHT_PX` |
  * | Move clip **up** | Increase `DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_UP_PX` (**positive = up**) |
  * | Move clip **down** | Decrease it (or use negative px) |
- * | Move clip **left** | Increase `DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_LEFT_PX` (**positive = left**) |
+ * | Move clip **left** | Increase `DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_LEFT_PX` (**positive = left**); side slots: also `…_SHIFT_LEFT_EXTRA_PX_WHEN_IPAD_NOT_FRONT` |
+ * | **Smaller** clip when iPad is **left** (slot 0) | `DEVICE_IPAD_SCREEN_VIDEO_CLIP_EXTRA_SCALE_WHEN_IPAD_LEFT_SLOT` + `ipadOrbitSlot` |
+ * | **Smaller** clip when iPad is **top** (slot 1) | `DEVICE_IPAD_SCREEN_VIDEO_CLIP_EXTRA_SCALE_WHEN_IPAD_TOP_SLOT` + `ipadOrbitSlot` |
  * | Move clip **right** | Decrease it (or use negative px) |
  * | **Rounder** corners | `DEVICE_IPAD_SCREEN_VIDEO_BORDER_RADIUS_PX` (same orbit + center — `deviceIpadScreenVideoClipShellPositionStyle()`) |
  * | Wider / narrower **whole iPad** when centered | `DEVICE_IPAD_ORBIT_SHELL_MAX_WIDTH_DESKTOP_PX` / `…_MD_PX` and the `%` in `…_SHELL_WIDTH_WHEN_IPAD_FRONT_CLASS` |
@@ -141,24 +143,70 @@ export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_WIDTH_PX = 340 as const;
 export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_HEIGHT_PX = 310 as const;
 
 /**
+ * When the iPad is not the **front** orbit device, the mockup shell is narrower — scale the clip
+ * (and matching nudges / radius) so the video reads smaller inside the glass.
+ */
+export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_SCALE_WHEN_IPAD_NOT_FRONT = 0.93 as const;
+
+/**
+ * When iPad sits in orbit **slot 0** (left), multiply the non-front clip scale by this for a slightly
+ * smaller glass rect (on top of `…_SCALE_WHEN_IPAD_NOT_FRONT`).
+ */
+export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_EXTRA_SCALE_WHEN_IPAD_LEFT_SLOT = 0.96 as const;
+
+/**
+ * When iPad sits in orbit **slot 1** (top), multiply the non-front clip scale by this (below 1)
+ * so the video reads **smaller** in the glass.
+ */
+export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_EXTRA_SCALE_WHEN_IPAD_TOP_SLOT = 0.88 as const;
+
+/**
+ * Extra **left** nudge for the clip when iPad is **not** front (orbit / side slots). Positive = further left.
+ * Base `…_SHIFT_LEFT_PX` still applies to all states; this is added only when `ipadIsFrontDevice` is false.
+ */
+export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_LEFT_EXTRA_PX_WHEN_IPAD_NOT_FRONT = 1 as const;
+
+/**
  * Nudge the iPad **video clip** from parent center (px). Applied in `deviceIpadScreenVideoClipShellPositionStyle`
  * via `transform` so values always work (Tailwind JIT often omits template-built `left-[calc(…)]` classes).
  */
 export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_LEFT_PX: number = 3;
-/** Positive = move clip **up**. */
-export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_UP_PX: number = 1;
+/** Positive = move clip **up** (more negative `translateY` term). */
+export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_UP_PX: number = -1;
 
 /**
  * Absolute position + size for the iPad clip shell (`EllipseDeviceScreenVideo` + `screenSurfaceClassName`).
  * Uses `clip-path: inset(0 round …)` so corners stay rounded even when the child `<video>` is rotated.
  * Pass as `clipShellPositionStyle` — do not rely on Tailwind arbitrary classes built from `${…}` for these px.
+ *
+ * @param options — When `ipadIsFrontDevice` is false, layout is scaled by
+ *   `DEVICE_IPAD_SCREEN_VIDEO_CLIP_SCALE_WHEN_IPAD_NOT_FRONT`; **slot 0** (left) / **slot 1** (top)
+ *   apply `…_LEFT_SLOT` / `…_TOP_SLOT` multipliers (pass `ipadOrbitSlot`).
  */
-export function deviceIpadScreenVideoClipShellPositionStyle(): CSSProperties {
-  const w = DEVICE_IPAD_SCREEN_VIDEO_CLIP_WIDTH_PX;
-  const h = DEVICE_IPAD_SCREEN_VIDEO_CLIP_HEIGHT_PX;
-  const shiftLeft = DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_LEFT_PX;
-  const shiftUp = DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_UP_PX;
-  const r = DEVICE_IPAD_SCREEN_VIDEO_BORDER_RADIUS_PX;
+export function deviceIpadScreenVideoClipShellPositionStyle(
+  options?: Readonly<{ ipadIsFrontDevice: boolean; ipadOrbitSlot?: 0 | 1 | 2 | 3 }>,
+): CSSProperties {
+  const ipadIsFrontDevice = options?.ipadIsFrontDevice ?? true;
+  const ipadOrbitSlot = options?.ipadOrbitSlot;
+  const leftSlotScale =
+    !ipadIsFrontDevice && ipadOrbitSlot === 0
+      ? DEVICE_IPAD_SCREEN_VIDEO_CLIP_EXTRA_SCALE_WHEN_IPAD_LEFT_SLOT
+      : 1;
+  const topSlotScale =
+    !ipadIsFrontDevice && ipadOrbitSlot === 1
+      ? DEVICE_IPAD_SCREEN_VIDEO_CLIP_EXTRA_SCALE_WHEN_IPAD_TOP_SLOT
+      : 1;
+  const layoutScale = ipadIsFrontDevice
+    ? 1
+    : DEVICE_IPAD_SCREEN_VIDEO_CLIP_SCALE_WHEN_IPAD_NOT_FRONT * leftSlotScale * topSlotScale;
+  const w = Math.round(DEVICE_IPAD_SCREEN_VIDEO_CLIP_WIDTH_PX * layoutScale);
+  const h = Math.round(DEVICE_IPAD_SCREEN_VIDEO_CLIP_HEIGHT_PX * layoutScale);
+  const shiftLeftBase = Math.round(DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_LEFT_PX * layoutScale);
+  const shiftLeft = ipadIsFrontDevice
+    ? shiftLeftBase
+    : shiftLeftBase + DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_LEFT_EXTRA_PX_WHEN_IPAD_NOT_FRONT;
+  const shiftUp = Math.round(DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_UP_PX * layoutScale);
+  const r = Math.max(12, Math.round(DEVICE_IPAD_SCREEN_VIDEO_BORDER_RADIUS_PX * layoutScale));
   const roundClip = `inset(0 round ${r}px)`;
   return {
     left: "50%",
