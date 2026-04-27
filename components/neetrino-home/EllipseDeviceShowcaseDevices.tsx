@@ -8,9 +8,11 @@ import {
   DEVICE_IMAC_ORBIT_VIDEO_TRANSFORM_CLASS,
   DEVICE_IMAC_SCREEN_VIDEO_INSET_PCT,
   DEVICE_IMAC_VIDEO_WHEN_FRONT_MOVE_CLASS,
-  DEVICE_IPAD_SCREEN_VIDEO_INSET_PCT,
-  DEVICE_IPAD_SCREEN_VIDEO_INSET_PCT_WHEN_FRONT,
+  DEVICE_IPAD_ORBIT_FRAME_WRAPPER_WHEN_FRONT_CLASS,
+  DEVICE_IPAD_ORBIT_SHELL_WIDTH_WHEN_IPAD_FRONT_CLASS,
+  DEVICE_IPAD_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS,
   DEVICE_IPAD_SCREEN_VIDEO_SURFACE_CLASS,
+  deviceIpadScreenVideoClipShellPositionStyle,
   DEVICE_IPHONE_FRAME_ASPECT_PADDING_BOTTOM_PERCENT,
   DEVICE_IPHONE_VERTICAL_VIDEO_INSET_PCT,
   DEVICE_IPHONE_VERTICAL_VIDEO_SURFACE_ROUNDED,
@@ -64,7 +66,7 @@ const DEVICE_WIDTH_WHEN_FRONT: Record<OrbitDeviceId, Record<OrbitDeviceId, strin
   },
   1: {
     0: "w-[7%]",
-    1: "w-[18%] max-md:w-[22%]",
+    1: DEVICE_IPAD_ORBIT_SHELL_WIDTH_WHEN_IPAD_FRONT_CLASS,
     2: "w-[26%] max-md:w-[30%]",
     3: "w-[22%] max-md:w-[25%]",
   },
@@ -174,7 +176,7 @@ export function EllipseDeviceShowcaseDevices({
             "flex min-w-0 aspect-[305/213] w-full max-w-full items-center justify-center",
             DEVICE_INNER_TRANSITION,
             frontDeviceId === 3 && "-translate-y-[15%] -translate-x-[3.5%]",
-            frontDeviceId === 1 && "translate-y-[9%] translate-x-[0.6%]",
+            frontDeviceId === 1 && DEVICE_IPAD_ORBIT_FRAME_WRAPPER_WHEN_FRONT_CLASS,
             frontDeviceId === 2 && "-translate-y-[10%]",
             frontDeviceId === 0 && "translate-y-[1.5%] -translate-x-[11%]",
           )}
@@ -195,17 +197,16 @@ export function EllipseDeviceShowcaseDevices({
               quality={DEFAULT_IMAGE_QUALITY}
             />
             <EllipseDeviceScreenVideo
-              src={deviceShowcaseScreenVideoSrc(1)}
-              inset={
-                frontDeviceId === 1
-                  ? DEVICE_IPAD_SCREEN_VIDEO_INSET_PCT_WHEN_FRONT
-                  : DEVICE_IPAD_SCREEN_VIDEO_INSET_PCT
-              }
+              src={deviceShowcaseScreenVideoSrc(2)}
+              inset={DEVICE_MACBOOK_SCREEN_VIDEO_INSET_PCT}
+              objectFit="contain"
+              clipShellPositionStyle={deviceIpadScreenVideoClipShellPositionStyle()}
               className="z-[3]"
               screenSurfaceClassName={DEVICE_IPAD_SCREEN_VIDEO_SURFACE_CLASS}
               videoClassName={cn(
+                DEVICE_INNER_TRANSITION,
                 "origin-center rotate-[270deg]",
-                DEVICE_SHOWCASE_LANDSCAPE_VIDEO_OBJECT_POSITION_CLASS,
+                DEVICE_IPAD_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS,
               )}
               setVideoRef={fillVideoSlot(1)}
             />

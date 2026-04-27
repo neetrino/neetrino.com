@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 /**
  * URL used **on the iPhone mockup** (slot 0) — must be the **portrait** capture.
  * On disk this is `other-devices.mp4` (592×1280); `iphone-screen.mov` is landscape despite its name.
@@ -83,6 +85,23 @@ export const DEVICE_IPHONE_VIDEO_SURFACE_BORDER_RADIUS_PX = 15 as const;
 export const DEVICE_IPHONE_VERTICAL_VIDEO_SURFACE_ROUNDED =
   `aspect-[53/115] rounded-[${DEVICE_IPHONE_VIDEO_SURFACE_BORDER_RADIUS_PX}px]` as const;
 
+/**
+ * ## iPad orbit showcase — tweak here (px; shell width uses `min(px, %)`).
+ *
+ * | Goal | Edit |
+ * |------|------|
+ * | Wider / narrower **video** in the glass | `DEVICE_IPAD_SCREEN_VIDEO_CLIP_WIDTH_PX` (used by `deviceIpadScreenVideoClipShellPositionStyle()`) |
+ * | **Height** of the video glass (taller / shorter) | `DEVICE_IPAD_SCREEN_VIDEO_CLIP_HEIGHT_PX` |
+ * | Move clip **up** | Increase `DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_UP_PX` (**positive = up**) |
+ * | Move clip **down** | Decrease it (or use negative px) |
+ * | Move clip **left** | Increase `DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_LEFT_PX` (**positive = left**) |
+ * | Move clip **right** | Decrease it (or use negative px) |
+ * | **Rounder** corners | `DEVICE_IPAD_SCREEN_VIDEO_BORDER_RADIUS_PX` (same orbit + center — `deviceIpadScreenVideoClipShellPositionStyle()`) |
+ * | Wider / narrower **whole iPad** when centered | `DEVICE_IPAD_ORBIT_SHELL_MAX_WIDTH_DESKTOP_PX` / `…_MD_PX` and the `%` in `…_SHELL_WIDTH_WHEN_IPAD_FRONT_CLASS` |
+ * | Nudge the **frame** when iPad is front | `DEVICE_IPAD_ORBIT_FRAME_WRAPPER_OFFSET_X_PX` / `…_Y_PX` (and template → `…_FRAME_WRAPPER_WHEN_FRONT_CLASS`) |
+ *
+ * Legacy `%` insets (unused by the fixed-clip UI) stay below for asset reference.
+ */
 /** iPad mockup — video layer only (not MacBook). Symmetric horizontal inset. */
 export const DEVICE_IPAD_SCREEN_VIDEO_INSET_PCT: FrameScreenInsetPct = {
   top: 11,
@@ -102,11 +121,77 @@ export const DEVICE_IPAD_SCREEN_VIDEO_INSET_PCT_WHEN_FRONT: FrameScreenInsetPct 
   left: 6,
 };
 
-/** `%` corner radius on the iPad screen clip (same shell for orbit + front). */
-export const DEVICE_IPAD_SCREEN_VIDEO_BORDER_RADIUS_PCT = 5 as const;
+/** Corner radius of the iPad showcase video clip (px). */
+export const DEVICE_IPAD_SCREEN_VIDEO_BORDER_RADIUS_PX = 20 as const;
 
-/** Clips iPad video to the glass with rounded corners (`rounded-[5%]`). */
-export const DEVICE_IPAD_SCREEN_VIDEO_SURFACE_CLASS = "overflow-hidden rounded-[5%]" as const;
+/**
+ * Clips iPad video to the glass. `rounded-[20px]` is a **literal** for Tailwind JIT; keep in sync with
+ * `DEVICE_IPAD_SCREEN_VIDEO_BORDER_RADIUS_PX` (radius is also set in `deviceIpadScreenVideoClipShellPositionStyle`).
+ */
+export const DEVICE_IPAD_SCREEN_VIDEO_SURFACE_CLASS = "overflow-hidden rounded-[20px]" as const;
+
+/**
+ * Tailwind for the iPad `<video>` corners. **No `overflow-hidden` on `<video>`** (WebKit + `rotate`).
+ * **Literal `20px`**; sync with `DEVICE_IPAD_SCREEN_VIDEO_BORDER_RADIUS_PX`.
+ */
+export const DEVICE_IPAD_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS = "rounded-[20px]" as const;
+
+/** Width / height of the fixed **video** clip on the iPad mockup (px). */
+export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_WIDTH_PX = 340 as const;
+export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_HEIGHT_PX = 310 as const;
+
+/**
+ * Nudge the iPad **video clip** from parent center (px). Applied in `deviceIpadScreenVideoClipShellPositionStyle`
+ * via `transform` so values always work (Tailwind JIT often omits template-built `left-[calc(…)]` classes).
+ */
+export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_LEFT_PX: number = 3;
+/** Positive = move clip **up**. */
+export const DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_UP_PX: number = 1;
+
+/**
+ * Absolute position + size for the iPad clip shell (`EllipseDeviceScreenVideo` + `screenSurfaceClassName`).
+ * Uses `clip-path: inset(0 round …)` so corners stay rounded even when the child `<video>` is rotated.
+ * Pass as `clipShellPositionStyle` — do not rely on Tailwind arbitrary classes built from `${…}` for these px.
+ */
+export function deviceIpadScreenVideoClipShellPositionStyle(): CSSProperties {
+  const w = DEVICE_IPAD_SCREEN_VIDEO_CLIP_WIDTH_PX;
+  const h = DEVICE_IPAD_SCREEN_VIDEO_CLIP_HEIGHT_PX;
+  const shiftLeft = DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_LEFT_PX;
+  const shiftUp = DEVICE_IPAD_SCREEN_VIDEO_CLIP_SHIFT_UP_PX;
+  const r = DEVICE_IPAD_SCREEN_VIDEO_BORDER_RADIUS_PX;
+  const roundClip = `inset(0 round ${r}px)`;
+  return {
+    left: "50%",
+    top: "50%",
+    width: w,
+    height: h,
+    overflow: "hidden",
+    borderRadius: `${r}px`,
+    clipPath: roundClip,
+    WebkitClipPath: roundClip,
+    transform: `translate(calc(-50% - ${shiftLeft}px), calc(-50% - ${shiftUp}px))`,
+  };
+}
+
+/** Max width (px) inside `min(…, %)` when iPad is the **front** device — desktop. */
+export const DEVICE_IPAD_ORBIT_SHELL_MAX_WIDTH_DESKTOP_PX = 480 as const;
+/** Max width (px) for `max-md` when iPad is front. */
+export const DEVICE_IPAD_ORBIT_SHELL_MAX_WIDTH_MD_PX = 420 as const;
+
+/**
+ * Orbit shell width when iPad is centered — `min(px, %)` keeps px intent on large screens, % on small.
+ * Tune px in `…_SHELL_MAX_WIDTH_*` and the trailing `%` for relative scale.
+ */
+export const DEVICE_IPAD_ORBIT_SHELL_WIDTH_WHEN_IPAD_FRONT_CLASS =
+  `w-[min(${DEVICE_IPAD_ORBIT_SHELL_MAX_WIDTH_DESKTOP_PX}px,18%)] max-md:w-[min(${DEVICE_IPAD_ORBIT_SHELL_MAX_WIDTH_MD_PX}px,22%)]` as const;
+
+/** Nudge inner frame wrapper when iPad is front (+Y = down). */
+export const DEVICE_IPAD_ORBIT_FRAME_WRAPPER_OFFSET_X_PX = 2 as const;
+export const DEVICE_IPAD_ORBIT_FRAME_WRAPPER_OFFSET_Y_PX = 24 as const;
+
+/** Applied to the aspect wrapper around the iPad asset when `frontDeviceId === 1`. */
+export const DEVICE_IPAD_ORBIT_FRAME_WRAPPER_WHEN_FRONT_CLASS =
+  `translate-x-[${DEVICE_IPAD_ORBIT_FRAME_WRAPPER_OFFSET_X_PX}px] translate-y-[${DEVICE_IPAD_ORBIT_FRAME_WRAPPER_OFFSET_Y_PX}px]` as const;
 
 /** iMac mockup — video layer only (not MacBook). Symmetric horizontal inset. */
 export const DEVICE_IMAC_SCREEN_VIDEO_INSET_PCT: FrameScreenInsetPct = {
