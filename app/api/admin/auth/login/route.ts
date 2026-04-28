@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { applyAdminAuthDebugHeaders, getRequestHost } from "@/lib/server/auth/admin-auth-debug";
 import { verifyAdminCredentials } from "@/lib/server/auth/password";
 import {
   createAdminSessionToken,
@@ -37,10 +38,17 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     const token = await createAdminSessionToken(parsed.data.email);
-    const response = NextResponse.redirect(createRedirectUrl(request, nextPath), { status: 303 });
+    const target = createRedirectUrl(request, nextPath);
+    const response = NextResponse.redirect(target, { status: 303 });
     response.cookies.set(getAdminSessionCookieName(), token, getAdminSessionCookieOptions());
 
-    return response;
+    return applyAdminAuthDebugHeaders(response, {
+      host: getRequestHost(request),
+      pathname: request.nextUrl.pathname,
+      authResult: "valid",
+      redirectTo: target.toString(),
+      request,
+    });
   } catch (error) {
     console.error("[admin-login] Failed to process admin login.", error);
     return redirectToLogin(request, "/admin/blog", "server");
@@ -56,12 +64,21 @@ function redirectToLogin(
   loginUrl.searchParams.set("error", error);
   loginUrl.searchParams.set("next", nextPath);
 
-  return NextResponse.redirect(loginUrl, { status: 303 });
+  const response = NextResponse.redirect(loginUrl, { status: 303 });
+  return applyAdminAuthDebugHeaders(response, {
+    host: getRequestHost(request),
+    pathname: request.nextUrl.pathname,
+    authResult: error === "server" ? "unknown-error" : "invalid-token",
+    authReason: error,
+    redirectTo: loginUrl.toString(),
+    request,
+  });
 }
 
 function createRedirectUrl(request: NextRequest, path: string): URL {
   const host = request.headers.get("host") ?? request.nextUrl.host;
-  const protocol = request.headers.get("x-forwarded-proto") ?? request.nextUrl.protocol.replace(":", "");
+  const protocol =
+    request.headers.get("x-forwarded-proto") ?? request.nextUrl.protocol.replace(":", "");
 
   return new URL(path, `${protocol}://${host}`);
 }
