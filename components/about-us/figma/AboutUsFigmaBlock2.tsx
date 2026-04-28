@@ -10,17 +10,22 @@ import {
   ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
   ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
   ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
-  ABOUT_VALUES_RU_VALUE1_LINE_SHIFT_RIGHT_CLASS,
-  ABOUT_VALUES_RU_VALUE2_LINE_SHIFT_RIGHT_CLASS,
-  ABOUT_VALUES_RU_VALUE4_LINE_SHIFT_LEFT_CLASS,
 } from "@/lib/about-us-figma-layout.constants";
 import { cn } from "@/lib/utils";
 import {
-  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS,
-  ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS,
-  ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES,
-  ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS,
-  ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_TRANSLATE_Y_CLASS,
+  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_SHIFT_X_HY_CLASS,
+  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_DEFAULT,
+  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_HY,
+  ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_DEFAULT,
+  ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_HY,
+  ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_DEFAULT,
+  ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_HY,
+  ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_DEFAULT,
+  ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_HY,
+  ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_LEFT_CLASS_DEFAULT,
+  ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_LEFT_CLASS_HY,
+  ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_TRANSLATE_Y_CLASS_DEFAULT,
+  ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_TRANSLATE_Y_CLASS_HY,
 } from "@/lib/about-us-why-choose-feature-icons.constants";
 import {
   img02A0Ab86C3Fe4B8381Ab86B982Bb800C1,
@@ -47,7 +52,6 @@ export function AboutUsFigmaBlock2() {
   const t = useTranslations();
   const locale = useLocale();
   const isHy = locale === "hy";
-  const isRu = locale === "ru";
 
   return (
     <>
@@ -149,44 +153,117 @@ export function AboutUsFigmaBlock2() {
           </div>
         </div>
         <div
-          className={`-translate-x-1/2 ${ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_TRANSLATE_Y_CLASS} absolute content-stretch flex font-['Inter:Extra_Bold',sans-serif] font-extrabold gap-[53px] items-center leading-[0] left-[calc(50%-11.5px)] not-italic overflow-visible text-[#f5f5f5] text-[16px] top-[2023px] whitespace-nowrap`}
+          className={cn(
+            "-translate-x-1/2 absolute content-stretch flex font-['Inter:Extra_Bold',sans-serif] font-extrabold gap-[53px] items-center leading-[0] not-italic overflow-visible text-[#f5f5f5] text-[16px] top-[2023px] whitespace-nowrap",
+            isHy
+              ? ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_LEFT_CLASS_HY
+              : ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_LEFT_CLASS_DEFAULT,
+            isHy
+              ? ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_TRANSLATE_Y_CLASS_HY
+              : ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_TRANSLATE_Y_CLASS_DEFAULT,
+          )}
           data-node-id="335:1178"
         >
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1179">
+          <div
+            className={cn(
+              "flex flex-col justify-center relative shrink-0",
+              isHy && "whitespace-normal",
+            )}
+            data-node-id="335:1179"
+          >
             <p className="leading-[22px] mb-0">{t("aboutPage.feature1Line1")}</p>
-            <p className="leading-[22px]">{t("aboutPage.feature1Line2")}</p>
+            <p
+              className={cn(
+                "leading-[22px]",
+                isHy && t("aboutPage.feature1Line2").includes("\n") && "whitespace-pre-line",
+              )}
+            >
+              {t("aboutPage.feature1Line2")}
+            </p>
           </div>
           <div
-            className="flex flex-col items-center justify-center relative shrink-0"
+            className={cn(
+              "flex flex-col items-center justify-center relative shrink-0",
+              isHy && "whitespace-normal",
+            )}
             data-node-id="335:1180"
           >
             <div
-              className={`relative z-10 mb-1 shrink-0 ${ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS} ${ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS}`}
+              className={cn(
+                "relative z-10 mb-1 shrink-0",
+                isHy
+                  ? `${ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_HY} ${ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_HY}`
+                  : `${ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_DEFAULT} ${ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_DEFAULT}`,
+              )}
             >
               <Image
                 alt=""
                 className="object-contain pointer-events-none"
                 fill
-                sizes={ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES}
+                sizes={
+                  isHy
+                    ? ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_HY
+                    : ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_DEFAULT
+                }
                 src={imgAboutPaletteDesignOptions}
                 quality={DEFAULT_IMAGE_QUALITY}
                 loading="lazy"
               />
             </div>
             <div
-              className={`relative z-0 shrink-0 ${ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS}`}
+              className={cn(
+                "relative z-0 shrink-0",
+                isHy
+                  ? ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_HY
+                  : ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_DEFAULT,
+                isHy && ABOUT_DESIGN_OPTIONS_FEATURE_COPY_SHIFT_X_HY_CLASS,
+                isHy && "w-full text-left",
+              )}
             >
               <p className="leading-[22px] mb-0">{t("aboutPage.feature2Line1")}</p>
-              <p className="leading-[22px]">{t("aboutPage.feature2Line2")}</p>
+              <p
+                className={cn(
+                  "leading-[22px]",
+                  isHy && t("aboutPage.feature2Line2").includes("\n") && "whitespace-pre-line",
+                )}
+              >
+                {t("aboutPage.feature2Line2")}
+              </p>
             </div>
           </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1181">
+          <div
+            className={cn(
+              "flex flex-col justify-center relative shrink-0",
+              isHy && "whitespace-normal",
+            )}
+            data-node-id="335:1181"
+          >
             <p className="leading-[22px] mb-0">{t("aboutPage.feature3Line1")}</p>
-            <p className="leading-[22px]">{t("aboutPage.feature3Line2")}</p>
+            <p
+              className={cn(
+                "leading-[22px]",
+                isHy && t("aboutPage.feature3Line2").includes("\n") && "whitespace-pre-line",
+              )}
+            >
+              {t("aboutPage.feature3Line2")}
+            </p>
           </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1182">
+          <div
+            className={cn(
+              "flex flex-col justify-center relative shrink-0",
+              isHy && "whitespace-normal",
+            )}
+            data-node-id="335:1182"
+          >
             <p className="leading-[22px] mb-0">{t("aboutPage.feature4Line1")}</p>
-            <p className="leading-[22px]">{t("aboutPage.feature4Line2")}</p>
+            <p
+              className={cn(
+                "leading-[22px]",
+                isHy && t("aboutPage.feature4Line2").includes("\n") && "whitespace-pre-line",
+              )}
+            >
+              {t("aboutPage.feature4Line2")}
+            </p>
           </div>
         </div>
       </div>
@@ -208,7 +285,6 @@ export function AboutUsFigmaBlock2() {
             className={cn(
               "leading-[22px]",
               isHy && ABOUT_VALUES_HY_VALUE1_HEART_LINE_SHIFT_LEFT_CLASS,
-              isRu && ABOUT_VALUES_RU_VALUE1_LINE_SHIFT_RIGHT_CLASS,
             )}
           >
             {t("aboutPage.value1")}
@@ -222,11 +298,7 @@ export function AboutUsFigmaBlock2() {
           data-node-id="335:1185"
         >
           <p
-            className={cn(
-              "leading-[22px]",
-              isHy && ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
-              isRu && ABOUT_VALUES_RU_VALUE2_LINE_SHIFT_RIGHT_CLASS,
-            )}
+            className={cn("leading-[22px]", isHy && ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS)}
           >
             {t("aboutPage.value2")}
           </p>
@@ -249,13 +321,7 @@ export function AboutUsFigmaBlock2() {
           )}
           data-node-id="335:1187"
         >
-          <p
-            className={cn(
-              "leading-[22px]",
-              isHy && ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
-              isRu && ABOUT_VALUES_RU_VALUE4_LINE_SHIFT_LEFT_CLASS,
-            )}
-          >
+          <p className={cn("leading-[22px]", isHy && ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS)}>
             {t("aboutPage.value4")}
           </p>
         </div>

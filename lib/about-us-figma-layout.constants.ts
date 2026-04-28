@@ -33,12 +33,3 @@ export const ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS = "-translate-x-[30px]
 
 /** HY: `aboutPage.value4` (mutual respect) — shift 10px left. */
 export const ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS = "-translate-x-[10px]";
-
-/** RU: `aboutPage.value4` (“Уважение друг к другу”) — shift 10px left. */
-export const ABOUT_VALUES_RU_VALUE4_LINE_SHIFT_LEFT_CLASS = "-translate-x-[30px]";
-
-/** RU: `aboutPage.value1` (“Любовь к делу”) — nudge right. */
-export const ABOUT_VALUES_RU_VALUE1_LINE_SHIFT_RIGHT_CLASS = "translate-x-[28px]";
-
-/** RU: `aboutPage.value2` (“Прозрачность”) — nudge right. */
-export const ABOUT_VALUES_RU_VALUE2_LINE_SHIFT_RIGHT_CLASS = "translate-x-[17px]";

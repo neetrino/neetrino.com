@@ -10,17 +10,19 @@ import {
   ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
   ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
   ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
-  ABOUT_VALUES_RU_VALUE1_LINE_SHIFT_RIGHT_CLASS,
-  ABOUT_VALUES_RU_VALUE2_LINE_SHIFT_RIGHT_CLASS,
-  ABOUT_VALUES_RU_VALUE4_LINE_SHIFT_LEFT_CLASS,
 } from "@/lib/about-us-figma-layout.constants";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
-  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS,
-  ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS,
-  ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES,
-  ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS,
+  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_SHIFT_X_HY_CLASS,
+  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_DEFAULT,
+  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_HY,
+  ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_DEFAULT,
+  ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_HY,
+  ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_DEFAULT,
+  ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_HY,
+  ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_DEFAULT,
+  ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_HY,
 } from "@/lib/about-us-why-choose-feature-icons.constants";
 import {
   img02A0Ab86C3Fe4B8381Ab86B982Bb800C1,
@@ -288,10 +290,18 @@ function WhyChooseUsSection({
   featureKeys: typeof FEATURE_KEYS;
   t: AboutPageT;
 }) {
+  const locale = useLocale();
+  const isHy = locale === "hy";
+
   return (
     <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-7">
       <SectionHeading>{heading}</SectionHeading>
-      <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+      <div
+        className={cn(
+          "mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5",
+          isHy && "-translate-x-[15px] -translate-y-[30px]",
+        )}
+      >
         {featureKeys.map(([line1Key, line2Key]) => (
           <div
             key={line1Key}
@@ -299,13 +309,22 @@ function WhyChooseUsSection({
           >
             {line1Key === "feature2Line1" ? (
               <div
-                className={`relative z-10 mx-auto mb-3 shrink-0 ${ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS} ${ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS}`}
+                className={cn(
+                  "relative z-10 mx-auto mb-3 shrink-0",
+                  isHy
+                    ? `${ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_HY} ${ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_HY}`
+                    : `${ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_DEFAULT} ${ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_DEFAULT}`,
+                )}
               >
                 <Image
                   alt=""
                   className="object-contain"
                   fill
-                  sizes={ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES}
+                  sizes={
+                    isHy
+                      ? ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_HY
+                      : ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_DEFAULT
+                  }
                   src={imgAboutPaletteDesignOptions}
                   quality={DEFAULT_IMAGE_QUALITY}
                   loading="lazy"
@@ -313,14 +332,36 @@ function WhyChooseUsSection({
               </div>
             ) : null}
             {line1Key === "feature2Line1" ? (
-              <div className={ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS}>
+              <div
+                className={cn(
+                  isHy
+                    ? ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_HY
+                    : ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_DEFAULT,
+                  isHy && ABOUT_DESIGN_OPTIONS_FEATURE_COPY_SHIFT_X_HY_CLASS,
+                  isHy && "w-full text-left",
+                )}
+              >
                 <p className="text-sm font-extrabold leading-snug">{t(line1Key)}</p>
-                <p className="text-sm font-extrabold leading-snug">{t(line2Key)}</p>
+                <p
+                  className={cn(
+                    "text-sm font-extrabold leading-snug",
+                    isHy && t(line2Key).includes("\n") && "whitespace-pre-line",
+                  )}
+                >
+                  {t(line2Key)}
+                </p>
               </div>
             ) : (
               <>
                 <p className="text-sm font-extrabold leading-snug">{t(line1Key)}</p>
-                <p className="text-sm font-extrabold leading-snug">{t(line2Key)}</p>
+                <p
+                  className={cn(
+                    "text-sm font-extrabold leading-snug",
+                    isHy && t(line2Key).includes("\n") && "whitespace-pre-line",
+                  )}
+                >
+                  {t(line2Key)}
+                </p>
               </>
             )}
           </div>
@@ -341,7 +382,6 @@ function ValuesSection({
 }) {
   const locale = useLocale();
   const isHy = locale === "hy";
-  const isRu = locale === "ru";
 
   return (
     <section className="py-10">
@@ -357,9 +397,6 @@ function ValuesSection({
               isHy && key === "value2" && ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
               isHy && key === "value3" && ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
               isHy && key === "value4" && ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
-              isRu && key === "value1" && ABOUT_VALUES_RU_VALUE1_LINE_SHIFT_RIGHT_CLASS,
-              isRu && key === "value2" && ABOUT_VALUES_RU_VALUE2_LINE_SHIFT_RIGHT_CLASS,
-              isRu && key === "value4" && ABOUT_VALUES_RU_VALUE4_LINE_SHIFT_LEFT_CLASS,
             )}
           >
             {t(key)}
