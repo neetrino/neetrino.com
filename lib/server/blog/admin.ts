@@ -1,6 +1,6 @@
 import "server-only";
-import { BlogPostStatus } from "@/lib/generated/prisma/client";
-import { prisma } from "@/lib/server/db";
+import { BlogPostStatus, type Prisma } from "@/lib/generated/prisma/client";
+import { getPrisma } from "@/lib/server/db";
 import { getFilledTranslations, type BlogPostFormInput } from "@/lib/server/blog/validation";
 import { isAppLocale, type AppLocale } from "@/lib/i18n/locales";
 
@@ -27,7 +27,7 @@ export type AdminBlogPost = {
 };
 
 export async function getAdminBlogPosts(): Promise<readonly AdminBlogPost[]> {
-  const posts = await prisma.blogPost.findMany({
+  const posts = await getPrisma().blogPost.findMany({
     include: { translations: { orderBy: { locale: "asc" } } },
     orderBy: [{ updatedAt: "desc" }],
   });
@@ -36,7 +36,7 @@ export async function getAdminBlogPosts(): Promise<readonly AdminBlogPost[]> {
 }
 
 export async function getAdminBlogPost(id: string): Promise<AdminBlogPost | null> {
-  const post = await prisma.blogPost.findUnique({
+  const post = await getPrisma().blogPost.findUnique({
     where: { id },
     include: { translations: { orderBy: { locale: "asc" } } },
   });
@@ -46,7 +46,7 @@ export async function getAdminBlogPost(id: string): Promise<AdminBlogPost | null
 
 export async function createAdminBlogPost(input: BlogPostFormInput): Promise<string> {
   await assertUniqueSlugs(input);
-  const post = await prisma.blogPost.create({
+  const post = await getPrisma().blogPost.create({
     data: {
       status: input.status,
       coverImageUrl: input.coverImageUrl,
@@ -61,7 +61,7 @@ export async function createAdminBlogPost(input: BlogPostFormInput): Promise<str
 
 export async function updateAdminBlogPost(id: string, input: BlogPostFormInput): Promise<void> {
   await assertUniqueSlugs(input, id);
-  await prisma.$transaction(async (tx) => {
+  await getPrisma().$transaction(async (tx) => {
     await tx.blogPost.update({
       where: { id },
       data: {
@@ -76,7 +76,7 @@ export async function updateAdminBlogPost(id: string, input: BlogPostFormInput):
 }
 
 export async function deleteAdminBlogPost(id: string): Promise<void> {
-  await prisma.blogPost.delete({ where: { id } });
+  await getPrisma().blogPost.delete({ where: { id } });
 }
 
 async function assertUniqueSlugs(input: BlogPostFormInput, postId?: string): Promise<void> {
@@ -85,7 +85,7 @@ async function assertUniqueSlugs(input: BlogPostFormInput, postId?: string): Pro
     return;
   }
 
-  const conflicts = await prisma.blogPostTranslation.findMany({
+  const conflicts = await getPrisma().blogPostTranslation.findMany({
     where: {
       OR: filledTranslations.map((translation) => ({
         locale: translation.locale,
@@ -102,7 +102,7 @@ async function assertUniqueSlugs(input: BlogPostFormInput, postId?: string): Pro
 }
 
 async function syncTranslations(
-  tx: Parameters<Parameters<typeof prisma.$transaction>[0]>[0],
+  tx: Prisma.TransactionClient,
   postId: string,
   input: BlogPostFormInput,
 ): Promise<void> {

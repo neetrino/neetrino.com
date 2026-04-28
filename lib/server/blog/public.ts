@@ -1,6 +1,6 @@
 import "server-only";
 import { BlogPostStatus } from "@/lib/generated/prisma/client";
-import { prisma } from "@/lib/server/db";
+import { getPrisma } from "@/lib/server/db";
 import { formatBlogDate, toDateIso } from "@/lib/server/blog/formatters";
 import { getMarkdownIntro } from "@/lib/server/blog/markdown";
 import type { BlogIndexItem, BlogPost } from "@/lib/server/blog/types";
@@ -17,7 +17,7 @@ const PUBLISHED_TRANSLATION_FILTER = {
 export async function getPublishedBlogIndexItems(
   locale: AppLocale,
 ): Promise<readonly BlogIndexItem[]> {
-  const posts = await prisma.blogPost.findMany({
+  const posts = await getPrisma().blogPost.findMany({
     where: {
       status: BlogPostStatus.PUBLISHED,
       coverImageUrl: { not: null },
@@ -42,7 +42,7 @@ export async function getPublishedBlogPostBySlug(
   locale: AppLocale,
   slug: string,
 ): Promise<BlogPost | null> {
-  const translation = await prisma.blogPostTranslation.findUnique({
+  const translation = await getPrisma().blogPostTranslation.findUnique({
     where: { locale_slug: { locale, slug } },
     include: { post: true },
   });

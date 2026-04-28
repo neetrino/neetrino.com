@@ -13,10 +13,21 @@ export const img2661 = "/figma-assets/0632ce01-e795-45ce-b8bb-6befc6530c3b.png";
 /** Figma `496:1546` — smartphone mockup below first portfolio hero card. */
 export const imgSmartphonePresentationMockup1 =
   "/figma-assets/ab7b4f77-c1f2-4e0f-9858-8b69c15d849c.png";
+/** Figma `543:2375` — DEGUSTO STUDIO banner; same slot size as other hero cards. */
+export const imgDegustoStudioBanner1 = "/figma-assets/b745fca3-a0b3-4ca9-84c4-3f2da77cb612.png";
+/** Figma `541:2171` — MAPCO GROUP banner (desktop row with Borbo). */
+export const imgMapcoGroupBanner1 = "/figma-assets/064159a1-11b1-472b-b9c0-11e7485d1047.png";
+/** Figma `543:2473` — NCIE / National Center card (left column, row under MAPCO). */
+export const imgNcieNationalCenterBanner1 =
+  "/figma-assets/fb7f778c-41d6-41cf-bdf0-4b505bc40da3.png";
+/** Figma `543:2376` — Digital Implant Clinic laptop card; beside NCIE row. */
+export const imgDigitalImplantClinicBanner1 =
+  "/figma-assets/ff1c5500-8264-4136-9fa0-5bf3c7bfc3ce.png";
+/** Figma `546:2515` — Daily Dose Aqua / borbo laptop mock. */
+export const imgBorbo1R1 = "/figma-assets/3f6c5478-5abe-4ddf-ab42-958c6f1db66b.png";
 export const imgBiotechLogo1 = "/figma-assets/f2b8d5db-8f8f-489a-9e7c-726a3a9afce4.png";
 /** Figma `525:1728` — second portfolio hero card, top-left. */
 export const imgCatLogoPngTransparent1 = "/figma-assets/d5f6670a-c51f-49ea-86c3-b9aa32c612b1.png";
-export const img10 = "/figma-assets/93270034-139b-40d2-a8be-8fbf95885a44.webp";
 export const imgEllipse1 = "/figma-assets/c7cc38b5-aa63-4300-8d2e-9c77ea8696d5.svg";
 export const imgEllipse27 = "/figma-assets/5d8398b8-e997-42f4-ad4c-a6b33e2942f5.svg";
 export const imgEllipse28 = "/figma-assets/d72a77f9-93d8-4afa-b3a0-0705a57074c7.svg";
@@ -28,4 +39,3 @@ export const imgVector27398 = "/figma-assets/385a8388-8a45-4486-8dad-eb0883896f0
 export const imgRectangle240649642 = "/figma-assets/721b87b6-4181-4fcf-86be-431330b9b2f3.svg";
 export const imgRectangle240650146 = "/figma-assets/d741a9e6-79b7-4a26-8f99-33c2b857e3c4.svg";
 export const imgRectangle17414 = "/figma-assets/ff814312-4b7f-4ff6-91f0-db269f7fb8d5.svg";
-export const imgRectangle17417 = "/figma-assets/37b44c82-fc84-4532-91af-94ce4dc3bcff.svg";
