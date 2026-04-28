@@ -34,6 +34,17 @@ import {
   PORTFOLIO_SECOND_BANNER_ZEPPELIN_TEXT_SIZE_CLASS,
 } from "@/lib/portfolio-second-banner-zeppelin.constants";
 import {
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_ARIA_LABEL,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_ASPECT_RATIO,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_HEIGHT_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_LEFT_BASE_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_NUDGE_RIGHT_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_SRC,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_TOP_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_WIDTH_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_WRAPPER_BASE_CLASS,
+} from "@/lib/portfolio-second-banner-macbook-video.constants";
+import {
   PORTFOLIO_THIRD_BANNER_LEFT_COPY_LINES,
   PORTFOLIO_THIRD_BANNER_LEFT_OVERLAY_CLASS,
   PORTFOLIO_THIRD_BANNER_LEFT_TEXT_CLASS,
@@ -335,6 +346,35 @@ function PortfolioDegustoStudioBannerCard() {
   );
 }
 
+/** Screen recording over the MacBook display in the second hero card (`166:1236`). */
+function PortfolioSecondBannerMacbookScreenVideo() {
+  return (
+    <div
+      className={PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_WRAPPER_BASE_CLASS}
+      style={{
+        width: PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_WIDTH_PX,
+        height: PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_HEIGHT_PX,
+        aspectRatio: PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_ASPECT_RATIO,
+        left: PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_LEFT_BASE_PX,
+        top: PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_TOP_PX,
+        transform: `translateX(${PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_NUDGE_RIGHT_PX}px)`,
+      }}
+      data-name="macbook-screen-video"
+    >
+      <video
+        aria-label={PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_ARIA_LABEL}
+        className="h-full w-full object-cover"
+        src={PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_SRC}
+        autoPlay
+        muted
+        playsInline
+        loop
+        preload="metadata"
+      />
+    </div>
+  );
+}
+
 /** Figma `525:1727` — bottom-right lockup on the second hero card. */
 function PortfolioSecondBannerZeppelinCorner() {
   return (
@@ -560,6 +600,7 @@ export function PortfolioDesktopScene() {
                     loading="lazy"
                   />
                 </div>
+                <PortfolioSecondBannerMacbookScreenVideo />
                 <PortfolioSecondBannerCatLogoCorner />
                 <PortfolioSecondBannerZeppelinCorner />
               </div>
