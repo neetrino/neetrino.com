@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
   img30,
@@ -12,6 +13,8 @@ import {
 
 export function NeetrinoHomeSegment1() {
   const t = useTranslations();
+  const locale = useLocale();
+  const isRuHeroSatisfiedClientsStacked = locale === "ru";
 
   return (
     <>
@@ -174,10 +177,24 @@ export function NeetrinoHomeSegment1() {
                 <p className="leading-[36px]">97%</p>
               </div>
               <div
-                className="col-1 flex flex-col font-extralight justify-center ml-[26px] mt-[99px] not-italic relative row-1 text-[#0d266c] text-[20px] text-right whitespace-nowrap"
+                className={cn(
+                  "col-1 flex flex-col font-extralight justify-center ml-[26px] not-italic relative row-1 text-[20px] text-[#0d266c]",
+                  isRuHeroSatisfiedClientsStacked
+                    ? "mt-[86px] items-start text-left"
+                    : "mt-[99px] text-right whitespace-nowrap",
+                )}
                 data-node-id="10:437"
               >
-                <p className="leading-[25px]">{t("home.hero.stats.satisfiedClients")}</p>
+                {isRuHeroSatisfiedClientsStacked ? (
+                  <>
+                    <p className="mb-0 leading-[25px]">
+                      {t("home.hero.stats.satisfiedClientsLine1")}
+                    </p>
+                    <p className="leading-[25px]">{t("home.hero.stats.satisfiedClientsLine2")}</p>
+                  </>
+                ) : (
+                  <p className="leading-[25px]">{t("home.hero.stats.satisfiedClients")}</p>
+                )}
               </div>
             </div>
           </div>

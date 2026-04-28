@@ -86,12 +86,14 @@ export function LocaleSwitcher({ className, compact = false, style }: LocaleSwit
                   aria-checked={active}
                   onClick={() => switchLocale(nextLocale)}
                   className={cn(
-                    "flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm text-white transition-colors hover:bg-white/10",
+                    "flex w-full min-w-0 items-center gap-3 rounded-xl px-3 py-2 text-sm text-white transition-colors hover:bg-white/10",
                     active && "bg-white/10",
                   )}
                 >
-                  <span>{LOCALE_SHORT_LABELS[nextLocale]}</span>
-                  <span className="text-white/65">{LOCALE_LABELS[nextLocale]}</span>
+                  <span className="shrink-0">{LOCALE_SHORT_LABELS[nextLocale]}</span>
+                  <span className="min-w-0 text-left text-white/65">
+                    {LOCALE_LABELS[nextLocale]}
+                  </span>
                 </button>
               </li>
             );

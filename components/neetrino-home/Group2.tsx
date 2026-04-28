@@ -2,18 +2,36 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
+import {
+  homeExplorePillEllipseUnderlayFromStartClassName,
+  homeExplorePillLinkCenterInGroupClassName,
+  homeExplorePillLinkStartVerticallyInGroupClassName,
+  homeExplorePillWidthDefaultClassName,
+  homeExplorePillWidthHyClassName,
+  homeExplorePillWidthRuClassName,
+} from "@/lib/home-explore-pill-layout";
+import { cn } from "@/lib/utils";
 import { imgEllipse3463, imgSafearea1 } from "./figma-assets";
 
 type Group2Props = {
   className?: string;
   property1?: "Default" | "Variant2";
   exploreHref: string;
+  /** `start`: pill’s left edge matches wrapper left (use with column `left-*`). */
+  exploreLinkAlign?: "center" | "start";
 };
 
-export function Group2({ className, exploreHref }: Group2Props) {
+export function Group2({ className, exploreHref, exploreLinkAlign = "center" }: Group2Props) {
   const t = useTranslations();
+  const locale = useLocale();
+  const explorePillWidthClassName =
+    locale === "hy"
+      ? homeExplorePillWidthHyClassName
+      : locale === "ru"
+        ? homeExplorePillWidthRuClassName
+        : homeExplorePillWidthDefaultClassName;
 
   return (
     <div
@@ -22,29 +40,25 @@ export function Group2({ className, exploreHref }: Group2Props) {
     >
       <Link
         href={exploreHref}
-        className="peer pointer-events-auto absolute z-10 border border-[#6a92ff] border-solid inset-[39.86%_39.72%_39.86%_39.41%] overflow-clip rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]"
+        className={cn(
+          "peer pointer-events-auto absolute z-10 flex h-[56px] items-center justify-between gap-2 overflow-hidden rounded-[40px] border border-solid border-[#6a92ff] bg-black pl-[23px] pr-[17px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]",
+          exploreLinkAlign === "start"
+            ? homeExplorePillLinkStartVerticallyInGroupClassName
+            : homeExplorePillLinkCenterInGroupClassName,
+          explorePillWidthClassName,
+        )}
         data-name="Button 2"
         data-node-id="19:370"
       >
-        <div
-          className="absolute bg-black inset-[-1px] opacity-0 rounded-[40px]"
-          data-name="shadow"
-          data-node-id="19:371"
-        />
-        <div
-          className="-translate-x-1/2 -translate-y-1/2 absolute bg-black h-[56px] left-1/2 rounded-[40px] top-1/2 w-[134px]"
-          data-name="background"
-          data-node-id="19:372"
-        />
-        <p
-          className="absolute font-[family-name:var(--font-dm-sans)] font-medium leading-[24px] left-[23px] text-[18px] text-white top-[15px] whitespace-nowrap"
+        <span
+          className="shrink-0 font-[family-name:var(--font-dm-sans)] text-[18px] font-medium leading-[24px] text-white whitespace-nowrap"
           data-node-id="19:373"
           style={{ fontVariationSettings: "'opsz' 14" }}
         >
           {t("cta.explore")}
-        </p>
+        </span>
         <div
-          className="absolute left-[89px] overflow-clip size-[20px] top-[17px]"
+          className="relative z-10 size-[20px] shrink-0 overflow-clip"
           data-name="Right"
           data-node-id="19:374"
         >
@@ -62,7 +76,13 @@ export function Group2({ className, exploreHref }: Group2Props) {
             />
           </div>
         </div>
-        <div className="absolute h-[31px] left-[22px] top-[39px] w-[88px]" data-node-id="19:375">
+        <div
+          className={cn(
+            "pointer-events-none absolute top-[39px] h-[31px] w-[88px]",
+            homeExplorePillEllipseUnderlayFromStartClassName,
+          )}
+          data-node-id="19:375"
+        >
           <div className="absolute inset-[-45.16%_-15.91%]">
             <Image
               alt=""

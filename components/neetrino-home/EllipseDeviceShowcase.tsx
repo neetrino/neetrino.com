@@ -15,6 +15,7 @@ import {
   syncShowcaseVideosToViewportCenter,
   type ShowcaseFrontDeviceId,
 } from "@/lib/sync-showcase-videos-to-viewport-center";
+import { ELLIPSE_DEVICE_SHOWCASE_ORBIT_NAV_POSITION_CLASS } from "@/lib/ellipse-device-showcase-layout";
 import { cn } from "@/lib/utils";
 import {
   useDeviceOrbitAngles,
@@ -46,7 +47,7 @@ function DeviceFrameNavArrow({ direction }: { direction: "prev" | "next" }) {
 }
 
 const DEVICE_ORBIT_NAV_BUTTON = cn(
-  "group relative flex h-10 min-w-[3rem] cursor-pointer items-center justify-center rounded-full border border-transparent bg-white px-3 text-[#252525] shadow-sm transition-[background-color,border-color,box-shadow,color] duration-[380ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
+  "group relative flex h-10 min-w-[3rem] cursor-pointer items-center justify-center rounded-full border border-transparent bg-white px-3 pb-0 text-[#252525] shadow-sm transition-[background-color,border-color,box-shadow,color] duration-[380ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
   "hover:border-[#a0c4ff] hover:bg-[#111116] hover:text-[#b8d4ff]",
   "hover:shadow-[0_0_0_1px_rgba(160,196,255,0.35),0_4px_18px_rgba(120,170,255,0.42),0_0_28px_rgba(100,150,255,0.22),inset_0_-10px_18px_-10px_rgba(160,196,255,0.14)]",
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black/30",
@@ -123,7 +124,10 @@ export function EllipseDeviceShowcase() {
       />
 
       <div
-        className="pointer-events-auto absolute bottom-[22%] left-1/2 z-20 flex -translate-x-1/2 gap-4 max-md:bottom-[15%]"
+        className={cn(
+          "pointer-events-auto absolute left-1/2 z-20 flex -translate-x-1/2 gap-4",
+          ELLIPSE_DEVICE_SHOWCASE_ORBIT_NAV_POSITION_CLASS,
+        )}
         role="group"
         aria-label="Device orbit controls"
       >

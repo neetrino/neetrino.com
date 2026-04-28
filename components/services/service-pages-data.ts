@@ -59,6 +59,16 @@ export function getServiceBySlug(slug: string, locale: AppLocale): ServiceCatalo
   return getServicesCatalog(locale).find((entry) => entry.slug === slug);
 }
 
+/** Collapses intentional line breaks in catalog titles for metadata, breadcrumbs, and compact labels. */
+export function serviceTitleSingleLine(title: string): string {
+  return title
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .join(" ");
+}
+
 export function serviceDetailHref(slug: ServiceSlug): string {
   return `/services/${slug}`;
 }

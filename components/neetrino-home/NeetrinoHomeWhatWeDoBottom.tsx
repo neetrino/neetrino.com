@@ -2,14 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
+import {
+  isWhatWeDoCardCopyCenteredLocale,
+  whatWeDoDesktopContinueCenterLeftClassName,
+} from "@/lib/what-we-do-desktop-continue-cta-layout";
+import { cn } from "@/lib/utils";
 import { Group } from "./Group";
 import { Group1 } from "./Group1";
 import { img2761, imgCloudInfrastructure, imgPc1, imgSafearea } from "./figma-assets";
 
 export function NeetrinoHomeWhatWeDoBottom() {
   const t = useTranslations();
+  const locale = useLocale();
+  const isCenteredTileCopy = isWhatWeDoCardCopyCenteredLocale(locale);
 
   return (
     <>
@@ -20,13 +27,29 @@ export function NeetrinoHomeWhatWeDoBottom() {
             data-node-id="90:544"
           />
           <div
-            className="pointer-events-none -translate-x-full -translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[792px] not-italic text-[20px] text-right text-white top-[577.5px] whitespace-nowrap"
+            className={cn(
+              "pointer-events-none absolute flex flex-col justify-center font-extralight not-italic leading-[0] text-[20px] text-white top-[577.5px] -translate-y-1/2",
+              isCenteredTileCopy
+                ? cn(
+                    whatWeDoDesktopContinueCenterLeftClassName.saas,
+                    "-translate-x-1/2 max-w-[220px] text-center",
+                  )
+                : "left-[792px] -translate-x-full text-right whitespace-nowrap",
+            )}
             data-node-id="90:545"
           >
             <p className="leading-[25px]">{t("home.whatWeDo.cards.saas.subtitle1")}</p>
           </div>
           <div
-            className="pointer-events-none -translate-y-1/2 absolute flex flex-col font-bold justify-center leading-[0] left-[619px] not-italic text-[22px] text-white top-[199.5px] whitespace-nowrap"
+            className={cn(
+              "pointer-events-none absolute flex flex-col justify-center font-bold not-italic leading-[0] text-[22px] text-white top-[199.5px] -translate-y-1/2",
+              isCenteredTileCopy
+                ? cn(
+                    whatWeDoDesktopContinueCenterLeftClassName.saas,
+                    "-translate-x-1/2 max-w-[220px] text-center",
+                  )
+                : "left-[619px] whitespace-nowrap",
+            )}
             data-node-id="90:546"
           >
             <p className="leading-[35px]">
@@ -68,6 +91,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
       <Group
         className="-translate-x-1/2 absolute h-[276px] left-[calc(50%+0.5px)] top-[655px] w-[642px]"
         exploreHref="/services"
+        ellipseUnderlayFromEnd={isCenteredTileCopy}
       />
       <div
         className="pointer-events-none absolute h-[231px] left-[1148px] top-[289px] w-[221px]"
@@ -107,7 +131,11 @@ export function NeetrinoHomeWhatWeDoBottom() {
       <Group1 className="absolute h-[553px] left-[50px] top-[129px] w-[258px]" />
       <Link
         href={serviceDetailHref("saas-development")}
-        className="pointer-events-auto absolute z-30 bg-white content-stretch flex gap-[4px] items-center left-[644px] overflow-clip px-[24px] py-[16px] rounded-[40px] top-[608px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+        className={cn(
+          "pointer-events-auto absolute z-30 flex gap-[4px] content-stretch items-center overflow-clip rounded-[40px] bg-white px-[24px] py-[16px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60",
+          whatWeDoDesktopContinueCenterLeftClassName.saas,
+          "-translate-x-1/2 top-[608px]",
+        )}
         data-name="Button 15"
         data-node-id="90:547"
       >
@@ -149,7 +177,11 @@ export function NeetrinoHomeWhatWeDoBottom() {
       </Link>
       <Link
         href={serviceDetailHref("ai-product-development")}
-        className="pointer-events-auto absolute z-30 bg-white content-stretch flex gap-[4px] items-center left-[1189px] overflow-clip px-[24px] py-[16px] rounded-[40px] top-[607px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+        className={cn(
+          "pointer-events-auto absolute z-30 flex gap-[4px] content-stretch items-center overflow-clip rounded-[40px] bg-white px-[24px] py-[16px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60",
+          whatWeDoDesktopContinueCenterLeftClassName.ai,
+          "-translate-x-1/2 top-[607px]",
+        )}
         data-name="Button 16"
         data-node-id="90:541"
       >

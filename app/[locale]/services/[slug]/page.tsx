@@ -2,7 +2,12 @@ import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { getServiceBySlug, getServicesCatalog } from "@/components/services/service-pages-data";
+import {
+  getServiceBySlug,
+  getServicesCatalog,
+  serviceTitleSingleLine,
+} from "@/components/services/service-pages-data";
+import { cn } from "@/lib/utils";
 import { locales } from "@/i18n/routing";
 import type { AppLocale } from "@/lib/i18n/locales";
 import { interSans } from "@/lib/fonts";
@@ -30,7 +35,7 @@ export async function generateMetadata({ params }: ServicePageProps) {
     return { title: t("servicesPage.serviceFallbackTitle") };
   }
   return {
-    title: `${service.title} | Neetrino`,
+    title: `${serviceTitleSingleLine(service.title)} | Neetrino`,
     description: service.description,
     alternates: getLocaleAlternates(locale, `/services/${slug}`),
   };
@@ -41,7 +46,11 @@ function serviceTitleMegatroxParts(title: string): {
   accent: string;
   after: string;
 } {
-  const parts = title.trim().split(/\s+/);
+  const normalized = title.trim().replace(/\r\n/g, "\n");
+  if (normalized.includes("\n")) {
+    return { before: normalized, accent: "", after: "" };
+  }
+  const parts = normalized.split(/\s+/);
   if (parts.length >= 2) {
     return {
       before: `${parts[0]} `,
@@ -66,6 +75,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   }
 
   const titleParts = serviceTitleMegatroxParts(service.title);
+  const isMultilineServiceTitle = service.title.replace(/\r\n/g, "\n").includes("\n");
 
   return (
     <div className={`w-full min-w-0 overflow-x-hidden bg-[#151515] ${interSans.className}`}>
@@ -86,14 +96,21 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <span className="text-white/35" aria-hidden>
             /
           </span>
-          <span className="max-w-[min(100%,280px)] truncate text-white/70">{service.title}</span>
+          <span className="max-w-[min(100%,280px)] truncate text-white/70">
+            {serviceTitleSingleLine(service.title)}
+          </span>
         </nav>
 
         <header className="mt-10 border-b border-white/[0.06] pb-12 md:mt-12 md:pb-14">
           <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/90">
             {t("nav.services")}
           </p>
-          <h1 className="mt-3 max-w-4xl font-[family-name:var(--font-megatrox)] text-4xl font-normal leading-[0.98] tracking-[-0.04em] text-[#fffcfc] md:text-5xl lg:text-[56px] lg:leading-[1.02]">
+          <h1
+            className={cn(
+              "mt-3 max-w-4xl font-[family-name:var(--font-megatrox)] text-4xl font-normal leading-[0.98] tracking-[-0.04em] text-[#fffcfc] md:text-5xl lg:text-[56px] lg:leading-[1.02]",
+              isMultilineServiceTitle && "whitespace-pre-line",
+            )}
+          >
             {titleParts.accent ? (
               <>
                 <span className="text-white">{titleParts.before}</span>

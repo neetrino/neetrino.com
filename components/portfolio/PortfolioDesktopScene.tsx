@@ -4,85 +4,40 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { DeferredMount } from "@/components/layout/DeferredMount";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
-import { Link } from "@/i18n/navigation";
-import { desktopPortfolioRows } from "@/components/portfolio/portfolio-data";
 import { PortfolioDesktopStarRayDeferred } from "@/components/portfolio/PortfolioDesktopStarRayDeferred";
 import { PortfolioDesktopVectorDecorDeferred } from "@/components/portfolio/PortfolioDesktopVectorDecorDeferred";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
+import { orbitronBlack } from "@/lib/fonts";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
-
-type GroupProps = {
-  className?: string;
-  exploreLabel: string;
-};
-
-function Group({ className, exploreLabel }: GroupProps) {
-  const { imgChangeColor1, imgChangeColor, imgSafearea, imgEllipse3463 } = figma;
-  return (
-    <div className={className || "h-[276px] relative w-[642px]"} data-node-id="1:140">
-      <div
-        className="absolute inset-[-105.8%_-69%] opacity-0"
-        data-name="光斑 flare"
-        data-node-id="1:141"
-      >
-        <div className="absolute contents inset-0" data-name="glow" data-node-id="1:143">
-          <div
-            className="absolute inset-0 mask-position-[0px_0px,_0px_0px]"
-            data-name="改变颜色 change color"
-            data-node-id="1:145"
-            style={{
-              backgroundImage:
-                "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1528 860\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(6.1295e-15 -43 76.4 2.3112e-13 764 430)\\'><stop stop-color=\\'rgba(211,255,248,1)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(164,235,248,1)\\' offset=\\'0.026042\\'/><stop stop-color=\\'rgba(116,214,249,1)\\' offset=\\'0.052083\\'/><stop stop-color=\\'rgba(68,194,249,1)\\' offset=\\'0.078125\\'/><stop stop-color=\\'rgba(45,184,249,1)\\' offset=\\'0.091146\\'/><stop stop-color=\\'rgba(21,173,250,1)\\' offset=\\'0.10417\\'/><stop stop-color=\\'rgba(11,138,227,1)\\' offset=\\'0.29688\\'/><stop stop-color=\\'rgba(1,102,204,1)\\' offset=\\'0.48958\\'/><stop stop-color=\\'rgba(1,81,165,1)\\' offset=\\'0.61719\\'/><stop stop-color=\\'rgba(1,60,125,1)\\' offset=\\'0.74479\\'/><stop stop-color=\\'rgba(2,38,86,1)\\' offset=\\'0.8724\\'/><stop stop-color=\\'rgba(2,17,47,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')",
-              maskImage: `url('${imgChangeColor}'), url('${imgChangeColor1}')`,
-            }}
-          />
-        </div>
-      </div>
-      <Link
-        href="/portfolio"
-        className="absolute border border-[#6a92ff] border-solid inset-[39.86%_39.72%_39.86%_39.41%] overflow-clip rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]"
-        data-name="Button 2"
-        data-node-id="1:146"
-      >
-        <div
-          className="absolute bg-black inset-[-1px] opacity-0 rounded-[40px]"
-          data-name="shadow"
-          data-node-id="1:147"
-        />
-        <div
-          className="-translate-x-1/2 -translate-y-1/2 absolute bg-black h-[56px] left-1/2 rounded-[40px] top-1/2 w-[134px]"
-          data-name="background"
-          data-node-id="1:148"
-        />
-        <p
-          className="absolute font-['DM_Sans:Medium',sans-serif] font-medium leading-[24px] left-[23px] text-[18px] text-white top-[15px] whitespace-nowrap"
-          data-node-id="1:149"
-          style={{ fontVariationSettings: "'opsz' 14" }}
-        >
-          {exploreLabel}
-        </p>
-        <div
-          className="absolute left-[89px] overflow-clip size-[20px] top-[17px]"
-          data-name="Right"
-          data-node-id="1:150"
-        >
-          <div
-            className="absolute inset-[8.33%]"
-            data-name="safearea"
-            data-node-id="I1:150;21:1594"
-          >
-            <FigmaFillImage src={imgSafearea} sizes="20px" />
-          </div>
-        </div>
-        <div className="absolute h-[31px] left-[22px] top-[39px] w-[88px]" data-node-id="1:151">
-          <div className="absolute inset-[-45.16%_-15.91%]">
-            <FigmaFillImage src={imgEllipse3463} sizes="88px" />
-          </div>
-        </div>
-      </Link>
-    </div>
-  );
-}
+import {
+  PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+  PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ABSOLUTE_WRAPPER_CLASS,
+  PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_GRID_WRAPPER_CLASS,
+  PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_INNER_CLASS,
+  PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ROTATE_CLASS,
+  PORTFOLIO_FIRST_BANNER_FRAME_CLASS,
+  PORTFOLIO_FIRST_BANNER_WIDTH_PX,
+} from "@/lib/portfolio-desktop-first-banner.constants";
+import {
+  PORTFOLIO_SECOND_BANNER_FRAME_CLASS,
+  PORTFOLIO_SECOND_BANNER_WIDTH_PX,
+} from "@/lib/portfolio-desktop-second-banner.constants";
+import {
+  PORTFOLIO_SECOND_BANNER_CAT_LOGO_BOX_CLASS,
+  PORTFOLIO_SECOND_BANNER_CAT_LOGO_BOX_WIDTH_PX,
+  PORTFOLIO_SECOND_BANNER_CAT_LOGO_CORNER_WRAPPER_CLASS,
+} from "@/lib/portfolio-second-banner-cat-logo.constants";
+import {
+  PORTFOLIO_SECOND_BANNER_ZEPPELIN_COPY,
+  PORTFOLIO_SECOND_BANNER_ZEPPELIN_CORNER_WRAPPER_CLASS,
+  PORTFOLIO_SECOND_BANNER_ZEPPELIN_TEXT_SIZE_CLASS,
+} from "@/lib/portfolio-second-banner-zeppelin.constants";
+import {
+  PORTFOLIO_THIRD_BANNER_LEFT_COPY_LINES,
+  PORTFOLIO_THIRD_BANNER_LEFT_OVERLAY_CLASS,
+  PORTFOLIO_THIRD_BANNER_LEFT_TEXT_CLASS,
+} from "@/lib/portfolio-third-banner-left-copy.constants";
+import { cn } from "@/lib/utils";
 
 function Button({ className }: { className?: string }) {
   const { imgSafearea1 } = figma;
@@ -117,6 +72,95 @@ function Button({ className }: { className?: string }) {
           <FigmaFillImage src={imgSafearea1} sizes="20px" />
         </div>
       </div>
+    </div>
+  );
+}
+
+/** Figma `525:1728` — top-left CAT logo on the second hero card. */
+function PortfolioSecondBannerCatLogoCorner() {
+  return (
+    <div
+      className={PORTFOLIO_SECOND_BANNER_CAT_LOGO_CORNER_WRAPPER_CLASS}
+      data-name="cat-logo-png-transparent 1"
+      data-node-id="525:1728"
+    >
+      <div className={PORTFOLIO_SECOND_BANNER_CAT_LOGO_BOX_CLASS}>
+        <Image
+          alt="CAT logo"
+          src={figma.imgCatLogoPngTransparent1}
+          fill
+          className="object-contain object-left-top"
+          sizes={`${PORTFOLIO_SECOND_BANNER_CAT_LOGO_BOX_WIDTH_PX}px`}
+          quality={DEFAULT_IMAGE_QUALITY}
+        />
+      </div>
+    </div>
+  );
+}
+
+/** Figma `496:1546` — third portfolio row: smartphone mockup below the two hero cards. */
+function PortfolioFirstBannerSmartphoneMock() {
+  return (
+    <div
+      className={cn(
+        "relative shrink-0",
+        PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        PORTFOLIO_FIRST_BANNER_FRAME_CLASS,
+      )}
+      data-name="Smartphone-Presentation-Mockup 1"
+      data-node-id="496:1546"
+    >
+      <div
+        className={cn(
+          "absolute inset-0 overflow-hidden pointer-events-none",
+          PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        )}
+      >
+        <Image
+          alt="Smartphone presentation mockup"
+          src={figma.imgSmartphonePresentationMockup1}
+          fill
+          className="object-cover"
+          quality={DEFAULT_IMAGE_QUALITY}
+          sizes={`${PORTFOLIO_FIRST_BANNER_WIDTH_PX}px`}
+          loading="lazy"
+        />
+      </div>
+      <div className={PORTFOLIO_THIRD_BANNER_LEFT_OVERLAY_CLASS}>
+        <p className={PORTFOLIO_THIRD_BANNER_LEFT_TEXT_CLASS}>
+          {PORTFOLIO_THIRD_BANNER_LEFT_COPY_LINES.map((line) => (
+            <span key={line} className="block">
+              {line}
+            </span>
+          ))}
+        </p>
+      </div>
+      <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ABSOLUTE_WRAPPER_CLASS}>
+        <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ROTATE_CLASS}>
+          <Button className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_INNER_CLASS} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Figma `525:1727` — bottom-right lockup on the second hero card. */
+function PortfolioSecondBannerZeppelinCorner() {
+  return (
+    <div
+      className={PORTFOLIO_SECOND_BANNER_ZEPPELIN_CORNER_WRAPPER_CLASS}
+      data-name="ZEPPELIN"
+      data-node-id="525:1727"
+    >
+      <p
+        className={cn(
+          orbitronBlack.className,
+          PORTFOLIO_SECOND_BANNER_ZEPPELIN_TEXT_SIZE_CLASS,
+          "leading-none tracking-[-0.02em] text-[#f6ff00]",
+        )}
+      >
+        {PORTFOLIO_SECOND_BANNER_ZEPPELIN_COPY}
+      </p>
     </div>
   );
 }
@@ -161,50 +205,6 @@ function PortfolioPlanet() {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function PortfolioMoreCases({ title }: { title: string }) {
-  return (
-    <div
-      className="absolute h-[1098px] left-0 overflow-clip top-[974px] w-[1440px]"
-      data-name="more cases"
-      data-node-id="166:1394"
-    >
-      {desktopPortfolioRows.map((row, rowIndex) => (
-        <div
-          key={`portfolio-row-${rowIndex}`}
-          className="-translate-x-1/2 absolute content-stretch flex gap-[33px] items-center justify-center left-[calc(50%+0.5px)]"
-          data-node-id={rowIndex === 0 ? "166:1395" : "166:1399"}
-          style={{ top: rowIndex === 0 ? 254 : 605 }}
-        >
-          {row.map((image, imageIndex) => (
-            <div
-              key={`${rowIndex}-${imageIndex}-${image}`}
-              className="relative h-[262px] shrink-0 w-[423px]"
-              data-name={`Portfolio ${rowIndex + 1}-${imageIndex + 1}`}
-            >
-              <Image
-                alt=""
-                src={image}
-                fill
-                sizes="423px"
-                quality={DEFAULT_IMAGE_QUALITY}
-                className="object-cover pointer-events-none"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          ))}
-        </div>
-      ))}
-      <p
-        className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-635px)] not-italic text-[#fffcfc] text-[90px] top-[82px] whitespace-nowrap"
-        data-node-id="166:1403"
-      >
-        {title}
-      </p>
     </div>
   );
 }
@@ -301,26 +301,34 @@ export function PortfolioDesktopScene() {
             data-node-id="166:1231"
           >
             <div
-              className="col-1 h-[409.177px] ml-0 mt-0 relative rounded-[35px] row-1 w-[631.601px]"
+              className={cn(
+                "col-1 ml-0 mt-0 relative row-1",
+                PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+                PORTFOLIO_FIRST_BANNER_FRAME_CLASS,
+              )}
               data-name="-266 1"
               data-node-id="166:1232"
             >
-              <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[35px]">
+              <div
+                className={cn(
+                  "absolute inset-0 overflow-hidden pointer-events-none",
+                  PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+                )}
+              >
                 <Image
                   alt=""
-                  className="absolute h-[154.19%] left-0 max-w-none top-[-40.85%] w-full"
                   src={figma.img2661}
-                  width={2400}
-                  height={2400}
+                  fill
+                  className="object-cover"
                   quality={DEFAULT_IMAGE_QUALITY}
-                  sizes="632px"
+                  sizes={`${PORTFOLIO_FIRST_BANNER_WIDTH_PX}px`}
                   loading="lazy"
                 />
               </div>
             </div>
-            <div className="col-1 flex items-center justify-center ml-[535.86px] mt-[15.86px] relative row-1 size-[78.276px]">
-              <div className="flex-none rotate-[-36.26deg]">
-                <Button className="bg-white content-stretch flex gap-[4px] items-center justify-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] size-[56px]" />
+            <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_GRID_WRAPPER_CLASS}>
+              <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ROTATE_CLASS}>
+                <Button className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_INNER_CLASS} />
               </div>
             </div>
           </div>
@@ -333,36 +341,43 @@ export function PortfolioDesktopScene() {
               data-node-id="166:1235"
             >
               <div
-                className="col-1 h-[409.177px] ml-0 mt-0 relative rounded-[31px] row-1 w-[636.026px]"
+                className={cn(
+                  "col-1 ml-0 mt-0 relative row-1",
+                  PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+                  PORTFOLIO_SECOND_BANNER_FRAME_CLASS,
+                )}
                 data-name="biotech _ logo 1"
                 data-node-id="166:1236"
               >
-                <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[31px]">
+                <div
+                  className={cn(
+                    "absolute inset-0 overflow-hidden pointer-events-none",
+                    PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+                  )}
+                >
                   <Image
                     alt=""
-                    className="absolute h-[120.37%] left-[-1.69%] max-w-none top-[-13.55%] w-[103.37%]"
                     src={figma.imgBiotechLogo1}
-                    width={2400}
-                    height={2400}
+                    fill
+                    className="object-cover"
                     quality={DEFAULT_IMAGE_QUALITY}
-                    sizes="636px"
+                    sizes={`${PORTFOLIO_SECOND_BANNER_WIDTH_PX}px`}
                     loading="lazy"
                   />
                 </div>
+                <PortfolioSecondBannerCatLogoCorner />
+                <PortfolioSecondBannerZeppelinCorner />
               </div>
             </div>
-            <div className="col-1 flex items-center justify-center ml-[543.03px] mt-[16px] relative row-1 size-[78.276px]">
-              <div className="flex-none rotate-[-36.26deg]">
-                <Button className="bg-white content-stretch flex gap-[4px] items-center justify-center overflow-clip px-[24px] py-[16px] relative rounded-[40px] size-[56px]" />
+            <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_GRID_WRAPPER_CLASS}>
+              <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ROTATE_CLASS}>
+                <Button className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_INNER_CLASS} />
               </div>
             </div>
           </div>
         </div>
+        <PortfolioFirstBannerSmartphoneMock />
       </div>
-      <Group
-        className="-translate-x-1/2 absolute h-[276px] left-1/2 top-[759px] w-[642px]"
-        exploreLabel={t("cta.explore")}
-      />
       <div
         className="-translate-x-1/2 absolute h-[664px] left-[calc(50%-7.5px)] top-[2017px] w-[1437px]"
         data-node-id="166:1259"
@@ -410,9 +425,6 @@ export function PortfolioDesktopScene() {
             </div>
           </div>
         </div>
-      </DeferredMount>
-      <DeferredMount topClassName="top-[700px]" rootMargin="320px 0px 320px 0px">
-        <PortfolioMoreCases title={t("portfolioPage.moreCases")} />
       </DeferredMount>
     </div>
   );

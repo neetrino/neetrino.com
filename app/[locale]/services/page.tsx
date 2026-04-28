@@ -4,6 +4,8 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 import { getServicesCatalog, serviceDetailHref } from "@/components/services/service-pages-data";
+import { cn } from "@/lib/utils";
+import { ServicesHeroTitle } from "@/components/services/ServicesHeroTitle";
 import { ServicesTechMarquee } from "@/components/services/ServicesTechMarquee";
 import { getLocaleAlternates } from "@/lib/metadata";
 import type { AppLocale } from "@/lib/i18n/locales";
@@ -55,11 +57,14 @@ export default async function Services({ params }: ServicesPageProps) {
             <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/90">
               {t("servicesPage.eyebrow")}
             </p>
-            <h1 className="mt-3 max-w-[18ch] font-[family-name:var(--font-megatrox)] text-4xl font-normal leading-[0.95] tracking-[-0.04em] text-[#fffcfc] md:text-5xl">
-              <span className="text-white">SERV</span>
-              <span className="text-[#ff7500]">ICE</span>
-              <span className="text-white">S</span>
-            </h1>
+            <ServicesHeroTitle
+              as="h1"
+              before={t("servicesPage.heroTitleBefore")}
+              accent={t("servicesPage.heroTitleAccent")}
+              after={t("servicesPage.heroTitleAfter")}
+              className="mt-3 max-w-[18ch] font-[family-name:var(--font-megatrox)] text-4xl font-normal leading-[0.95] tracking-[-0.04em] text-[#fffcfc] md:text-5xl"
+              neutralClassName="text-white"
+            />
             <p className="mt-6 max-w-2xl text-base font-light leading-relaxed text-white/80 md:text-lg">
               {t("servicesPage.description")}
             </p>
@@ -79,7 +84,12 @@ export default async function Services({ params }: ServicesPageProps) {
                   <span className="text-xs font-semibold uppercase tracking-[0.14em] text-white/45">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h2 className="mt-3 text-xl font-black leading-tight text-white md:text-2xl">
+                  <h2
+                    className={cn(
+                      "mt-3 text-xl font-black leading-tight text-white md:text-2xl",
+                      item.title.includes("\n") && "whitespace-pre-line",
+                    )}
+                  >
                     {item.title}
                   </h2>
                   <p className="mt-3 text-sm font-light leading-relaxed text-white/75 md:text-[15px]">

@@ -1,5 +1,7 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 import {
   ABOUT_STATS_STRIP_GLASS_SCALE_X,
   ABOUT_STATS_STRIP_GLASS_SCALE_Y,
@@ -10,6 +12,10 @@ import {
  * Layout numbers: `lib/about-us-stats-strip.constants.ts`.
  */
 export function AboutUsFigmaBlock1bLower() {
+  const t = useTranslations("aboutPage");
+  const locale = useLocale();
+  const isHy = locale === "hy";
+
   return (
     <div
       className="absolute left-[811px] top-[985px] z-10 overflow-visible"
@@ -23,9 +29,14 @@ export function AboutUsFigmaBlock1bLower() {
         }}
         aria-hidden
       />
-      <div className="relative z-10 flex h-[92px] items-center justify-center gap-[64px] px-[48px]">
+      <div
+        className={cn(
+          "relative z-10 flex items-center justify-center gap-[64px] px-[48px]",
+          isHy ? "h-[116px]" : "h-[92px]",
+        )}
+      >
         <div
-          className="h-[92px] relative shrink-0 w-[141.914px]"
+          className={cn("relative shrink-0 w-[141.914px]", isHy ? "h-[116px]" : "h-[92px]")}
           data-name="Container"
           data-node-id="335:957"
         >
@@ -53,35 +64,44 @@ export function AboutUsFigmaBlock1bLower() {
               </div>
             </div>
             <div
-              className="h-[24px] relative shrink-0 w-full"
+              className={cn("relative shrink-0 w-full", isHy ? "h-[48px]" : "h-[24px]")}
               data-name="Paragraph"
               data-node-id="335:962"
             >
               <p
-                className="-translate-x-1/2 absolute font-['Inter:Light',sans-serif] font-light leading-[24px] left-[71.35px] not-italic text-[#99a1af] text-[16px] text-center top-[-1px] whitespace-nowrap"
+                className={cn(
+                  "-translate-x-1/2 absolute left-[71.35px] top-[-1px] font-['Inter:Light',sans-serif] font-light not-italic text-[#99a1af] text-[16px] leading-[24px] text-center",
+                  isHy ? "w-[min(100%,138px)] whitespace-pre-line" : "whitespace-nowrap",
+                )}
                 data-node-id="335:963"
               >
-                Projects Delivered
+                {t("statsHero.projectsDelivered")}
               </p>
             </div>
           </div>
         </div>
         <div
-          className="h-[92px] relative shrink-0 w-[105.75px]"
+          className={cn("relative shrink-0 w-[105.75px]", isHy ? "h-[116px]" : "h-[92px]")}
           data-name="Container"
           data-node-id="335:964"
         >
           <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
             <div
-              className="absolute h-[24px] left-0 top-[68px] w-[105.75px]"
+              className={cn(
+                "absolute left-0 w-[105.75px]",
+                isHy ? "top-[68px] h-[48px]" : "top-[68px] h-[24px]",
+              )}
               data-name="Paragraph"
               data-node-id="335:965"
             >
               <p
-                className="-translate-x-1/2 absolute font-['Inter:Light',sans-serif] font-light leading-[24px] left-[53.5px] not-italic text-[#99a1af] text-[16px] text-center top-[-1px] whitespace-nowrap"
+                className={cn(
+                  "-translate-x-1/2 absolute left-[53.5px] top-[-1px] font-['Inter:Light',sans-serif] font-light not-italic text-[#99a1af] text-[16px] leading-[24px] text-center",
+                  isHy ? "w-[min(100%,102px)] whitespace-pre-line" : "whitespace-nowrap",
+                )}
                 data-node-id="335:966"
               >
-                Core Services
+                {t("statsHero.coreServices")}
               </p>
             </div>
             <div
@@ -109,21 +129,24 @@ export function AboutUsFigmaBlock1bLower() {
           </div>
         </div>
         <div
-          className="h-[92px] relative shrink-0 w-[132.414px]"
+          className={cn("relative shrink-0 w-[132.414px]", isHy ? "h-[116px]" : "h-[92px]")}
           data-name="Container"
           data-node-id="335:971"
         >
           <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
             <div
-              className="absolute h-[24px] left-0 top-[68px] w-[132.414px]"
+              className={cn(
+                "absolute left-0 h-[24px] w-[132.414px]",
+                isHy ? "top-[92px]" : "top-[68px]",
+              )}
               data-name="Paragraph"
               data-node-id="335:972"
             >
               <p
-                className="-translate-x-1/2 absolute font-['Inter:Light',sans-serif] font-light leading-[24px] left-[66.5px] not-italic text-[#99a1af] text-[16px] text-center top-[-1px] whitespace-nowrap"
+                className="-translate-x-1/2 absolute left-[66.5px] top-[-1px] font-['Inter:Light',sans-serif] font-light leading-[24px] not-italic text-[#99a1af] text-[16px] text-center whitespace-nowrap"
                 data-node-id="335:973"
               >
-                Support Available
+                {t("statsHero.supportAvailable")}
               </p>
             </div>
             <div

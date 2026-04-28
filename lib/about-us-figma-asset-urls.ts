@@ -16,6 +16,9 @@ export const img02A0Ab86C3Fe4B8381Ab86B982Bb800C1 =
   "/about-us-figma/5f234bed616388320ac6543fe79c46c91533c2b2.webp";
 export const imgChatGptImageApr32026At011015Pm1 =
   "/about-us-figma/a90813e2c678b1e1b8730aab21c35a262af2dc7d.webp";
+/** Figma node 373:1457 — metallic palette above “100,000 design options” feature (NEETRINO-WEB). */
+export const imgAboutPaletteDesignOptions =
+  "/about-us-figma/about-palette-design-options-373-1457.webp";
 export const imgBottomD = "/about-us-figma/aaf17d566c42925528656d8fbc3695630e7db179.webp";
 export const imgBottomC = "/about-us-figma/b72c68b4e9ac533e23634f475ff84f0f9d90664c.webp";
 export const imgBottomB = "/about-us-figma/7047f4572b22299b4c599f2bd134911ff9198c61.webp";

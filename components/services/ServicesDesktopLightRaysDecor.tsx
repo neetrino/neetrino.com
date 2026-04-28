@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
+import { ServicesHeroTitle } from "@/components/services/ServicesHeroTitle";
 import { useIdleMount } from "@/lib/hooks/useIdleMount";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
@@ -22,6 +24,7 @@ const STAR22_HEIGHT = 2048;
 
 /** Hero rays + title + line art inside the Light Rays layer (above the card row). */
 export function ServicesDesktopLightRaysDecor() {
+  const t = useTranslations("servicesPage");
   const showStarRay = useIdleMount();
 
   return (
@@ -62,12 +65,15 @@ export function ServicesDesktopLightRaysDecor() {
           </div>
         </div>
       ) : null}
-      <p
-        className="absolute font-[family-name:var(--font-megatrox)] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap"
+      <ServicesHeroTitle
+        as="p"
+        before={t("heroTitleBefore")}
+        accent={t("heroTitleAccent")}
+        after={t("heroTitleAfter")}
+        className="absolute font-[family-name:var(--font-megatrox)] leading-[normal] left-[calc(50%-646px)] not-italic text-[90px] top-[152px] whitespace-nowrap"
+        neutralClassName="text-[#fffcfc]"
         data-node-id="165:677"
-      >
-        SERVICES
-      </p>
+      />
       <div className="absolute contents left-[-29px] top-[-415px]" data-node-id="165:678">
         <div className="absolute contents left-[927.52px] top-[-415px]" data-node-id="165:679">
           <div className="absolute flex h-[759.42px] items-center justify-center left-[947.82px] mix-blend-plus-lighter top-[-415px] w-0">

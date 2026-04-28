@@ -1,4 +1,4 @@
-import { DM_Sans, Inter, Noto_Sans_Armenian } from "next/font/google";
+import { DM_Sans, Inter, Noto_Sans_Armenian, Orbitron } from "next/font/google";
 
 /** Основной UI/маркетинговый шрифт — Inter (latin + cyrillic). */
 export const interSans = Inter({
@@ -22,4 +22,11 @@ export const notoSansArmenian = Noto_Sans_Armenian({
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-noto-sans-armenian",
+});
+
+/** Figma portfolio second card label (`525:1727` — ZEPPELIN). */
+export const orbitronBlack = Orbitron({
+  subsets: ["latin"],
+  weight: "900",
+  display: "swap",
 });
