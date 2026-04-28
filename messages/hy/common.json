@@ -211,8 +211,8 @@
     "value3": "Շարունակական զարգացում",
     "value4": "Փոխադարձ հարգանք",
     "statsHero": {
-      "projectsDelivered": "Ավարտված նախագծեր",
-      "coreServices": "Հիմնական ծառայություններ",
+      "projectsDelivered": "Ավարտված\nնախագծեր",
+      "coreServices": "Հիմնական\nծառայություններ",
       "supportAvailable": "Աջակցություն 24/7"
     },
     "statsBottom": {

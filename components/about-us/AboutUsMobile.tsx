@@ -208,7 +208,14 @@ function StatsCard({ stats, className }: { stats: ReadonlyArray<StatItem>; class
           >
             {s.value}
           </p>
-          <p className="mt-2 text-sm font-light text-[#99a1af]">{s.label}</p>
+          <p
+            className={cn(
+              "mt-2 text-sm font-light text-[#99a1af]",
+              s.label.includes("\n") && "whitespace-pre-line",
+            )}
+          >
+            {s.label}
+          </p>
         </div>
       ))}
     </div>
