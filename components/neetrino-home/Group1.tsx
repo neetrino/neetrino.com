@@ -54,7 +54,7 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
       </div>
       <Link
         href={serviceDetailHref("website-development")}
-        className="pointer-events-auto absolute z-30 bg-white content-stretch flex gap-[4px] inset-[86.62%_20.54%_3.25%_20.93%] items-center overflow-clip px-[24px] py-[16px] rounded-[40px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+        className="pointer-events-auto absolute bottom-[3.25%] left-1/2 z-30 flex -translate-x-1/2 gap-[4px] overflow-clip rounded-[40px] bg-white px-[24px] py-[16px] content-stretch items-center no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
         data-name="Button 12"
         data-node-id="1:713"
       >

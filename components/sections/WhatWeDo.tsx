@@ -1,9 +1,14 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { serviceDetailHref, type ServiceSlug } from "@/components/services/service-pages-data";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
+import {
+  whatWeDoHyCrmSubtitleLiftOnlyClassName,
+  whatWeDoHyCrmSubtitleToContinueGapClassName,
+} from "@/lib/what-we-do-desktop-continue-cta-layout";
+import { cn } from "@/lib/utils";
 
 const services: readonly {
   titleLines: readonly string[];
@@ -80,8 +85,9 @@ const services: readonly {
 ];
 
 /** Mobile-only section — matches Figma 241:821 service cards (horizontal tiles). */
-export function WhatWeDo() {
-  const t = useTranslations();
+export async function WhatWeDo() {
+  const t = await getTranslations();
+  const locale = await getLocale();
 
   return (
     <section className={`bg-[#151515] py-12 ${interSans.className}`}>
@@ -97,55 +103,113 @@ export function WhatWeDo() {
         </header>
 
         <div className="flex flex-col gap-4">
-          {services.map((service) => (
-            <article
-              key={service.titleLines.join("-")}
-              className={`relative flex h-[194px] min-h-[194px] w-full overflow-hidden rounded-[19px] ${service.bg}`}
-            >
-              <div className="relative h-full w-[48%] shrink-0 overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt=""
-                  fill
-                  className={`${service.imageClassName}`}
-                  sizes="(max-width: 1024px) 48vw, 240px"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-between px-3 py-3 pr-2">
-                <div>
-                  {service.titleLineKeys.map((lineKey, index) => (
-                    <h3
-                      key={`${lineKey}-${index}`}
-                      className={`font-bold text-lg leading-tight ${service.textColor}`}
-                    >
-                      {t(lineKey)}
-                    </h3>
-                  ))}
-                  <div
-                    className={`mt-1 text-base font-extralight leading-[19px] ${service.textColor}`}
-                  >
-                    {service.subtitleLineKeys.map((lineKey, index) => (
-                      <p key={`${lineKey}-${index}`}>{t(lineKey)}</p>
-                    ))}
-                  </div>
-                </div>
-                <Link
-                  href={serviceDetailHref(service.slug)}
-                  className="ml-auto inline-flex w-fit items-center gap-2 self-end rounded-[40px] bg-white px-5 py-3 text-[18px] font-medium text-[#252525] transition-opacity hover:opacity-90"
-                >
-                  {t("cta.continue")}
+          {services.map((service) => {
+            const isHyAi = locale === "hy" && service.slug === "ai-product-development";
+            const isHyCrm = locale === "hy" && service.slug === "crm-systems";
+            const continueLinkClassName =
+              "mx-auto inline-flex w-fit items-center gap-2 rounded-[40px] bg-white px-5 py-3 text-[18px] font-medium text-[#252525] transition-opacity hover:opacity-90";
+
+            return (
+              <article
+                key={service.titleLines.join("-")}
+                className={`relative flex h-[194px] min-h-[194px] w-full overflow-hidden rounded-[19px] ${service.bg}`}
+              >
+                <div className="relative h-full w-[48%] shrink-0 overflow-hidden">
                   <Image
-                    src={FIGMA_ASSETS.imgSafearea}
+                    src={service.image}
                     alt=""
-                    width={20}
-                    height={20}
-                    className="size-5 shrink-0"
+                    fill
+                    className={`${service.imageClassName}`}
+                    sizes="(max-width: 1024px) 48vw, 240px"
+                    loading="lazy"
                   />
-                </Link>
-              </div>
-            </article>
-          ))}
+                </div>
+                <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-between px-3 py-3 pr-2">
+                  <div>
+                    {service.titleLineKeys.map((lineKey, index) => (
+                      <h3
+                        key={`${lineKey}-${index}`}
+                        className={cn(
+                          `font-bold text-lg leading-tight ${service.textColor}`,
+                          locale === "hy" &&
+                            (service.slug === "mobile-app-development" ||
+                              service.slug === "saas-development" ||
+                              service.slug === "ai-product-development" ||
+                              service.slug === "crm-systems") &&
+                            "w-full text-center",
+                          isHyAi && "w-full whitespace-nowrap text-center",
+                          isHyCrm && "whitespace-nowrap",
+                        )}
+                      >
+                        {t(lineKey)}
+                      </h3>
+                    ))}
+                    {!isHyCrm ? (
+                      <div
+                        className={cn(
+                          `mt-1 text-base font-extralight leading-[19px] ${service.textColor}`,
+                          locale === "hy" &&
+                            (service.slug === "mobile-app-development" ||
+                              service.slug === "saas-development" ||
+                              service.slug === "ai-product-development") &&
+                            "w-full text-center",
+                          isHyAi && "whitespace-nowrap",
+                        )}
+                      >
+                        {service.subtitleLineKeys.map((lineKey, index) => (
+                          <p key={`${lineKey}-${index}`}>{t(lineKey)}</p>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                  {isHyCrm ? (
+                    <div
+                      className={cn(
+                        "flex flex-col items-center",
+                        whatWeDoHyCrmSubtitleToContinueGapClassName,
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          "flex w-full max-w-full flex-col items-center text-center text-base font-extralight leading-[19px]",
+                          service.textColor,
+                          whatWeDoHyCrmSubtitleLiftOnlyClassName,
+                        )}
+                      >
+                        {service.subtitleLineKeys.map((lineKey) => (
+                          <p key={lineKey}>{t(lineKey)}</p>
+                        ))}
+                      </div>
+                      <Link
+                        href={serviceDetailHref(service.slug)}
+                        className={continueLinkClassName}
+                      >
+                        {t("cta.continue")}
+                        <Image
+                          src={FIGMA_ASSETS.imgSafearea}
+                          alt=""
+                          width={20}
+                          height={20}
+                          className="size-5 shrink-0"
+                        />
+                      </Link>
+                    </div>
+                  ) : (
+                    <Link href={serviceDetailHref(service.slug)} className={continueLinkClassName}>
+                      {t("cta.continue")}
+                      <Image
+                        src={FIGMA_ASSETS.imgSafearea}
+                        alt=""
+                        width={20}
+                        height={20}
+                        className="size-5 shrink-0"
+                      />
+                    </Link>
+                  )}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

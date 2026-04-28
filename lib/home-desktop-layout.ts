@@ -23,4 +23,4 @@ export const HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX = 4196;
  * extra pull on Partners that would skew gaps vs. the paired layout.
  * **Literal** for Tailwind JIT.
  */
-export const HOME_DESKTOP_CANVAS_FOOTER_PULL_UP_CLASSNAME = "lg:-mb-22" as const;
+export const HOME_DESKTOP_CANVAS_FOOTER_PULL_UP_CLASSNAME = "lg:-mb-20" as const;

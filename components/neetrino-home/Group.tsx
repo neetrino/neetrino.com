@@ -2,8 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
+import {
+  homeExplorePillIconLeftDefaultClassName,
+  homeExplorePillIconLeftHyClassName,
+  homeExplorePillWidthDefaultClassName,
+  homeExplorePillWidthHyClassName,
+} from "@/lib/home-explore-pill-layout";
+import { cn } from "@/lib/utils";
 import { imgEllipse3463, imgSafearea1 } from "./figma-assets";
 
 type GroupProps = {
@@ -14,6 +21,8 @@ type GroupProps = {
 
 export function Group({ className, exploreHref }: GroupProps) {
   const t = useTranslations();
+  const locale = useLocale();
+  const isHyExploreWide = locale === "hy";
 
   return (
     <div
@@ -32,7 +41,12 @@ export function Group({ className, exploreHref }: GroupProps) {
           data-node-id="1:147"
         />
         <div
-          className="-translate-x-1/2 -translate-y-1/2 absolute bg-black h-[56px] left-1/2 rounded-[40px] top-1/2 w-[134px]"
+          className={cn(
+            "-translate-x-1/2 -translate-y-1/2 absolute left-1/2 top-1/2 h-[56px] rounded-[40px] bg-black",
+            isHyExploreWide
+              ? homeExplorePillWidthHyClassName
+              : homeExplorePillWidthDefaultClassName,
+          )}
           data-name="background"
           data-node-id="1:148"
         />
@@ -44,7 +58,12 @@ export function Group({ className, exploreHref }: GroupProps) {
           {t("cta.explore")}
         </p>
         <div
-          className="absolute left-[89px] overflow-clip size-[20px] top-[17px]"
+          className={cn(
+            "absolute top-[17px] size-[20px] overflow-clip",
+            isHyExploreWide
+              ? homeExplorePillIconLeftHyClassName
+              : homeExplorePillIconLeftDefaultClassName,
+          )}
           data-name="Right"
           data-node-id="1:150"
         >
