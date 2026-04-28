@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
   img02A0Ab86C3Fe4B8381Ab86B982Bb800C1,
@@ -9,58 +11,103 @@ import {
   imgLayer1,
 } from "@/lib/about-us-figma-asset-urls";
 
+const FEATURE_KEYS = [
+  ["feature1Line1", "feature1Line2"],
+  ["feature2Line1", "feature2Line2"],
+  ["feature3Line1", "feature3Line2"],
+  ["feature4Line1", "feature4Line2"],
+] as const;
+
+const VALUE_KEYS = ["value1", "value2", "value3", "value4"] as const;
+
 /**
  * Mobile/tablet (<lg) About Us layout. Mirrors the same content/order/CTA copy as the
  * Figma-pixel desktop blocks (`AboutUsFigmaBlock1a..3`) but renders it in normal flow
  * with responsive Tailwind utilities. Desktop layout is untouched (kept in `figma/`).
  */
 export function AboutUsMobile() {
+  const t = useTranslations("aboutPage");
+
+  const heroParagraphs = [t("storyShort"), t("storySpecialization")] as const;
+
+  const heroStats: ReadonlyArray<StatItem> = [
+    { value: "450+", label: t("statsHero.projectsDelivered"), gradient: GRADIENT_PURPLE() },
+    { value: "6+", label: t("statsHero.coreServices"), gradient: GRADIENT_ORANGE() },
+    { value: "24/7", label: t("statsHero.supportAvailable"), gradient: GRADIENT_GREEN_CYAN() },
+  ];
+
+  const bottomStats: ReadonlyArray<StatItem> = [
+    { value: "380+", label: t("statsBottom.activeUsers"), gradient: GRADIENT_PURPLE() },
+    { value: "400+", label: t("statsBottom.projectsDone"), gradient: GRADIENT_ORANGE() },
+    { value: "25+", label: t("statsBottom.members"), gradient: GRADIENT_WHITE_PEACH() },
+    { value: "8", label: t("statsBottom.yearsExperience"), gradient: GRADIENT_CYAN() },
+  ];
+
   return (
     <div className="lg:hidden">
       <div className="section-container max-w-[720px] pb-16">
-        <HeroSection />
-        <NeetrinoIntroSection />
-        <MissionVisionSection />
-        <WhyChooseUsSection />
-        <ValuesSection />
-        <CountriesSection />
-        <BottomStatsSection />
+        <HeroSection
+          heroParagraphs={heroParagraphs}
+          heroStats={heroStats}
+          heroWith={t("hero.with")}
+          heroUs={t("hero.us")}
+          heroEveryIdea={t("hero.everyIdea")}
+          heroBecomes={t("hero.becomes")}
+          heroPossible={t("hero.possible")}
+        />
+        <NeetrinoIntroSection intro={t("mobileNeetrinoIntro")} />
+        <MissionVisionSection
+          missionHeading={missionVisionHeading(t("the"), t("mission"))}
+          missionBody={t("missionBody")}
+          visionHeading={missionVisionHeading(t("the"), t("vision"))}
+          visionBody={t("visionBody")}
+        />
+        <WhyChooseUsSection
+          heading={
+            <>
+              {t("why")} <span className="text-[#ff7500]">{t("choose")}</span>
+              {t("usQuestion")}
+            </>
+          }
+          featureKeys={FEATURE_KEYS}
+          t={t}
+        />
+        <ValuesSection
+          heading={
+            <>
+              {prefixThe(t("the"))}
+              <span className="text-[#ff7500]">{t("values")}</span> {t("valuesSuffix")}
+            </>
+          }
+          valueKeys={VALUE_KEYS}
+          t={t}
+        />
+        <CountriesSection
+          countriesPrefix={t("countriesPrefix")}
+          countriesAccent={t("countriesAccent")}
+          worldMapAlt={t("worldMapAlt")}
+        />
+        <BottomStatsSection bottomStats={bottomStats} />
       </div>
     </div>
   );
 }
 
-const HERO_PARAGRAPHS = [
-  "Over the past 7 years, Neetrino IT has developed more than 400 online resources, ranging from simple websites to large-scale internet portals and e-commerce platforms.",
-  "We specialize in website development, AI and bot solutions, CRM system integration, mobile app development, as well as SEO and SMM optimization—delivering a comprehensive digital presence for your business.",
-] as const;
+function prefixThe(the: string): ReactNode {
+  if (!the) {
+    return null;
+  }
+  return <>{the} </>;
+}
 
-const HERO_STATS: ReadonlyArray<StatItem> = [
-  { value: "450+", label: "Projects Delivered", gradient: GRADIENT_PURPLE() },
-  { value: "6+", label: "Core Services", gradient: GRADIENT_ORANGE() },
-  { value: "24/7", label: "Support Available", gradient: GRADIENT_GREEN_CYAN() },
-];
-
-const BOTTOM_STATS: ReadonlyArray<StatItem> = [
-  { value: "380+", label: "Active Users", gradient: GRADIENT_PURPLE() },
-  { value: "400+", label: "Projects Done", gradient: GRADIENT_ORANGE() },
-  { value: "25+", label: "Members", gradient: GRADIENT_WHITE_PEACH() },
-  { value: "8", label: "Years of Experience", gradient: GRADIENT_CYAN() },
-];
-
-const FEATURES: ReadonlyArray<readonly [string, string]> = [
-  ["Fast and premium", "execution delivered in record time"],
-  ["A selection of over", "100,000 design options"],
-  ["Websites created 10 times", "faster than traditional methods"],
-  ["24/7 technical support", "and free consultations"],
-];
-
-const VALUES: ReadonlyArray<string> = [
-  "Love to work",
-  "Transparency",
-  "Continuous learning",
-  "Respect for each other",
-];
+function missionVisionHeading(the: string, accent: string): ReactNode {
+  return (
+    <>
+      {prefixThe(the)}
+      <span className="text-[#ff7500]">{accent}</span>
+    </>
+  );
+}
 
 type StatItem = { value: string; label: string; gradient: string };
 
@@ -80,25 +127,49 @@ function GRADIENT_CYAN(): string {
   return "linear-gradient(265deg, #acf0ff 22%, #00c6f3 85%)";
 }
 
-function HeroSection() {
+type AboutPageT = ReturnType<typeof useTranslations<"aboutPage">>;
+
+function HeroSection({
+  heroParagraphs,
+  heroStats,
+  heroWith,
+  heroUs,
+  heroEveryIdea,
+  heroBecomes,
+  heroPossible,
+}: {
+  heroParagraphs: readonly [string, string];
+  heroStats: ReadonlyArray<StatItem>;
+  heroWith: string;
+  heroUs: string;
+  heroEveryIdea: string;
+  heroBecomes: string;
+  heroPossible: string;
+}) {
   return (
     <section className="pt-2 pb-10 sm:pt-4 sm:pb-12">
       <h1 className="font-['Inter:Regular',sans-serif] text-[clamp(2.5rem,13vw,4.75rem)] uppercase tracking-tight text-white leading-[0.95]">
         <span className="block">
-          With <span className="font-black italic">us</span>
+          {heroWith}
+          {heroUs ? (
+            <>
+              {" "}
+              <span className="font-black italic">{heroUs}</span>
+            </>
+          ) : null}
         </span>
-        <span className="block">every idea</span>
-        <span className="block">becomes</span>
+        <span className="block">{heroEveryIdea}</span>
+        <span className="block">{heroBecomes}</span>
         <span className="block font-['Megatrox',sans-serif] font-normal not-italic tracking-normal">
-          possible
+          {heroPossible}
         </span>
       </h1>
       <div className="mt-6 space-y-4 text-[15px] font-extralight leading-6 text-white/85 sm:text-base sm:leading-7">
-        {HERO_PARAGRAPHS.map((p) => (
+        {heroParagraphs.map((p) => (
           <p key={p}>{p}</p>
         ))}
       </div>
-      <StatsCard stats={HERO_STATS} className="mt-8" />
+      <StatsCard stats={heroStats} className="mt-8" />
     </section>
   );
 }
@@ -109,7 +180,7 @@ function StatsCard({ stats, className }: { stats: ReadonlyArray<StatItem>; class
       className={`grid grid-cols-1 gap-4 rounded-3xl border border-white/10 bg-[rgba(40,43,103,0.38)] p-5 backdrop-blur-md sm:grid-cols-3 sm:gap-3 sm:p-6 ${className ?? ""}`}
     >
       {stats.map((s) => (
-        <div key={s.label} className="min-w-0 text-center">
+        <div key={s.value + s.label} className="min-w-0 text-center">
           <p
             className="bg-clip-text text-4xl font-black leading-tight text-transparent sm:text-5xl"
             style={{ backgroundImage: s.gradient }}
@@ -123,52 +194,42 @@ function StatsCard({ stats, className }: { stats: ReadonlyArray<StatItem>; class
   );
 }
 
-function NeetrinoIntroSection() {
+function NeetrinoIntroSection({ intro }: { intro: string }) {
   return (
     <section className="py-10">
       <p className="text-[15px] font-extralight leading-7 text-white/85 sm:text-base sm:leading-8">
-        <span className="font-extrabold">Neetrino</span> is the first company to{" "}
-        <span className="font-extrabold">offer website sales</span> through a Platform that provides
-        access to <span className="font-extrabold">over 100,000</span> professional designs. Our
-        Platform enables businesses to quickly and affordably create fully functional websites,
-        perfectly tailored to <span className="font-extrabold">modern business needs</span>. We not
-        only save you time and resources but also guarantee high quality, advanced functionality,
-        and ongoing support—maximizing the efficiency and competitiveness of{" "}
-        <span className="font-extrabold">your online presence</span>.
+        {intro}
       </p>
     </section>
   );
 }
 
-function MissionVisionSection() {
+function MissionVisionSection({
+  missionHeading,
+  missionBody,
+  visionHeading,
+  visionBody,
+}: {
+  missionHeading: ReactNode;
+  missionBody: string;
+  visionHeading: ReactNode;
+  visionBody: string;
+}) {
   return (
     <section className="grid grid-cols-1 gap-8 py-10 sm:grid-cols-2 sm:gap-6">
       <article className="min-w-0">
-        <SectionHeading>
-          THE <span className="text-[#ff7500]">MISSION</span>
-        </SectionHeading>
-        <p className="mt-4 text-[15px] font-extralight leading-7 text-white/85">
-          Our goal is to deliver fast, affordable, and high-quality digital solutions, empowering
-          businesses to effortlessly build and expand their online presence, no matter how complex
-          the project.
-        </p>
+        <SectionHeading>{missionHeading}</SectionHeading>
+        <p className="mt-4 text-[15px] font-extralight leading-7 text-white/85">{missionBody}</p>
       </article>
       <article className="min-w-0">
-        <SectionHeading>
-          THE <span className="text-[#ff7500]">VISION</span>
-        </SectionHeading>
-        <p className="mt-4 text-[15px] font-extralight leading-7 text-white/85">
-          We envision a world where businesses of all sizes can effortlessly establish a strong
-          digital presence using our fast, cutting-edge technological solutions. Our aim is to lead
-          the transformation of website and app development, making these tools accessible to
-          everyone, everywhere.
-        </p>
+        <SectionHeading>{visionHeading}</SectionHeading>
+        <p className="mt-4 text-[15px] font-extralight leading-7 text-white/85">{visionBody}</p>
       </article>
     </section>
   );
 }
 
-function SectionHeading({ children }: { children: React.ReactNode }) {
+function SectionHeading({ children }: { children: ReactNode }) {
   return (
     <h2 className="font-['Inter:Black_Italic',sans-serif] text-[clamp(1.5rem,6.5vw,2.125rem)] font-black italic uppercase leading-tight text-white">
       {children}
@@ -176,20 +237,26 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
   );
 }
 
-function WhyChooseUsSection() {
+function WhyChooseUsSection({
+  heading,
+  featureKeys,
+  t,
+}: {
+  heading: ReactNode;
+  featureKeys: typeof FEATURE_KEYS;
+  t: AboutPageT;
+}) {
   return (
     <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-7">
-      <SectionHeading>
-        WHY <span className="text-[#ff7500]">CHOOSE</span> US?
-      </SectionHeading>
+      <SectionHeading>{heading}</SectionHeading>
       <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-        {FEATURES.map(([line1, line2]) => (
+        {featureKeys.map(([line1Key, line2Key]) => (
           <div
-            key={line1}
+            key={line1Key}
             className="rounded-2xl border border-white/8 bg-white/[0.02] p-4 text-[#f5f5f5]"
           >
-            <p className="text-sm font-extrabold leading-snug">{line1}</p>
-            <p className="text-sm font-extrabold leading-snug">{line2}</p>
+            <p className="text-sm font-extrabold leading-snug">{t(line1Key)}</p>
+            <p className="text-sm font-extrabold leading-snug">{t(line2Key)}</p>
           </div>
         ))}
       </div>
@@ -197,19 +264,25 @@ function WhyChooseUsSection() {
   );
 }
 
-function ValuesSection() {
+function ValuesSection({
+  heading,
+  valueKeys,
+  t,
+}: {
+  heading: ReactNode;
+  valueKeys: typeof VALUE_KEYS;
+  t: AboutPageT;
+}) {
   return (
     <section className="py-10">
-      <SectionHeading>
-        THE <span className="text-[#ff7500]">VALUES</span> THAT ALWAYS DRIVE US
-      </SectionHeading>
+      <SectionHeading>{heading}</SectionHeading>
       <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {VALUES.map((v) => (
+        {valueKeys.map((key) => (
           <li
-            key={v}
+            key={key}
             className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-4 text-center text-sm font-extrabold leading-snug text-[#f5f5f5]"
           >
-            {v}
+            {t(key)}
           </li>
         ))}
       </ul>
@@ -243,15 +316,23 @@ function ValueImagesRow() {
   );
 }
 
-function CountriesSection() {
+function CountriesSection({
+  countriesPrefix,
+  countriesAccent,
+  worldMapAlt,
+}: {
+  countriesPrefix: string;
+  countriesAccent: string;
+  worldMapAlt: string;
+}) {
   return (
     <section className="py-10">
       <h2 className="text-center font-['Inter:Black_Italic',sans-serif] text-[clamp(1.25rem,5.5vw,1.875rem)] font-black italic uppercase leading-tight text-white">
-        WE WORK WITH MORE THAN <span className="text-[#ff7500]">10 COUNTRIES</span>
+        {countriesPrefix} <span className="text-[#ff7500]">{countriesAccent}</span>
       </h2>
       <div className="relative mt-6 aspect-[1195/460] w-full overflow-hidden rounded-2xl">
         <Image
-          alt="World map"
+          alt={worldMapAlt}
           src={imgLayer1}
           fill
           sizes="(max-width: 720px) 100vw, 720px"
@@ -264,12 +345,12 @@ function CountriesSection() {
   );
 }
 
-function BottomStatsSection() {
+function BottomStatsSection({ bottomStats }: { bottomStats: ReadonlyArray<StatItem> }) {
   return (
     <section className="pt-6">
       <div className="grid grid-cols-2 gap-4 rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:grid-cols-4 sm:gap-3 sm:p-6">
-        {BOTTOM_STATS.map((s) => (
-          <div key={s.label} className="min-w-0 text-center">
+        {bottomStats.map((s) => (
+          <div key={s.value + s.label} className="min-w-0 text-center">
             <p
               className="bg-clip-text text-4xl font-black leading-tight text-transparent sm:text-5xl"
               style={{ backgroundImage: s.gradient }}

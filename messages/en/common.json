@@ -206,7 +206,20 @@
     "value1": "Love to work",
     "value2": "Transparency",
     "value3": "Continuous learning",
-    "value4": "Respect for each other"
+    "value4": "Respect for each other",
+    "statsHero": {
+      "projectsDelivered": "Projects Delivered",
+      "coreServices": "Core Services",
+      "supportAvailable": "Support Available"
+    },
+    "statsBottom": {
+      "activeUsers": "Active Users",
+      "projectsDone": "Projects Done",
+      "members": "Members",
+      "yearsExperience": "Years of Experience"
+    },
+    "mobileNeetrinoIntro": "Neetrino is the first company to offer website sales through a Platform that provides access to over 100,000 professional designs. Our Platform enables businesses to quickly and affordably create fully functional websites, perfectly tailored to modern business needs. We not only save you time and resources but also guarantee high quality, advanced functionality, and ongoing support—maximizing the efficiency and competitiveness of your online presence.",
+    "worldMapAlt": "World map"
   },
   "home": {
     "hero": {

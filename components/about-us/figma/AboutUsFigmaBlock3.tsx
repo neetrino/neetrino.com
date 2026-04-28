@@ -1,7 +1,11 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 /** Figma ABOUT — bottom stat row 335:1441–335:1469 (excludes Awwwards header from frame). */
 export function AboutUsFigmaBlock3() {
+  const t = useTranslations("aboutPage");
+
   return (
     <div
       className="-translate-x-1/2 absolute content-stretch flex gap-[122px] h-[92px] items-center justify-center left-[calc(50%+2px)] top-[3527px] w-[1400px]"
@@ -54,7 +58,7 @@ export function AboutUsFigmaBlock3() {
               className="-translate-x-1/2 absolute font-['Inter:Light',sans-serif] font-light leading-[24px] left-[78.81px] not-italic text-[#99a1af] text-[16px] text-center top-[-1px] whitespace-nowrap"
               data-node-id="335:1448"
             >
-              Active Users
+              {t("statsBottom.activeUsers")}
             </p>
           </div>
         </div>
@@ -74,7 +78,7 @@ export function AboutUsFigmaBlock3() {
               className="-translate-x-1/2 absolute font-['Inter:Light',sans-serif] font-light leading-[24px] left-[53.5px] not-italic text-[#99a1af] text-[16px] text-center top-[-1px] whitespace-nowrap"
               data-node-id="335:1451"
             >
-              Projects Done
+              {t("statsBottom.projectsDone")}
             </p>
           </div>
           <div
@@ -125,7 +129,7 @@ export function AboutUsFigmaBlock3() {
               className="-translate-x-1/2 absolute font-['Inter:Light',sans-serif] font-light leading-[24px] left-[53.5px] not-italic text-[#99a1af] text-[16px] text-center top-[-1px] whitespace-nowrap"
               data-node-id="335:1458"
             >
-              Members
+              {t("statsBottom.members")}
             </p>
           </div>
           <div
@@ -172,7 +176,7 @@ export function AboutUsFigmaBlock3() {
               className="-translate-x-1/2 absolute font-['Inter:Light',sans-serif] font-light leading-[24px] left-[66.5px] not-italic text-[#99a1af] text-[16px] text-center top-[-1px] whitespace-nowrap"
               data-node-id="335:1465"
             >
-              Years of Experience
+              {t("statsBottom.yearsExperience")}
             </p>
           </div>
           <div

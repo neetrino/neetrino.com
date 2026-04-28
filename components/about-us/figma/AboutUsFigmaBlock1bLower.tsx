@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
   ABOUT_STATS_STRIP_GLASS_SCALE_X,
   ABOUT_STATS_STRIP_GLASS_SCALE_Y,
@@ -10,6 +11,8 @@ import {
  * Layout numbers: `lib/about-us-stats-strip.constants.ts`.
  */
 export function AboutUsFigmaBlock1bLower() {
+  const t = useTranslations("aboutPage");
+
   return (
     <div
       className="absolute left-[811px] top-[985px] z-10 overflow-visible"
@@ -61,7 +64,7 @@ export function AboutUsFigmaBlock1bLower() {
                 className="-translate-x-1/2 absolute font-['Inter:Light',sans-serif] font-light leading-[24px] left-[71.35px] not-italic text-[#99a1af] text-[16px] text-center top-[-1px] whitespace-nowrap"
                 data-node-id="335:963"
               >
-                Projects Delivered
+                {t("statsHero.projectsDelivered")}
               </p>
             </div>
           </div>
@@ -81,7 +84,7 @@ export function AboutUsFigmaBlock1bLower() {
                 className="-translate-x-1/2 absolute font-['Inter:Light',sans-serif] font-light leading-[24px] left-[53.5px] not-italic text-[#99a1af] text-[16px] text-center top-[-1px] whitespace-nowrap"
                 data-node-id="335:966"
               >
-                Core Services
+                {t("statsHero.coreServices")}
               </p>
             </div>
             <div
@@ -123,7 +126,7 @@ export function AboutUsFigmaBlock1bLower() {
                 className="-translate-x-1/2 absolute font-['Inter:Light',sans-serif] font-light leading-[24px] left-[66.5px] not-italic text-[#99a1af] text-[16px] text-center top-[-1px] whitespace-nowrap"
                 data-node-id="335:973"
               >
-                Support Available
+                {t("statsHero.supportAvailable")}
               </p>
             </div>
             <div
