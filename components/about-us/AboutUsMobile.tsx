@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import {
+  ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
+  ABOUT_MOBILE_HERO_HEADLINE_TEXT_HY_CLASS,
+} from "@/lib/about-us-figma-layout.constants";
+import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
   img02A0Ab86C3Fe4B8381Ab86B982Bb800C1,
@@ -146,10 +151,13 @@ function HeroSection({
   heroBecomes: string;
   heroPossible: string;
 }) {
+  const locale = useLocale();
+  const hyHeadlineText = locale === "hy" && ABOUT_MOBILE_HERO_HEADLINE_TEXT_HY_CLASS;
+
   return (
     <section className="pt-2 pb-10 sm:pt-4 sm:pb-12">
       <h1 className="font-['Inter:Regular',sans-serif] text-[clamp(2.5rem,13vw,4.75rem)] uppercase tracking-tight text-white leading-[0.95]">
-        <span className="block">
+        <span className={cn("block", hyHeadlineText)}>
           {heroWith}
           {heroUs ? (
             <>
@@ -158,9 +166,22 @@ function HeroSection({
             </>
           ) : null}
         </span>
-        <span className="block">{heroEveryIdea}</span>
-        <span className="block">{heroBecomes}</span>
-        <span className="block font-['Megatrox',sans-serif] font-normal not-italic tracking-normal">
+        <span
+          className={cn(
+            "block",
+            locale === "hy" && ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
+            hyHeadlineText,
+          )}
+        >
+          {heroEveryIdea}
+        </span>
+        <span className={cn("block", hyHeadlineText)}>{heroBecomes}</span>
+        <span
+          className={cn(
+            "block font-['Megatrox',sans-serif] font-normal not-italic tracking-normal",
+            hyHeadlineText,
+          )}
+        >
           {heroPossible}
         </span>
       </h1>

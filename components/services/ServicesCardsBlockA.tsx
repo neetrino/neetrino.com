@@ -1,10 +1,45 @@
+import type { ReactNode } from "react";
 import { Brain } from "lucide-react";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
+import { cn } from "@/lib/utils";
 import { imgEllipse2, imgEllipse3, imgLayers } from "./services-assets";
 import {
   ServicesCardContinueLink,
   type ServicesContinueGlowVariant,
 } from "./ServicesCardContinueLink";
+
+/** Matches `messages/hy/service-pages.json` AI title line 1 + line break + line 2. */
+const HY_AI_CARD_TITLE_PREFIX = "AI ";
+const HY_AI_CARD_PRODUCTS_WORD = "պրոդուկտների";
+
+function servicesCard2TitleContent(title: string): ReactNode {
+  const normalized = title.replace(/\r\n/g, "\n").trim();
+  const lines = normalized
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const line1 = lines[0];
+  const line2 = lines[1];
+  if (
+    lines.length === 2 &&
+    line1 !== undefined &&
+    line2 !== undefined &&
+    line1.startsWith(HY_AI_CARD_TITLE_PREFIX) &&
+    line1.slice(HY_AI_CARD_TITLE_PREFIX.length) === HY_AI_CARD_PRODUCTS_WORD
+  ) {
+    return (
+      <>
+        {HY_AI_CARD_TITLE_PREFIX}
+        <span className="font-black text-[27px] leading-[36px] tracking-[-0.02em] text-white">
+          {HY_AI_CARD_PRODUCTS_WORD}
+        </span>
+        <br />
+        {line2}
+      </>
+    );
+  }
+  return title;
+}
 
 type Card3Props = {
   className?: string;
@@ -100,6 +135,9 @@ export function ServicesCard2({
   continueLabel,
   continueGlow,
 }: Card2Props) {
+  const titleBody = servicesCard2TitleContent(title);
+  const titlePreLine = typeof titleBody === "string" && titleBody.includes("\n");
+
   return (
     <div
       className={
@@ -124,10 +162,13 @@ export function ServicesCard2({
         data-node-id="165:613"
       >
         <p
-          className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
+          className={cn(
+            "font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]",
+            titlePreLine && "whitespace-pre-line",
+          )}
           data-node-id="165:614"
         >
-          {title}
+          {titleBody}
         </p>
         <p
           className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"

@@ -145,6 +145,9 @@
     "metaDescription": "Contact Neetrino to discuss your website, mobile, AI, or product development project."
   },
   "servicesPage": {
+    "heroTitleBefore": "SERV",
+    "heroTitleAccent": "ICE",
+    "heroTitleAfter": "S",
     "eyebrow": "What we deliver",
     "description": "Core directions we ship with: fast delivery, clear business value, and room to scale as you grow.",
     "breadcrumbAria": "Breadcrumb",

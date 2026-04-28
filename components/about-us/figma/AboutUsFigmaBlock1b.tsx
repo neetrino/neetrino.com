@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
@@ -17,6 +17,15 @@ import {
   imgStar22,
   imgVector1,
 } from "@/lib/about-us-figma-asset-urls";
+import {
+  ABOUT_DESKTOP_HERO_EVERY_IDEA_LEFT_CLASS_DEFAULT,
+  ABOUT_DESKTOP_HERO_EVERY_IDEA_LEFT_CLASS_HY,
+  ABOUT_DESKTOP_HERO_HEADLINE_LEADING_DEFAULT_CLASS,
+  ABOUT_DESKTOP_HERO_HEADLINE_LEADING_HY_CLASS,
+  ABOUT_DESKTOP_HERO_HEADLINE_TEXT_DEFAULT_CLASS,
+  ABOUT_DESKTOP_HERO_HEADLINE_TEXT_HY_CLASS,
+} from "@/lib/about-us-figma-layout.constants";
+import { cn } from "@/lib/utils";
 
 const transformStyle = {
   "--transform-inner-width": "0",
@@ -26,6 +35,17 @@ const transformStyle = {
 /** Figma ABOUT fragment — nodes 335:931–335:954 (split for 300-line limit). */
 export function AboutUsFigmaBlock1b() {
   const t = useTranslations();
+  const locale = useLocale();
+  const isHy = locale === "hy";
+  const everyIdeaLeftClass = isHy
+    ? ABOUT_DESKTOP_HERO_EVERY_IDEA_LEFT_CLASS_HY
+    : ABOUT_DESKTOP_HERO_EVERY_IDEA_LEFT_CLASS_DEFAULT;
+  const heroHeadlineTextClass = isHy
+    ? ABOUT_DESKTOP_HERO_HEADLINE_TEXT_HY_CLASS
+    : ABOUT_DESKTOP_HERO_HEADLINE_TEXT_DEFAULT_CLASS;
+  const heroHeadlineLeadingClass = isHy
+    ? ABOUT_DESKTOP_HERO_HEADLINE_LEADING_HY_CLASS
+    : ABOUT_DESKTOP_HERO_HEADLINE_LEADING_DEFAULT_CLASS;
 
   return (
     <>
@@ -112,30 +132,49 @@ export function AboutUsFigmaBlock1b() {
           </div>
         </div>
         <div
-          className="-translate-y-1/2 absolute flex flex-col font-['Inter:Light',sans-serif] font-light justify-center leading-[0] left-[87px] not-italic text-[105px] text-white top-[326.5px] tracking-[2.1px] whitespace-nowrap"
+          className={cn(
+            "-translate-y-1/2 absolute flex flex-col font-['Inter:Light',sans-serif] font-light justify-center leading-[0] left-[87px] not-italic text-white top-[326.5px] whitespace-nowrap",
+            heroHeadlineTextClass,
+          )}
           data-node-id="335:946"
         >
           <p>
-            <span className="font-['Inter:Regular',sans-serif] font-normal leading-[95px] not-italic text-white">
+            <span
+              className={cn(
+                "font-['Inter:Regular',sans-serif] font-normal not-italic text-white",
+                heroHeadlineLeadingClass,
+              )}
+            >
               {t("aboutPage.hero.with")}
             </span>
-            <span className="leading-[95px]">{` `}</span>
-            <span className="font-['Inter:Black_Italic',sans-serif] font-black italic leading-[95px]">
+            <span className={heroHeadlineLeadingClass}>{` `}</span>
+            <span
+              className={cn(
+                "font-['Inter:Black_Italic',sans-serif] font-black italic",
+                heroHeadlineLeadingClass,
+              )}
+            >
               {t("aboutPage.hero.us")}
             </span>
           </p>
         </div>
         <div
-          className="-translate-y-1/2 absolute flex flex-col font-['Inter:Black_Italic',sans-serif] font-black italic justify-center leading-[0] left-[87px] text-[105px] text-white top-[621.5px] tracking-[2.1px] whitespace-nowrap"
+          className={cn(
+            "-translate-y-1/2 absolute flex flex-col font-['Inter:Black_Italic',sans-serif] font-black italic justify-center leading-[0] left-[87px] text-white top-[621.5px] whitespace-nowrap",
+            heroHeadlineTextClass,
+          )}
           data-node-id="335:947"
         >
-          <p className="leading-[95px]">{t("aboutPage.hero.possible")}</p>
+          <p className={heroHeadlineLeadingClass}>{t("aboutPage.hero.possible")}</p>
         </div>
         <div
-          className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] left-[87px] not-italic text-[105px] text-white top-[521.5px] tracking-[2.1px] whitespace-nowrap"
+          className={cn(
+            "-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] left-[87px] not-italic text-white top-[521.5px] whitespace-nowrap",
+            heroHeadlineTextClass,
+          )}
           data-node-id="335:948"
         >
-          <p className="leading-[95px]">{t("aboutPage.hero.becomes")}</p>
+          <p className={heroHeadlineLeadingClass}>{t("aboutPage.hero.becomes")}</p>
         </div>
         <div
           className="-translate-x-full -translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[594px] not-italic text-[16px] text-right text-white top-[742px] w-[367px]"
@@ -184,10 +223,14 @@ export function AboutUsFigmaBlock1b() {
           </div>
         </div>
         <div
-          className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] left-[293px] not-italic text-[105px] text-white top-[421.5px] tracking-[2.1px] whitespace-nowrap"
+          className={cn(
+            "-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-white top-[421.5px] whitespace-nowrap",
+            everyIdeaLeftClass,
+            heroHeadlineTextClass,
+          )}
           data-node-id="335:954"
         >
-          <p className="leading-[95px]">{t("aboutPage.hero.everyIdea")}</p>
+          <p className={heroHeadlineLeadingClass}>{t("aboutPage.hero.everyIdea")}</p>
         </div>
       </div>
     </>
