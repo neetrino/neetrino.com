@@ -6,7 +6,14 @@ import { useTranslations } from "next-intl";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
+  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS,
+  ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS,
+  ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS,
+  ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_TRANSLATE_Y_CLASS,
+} from "@/lib/about-us-why-choose-feature-icons.constants";
+import {
   img02A0Ab86C3Fe4B8381Ab86B982Bb800C1,
+  imgAboutPaletteDesignOptions,
   imgChatGptImageApr32026At011015Pm1,
   imgChatGptImageMar272026At064658Pm1,
   imgComponent21,
@@ -128,16 +135,36 @@ export function AboutUsFigmaBlock2() {
           </div>
         </div>
         <div
-          className="-translate-x-1/2 absolute content-stretch flex font-['Inter:Extra_Bold',sans-serif] font-extrabold gap-[53px] items-center leading-[0] left-[calc(50%-11.5px)] not-italic text-[#f5f5f5] text-[16px] top-[2023px] whitespace-nowrap"
+          className={`-translate-x-1/2 ${ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_TRANSLATE_Y_CLASS} absolute content-stretch flex font-['Inter:Extra_Bold',sans-serif] font-extrabold gap-[53px] items-center leading-[0] left-[calc(50%-11.5px)] not-italic overflow-visible text-[#f5f5f5] text-[16px] top-[2023px] whitespace-nowrap`}
           data-node-id="335:1178"
         >
           <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1179">
             <p className="leading-[22px] mb-0">{t("aboutPage.feature1Line1")}</p>
             <p className="leading-[22px]">{t("aboutPage.feature1Line2")}</p>
           </div>
-          <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1180">
-            <p className="leading-[22px] mb-0">{t("aboutPage.feature2Line1")}</p>
-            <p className="leading-[22px]">{t("aboutPage.feature2Line2")}</p>
+          <div
+            className="flex flex-col items-center justify-center relative shrink-0"
+            data-node-id="335:1180"
+          >
+            <div
+              className={`relative z-10 mb-1 shrink-0 ${ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS} ${ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS}`}
+            >
+              <Image
+                alt=""
+                className="object-contain pointer-events-none"
+                fill
+                sizes="209px"
+                src={imgAboutPaletteDesignOptions}
+                quality={DEFAULT_IMAGE_QUALITY}
+                loading="lazy"
+              />
+            </div>
+            <div
+              className={`relative z-0 shrink-0 ${ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS}`}
+            >
+              <p className="leading-[22px] mb-0">{t("aboutPage.feature2Line1")}</p>
+              <p className="leading-[22px]">{t("aboutPage.feature2Line2")}</p>
+            </div>
           </div>
           <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1181">
             <p className="leading-[22px] mb-0">{t("aboutPage.feature3Line1")}</p>
@@ -191,7 +218,7 @@ export function AboutUsFigmaBlock2() {
           </div>
         </div>
       </div>
-      <div className="absolute flex h-[175px] items-center justify-center left-[1033px] top-[1830px] w-[216px]">
+      <div className="absolute flex h-[175px] items-center justify-center left-[1033px] top-[1802px] w-[216px]">
         <div className="-scale-y-100 flex-none rotate-180">
           <div
             className="h-[175px] relative w-[216px]"
@@ -214,7 +241,7 @@ export function AboutUsFigmaBlock2() {
         </div>
       </div>
       <div
-        className="absolute h-[191px] left-[750px] top-[1822px] w-[209px]"
+        className="absolute h-[191px] left-[750px] top-[1802px] w-[209px]"
         data-name="ChatGPT Image Apr 3, 2026 at 01_10_15 PM 1"
         data-node-id="335:1190"
       >

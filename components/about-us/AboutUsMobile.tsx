@@ -10,7 +10,13 @@ import {
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
+  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS,
+  ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS,
+  ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS,
+} from "@/lib/about-us-why-choose-feature-icons.constants";
+import {
   img02A0Ab86C3Fe4B8381Ab86B982Bb800C1,
+  imgAboutPaletteDesignOptions,
   imgChatGptImageApr32026At011015Pm1,
   imgChatGptImageMar272026At064658Pm1,
   imgLayer1,
@@ -281,10 +287,34 @@ function WhyChooseUsSection({
         {featureKeys.map(([line1Key, line2Key]) => (
           <div
             key={line1Key}
-            className="rounded-2xl border border-white/8 bg-white/[0.02] p-4 text-[#f5f5f5]"
+            className="rounded-2xl border border-white/8 bg-white/[0.02] overflow-visible p-4 text-[#f5f5f5]"
           >
-            <p className="text-sm font-extrabold leading-snug">{t(line1Key)}</p>
-            <p className="text-sm font-extrabold leading-snug">{t(line2Key)}</p>
+            {line1Key === "feature2Line1" ? (
+              <div
+                className={`relative z-10 mx-auto mb-3 shrink-0 ${ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS} ${ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS}`}
+              >
+                <Image
+                  alt=""
+                  className="object-contain"
+                  fill
+                  sizes="209px"
+                  src={imgAboutPaletteDesignOptions}
+                  quality={DEFAULT_IMAGE_QUALITY}
+                  loading="lazy"
+                />
+              </div>
+            ) : null}
+            {line1Key === "feature2Line1" ? (
+              <div className={ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS}>
+                <p className="text-sm font-extrabold leading-snug">{t(line1Key)}</p>
+                <p className="text-sm font-extrabold leading-snug">{t(line2Key)}</p>
+              </div>
+            ) : (
+              <>
+                <p className="text-sm font-extrabold leading-snug">{t(line1Key)}</p>
+                <p className="text-sm font-extrabold leading-snug">{t(line2Key)}</p>
+              </>
+            )}
           </div>
         ))}
       </div>
