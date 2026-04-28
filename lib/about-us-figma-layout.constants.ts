@@ -1,10 +1,23 @@
+import { ABOUT_FIGMA_ROOT_MIN_HEIGHT_WITH_MEET_TEAM_PX } from "./about-us-meet-our-team.constants";
+
 /**
- * ABOUT Figma frame: original artboard height included the hero robot block (removed).
- * Root min-height must fit the bottom stats row (~3527 + 92px) plus small tail padding.
- * Map/vector `inset` percentages in AboutUsFigmaBlock2 were recalibrated for this height
- * so pixels match the previous 4366px layout.
+ * Fixed height of the **positioning canvas** wrapping blocks `AboutUsFigmaBlock1a`…`Block3`.
+ * `AboutUsFigmaBlock2` map markers and layer use `absolute inset-[…%]` — percentages resolve
+ * against this box. Do not tie this value to the scroll tail (Meet Our Team); extend the
+ * outer root `min-height` instead (`ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX`).
  */
-export const ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX = 3643;
+export const ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX = 3643;
+
+/**
+ * Outer ABOUT desktop root: tall enough for Meet Our Team + padding below the 3643px canvas.
+ */
+export const ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX = ABOUT_FIGMA_ROOT_MIN_HEIGHT_WITH_MEET_TEAM_PX;
+
+/**
+ * Figma 335:931 inner vector `w-[3723px]` — after `rotate-90` this span matches vertical extent
+ * of the checkerboard before we scale it to `ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX`.
+ */
+export const ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX = 3723;
 
 /** Desktop About hero line `aboutPage.hero.everyIdea` — nudge left for long hy copy. */
 export const ABOUT_DESKTOP_HERO_EVERY_IDEA_LEFT_CLASS_DEFAULT = "left-[293px]";

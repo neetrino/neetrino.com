@@ -66,3 +66,5 @@ export const imgVector8 = "/about-us-figma/2d2a17b8b40c5adcc99ebdbd834752fd468c7
 export const imgVector9 = "/about-us-figma/480509969635b258e5b3043fb1cf41859555aa0e.webp";
 export const imgVector10 = "/about-us-figma/c9abefd09f4b14189cc9e19cd631e865624c0230.webp";
 export const imgLayer1 = "/about-us-figma/669ff7f5c33dc2ba46ca47f6a7300547bd082c2d.webp";
+/** Figma 453:2099 — Meet our team collaboration (NEETRINO-WEB). */
+export const imgMeetOurTeamCollaboration4532099 = "/about-us-figma/meet-our-team-453-2099.webp";

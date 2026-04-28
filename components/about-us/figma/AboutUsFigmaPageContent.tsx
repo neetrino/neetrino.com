@@ -7,7 +7,11 @@ import { AboutUsFigmaBlock1bLower } from "@/components/about-us/figma/AboutUsFig
 import { AboutUsFigmaBlock1c } from "@/components/about-us/figma/AboutUsFigmaBlock1c";
 import { AboutUsFigmaBlock2 } from "@/components/about-us/figma/AboutUsFigmaBlock2";
 import { AboutUsFigmaBlock3 } from "@/components/about-us/figma/AboutUsFigmaBlock3";
-import { ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX } from "@/lib/about-us-figma-layout.constants";
+import { MeetOurTeamHeading } from "@/components/about-us/MeetOurTeamHeading";
+import {
+  ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX,
+  ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX,
+} from "@/lib/about-us-figma-layout.constants";
 
 /** Figma node 335:905 - page body only (no Awwwards / no Footer v2 per master prompt §3.2). */
 export function AboutUsFigmaPageContent() {
@@ -21,12 +25,19 @@ export function AboutUsFigmaPageContent() {
       data-name="ABOUT"
       data-node-id="335:905"
     >
-      <AboutUsFigmaBlock1a containerRef={containerRef} />
-      <AboutUsFigmaBlock1b />
-      <AboutUsFigmaBlock1bLower />
-      <AboutUsFigmaBlock1c />
-      <AboutUsFigmaBlock2 />
-      <AboutUsFigmaBlock3 />
+      <div
+        className="relative w-full overflow-visible"
+        style={{ height: ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX }}
+        data-name="about-figma-positioning-canvas"
+      >
+        <AboutUsFigmaBlock1a containerRef={containerRef} />
+        <AboutUsFigmaBlock1b />
+        <AboutUsFigmaBlock1bLower />
+        <AboutUsFigmaBlock1c />
+        <AboutUsFigmaBlock2 />
+        <AboutUsFigmaBlock3 />
+      </div>
+      <MeetOurTeamHeading variant="desktop-figma" />
     </div>
   );
 }

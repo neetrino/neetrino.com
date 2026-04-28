@@ -2,13 +2,14 @@
 
 import { useEffect, useState, type RefObject } from "react";
 import { ConeDefault } from "@/components/about-us/figma/ConeDefault";
-import { ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX } from "@/lib/about-us-figma-layout.constants";
+import { ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX } from "@/lib/about-us-figma-layout.constants";
 
 const CONE_WRAPPER_WIDTH_PX = 191.206;
 const CONE_WRAPPER_HEIGHT_PX = 191.206;
 const ABOUT_CONE_INITIAL_TOP_PX = 1097;
 const ABOUT_CAPSULE_TOP_PX = 1333;
-const ABOUT_WORLD_MAP_BOTTOM_PX = ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX * (1 - 0.0813);
+/** Matches Block2 map `inset` bottom `8.13%` vs the 3643px positioning canvas. */
+const ABOUT_WORLD_MAP_BOTTOM_PX = ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX * (1 - 0.0813);
 const ABOUT_CAPSULE_BOTTOM_PX = ABOUT_WORLD_MAP_BOTTOM_PX;
 const ABOUT_CAPSULE_START_TOP_PX = Math.max(ABOUT_CONE_INITIAL_TOP_PX, ABOUT_CAPSULE_TOP_PX);
 

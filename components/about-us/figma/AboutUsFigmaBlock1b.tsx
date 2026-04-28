@@ -24,8 +24,17 @@ import {
   ABOUT_DESKTOP_HERO_HEADLINE_LEADING_HY_CLASS,
   ABOUT_DESKTOP_HERO_HEADLINE_TEXT_DEFAULT_CLASS,
   ABOUT_DESKTOP_HERO_HEADLINE_TEXT_HY_CLASS,
+  ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX,
+  ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX,
 } from "@/lib/about-us-figma-layout.constants";
 import { cn } from "@/lib/utils";
+
+/** Figma 335:931 outer; extend so checkerboard covers Meet Our Team + tail (`top-[-40px]`). */
+const ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX = Math.max(3723, ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX + 40);
+
+/** Uniform scale so the rotated grid fills `ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX` (avoids empty band below). */
+const ABOUT_VECTOR_GRID_UNIFORM_SCALE =
+  ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX / ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX;
 
 const transformStyle = {
   "--transform-inner-width": "0",
@@ -50,10 +59,16 @@ export function AboutUsFigmaBlock1b() {
   return (
     <>
       <div
-        className="-translate-x-1/2 absolute flex h-[3723px] items-center justify-center left-[calc(50%-38px)] mix-blend-overlay top-[-40px] w-[1722px]"
-        style={transformStyle}
+        className="-translate-x-1/2 absolute flex items-center justify-center overflow-hidden left-[calc(50%-38px)] mix-blend-overlay top-[-40px] w-[1722px]"
+        style={{ ...transformStyle, height: ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX }}
       >
-        <div className="flex-none rotate-90">
+        <div
+          className="flex-none"
+          style={{
+            transform: `rotate(90deg) scale(${ABOUT_VECTOR_GRID_UNIFORM_SCALE})`,
+            transformOrigin: "center center",
+          }}
+        >
           <div className="h-[1722px] relative w-[3723px]" data-name="Vector" data-node-id="335:931">
             <FigmaFillImage src={imgVector1} />
           </div>
