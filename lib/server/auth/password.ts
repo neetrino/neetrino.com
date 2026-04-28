@@ -14,5 +14,9 @@ export async function verifyAdminCredentials(email: string, password: string): P
     return false;
   }
 
-  return bcrypt.compare(password, passwordHash);
+  return bcrypt.compare(password, normalizePasswordHash(passwordHash));
+}
+
+function normalizePasswordHash(passwordHash: string): string {
+  return passwordHash.replaceAll("\\$", "$");
 }
