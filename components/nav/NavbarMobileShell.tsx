@@ -3,9 +3,14 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useBodyScrollLock } from "@/lib/hooks/useBodyScrollLock";
-import type { NavItem } from "@/lib/nav-links";
+import { isNavHrefActive } from "@/lib/nav-href-active";
+import {
+  PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
+  PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+  type NavItem,
+} from "@/lib/nav-links";
 import { cn } from "@/lib/utils";
 
 type NavbarMobileShellProps = {
@@ -14,6 +19,7 @@ type NavbarMobileShellProps = {
 
 export function NavbarMobileShell({ links }: NavbarMobileShellProps) {
   const t = useTranslations();
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openGroupLabel, setOpenGroupLabel] = useState<string | null>(null);
   useBodyScrollLock(menuOpen);
@@ -74,7 +80,11 @@ export function NavbarMobileShell({ links }: NavbarMobileShellProps) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="py-3 text-xl font-semibold text-white transition-opacity hover:opacity-70 active:opacity-50"
+                  className={cn(
+                    "relative pt-3 pb-1 text-xl font-semibold text-white transition-opacity hover:opacity-70 active:opacity-50",
+                    PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+                    isNavHrefActive(pathname, item.href) && PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
+                  )}
                   onClick={closeMenu}
                 >
                   {t(`nav.${item.labelKey}`)}
@@ -102,7 +112,13 @@ export function NavbarMobileShell({ links }: NavbarMobileShellProps) {
                         <Link
                           key={sub.href}
                           href={sub.href}
-                          className="py-2 text-lg font-medium text-white/90 transition-opacity hover:opacity-80"
+                          className={cn(
+                            "relative pt-2 pb-1 text-lg font-medium text-white/90 transition-opacity hover:opacity-80",
+                            PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+                            isNavHrefActive(pathname, sub.href) &&
+                              PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
+                            isNavHrefActive(pathname, sub.href) && "text-white",
+                          )}
                           onClick={closeMenu}
                         >
                           {t(`nav.${sub.labelKey}`)}

@@ -8,6 +8,17 @@ export const COMPANY_PHONE_TEL_HREF = "tel:+37444343000" as const;
 export const PRIMARY_NAV_LINK_DESKTOP_CLASS =
   "font-['Inter:Semi_Bold',sans-serif] font-semibold text-white text-sm lg:text-base whitespace-nowrap transition-opacity hover:opacity-80";
 
+/**
+ * White hairline (`1px`) under nav labels: `::after` width animates **left → right** on
+ * hover / focus-visible. Parent must be `relative`; keep **small** `pb-*` so the line sits
+ * close to the text.
+ */
+export const PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS =
+  "after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:max-w-full after:translate-y-px after:rounded-full after:bg-white after:transition-[width] after:duration-300 after:ease-out after:content-[''] hover:after:w-full focus-visible:after:w-full" as const;
+
+/** Current route — underline stays full width. */
+export const PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS = "after:w-full" as const;
+
 export type NavSubLink = {
   readonly labelKey: string;
   readonly href: string;

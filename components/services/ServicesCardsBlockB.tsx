@@ -31,7 +31,7 @@ export function ServicesCard({
     <div
       className={
         className ||
-        "content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"
+        "content-stretch flex min-h-0 flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"
       }
       data-node-id="165:590"
     >
@@ -47,7 +47,7 @@ export function ServicesCard({
         <Smartphone aria-hidden className="size-[40px]" strokeWidth={1.5} />
       </div>
       <div
-        className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
+        className="content-stretch flex min-h-0 flex-1 flex-col gap-[16px] items-start not-italic relative w-full"
         data-node-id="165:594"
       >
         <p
@@ -108,7 +108,7 @@ export function ServicesCard1({
     <div
       className={
         className ||
-        "content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"
+        "content-stretch flex min-h-0 flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] w-[369px]"
       }
       data-node-id="165:569"
     >
@@ -116,25 +116,27 @@ export function ServicesCard1({
         aria-hidden="true"
         className="absolute bg-gradient-to-b from-[#100b16] inset-0 pointer-events-none rounded-[38px] to-[#0f0220]"
       />
-      <div className="relative shrink-0 size-[40px]" data-name="Building" data-node-id="165:570">
-        <FigmaFillImage src={imgBuilding} sizes="40px" />
-      </div>
-      <div
-        className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
-        data-node-id="165:574"
-      >
-        <p
-          className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
-          data-node-id="165:575"
+      <div className="flex min-h-0 flex-1 -translate-y-2 flex-col gap-[30px] items-start self-stretch">
+        <div className="relative shrink-0 size-[40px]" data-name="Building" data-node-id="165:570">
+          <FigmaFillImage src={imgBuilding} sizes="40px" />
+        </div>
+        <div
+          className="content-stretch flex min-h-0 flex-col gap-[6px] items-start not-italic relative w-full"
+          data-node-id="165:574"
         >
-          {title}
-        </p>
-        <p
-          className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
-          data-node-id="165:576"
-        >
-          {description}
-        </p>
+          <p
+            className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
+            data-node-id="165:575"
+          >
+            {title}
+          </p>
+          <p
+            className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+            data-node-id="165:576"
+          >
+            {description}
+          </p>
+        </div>
       </div>
       <div className="absolute flex h-[98.623px] items-center justify-center left-[-42px] top-[-59px] w-[95.759px]">
         <div className="flex-none rotate-[57.05deg]">

@@ -6,7 +6,12 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { usePrimaryNavDropdownOpen } from "@/lib/hooks/usePrimaryNavDropdownOpen";
 import { isNavHrefActive } from "@/lib/nav-href-active";
 import { PRIMARY_NAV_DROPDOWN_TRANSITION_MS } from "@/lib/primary-nav-dropdown.constants";
-import { PRIMARY_NAV_LINK_DESKTOP_CLASS, type NavSubLink } from "@/lib/nav-links";
+import {
+  PRIMARY_NAV_LINK_DESKTOP_CLASS,
+  PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
+  PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+  type NavSubLink,
+} from "@/lib/nav-links";
 import { cn } from "@/lib/utils";
 
 type PrimaryNavMoreDropdownProps = {
@@ -35,13 +40,16 @@ export function PrimaryNavMoreDropdown({ items, variant }: PrimaryNavMoreDropdow
     variant === "pill"
       ? cn(
           triggerBase,
-          "relative leading-[0] not-italic text-[16px]",
-          childActive && "underline decoration-white/45 underline-offset-[6px]",
+          "relative pb-0.5 leading-[0] not-italic text-[16px] text-white",
+          PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+          childActive && PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
         )
       : cn(
           triggerBase,
           PRIMARY_NAV_LINK_DESKTOP_CLASS,
-          childActive && "underline decoration-white/45 underline-offset-[6px]",
+          "relative pb-0.5",
+          PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+          childActive && PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
         );
 
   const itemTypography =
@@ -104,10 +112,12 @@ export function PrimaryNavMoreDropdown({ items, variant }: PrimaryNavMoreDropdow
                   href={sub.href}
                   className={cn(
                     itemTypography,
-                    "block rounded-[22px] px-3.5 py-2.5 text-white/90 transition-colors duration-150 ease-out",
+                    "relative block rounded-[22px] px-3.5 pb-1 pt-2.5 text-white/90 transition-colors duration-150 ease-out",
                     "hover:bg-[#473dff]/10 hover:text-white",
                     "focus-visible:bg-[#473dff]/10 focus-visible:text-white focus-visible:outline-none",
-                    active && "bg-white/[0.07] text-white",
+                    PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+                    active && "text-white",
+                    active && PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
                   )}
                 >
                   {t(`nav.${sub.labelKey}`)}

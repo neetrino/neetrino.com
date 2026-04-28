@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { DesktopHeaderLanguageButton } from "@/components/shared/DesktopHeaderLanguageButton";
 import { DesktopHeaderQuoteLink } from "@/components/shared/DesktopHeaderQuoteLink";
 import { PrimaryNavMoreDropdown } from "@/components/shared/PrimaryNavMoreDropdown";
@@ -13,7 +13,12 @@ import {
   DESKTOP_HEADER_NAV_PILL_CENTER_OFFSET_PX,
   DESKTOP_HEADER_NAV_PILL_WIDTH_PX,
 } from "@/lib/desktop-header-nav-pill.constants";
-import { PRIMARY_NAV_LINKS } from "@/lib/nav-links";
+import { isNavHrefActive } from "@/lib/nav-href-active";
+import {
+  PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
+  PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+  PRIMARY_NAV_LINKS,
+} from "@/lib/nav-links";
 import { cn } from "@/lib/utils";
 
 /**
@@ -21,6 +26,7 @@ import { cn } from "@/lib/utils";
  */
 export function HomeDesktopHeader({ className }: { className?: string }) {
   const t = useTranslations();
+  const pathname = usePathname();
 
   return (
     <div
@@ -50,11 +56,15 @@ export function HomeDesktopHeader({ className }: { className?: string }) {
             item.kind === "link" ? (
               <Link
                 key={item.href}
-                className="relative flex shrink-0 flex-col justify-center"
+                className={cn(
+                  "relative flex shrink-0 flex-col justify-center pb-0.5",
+                  PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+                  isNavHrefActive(pathname, item.href) && PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
+                )}
                 data-node-id="10:445"
                 href={item.href}
               >
-                <p className="leading-[15.6px]">{t(`nav.${item.labelKey}`)}</p>
+                <p className="leading-[15.6px] text-white">{t(`nav.${item.labelKey}`)}</p>
               </Link>
             ) : (
               <PrimaryNavMoreDropdown key={item.labelKey} variant="pill" items={item.items} />

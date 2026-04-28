@@ -2,13 +2,19 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { NavbarMobileShell } from "@/components/nav/NavbarMobileShell";
 import { GetQuoteCtaButton } from "@/components/quote/get-quote-cta-button";
 import { useScrolledPastThreshold } from "@/lib/hooks/useScrolledPastThreshold";
 import { PrimaryNavMoreDropdown } from "@/components/shared/PrimaryNavMoreDropdown";
 import { LocaleSwitcher } from "@/components/shared/LocaleSwitcher";
-import { PRIMARY_NAV_LINK_DESKTOP_CLASS, PRIMARY_NAV_LINKS } from "@/lib/nav-links";
+import { isNavHrefActive } from "@/lib/nav-href-active";
+import {
+  PRIMARY_NAV_LINK_DESKTOP_CLASS,
+  PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
+  PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+  PRIMARY_NAV_LINKS,
+} from "@/lib/nav-links";
 import { cn } from "@/lib/utils";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
@@ -19,6 +25,7 @@ import { FIGMA_ASSETS } from "@/lib/figma-assets";
  */
 export function MobileHeader() {
   const t = useTranslations();
+  const pathname = usePathname();
   const stickyChrome = useScrolledPastThreshold();
 
   return (
@@ -53,7 +60,16 @@ export function MobileHeader() {
           >
             {PRIMARY_NAV_LINKS.map((item) =>
               item.kind === "link" ? (
-                <Link key={item.href} href={item.href} className={PRIMARY_NAV_LINK_DESKTOP_CLASS}>
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    PRIMARY_NAV_LINK_DESKTOP_CLASS,
+                    "relative pb-0.5",
+                    PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
+                    isNavHrefActive(pathname, item.href) && PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
+                  )}
+                >
                   {t(`nav.${item.labelKey}`)}
                 </Link>
               ) : (

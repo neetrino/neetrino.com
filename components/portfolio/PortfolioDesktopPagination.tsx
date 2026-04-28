@@ -59,8 +59,8 @@ export function PortfolioDesktopPagination({
         onClick={goPrev}
         aria-label="Previous page"
         className={cn(
-          "flex h-[32px] min-w-[32px] shrink-0 items-center justify-center rounded-[6px] border-0 bg-white px-[11px]",
-          !canPrev && "cursor-not-allowed opacity-50",
+          "flex h-[32px] min-w-[32px] shrink-0 items-center justify-center rounded-[6px] border-0 bg-white px-[11px] disabled:cursor-default",
+          canPrev ? "cursor-pointer" : "opacity-50",
         )}
         data-node-id="541:2335"
       >
@@ -84,7 +84,7 @@ export function PortfolioDesktopPagination({
             aria-current={isActive ? "page" : undefined}
             aria-label={`Page ${pageNumber}`}
             className={cn(
-              "relative flex h-[32px] min-w-[32px] shrink-0 flex-col items-center justify-center rounded-[6px] border-0 px-[11px] text-[14px] not-italic leading-[normal]",
+              "relative flex h-[32px] min-w-[32px] shrink-0 cursor-pointer flex-col items-center justify-center rounded-[6px] border-0 px-[11px] text-[14px] not-italic leading-[normal]",
               isActive ? "text-white" : "bg-white text-[#4e5d78]",
             )}
             data-node-id={isActive ? "541:2338" : "541:2336"}
@@ -109,8 +109,8 @@ export function PortfolioDesktopPagination({
         onClick={goNext}
         aria-label="Next page"
         className={cn(
-          "flex h-[32px] min-w-[32px] shrink-0 items-center justify-center overflow-clip rounded-[6px] border-0 bg-white px-[11px]",
-          !canNext && "cursor-not-allowed opacity-50",
+          "flex h-[32px] min-w-[32px] shrink-0 items-center justify-center overflow-clip rounded-[6px] border-0 bg-white px-[11px] disabled:cursor-default",
+          canNext ? "cursor-pointer" : "opacity-50",
         )}
         data-node-id="541:2341"
       >
