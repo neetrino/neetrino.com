@@ -5,11 +5,13 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
 import {
+  isWhatWeDoCardCopyCenteredLocale,
   whatWeDoDesktopContinueCenterLeftClassName,
   whatWeDoDesktopHyCrmSubtitleButtonStackTopClassName,
   whatWeDoDesktopOrangeTileHorizontalCenterClassName,
   whatWeDoHyCrmSubtitleLiftOnlyClassName,
   whatWeDoHyCrmSubtitleToContinueGapClassName,
+  whatWeDoRuOrangeMobileSubtitleTopClassName,
 } from "@/lib/what-we-do-desktop-continue-cta-layout";
 import { cn } from "@/lib/utils";
 import { imgSafearea, imgSports00065 } from "./figma-assets";
@@ -17,7 +19,7 @@ import { imgSafearea, imgSports00065 } from "./figma-assets";
 export function NeetrinoHomeWhatWeDoTop() {
   const t = useTranslations();
   const locale = useLocale();
-  const isHy = locale === "hy";
+  const isCenteredTileCopy = isWhatWeDoCardCopyCenteredLocale(locale);
 
   return (
     <>
@@ -29,7 +31,7 @@ export function NeetrinoHomeWhatWeDoTop() {
         <div
           className={cn(
             "pointer-events-none absolute flex flex-col justify-center font-extralight not-italic leading-[0] text-[20px] text-[#0f0f0f] top-[576.5px] -translate-y-1/2",
-            isHy
+            isCenteredTileCopy
               ? cn(
                   whatWeDoDesktopContinueCenterLeftClassName.ai,
                   "-translate-x-1/2 max-w-[220px] text-center whitespace-nowrap",
@@ -43,7 +45,7 @@ export function NeetrinoHomeWhatWeDoTop() {
         <div
           className={cn(
             "pointer-events-none absolute flex flex-col justify-center font-bold not-italic leading-[0] text-[#0f0f0f] text-[22px] top-[198.5px] -translate-y-1/2",
-            isHy
+            isCenteredTileCopy
               ? cn(
                   whatWeDoDesktopContinueCenterLeftClassName.ai,
                   "-translate-x-1/2 max-w-[220px] text-center whitespace-nowrap",
@@ -63,8 +65,11 @@ export function NeetrinoHomeWhatWeDoTop() {
       />
       <div
         className={cn(
-          "pointer-events-none absolute flex flex-col justify-center font-extralight not-italic leading-[0] text-[20px] text-white top-[576.5px] -translate-y-1/2",
-          isHy
+          "pointer-events-none absolute flex flex-col justify-center font-extralight not-italic leading-[0] text-[20px] text-white -translate-y-1/2",
+          locale === "ru" && isCenteredTileCopy
+            ? whatWeDoRuOrangeMobileSubtitleTopClassName
+            : "top-[576.5px]",
+          isCenteredTileCopy
             ? cn(
                 whatWeDoDesktopOrangeTileHorizontalCenterClassName,
                 "-translate-x-1/2 max-w-[220px] text-center",
@@ -80,7 +85,7 @@ export function NeetrinoHomeWhatWeDoTop() {
       <div
         className={cn(
           "pointer-events-none absolute flex flex-col justify-center font-bold not-italic leading-[0] text-[22px] text-white top-[198.5px] -translate-y-1/2",
-          isHy
+          isCenteredTileCopy
             ? cn(
                 whatWeDoDesktopOrangeTileHorizontalCenterClassName,
                 "-translate-x-1/2 max-w-[220px] text-center",
@@ -97,7 +102,7 @@ export function NeetrinoHomeWhatWeDoTop() {
             className="pointer-events-none absolute bg-[#473dff] h-[553px] left-[860px] rounded-[19px] top-[129px] w-[258px]"
             data-node-id="90:536"
           />
-          {!isHy ? (
+          {!isCenteredTileCopy ? (
             <div
               className="pointer-events-none absolute left-[1081px] top-[578.5px] flex -translate-x-full -translate-y-1/2 flex-col justify-center font-extralight not-italic leading-[0] text-[20px] text-white text-right whitespace-nowrap"
               data-node-id="90:537"
@@ -110,7 +115,7 @@ export function NeetrinoHomeWhatWeDoTop() {
           <div
             className={cn(
               "pointer-events-none absolute top-[200.5px] flex -translate-y-1/2 flex-col justify-center font-bold not-italic leading-[0] text-[22px] text-white",
-              isHy
+              isCenteredTileCopy
                 ? cn(
                     whatWeDoDesktopContinueCenterLeftClassName.crm,
                     "-translate-x-1/2 max-w-[220px] text-center whitespace-nowrap",
@@ -184,7 +189,7 @@ export function NeetrinoHomeWhatWeDoTop() {
           </div>
         </div>
       </Link>
-      {isHy ? (
+      {isCenteredTileCopy ? (
         <div
           className={cn(
             "absolute z-30 flex -translate-x-1/2 flex-col items-center",

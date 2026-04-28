@@ -42,6 +42,8 @@
     "emailUs": "Email us"
   },
   "footer": {
+    "company": "Company",
+    "contactUs": "Contact us",
     "menu": "Menu",
     "services": "Services",
     "contact": "Contact",
@@ -222,6 +224,8 @@
         "years": "Years of",
         "experience": "experience",
         "satisfiedClients": "Satisfied clients",
+        "satisfiedClientsLine1": "Satisfied",
+        "satisfiedClientsLine2": "clients",
         "creations": "Creations"
       }
     },

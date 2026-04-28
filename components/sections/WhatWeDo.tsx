@@ -5,6 +5,7 @@ import { serviceDetailHref, type ServiceSlug } from "@/components/services/servi
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
 import {
+  isWhatWeDoCardCopyCenteredLocale,
   whatWeDoHyCrmSubtitleLiftOnlyClassName,
   whatWeDoHyCrmSubtitleToContinueGapClassName,
 } from "@/lib/what-we-do-desktop-continue-cta-layout";
@@ -88,6 +89,7 @@ const services: readonly {
 export async function WhatWeDo() {
   const t = await getTranslations();
   const locale = await getLocale();
+  const isCenteredTileCopy = isWhatWeDoCardCopyCenteredLocale(locale);
 
   return (
     <section className={`bg-[#151515] py-12 ${interSans.className}`}>
@@ -104,8 +106,21 @@ export async function WhatWeDo() {
 
         <div className="flex flex-col gap-4">
           {services.map((service) => {
-            const isHyAi = locale === "hy" && service.slug === "ai-product-development";
-            const isHyCrm = locale === "hy" && service.slug === "crm-systems";
+            const isHyTitleCenterSlug =
+              locale === "hy" &&
+              (service.slug === "mobile-app-development" ||
+                service.slug === "saas-development" ||
+                service.slug === "ai-product-development" ||
+                service.slug === "crm-systems");
+            const isHySubtitleCenterSlug =
+              locale === "hy" &&
+              (service.slug === "mobile-app-development" ||
+                service.slug === "saas-development" ||
+                service.slug === "ai-product-development");
+            const isCardTitleCentered = locale === "ru" || isHyTitleCenterSlug;
+            const isCardSubtitleCentered = locale === "ru" || isHySubtitleCenterSlug;
+            const isCrmStacked = isCenteredTileCopy && service.slug === "crm-systems";
+            const isAiNoWrap = isCenteredTileCopy && service.slug === "ai-product-development";
             const continueLinkClassName =
               "mx-auto inline-flex w-fit items-center gap-2 rounded-[40px] bg-white px-5 py-3 text-[18px] font-medium text-[#252525] transition-opacity hover:opacity-90";
 
@@ -131,29 +146,20 @@ export async function WhatWeDo() {
                         key={`${lineKey}-${index}`}
                         className={cn(
                           `font-bold text-lg leading-tight ${service.textColor}`,
-                          locale === "hy" &&
-                            (service.slug === "mobile-app-development" ||
-                              service.slug === "saas-development" ||
-                              service.slug === "ai-product-development" ||
-                              service.slug === "crm-systems") &&
-                            "w-full text-center",
-                          isHyAi && "w-full whitespace-nowrap text-center",
-                          isHyCrm && "whitespace-nowrap",
+                          isCardTitleCentered && "w-full text-center",
+                          isAiNoWrap && "whitespace-nowrap",
+                          isCrmStacked && "whitespace-nowrap",
                         )}
                       >
                         {t(lineKey)}
                       </h3>
                     ))}
-                    {!isHyCrm ? (
+                    {!isCrmStacked ? (
                       <div
                         className={cn(
                           `mt-1 text-base font-extralight leading-[19px] ${service.textColor}`,
-                          locale === "hy" &&
-                            (service.slug === "mobile-app-development" ||
-                              service.slug === "saas-development" ||
-                              service.slug === "ai-product-development") &&
-                            "w-full text-center",
-                          isHyAi && "whitespace-nowrap",
+                          isCardSubtitleCentered && "w-full text-center",
+                          isAiNoWrap && "whitespace-nowrap",
                         )}
                       >
                         {service.subtitleLineKeys.map((lineKey, index) => (
@@ -162,7 +168,7 @@ export async function WhatWeDo() {
                       </div>
                     ) : null}
                   </div>
-                  {isHyCrm ? (
+                  {isCrmStacked ? (
                     <div
                       className={cn(
                         "flex flex-col items-center",

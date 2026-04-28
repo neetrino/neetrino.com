@@ -2,6 +2,8 @@
 export const homeExplorePillWidthDefaultClassName = "w-[134px]" as const;
 /** Armenian `cta.explore` (“Տեսնել ավելին”) — wider pill. */
 export const homeExplorePillWidthHyClassName = "w-[206px]" as const;
+/** Russian `cta.explore` («Смотреть») — slightly wider than default. */
+export const homeExplorePillWidthRuClassName = "w-[152px]" as const;
 
 /** Center the control inside the `642×276` Figma `Group` / `Group2` wrapper. */
 export const homeExplorePillLinkCenterInGroupClassName =

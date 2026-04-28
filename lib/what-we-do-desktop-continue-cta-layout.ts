@@ -3,6 +3,11 @@
  * `left-[cardLeft+129px] -translate-x-1/2` (129px = half tile width).
  */
 
+/** Center tile titles/subtitles on desktop + mobile (longer copy). */
+export function isWhatWeDoCardCopyCenteredLocale(locale: string): boolean {
+  return locale === "hy" || locale === "ru";
+}
+
 /** Orange mobile tile (`left-[320px]`) + half width 129px → horizontal center of the tile. */
 const WHAT_WE_DO_DESKTOP_ORANGE_TILE_CENTER_LEFT = "left-[449px]" as const;
 
@@ -37,3 +42,12 @@ export const whatWeDoHyCrmSubtitleToContinueGapClassName = "gap-[12px]" as const
 
 /** Nudge CRM subtitle copy up (`hy`); does not move the Continue button. */
 export const whatWeDoHyCrmSubtitleLiftOnlyClassName = "-translate-y-[9px]" as const;
+
+/** `ru` only: website tile — subtitle nudge up vs inset (tuned vs default). */
+export const whatWeDoRuWebsiteSubtitleNudgeUpClassName = "-translate-y-[14px]" as const;
+
+/**
+ * `ru` only: orange mobile-tile subtitle vertical anchor (centered layout).
+ * Default / `hy`: `top-[576.5px]` with `-translate-y-1/2`.
+ */
+export const whatWeDoRuOrangeMobileSubtitleTopClassName = "top-[562px]" as const;

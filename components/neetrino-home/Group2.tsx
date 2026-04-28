@@ -10,6 +10,7 @@ import {
   homeExplorePillLinkStartVerticallyInGroupClassName,
   homeExplorePillWidthDefaultClassName,
   homeExplorePillWidthHyClassName,
+  homeExplorePillWidthRuClassName,
 } from "@/lib/home-explore-pill-layout";
 import { cn } from "@/lib/utils";
 import { imgEllipse3463, imgSafearea1 } from "./figma-assets";
@@ -25,7 +26,12 @@ type Group2Props = {
 export function Group2({ className, exploreHref, exploreLinkAlign = "center" }: Group2Props) {
   const t = useTranslations();
   const locale = useLocale();
-  const isHyExploreWide = locale === "hy";
+  const explorePillWidthClassName =
+    locale === "hy"
+      ? homeExplorePillWidthHyClassName
+      : locale === "ru"
+        ? homeExplorePillWidthRuClassName
+        : homeExplorePillWidthDefaultClassName;
 
   return (
     <div
@@ -39,7 +45,7 @@ export function Group2({ className, exploreHref, exploreLinkAlign = "center" }: 
           exploreLinkAlign === "start"
             ? homeExplorePillLinkStartVerticallyInGroupClassName
             : homeExplorePillLinkCenterInGroupClassName,
-          isHyExploreWide ? homeExplorePillWidthHyClassName : homeExplorePillWidthDefaultClassName,
+          explorePillWidthClassName,
         )}
         data-name="Button 2"
         data-node-id="19:370"

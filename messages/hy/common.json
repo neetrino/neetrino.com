@@ -42,6 +42,8 @@
     "emailUs": "Գրել մեզ"
   },
   "footer": {
+    "company": "Ընկերություն",
+    "contactUs": "Կապվել մեզ հետ",
     "menu": "Մենյու",
     "services": "Ծառայություններ",
     "contact": "Կապ",
@@ -57,7 +59,7 @@
       "website": "Կայքեր",
       "mobileApp": "Մոբայլ հավելվածներ",
       "crmSystems": "CRM համակարգեր",
-      "saasPlatforms": "SaaS հարթակներ",
+      "saasPlatforms": "SAAS հարթակներ",
       "aiIntegration": "AI ինտեգրումներ",
       "all": "Բոլորը"
     }
@@ -222,6 +224,8 @@
         "years": "Տարվա",
         "experience": "փորձ",
         "satisfiedClients": "Գոհ հաճախորդներ",
+        "satisfiedClientsLine1": "Գոհ",
+        "satisfiedClientsLine2": "հաճախորդներ",
         "creations": "Ստեղծումներ"
       }
     },

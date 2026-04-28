@@ -42,6 +42,8 @@
     "emailUs": "Написать на почту"
   },
   "footer": {
+    "company": "Компания",
+    "contactUs": "Связаться с нами",
     "menu": "Меню",
     "services": "Услуги",
     "contact": "Контакты",
@@ -57,7 +59,7 @@
       "website": "Сайты",
       "mobileApp": "Мобильные приложения",
       "crmSystems": "CRM-системы",
-      "saasPlatforms": "SaaS-платформы",
+      "saasPlatforms": "SAAS-платформы",
       "aiIntegration": "AI-интеграции",
       "all": "Все"
     }
@@ -222,6 +224,8 @@
         "years": "Лет",
         "experience": "опыта",
         "satisfiedClients": "Довольных клиентов",
+        "satisfiedClientsLine1": "Довольных",
+        "satisfiedClientsLine2": "клиентов",
         "creations": "Проектов"
       }
     },

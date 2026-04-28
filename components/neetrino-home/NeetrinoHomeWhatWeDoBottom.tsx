@@ -4,7 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
-import { whatWeDoDesktopContinueCenterLeftClassName } from "@/lib/what-we-do-desktop-continue-cta-layout";
+import {
+  isWhatWeDoCardCopyCenteredLocale,
+  whatWeDoDesktopContinueCenterLeftClassName,
+} from "@/lib/what-we-do-desktop-continue-cta-layout";
 import { cn } from "@/lib/utils";
 import { Group } from "./Group";
 import { Group1 } from "./Group1";
@@ -13,7 +16,7 @@ import { img2761, imgCloudInfrastructure, imgPc1, imgSafearea } from "./figma-as
 export function NeetrinoHomeWhatWeDoBottom() {
   const t = useTranslations();
   const locale = useLocale();
-  const isHySaaSTileTextCentered = locale === "hy";
+  const isCenteredTileCopy = isWhatWeDoCardCopyCenteredLocale(locale);
 
   return (
     <>
@@ -26,7 +29,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
           <div
             className={cn(
               "pointer-events-none absolute flex flex-col justify-center font-extralight not-italic leading-[0] text-[20px] text-white top-[577.5px] -translate-y-1/2",
-              isHySaaSTileTextCentered
+              isCenteredTileCopy
                 ? cn(
                     whatWeDoDesktopContinueCenterLeftClassName.saas,
                     "-translate-x-1/2 max-w-[220px] text-center",
@@ -40,7 +43,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
           <div
             className={cn(
               "pointer-events-none absolute flex flex-col justify-center font-bold not-italic leading-[0] text-[22px] text-white top-[199.5px] -translate-y-1/2",
-              isHySaaSTileTextCentered
+              isCenteredTileCopy
                 ? cn(
                     whatWeDoDesktopContinueCenterLeftClassName.saas,
                     "-translate-x-1/2 max-w-[220px] text-center",
@@ -88,7 +91,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
       <Group
         className="-translate-x-1/2 absolute h-[276px] left-[calc(50%+0.5px)] top-[655px] w-[642px]"
         exploreHref="/services"
-        ellipseUnderlayFromEnd={locale === "hy"}
+        ellipseUnderlayFromEnd={isCenteredTileCopy}
       />
       <div
         className="pointer-events-none absolute h-[231px] left-[1148px] top-[289px] w-[221px]"

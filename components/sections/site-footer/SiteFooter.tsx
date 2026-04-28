@@ -1,8 +1,19 @@
 "use client";
 
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { CONTACT_DETAILS, CONTACT_SOCIAL_LINKS } from "@/components/contact/content";
+import {
+  footerSendCtaIconLeftDefaultClassName,
+  footerSendCtaIconLeftRuClassName,
+  footerSendCtaIconLeftWideClassName,
+  footerSendCtaWidthDefaultClassName,
+  footerSendCtaWidthRuClassName,
+  footerSendCtaWidthWideClassName,
+  isFooterSendCtaWideLocale,
+} from "@/lib/footer-send-cta-layout";
+import { cn } from "@/lib/utils";
 
 const FIGMA_ASSETS = {
   img101: "https://www.figma.com/api/mcp/asset/26540830-c404-450b-ae0a-f864a9101164",
@@ -40,6 +51,22 @@ const SOCIAL_ICON_HREFS = [
  * internal routes use `next-intl` `Link`; `mailto:` / `tel:` use app contact constants.
  */
 export function Footer() {
+  const t = useTranslations();
+  const locale = useLocale();
+  const isFooterSendWide = isFooterSendCtaWideLocale(locale);
+  const footerSendWidthClassName =
+    locale === "ru"
+      ? footerSendCtaWidthRuClassName
+      : isFooterSendWide
+        ? footerSendCtaWidthWideClassName
+        : footerSendCtaWidthDefaultClassName;
+  const footerSendIconLeftClassName =
+    locale === "ru"
+      ? footerSendCtaIconLeftRuClassName
+      : isFooterSendWide
+        ? footerSendCtaIconLeftWideClassName
+        : footerSendCtaIconLeftDefaultClassName;
+
   return (
     <footer
       id="contact"
@@ -153,7 +180,7 @@ export function Footer() {
                   data-node-id="10:244"
                   style={{ fontVariationSettings: "'opsz' 14" }}
                 >
-                  Company
+                  {t("footer.company")}
                 </p>
                 <div
                   className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0"
@@ -176,7 +203,7 @@ export function Footer() {
                         data-node-id="10:249"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        About
+                        {t("nav.about")}
                       </p>
                     </div>
                   </Link>
@@ -191,7 +218,7 @@ export function Footer() {
                       data-node-id="10:253"
                       style={{ fontVariationSettings: "'opsz' 14" }}
                     >
-                      Team
+                      {t("nav.team")}
                     </p>
                   </Link>
                   <Link
@@ -210,7 +237,7 @@ export function Footer() {
                         data-node-id="10:258"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        Contact us
+                        {t("footer.contactUs")}
                       </p>
                     </div>
                   </Link>
@@ -230,7 +257,7 @@ export function Footer() {
                         data-node-id="10:263"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        Portfolio
+                        {t("nav.portfolio")}
                       </p>
                     </div>
                   </Link>
@@ -250,7 +277,7 @@ export function Footer() {
                         data-node-id="10:268"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        Services
+                        {t("nav.services")}
                       </p>
                     </div>
                   </Link>
@@ -270,7 +297,7 @@ export function Footer() {
                         data-node-id="10:273"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        Blog
+                        {t("nav.blog")}
                       </p>
                     </div>
                   </Link>
@@ -286,7 +313,7 @@ export function Footer() {
                   data-node-id="10:276"
                   style={{ fontVariationSettings: "'opsz' 14" }}
                 >
-                  Services
+                  {t("footer.services")}
                 </p>
                 <div
                   className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0"
@@ -309,7 +336,7 @@ export function Footer() {
                         data-node-id="10:281"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        Website
+                        {t("footer.serviceLabels.website")}
                       </p>
                     </div>
                   </Link>
@@ -329,7 +356,7 @@ export function Footer() {
                         data-node-id="10:286"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        Mobile App
+                        {t("footer.serviceLabels.mobileApp")}
                       </p>
                     </div>
                   </Link>
@@ -349,7 +376,7 @@ export function Footer() {
                         data-node-id="10:291"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        CRM Systems
+                        {t("footer.serviceLabels.crmSystems")}
                       </p>
                     </div>
                   </Link>
@@ -369,7 +396,7 @@ export function Footer() {
                         data-node-id="10:296"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        SAAS Platforms
+                        {t("footer.serviceLabels.saasPlatforms")}
                       </p>
                     </div>
                   </Link>
@@ -389,7 +416,7 @@ export function Footer() {
                         data-node-id="10:301"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        AI integration
+                        {t("footer.serviceLabels.aiIntegration")}
                       </p>
                     </div>
                   </Link>
@@ -402,7 +429,7 @@ export function Footer() {
                       className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] relative shrink-0 text-[18px] text-center text-white whitespace-nowrap"
                       style={{ fontVariationSettings: "'opsz' 14" }}
                     >
-                      All
+                      {t("footer.serviceLabels.all")}
                     </p>
                   </Link>
                 </div>
@@ -417,7 +444,7 @@ export function Footer() {
                   data-node-id="10:305"
                   style={{ fontVariationSettings: "'opsz' 14" }}
                 >
-                  Contact
+                  {t("footer.contact")}
                 </p>
                 <div
                   className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0"
@@ -453,7 +480,7 @@ export function Footer() {
                         data-node-id="10:311"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        108/10 Andranik Zoravar St.
+                        {t("footer.address")}
                       </p>
                     </div>
                   </div>
@@ -544,9 +571,9 @@ export function Footer() {
                       data-node-id="10:323"
                       style={{ fontVariationSettings: "'opsz' 14" }}
                     >
-                      {`Working Hours\u00a0`}
+                      {`${t("footer.workingHoursLabel")}\u00a0`}
                       <br aria-hidden="true" />
-                      Mon. - Fri. 10AM - 7PM
+                      {t("footer.workingHoursValue")}
                     </p>
                   </div>
                 </div>
@@ -571,13 +598,15 @@ export function Footer() {
                     data-node-id="10:327"
                     style={{ fontVariationSettings: "'opsz' 14" }}
                   >
-                    Massage us
+                    {t("footer.messageUs")}
                   </p>
                   <p
                     className="font-['DM_Sans:Regular',sans-serif] font-normal leading-[30px] relative shrink-0 text-[#dcd5d5] text-[18px] w-[358.364px]"
                     data-node-id="10:328"
                     style={{ fontVariationSettings: "'opsz' 14" }}
-                  >{`Step into the digital world with just one touch—powered by Neetrino.\u00a0`}</p>
+                  >
+                    {t("footer.messageDescription")}
+                  </p>
                 </div>
                 <div
                   className="content-stretch flex flex-col items-start relative shrink-0 w-[426px]"
@@ -604,14 +633,17 @@ export function Footer() {
                         data-node-id="10:341"
                         style={{ fontVariationSettings: "'opsz' 14" }}
                       >
-                        Enter your massege
+                        {t("footer.placeholder")}
                       </p>
                     </div>
                   </div>
                 </div>
                 <Link
                   href="/contact"
-                  className="block cursor-pointer h-[56px] relative rounded-[35px] shrink-0 w-[120px]"
+                  className={cn(
+                    "relative block h-[56px] shrink-0 cursor-pointer rounded-[35px]",
+                    footerSendWidthClassName,
+                  )}
                   data-node-id="10:342"
                   data-name="Send Button"
                 >
@@ -623,10 +655,10 @@ export function Footer() {
                     className="absolute flex flex-col font-['Poppins:Regular',sans-serif] inset-[28.57%_50.83%_28.57%_15%] justify-center leading-[0] not-italic text-[16px] text-left text-white whitespace-nowrap"
                     data-node-id="I10:342;2:7"
                   >
-                    <p className="leading-[24px]">Send</p>
+                    <p className="leading-[24px]">{t("footer.send")}</p>
                   </div>
                   <div
-                    className="absolute left-[71px] size-[42px] top-[7px]"
+                    className={cn("absolute top-[7px] size-[42px]", footerSendIconLeftClassName)}
                     data-node-id="I10:342;2:8"
                   >
                     <Image
@@ -783,7 +815,7 @@ export function Footer() {
             data-node-id="10:366"
             style={{ fontVariationSettings: "'opsz' 14" }}
           >
-            Copyright © 2017 - 2026 Neetrino IT Company. All Rights Reserved.
+            {t("footer.copyright")}
           </p>
         </div>
       </div>

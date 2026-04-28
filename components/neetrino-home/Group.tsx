@@ -10,6 +10,7 @@ import {
   homeExplorePillLinkCenterInGroupClassName,
   homeExplorePillWidthDefaultClassName,
   homeExplorePillWidthHyClassName,
+  homeExplorePillWidthRuClassName,
 } from "@/lib/home-explore-pill-layout";
 import { cn } from "@/lib/utils";
 import { imgEllipse3463, imgSafearea1 } from "./figma-assets";
@@ -25,7 +26,12 @@ type GroupProps = {
 export function Group({ className, exploreHref, ellipseUnderlayFromEnd = false }: GroupProps) {
   const t = useTranslations();
   const locale = useLocale();
-  const isHyExploreWide = locale === "hy";
+  const explorePillWidthClassName =
+    locale === "hy"
+      ? homeExplorePillWidthHyClassName
+      : locale === "ru"
+        ? homeExplorePillWidthRuClassName
+        : homeExplorePillWidthDefaultClassName;
 
   return (
     <div
@@ -37,7 +43,7 @@ export function Group({ className, exploreHref, ellipseUnderlayFromEnd = false }
         className={cn(
           "peer pointer-events-auto absolute z-10 flex h-[56px] items-center justify-between gap-2 overflow-hidden rounded-[40px] border border-solid border-[#6a92ff] bg-black pl-[23px] pr-[17px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]",
           homeExplorePillLinkCenterInGroupClassName,
-          isHyExploreWide ? homeExplorePillWidthHyClassName : homeExplorePillWidthDefaultClassName,
+          explorePillWidthClassName,
         )}
         data-name="Button 2"
         data-node-id="1:146"
