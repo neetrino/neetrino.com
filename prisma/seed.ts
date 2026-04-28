@@ -1,10 +1,12 @@
-import "dotenv/config";
+import { config } from "dotenv";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient, BlogPostStatus } from "../lib/generated/prisma/client";
 import { locales } from "../i18n/routing";
 import { getBlogPosts } from "../lib/blog-posts-data";
 import type { AppLocale } from "../lib/i18n/locales";
 import type { BlogPost, BlogPostSection } from "../lib/blog-posts-data";
+
+config({ path: [".env.local", ".env"] });
 
 // Legacy static blog JSON remains the seed source; runtime public reads come from the DB.
 function getDatabaseUrl(): string {
