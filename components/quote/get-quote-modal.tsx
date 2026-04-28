@@ -57,7 +57,7 @@ export function GetQuoteModal({ open, onOpenChange }: GetQuoteModalProps) {
               </div>
               <Dialog.Close
                 type="button"
-                className="shrink-0 rounded-full p-2 text-white/70 transition hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+                className="shrink-0 cursor-pointer rounded-full p-2 text-white/70 transition hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
                 aria-label={t("quote.close")}
               >
                 <X className="size-5" strokeWidth={1.75} />

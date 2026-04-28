@@ -52,12 +52,14 @@ export function LocaleSwitcher({ className, compact = false, style }: LocaleSwit
   };
 
   return (
-    <div ref={rootRef} className={cn("relative", className)} style={style}>
+    <div ref={rootRef} className={cn("relative cursor-pointer", className)} style={style}>
       <button
         type="button"
         className={cn(
-          "inline-flex items-center gap-2 rounded-[28px] bg-white px-3 py-2 text-[#1e1e1e] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1e1e1e]/40",
-          compact ? "h-10 min-w-[82px] justify-center" : "h-12 min-w-[108px] justify-start",
+          "inline-flex cursor-pointer items-center gap-2 rounded-[28px] bg-white px-3 py-2 text-[#1e1e1e] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1e1e1e]/40",
+          compact
+            ? "h-10 min-w-[82px] justify-center"
+            : "h-full min-h-0 w-full min-w-0 justify-center",
         )}
         aria-label={t("language.current", { language: LOCALE_LABELS[locale] })}
         aria-haspopup="menu"
@@ -86,7 +88,7 @@ export function LocaleSwitcher({ className, compact = false, style }: LocaleSwit
                   aria-checked={active}
                   onClick={() => switchLocale(nextLocale)}
                   className={cn(
-                    "flex w-full min-w-0 items-center gap-3 rounded-xl px-3 py-2 text-sm text-white transition-colors hover:bg-white/10",
+                    "flex w-full min-w-0 cursor-pointer items-center gap-3 rounded-xl px-3 py-2 text-sm text-white transition-colors hover:bg-white/10",
                     active && "bg-white/10",
                   )}
                 >
