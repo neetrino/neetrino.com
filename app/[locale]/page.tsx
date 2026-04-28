@@ -22,8 +22,8 @@ const NeetrinoHome = dynamic(
   {
     loading: () => (
       <>
-        {/* 5022px = HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX (Tailwind literal for JIT). */}
-        <div className="relative min-h-[min(100vh,5022px)] w-full bg-[#151515]" aria-hidden />
+        {/* 5006px = HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX (Tailwind literal for JIT). */}
+        <div className="relative min-h-[min(100vh,5006px)] w-full bg-[#151515]" aria-hidden />
       </>
     ),
   },

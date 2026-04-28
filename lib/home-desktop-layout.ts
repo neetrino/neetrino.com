@@ -3,7 +3,7 @@
  * when the orbit block moves up by Δpx, lower this by **the same Δ** so the band under the orbit does not
  * grow (avoids “fixed gap here, bigger gap there”). Sync `app/globals.css` + home `page.tsx` literal.
  */
-export const HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX = 5022;
+export const HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX = 5006;
 
 /**
  * Desktop home (scaled Figma canvas): vertical rhythm for the device orbit block.
@@ -16,11 +16,11 @@ export const HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX = 5022;
  * Desktop Partners marquee: in document flow on the home page (`page.tsx`) directly above `<Footer>` in
  * `layout.tsx`, not absolutely positioned on the canvas.
  */
-export const HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX = 4212;
+export const HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX = 4196;
 
 /**
- * Desktop home (`page.tsx`): light negative margin on the canvas wrapper — pulls Partners (and the footer
- * after it) up toward the canvas without changing orbit `TOP` / canvas height pair.
+ * Desktop home (`page.tsx`): leave empty when orbit `TOP` + canvas height are stepped together — avoids an
+ * extra pull on Partners that would skew gaps vs. the paired layout.
  * **Literal** for Tailwind JIT.
  */
-export const HOME_DESKTOP_CANVAS_FOOTER_PULL_UP_CLASSNAME = "lg:-mb-8" as const;
+export const HOME_DESKTOP_CANVAS_FOOTER_PULL_UP_CLASSNAME = "lg:-mb-22" as const;

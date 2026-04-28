@@ -134,7 +134,7 @@ html[lang="hy"] body {
 }
 
 /*
-  Neetrino: fluid canvas — 1440×5022 design scales proportionally to any viewport.
+  Neetrino: fluid canvas — 1440×5006 design scales proportionally to any viewport.
   Used by CanvasScaler for the desktop (lg+) layout.
   JS (CanvasScaler) measures the actual container width and applies scale().
   Height must match HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX in lib/home-desktop-layout.ts.
@@ -148,7 +148,7 @@ html[lang="hy"] body {
 
 .neetrino-canvas-inner {
   width: 1440px;
-  min-height: 5022px;
+  min-height: 5006px;
   transform-origin: top left;
   background-color: #151515;
 }
