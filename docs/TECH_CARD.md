@@ -26,14 +26,21 @@
 | 2.2 | Стили     | Tailwind CSS 4                           |
 | 2.3 | UI        | shadcn/ui, Base UI, custom               |
 | 2.4 | State     | локально useState; без глобального стора |
-| 2.5 | Формы     | по мере надобности RHF + Zod             |
-| 2.6 | Данные    | RSC, статический контент                 |
-| 2.7 | i18n      | не требуется на первом этапе             |
+| 2.5 | Формы     | Server Actions + Zod для admin MVP       |
+| 2.6 | Данные    | RSC, Prisma для Blog, legacy seed JSON   |
+| 2.7 | i18n      | next-intl: `en`, `ru`, `hy`              |
 | 2.8 | SEO       | Metadata API по мере наполнения          |
 
 ## 3. Backend / БД
 
-Не используются в текущей фазе лендинга. API и БД — при появлении требований (отдельное решение по шаблону).
+Blog admin MVP использует backend внутри Next.js:
+
+- **DB:** PostgreSQL через Prisma.
+- **Schema:** `prisma/schema.prisma`.
+- **Admin auth:** single-admin env credentials, bcrypt hash, JWT через `jose`, httpOnly cookie.
+- **Admin routes:** `/admin/blog`, `/admin/blog/new`, `/admin/blog/[id]/edit`.
+- **Public blog:** DB-backed published posts only.
+- **Images:** upload/storage не реализованы; `coverImageUrl` вводится вручную.
 
 ## 4. Качество и DevOps
 

@@ -1,29 +1,21 @@
 "use client";
 
-import Image from "next/image";
-import { Frame } from "./Frame";
+import { EllipseDeviceShowcase } from "@/components/neetrino-home/EllipseDeviceShowcase";
+import { HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX } from "@/lib/home-desktop-layout";
 import { NeetrinoHomeWhatWeDoBottom } from "./NeetrinoHomeWhatWeDoBottom";
 import { NeetrinoHomeWhatWeDoTop } from "./NeetrinoHomeWhatWeDoTop";
-import { imgEllipse3459 } from "./figma-assets";
 
 export function NeetrinoHomeBelowFold() {
   return (
     <>
       <div
-        className="-translate-x-1/2 absolute h-[409px] left-[calc(50%+11px)] top-[4153px] w-[872px]"
-        data-node-id="48:505"
+        className="-translate-x-1/2 pointer-events-none absolute left-[calc(50%+11px)] z-[12] w-[min(100%,1609px)]"
+        style={{ top: HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX }}
+        data-name="Ellipse + device frames"
+        data-node-id="546:3027"
       >
-        <div className="absolute inset-[-5.13%_-2.41%]">
-          <Image
-            alt=""
-            width={2400}
-            height={2400}
-            className="block max-w-none size-full"
-            src={imgEllipse3459}
-          />
-        </div>
+        <EllipseDeviceShowcase />
       </div>
-      <Frame className="hidden -translate-x-1/2 absolute h-[905px] left-[calc(50%-0.5px)] top-[3879px] w-[1609px]" />
       <div
         className="isolate absolute z-[1] h-[829px] w-[1431px] -translate-x-1/2 left-[calc(50%+0.5px)] top-[1277px]"
         data-name="WHAT WE DO"

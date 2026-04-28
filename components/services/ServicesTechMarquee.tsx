@@ -46,7 +46,7 @@ function ServicesTechLogo({
     <span
       className={[
         "inline-flex shrink-0 items-center justify-center text-white/80",
-        compact ? "size-[34px] md:size-[40px]" : "size-[42px] md:size-[50px]",
+        compact ? "size-[28px] md:size-[34px]" : "size-[36px] md:size-[44px]",
       ].join(" ")}
       aria-label={label}
       title={label}

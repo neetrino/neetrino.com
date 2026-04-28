@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
         hostname: "www.figma.com",
         pathname: "/api/mcp/**",
       },
+      {
+        protocol: "https",
+        hostname: "**",
+      },
     ],
   },
 };

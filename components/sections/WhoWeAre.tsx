@@ -1,8 +1,7 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { EllipseDeviceShowcase } from "@/components/neetrino-home/EllipseDeviceShowcase";
 import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
-import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
 
 export function WhoWeAre() {
@@ -14,8 +13,8 @@ export function WhoWeAre() {
       className={`section-container py-16 md:py-24 ${interSans.className}`}
       aria-labelledby="who-we-are-heading"
     >
-      <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-8">
-        <div className="w-full shrink-0 lg:w-1/2">
+      <div className="flex flex-col gap-10">
+        <div className="w-full shrink-0">
           <p className="text-sm font-medium uppercase tracking-wider text-white">
             {t("home.whoWeAre.eyebrow")}
           </p>
@@ -41,19 +40,6 @@ export function WhoWeAre() {
             </p>
           </div>
         </div>
-        <div className="relative flex w-full justify-center lg:w-1/2 lg:justify-end">
-          <div className="relative aspect-[4/3] w-full max-w-xl mix-blend-exclusion lg:max-w-none">
-            <Image
-              src={FIGMA_ASSETS.img1}
-              alt=""
-              fill
-              unoptimized
-              className="object-contain object-center"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              loading="lazy"
-            />
-          </div>
-        </div>
       </div>
 
       <div className="relative z-10 mt-10 flex justify-center">
@@ -65,6 +51,12 @@ export function WhoWeAre() {
             {t("cta.explore")}
           </Link>
           <ExploreHoverFlare positionClassName="left-1/2 top-1/2 h-[100px] w-[min(100vw-2rem,360px)] max-w-none -translate-x-1/2 -translate-y-1/2" />
+        </div>
+      </div>
+
+      <div className="relative mt-0 flex w-full justify-center overflow-x-auto overflow-y-visible px-1 md:mt-0">
+        <div className="origin-top scale-[0.42] min-[400px]:scale-[0.5] min-[480px]:scale-[0.58] sm:scale-[0.72] md:scale-[0.85]">
+          <EllipseDeviceShowcase />
         </div>
       </div>
     </section>
