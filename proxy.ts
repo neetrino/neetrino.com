@@ -1,11 +1,19 @@
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { routing } from "@/i18n/routing";
-import { getAdminSessionCookieName, verifyAdminSessionToken } from "@/lib/server/auth/session";
+import { applyAdminAuthDebugHeaders, getRequestHost } from "@/lib/server/auth/admin-auth-debug";
+import {
+  getAdminSessionCookieName,
+  verifyAdminSessionTokenWithReason,
+} from "@/lib/server/auth/session";
 
 const intlMiddleware = createMiddleware(routing);
 
-const PUBLIC_ADMIN_PATHS = new Set(["/admin/login", "/api/admin/auth/login"]);
+const PUBLIC_ADMIN_PATHS = new Set([
+  "/admin/login",
+  "/api/admin/auth/login",
+  "/api/admin/auth/debug",
+]);
 
 export async function proxy(request: NextRequest): Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
@@ -29,24 +37,86 @@ export const config = {
 
 async function handleAdminRequest(request: NextRequest): Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
+  const host = getRequestHost(request);
+
   if (PUBLIC_ADMIN_PATHS.has(pathname)) {
-    return NextResponse.next();
+    const authResult = pathname === "/admin/login" ? "login-route" : "allowed-api-login";
+    const res = NextResponse.next();
+    return applyAdminAuthDebugHeaders(res, {
+      host,
+      pathname,
+      authResult,
+      authReason: authResult,
+      redirectTo: null,
+      request,
+    });
   }
 
-  const token = request.cookies.get(getAdminSessionCookieName())?.value;
-  const session = token ? await verifyAdminSessionToken(token) : null;
+  const cookieName = getAdminSessionCookieName();
+  const token = request.cookies.get(cookieName)?.value;
+
+  if (!token) {
+    if (isAdminApiPath(pathname)) {
+      const res = NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return applyAdminAuthDebugHeaders(res, {
+        host,
+        pathname,
+        authResult: "missing-cookie",
+        authReason: "missing-cookie",
+        redirectTo: null,
+        request,
+      });
+    }
+
+    const loginUrl = new URL("/admin/login", request.url);
+    loginUrl.searchParams.set("next", pathname);
+    const res = NextResponse.redirect(loginUrl);
+    return applyAdminAuthDebugHeaders(res, {
+      host,
+      pathname,
+      authResult: "missing-cookie",
+      authReason: "missing-cookie",
+      redirectTo: loginUrl.toString(),
+      request,
+    });
+  }
+
+  const { session, reason } = await verifyAdminSessionTokenWithReason(token);
   if (session) {
-    return NextResponse.next();
+    const res = NextResponse.next();
+    return applyAdminAuthDebugHeaders(res, {
+      host,
+      pathname,
+      authResult: "valid",
+      authReason: reason,
+      redirectTo: null,
+      request,
+    });
   }
 
   if (isAdminApiPath(pathname)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const res = NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return applyAdminAuthDebugHeaders(res, {
+      host,
+      pathname,
+      authResult: reason,
+      authReason: reason,
+      redirectTo: null,
+      request,
+    });
   }
 
   const loginUrl = new URL("/admin/login", request.url);
   loginUrl.searchParams.set("next", pathname);
-
-  return NextResponse.redirect(loginUrl);
+  const res = NextResponse.redirect(loginUrl);
+  return applyAdminAuthDebugHeaders(res, {
+    host,
+    pathname,
+    authResult: reason,
+    authReason: reason,
+    redirectTo: loginUrl.toString(),
+    request,
+  });
 }
 
 function isAdminApiPath(pathname: string): boolean {

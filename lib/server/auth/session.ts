@@ -78,26 +78,65 @@ export async function createAdminSessionToken(email: string): Promise<string> {
     .sign(getAuthSecret());
 }
 
-export async function verifyAdminSessionToken(token: string): Promise<AdminSession | null> {
+/** Reason codes for admin JWT verification (no secrets). */
+export type AdminSessionVerifyReason =
+  | "valid"
+  | "invalid-token"
+  | "expired-token"
+  | "email-mismatch"
+  | "missing-secret"
+  | "unknown-error";
+
+export async function verifyAdminSessionTokenWithReason(
+  token: string,
+): Promise<{ readonly session: AdminSession | null; readonly reason: AdminSessionVerifyReason }> {
+  let secret: Uint8Array;
   try {
-    const verified = await jwtVerify(token, getAuthSecret());
+    secret = getAuthSecret();
+  } catch {
+    return { session: null, reason: "missing-secret" };
+  }
+
+  try {
+    const verified = await jwtVerify(token, secret);
     const email = verified.payload.email;
     const role = verified.payload.role;
     const configured = getConfiguredAdminEmailNormalized();
 
-    if (
-      configured &&
-      typeof email === "string" &&
-      normalizeAdminEmail(email) === configured &&
-      role === "admin"
-    ) {
-      return { email: normalizeAdminEmail(email), role };
+    if (!configured) {
+      return { session: null, reason: "unknown-error" };
     }
 
-    return null;
-  } catch {
-    return null;
+    if (typeof email !== "string" || normalizeAdminEmail(email) !== configured) {
+      return { session: null, reason: "email-mismatch" };
+    }
+
+    if (role !== "admin") {
+      return { session: null, reason: "invalid-token" };
+    }
+
+    return { session: { email: normalizeAdminEmail(email), role }, reason: "valid" };
+  } catch (error: unknown) {
+    if (isJwtExpiredError(error)) {
+      return { session: null, reason: "expired-token" };
+    }
+
+    return { session: null, reason: "invalid-token" };
   }
+}
+
+export async function verifyAdminSessionToken(token: string): Promise<AdminSession | null> {
+  const { session } = await verifyAdminSessionTokenWithReason(token);
+  return session;
+}
+
+function isJwtExpiredError(error: unknown): boolean {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "code" in error &&
+    (error as { code: unknown }).code === "ERR_JWT_EXPIRED"
+  );
 }
 
 function getAuthSecret(): Uint8Array {
