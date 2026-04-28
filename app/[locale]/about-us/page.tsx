@@ -3,10 +3,6 @@ import { getTranslations } from "next-intl/server";
 import { AboutUsMobile } from "@/components/about-us/AboutUsMobile";
 import { AboutUsFigmaPageContent } from "@/components/about-us/figma/AboutUsFigmaPageContent";
 import { getLocaleAlternates } from "@/lib/metadata";
-import {
-  NEETRINO_DESKTOP_CANVAS_WIDTH_PX,
-  NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX,
-} from "@/lib/desktop-header-layout.constants";
 import { interSans } from "@/lib/fonts";
 import type { AppLocale } from "@/lib/i18n/locales";
 
@@ -27,9 +23,7 @@ export async function generateMetadata({ params }: AboutUsPageProps): Promise<Me
 export default function AboutUsRoutePage() {
   return (
     <div className="w-full min-w-0 overflow-x-hidden bg-[#151515]">
-      <main
-        className={`w-full min-w-0 pb-20 pt-24 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${interSans.className}`}
-      >
+      <main className={`w-full min-w-0 pb-20 pt-24 lg:pt-0 ${interSans.className}`}>
         <AboutUsMobile />
         <AboutUsFigmaPageContent />
       </main>
