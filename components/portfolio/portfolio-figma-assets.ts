@@ -9,8 +9,13 @@ export const imgPngwing6 = "/figma-assets/ab2a4610-6b7a-4ce1-843b-12072e69deef.w
 export const imgStar22 = "/figma-assets/638bcc05-e40a-4ec9-9dbf-2e656be80829.webp";
 export const imgNoise = "/figma-assets/5aca0d4f-ece7-41f5-b9b3-19f21e3f757b.webp";
 export const imgPortfolio161 = "/figma-assets/8be8e265-4992-454a-a827-fb48f745ca33.webp";
-export const img2661 = "/figma-assets/72e4c902-c44d-439a-9452-7b166ff7c459.webp";
-export const imgBiotechLogo1 = "/figma-assets/44bb3301-2f65-4c3e-a1ec-5af8255da89b.webp";
+export const img2661 = "/figma-assets/0632ce01-e795-45ce-b8bb-6befc6530c3b.png";
+/** Figma `496:1546` — smartphone mockup below first portfolio hero card. */
+export const imgSmartphonePresentationMockup1 =
+  "/figma-assets/ab7b4f77-c1f2-4e0f-9858-8b69c15d849c.png";
+export const imgBiotechLogo1 = "/figma-assets/f2b8d5db-8f8f-489a-9e7c-726a3a9afce4.png";
+/** Figma `525:1728` — second portfolio hero card, top-left. */
+export const imgCatLogoPngTransparent1 = "/figma-assets/d5f6670a-c51f-49ea-86c3-b9aa32c612b1.png";
 export const img10 = "/figma-assets/93270034-139b-40d2-a8be-8fbf95885a44.webp";
 export const imgEllipse1 = "/figma-assets/c7cc38b5-aa63-4300-8d2e-9c77ea8696d5.svg";
 export const imgEllipse27 = "/figma-assets/5d8398b8-e997-42f4-ad4c-a6b33e2942f5.svg";
