@@ -1,6 +1,7 @@
 "use client";
 
 import { DeferredMount } from "@/components/layout/DeferredMount";
+import { NeetrinoHomeDesktopVectorGrid } from "./NeetrinoHomeDesktopVectorGrid";
 import { NeetrinoHomeBelowFold } from "./NeetrinoHomeBelowFold";
 import { NeetrinoHomeEndCap } from "./NeetrinoHomeEndCap";
 import { NeetrinoHomeSegment1 } from "./NeetrinoHomeSegment1";
@@ -15,6 +16,7 @@ export function NeetrinoHome() {
       data-name="HOME"
       data-node-id="10:219"
     >
+      <NeetrinoHomeDesktopVectorGrid />
       <NeetrinoHomeSegment1 />
       {/* ~below first screen on most viewports — defers images + Three chunk until scroll */}
       <DeferredMount topClassName="top-[1500px]" rootMargin="120px 0px 120px 0px">

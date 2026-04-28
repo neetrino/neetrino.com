@@ -24,3 +24,11 @@ export const HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX = 4196;
  * **Literal** for Tailwind JIT.
  */
 export const HOME_DESKTOP_CANVAS_FOOTER_PULL_UP_CLASSNAME = "lg:-mb-20" as const;
+
+/**
+ * Desktop home vector grid: matches About `top-[-40px]` tail padding so the layer reaches the canvas bottom.
+ */
+export const HOME_DESKTOP_VECTOR_GRID_TOP_TAIL_PX = 40;
+
+export const HOME_DESKTOP_VECTOR_GRID_WRAP_HEIGHT_PX =
+  HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX + HOME_DESKTOP_VECTOR_GRID_TOP_TAIL_PX;

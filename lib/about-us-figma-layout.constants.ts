@@ -19,6 +19,16 @@ export const ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX = ABOUT_FIGMA_ROOT_MIN_HEIGHT_WITH_M
  */
 export const ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX = 3723;
 
+/** Figma 335:931 outer; extend so checkerboard covers Meet Our Team + tail (`top-[-40px]`). */
+export const ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX = Math.max(
+  ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX,
+  ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX + 40,
+);
+
+/** Uniform scale so the rotated grid fills `ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX` (avoids empty band below). */
+export const ABOUT_VECTOR_GRID_UNIFORM_SCALE =
+  ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX / ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX;
+
 /** Desktop About hero line `aboutPage.hero.everyIdea` — nudge left for long hy copy. */
 export const ABOUT_DESKTOP_HERO_EVERY_IDEA_LEFT_CLASS_DEFAULT = "left-[293px]";
 export const ABOUT_DESKTOP_HERO_EVERY_IDEA_LEFT_CLASS_HY = "left-[167px]";

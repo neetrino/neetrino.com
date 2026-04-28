@@ -24,17 +24,10 @@ import {
   ABOUT_DESKTOP_HERO_HEADLINE_LEADING_HY_CLASS,
   ABOUT_DESKTOP_HERO_HEADLINE_TEXT_DEFAULT_CLASS,
   ABOUT_DESKTOP_HERO_HEADLINE_TEXT_HY_CLASS,
-  ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX,
-  ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX,
+  ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX,
+  ABOUT_VECTOR_GRID_UNIFORM_SCALE,
 } from "@/lib/about-us-figma-layout.constants";
 import { cn } from "@/lib/utils";
-
-/** Figma 335:931 outer; extend so checkerboard covers Meet Our Team + tail (`top-[-40px]`). */
-const ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX = Math.max(3723, ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX + 40);
-
-/** Uniform scale so the rotated grid fills `ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX` (avoids empty band below). */
-const ABOUT_VECTOR_GRID_UNIFORM_SCALE =
-  ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX / ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX;
 
 const transformStyle = {
   "--transform-inner-width": "0",
