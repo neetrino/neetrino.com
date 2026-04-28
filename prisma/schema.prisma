@@ -1,0 +1,50 @@
+generator client {
+  provider            = "prisma-client"
+  output              = "../lib/generated/prisma"
+  runtime             = "nodejs"
+  moduleFormat        = "esm"
+  importFileExtension = "ts"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum BlogPostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model BlogPost {
+  id            String                @id @default(cuid())
+  status        BlogPostStatus        @default(DRAFT)
+  coverImageUrl String?
+  publishedAt   DateTime?
+  createdAt     DateTime              @default(now())
+  updatedAt     DateTime              @updatedAt
+  translations  BlogPostTranslation[]
+
+  @@index([status])
+  @@index([publishedAt])
+}
+
+model BlogPostTranslation {
+  id             String   @id @default(cuid())
+  postId         String
+  post           BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  locale         String
+  slug           String
+  title          String
+  excerpt        String
+  content        String
+  imageAlt       String?
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([locale, slug])
+  @@unique([postId, locale])
+  @@index([postId])
+  @@index([locale])
+}

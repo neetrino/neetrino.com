@@ -41,5 +41,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# prisma generated client
+/lib/generated/prisma/
+
 # reference clone (neetrino/-Rules-Template)
 /rules-template/

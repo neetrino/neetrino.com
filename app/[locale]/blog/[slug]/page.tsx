@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { BlogMarkdownContent } from "@/components/blog/BlogMarkdownContent";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { getBlogPostBySlug, getBlogPosts, type BlogPost } from "@/lib/blog-posts-data";
+import { getMarkdownBody, splitMarkdownSections } from "@/lib/server/blog/markdown";
+import { getPublishedBlogPostBySlug } from "@/lib/server/blog/public";
+import type { BlogPost } from "@/lib/server/blog/types";
 import type { AppLocale } from "@/lib/i18n/locales";
-import { locales } from "@/i18n/routing";
 import { interSans } from "@/lib/fonts";
 import { getLocaleAlternates } from "@/lib/metadata";
 import {
@@ -17,6 +19,8 @@ import {
 type BlogPostPageProps = {
   params: Promise<{ locale: AppLocale; slug: string }>;
 };
+
+export const dynamic = "force-dynamic";
 
 function blogTitleMegatroxParts(title: string): {
   before: string;
@@ -39,22 +43,16 @@ function blogTitleMegatroxParts(title: string): {
   };
 }
 
-export function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    getBlogPosts(locale).map((post) => ({ locale, slug: post.slug })),
-  );
-}
-
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const t = await getTranslations();
-  const post = getBlogPostBySlug(slug, locale);
+  const post = await getPublishedBlogPostBySlug(locale, slug);
   if (!post) {
     return { title: t("blogPage.title") };
   }
   return {
-    title: `${post.title} | Neetrino`,
-    description: post.excerpt,
+    title: post.seoTitle ?? `${post.title} | Neetrino`,
+    description: post.seoDescription ?? post.excerpt,
     alternates: getLocaleAlternates(locale, `/blog/${slug}`),
   };
 }
@@ -91,10 +89,11 @@ function BlogPostHeader({ post }: { post: BlogPost }) {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { locale, slug } = await params;
   const t = await getTranslations();
-  const post = getBlogPostBySlug(slug, locale);
+  const post = await getPublishedBlogPostBySlug(locale, slug);
   if (!post) {
     notFound();
   }
+  const markdownSections = splitMarkdownSections(getMarkdownBody(post.contentMarkdown));
 
   return (
     <div className={`w-full min-w-0 overflow-x-hidden bg-[#151515] ${interSans.className}`}>
@@ -139,23 +138,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <BlogPostHeader post={post} />
         </div>
 
-        <div className="mt-10 space-y-5 md:mt-12 md:space-y-6">
-          {post.sections.map((section) => (
-            <section
-              key={section.heading}
-              className="rounded-[28px] border border-white/[0.08] bg-gradient-to-b from-[#1a1a1a] to-[#141414] p-6 shadow-[inset_0_-1px_0_0_rgba(102,148,255,0.1)] md:p-8"
-            >
-              <h2 className="text-xs font-bold uppercase tracking-[0.14em] text-[#ff7500]">
-                {section.heading}
-              </h2>
-              <div className="mt-4 space-y-4 text-sm font-light leading-relaxed text-white/78 md:text-base">
-                {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
+        {markdownSections.length > 0 ? (
+          <div className="mt-10 space-y-5 md:mt-12 md:space-y-6">
+            {markdownSections.map((section) => (
+              <section
+                key={section.heading ?? section.body}
+                className="rounded-[28px] border border-white/[0.08] bg-gradient-to-b from-[#1a1a1a] to-[#141414] p-6 shadow-[inset_0_-1px_0_0_rgba(102,148,255,0.1)] md:p-8"
+              >
+                {section.heading ? (
+                  <h2 className="text-xs font-bold uppercase tracking-[0.14em] text-[#ff7500]">
+                    {section.heading}
+                  </h2>
+                ) : null}
+                <div className="mt-4 space-y-4 text-sm font-light leading-relaxed text-white/78 md:text-base">
+                  <BlogMarkdownContent markdown={section.body} />
+                </div>
+              </section>
+            ))}
+          </div>
+        ) : null}
 
         <p className="mt-10 max-w-3xl text-sm leading-relaxed text-white/60 md:text-[15px]">
           {post.excerpt}

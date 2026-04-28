@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { BlogIndexCard } from "@/components/blog/BlogIndexCard";
-import { getBlogIndexItems } from "@/lib/blog-page.constants";
+import { getPublishedBlogIndexItems } from "@/lib/server/blog/public";
 import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/lib/i18n/locales";
 import { interSans } from "@/lib/fonts";
@@ -14,6 +14,8 @@ type BlogPageProps = {
   params: Promise<{ locale: AppLocale }>;
 };
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations();
@@ -25,7 +27,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
 export default async function BlogPage({ params }: BlogPageProps) {
   const { locale } = await params;
   const t = await getTranslations();
-  const blogItems = getBlogIndexItems(locale);
+  const blogItems = await getPublishedBlogIndexItems(locale);
 
   return (
     <div className="w-full min-w-0 overflow-x-hidden bg-[#151515]">
