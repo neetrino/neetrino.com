@@ -20,6 +20,7 @@ The legacy static files in `messages/*/blog-posts.json` and `lib/blog-posts-data
 Database:
 
 - `DATABASE_URL` — PostgreSQL connection string, preferably Neon.
+- The same `DATABASE_URL` must be available to both the Next.js runtime and Prisma CLI. Local development should keep it in `.env.local`; Prisma also reads `.env` when `.env.local` is absent. Do not run Prisma migrations against a different local fallback database.
 
 Auth:
 
@@ -35,9 +36,23 @@ No upload/storage environment variables are required in this phase.
 
 1. Set `DATABASE_URL` in `.env.local`.
 2. Run `pnpm install`.
-3. Run `pnpm db:generate`.
-4. Run `pnpm db:migrate` for local development, or `pnpm db:deploy` for an existing migration flow.
-5. Run `pnpm db:seed` to copy the legacy static posts into the database.
+3. Generate the Prisma client:
+
+```bash
+pnpm db:generate
+```
+
+4. Apply local migrations:
+
+```bash
+pnpm db:migrate
+```
+
+5. Seed the legacy static posts into the database:
+
+```bash
+pnpm db:seed
+```
 
 ## Generate Admin Password Hash
 
