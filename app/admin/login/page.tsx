@@ -8,6 +8,11 @@ type AdminLoginPageProps = {
   }>;
 };
 
+const LOGIN_ERROR_MESSAGES = {
+  invalid: "Invalid email or password.",
+  server: "Sign in is temporarily unavailable. Check server auth configuration.",
+} as const;
+
 function sanitizeNextPath(nextPath: string | undefined): string {
   if (!nextPath || !nextPath.startsWith("/admin") || nextPath.startsWith("/admin/login")) {
     return "/admin/blog";
@@ -38,12 +43,29 @@ function LoginField({
   );
 }
 
-function AdminLoginForm({ hasError, nextPath }: { hasError: boolean; nextPath: string }) {
+function getLoginErrorMessage(error: string | undefined): string | null {
+  if (error === "server") {
+    return LOGIN_ERROR_MESSAGES.server;
+  }
+  if (error) {
+    return LOGIN_ERROR_MESSAGES.invalid;
+  }
+
+  return null;
+}
+
+function AdminLoginForm({
+  errorMessage,
+  nextPath,
+}: {
+  errorMessage: string | null;
+  nextPath: string;
+}) {
   return (
     <>
-      {hasError ? (
+      {errorMessage ? (
         <p className="mt-5 rounded-2xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-100">
-          Invalid email or password.
+          {errorMessage}
         </p>
       ) : null}
       <form action="/api/admin/auth/login" method="post" className="mt-8 space-y-5">
@@ -65,6 +87,7 @@ export default async function AdminLoginPage({ searchParams }: AdminLoginPagePro
   const session = await getCurrentAdminSession();
   const resolvedSearchParams = await searchParams;
   const nextPath = sanitizeNextPath(resolvedSearchParams?.next);
+  const errorMessage = getLoginErrorMessage(resolvedSearchParams?.error);
 
   if (session) {
     redirect(nextPath);
@@ -81,7 +104,7 @@ export default async function AdminLoginPage({ searchParams }: AdminLoginPagePro
           Use the admin credentials configured in environment variables.
         </p>
 
-        <AdminLoginForm hasError={Boolean(resolvedSearchParams?.error)} nextPath={nextPath} />
+        <AdminLoginForm errorMessage={errorMessage} nextPath={nextPath} />
       </section>
     </main>
   );

@@ -112,5 +112,7 @@ Public blog detail renders Markdown with `react-markdown`, `remark-gfm`, and `re
 
 - `DATABASE_URL is required to seed blog posts.`: add `DATABASE_URL` to `.env.local` or production env.
 - Admin login always fails: verify `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`, and `AUTH_SECRET`.
+- `Invalid ADMIN_PASSWORD_HASH format.`: ensure the bcrypt hash starts with `$2a$`, `$2b$`, or `$2y$`. In `.env.local`, wrap bcrypt hashes in quotes and escape dollar signs, for example `ADMIN_PASSWORD_HASH="\$2b\$12\$..."`.
+- `AUTH_SECRET must be at least 32 characters for admin sessions.`: replace `AUTH_SECRET` with a longer random value and restart the dev server.
 - External cover image does not render: confirm the URL starts with `https://`.
 - Published post does not appear publicly: verify status, `publishedAt`, `coverImageUrl`, and at least one complete translation.

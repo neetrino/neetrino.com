@@ -72,6 +72,9 @@ function getAuthSecret(): Uint8Array {
   if (!secret) {
     throw new Error("AUTH_SECRET is required for admin sessions.");
   }
+  if (secret.length < 32) {
+    throw new Error("AUTH_SECRET must be at least 32 characters for admin sessions.");
+  }
 
   return new TextEncoder().encode(secret);
 }
