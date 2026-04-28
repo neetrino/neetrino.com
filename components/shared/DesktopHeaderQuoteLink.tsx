@@ -24,7 +24,7 @@ export function DesktopHeaderQuoteLink({ className }: DesktopHeaderQuoteLinkProp
       type="button"
       onClick={openQuoteModal}
       className={cn(
-        "pointer-events-auto absolute z-[105] cursor-pointer border-0 bg-[#473dff] h-[48px] w-[144px] rounded-[28px] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60",
+        "pointer-events-auto absolute z-[105] flex h-[48px] w-[144px] cursor-pointer items-center justify-center rounded-[28px] border-0 bg-[#473dff] font-extrabold text-[16px] leading-[15.6px] text-white not-italic transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60 whitespace-nowrap",
         className,
       )}
       style={{
@@ -34,12 +34,7 @@ export function DesktopHeaderQuoteLink({ className }: DesktopHeaderQuoteLinkProp
       data-name="Link [button]"
       data-node-id="10:451"
     >
-      <div
-        className="-translate-y-1/2 absolute flex flex-col font-extrabold justify-center leading-[0] left-[25px] not-italic text-[16px] text-white top-[24px] whitespace-nowrap"
-        data-node-id="10:452"
-      >
-        <p className="leading-[15.6px]">{t("cta.getQuote")}</p>
-      </div>
+      <span data-node-id="10:452">{t("cta.getQuote")}</span>
     </button>
   );
 }
