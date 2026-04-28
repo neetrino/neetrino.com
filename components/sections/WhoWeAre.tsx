@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { EllipseDeviceShowcase } from "@/components/neetrino-home/EllipseDeviceShowcase";
 import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
 import { interSans } from "@/lib/fonts";
+import { WHO_WE_ARE_ELLIPSE_SHOWCASE_SCALE_CLASSNAME } from "@/lib/who-we-are-showcase-scale";
 
 export function WhoWeAre() {
   const t = useTranslations();
@@ -10,23 +11,23 @@ export function WhoWeAre() {
   return (
     <section
       id="story"
-      className={`section-container py-16 md:py-24 ${interSans.className}`}
+      className={`section-container py-10 md:py-16 ${interSans.className}`}
       aria-labelledby="who-we-are-heading"
     >
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-5">
         <div className="w-full shrink-0">
           <p className="text-sm font-medium uppercase tracking-wider text-white">
             {t("home.whoWeAre.eyebrow")}
           </p>
           <h2
             id="who-we-are-heading"
-            className="mt-3 text-2xl font-black italic text-white md:text-3xl lg:text-[35px]"
+            className="mt-2 text-2xl font-black italic text-white md:text-3xl lg:text-[35px]"
           >
             <span className="text-white">{t("home.whoWeAre.titleBefore")} </span>
             <span className="text-[#ff7500]">{t("home.whoWeAre.titleAccent")}</span>
             <span className="text-white"> {t("home.whoWeAre.titleAfter")}</span>
           </h2>
-          <div className="mt-6 space-y-4 text-sm font-light leading-relaxed text-white md:text-base">
+          <div className="mt-4 space-y-3 text-sm font-light leading-relaxed text-white md:text-base">
             <p>
               {t("home.whoWeAre.paragraph1Prefix")}{" "}
               <strong className="font-bold">Neetrino IT</strong>{" "}
@@ -42,7 +43,7 @@ export function WhoWeAre() {
         </div>
       </div>
 
-      <div className="relative z-10 mt-10 flex justify-center">
+      <div className="relative z-10 mt-5 flex justify-center">
         <div className="relative inline-flex items-center justify-center">
           <Link
             href="/contact"
@@ -54,8 +55,8 @@ export function WhoWeAre() {
         </div>
       </div>
 
-      <div className="relative mt-0 flex w-full justify-center overflow-x-auto overflow-y-visible px-1 md:mt-0">
-        <div className="origin-top scale-[0.42] min-[400px]:scale-[0.5] min-[480px]:scale-[0.58] sm:scale-[0.72] md:scale-[0.85]">
+      <div className="relative mt-4 flex w-full min-w-0 justify-center overflow-x-clip overflow-y-visible px-1 md:mt-3">
+        <div className={WHO_WE_ARE_ELLIPSE_SHOWCASE_SCALE_CLASSNAME}>
           <EllipseDeviceShowcase />
         </div>
       </div>

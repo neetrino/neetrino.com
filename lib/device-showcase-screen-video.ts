@@ -92,7 +92,7 @@ export const DEVICE_IPHONE_VERTICAL_VIDEO_SURFACE_ROUNDED =
  * Tailwind on the iPhone `<video>` — literal `15px`; sync with `DEVICE_IPHONE_VIDEO_SURFACE_BORDER_RADIUS_PX`.
  * Helps WebKit paint cleanly inside the rounded shell.
  */
-export const DEVICE_IPHONE_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS = "rounded-[20px]" as const;
+export const DEVICE_IPHONE_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS = "rounded-[15px]" as const;
 
 /**
  * ## iPad orbit showcase — tweak here (px; shell width uses `min(px, %)`).
