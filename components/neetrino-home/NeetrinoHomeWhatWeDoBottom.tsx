@@ -88,6 +88,7 @@ export function NeetrinoHomeWhatWeDoBottom() {
       <Group
         className="-translate-x-1/2 absolute h-[276px] left-[calc(50%+0.5px)] top-[655px] w-[642px]"
         exploreHref="/services"
+        ellipseUnderlayFromEnd={locale === "hy"}
       />
       <div
         className="pointer-events-none absolute h-[231px] left-[1148px] top-[289px] w-[221px]"

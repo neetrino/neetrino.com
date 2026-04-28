@@ -43,7 +43,7 @@ export function WhoWeAre() {
         </div>
       </div>
 
-      <div className="relative z-10 mt-5 flex justify-center">
+      <div className="relative z-10 mt-5 flex justify-start">
         <div className="relative inline-flex items-center justify-center">
           <Link
             href="/contact"
