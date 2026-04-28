@@ -131,10 +131,11 @@ function redirectToLogin(
   });
 }
 
+/** Same-origin redirect target — uses NextRequest URL so scheme/host match the browser (avoids http/wrong-host Location vs Secure cookies on Vercel). */
 function createRedirectUrl(request: NextRequest, path: string): URL {
-  const host = request.headers.get("host") ?? request.nextUrl.host;
-  const protocol =
-    request.headers.get("x-forwarded-proto") ?? request.nextUrl.protocol.replace(":", "");
-
-  return new URL(path, `${protocol}://${host}`);
+  const url = request.nextUrl.clone();
+  url.pathname = path;
+  url.search = "";
+  url.hash = "";
+  return url;
 }
