@@ -1,5 +1,7 @@
 import bcrypt from "bcryptjs";
 
+import { normalizeAdminEmail } from "@/lib/server/auth/session";
+
 const ADMIN_PASSWORD_HASH_ROUNDS = 12;
 const BCRYPT_HASH_PREFIXES = ["$2a$", "$2b$", "$2y$"] as const;
 
@@ -11,7 +13,11 @@ export async function verifyAdminCredentials(email: string, password: string): P
   const adminEmail = process.env.ADMIN_EMAIL;
   const passwordHash = process.env.ADMIN_PASSWORD_HASH;
 
-  if (!adminEmail || !passwordHash || email !== adminEmail) {
+  if (!adminEmail || !passwordHash) {
+    return false;
+  }
+
+  if (normalizeAdminEmail(email) !== normalizeAdminEmail(adminEmail)) {
     return false;
   }
 
