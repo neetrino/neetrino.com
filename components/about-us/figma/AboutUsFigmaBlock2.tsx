@@ -2,9 +2,16 @@
 
 import type { CSSProperties } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
+import {
+  ABOUT_VALUES_HY_VALUE1_HEART_LINE_SHIFT_LEFT_CLASS,
+  ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
+  ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
+  ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
+} from "@/lib/about-us-figma-layout.constants";
+import { cn } from "@/lib/utils";
 import {
   ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS,
   ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS,
@@ -34,6 +41,8 @@ const transformStyle = {
 /** Figma ABOUT — nodes 335:1114–335:1204 (mission → map; excludes header/footer from frame). */
 export function AboutUsFigmaBlock2() {
   const t = useTranslations();
+  const locale = useLocale();
+  const isHy = locale === "hy";
 
   return (
     <>
@@ -177,20 +186,62 @@ export function AboutUsFigmaBlock2() {
         </div>
       </div>
       <div
-        className="-translate-x-1/2 absolute content-stretch flex font-['Inter:Extra_Bold',sans-serif] font-extrabold gap-[131px] items-center leading-[0] left-1/2 not-italic text-[#f5f5f5] text-[16px] top-[2429px] whitespace-nowrap"
+        className={cn(
+          "-translate-x-1/2 absolute content-stretch flex font-['Inter:Extra_Bold',sans-serif] font-extrabold items-center leading-[0] left-1/2 not-italic text-[#f5f5f5] text-[16px] top-[2429px] whitespace-nowrap",
+          isHy ? "w-[1195px] justify-between gap-0" : "gap-[131px]",
+        )}
         data-node-id="335:1183"
       >
-        <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1184">
-          <p className="leading-[22px]">{t("aboutPage.value1")}</p>
+        <div
+          className={cn(
+            "flex flex-col justify-center relative",
+            isHy ? "min-w-0 flex-1 text-right" : "shrink-0",
+          )}
+          data-node-id="335:1184"
+        >
+          <p
+            className={cn(
+              "leading-[22px]",
+              isHy && ABOUT_VALUES_HY_VALUE1_HEART_LINE_SHIFT_LEFT_CLASS,
+            )}
+          >
+            {t("aboutPage.value1")}
+          </p>
         </div>
-        <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1185">
-          <p className="leading-[22px]">{t("aboutPage.value2")}</p>
+        <div
+          className={cn(
+            "flex flex-col justify-center relative",
+            isHy ? "min-w-0 flex-1 text-left" : "shrink-0",
+          )}
+          data-node-id="335:1185"
+        >
+          <p
+            className={cn("leading-[22px]", isHy && ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS)}
+          >
+            {t("aboutPage.value2")}
+          </p>
         </div>
-        <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1186">
-          <p className="leading-[22px]">{t("aboutPage.value3")}</p>
+        <div
+          className={cn(
+            "flex flex-col justify-center relative",
+            isHy ? "min-w-0 flex-1 text-left" : "shrink-0",
+          )}
+          data-node-id="335:1186"
+        >
+          <p className={cn("leading-[22px]", isHy && ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS)}>
+            {t("aboutPage.value3")}
+          </p>
         </div>
-        <div className="flex flex-col justify-center relative shrink-0" data-node-id="335:1187">
-          <p className="leading-[22px]">{t("aboutPage.value4")}</p>
+        <div
+          className={cn(
+            "flex flex-col justify-center relative",
+            isHy ? "min-w-0 flex-1 text-left" : "shrink-0",
+          )}
+          data-node-id="335:1187"
+        >
+          <p className={cn("leading-[22px]", isHy && ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS)}>
+            {t("aboutPage.value4")}
+          </p>
         </div>
       </div>
       <div

@@ -6,6 +6,10 @@ import { useLocale, useTranslations } from "next-intl";
 import {
   ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
   ABOUT_MOBILE_HERO_HEADLINE_TEXT_HY_CLASS,
+  ABOUT_VALUES_HY_VALUE1_HEART_LINE_SHIFT_LEFT_CLASS,
+  ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
+  ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
+  ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
 } from "@/lib/about-us-figma-layout.constants";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
@@ -331,6 +335,9 @@ function ValuesSection({
   valueKeys: typeof VALUE_KEYS;
   t: AboutPageT;
 }) {
+  const locale = useLocale();
+  const isHy = locale === "hy";
+
   return (
     <section className="py-10">
       <SectionHeading>{heading}</SectionHeading>
@@ -338,7 +345,14 @@ function ValuesSection({
         {valueKeys.map((key) => (
           <li
             key={key}
-            className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-4 text-center text-sm font-extrabold leading-snug text-[#f5f5f5]"
+            className={cn(
+              "rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-4 text-sm font-extrabold leading-snug text-[#f5f5f5]",
+              isHy ? (key === "value1" ? "text-right" : "text-left") : "text-center",
+              isHy && key === "value1" && ABOUT_VALUES_HY_VALUE1_HEART_LINE_SHIFT_LEFT_CLASS,
+              isHy && key === "value2" && ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
+              isHy && key === "value3" && ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
+              isHy && key === "value4" && ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
+            )}
           >
             {t(key)}
           </li>
