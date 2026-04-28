@@ -10,7 +10,7 @@ const PUBLIC_ADMIN_PATHS = new Set(["/admin/login", "/api/admin/auth/login"]);
 export async function proxy(request: NextRequest): Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
 
-  if (isAdminPath(pathname) || isAdminApiPath(pathname)) {
+  if (pathname === "/admin" || pathname.startsWith("/admin/") || isAdminApiPath(pathname)) {
     return handleAdminRequest(request);
   }
 
@@ -18,7 +18,13 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/admin/:path*", "/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: [
+    "/admin",
+    "/admin/:path*",
+    "/api/admin",
+    "/api/admin/:path*",
+    "/((?!api|_next|_vercel|.*\\..*).*)",
+  ],
 };
 
 async function handleAdminRequest(request: NextRequest): Promise<NextResponse> {
@@ -41,10 +47,6 @@ async function handleAdminRequest(request: NextRequest): Promise<NextResponse> {
   loginUrl.searchParams.set("next", pathname);
 
   return NextResponse.redirect(loginUrl);
-}
-
-function isAdminPath(pathname: string): boolean {
-  return pathname === "/admin" || pathname.startsWith("/admin/");
 }
 
 function isAdminApiPath(pathname: string): boolean {
