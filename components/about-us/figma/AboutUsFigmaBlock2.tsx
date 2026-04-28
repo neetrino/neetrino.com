@@ -10,6 +10,9 @@ import {
   ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
   ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
   ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
+  ABOUT_VALUES_RU_VALUE1_LINE_SHIFT_RIGHT_CLASS,
+  ABOUT_VALUES_RU_VALUE2_LINE_SHIFT_RIGHT_CLASS,
+  ABOUT_VALUES_RU_VALUE4_LINE_SHIFT_LEFT_CLASS,
 } from "@/lib/about-us-figma-layout.constants";
 import { cn } from "@/lib/utils";
 import {
@@ -43,6 +46,7 @@ export function AboutUsFigmaBlock2() {
   const t = useTranslations();
   const locale = useLocale();
   const isHy = locale === "hy";
+  const isRu = locale === "ru";
 
   return (
     <>
@@ -203,6 +207,7 @@ export function AboutUsFigmaBlock2() {
             className={cn(
               "leading-[22px]",
               isHy && ABOUT_VALUES_HY_VALUE1_HEART_LINE_SHIFT_LEFT_CLASS,
+              isRu && ABOUT_VALUES_RU_VALUE1_LINE_SHIFT_RIGHT_CLASS,
             )}
           >
             {t("aboutPage.value1")}
@@ -216,7 +221,11 @@ export function AboutUsFigmaBlock2() {
           data-node-id="335:1185"
         >
           <p
-            className={cn("leading-[22px]", isHy && ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS)}
+            className={cn(
+              "leading-[22px]",
+              isHy && ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
+              isRu && ABOUT_VALUES_RU_VALUE2_LINE_SHIFT_RIGHT_CLASS,
+            )}
           >
             {t("aboutPage.value2")}
           </p>
@@ -239,7 +248,13 @@ export function AboutUsFigmaBlock2() {
           )}
           data-node-id="335:1187"
         >
-          <p className={cn("leading-[22px]", isHy && ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS)}>
+          <p
+            className={cn(
+              "leading-[22px]",
+              isHy && ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
+              isRu && ABOUT_VALUES_RU_VALUE4_LINE_SHIFT_LEFT_CLASS,
+            )}
+          >
             {t("aboutPage.value4")}
           </p>
         </div>

@@ -10,6 +10,9 @@ import {
   ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
   ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
   ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
+  ABOUT_VALUES_RU_VALUE1_LINE_SHIFT_RIGHT_CLASS,
+  ABOUT_VALUES_RU_VALUE2_LINE_SHIFT_RIGHT_CLASS,
+  ABOUT_VALUES_RU_VALUE4_LINE_SHIFT_LEFT_CLASS,
 } from "@/lib/about-us-figma-layout.constants";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
@@ -337,6 +340,7 @@ function ValuesSection({
 }) {
   const locale = useLocale();
   const isHy = locale === "hy";
+  const isRu = locale === "ru";
 
   return (
     <section className="py-10">
@@ -352,6 +356,9 @@ function ValuesSection({
               isHy && key === "value2" && ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
               isHy && key === "value3" && ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
               isHy && key === "value4" && ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
+              isRu && key === "value1" && ABOUT_VALUES_RU_VALUE1_LINE_SHIFT_RIGHT_CLASS,
+              isRu && key === "value2" && ABOUT_VALUES_RU_VALUE2_LINE_SHIFT_RIGHT_CLASS,
+              isRu && key === "value4" && ABOUT_VALUES_RU_VALUE4_LINE_SHIFT_LEFT_CLASS,
             )}
           >
             {t(key)}
