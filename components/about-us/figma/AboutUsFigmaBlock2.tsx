@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 import {
   ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS,
   ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS,
+  ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES,
   ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS,
   ABOUT_WHY_CHOOSE_FEATURE_LABELS_ROW_TRANSLATE_Y_CLASS,
 } from "@/lib/about-us-why-choose-feature-icons.constants";
@@ -166,7 +167,7 @@ export function AboutUsFigmaBlock2() {
                 alt=""
                 className="object-contain pointer-events-none"
                 fill
-                sizes="209px"
+                sizes={ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES}
                 src={imgAboutPaletteDesignOptions}
                 quality={DEFAULT_IMAGE_QUALITY}
                 loading="lazy"

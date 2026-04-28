@@ -19,6 +19,7 @@ import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
   ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS,
   ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS,
+  ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES,
   ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS,
 } from "@/lib/about-us-why-choose-feature-icons.constants";
 import {
@@ -304,7 +305,7 @@ function WhyChooseUsSection({
                   alt=""
                   className="object-contain"
                   fill
-                  sizes="209px"
+                  sizes={ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES}
                   src={imgAboutPaletteDesignOptions}
                   quality={DEFAULT_IMAGE_QUALITY}
                   loading="lazy"
