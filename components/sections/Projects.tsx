@@ -63,9 +63,17 @@ export function Projects() {
         <div className="group relative inline-flex items-center justify-center">
           <Link
             href="/portfolio"
-            className="relative z-10 inline-flex rounded-full border border-[#6a92ff] bg-black px-8 py-4 text-lg font-medium text-white transition-opacity hover:opacity-90"
+            className="relative z-10 inline-flex items-center gap-2 rounded-full border border-[#6a92ff] bg-black px-8 py-4 text-lg font-medium text-white transition-opacity hover:opacity-90"
           >
             {t("cta.explore")}
+            <Image
+              src={FIGMA_ASSETS.imgSafearea}
+              alt=""
+              width={20}
+              height={20}
+              className="size-5 shrink-0 brightness-0 invert"
+              aria-hidden
+            />
           </Link>
           <ExploreHoverFlare positionClassName="left-1/2 top-1/2 h-[100px] w-[min(100vw-2rem,360px)] max-w-none -translate-x-1/2 -translate-y-1/2" />
         </div>
