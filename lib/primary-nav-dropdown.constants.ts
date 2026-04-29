@@ -6,3 +6,6 @@ export const PRIMARY_NAV_DROPDOWN_CLOSE_DELAY_MS = 150;
 
 /** Panel enter/exit motion — matches spec (150–200ms, ease-out). */
 export const PRIMARY_NAV_DROPDOWN_TRANSITION_MS = 180;
+
+/** “More” submenu: a bit wider than label-only fit; labels stay centered. */
+export const PRIMARY_NAV_MORE_DROPDOWN_MIN_WIDTH_PX = 138;
