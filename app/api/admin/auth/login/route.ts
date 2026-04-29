@@ -5,6 +5,7 @@ import {
   getRequestHost,
   isAdminAuthDebugEnabled,
 } from "@/lib/server/auth/admin-auth-debug";
+import { getRequestRedirectOrigin } from "@/lib/server/auth/request-redirect-origin";
 import { verifyAdminCredentials } from "@/lib/server/auth/password";
 import {
   createAdminSessionToken,
@@ -131,11 +132,7 @@ function redirectToLogin(
   });
 }
 
-/** Same-origin redirect target — uses NextRequest URL so scheme/host match the browser (avoids http/wrong-host Location vs Secure cookies on Vercel). */
+/** Same-origin redirect — origin from `Host` / `x-forwarded-*`, not bind address `0.0.0.0` from dev. */
 function createRedirectUrl(request: NextRequest, path: string): URL {
-  const url = request.nextUrl.clone();
-  url.pathname = path;
-  url.search = "";
-  url.hash = "";
-  return url;
+  return new URL(path, `${getRequestRedirectOrigin(request)}/`);
 }

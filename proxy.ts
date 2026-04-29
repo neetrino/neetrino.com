@@ -6,6 +6,7 @@ import {
   getRequestHost,
   isAdminAuthDebugEnabled,
 } from "@/lib/server/auth/admin-auth-debug";
+import { getRequestRedirectOrigin } from "@/lib/server/auth/request-redirect-origin";
 import {
   getAdminSessionCookieName,
   verifyAdminSessionTokenWithReason,
@@ -97,7 +98,7 @@ async function handleAdminRequest(request: NextRequest): Promise<NextResponse> {
       });
     }
 
-    const loginUrl = new URL("/admin/login", request.url);
+    const loginUrl = new URL("/admin/login", `${getRequestRedirectOrigin(request)}/`);
     loginUrl.searchParams.set("next", pathname);
     logAdminProxyDebug({
       pathname,
@@ -168,7 +169,7 @@ async function handleAdminRequest(request: NextRequest): Promise<NextResponse> {
     });
   }
 
-  const loginUrl = new URL("/admin/login", request.url);
+  const loginUrl = new URL("/admin/login", `${getRequestRedirectOrigin(request)}/`);
   loginUrl.searchParams.set("next", pathname);
   logAdminProxyDebug({
     pathname,
