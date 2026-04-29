@@ -24,6 +24,7 @@ export const FIGMA_ASSETS = {
   imgPhilippHubertDVVjhUcdb30Unsplash1: "/figma-assets/62b9fa74-22e0-4457-865e-43c6218500b5.webp",
   imgEricaAnderson1: "/figma-assets/64738b5b-84dc-4cc4-a77f-049e3df52d77.gif",
   img30: "/figma-assets/4e1596f7-d4cd-49d3-bb93-922d629919db.webp",
+  /** Same file as `imgWhoWeAreFigma516` in `components/neetrino-home/figma-assets.ts` (Figma HOME 10:516). */
   img1: "/figma-assets/e13d4cdd-fff7-4529-b579-81b60d56576b.gif",
   imgStanislavHristov3: "/figma-assets/7b7b391f-6dd1-4383-bb7b-84682d2ef6ef.webp",
   imgUiDesign21: "/figma-assets/b281255c-1686-47f8-b45d-f6d1a7738309.webp",

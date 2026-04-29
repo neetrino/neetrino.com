@@ -65,6 +65,8 @@ export const FIGMA_ASSETS = {
   imgLayer5: "/figma-assets/e7dfad2d-9713-42e8-a94f-58efe590c07c.svg",
   imgLayer6: "/figma-assets/bac8f51c-6725-40af-9a0a-29b39a19aa24.svg",
   imgEllipse3459: "/figma-assets/b4f67cf5-2bee-4b09-bc67-35a2f498d5ac.svg",
+  /** Figma HOME `10:516` — octahedron loop; transparent WebP (see `scripts/figma/build-who-we-are-figma-516-webp.py`). */
+  imgWhoWeAreFigma516: "/figma-assets/who-we-are-figma-516-transparent.webp",
 } as const;
 
 export const imgPc = FIGMA_ASSETS.imgPc;
@@ -114,3 +116,4 @@ export const imgVector9 = FIGMA_ASSETS.imgVector9;
 export const imgLayer5 = FIGMA_ASSETS.imgLayer5;
 export const imgLayer6 = FIGMA_ASSETS.imgLayer6;
 export const imgEllipse3459 = FIGMA_ASSETS.imgEllipse3459;
+export const imgWhoWeAreFigma516 = FIGMA_ASSETS.imgWhoWeAreFigma516;
