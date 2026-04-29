@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { logAdminServerActionDebug } from "@/lib/server/auth/admin-auth-diagnostics";
 import { requireAdminSession } from "@/lib/server/auth/guards";
 import {
   createAdminBlogPost,
@@ -11,6 +12,7 @@ import {
 import { parseBlogPostFormData } from "@/lib/server/blog/validation";
 
 export async function createBlogPostAction(formData: FormData): Promise<void> {
+  await logAdminServerActionDebug("createBlogPost");
   await requireAdminSession();
   const input = parseBlogPostFormData(formData);
   const postId = await createAdminBlogPost(input);
@@ -20,6 +22,7 @@ export async function createBlogPostAction(formData: FormData): Promise<void> {
 }
 
 export async function updateBlogPostAction(formData: FormData): Promise<void> {
+  await logAdminServerActionDebug("updateBlogPost");
   await requireAdminSession();
   const postId = readPostId(formData);
   const input = parseBlogPostFormData(formData);
@@ -30,6 +33,7 @@ export async function updateBlogPostAction(formData: FormData): Promise<void> {
 }
 
 export async function deleteBlogPostAction(formData: FormData): Promise<void> {
+  await logAdminServerActionDebug("deleteBlogPost");
   await requireAdminSession();
   await deleteAdminBlogPost(readPostId(formData));
 

@@ -1,16 +1,28 @@
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { routing } from "@/i18n/routing";
-import { getAdminSessionCookieName, verifyAdminSessionToken } from "@/lib/server/auth/session";
+import {
+  applyAdminAuthDebugHeaders,
+  getRequestHost,
+  isAdminAuthDebugEnabled,
+} from "@/lib/server/auth/admin-auth-debug";
+import {
+  getAdminSessionCookieName,
+  verifyAdminSessionTokenWithReason,
+} from "@/lib/server/auth/session";
 
 const intlMiddleware = createMiddleware(routing);
 
-const PUBLIC_ADMIN_PATHS = new Set(["/admin/login", "/api/admin/auth/login"]);
+const PUBLIC_ADMIN_PATHS = new Set([
+  "/admin/login",
+  "/api/admin/auth/login",
+  "/api/admin/auth/debug",
+]);
 
 export async function proxy(request: NextRequest): Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
 
-  if (isAdminPath(pathname) || isAdminApiPath(pathname)) {
+  if (pathname === "/admin" || pathname.startsWith("/admin/") || isAdminApiPath(pathname)) {
     return handleAdminRequest(request);
   }
 
@@ -18,35 +30,186 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/admin/:path*", "/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: [
+    "/admin",
+    "/admin/:path*",
+    "/api/admin",
+    "/api/admin/:path*",
+    "/((?!api|_next|_vercel|.*\\..*).*)",
+  ],
 };
 
 async function handleAdminRequest(request: NextRequest): Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
+  const host = getRequestHost(request);
+  const method = request.method;
+  const cookieName = getAdminSessionCookieName();
+  const token = request.cookies.get(cookieName)?.value;
+  const hasCookie = Boolean(token);
+
   if (PUBLIC_ADMIN_PATHS.has(pathname)) {
-    return NextResponse.next();
+    const authResult = pathname === "/admin/login" ? "login-route" : "allowed-api-login";
+    logAdminProxyDebug({
+      pathname,
+      method,
+      host,
+      hasCookie,
+      cookieName,
+      authResult,
+      authReason: authResult,
+      redirectTo: null,
+      isPublicAdminPath: true,
+    });
+    const res = NextResponse.next();
+    return applyAdminAuthDebugHeaders(res, {
+      host,
+      pathname,
+      authResult,
+      authReason: authResult,
+      redirectTo: null,
+      request,
+    });
   }
 
-  const token = request.cookies.get(getAdminSessionCookieName())?.value;
-  const session = token ? await verifyAdminSessionToken(token) : null;
+  if (!token) {
+    if (isAdminApiPath(pathname)) {
+      logAdminProxyDebug({
+        pathname,
+        method,
+        host,
+        hasCookie,
+        cookieName,
+        authResult: "missing-cookie",
+        authReason: "missing-cookie",
+        redirectTo: null,
+        isPublicAdminPath: false,
+      });
+      const res = NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return applyAdminAuthDebugHeaders(res, {
+        host,
+        pathname,
+        authResult: "missing-cookie",
+        authReason: "missing-cookie",
+        redirectTo: null,
+        request,
+      });
+    }
+
+    const loginUrl = new URL("/admin/login", request.url);
+    loginUrl.searchParams.set("next", pathname);
+    logAdminProxyDebug({
+      pathname,
+      method,
+      host,
+      hasCookie,
+      cookieName,
+      authResult: "missing-cookie",
+      authReason: "missing-cookie",
+      redirectTo: loginUrl.toString(),
+      isPublicAdminPath: false,
+    });
+    const res = NextResponse.redirect(loginUrl);
+    return applyAdminAuthDebugHeaders(res, {
+      host,
+      pathname,
+      authResult: "missing-cookie",
+      authReason: "missing-cookie",
+      redirectTo: loginUrl.toString(),
+      request,
+    });
+  }
+
+  const { session, reason } = await verifyAdminSessionTokenWithReason(token);
   if (session) {
-    return NextResponse.next();
+    logAdminProxyDebug({
+      pathname,
+      method,
+      host,
+      hasCookie,
+      cookieName,
+      authResult: "valid",
+      authReason: reason,
+      redirectTo: null,
+      isPublicAdminPath: false,
+    });
+    const res = NextResponse.next();
+    return applyAdminAuthDebugHeaders(res, {
+      host,
+      pathname,
+      authResult: "valid",
+      authReason: reason,
+      redirectTo: null,
+      request,
+    });
   }
 
   if (isAdminApiPath(pathname)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    logAdminProxyDebug({
+      pathname,
+      method,
+      host,
+      hasCookie,
+      cookieName,
+      authResult: reason,
+      authReason: reason,
+      redirectTo: null,
+      isPublicAdminPath: false,
+    });
+    const res = NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return applyAdminAuthDebugHeaders(res, {
+      host,
+      pathname,
+      authResult: reason,
+      authReason: reason,
+      redirectTo: null,
+      request,
+    });
   }
 
   const loginUrl = new URL("/admin/login", request.url);
   loginUrl.searchParams.set("next", pathname);
-
-  return NextResponse.redirect(loginUrl);
-}
-
-function isAdminPath(pathname: string): boolean {
-  return pathname === "/admin" || pathname.startsWith("/admin/");
+  logAdminProxyDebug({
+    pathname,
+    method,
+    host,
+    hasCookie,
+    cookieName,
+    authResult: reason,
+    authReason: reason,
+    redirectTo: loginUrl.toString(),
+    isPublicAdminPath: false,
+  });
+  const res = NextResponse.redirect(loginUrl);
+  return applyAdminAuthDebugHeaders(res, {
+    host,
+    pathname,
+    authResult: reason,
+    authReason: reason,
+    redirectTo: loginUrl.toString(),
+    request,
+  });
 }
 
 function isAdminApiPath(pathname: string): boolean {
   return pathname === "/api/admin" || pathname.startsWith("/api/admin/");
+}
+
+type AdminProxyDebugPayload = {
+  readonly pathname: string;
+  readonly method: string;
+  readonly host: string;
+  readonly hasCookie: boolean;
+  readonly cookieName: string;
+  readonly authResult: string;
+  readonly authReason: string;
+  readonly redirectTo: string | null;
+  readonly isPublicAdminPath: boolean;
+};
+
+function logAdminProxyDebug(payload: AdminProxyDebugPayload): void {
+  if (!isAdminAuthDebugEnabled()) {
+    return;
+  }
+
+  console.log("[ADMIN DEBUG][proxy]", payload);
 }
