@@ -29,17 +29,26 @@ export const MOBILE_HERO_STAT_WIDE = {
   text: "text-[#fffcfc]",
 } as const;
 
+/** “450+” numeral — Figma frame uses 56px; slightly reduced on narrow viewports for balance. */
+export const MOBILE_HERO_STAT_WIDE_VALUE_NUMERAL_CLASS = "text-[52px] font-black leading-9";
+
 /**
  * Robot-hand overlay on the 450+ card (mobile hero only).
  * Vertical: `HeroStatWide` uses `top-[87%]` / `-translate-y-1/2` (narrow: `top-[85%]`).
  * Sizes: `w-[271px] h-[287px]` (narrow: `235×252`). Horizontal: `style.right` in `HeroSection`
- * uses `calc(clamp(-999px, (393px - 100vw) / 2, 0px) - 12px)` so the hand aligns to the
- * real viewport right edge, not only the centered 393px column.
- * Text column: literal `max-w-[56%]` in `HeroSection`.
+ * uses `calc(clamp(-999px, (393px - 100vw) / 2, 0px) - styleRightPullPx)` in `HeroSection` so the hand
+ * aligns to the viewport right; larger `styleRightPullPx` moves the sprite further right.
+ * Purple card: full width of the `px-6` column (`w-full`), symmetric (no negative margin bleed).
+ * Text column: literal `max-w-[56%]` in `HeroSection`, optional `translate(-left,-up)` via
+ * `MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_*`.
  */
+export const MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_LEFT_PX = 8;
+export const MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_UP_PX = 8;
+
 export const MOBILE_HERO_STAT_WIDE_HAND = {
   widthPx: 271,
   heightPx: 287,
-  offsetRightPx: 48,
   anchorTopPercent: 87,
+  /** Subtracted inside `right: calc(... - X)` — higher → hand sits slightly further right on screen. */
+  styleRightPullPx: 24,
 } as const;

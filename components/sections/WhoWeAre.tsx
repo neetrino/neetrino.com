@@ -1,8 +1,6 @@
 import { useTranslations } from "next-intl";
 import { MeetOurTeamExplorePill } from "@/components/about-us/MeetOurTeamExplorePill";
-import { EllipseDeviceShowcase } from "@/components/neetrino-home/EllipseDeviceShowcase";
 import { interSans } from "@/lib/fonts";
-import { WHO_WE_ARE_ELLIPSE_SHOWCASE_SCALE_CLASSNAME } from "@/lib/who-we-are-showcase-scale";
 
 export function WhoWeAre() {
   const t = useTranslations();
@@ -44,12 +42,6 @@ export function WhoWeAre() {
 
       <div className="relative z-10 mt-5 flex justify-start">
         <MeetOurTeamExplorePill align="start" href="/contact" />
-      </div>
-
-      <div className="relative mt-4 flex w-full min-w-0 justify-center overflow-x-clip overflow-y-visible px-1 md:mt-3">
-        <div className={WHO_WE_ARE_ELLIPSE_SHOWCASE_SCALE_CLASSNAME}>
-          <EllipseDeviceShowcase />
-        </div>
       </div>
     </section>
   );

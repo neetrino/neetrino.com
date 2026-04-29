@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { NavbarMobileShell } from "@/components/nav/NavbarMobileShell";
-import { GetQuoteCtaButton } from "@/components/quote/get-quote-cta-button";
 import { useScrolledPastThreshold } from "@/lib/hooks/useScrolledPastThreshold";
 import { PrimaryNavMoreDropdown } from "@/components/shared/PrimaryNavMoreDropdown";
 import { LocaleSwitcher } from "@/components/shared/LocaleSwitcher";
@@ -20,7 +19,7 @@ import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 /**
  * Single mobile/tablet site header — same markup and behavior as the former Home `Navbar`
- * (fixed bar, scroll frosted chrome, logo, burger + full-screen overlay menu, PRIMARY_NAV_LINKS).
+ * (fixed bar, scroll frosted chrome, logo, locale, burger + overlay, PRIMARY_NAV_LINKS).
  * Shown under `lg` via parent `lg:hidden` in `AppHeader`.
  */
 export function MobileHeader() {
@@ -81,9 +80,6 @@ export function MobileHeader() {
           <div className="flex items-center gap-1 min-[360px]:gap-2 sm:gap-3">
             <LocaleSwitcher compact className="lg:hidden" />
             <NavbarMobileShell links={PRIMARY_NAV_LINKS} />
-            <GetQuoteCtaButton className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#473dff] px-3 py-2 text-xs font-extrabold text-white transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80 sm:px-4 sm:text-sm">
-              {t("cta.getQuote")}
-            </GetQuoteCtaButton>
           </div>
         </div>
       </div>
