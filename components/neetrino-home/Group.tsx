@@ -35,7 +35,10 @@ export function Group({ className, exploreHref, ellipseUnderlayFromEnd = false }
 
   return (
     <div
-      className={`group pointer-events-none ${className || "relative h-[276px] w-[642px]"}`}
+      className={cn(
+        "group pointer-events-none z-[12]",
+        className ?? "relative h-[276px] w-[642px]",
+      )}
       data-node-id="1:140"
     >
       <Link

@@ -8,6 +8,7 @@ import { NeetrinoHomeSegment1 } from "./NeetrinoHomeSegment1";
 import { NeetrinoHomeSegment2 } from "./NeetrinoHomeSegment2";
 import { NeetrinoHomeSegment3 } from "./NeetrinoHomeSegment3";
 import { NeetrinoHomeSegment4 } from "./NeetrinoHomeSegment4";
+import { NeetrinoHomeVerticalPipe } from "./NeetrinoHomeVerticalPipe";
 
 export function NeetrinoHome() {
   return (
@@ -23,6 +24,7 @@ export function NeetrinoHome() {
         <NeetrinoHomeSegment2 />
         <NeetrinoHomeSegment3 />
         <NeetrinoHomeSegment4 />
+        <NeetrinoHomeVerticalPipe />
         <NeetrinoHomeBelowFold />
         <NeetrinoHomeEndCap />
       </DeferredMount>

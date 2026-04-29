@@ -63,7 +63,7 @@ export function NeetrinoHomeSegment4() {
         </div>
       </div>
       <div
-        className="absolute h-[378px] left-[1978px] rounded-[31px] top-[2763px] w-[587px]"
+        className="absolute z-[12] h-[378px] left-[1978px] rounded-[31px] top-[2763px] w-[587px]"
         data-name="biotech _ logo 2"
         data-node-id="55:395"
       >
@@ -91,7 +91,7 @@ export function NeetrinoHomeSegment4() {
         />
       </div>
       <div
-        className="absolute content-stretch flex gap-[11px] items-end left-[-52px] top-[2757px]"
+        className="absolute z-[12] content-stretch flex gap-[11px] items-end left-[-52px] top-[2757px]"
         data-node-id="55:398"
       >
         <div

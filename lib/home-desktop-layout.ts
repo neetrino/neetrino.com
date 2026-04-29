@@ -9,14 +9,29 @@ export const HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX = 5006;
  * Desktop home (scaled Figma canvas): vertical rhythm for the device orbit block.
  *
  * - `HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX` — Y of the orbit top in design px (`NeetrinoHomeBelowFold`).
- *   **Decrease** = less gap **above** the carousel; **increase** = carousel lower. After changing TOP, adjust
- *   `HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX` by the **same** delta so the strip under the orbit + Partners + footer
- *   stays visually balanced (see constant JSDoc above).
+ *   **Decrease** = less gap **above** the carousel; **increase** = carousel lower. `NeetrinoHomeVerticalPipe` height
+ *   is derived (`…_PIPE_HEIGHT_PX` = orbit top + optional `…_EXTEND_BELOW_ORBIT_PX` − pipe top). Tune extension
+ *   for how far the rail continues under the orbit block. Keep pipe top (`…_PIPE_TOP_PX`) in sync if the spine start moves.
+ *   After changing TOP, adjust `HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX` by the **same** delta so the strip under the
+ *   orbit + Partners + footer stays visually balanced (see constant JSDoc above).
  *
  * Desktop Partners marquee: in document flow on the home page (`page.tsx`) directly above `<Footer>` in
  * `layout.tsx`, not absolutely positioned on the canvas.
  */
 export const HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX = 4196;
+
+/** Vertical spine top (design px); lowered vs original Figma `55:391` start. */
+export const HOME_DESKTOP_VERTICAL_PIPE_TOP_PX = 1783;
+
+/** How far the rail continues **below** the device orbit top (design px). */
+export const HOME_DESKTOP_VERTICAL_PIPE_EXTEND_BELOW_ORBIT_PX = 380;
+
+export const HOME_DESKTOP_VERTICAL_PIPE_WIDTH_PX = 88;
+
+export const HOME_DESKTOP_VERTICAL_PIPE_HEIGHT_PX =
+  HOME_DESKTOP_DEVICE_SHOWCASE_CANVAS_TOP_PX +
+  HOME_DESKTOP_VERTICAL_PIPE_EXTEND_BELOW_ORBIT_PX -
+  HOME_DESKTOP_VERTICAL_PIPE_TOP_PX;
 
 /**
  * Desktop home (`page.tsx`): leave empty when orbit `TOP` + canvas height are stepped together — avoids an

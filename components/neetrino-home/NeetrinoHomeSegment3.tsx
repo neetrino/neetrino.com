@@ -58,10 +58,6 @@ export function NeetrinoHomeSegment3() {
           />
         </div>
       </div>
-      <div
-        className="pointer-events-none -translate-x-1/2 absolute bg-[rgba(0,0,0,0)] h-[2934px] left-1/2 top-[1463px] w-[88px]"
-        data-node-id="55:391"
-      />
       <div className="pointer-events-none absolute z-0 flex h-[536px] items-center justify-center left-[-1150px] mix-blend-color top-[4832px] w-[604px]">
         <div className="-scale-y-100 flex-none rotate-180">
           <div

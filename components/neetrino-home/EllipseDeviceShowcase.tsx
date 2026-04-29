@@ -15,7 +15,10 @@ import {
   syncShowcaseVideosToViewportCenter,
   type ShowcaseFrontDeviceId,
 } from "@/lib/sync-showcase-videos-to-viewport-center";
-import { ELLIPSE_DEVICE_SHOWCASE_ORBIT_NAV_POSITION_CLASS } from "@/lib/ellipse-device-showcase-layout";
+import {
+  ELLIPSE_DEVICE_SHOWCASE_ORBIT_NAV_LEFT_CLASS,
+  ELLIPSE_DEVICE_SHOWCASE_ORBIT_NAV_POSITION_CLASS,
+} from "@/lib/ellipse-device-showcase-layout";
 import { cn } from "@/lib/utils";
 import {
   useDeviceOrbitAngles,
@@ -125,7 +128,8 @@ export function EllipseDeviceShowcase() {
 
       <div
         className={cn(
-          "pointer-events-auto absolute left-1/2 z-20 flex -translate-x-1/2 gap-4",
+          "pointer-events-auto absolute z-20 flex -translate-x-1/2 gap-4",
+          ELLIPSE_DEVICE_SHOWCASE_ORBIT_NAV_LEFT_CLASS,
           ELLIPSE_DEVICE_SHOWCASE_ORBIT_NAV_POSITION_CLASS,
         )}
         role="group"
