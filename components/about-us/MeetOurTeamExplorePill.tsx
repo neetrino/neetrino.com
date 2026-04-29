@@ -2,6 +2,10 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import {
+  EXPLORE_PILL_HOVER_FLARE_EXTRA_CLASS,
+  EXPLORE_PILL_HOVER_FLARE_POSITION_CLASS,
+} from "@/components/neetrino-home/explore-hover-flare.constants";
 import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
 import { imgEllipse3463, imgSafearea1 } from "@/components/neetrino-home/figma-assets";
 import { Link } from "@/i18n/navigation";
@@ -18,12 +22,14 @@ import { cn } from "@/lib/utils";
 type MeetOurTeamExplorePillProps = {
   /** `start`: left column (desktop); `center`: mobile stack. */
   align: "start" | "center";
+  /** Defaults to `/team` (Meet our team). */
+  href?: string;
 };
 
 /**
  * Same Explore pill as home `Group2` (arrow asset + ellipse + flare), with locale-aware `Link`.
  */
-export function MeetOurTeamExplorePill({ align }: MeetOurTeamExplorePillProps) {
+export function MeetOurTeamExplorePill({ align, href = "/team" }: MeetOurTeamExplorePillProps) {
   const t = useTranslations();
   const locale = useLocale();
   const explorePillWidthClassName =
@@ -34,11 +40,11 @@ export function MeetOurTeamExplorePill({ align }: MeetOurTeamExplorePillProps) {
         : homeExplorePillWidthDefaultClassName;
 
   return (
-    <div className="relative z-10 h-[56px] w-[206px] shrink-0 overflow-visible">
+    <div className="group relative z-10 h-[56px] w-[206px] shrink-0 overflow-visible">
       <Link
-        href="/team"
+        href={href}
         className={cn(
-          "peer pointer-events-auto absolute z-10 flex h-[56px] cursor-pointer items-center justify-between gap-2 overflow-hidden rounded-[40px] border border-solid border-[#6a92ff] bg-black pl-[23px] pr-[17px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]",
+          "pointer-events-auto absolute z-10 flex h-[56px] cursor-pointer items-center justify-between gap-2 overflow-hidden rounded-[40px] border border-solid border-[#6a92ff] bg-black pl-[23px] pr-[17px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]",
           align === "start"
             ? homeExplorePillLinkStartVerticallyInGroupClassName
             : homeExplorePillLinkCenterInGroupClassName,
@@ -79,7 +85,10 @@ export function MeetOurTeamExplorePill({ align }: MeetOurTeamExplorePillProps) {
           </div>
         </div>
       </Link>
-      <ExploreHoverFlare positionClassName="inset-[-105.8%_-69%]" />
+      <ExploreHoverFlare
+        positionClassName={EXPLORE_PILL_HOVER_FLARE_POSITION_CLASS}
+        className={EXPLORE_PILL_HOVER_FLARE_EXTRA_CLASS}
+      />
     </div>
   );
 }

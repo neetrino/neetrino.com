@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { MeetOurTeamExplorePill } from "@/components/about-us/MeetOurTeamExplorePill";
 import { EllipseDeviceShowcase } from "@/components/neetrino-home/EllipseDeviceShowcase";
-import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
 import { interSans } from "@/lib/fonts";
 import { WHO_WE_ARE_ELLIPSE_SHOWCASE_SCALE_CLASSNAME } from "@/lib/who-we-are-showcase-scale";
 
@@ -44,15 +43,7 @@ export function WhoWeAre() {
       </div>
 
       <div className="relative z-10 mt-5 flex justify-start">
-        <div className="relative inline-flex items-center justify-center">
-          <Link
-            href="/contact"
-            className="peer relative z-10 inline-flex rounded-full border border-[#6a92ff] bg-black px-8 py-4 text-lg font-medium text-white transition-opacity hover:opacity-90"
-          >
-            {t("cta.explore")}
-          </Link>
-          <ExploreHoverFlare positionClassName="left-1/2 top-1/2 h-[100px] w-[min(100vw-2rem,360px)] max-w-none -translate-x-1/2 -translate-y-1/2" />
-        </div>
+        <MeetOurTeamExplorePill align="start" href="/contact" />
       </div>
 
       <div className="relative mt-4 flex w-full min-w-0 justify-center overflow-x-clip overflow-y-visible px-1 md:mt-3">

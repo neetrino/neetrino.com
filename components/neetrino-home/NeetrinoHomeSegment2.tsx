@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Group2 } from "./Group2";
+import { MeetOurTeamExplorePill } from "@/components/about-us/MeetOurTeamExplorePill";
 
 const LiquidEther = dynamic(() => import("@/components/liquid-ether/LiquidEther"), {
   ssr: false,
@@ -90,11 +90,9 @@ export function NeetrinoHomeSegment2() {
             </p>
           </div>
         </div>
-        <Group2
-          className="absolute left-[64px] top-[358px] h-[276px] w-[642px]"
-          exploreHref="/contact"
-          exploreLinkAlign="start"
-        />
+        <div className="absolute left-[64px] top-[358px] z-20 flex h-[276px] w-[642px] items-center justify-start">
+          <MeetOurTeamExplorePill align="start" href="/contact" />
+        </div>
         <div
           className="pointer-events-none absolute h-[641px] left-[721px] mix-blend-exclusion top-[-34px] w-[685px]"
           data-name="* 1"

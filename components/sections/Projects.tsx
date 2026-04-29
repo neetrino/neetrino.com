@@ -60,10 +60,10 @@ export function Projects() {
       </div>
 
       <div className="mt-10 flex justify-center">
-        <div className="relative inline-flex items-center justify-center">
+        <div className="group relative inline-flex items-center justify-center">
           <Link
             href="/portfolio"
-            className="peer relative z-10 inline-flex rounded-full border border-[#6a92ff] bg-black px-8 py-4 text-lg font-medium text-white transition-opacity hover:opacity-90"
+            className="relative z-10 inline-flex rounded-full border border-[#6a92ff] bg-black px-8 py-4 text-lg font-medium text-white transition-opacity hover:opacity-90"
           >
             {t("cta.explore")}
           </Link>

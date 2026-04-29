@@ -3,6 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
+import {
+  EXPLORE_PILL_HOVER_FLARE_EXTRA_CLASS,
+  EXPLORE_PILL_HOVER_FLARE_POSITION_CLASS,
+} from "@/components/neetrino-home/explore-hover-flare.constants";
 import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
 import {
   homeExplorePillEllipseUnderlayFromStartClassName,
@@ -35,13 +39,13 @@ export function Group2({ className, exploreHref, exploreLinkAlign = "center" }: 
 
   return (
     <div
-      className={className ? `z-20 ${className}` : "relative z-20 h-[276px] w-[642px]"}
+      className={className ? `group z-20 ${className}` : "group relative z-20 h-[276px] w-[642px]"}
       data-node-id="19:364"
     >
       <Link
         href={exploreHref}
         className={cn(
-          "peer pointer-events-auto absolute z-10 flex h-[56px] items-center justify-between gap-2 overflow-hidden rounded-[40px] border border-solid border-[#6a92ff] bg-black pl-[23px] pr-[17px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]",
+          "pointer-events-auto absolute z-10 flex h-[56px] items-center justify-between gap-2 overflow-hidden rounded-[40px] border border-solid border-[#6a92ff] bg-black pl-[23px] pr-[17px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]",
           exploreLinkAlign === "start"
             ? homeExplorePillLinkStartVerticallyInGroupClassName
             : homeExplorePillLinkCenterInGroupClassName,
@@ -94,7 +98,10 @@ export function Group2({ className, exploreHref, exploreLinkAlign = "center" }: 
           </div>
         </div>
       </Link>
-      <ExploreHoverFlare positionClassName="inset-[-105.8%_-69%]" />
+      <ExploreHoverFlare
+        positionClassName={EXPLORE_PILL_HOVER_FLARE_POSITION_CLASS}
+        className={EXPLORE_PILL_HOVER_FLARE_EXTRA_CLASS}
+      />
     </div>
   );
 }

@@ -35,13 +35,13 @@ export function Group({ className, exploreHref, ellipseUnderlayFromEnd = false }
 
   return (
     <div
-      className={`pointer-events-none ${className || "relative h-[276px] w-[642px]"}`}
+      className={`group pointer-events-none ${className || "relative h-[276px] w-[642px]"}`}
       data-node-id="1:140"
     >
       <Link
         href={exploreHref}
         className={cn(
-          "peer pointer-events-auto absolute z-10 flex h-[56px] items-center justify-between gap-2 overflow-hidden rounded-[40px] border border-solid border-[#6a92ff] bg-black pl-[23px] pr-[17px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]",
+          "pointer-events-auto absolute z-10 flex h-[56px] items-center justify-between gap-2 overflow-hidden rounded-[40px] border border-solid border-[#6a92ff] bg-black pl-[23px] pr-[17px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]",
           homeExplorePillLinkCenterInGroupClassName,
           explorePillWidthClassName,
         )}
