@@ -7,16 +7,33 @@ import { Globe } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { locales } from "@/i18n/routing";
 import { stripLocalePrefix } from "@/lib/i18n/href";
+import {
+  LOCALE_SWITCHER_DEFAULT_DROPDOWN_PANEL_CLASS,
+  LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_ACTIVE_CLASS,
+  LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_CLASS,
+  LOCALE_SWITCHER_MOBILE_NAV_DROPDOWN_PANEL_CLASS,
+  LOCALE_SWITCHER_MOBILE_NAV_OPTION_BUTTON_ACTIVE_CLASS,
+  LOCALE_SWITCHER_MOBILE_NAV_OPTION_BUTTON_CLASS,
+} from "@/lib/locale-switcher-dropdown.constants";
 import { LOCALE_LABELS, LOCALE_SHORT_LABELS, type AppLocale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
+
+export type LocaleSwitcherDropdownPresentation = "default" | "mobileNav";
 
 type LocaleSwitcherProps = {
   className?: string;
   compact?: boolean;
   style?: CSSProperties;
+  /** `mobileNav`: rounded frosted panel + blue pill options (mobile drawer). */
+  dropdownPresentation?: LocaleSwitcherDropdownPresentation;
 };
 
-export function LocaleSwitcher({ className, compact = false, style }: LocaleSwitcherProps) {
+export function LocaleSwitcher({
+  className,
+  compact = false,
+  style,
+  dropdownPresentation = "default",
+}: LocaleSwitcherProps) {
   const t = useTranslations();
   const locale = useLocale() as AppLocale;
   const pathname = usePathname();
@@ -24,6 +41,7 @@ export function LocaleSwitcher({ className, compact = false, style }: LocaleSwit
   const searchParams = useSearchParams();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const isMobileNav = dropdownPresentation === "mobileNav";
 
   useEffect(() => {
     if (!open) {
@@ -76,7 +94,11 @@ export function LocaleSwitcher({ className, compact = false, style }: LocaleSwit
         <ul
           role="menu"
           aria-label={t("language.switcherLabel")}
-          className="absolute right-0 z-[130] mt-2 min-w-[122px] rounded-2xl border border-white/15 bg-[#1b1b21] p-1.5 shadow-[0_16px_30px_rgba(0,0,0,0.35)]"
+          className={cn(
+            isMobileNav
+              ? LOCALE_SWITCHER_MOBILE_NAV_DROPDOWN_PANEL_CLASS
+              : LOCALE_SWITCHER_DEFAULT_DROPDOWN_PANEL_CLASS,
+          )}
         >
           {locales.map((nextLocale) => {
             const active = locale === nextLocale;
@@ -88,12 +110,20 @@ export function LocaleSwitcher({ className, compact = false, style }: LocaleSwit
                   aria-checked={active}
                   onClick={() => switchLocale(nextLocale)}
                   className={cn(
-                    "flex w-full min-w-0 cursor-pointer items-center gap-3 rounded-xl px-3 py-2 text-sm text-white transition-colors hover:bg-white/10",
-                    active && "bg-white/10",
+                    isMobileNav
+                      ? LOCALE_SWITCHER_MOBILE_NAV_OPTION_BUTTON_CLASS
+                      : LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_CLASS,
+                    !isMobileNav && active && LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_ACTIVE_CLASS,
+                    isMobileNav && active && LOCALE_SWITCHER_MOBILE_NAV_OPTION_BUTTON_ACTIVE_CLASS,
                   )}
                 >
                   <span className="shrink-0">{LOCALE_SHORT_LABELS[nextLocale]}</span>
-                  <span className="min-w-0 text-left text-white/65">
+                  <span
+                    className={cn(
+                      "min-w-0 text-left",
+                      isMobileNav ? "text-white/90" : "text-white/65",
+                    )}
+                  >
                     {LOCALE_LABELS[nextLocale]}
                   </span>
                 </button>

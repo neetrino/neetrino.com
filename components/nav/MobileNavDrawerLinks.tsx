@@ -27,14 +27,14 @@ export function MobileNavDrawerLinks({ links, onNavigate }: MobileNavDrawerLinks
   };
 
   return (
-    <nav className="flex flex-1 flex-col gap-2">
+    <nav className="flex w-full flex-col divide-y divide-white/10">
       {links.map((item) =>
         item.kind === "link" ? (
           <Link
             key={item.href}
             href={item.href}
             className={cn(
-              "relative pt-3 pb-1 text-xl font-semibold text-white transition-opacity hover:opacity-70 active:opacity-50",
+              "relative block py-3.5 text-xl font-semibold text-white transition-opacity hover:opacity-70 active:opacity-50",
               PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
               isNavHrefActive(pathname, item.href) && PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
             )}
@@ -43,10 +43,10 @@ export function MobileNavDrawerLinks({ links, onNavigate }: MobileNavDrawerLinks
             {t(`nav.${item.labelKey}`)}
           </Link>
         ) : (
-          <div key={item.labelKey} className="flex flex-col">
+          <div key={item.labelKey} className="flex flex-col py-0">
             <button
               type="button"
-              className="flex w-full items-center justify-between gap-2 py-3 text-left text-xl font-semibold text-white transition-opacity hover:opacity-80"
+              className="flex w-full items-center justify-between gap-2 py-3.5 text-left text-xl font-semibold text-white transition-opacity hover:opacity-80"
               aria-expanded={openGroupLabel === item.labelKey}
               onClick={() => toggleGroup(item.labelKey)}
             >
