@@ -146,6 +146,40 @@ html[lang="hy"] body {
 }
 
 /*
+ * Mobile site footer backdrop — Figma NEETRINO-WEB `539:1826` (Ellipse 31).
+ * Kept in CSS (not Tailwind arbitrary in `lib/`) so it always ships: blue left → fade right under copy.
+ * Layer sits above the grid (`z-index: 1`), below footer content (`z-10` in `SiteFooterMobile`).
+ *
+ * Tuning (horizontal):
+ * - `--footer-atmosphere-fade-end` — where the linear wash hits full transparent (right edge of blue).
+ *   Higher % = blue reaches further right (e.g. 85% vs 70%).
+ * - `--footer-atmosphere-mid` — shoulder of the linear gradient; keep a bit below fade-end.
+ * - `--footer-atmosphere-radial-fade-end` — how wide the soft blob is on the left (higher = wider glow).
+ */
+.site-footer-mobile-backdrop-atmosphere {
+  --footer-atmosphere-fade-end: 98%;
+  --footer-atmosphere-mid: 95%;
+  --footer-atmosphere-radial-fade-end: 70%;
+
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(
+      ellipse 100% 88% at 0% 30%,
+      rgba(70, 132, 255, 0.48) 0%,
+      transparent var(--footer-atmosphere-radial-fade-end)
+    ),
+    linear-gradient(
+      90deg,
+      rgba(36, 92, 235, 0.42) 0%,
+      rgba(20, 55, 160, 0.16) var(--footer-atmosphere-mid),
+      rgba(21, 21, 21, 0) var(--footer-atmosphere-fade-end)
+    );
+}
+
+/*
   Neetrino: fluid canvas — 1440×5006 design scales proportionally to any viewport.
   Used by CanvasScaler for the desktop (lg+) layout.
   JS (CanvasScaler) measures the actual container width and applies scale().

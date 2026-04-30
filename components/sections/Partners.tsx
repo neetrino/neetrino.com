@@ -31,7 +31,7 @@ export function Partners() {
   return (
     <section
       aria-label={t("partners.sectionAria")}
-      className="max-w-full min-w-0 bg-transparent pt-4 pb-2 lg:mt-0 lg:bg-[#151515] lg:px-0 lg:pb-8 lg:pt-0 lg:leading-none lg:[&_span]:m-0 lg:[&_span]:block lg:[&_span]:leading-none"
+      className="max-w-full min-w-0 bg-transparent pt-0 pb-15 mt-0 lg:mt-0 lg:bg-[#151515] lg:px-0 lg:pb-8 lg:pt-0 lg:leading-none lg:[&_span]:m-0 lg:[&_span]:block lg:[&_span]:leading-none"
       style={{
         overflow: "hidden",
         WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",

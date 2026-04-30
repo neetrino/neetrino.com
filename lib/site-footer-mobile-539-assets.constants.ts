@@ -6,7 +6,6 @@ const B = "/figma-assets" as const;
 
 export const SITE_FOOTER_MOBILE_539 = {
   vectorGrid: `${B}/dd9ca3cf-9d5a-45a8-9e73-d22c815195a3.svg`,
-  ellipseGlow: `${B}/8139a811-6fd7-41bc-813d-2d8378adab9b.svg`,
   topLine: `${B}/229c066b-1c19-4357-bb7b-4cf3afd69ca3.svg`,
   contactAddress: `${B}/d764df54-1d5a-40b7-b4e6-aeb0a261beba.svg`,
   contactEmail: `${B}/a8d32612-9b53-4fe3-af43-28225df1c3d0.svg`,

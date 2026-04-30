@@ -69,8 +69,8 @@ const SOCIAL_ICONS: ReadonlyArray<{
 ];
 
 /**
- * Mobile footer — Figma `539:1824` (NEETRINO-WEB): #151515, grid + glow backdrop, portrait art,
- * Inter typography, CTA + social row aligned to handoff.
+ * Mobile footer — Figma `539:1824` (NEETRINO-WEB): #151515, grid + `539:1826` blue L→R atmosphere,
+ * portrait art, Inter typography, CTA + social row aligned to handoff.
  */
 export function SiteFooterMobile() {
   const t = useTranslations();

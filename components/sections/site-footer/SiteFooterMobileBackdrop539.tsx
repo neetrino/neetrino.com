@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { SITE_FOOTER_MOBILE_539_1826_ATMOSPHERE_CLASS } from "@/lib/site-footer-mobile-539-1826-atmosphere.constants";
 import { SITE_FOOTER_MOBILE_539 } from "@/lib/site-footer-mobile-539-assets.constants";
 import { cn } from "@/lib/utils";
 
@@ -15,34 +16,22 @@ const FOOTER_MOBILE_BACKDROP_ROOT_CLASS =
 const FOOTER_GRID_PRE_ROTATE_WIDTH_CLASS =
   "relative max-w-none [width:min(calc(max(100cqw,_100cqh)*1.12),4000px)]" as const;
 
-/** Full-bleed grid shell — entire footer (`inset-0`), centered artwork. */
+/** Full-bleed grid shell — entire footer (`inset-0`), centered artwork; under atmosphere (`z-0`). */
 const FOOTER_MOBILE_GRID_SHELL_CLASS =
-  "absolute inset-0 flex items-center justify-center overflow-hidden mix-blend-overlay" as const;
+  "absolute inset-0 z-0 flex items-center justify-center overflow-hidden mix-blend-overlay" as const;
 
 const FOOTER_MOBILE_ROBOT_STRIP_CLASS =
-  "pointer-events-none absolute inset-y-0 right-0 z-[1] w-[min(82vw,620px)] min-w-[260px] overflow-hidden";
+  "pointer-events-none absolute inset-y-0 right-0 z-[2] w-[min(82vw,620px)] min-w-[260px] overflow-hidden";
 
 const FOOTER_MOBILE_ROBOT_IMAGE_CLASS =
   "object-cover object-left-top origin-left-top scale-[1.35] -translate-y-[22%]";
 
 /**
- * Decorative layers for mobile footer — Figma `539:1824` baseline: glow, full-bleed grid, line; robot `722:742`.
+ * Decorative layers for mobile footer — Figma `539:1824` grid/line/robot; atmosphere `539:1826` (blue L→R).
  */
 export function SiteFooterMobileBackdrop539() {
   return (
     <div className={FOOTER_MOBILE_BACKDROP_ROOT_CLASS} aria-hidden>
-      <div className="-translate-x-1/2 absolute left-1/2 top-[-12%] w-[min(132vw,780px)] opacity-90">
-        <div className="relative aspect-[1190/1541] w-full">
-          <Image
-            alt=""
-            src={SITE_FOOTER_MOBILE_539.ellipseGlow}
-            fill
-            className="object-contain object-top"
-            sizes="(max-width:1024px) 100vw, 0"
-          />
-        </div>
-      </div>
-
       <div className={FOOTER_MOBILE_GRID_SHELL_CLASS}>
         <div className="flex-none origin-center rotate-90">
           <div
@@ -60,7 +49,9 @@ export function SiteFooterMobileBackdrop539() {
         </div>
       </div>
 
-      <div className="absolute inset-x-0 -top-px z-0 px-3 sm:px-4">
+      <div className={SITE_FOOTER_MOBILE_539_1826_ATMOSPHERE_CLASS} />
+
+      <div className="absolute inset-x-0 -top-px z-[3] px-3 sm:px-4">
         <div className="relative mx-auto h-px w-full max-w-none">
           <Image
             alt=""

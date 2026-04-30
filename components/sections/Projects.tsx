@@ -22,7 +22,7 @@ export function Projects() {
   return (
     <section
       id="blog"
-      className={`section-container py-16 md:py-24 ${interSans.className}`}
+      className={`section-container pt-16 pb-15 md:py-24 ${interSans.className}`}
       aria-labelledby="projects-heading"
     >
       <header className="mb-10 md:mb-12">
