@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
+import { BlogIndexPageFrame } from "@/components/blog/BlogIndexPageFrame";
 import { BlogIndexCard } from "@/components/blog/BlogIndexCard";
 import { getPublishedBlogIndexItems } from "@/lib/server/blog/public";
 import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/lib/i18n/locales";
-import { interSans } from "@/lib/fonts";
 import { getLocaleAlternates } from "@/lib/metadata";
 import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import { cn } from "@/lib/utils";
-import {
-  NEETRINO_DESKTOP_CANVAS_WIDTH_PX,
-  NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX,
-} from "@/lib/desktop-header-layout.constants";
 
 type BlogPageProps = {
   params: Promise<{ locale: AppLocale }>;
@@ -32,27 +28,24 @@ export default async function BlogPage({ params }: BlogPageProps) {
   const blogItems = await getPublishedBlogIndexItems(locale);
 
   return (
-    <div className="w-full min-w-0 overflow-x-hidden bg-[#151515]">
-      <main
-        className={`mx-auto max-w-6xl px-6 pt-24 pb-16 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${interSans.className}`}
-      >
-        <header className="mx-auto max-w-2xl text-center">
-          <h1
-            className={cn(
-              "text-3xl font-normal tracking-[-0.04em] text-white md:text-4xl",
-              pageTitleMegatroxFontClass(locale),
-            )}
-          >
-            {t("blogPage.title")}
-          </h1>
-        </header>
-
+    <BlogIndexPageFrame
+      title={
+        <h1
+          className={cn(
+            "text-3xl font-normal tracking-[-0.04em] text-white md:text-4xl",
+            pageTitleMegatroxFontClass(locale),
+          )}
+        >
+          {t("blogPage.title")}
+        </h1>
+      }
+      cards={
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-7 lg:mt-14 lg:grid-cols-3 lg:gap-8">
           {blogItems.map((item) => (
             <BlogIndexCard key={item.id} item={item} />
           ))}
         </div>
-      </main>
-    </div>
+      }
+    />
   );
 }

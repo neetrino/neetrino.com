@@ -31,17 +31,23 @@ export default async function TeamPage({ params }: TeamPageProps) {
   return (
     <div className="w-full min-w-0 overflow-x-hidden bg-[#151515]">
       <main
-        className={`mx-auto max-w-3xl px-6 pt-24 pb-16 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${interSans.className}`}
+        className={cn(
+          "mx-auto max-w-3xl px-6 pt-30 pb-16",
+          `lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})]`,
+          interSans.className,
+        )}
       >
-        <h1
-          className={cn(
-            "text-3xl font-normal text-white md:text-4xl",
-            pageTitleMegatroxFontClass(locale),
-          )}
-        >
-          {t("teamPage.title")}
-        </h1>
-        <p className="mt-4 text-lg text-white/70">{t("teamPage.placeholder")}</p>
+        <header className="mt-9">
+          <h1
+            className={cn(
+              "text-3xl font-normal text-white md:text-4xl",
+              pageTitleMegatroxFontClass(locale),
+            )}
+          >
+            {t("teamPage.title")}
+          </h1>
+          <p className="mt-4 text-lg text-white/70">{t("teamPage.placeholder")}</p>
+        </header>
       </main>
     </div>
   );
