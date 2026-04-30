@@ -1,63 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import {
-  img2661,
-  imgRectangle17411,
-  imgRectangle17414,
-  imgRectangle17415,
-  imgStanislavHristov3,
-  imgUiDesign21,
-} from "./figma-assets";
+import { imgRectangle17411, imgRectangle17414, imgRectangle17415 } from "./figma-assets";
 
 export function NeetrinoHomeSegment3() {
   return (
     <>
-      <div className="absolute contents left-[-102px] top-[2334px]" data-node-id="55:378">
-        <div
-          className="pointer-events-none absolute h-[378px] left-[-102px] rounded-[43px] top-[2334px] w-[505px]"
-          data-name="Stanislav Hristov 3"
-          data-node-id="55:379"
-        >
-          <Image
-            alt=""
-            width={2400}
-            height={2400}
-            className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[43px] size-full"
-            src={imgStanislavHristov3}
-          />
-        </div>
-        <div
-          className="pointer-events-none absolute h-[378px] left-[411px] rounded-[45px] top-[2334px] w-[505px]"
-          data-name="UI Design-2 1"
-          data-node-id="55:380"
-        >
-          <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[45px]">
-            <Image
-              alt=""
-              width={2400}
-              height={2400}
-              className="absolute h-[104.76%] left-[-4.55%] max-w-none top-[-4.76%] w-[104.55%]"
-              src={imgUiDesign21}
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        className="pointer-events-none absolute h-[383px] left-[933px] rounded-[35px] top-[2328px] w-[592px]"
-        data-name="-266 1"
-        data-node-id="55:382"
-      >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[35px]">
-          <Image
-            alt=""
-            width={2400}
-            height={2400}
-            className="absolute h-[154.19%] left-0 max-w-none top-[-40.85%] w-full"
-            src={img2661}
-          />
-        </div>
-      </div>
       <div className="pointer-events-none absolute z-0 flex h-[536px] items-center justify-center left-[-1150px] mix-blend-color top-[4832px] w-[604px]">
         <div className="-scale-y-100 flex-none rotate-180">
           <div
