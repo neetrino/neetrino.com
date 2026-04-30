@@ -156,6 +156,24 @@ html[lang="hy"] body {
  * - `--footer-atmosphere-mid` — shoulder of the linear gradient; keep a bit below fade-end.
  * - `--footer-atmosphere-radial-fade-end` — how wide the soft blob is on the left (higher = wider glow).
  */
+/* Figma NEETRINO-WEB `373:974` — Line 135 above desktop `<footer>` (Neutral/400). */
+.site-footer-desktop-top-rule {
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 1px;
+  height: 1px;
+  flex-shrink: 0;
+  background-color: #d9dbe9;
+}
+
+@media (min-width: 1024px) {
+  .site-footer-desktop-top-rule {
+    display: block;
+  }
+}
+
 .site-footer-mobile-backdrop-atmosphere {
   --footer-atmosphere-fade-end: 98%;
   --footer-atmosphere-mid: 95%;

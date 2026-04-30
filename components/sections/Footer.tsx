@@ -1,1 +1,1 @@
-export { Footer } from "./site-footer";
+export { Footer, FooterDesktopTopRule } from "./site-footer";

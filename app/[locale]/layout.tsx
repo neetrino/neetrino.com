@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { NeetrinoDesktopScaleReference } from "@/components/layout/NeetrinoDesktopScaleReference";
 import { QuoteModalProvider } from "@/components/quote/quote-modal-context";
 import { AppHeader } from "@/components/sections/AppHeader";
-import { Footer } from "@/components/sections/Footer";
+import { Footer, FooterDesktopTopRule } from "@/components/sections/Footer";
 import { FloatingContactFab } from "@/components/shared/FloatingContactFab";
 import { routing } from "@/i18n/routing";
 
@@ -34,6 +34,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <AppHeader />
         <NeetrinoDesktopScaleReference />
         {children}
+        <FooterDesktopTopRule />
         <Footer />
         <FloatingContactFab />
       </QuoteModalProvider>

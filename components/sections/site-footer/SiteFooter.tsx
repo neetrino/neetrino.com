@@ -19,7 +19,6 @@ import { SiteFooterMobile } from "./SiteFooterMobile";
 const FIGMA_ASSETS = {
   img101: "https://www.figma.com/api/mcp/asset/26540830-c404-450b-ae0a-f864a9101164",
   imgFooterBottom: "https://www.figma.com/api/mcp/asset/1a751c68-9306-47f6-a46d-7d04ea04b131",
-  imgLine135: "https://www.figma.com/api/mcp/asset/35ab45eb-5182-4ec7-bf84-1ae97f5c8d20",
   imgVector: "https://www.figma.com/api/mcp/asset/fd0e6229-31db-42f5-9e11-a01733527caa",
   imgVector1: "https://www.figma.com/api/mcp/asset/c3fd9b1d-1c61-4a23-b92b-8f8b584cf5f0",
   imgVector2: "https://www.figma.com/api/mcp/asset/ec7ee90a-99d7-46a5-942d-d93c19c46444",
@@ -71,7 +70,7 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      className="w-full overflow-hidden border-t border-[rgba(255,255,255,0.3)] bg-[#151515] font-[family-name:var(--font-dm-sans)] lg:border-white/20"
+      className="w-full overflow-hidden border-t border-[rgba(255,255,255,0.3)] bg-[#151515] font-[family-name:var(--font-dm-sans)] lg:border-t-0"
     >
       <div className="relative w-full min-w-0 overflow-hidden">
         <div className="lg:hidden">
@@ -92,22 +91,6 @@ export function Footer() {
               src={FIGMA_ASSETS.imgRectangle17416}
             />
           </div>
-        </div>
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 z-10 hidden h-px w-full min-w-0 lg:block"
-          data-node-id="10:240"
-          aria-hidden={true}
-        >
-          {/* Native <img>: next/image can SSR/CSR markup mismatch for ultra-thin remote assets */}
-          <img
-            alt=""
-            src={FIGMA_ASSETS.imgLine135}
-            width={2400}
-            height={8}
-            className="block h-px w-full object-cover object-center"
-            loading="lazy"
-            decoding="async"
-          />
         </div>
         <div
           className="relative isolate mx-auto hidden h-[590px] w-full max-w-[1440px] overflow-hidden lg:block"
