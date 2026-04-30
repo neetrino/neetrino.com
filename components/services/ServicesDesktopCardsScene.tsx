@@ -165,7 +165,7 @@ export async function ServicesDesktopCardsScene({ locale }: ServicesDesktopCards
           </div>
           <ServicesCardContinueLink
             ariaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["crm-systems"].title)}`}
-            glowVariant="cyan"
+            glowVariant="amber"
             href={serviceDetailHref("crm-systems")}
             label={continueLabel}
           />
@@ -177,7 +177,7 @@ export async function ServicesDesktopCardsScene({ locale }: ServicesDesktopCards
           description={bySlug["website-development"].description}
           continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["website-development"].title)}`}
           continueLabel={continueLabel}
-          continueGlow="cyan"
+          continueGlow="violet"
           continueHref={serviceDetailHref("website-development")}
         />
       </div>
