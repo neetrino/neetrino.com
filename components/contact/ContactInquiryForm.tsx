@@ -42,7 +42,7 @@ export function ContactInquiryForm() {
       <div className="md:col-span-2">
         <button
           type="submit"
-          className="inline-flex items-center justify-center rounded-full border border-[#756cff] bg-[#4d43ff]/85 px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#5a51ff]"
+          className="inline-flex cursor-pointer items-center justify-center rounded-full border border-[#756cff] bg-[#4d43ff]/85 px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#5a51ff]"
         >
           {t("forms.sendInquiry")}
         </button>
