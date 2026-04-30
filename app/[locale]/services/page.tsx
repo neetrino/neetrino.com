@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { ServicesMobileCatalogCards } from "@/components/services/ServicesMobileCatalogCards";
+import { ServicesMobilePageBackdrop } from "@/components/services/ServicesMobilePageBackdrop";
 import { cn } from "@/lib/utils";
 import { ServicesHeroTitle } from "@/components/services/ServicesHeroTitle";
 import { ServicesTechMarquee } from "@/components/services/ServicesTechMarquee";
@@ -48,20 +49,18 @@ export default async function Services({ params }: ServicesPageProps) {
   return (
     <>
       <div
-        className={`w-full min-w-0 overflow-x-hidden bg-[#151515] pb-10 lg:hidden ${interSans.className}`}
+        className={`relative isolate w-full min-w-0 overflow-x-hidden bg-[#151515] pb-10 lg:hidden ${interSans.className}`}
       >
-        <main className="section-container pb-16 pt-24">
+        <ServicesMobilePageBackdrop />
+        <main className="section-container relative z-0 pb-16 pt-24">
           <section className="border-b border-white/[0.06] pb-12 pt-6 md:pb-14 md:pt-8">
-            <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/90">
-              {t("servicesPage.eyebrow")}
-            </p>
             <ServicesHeroTitle
               as="h1"
               before={t("servicesPage.heroTitleBefore")}
               accent={t("servicesPage.heroTitleAccent")}
               after={t("servicesPage.heroTitleAfter")}
               className={cn(
-                "mt-3 max-w-[18ch] text-4xl font-normal leading-[0.95] tracking-[-0.04em] text-[#fffcfc] md:text-5xl",
+                "max-w-[18ch] text-4xl font-normal leading-[0.95] tracking-[-0.04em] text-[#fffcfc] md:text-5xl",
                 pageTitleMegatroxFontClass(locale),
               )}
               neutralClassName="text-white"
@@ -73,7 +72,7 @@ export default async function Services({ params }: ServicesPageProps) {
 
           <ServicesMobileCatalogCards locale={locale} />
         </main>
-        <ServicesTechMarquee compact className="-mt-4" />
+        <ServicesTechMarquee compact className="relative z-0 -mt-4" />
       </div>
 
       <ServicesDesktopCanvas locale={locale} />
