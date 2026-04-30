@@ -9,7 +9,7 @@ import { ServicesTechMarquee } from "@/components/services/ServicesTechMarquee";
 import { getLocaleAlternates } from "@/lib/metadata";
 import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import type { AppLocale } from "@/lib/i18n/locales";
-import { SERVICES_DESKTOP_CANVAS_MIN_H_CLASS } from "@/lib/canvas-route-placeholders";
+import { SERVICES_DESKTOP_CANVAS_MIN_H_CLASS } from "@/components/services/services-desktop-loading.constants";
 import { interSans } from "@/lib/fonts";
 
 const ServicesDesktopCanvas = dynamic(

@@ -13,7 +13,12 @@ import {
   footerSendCtaWidthWideClassName,
   isFooterSendCtaWideLocale,
 } from "@/lib/footer-send-cta-layout";
+import { FIGMA_ASSETS as NeetrinoGlobalFigmaAssets } from "@/lib/figma-assets";
+import { SITE_FOOTER_DESKTOP_FOOTER_BOTTOM_TOP_PX } from "@/lib/site-footer-copyright-strip.constants";
+import { SITE_FOOTER_DESKTOP_ATMOSPHERE_IMAGE_INSET } from "@/lib/site-footer-desktop-atmosphere-166-1259.constants";
 import { cn } from "@/lib/utils";
+import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
+import { SiteFooterDesktopGridBackdrop } from "./SiteFooterDesktopGridBackdrop";
 import { SiteFooterMobile } from "./SiteFooterMobile";
 
 const FIGMA_ASSETS = {
@@ -33,7 +38,6 @@ const FIGMA_ASSETS = {
   imgGroup74: "https://www.figma.com/api/mcp/asset/0ee0b92d-ae16-4581-bf64-c243fca8bf18",
   imgVector3: "https://www.figma.com/api/mcp/asset/5ec474d6-f3cc-4535-a13e-f46ce87dab7f",
   imgVector4: "https://www.figma.com/api/mcp/asset/7b4ba32f-546a-4d51-bf49-e9bc47f586e9",
-  imgRectangle17416: "https://www.figma.com/api/mcp/asset/dead7c9f-b70d-4133-8099-606d5c0a0372",
 } as const;
 
 const SOCIAL_ICON_HREFS = [
@@ -47,8 +51,8 @@ const SOCIAL_ICON_HREFS = [
 ] as const;
 
 /**
- * Footer v2 — Figma node 10:237 (NEETRINO-WEB). Layout/classes match `get_design_context` output;
- * internal routes use `next-intl` `Link`; `mailto:` / `tel:` use app contact constants.
+ * Footer v2 — Figma `10:237` (NEETRINO-WEB). Desktop full-bleed atmosphere: `166:1259` / Rectangle 17417
+ * (`NeetrinoGlobalFigmaAssets.imgRectangle17417`). Internal routes use `next-intl` `Link`.
  */
 export function Footer() {
   const t = useTranslations();
@@ -70,30 +74,40 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      className="w-full overflow-hidden border-t border-[rgba(255,255,255,0.3)] bg-[#151515] font-[family-name:var(--font-dm-sans)] lg:border-t-0"
+      className="w-full overflow-hidden border-t border-[rgba(255,255,255,0.3)] bg-[#151515] font-[family-name:var(--font-dm-sans)] lg:-mt-px lg:border-t-0"
     >
       <div className="relative w-full min-w-0 overflow-hidden">
-        <div className="lg:hidden">
+        {/* Figma `373:974` — desktop hairline sits on the last row of page grid (lg); mobile uses `border-t`. */}
+        <div
+          className="site-footer-desktop-top-rule relative z-[11] shrink-0"
+          aria-hidden
+          data-node-id="373:974"
+        />
+        <div className="relative z-[2] lg:hidden">
           <SiteFooterMobile />
         </div>
-        {/* Viewport-wide gradient (Figma 10:221) — full footer height so #151515 does not show as top/bottom bars. */}
+        <SiteFooterDesktopGridBackdrop />
+        {/* Figma `166:1259` — atmosphere above grid (`z-[1]`), under footer copy (`z-[2]`). */}
         <div
-          className="pointer-events-none absolute inset-0 z-0 hidden overflow-hidden bg-[#151515] lg:block"
+          className="pointer-events-none absolute inset-0 z-[1] hidden overflow-hidden lg:block"
           aria-hidden
         >
-          <div className="absolute inset-[-45%_-55%_-45%_-55%] min-h-[130%] min-w-[120%]">
-            <Image
-              alt=""
-              width={2400}
-              height={2400}
-              unoptimized
-              className="block size-full max-h-none max-w-none object-cover object-center"
-              src={FIGMA_ASSETS.imgRectangle17416}
-            />
+          <div className="relative size-full min-h-full min-w-full" data-node-id="166:1259">
+            <div
+              className="site-footer-desktop-atmosphere-fig absolute"
+              style={{ inset: SITE_FOOTER_DESKTOP_ATMOSPHERE_IMAGE_INSET }}
+            >
+              <FigmaFillImage
+                src={NeetrinoGlobalFigmaAssets.imgRectangle17417}
+                className="max-w-none object-cover object-center"
+                loading="eager"
+              />
+            </div>
+            <div className="site-footer-desktop-atmosphere-bluewash" aria-hidden />
           </div>
         </div>
         <div
-          className="relative isolate mx-auto hidden h-[590px] w-full max-w-[1440px] overflow-hidden lg:block"
+          className="relative z-[2] isolate mx-auto hidden h-[590px] w-full max-w-[1440px] overflow-hidden lg:block"
           data-node-id="10:237"
           data-name="Footer v2"
         >
@@ -133,7 +147,8 @@ export function Footer() {
             </div>
           </div>
           <div
-            className="absolute z-10 h-0 left-[99px] top-[497.76px] w-[1241px]"
+            className="absolute z-10 h-0 left-[99px] w-[1241px]"
+            style={{ top: `${SITE_FOOTER_DESKTOP_FOOTER_BOTTOM_TOP_PX}px` }}
             data-node-id="10:238"
             data-name="Footer Bottom"
           >
