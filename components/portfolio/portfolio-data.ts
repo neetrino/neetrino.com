@@ -1,23 +1,28 @@
-import { PUBLIC_IMAGES } from "@/lib/public-image-paths";
 import type { AppLocale } from "@/lib/i18n/locales";
-import { imgBiotechLogo1, imgPortfolio161, img2661 } from "./portfolio-figma-assets";
+import {
+  img2661,
+  imgBiotechLogo1,
+  imgBorbo1R1,
+  imgDegustoStudioBanner1,
+  imgDigitalImplantClinicBanner1,
+  imgMapcoGroupBanner1,
+  imgNcieNationalCenterBanner1,
+  imgSmartphonePresentationMockup1,
+} from "./portfolio-figma-assets";
 
-export { imgPortfolio161, img2661, imgBiotechLogo1 };
-
-const { portfolio3, portfolio4_1, portfolio6, portfolio10, portfolio14 } = PUBLIC_IMAGES.portfolio;
-
-export const PORTFOLIO_CASE_IMAGES = [
-  imgPortfolio161,
-  portfolio3,
-  portfolio4_1,
-  portfolio6,
-  portfolio10,
-  portfolio14,
+/**
+ * Mobile portfolio cards — same cases and order as `PortfolioDesktopScene` (lg+ canvas).
+ */
+const MOBILE_PORTFOLIO_IMAGES = [
+  img2661,
+  imgBiotechLogo1,
+  imgSmartphonePresentationMockup1,
+  imgDegustoStudioBanner1,
+  imgMapcoGroupBanner1,
+  imgBorbo1R1,
+  imgNcieNationalCenterBanner1,
+  imgDigitalImplantClinicBanner1,
 ] as const;
-
-/** Mobile portfolio grid: initial slice + scroll “load more” step (see `PortfolioMobile`). */
-export const MOBILE_PORTFOLIO_INITIAL_VISIBLE = 6;
-export const MOBILE_PORTFOLIO_LOAD_MORE_STEP = 2;
 
 /**
  * `next/image` `sizes` for cards in the `lg:hidden` grid.
@@ -26,49 +31,42 @@ export const MOBILE_PORTFOLIO_LOAD_MORE_STEP = 2;
 export const MOBILE_PORTFOLIO_CARD_IMAGE_SIZES =
   "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 0vw" as const;
 
-const MOBILE_PORTFOLIO_ITEMS_BASE = [
-  { title: "Landing Platform", image: img2661 },
-  { title: "Biotech Identity", image: imgBiotechLogo1 },
-  { title: "Portfolio Showcase", image: imgPortfolio161 },
-  { title: "Product Campaign", image: portfolio3 },
-  { title: "Brand Story", image: portfolio4_1 },
-  { title: "Creative Launch", image: portfolio6 },
-  { title: "Visual System", image: portfolio10 },
-  { title: "Launch Experience", image: portfolio14 },
-] as const;
-
 const MOBILE_PORTFOLIO_TITLES_BY_LOCALE: Record<AppLocale, readonly string[]> = {
-  en: MOBILE_PORTFOLIO_ITEMS_BASE.map((item) => item.title),
+  en: [
+    "Landing Platform",
+    "Biotech Identity",
+    "ANRA",
+    "DEGUSTO STUDIO",
+    "MAPCO GROUP",
+    "Daily Dose Aqua",
+    "National Center for Innovation and Entrepreneurship",
+    "Digital Implant Clinic",
+  ],
   ru: [
     "Платформа лендингов",
     "Айдентика Biotech",
-    "Портфолио-витрина",
-    "Продуктовая кампания",
-    "История бренда",
-    "Креативный запуск",
-    "Визуальная система",
-    "Запуск продукта",
+    "АНРА",
+    "DEGUSTO STUDIO",
+    "MAPCO GROUP",
+    "Daily Dose Aqua",
+    "Национальный центр инноваций и предпринимательства",
+    "Digital Implant Clinic",
   ],
   hy: [
     "Լենդինգ հարթակ",
     "Biotech ինքնություն",
-    "Պորտֆոլիո վիտրինա",
-    "Պրոդուկտային արշավ",
-    "Բրենդի պատմություն",
-    "Կրեատիվ թողարկում",
-    "Վիզուալ համակարգ",
-    "Թողարկման փորձ",
+    "ANRA",
+    "DEGUSTO STUDIO",
+    "MAPCO GROUP",
+    "Daily Dose Aqua",
+    "Նորարարության և ձեռնարկատիրության ազգային կենտրոն",
+    "Digital Implant Clinic",
   ],
 };
 
 export function getMobilePortfolioItems(locale: AppLocale) {
-  return MOBILE_PORTFOLIO_ITEMS_BASE.map((item, index) => ({
-    ...item,
-    title: MOBILE_PORTFOLIO_TITLES_BY_LOCALE[locale][index] ?? item.title,
+  return MOBILE_PORTFOLIO_IMAGES.map((image, index) => ({
+    image,
+    title: MOBILE_PORTFOLIO_TITLES_BY_LOCALE[locale][index] ?? "",
   }));
 }
-
-export const desktopPortfolioRows = [
-  PORTFOLIO_CASE_IMAGES.slice(0, 3),
-  PORTFOLIO_CASE_IMAGES.slice(3),
-] as const;

@@ -20,6 +20,8 @@
     "mainAria": "Հիմնական նավիգացիա",
     "mobileNavigationAria": "Բջջային նավիգացիա",
     "toggleMenu": "Բացել մենյուն",
+    "closeMenu": "Փակել մենյուն",
+    "menuButton": "Մենյու",
     "goHome": "Գնալ գլխավոր էջ"
   },
   "language": {

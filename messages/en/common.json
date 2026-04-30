@@ -19,7 +19,9 @@
     "more": "More",
     "mainAria": "Main",
     "mobileNavigationAria": "Mobile navigation",
-    "toggleMenu": "Toggle menu",
+    "toggleMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menuButton": "Menu",
     "goHome": "Go to home page"
   },
   "language": {

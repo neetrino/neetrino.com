@@ -2,42 +2,30 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { PortfolioDesktopPagination } from "@/components/portfolio/PortfolioDesktopPagination";
+import { PortfolioMobileBiotechCard } from "@/components/portfolio/PortfolioMobileBiotechCard";
 import {
   MOBILE_PORTFOLIO_CARD_IMAGE_SIZES,
-  MOBILE_PORTFOLIO_INITIAL_VISIBLE,
-  MOBILE_PORTFOLIO_LOAD_MORE_STEP,
   getMobilePortfolioItems,
 } from "@/components/portfolio/portfolio-data";
-import { useIntersectionLoadMore } from "@/lib/hooks/useIntersectionLoadMore";
+import { imgBiotechLogo1 } from "@/components/portfolio/portfolio-figma-assets";
 import type { AppLocale } from "@/lib/i18n/locales";
 import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
+import { PORTFOLIO_DESKTOP_PAGINATION_TOP_MARGIN_CLASS } from "@/lib/portfolio-desktop-scene-dimensions.constants";
 import { cn } from "@/lib/utils";
 
 export function PortfolioMobile() {
   const t = useTranslations();
   const locale = useLocale() as AppLocale;
   const portfolioItems = getMobilePortfolioItems(locale);
-  const total = portfolioItems.length;
-  const { visibleCount, sentinelRef } = useIntersectionLoadMore({
-    totalCount: total,
-    initialVisible: MOBILE_PORTFOLIO_INITIAL_VISIBLE,
-    step: MOBILE_PORTFOLIO_LOAD_MORE_STEP,
-  });
-
-  const visibleItems = portfolioItems.slice(0, visibleCount);
-  const hasMore = visibleCount < total;
 
   return (
     <div className="w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
       <main className="section-container pt-24 pb-14">
         <section className="py-10">
-          <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">
-            {t("portfolioPage.eyebrow")}
-          </p>
           <h1
             className={cn(
-              "mt-3 text-4xl font-normal leading-tight text-white",
+              "text-4xl font-normal leading-tight text-white",
               pageTitleMegatroxFontClass(locale),
             )}
           >
@@ -49,37 +37,39 @@ export function PortfolioMobile() {
         </section>
 
         <section className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
-          {visibleItems.map((item, index) => (
-            <article
-              key={item.title}
-              className="min-w-0 overflow-hidden rounded-[24px] border border-white/12 bg-[#1a1a1a]"
-            >
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
-                <Image
-                  alt={item.title}
-                  src={item.image}
-                  fill
-                  sizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
-                  className="object-cover"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  priority={index === 0}
-                  decoding="async"
-                />
+          {portfolioItems.map((item, index) =>
+            item.image === imgBiotechLogo1 ? (
+              <PortfolioMobileBiotechCard
+                key={item.image}
+                alt={item.title}
+                src={item.image}
+                loading={index === 0 ? "eager" : "lazy"}
+                priority={index === 0}
+                decoding="async"
+              />
+            ) : (
+              <div key={item.image} className="min-w-0">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[24px]">
+                  <Image
+                    alt={item.title}
+                    src={item.image}
+                    fill
+                    sizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
+                    className="object-cover"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    priority={index === 0}
+                    decoding="async"
+                  />
+                </div>
               </div>
-              <div className="p-4 sm:p-5">
-                <h2 className="text-lg font-semibold text-white">{item.title}</h2>
-                <Link
-                  href="/contact"
-                  className="mt-4 inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-medium text-[#252525]"
-                >
-                  {t("cta.viewCase")}
-                </Link>
-              </div>
-            </article>
-          ))}
-          {hasMore ? (
-            <div ref={sentinelRef} className="col-span-full h-1 w-full min-h-[1px]" aria-hidden />
-          ) : null}
+            ),
+          )}
+          <PortfolioDesktopPagination
+            className={cn(
+              "col-span-full w-full shrink-0",
+              PORTFOLIO_DESKTOP_PAGINATION_TOP_MARGIN_CLASS,
+            )}
+          />
         </section>
       </main>
     </div>

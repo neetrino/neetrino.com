@@ -1,0 +1,30 @@
+import {
+  PORTFOLIO_FIRST_BANNER_HEIGHT_PX,
+  PORTFOLIO_FIRST_BANNER_WIDTH_PX,
+} from "@/lib/portfolio-desktop-first-banner.constants";
+import {
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_HEIGHT_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_LEFT_BASE_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_NUDGE_RIGHT_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_TOP_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_WIDTH_PX,
+} from "@/lib/portfolio-second-banner-macbook-video.constants";
+
+const CARD_W = PORTFOLIO_FIRST_BANNER_WIDTH_PX;
+const CARD_H = PORTFOLIO_FIRST_BANNER_HEIGHT_PX;
+
+/** Same horizontal placement as desktop `left` + `translateX(nudge)` on the 631×364 card. */
+const VIDEO_LEFT_TOTAL_DESKTOP_PX =
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_LEFT_BASE_PX +
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_NUDGE_RIGHT_PX;
+
+/**
+ * Percentage box for the MacBook screen video on the mobile Biotech/CAT card.
+ * Parent must use `aspect-[631/364]` so these match the desktop Figma slot.
+ */
+export const PORTFOLIO_MOBILE_BIOTECH_MACBOOK_VIDEO_OVERLAY_STYLE = {
+  width: `${(PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_WIDTH_PX / CARD_W) * 100}%`,
+  height: `${(PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_HEIGHT_PX / CARD_H) * 100}%`,
+  left: `${(VIDEO_LEFT_TOTAL_DESKTOP_PX / CARD_W) * 100}%`,
+  top: `${(PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_TOP_PX / CARD_H) * 100}%`,
+} as const;

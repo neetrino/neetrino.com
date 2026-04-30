@@ -20,6 +20,8 @@
     "mainAria": "Главная навигация",
     "mobileNavigationAria": "Мобильная навигация",
     "toggleMenu": "Открыть меню",
+    "closeMenu": "Закрыть меню",
+    "menuButton": "Меню",
     "goHome": "Перейти на главную страницу"
   },
   "language": {
