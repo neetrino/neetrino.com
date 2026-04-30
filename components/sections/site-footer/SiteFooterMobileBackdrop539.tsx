@@ -16,12 +16,12 @@ const FOOTER_MOBILE_BACKDROP_ROOT_CLASS =
 const FOOTER_GRID_PRE_ROTATE_WIDTH_CLASS =
   "relative max-w-none [width:min(calc(max(100cqw,_100cqh)*1.12),4000px)]" as const;
 
-/** Full-bleed grid shell — under mobile atmosphere wash (`z-[1]` vs `z-[2]` in globals). */
+/** Full-bleed grid shell — entire footer (`inset-0`), centered artwork; under atmosphere (`z-0`). */
 const FOOTER_MOBILE_GRID_SHELL_CLASS =
-  "absolute inset-0 z-[1] flex items-center justify-center overflow-hidden mix-blend-overlay" as const;
+  "absolute inset-0 z-0 flex items-center justify-center overflow-hidden mix-blend-overlay" as const;
 
 const FOOTER_MOBILE_ROBOT_STRIP_CLASS =
-  "pointer-events-none absolute inset-y-0 right-0 z-[4] w-[min(82vw,620px)] min-w-[260px] overflow-hidden";
+  "pointer-events-none absolute inset-y-0 right-0 z-[2] w-[min(82vw,620px)] min-w-[260px] overflow-hidden";
 
 const FOOTER_MOBILE_ROBOT_IMAGE_CLASS =
   "object-cover object-left-top origin-left-top scale-[1.35] -translate-y-[22%]";
@@ -42,7 +42,7 @@ export function SiteFooterMobileBackdrop539() {
               alt=""
               src={SITE_FOOTER_MOBILE_539.vectorGrid}
               fill
-              className="object-cover object-left-top"
+              className="object-cover object-center"
               sizes="100vw"
             />
           </div>
@@ -64,7 +64,7 @@ export function SiteFooterMobileBackdrop539() {
       </div>
 
       <div className={FOOTER_MOBILE_ROBOT_STRIP_CLASS}>
-        <div className="relative h-full min-h-[380px] w-full">
+        <div className="relative h-full min-h-[380px] w-full mix-blend-hard-light">
           <Image
             alt=""
             src={FIGMA_ASSETS.imgMobileFooterRobotProfile}

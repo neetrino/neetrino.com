@@ -148,7 +148,7 @@ html[lang="hy"] body {
 /*
  * Mobile site footer backdrop — Figma NEETRINO-WEB `539:1826` (Ellipse 31).
  * Kept in CSS (not Tailwind arbitrary in `lib/`) so it always ships: blue left → fade right.
- * Stacked above the vector grid in `SiteFooterMobileBackdrop539`; footer copy sits above (`z-[15]`).
+ * Above vector grid (`z-0`); footer copy uses `z-10` in `SiteFooterMobile` (restore: commit `0276c18`).
  *
  * Tuning (horizontal):
  * - `--footer-atmosphere-fade-end` — where the linear wash hits full transparent (right edge of blue).
@@ -177,24 +177,22 @@ html[lang="hy"] body {
 .site-footer-mobile-backdrop-atmosphere {
   --footer-atmosphere-fade-end: 98%;
   --footer-atmosphere-mid: 95%;
-  --footer-atmosphere-radial-fade-end: 72%;
+  --footer-atmosphere-radial-fade-end: 70%;
 
   pointer-events: none;
   position: absolute;
   inset: 0;
-  /* Above vector grid (`z-[1]` in `SiteFooterMobileBackdrop539`), below line/robot. */
-  z-index: 2;
+  z-index: 1;
   background:
-    radial-gradient(ellipse 78% 62% at 50% 48%, rgba(52, 102, 245, 0.28) 0%, transparent 58%),
     radial-gradient(
       ellipse 100% 88% at 0% 30%,
-      rgba(70, 132, 255, 0.58) 0%,
+      rgba(70, 132, 255, 0.48) 0%,
       transparent var(--footer-atmosphere-radial-fade-end)
     ),
     linear-gradient(
       90deg,
-      rgba(36, 92, 235, 0.52) 0%,
-      rgba(24, 62, 185, 0.26) var(--footer-atmosphere-mid),
+      rgba(36, 92, 235, 0.42) 0%,
+      rgba(20, 55, 160, 0.16) var(--footer-atmosphere-mid),
       rgba(21, 21, 21, 0) var(--footer-atmosphere-fade-end)
     );
 }

@@ -8,7 +8,6 @@ import { CONTACT_DETAILS } from "@/components/contact/content";
 import { FOOTER_SOCIAL_ICON_HREFS } from "@/lib/site-footer-social-hrefs";
 import { SITE_FOOTER_MOBILE_539 } from "@/lib/site-footer-mobile-539-assets.constants";
 import { interSans } from "@/lib/fonts";
-import { SITE_FOOTER_COPYRIGHT_STRIP_NUDGE_DOWN_PX } from "@/lib/site-footer-copyright-strip.constants";
 import { cn } from "@/lib/utils";
 import { SiteFooterMobileBackdrop539 } from "./SiteFooterMobileBackdrop539";
 
@@ -84,7 +83,7 @@ export function SiteFooterMobile() {
       )}
     >
       <SiteFooterMobileBackdrop539 />
-      <div className="relative z-[15] mx-auto max-w-[min(100%,22.75rem)] px-4 pb-10 pt-[2.875rem] sm:px-5">
+      <div className="relative z-10 mx-auto max-w-[min(100%,22.75rem)] px-4 pb-10 pt-[2.875rem] sm:px-5">
         <nav className="flex flex-col gap-8" aria-label={t("footer.company")}>
           <section>
             <h2 className={SECTION_TITLE_CLASS}>{t("footer.company")}</h2>
@@ -282,12 +281,7 @@ export function SiteFooterMobile() {
           ))}
         </div>
 
-        <div
-          className="border-t border-white/10 pt-6"
-          style={{
-            marginTop: `calc(1.5rem + ${SITE_FOOTER_COPYRIGHT_STRIP_NUDGE_DOWN_PX}px)`,
-          }}
-        >
+        <div className="mt-6 border-t border-white/10 pt-6">
           <p className="text-center text-xs font-normal leading-4 text-[#dcd5d5]">
             {t("footer.copyright")}
           </p>
