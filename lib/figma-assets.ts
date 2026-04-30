@@ -84,10 +84,6 @@ export const FIGMA_ASSETS = {
   imgAboutWhySpark: assetUrl("figma-assets/5cb347ac-1d77-4f22-a043-c036d8ed1e05.webp"),
   imgAboutWhyHelmet: assetUrl("figma-assets/24c0ed51-de21-4698-b5d0-2c4c937d5cec.webp"),
   imgVector10: assetUrl("figma-assets/4c86716c-d6b3-49d5-9a52-000806be645d.svg"),
-  /** Mobile footer robot — Figma `722:742` (1080×1920 PNG, paired with `mix-blend-hard-light` in `SiteFooterMobile`). */
+  /** Mobile footer robot — Figma `722:742`; `SiteFooterMobileBackdrop539` + `mix-blend-hard-light`. */
   imgMobileFooterRobotProfile: assetUrl("figma-assets/27e4f1f7-b16b-46db-96dc-0d5f564ddf5f.png"),
-  /** Mobile footer — Figma `479:1145` grid / vignette (`mix-blend-overlay` in file). */
-  imgMobileFooterBackground479_1145: assetUrl(
-    "figma-assets/70766d82-8421-40b3-b78e-a58333e6fc45.svg",
-  ),
 } as const;

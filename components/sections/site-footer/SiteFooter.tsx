@@ -71,7 +71,7 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      className="w-full overflow-hidden border-t border-white/20 bg-[#151515] font-[family-name:var(--font-dm-sans)]"
+      className="w-full overflow-hidden border-t border-[rgba(255,255,255,0.3)] bg-[#151515] font-[family-name:var(--font-dm-sans)] lg:border-white/20"
     >
       <div className="relative w-full min-w-0 overflow-hidden">
         <div className="lg:hidden">

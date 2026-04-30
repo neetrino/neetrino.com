@@ -5,18 +5,11 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
 import { CONTACT_DETAILS } from "@/components/contact/content";
-import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { FOOTER_SOCIAL_ICON_HREFS } from "@/lib/site-footer-social-hrefs";
-import {
-  SITE_FOOTER_MOBILE_VECTOR_BLEND_HOST_CLASS,
-  SITE_FOOTER_MOBILE_VECTOR_FRAME_CLASS,
-  SITE_FOOTER_MOBILE_VECTOR_IMAGE_CLASS,
-} from "@/lib/site-footer-mobile-background.constants";
-import {
-  SITE_FOOTER_MOBILE_ROBOT_DECORATION_CLASS,
-  SITE_FOOTER_MOBILE_ROBOT_IMAGE_CLASS,
-} from "@/lib/site-footer-mobile-robot.constants";
+import { SITE_FOOTER_MOBILE_539 } from "@/lib/site-footer-mobile-539-assets.constants";
+import { interSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { SiteFooterMobileBackdrop539 } from "./SiteFooterMobileBackdrop539";
 
 const LINK_CLASS =
   "block text-left text-sm font-normal leading-5 tracking-[-0.15px] text-white transition-opacity hover:opacity-85";
@@ -32,90 +25,65 @@ const SOCIAL_ICONS: ReadonlyArray<{
   {
     href: FOOTER_SOCIAL_ICON_HREFS[0],
     label: "Facebook",
-    src: FIGMA_ASSETS.imgSocialMediaIconSquareFacebook,
+    src: SITE_FOOTER_MOBILE_539.socialFacebook,
     wrapperClass: "h-[19px] w-[11px]",
   },
   {
     href: FOOTER_SOCIAL_ICON_HREFS[1],
     label: "Instagram",
-    src: FIGMA_ASSETS.imgSocialMediaIconSquareInstagram,
+    src: SITE_FOOTER_MOBILE_539.socialInstagram,
     wrapperClass: "size-[19px]",
   },
   {
     href: FOOTER_SOCIAL_ICON_HREFS[2],
     label: "LinkedIn",
-    src: FIGMA_ASSETS.imgGroup73,
+    src: SITE_FOOTER_MOBILE_539.socialLinkedIn,
     wrapperClass: "h-[18px] w-[19px]",
     innerClass: "absolute inset-[4.58%_0.79%_0.19%_4.47%]",
   },
   {
     href: FOOTER_SOCIAL_ICON_HREFS[3],
     label: "Behance",
-    src: FIGMA_ASSETS.imgGroup,
+    src: SITE_FOOTER_MOBILE_539.socialBehance,
     wrapperClass: "h-[15px] w-[24px]",
   },
   {
     href: FOOTER_SOCIAL_ICON_HREFS[4],
     label: "YouTube",
-    src: FIGMA_ASSETS.imgGroup74,
+    src: SITE_FOOTER_MOBILE_539.socialYouTube,
     wrapperClass: "h-[15px] w-[21px]",
     innerClass: "absolute inset-[2.64%_1.19%_4.05%_4.52%]",
   },
   {
     href: FOOTER_SOCIAL_ICON_HREFS[5],
     label: "WhatsApp",
-    src: FIGMA_ASSETS.imgVector3,
+    src: SITE_FOOTER_MOBILE_539.socialWhatsApp,
     wrapperClass: "size-[20px]",
   },
   {
     href: FOOTER_SOCIAL_ICON_HREFS[6],
     label: "Telegram",
-    src: FIGMA_ASSETS.imgVector4,
+    src: SITE_FOOTER_MOBILE_539.socialTelegram,
     wrapperClass: "h-[20.472px] w-[18.796px]",
   },
 ];
 
 /**
- * Mobile footer — Figma `479:1323` (stacked content), `479:1145` grid vector (`mix-blend-overlay`),
- * robot strip right (`722:742` + `mix-blend-hard-light`).
- * Rendered inside `<Footer />` under `lg:hidden`; desktop keeps pixel `SiteFooter` canvas.
+ * Mobile footer — Figma `539:1824` (NEETRINO-WEB): #151515, grid + glow backdrop, portrait art,
+ * Inter typography, CTA + social row aligned to handoff.
  */
 export function SiteFooterMobile() {
   const t = useTranslations();
 
   return (
-    <div className="relative isolate min-h-[280px] overflow-hidden bg-[#121212] font-[family-name:var(--font-dm-sans)] lg:hidden">
-      <div
-        className={cn(
-          "pointer-events-none absolute inset-0 z-0 size-full [container-type:size]",
-          SITE_FOOTER_MOBILE_VECTOR_BLEND_HOST_CLASS,
-        )}
-        aria-hidden
-      >
-        <div className={SITE_FOOTER_MOBILE_VECTOR_FRAME_CLASS}>
-          <Image
-            alt=""
-            src={FIGMA_ASSETS.imgMobileFooterBackground479_1145}
-            fill
-            className={SITE_FOOTER_MOBILE_VECTOR_IMAGE_CLASS}
-            sizes="100vw"
-            priority={false}
-          />
-        </div>
-      </div>
-      <div className={SITE_FOOTER_MOBILE_ROBOT_DECORATION_CLASS} aria-hidden>
-        <div className="relative h-full min-h-[380px] w-full mix-blend-hard-light">
-          <Image
-            alt=""
-            src={FIGMA_ASSETS.imgMobileFooterRobotProfile}
-            fill
-            sizes="(max-width: 1024px) 82vw, 0"
-            className={cn("pointer-events-none", SITE_FOOTER_MOBILE_ROBOT_IMAGE_CLASS)}
-            priority={false}
-          />
-        </div>
-      </div>
-      <div className="relative z-10 mx-auto max-w-[min(100%,22.75rem)] px-4 pb-10 pt-10 sm:px-5">
+    <div
+      className={cn(
+        "relative isolate min-h-[280px] overflow-hidden bg-[#151515] lg:hidden",
+        interSans.className,
+      )}
+    >
+      <SiteFooterMobileBackdrop539 />
+      <div className="relative z-10 mx-auto max-w-[min(100%,22.75rem)] px-4 pb-10 pt-[2.875rem] sm:px-5">
         <nav className="flex flex-col gap-8" aria-label={t("footer.company")}>
           <section>
             <h2 className={SECTION_TITLE_CLASS}>{t("footer.company")}</h2>
@@ -193,22 +161,22 @@ export function SiteFooterMobile() {
             <h2 className={SECTION_TITLE_CLASS}>{t("footer.contact")}</h2>
             <ul className="mt-4 flex max-w-[min(100%,22rem)] flex-col gap-3">
               <li className="flex items-start gap-2">
-                <span className="relative mt-0.5 h-[18px] w-[14px] shrink-0">
+                <span className="relative mt-0.5 size-4 shrink-0">
                   <Image
                     alt=""
-                    src={FIGMA_ASSETS.imgVector}
+                    src={SITE_FOOTER_MOBILE_539.contactAddress}
                     fill
                     className="object-contain"
-                    sizes="14px"
+                    sizes="16px"
                   />
                 </span>
                 <span className={LINK_CLASS}>{t("footer.address")}</span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="relative h-[15px] w-5 shrink-0">
+                <span className="relative h-4 w-5 shrink-0">
                   <Image
                     alt=""
-                    src={FIGMA_ASSETS.imgVector1}
+                    src={SITE_FOOTER_MOBILE_539.contactEmail}
                     fill
                     className="object-contain"
                     sizes="20px"
@@ -222,13 +190,13 @@ export function SiteFooterMobile() {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <span className="relative size-[18px] shrink-0">
+                <span className="relative size-4 shrink-0">
                   <Image
                     alt=""
-                    src={FIGMA_ASSETS.imgVector2}
+                    src={SITE_FOOTER_MOBILE_539.contactPhone}
                     fill
                     className="object-contain"
-                    sizes="18px"
+                    sizes="16px"
                   />
                 </span>
                 <a
@@ -239,13 +207,13 @@ export function SiteFooterMobile() {
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <span className="relative mt-0.5 h-[21px] w-[21.5px] shrink-0">
+                <span className="relative mt-0.5 size-5 shrink-0">
                   <Image
                     alt=""
-                    src={FIGMA_ASSETS.imgGroup2087329580}
+                    src={SITE_FOOTER_MOBILE_539.contactHours}
                     fill
                     className="object-contain"
-                    sizes="22px"
+                    sizes="20px"
                   />
                 </span>
                 <span className="text-sm font-normal leading-5 tracking-[-0.15px] text-white">
@@ -264,7 +232,7 @@ export function SiteFooterMobile() {
             </p>
             <Link
               href="/contact"
-              className="mt-6 flex h-14 w-full items-center rounded-[999px] bg-white px-4 text-left text-sm text-[rgba(74,85,101,0.5)] shadow-[0px_2px_12px_0px_rgba(20,20,43,0.08)] transition-opacity hover:opacity-95"
+              className="mt-6 flex h-14 w-full items-center rounded-full bg-white px-4 text-left text-sm text-[rgba(74,85,101,0.5)] shadow-[0px_2px_12px_0px_rgba(20,20,43,0.08)] transition-opacity hover:opacity-95"
             >
               {t("footer.placeholder")}
             </Link>
@@ -276,7 +244,7 @@ export function SiteFooterMobile() {
               <span className="pointer-events-none absolute right-2 top-1/2 size-[42px] shrink-0 -translate-y-1/2">
                 <Image
                   alt=""
-                  src={FIGMA_ASSETS.imgGroup221}
+                  src={SITE_FOOTER_MOBILE_539.sendArrow}
                   fill
                   className="object-contain"
                   sizes="42px"
@@ -286,7 +254,7 @@ export function SiteFooterMobile() {
           </section>
         </nav>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 px-4">
           {SOCIAL_ICONS.map((item) => (
             <a
               key={item.label}
