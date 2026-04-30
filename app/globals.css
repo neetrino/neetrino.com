@@ -133,6 +133,18 @@ html[lang="hy"] body {
     var(--font-noto-sans-armenian), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
+/**
+ * Figma Latin wordmarks (e.g. portfolio `166:1213`): keep the local `Megatrox` @font-face first.
+ * `var(--font-megatrox)` is replaced on `html[lang="hy"]` with Noto+Inter only, so headings that
+ * used the token would never match the Megatrox export; glyphs missing in Megatrox still fall
+ * through to Noto / Inter.
+ */
+.font-megatrox-figma {
+  font-family:
+    "Megatrox", var(--font-noto-sans-armenian), var(--font-inter), ui-sans-serif, system-ui,
+    sans-serif;
+}
+
 /*
   Neetrino: fluid canvas — 1440×5006 design scales proportionally to any viewport.
   Used by CanvasScaler for the desktop (lg+) layout.

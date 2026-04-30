@@ -1,18 +1,19 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowUpRight, Clock, Mail, MapPin, Phone, Sparkles } from "lucide-react";
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { ContactSocialIcon } from "@/components/contact/ContactSocialIcon";
 import { CONTACT_DETAILS, CONTACT_SOCIAL_LINKS } from "@/components/contact/content";
 import { ContactInquiryForm } from "@/components/contact/ContactInquiryForm";
 import { interSans } from "@/lib/fonts";
-import { getLocaleAlternates } from "@/lib/metadata";
 import type { AppLocale } from "@/lib/i18n/locales";
+import { getLocaleAlternates } from "@/lib/metadata";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import {
   NEETRINO_DESKTOP_CANVAS_WIDTH_PX,
   NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX,
 } from "@/lib/desktop-header-layout.constants";
+import { cn } from "@/lib/utils";
 
 type ContactPageProps = {
   params: Promise<{ locale: AppLocale }>;
@@ -28,8 +29,9 @@ export async function generateMetadata({ params }: ContactPageProps): Promise<Me
   };
 }
 
-export default function ContactPage() {
-  const t = useTranslations();
+export default async function ContactPage({ params }: ContactPageProps) {
+  const { locale } = await params;
+  const t = await getTranslations();
 
   return (
     <div className="w-full min-w-0 overflow-x-hidden bg-[#151515]">
@@ -45,7 +47,12 @@ export default function ContactPage() {
                 <Sparkles className="size-3.5" aria-hidden />
                 {t("contactPage.heroEyebrow")}
               </p>
-              <h1 className="mt-5 font-[family-name:var(--font-megatrox)] text-4xl leading-tight text-white md:text-6xl md:leading-[1.05]">
+              <h1
+                className={cn(
+                  "mt-5 text-4xl leading-tight text-white md:text-6xl md:leading-[1.05]",
+                  pageTitleMegatroxFontClass(locale),
+                )}
+              >
                 {t("contactPage.heroTitle")}
               </h1>
               <p className="mt-5 max-w-xl text-base font-light leading-relaxed text-white/80 md:text-lg">

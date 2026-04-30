@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { interSans } from "@/lib/fonts";
 import { getLocaleAlternates } from "@/lib/metadata";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
+import { cn } from "@/lib/utils";
 import type { AppLocale } from "@/lib/i18n/locales";
 import {
   NEETRINO_DESKTOP_CANVAS_WIDTH_PX,
@@ -22,7 +24,8 @@ export async function generateMetadata({ params }: TeamPageProps): Promise<Metad
   };
 }
 
-export default async function TeamPage() {
+export default async function TeamPage({ params }: TeamPageProps) {
+  const { locale } = await params;
   const t = await getTranslations();
 
   return (
@@ -30,7 +33,14 @@ export default async function TeamPage() {
       <main
         className={`mx-auto max-w-3xl px-6 pt-24 pb-16 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})] ${interSans.className}`}
       >
-        <h1 className="text-3xl font-bold text-white md:text-4xl">{t("teamPage.title")}</h1>
+        <h1
+          className={cn(
+            "text-3xl font-normal text-white md:text-4xl",
+            pageTitleMegatroxFontClass(locale),
+          )}
+        >
+          {t("teamPage.title")}
+        </h1>
         <p className="mt-4 text-lg text-white/70">{t("teamPage.placeholder")}</p>
       </main>
     </div>

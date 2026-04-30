@@ -11,10 +11,12 @@ import type { BlogPost } from "@/lib/server/blog/types";
 import type { AppLocale } from "@/lib/i18n/locales";
 import { interSans } from "@/lib/fonts";
 import { getLocaleAlternates } from "@/lib/metadata";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import {
   NEETRINO_DESKTOP_CANVAS_WIDTH_PX,
   NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX,
 } from "@/lib/desktop-header-layout.constants";
+import { cn } from "@/lib/utils";
 
 type BlogPostPageProps = {
   params: Promise<{ locale: AppLocale; slug: string }>;
@@ -57,7 +59,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-function BlogPostHeader({ post }: { post: BlogPost }) {
+function BlogPostHeader({ post, locale }: { post: BlogPost; locale: AppLocale }) {
   const titleParts = blogTitleMegatroxParts(post.title);
 
   return (
@@ -65,7 +67,12 @@ function BlogPostHeader({ post }: { post: BlogPost }) {
       <time className="text-sm font-medium tabular-nums text-white/50" dateTime={post.dateIso}>
         {post.dateLabel}
       </time>
-      <h1 className="mt-4 max-w-4xl font-[family-name:var(--font-megatrox)] text-3xl font-normal leading-[0.98] tracking-[-0.04em] text-[#fffcfc] sm:text-4xl md:text-5xl lg:text-[52px] lg:leading-[1.02]">
+      <h1
+        className={cn(
+          "mt-4 max-w-4xl text-3xl font-normal leading-[0.98] tracking-[-0.04em] text-[#fffcfc] sm:text-4xl md:text-5xl lg:text-[52px] lg:leading-[1.02]",
+          pageTitleMegatroxFontClass(locale),
+        )}
+      >
         {titleParts.accent ? (
           <>
             <span className="text-white">{titleParts.before}</span>
@@ -135,7 +142,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         <div className="mt-10 md:mt-12">
-          <BlogPostHeader post={post} />
+          <BlogPostHeader post={post} locale={locale} />
         </div>
 
         {markdownSections.length > 0 ? (

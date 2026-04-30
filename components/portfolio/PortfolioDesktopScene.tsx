@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { DeferredMount } from "@/components/layout/DeferredMount";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { PortfolioDesktopPagination } from "@/components/portfolio/PortfolioDesktopPagination";
@@ -54,6 +54,8 @@ import {
   PORTFOLIO_DESKTOP_PAGINATION_TOP_MARGIN_CLASS,
   PORTFOLIO_DESKTOP_SCENE_HEIGHT_PX,
 } from "@/lib/portfolio-desktop-scene-dimensions.constants";
+import type { AppLocale } from "@/lib/i18n/locales";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import { cn } from "@/lib/utils";
 
 function Button({ className }: { className?: string }) {
@@ -442,6 +444,7 @@ function PortfolioPlanet() {
 
 export function PortfolioDesktopScene() {
   const t = useTranslations();
+  const locale = useLocale() as AppLocale;
 
   return (
     <div
@@ -487,7 +490,10 @@ export function PortfolioDesktopScene() {
           />
         </div>
         <p
-          className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap"
+          className={cn(
+            "absolute left-[calc(50%-646px)] top-[152px] whitespace-nowrap text-[90px] font-normal leading-[normal] not-italic text-[#fffcfc]",
+            pageTitleMegatroxFontClass(locale),
+          )}
           data-node-id="166:1213"
         >
           {t("portfolioPage.metaTitle")}

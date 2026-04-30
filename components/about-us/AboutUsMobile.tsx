@@ -3,6 +3,8 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import type { AppLocale } from "@/lib/i18n/locales";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import {
   ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
   ABOUT_MOBILE_HERO_HEADLINE_TEXT_HY_CLASS,
@@ -169,12 +171,17 @@ function HeroSection({
   heroBecomes: string;
   heroPossible: string;
 }) {
-  const locale = useLocale();
+  const locale = useLocale() as AppLocale;
   const hyHeadlineText = locale === "hy" && ABOUT_MOBILE_HERO_HEADLINE_TEXT_HY_CLASS;
 
   return (
     <section className="pt-2 pb-10 sm:pt-4 sm:pb-12">
-      <h1 className="font-['Inter:Regular',sans-serif] text-[clamp(2.5rem,13vw,4.75rem)] uppercase tracking-tight text-white leading-[0.95]">
+      <h1
+        className={cn(
+          "text-[clamp(2.5rem,13vw,4.75rem)] tracking-tight text-white leading-[0.95]",
+          pageTitleMegatroxFontClass(locale),
+        )}
+      >
         <span className={cn("block", hyHeadlineText)}>
           {heroWith}
           {heroUs ? (
@@ -194,12 +201,7 @@ function HeroSection({
           {heroEveryIdea}
         </span>
         <span className={cn("block", hyHeadlineText)}>{heroBecomes}</span>
-        <span
-          className={cn(
-            "block font-['Megatrox',sans-serif] font-normal not-italic tracking-normal",
-            hyHeadlineText,
-          )}
-        >
+        <span className={cn("block font-normal not-italic tracking-normal", hyHeadlineText)}>
           {heroPossible}
         </span>
       </h1>

@@ -11,6 +11,8 @@ import {
 } from "@/components/portfolio/portfolio-data";
 import { useIntersectionLoadMore } from "@/lib/hooks/useIntersectionLoadMore";
 import type { AppLocale } from "@/lib/i18n/locales";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
+import { cn } from "@/lib/utils";
 
 export function PortfolioMobile() {
   const t = useTranslations();
@@ -33,7 +35,12 @@ export function PortfolioMobile() {
           <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">
             {t("portfolioPage.eyebrow")}
           </p>
-          <h1 className="mt-3 font-['Megatrox',sans-serif] text-4xl leading-tight text-white">
+          <h1
+            className={cn(
+              "mt-3 text-4xl font-normal leading-tight text-white",
+              pageTitleMegatroxFontClass(locale),
+            )}
+          >
             {t("portfolioPage.metaTitle")}
           </h1>
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/75">

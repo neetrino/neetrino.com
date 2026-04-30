@@ -4,7 +4,9 @@ import { Link } from "@/i18n/navigation";
 import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
+import type { AppLocale } from "@/lib/i18n/locales";
 import { interSans } from "@/lib/fonts";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import {
   MOBILE_HERO_STAT_WIDE,
   MOBILE_HERO_STAT_WIDE_HAND,
@@ -50,11 +52,16 @@ function HeroBackground() {
 /**
  * Figma 241:827–828 — absolute title + robot (fixed px match 393px frame; no vh min-height).
  */
-function HeroTitleAndRobot() {
+function HeroTitleAndRobot({ locale }: { locale: AppLocale }) {
   return (
     <>
       {/* Min left 24px — see MOBILE_HERO_TITLE_MIN_INSET_PX; keeps megatrox title off the edge on narrow viewports. */}
-      <h1 className="absolute left-[max(24px,calc(50%-191px))] top-[66px] z-30 max-w-[260px] font-[family-name:var(--font-megatrox)] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]">
+      <h1
+        className={cn(
+          "absolute left-[max(24px,calc(50%-191px))] top-[66px] z-30 max-w-[260px] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]",
+          pageTitleMegatroxFontClass(locale),
+        )}
+      >
         <span className="block">NEET</span>
         <span className="block">RIN</span>
         <span className="block">O</span>
@@ -234,7 +241,7 @@ function HeroStatWide() {
 const HERO_LOWER_BLUR_TOP = "top-[calc(88px+660px)]";
 const HERO_LOWER_BLUR_RADIUS = "rounded-[32px]";
 
-export function HeroSection() {
+export function HeroSection({ locale }: { locale: AppLocale }) {
   return (
     <section
       className={`relative isolate min-w-0 overflow-x-clip touch-pan-y [overscroll-behavior-x:contain] bg-[#151515] pb-10 ${interSans.className}`}
@@ -248,7 +255,7 @@ export function HeroSection() {
             aria-hidden
           />
           <div className="relative min-h-[853px] w-full min-w-0">
-            <HeroTitleAndRobot />
+            <HeroTitleAndRobot locale={locale} />
             <HeroBodyCopy />
             <HeroCtas />
           </div>

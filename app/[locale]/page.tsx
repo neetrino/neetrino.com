@@ -42,13 +42,15 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   };
 }
 
-export default function Home() {
+export default async function Home({ params }: HomePageProps) {
+  const { locale } = await params;
+
   return (
     <div className="w-full min-w-0 overflow-x-hidden">
       {/* Mobile layout: section-based, hidden on lg+ */}
       <div className="lg:hidden">
         <main>
-          <HeroSection />
+          <HeroSection locale={locale} />
           <WhoWeAre />
           <WhatWeDo />
           <Projects />
