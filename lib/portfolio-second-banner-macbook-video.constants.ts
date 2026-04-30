@@ -1,3 +1,4 @@
+import { assetUrl } from "@/lib/assets";
 import {
   PORTFOLIO_FIRST_BANNER_HEIGHT_PX,
   PORTFOLIO_FIRST_BANNER_WIDTH_PX,
@@ -7,8 +8,9 @@ import {
  * Second desktop portfolio hero card (`166:1236`) — video on the MacBook in `imgBiotechLogo1`.
  * Size matches design spec; position = card center + `SHIFT_*` + `NUDGE_RIGHT_PX`.
  */
-export const PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_SRC =
-  "/portfolio/cat-card-macbook-screen-recording.mp4" as const;
+export const PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_SRC = assetUrl(
+  "portfolio/cat-card-macbook-screen-recording.mp4",
+);
 
 export const PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_ARIA_LABEL =
   "Screen recording on the MacBook mockup" as const;
