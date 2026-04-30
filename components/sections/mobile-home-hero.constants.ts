@@ -1,4 +1,4 @@
-/** Mobile home hero (Figma 241:821) — stat cards. */
+/** Mobile home hero (Figma 241:821) — stat cards. Blue grid strip matches desktop `NeetrinoHomeSegment1` (`10:426`, `FIGMA_ASSETS.imgRectangle17399`). */
 
 /**
  * Minimum inset of the megatrox title from the content edge so “NEET/RIN/O” never touches

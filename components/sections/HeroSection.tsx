@@ -152,6 +152,37 @@ function HeroStatsTop() {
   );
 }
 
+/**
+ * Stat block (8+ / 97+ → 450+) — same blue + cell SVG as desktop hero lower band (`NeetrinoHomeSegment1`, Figma `10:426`).
+ * Full-bleed strip; cards stay above on `z-20`.
+ */
+function HeroStatsRegionWithGrid() {
+  return (
+    <div className="relative w-full">
+      <div
+        className="pointer-events-none absolute top-0 bottom-0 left-1/2 z-0 w-screen max-w-[100vw] -translate-x-1/2"
+        aria-hidden
+      >
+        <div className="relative h-full w-full min-h-[1px]">
+          <div className="absolute inset-0 -scale-y-100 rotate-180">
+            <Image
+              alt=""
+              src={FIGMA_ASSETS.imgRectangle17399}
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+              quality={DEFAULT_IMAGE_QUALITY}
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+      <HeroStatsTop />
+      <HeroStatWide />
+    </div>
+  );
+}
+
 function HeroStatWide() {
   const t = useTranslations();
   const s = MOBILE_HERO_STAT_WIDE;
@@ -206,7 +237,7 @@ const HERO_LOWER_BLUR_RADIUS = "rounded-[32px]";
 export function HeroSection() {
   return (
     <section
-      className={`relative min-w-0 overflow-x-clip touch-pan-y [overscroll-behavior-x:contain] bg-[#151515] pb-10 ${interSans.className}`}
+      className={`relative isolate min-w-0 overflow-x-clip touch-pan-y [overscroll-behavior-x:contain] bg-[#151515] pb-10 ${interSans.className}`}
     >
       <HeroBackground />
       {/* Full viewport width: absolutes are laid out from the 393px column but overflow must clip at the screen edge, not the column edge. */}
@@ -221,8 +252,7 @@ export function HeroSection() {
             <HeroBodyCopy />
             <HeroCtas />
           </div>
-          <HeroStatsTop />
-          <HeroStatWide />
+          <HeroStatsRegionWithGrid />
         </div>
       </div>
     </section>
