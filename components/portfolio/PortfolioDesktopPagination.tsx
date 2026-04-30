@@ -6,10 +6,13 @@ import {
   PORTFOLIO_DESKTOP_PAGINATION_GAP_CLASS,
   PORTFOLIO_DESKTOP_PAGINATION_PLACEHOLDER_PAGE_COUNT,
 } from "@/lib/portfolio-desktop-pagination.constants";
+import { assetUrl } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 
-const PAGINATION_ARROW_LEFT_SRC = "/figma-assets/36291cec-d698-4638-8a70-b34393be43d0.svg";
-const PAGINATION_ARROW_RIGHT_SRC = "/figma-assets/7f403ffa-0378-4452-a23b-9854a6968aa2.svg";
+const PAGINATION_ARROW_LEFT_SRC = assetUrl("figma-assets/36291cec-d698-4638-8a70-b34393be43d0.svg");
+const PAGINATION_ARROW_RIGHT_SRC = assetUrl(
+  "figma-assets/7f403ffa-0378-4452-a23b-9854a6968aa2.svg",
+);
 
 const PAGINATION_ARROW_PX = 18;
 

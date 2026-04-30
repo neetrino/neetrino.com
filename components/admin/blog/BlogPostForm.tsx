@@ -40,7 +40,7 @@ export function BlogPostForm({ post, action }: BlogPostFormProps) {
               className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:border-[#473dff]"
               defaultValue={post?.coverImageUrl ?? ""}
               name="coverImageUrl"
-              placeholder="/figma-assets/example.webp or https://example.com/image.webp"
+              placeholder="https://cdn.neetrino.com/figma-assets/example.webp or other absolute image URL"
             />
           </label>
         </div>

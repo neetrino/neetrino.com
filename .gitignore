@@ -34,6 +34,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Local R2 upload credentials (pass with --config; do not commit)
+r2-upload-config.local.json
+scripts/assets/r2-upload-config.local.json
+
 # vercel
 .vercel
 

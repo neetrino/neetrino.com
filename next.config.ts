@@ -36,6 +36,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "cdn.neetrino.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "www.figma.com",
         pathname: "/api/mcp/**",
       },
