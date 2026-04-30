@@ -221,7 +221,7 @@ html[lang="hy"] body {
   animation-play-state: paused;
 }
 
-/* Desktop home (NeetrinoHomeSegment4): projects marquee — duration 48s per row */
+/* Desktop home (NeetrinoHomeSegment4): projects marquee — row loop duration (slower = larger value) */
 @keyframes home-projects-marquee-to-left {
   from {
     transform: translateX(0);
@@ -241,6 +241,7 @@ html[lang="hy"] body {
 }
 
 .home-projects-marquee-clip {
+  --home-projects-marquee-row-duration: 60s;
   overflow: hidden;
   width: 100%;
   -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
@@ -252,7 +253,7 @@ html[lang="hy"] body {
   width: max-content;
   align-items: flex-end;
   gap: 11px;
-  animation-duration: 48s;
+  animation-duration: var(--home-projects-marquee-row-duration);
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
