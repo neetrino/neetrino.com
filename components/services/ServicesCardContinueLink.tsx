@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
+import { cn } from "@/lib/utils";
 import { imgSafearea } from "./services-assets";
 import {
   servicesContinueArrowClassName,
@@ -27,7 +28,15 @@ export function ServicesCardContinueLink({
   label,
 }: ServicesCardContinueLinkProps) {
   return (
-    <Link href={href} className={servicesContinueLinkClassName(glowVariant)} aria-label={ariaLabel}>
+    <Link
+      href={href}
+      className={cn(
+        servicesContinueLinkClassName(glowVariant),
+        /* Mobile: lift only the pill visually; margin would tighten flex layout of the card. */
+        "max-lg:-translate-y-3",
+      )}
+      aria-label={ariaLabel}
+    >
       <span className={servicesContinueLabelStackClassName()}>
         <span className={servicesContinueLabelSolidLayerClassName()}>{label}</span>
         <span aria-hidden className={servicesContinueLabelGradientLayerClassName(glowVariant)}>
