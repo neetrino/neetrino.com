@@ -29,7 +29,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
   const t = await getTranslations();
 
   return (
-    <div className="w-full min-w-0 overflow-x-hidden bg-[#151515]">
+    <div className="w-full min-w-0 overflow-x-hidden bg-transparent">
       <main
         className={cn(
           "mx-auto max-w-3xl px-6 pt-30 pb-16",

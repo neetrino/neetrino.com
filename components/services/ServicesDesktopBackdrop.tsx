@@ -1,18 +1,15 @@
 import Image from "next/image";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
-import { img10, imgRectangle17414, imgRectangle17416, imgVector2 } from "./services-assets";
+import { ServicesDesktopVectorGridPattern } from "@/components/services/ServicesDesktopVectorGridPattern";
+import { img10, imgRectangle17414, imgRectangle17416 } from "./services-assets";
 
 /** Layers under the Light Rays group (vector wash, mid images, band). */
 export function ServicesDesktopBackdrop() {
   return (
     <>
-      <div className="-translate-x-1/2 absolute flex h-[3723px] items-center justify-center left-[calc(50%-38px)] mix-blend-overlay top-[-40px] w-[1722px]">
-        <div className="flex-none rotate-90">
-          <div className="h-[1722px] relative w-[3723px]" data-name="Vector" data-node-id="165:667">
-            <FigmaFillImage src={imgVector2} />
-          </div>
-        </div>
+      <div className="mix-blend-overlay">
+        <ServicesDesktopVectorGridPattern />
       </div>
       <div
         className="-translate-x-1/2 absolute h-[664px] left-[calc(50%-4.5px)] top-[1529px] w-[1437px]"

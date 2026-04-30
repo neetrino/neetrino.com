@@ -8,7 +8,9 @@ import { AboutUsFigmaBlock1c } from "@/components/about-us/figma/AboutUsFigmaBlo
 import { AboutUsFigmaBlock2 } from "@/components/about-us/figma/AboutUsFigmaBlock2";
 import { AboutUsFigmaBlock3 } from "@/components/about-us/figma/AboutUsFigmaBlock3";
 import { MeetOurTeamHeading } from "@/components/about-us/MeetOurTeamHeading";
+import { DesktopServicesMeshTiledColumn } from "@/components/services/DesktopServicesMeshTiledColumn";
 import {
+  ABOUT_DESKTOP_SERVICES_MESH_WRAP_HEIGHT_PX,
   ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX,
   ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX,
 } from "@/lib/about-us-figma-layout.constants";
@@ -25,19 +27,24 @@ export function AboutUsFigmaPageContent() {
       data-name="ABOUT"
       data-node-id="335:905"
     >
-      <div
-        className="relative w-full overflow-visible"
-        style={{ height: ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX }}
-        data-name="about-figma-positioning-canvas"
-      >
-        <AboutUsFigmaBlock1a containerRef={containerRef} />
-        <AboutUsFigmaBlock1b />
-        <AboutUsFigmaBlock1bLower />
-        <AboutUsFigmaBlock1c />
-        <AboutUsFigmaBlock2 />
-        <AboutUsFigmaBlock3 />
+      <DesktopServicesMeshTiledColumn
+        wrapHeightDesignPx={ABOUT_DESKTOP_SERVICES_MESH_WRAP_HEIGHT_PX}
+      />
+      <div className="relative z-[1]">
+        <div
+          className="relative w-full overflow-visible"
+          style={{ height: ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX }}
+          data-name="about-figma-positioning-canvas"
+        >
+          <AboutUsFigmaBlock1a containerRef={containerRef} />
+          <AboutUsFigmaBlock1b />
+          <AboutUsFigmaBlock1bLower />
+          <AboutUsFigmaBlock1c />
+          <AboutUsFigmaBlock2 />
+          <AboutUsFigmaBlock3 />
+        </div>
+        <MeetOurTeamHeading variant="desktop-figma" />
       </div>
-      <MeetOurTeamHeading variant="desktop-figma" />
     </div>
   );
 }

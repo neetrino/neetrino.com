@@ -14,7 +14,7 @@ type BlogIndexPageFrameProps = {
 /** Blog index shell: dark page + main column + spacing under fixed chrome (avoids long template literals in the route file). */
 export function BlogIndexPageFrame({ title, cards }: BlogIndexPageFrameProps) {
   return (
-    <div className="w-full min-w-0 overflow-x-hidden bg-[#151515]">
+    <div className="w-full min-w-0 overflow-x-hidden bg-transparent">
       <main
         className={cn(
           "mx-auto max-w-6xl px-6 pt-30 pb-16",

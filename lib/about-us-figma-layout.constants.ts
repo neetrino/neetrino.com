@@ -14,20 +14,13 @@ export const ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX = 3643;
 export const ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX = ABOUT_FIGMA_ROOT_MIN_HEIGHT_WITH_MEET_TEAM_PX;
 
 /**
- * Figma 335:931 inner vector `w-[3723px]` — after `rotate-90` this span matches vertical extent
- * of the checkerboard before we scale it to `ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX`.
+ * Top bleed in design px (Figma `top-[-40px]`) for the full-height `/services`-style mesh on desktop About.
  */
-export const ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX = 3723;
+export const ABOUT_DESKTOP_SERVICES_MESH_TOP_BLEED_PX = 40 as const;
 
-/** Figma 335:931 outer; extend so checkerboard covers Meet Our Team + tail (`top-[-40px]`). */
-export const ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX = Math.max(
-  ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX,
-  ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX + 40,
-);
-
-/** Uniform scale so the rotated grid fills `ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX` (avoids empty band below). */
-export const ABOUT_VECTOR_GRID_UNIFORM_SCALE =
-  ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX / ABOUT_VECTOR_GRID_ROTATED_VISUAL_HEIGHT_PX;
+/** Full About desktop column: root min-height + top bleed so the mesh runs to the bottom like `/services`. */
+export const ABOUT_DESKTOP_SERVICES_MESH_WRAP_HEIGHT_PX =
+  ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX + ABOUT_DESKTOP_SERVICES_MESH_TOP_BLEED_PX;
 
 /** Desktop About hero line `aboutPage.hero.everyIdea` — nudge left for long hy copy. */
 export const ABOUT_DESKTOP_HERO_EVERY_IDEA_LEFT_CLASS_DEFAULT = "left-[293px]";

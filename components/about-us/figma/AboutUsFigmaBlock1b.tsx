@@ -15,7 +15,6 @@ import {
   imgRectangle17417,
   imgRectangle17418,
   imgStar22,
-  imgVector1,
 } from "@/lib/about-us-figma-asset-urls";
 import {
   ABOUT_DESKTOP_HERO_EVERY_IDEA_LEFT_CLASS_DEFAULT,
@@ -24,8 +23,6 @@ import {
   ABOUT_DESKTOP_HERO_HEADLINE_LEADING_HY_CLASS,
   ABOUT_DESKTOP_HERO_HEADLINE_TEXT_DEFAULT_CLASS,
   ABOUT_DESKTOP_HERO_HEADLINE_TEXT_HY_CLASS,
-  ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX,
-  ABOUT_VECTOR_GRID_UNIFORM_SCALE,
 } from "@/lib/about-us-figma-layout.constants";
 import { cn } from "@/lib/utils";
 
@@ -51,22 +48,6 @@ export function AboutUsFigmaBlock1b() {
 
   return (
     <>
-      <div
-        className="-translate-x-1/2 absolute flex items-center justify-center overflow-hidden left-[calc(50%-38px)] mix-blend-overlay top-[-40px] w-[1722px]"
-        style={{ ...transformStyle, height: ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX }}
-      >
-        <div
-          className="flex-none"
-          style={{
-            transform: `rotate(90deg) scale(${ABOUT_VECTOR_GRID_UNIFORM_SCALE})`,
-            transformOrigin: "center center",
-          }}
-        >
-          <div className="h-[1722px] relative w-[3723px]" data-name="Vector" data-node-id="335:931">
-            <FigmaFillImage src={imgVector1} />
-          </div>
-        </div>
-      </div>
       <div
         className="-translate-x-1/2 absolute h-[405px] left-[calc(50%+0.5px)] top-[405px] w-[1437px]"
         data-node-id="335:936"
