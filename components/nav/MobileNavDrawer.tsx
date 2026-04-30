@@ -2,7 +2,7 @@
 
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
-import { LocaleSwitcher } from "@/components/shared/LocaleSwitcher";
+import { MobileLocaleRowSwitcher } from "@/components/nav/MobileLocaleRowSwitcher";
 import { MobileNavDrawerLinks } from "@/components/nav/MobileNavDrawerLinks";
 import {
   MOBILE_NAV_DRAWER_BACKDROP_CLASS,
@@ -50,11 +50,7 @@ export function MobileNavDrawer({ links, menuOpen, onClose }: MobileNavDrawerPro
             />
           </div>
           <div className={MOBILE_NAV_DRAWER_FOOTER_CLASS}>
-            <LocaleSwitcher
-              compact
-              dropdownPresentation="mobileNav"
-              className="w-full max-w-[min(100%,280px)]"
-            />
+            <MobileLocaleRowSwitcher className="w-full max-w-none" />
           </div>
         </div>
       </div>

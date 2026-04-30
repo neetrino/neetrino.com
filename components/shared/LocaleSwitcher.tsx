@@ -2,46 +2,29 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
 import { Globe } from "lucide-react";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { useLocaleSwitch } from "@/lib/hooks/useLocaleSwitch";
 import { locales } from "@/i18n/routing";
-import { stripLocalePrefix } from "@/lib/i18n/href";
 import {
   LOCALE_SWITCHER_DEFAULT_DROPDOWN_PANEL_CLASS,
   LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_ACTIVE_CLASS,
   LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_CLASS,
-  LOCALE_SWITCHER_MOBILE_NAV_DROPDOWN_PANEL_CLASS,
-  LOCALE_SWITCHER_MOBILE_NAV_OPTION_BUTTON_ACTIVE_CLASS,
-  LOCALE_SWITCHER_MOBILE_NAV_OPTION_BUTTON_CLASS,
 } from "@/lib/locale-switcher-dropdown.constants";
 import { LOCALE_LABELS, LOCALE_SHORT_LABELS, type AppLocale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
-
-export type LocaleSwitcherDropdownPresentation = "default" | "mobileNav";
 
 type LocaleSwitcherProps = {
   className?: string;
   compact?: boolean;
   style?: CSSProperties;
-  /** `mobileNav`: rounded frosted panel + blue pill options (mobile drawer). */
-  dropdownPresentation?: LocaleSwitcherDropdownPresentation;
 };
 
-export function LocaleSwitcher({
-  className,
-  compact = false,
-  style,
-  dropdownPresentation = "default",
-}: LocaleSwitcherProps) {
+export function LocaleSwitcher({ className, compact = false, style }: LocaleSwitcherProps) {
   const t = useTranslations();
   const locale = useLocale() as AppLocale;
-  const pathname = usePathname();
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const { switchLocale: applyLocale } = useLocaleSwitch();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
-  const isMobileNav = dropdownPresentation === "mobileNav";
 
   useEffect(() => {
     if (!open) {
@@ -60,12 +43,8 @@ export function LocaleSwitcher({
 
   const activeLabel = LOCALE_SHORT_LABELS[locale];
 
-  const switchLocale = (nextLocale: AppLocale) => {
-    const query = searchParams.toString();
-    const normalizedPath = stripLocalePrefix(pathname);
-    const target = query.length > 0 ? `${normalizedPath}?${query}` : normalizedPath;
-    router.replace(target, { locale: nextLocale });
-    router.refresh();
+  const pickLocale = (nextLocale: AppLocale) => {
+    applyLocale(nextLocale);
     setOpen(false);
   };
 
@@ -94,11 +73,7 @@ export function LocaleSwitcher({
         <ul
           role="menu"
           aria-label={t("language.switcherLabel")}
-          className={cn(
-            isMobileNav
-              ? LOCALE_SWITCHER_MOBILE_NAV_DROPDOWN_PANEL_CLASS
-              : LOCALE_SWITCHER_DEFAULT_DROPDOWN_PANEL_CLASS,
-          )}
+          className={LOCALE_SWITCHER_DEFAULT_DROPDOWN_PANEL_CLASS}
         >
           {locales.map((nextLocale) => {
             const active = locale === nextLocale;
@@ -108,22 +83,14 @@ export function LocaleSwitcher({
                   type="button"
                   role="menuitemradio"
                   aria-checked={active}
-                  onClick={() => switchLocale(nextLocale)}
+                  onClick={() => pickLocale(nextLocale)}
                   className={cn(
-                    isMobileNav
-                      ? LOCALE_SWITCHER_MOBILE_NAV_OPTION_BUTTON_CLASS
-                      : LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_CLASS,
-                    !isMobileNav && active && LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_ACTIVE_CLASS,
-                    isMobileNav && active && LOCALE_SWITCHER_MOBILE_NAV_OPTION_BUTTON_ACTIVE_CLASS,
+                    LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_CLASS,
+                    active && LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_ACTIVE_CLASS,
                   )}
                 >
                   <span className="shrink-0">{LOCALE_SHORT_LABELS[nextLocale]}</span>
-                  <span
-                    className={cn(
-                      "min-w-0 text-left",
-                      isMobileNav ? "text-white/90" : "text-white/65",
-                    )}
-                  >
+                  <span className="min-w-0 text-left text-white/65">
                     {LOCALE_LABELS[nextLocale]}
                   </span>
                 </button>
