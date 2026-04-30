@@ -16,7 +16,7 @@ export const SERVICES_CONTINUE_GLOW_VARIANTS = [
 export type ServicesContinueGlowVariant = (typeof SERVICES_CONTINUE_GLOW_VARIANTS)[number];
 
 const linkShellClassName = cn(
-  "group relative z-10 flex shrink-0 cursor-pointer items-center gap-[4px] overflow-clip rounded-[40px] border border-transparent bg-white px-[24px] py-[16px] no-underline",
+  "group relative z-10 flex min-h-[56px] shrink-0 cursor-pointer items-center gap-[4px] overflow-clip rounded-[40px] border border-transparent bg-white px-[24px] py-[16px] no-underline",
   `pointer-events-auto transition-[background-color,border-color,box-shadow] ${CONTINUE_PILL_DURATION_CLASS} ${CONTINUE_PILL_EASE_CLASS}`,
   MOTION_REDUCE_TRANSITION_CLASS,
   "hover:bg-[#101015]",

@@ -34,11 +34,11 @@ export function ServicesCardContinueLink({
           {label}
         </span>
       </span>
-      <span className="relative size-[20px] shrink-0 overflow-clip">
+      <span className="relative size-6 shrink-0 overflow-clip lg:size-5">
         <span className="absolute inset-[8.33%]">
           <FigmaFillImage
             src={imgSafearea}
-            sizes="20px"
+            sizes="(max-width: 1023px) 24px, 20px"
             className={servicesContinueArrowClassName(glowVariant)}
           />
         </span>
