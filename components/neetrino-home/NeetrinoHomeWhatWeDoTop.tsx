@@ -13,6 +13,11 @@ import {
   whatWeDoHyCrmSubtitleToContinueGapClassName,
   whatWeDoRuOrangeMobileSubtitleTopClassName,
 } from "@/lib/what-we-do-desktop-continue-cta-layout";
+import {
+  whatWeDoContinuePillArrowImageClassName,
+  whatWeDoContinuePillLabelClassName,
+  whatWeDoContinuePillLinkInteractiveClassName,
+} from "@/lib/what-we-do-continue-pill.classes";
 import { cn } from "@/lib/utils";
 import { imgSafearea, imgSports00065 } from "./figma-assets";
 
@@ -146,31 +151,18 @@ export function NeetrinoHomeWhatWeDoTop() {
       <Link
         href={serviceDetailHref("mobile-app-development")}
         className={cn(
-          "pointer-events-auto absolute z-30 flex gap-[4px] content-stretch items-center overflow-clip rounded-[40px] bg-white px-[24px] py-[16px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60",
+          "pointer-events-auto absolute z-30 -translate-x-1/2 top-[607px]",
+          whatWeDoContinuePillLinkInteractiveClassName,
           whatWeDoDesktopContinueCenterLeftClassName.mobile,
-          "-translate-x-1/2 top-[607px]",
         )}
         data-name="Button 13"
         data-node-id="90:533"
       >
-        <div
-          className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-          data-name="glow"
-          data-node-id="I90:533;13:52"
-        />
-        <p
-          className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
-          data-node-id="I90:533;13:33"
-        >
+        <p className={whatWeDoContinuePillLabelClassName} data-node-id="I90:533;13:33">
           {t("cta.continue")}
         </p>
         <div
-          className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-          data-name="glow"
-          data-node-id="I90:533;13:44"
-        />
-        <div
-          className="overflow-clip relative shrink-0 size-[20px]"
+          className="relative size-[20px] shrink-0 overflow-clip"
           data-name="Right"
           data-node-id="I90:533;13:34"
         >
@@ -183,7 +175,7 @@ export function NeetrinoHomeWhatWeDoTop() {
               alt=""
               width={2400}
               height={2400}
-              className="absolute block max-w-none size-full"
+              className={whatWeDoContinuePillArrowImageClassName}
               src={imgSafearea}
             />
           </div>
@@ -210,26 +202,16 @@ export function NeetrinoHomeWhatWeDoTop() {
           </div>
           <Link
             href={serviceDetailHref("crm-systems")}
-            className="pointer-events-auto relative z-30 flex gap-[4px] content-stretch items-center overflow-clip rounded-[40px] bg-white px-[24px] py-[16px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+            className={cn(
+              "pointer-events-auto relative z-30",
+              whatWeDoContinuePillLinkInteractiveClassName,
+            )}
             data-name="Button 14"
             data-node-id="90:540"
           >
-            <div
-              className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-              data-name="glow"
-              data-node-id="I90:540;13:52"
-            />
-            <p
-              className="relative shrink-0 text-[18px] font-medium leading-[24px] not-italic text-[#252525] whitespace-nowrap"
-              data-node-id="I90:540;13:33"
-            >
+            <p className={whatWeDoContinuePillLabelClassName} data-node-id="I90:540;13:33">
               {t("cta.continue")}
             </p>
-            <div
-              className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-              data-name="glow"
-              data-node-id="I90:540;13:44"
-            />
             <div
               className="relative size-[20px] shrink-0 overflow-clip"
               data-name="Right"
@@ -244,7 +226,7 @@ export function NeetrinoHomeWhatWeDoTop() {
                   alt=""
                   width={2400}
                   height={2400}
-                  className="absolute block max-w-none size-full"
+                  className={whatWeDoContinuePillArrowImageClassName}
                   src={imgSafearea}
                 />
               </div>
@@ -255,31 +237,18 @@ export function NeetrinoHomeWhatWeDoTop() {
         <Link
           href={serviceDetailHref("crm-systems")}
           className={cn(
-            "pointer-events-auto absolute z-30 flex gap-[4px] content-stretch items-center overflow-clip rounded-[40px] bg-white px-[24px] py-[16px] no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60",
+            "pointer-events-auto absolute z-30 -translate-x-1/2 top-[609px]",
+            whatWeDoContinuePillLinkInteractiveClassName,
             whatWeDoDesktopContinueCenterLeftClassName.crm,
-            "-translate-x-1/2 top-[609px]",
           )}
           data-name="Button 14"
           data-node-id="90:540"
         >
-          <div
-            className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-            data-name="glow"
-            data-node-id="I90:540;13:52"
-          />
-          <p
-            className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
-            data-node-id="I90:540;13:33"
-          >
+          <p className={whatWeDoContinuePillLabelClassName} data-node-id="I90:540;13:33">
             {t("cta.continue")}
           </p>
           <div
-            className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-            data-name="glow"
-            data-node-id="I90:540;13:44"
-          />
-          <div
-            className="overflow-clip relative shrink-0 size-[20px]"
+            className="relative size-[20px] shrink-0 overflow-clip"
             data-name="Right"
             data-node-id="I90:540;13:34"
           >
@@ -292,7 +261,7 @@ export function NeetrinoHomeWhatWeDoTop() {
                 alt=""
                 width={2400}
                 height={2400}
-                className="absolute block max-w-none size-full"
+                className={whatWeDoContinuePillArrowImageClassName}
                 src={imgSafearea}
               />
             </div>

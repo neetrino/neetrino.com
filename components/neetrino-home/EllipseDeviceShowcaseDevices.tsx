@@ -93,17 +93,25 @@ const ORBIT_MS = `duration-[${ORBIT_DURATION_MS}ms]`;
 const ORBIT_EASE = "ease-[cubic-bezier(0.22,1,0.36,1)]";
 const ORBIT_SHELL_TRANSITION = cn("transition-[width,max-width,min-width]", ORBIT_MS, ORBIT_EASE);
 
-/** Orbit slot 1 = top; nudges the iMac shell vs pure ellipse anchor (right / up). */
-const DEVICE_IMAC_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = 14 as const;
-const DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_TOP_SLOT = 8 as const;
+/** Orbit slot 1 = top; nudges the iPhone shell left vs ellipse anchor (more negative = further left). */
+const DEVICE_IPHONE_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = -10 as const;
+/** Orbit slot 2 = front/center; nudges the iPhone shell left when it is the hero device. */
+const DEVICE_IPHONE_SHELL_NUDGE_X_PX_WHEN_CENTER_SLOT = -11 as const;
+/** Orbit slot 1 = top; nudges the iMac shell on X vs ellipse anchor (positive = right; lower = more left). */
+const DEVICE_IMAC_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = 7 as const;
+const DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_TOP_SLOT = 15 as const;
 /** Orbit slot 3 = right; nudges the iMac shell slightly down vs ellipse anchor. */
 const DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_RIGHT_SLOT = 20 as const;
-/** Orbit slot 1 = top; nudges the MacBook shell slightly right vs ellipse anchor. */
-const DEVICE_MACBOOK_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = 8 as const;
+/** Orbit slot 2 = front/center; nudges iMac shell left when it is the hero device (more negative = further left). */
+const DEVICE_IMAC_SHELL_NUDGE_X_PX_WHEN_CENTER_SLOT = -12 as const;
+/** Orbit slot 1 = top; nudges the MacBook shell on X vs ellipse anchor (positive = right; lowered for a touch left). */
+const DEVICE_MACBOOK_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = 1 as const;
+/** Orbit slot 2 = front/center; nudges MacBook shell slightly left when hero (more negative = further left). */
+const DEVICE_MACBOOK_SHELL_NUDGE_X_PX_WHEN_CENTER_SLOT = -7 as const;
 /** Orbit slot 3 = right; nudges the iPad shell slightly down vs ellipse anchor. */
 const DEVICE_IPAD_SHELL_NUDGE_Y_PX_WHEN_RIGHT_SLOT = 25 as const;
-/** Orbit slot 1 = top; nudges the iPad shell slightly right / down vs ellipse anchor. */
-const DEVICE_IPAD_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = 8 as const;
+/** Orbit slot 1 = top; nudges the iPad shell on X vs ellipse anchor (positive = right; lower = more left). */
+const DEVICE_IPAD_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT = -3 as const;
 const DEVICE_IPAD_SHELL_NUDGE_Y_PX_WHEN_TOP_SLOT = 12 as const;
 const DEVICE_INNER_TRANSITION = cn("transition-transform", ORBIT_MS, ORBIT_EASE);
 
@@ -136,7 +144,12 @@ export function EllipseDeviceShowcaseDevices({
         )}
         style={{
           ...orbitPercentPosition(orbitAngles[0], frontDeviceId),
-          transform: "translate(-50%, -50%)",
+          transform:
+            slotForDevice(0) === 1
+              ? `translate(calc(-50% + ${DEVICE_IPHONE_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT}px), -50%)`
+              : slotForDevice(0) === 2
+                ? `translate(calc(-50% + ${DEVICE_IPHONE_SHELL_NUDGE_X_PX_WHEN_CENTER_SLOT}px), -50%)`
+                : "translate(-50%, -50%)",
         }}
       >
         <div
@@ -249,7 +262,9 @@ export function EllipseDeviceShowcaseDevices({
           transform:
             slotForDevice(2) === 1
               ? `translate(calc(-50% + ${DEVICE_MACBOOK_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT}px), -50%)`
-              : "translate(-50%, -50%)",
+              : slotForDevice(2) === 2
+                ? `translate(calc(-50% + ${DEVICE_MACBOOK_SHELL_NUDGE_X_PX_WHEN_CENTER_SLOT}px), -50%)`
+                : "translate(-50%, -50%)",
         }}
       >
         <div
@@ -338,7 +353,9 @@ export function EllipseDeviceShowcaseDevices({
               ? `translate(calc(-50% + 1px + ${DEVICE_IMAC_SHELL_NUDGE_X_PX_WHEN_TOP_SLOT}px), calc(-50% - ${DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_TOP_SLOT}px))`
               : slotForDevice(3) === 3
                 ? `translate(calc(-50% + 1px), calc(-50% + ${DEVICE_IMAC_SHELL_NUDGE_Y_PX_WHEN_RIGHT_SLOT}px))`
-                : "translate(calc(-50% + 1px), -50%)",
+                : slotForDevice(3) === 2
+                  ? `translate(calc(-50% + 1px + ${DEVICE_IMAC_SHELL_NUDGE_X_PX_WHEN_CENTER_SLOT}px), -50%)`
+                  : "translate(calc(-50% + 1px), -50%)",
         }}
       >
         <div

@@ -14,6 +14,7 @@ import {
   isFooterSendCtaWideLocale,
 } from "@/lib/footer-send-cta-layout";
 import { cn } from "@/lib/utils";
+import { SiteFooterMobile } from "./SiteFooterMobile";
 
 const FIGMA_ASSETS = {
   img101: "https://www.figma.com/api/mcp/asset/26540830-c404-450b-ae0a-f864a9101164",
@@ -73,9 +74,12 @@ export function Footer() {
       className="w-full overflow-hidden border-t border-white/20 bg-[#151515] font-[family-name:var(--font-dm-sans)]"
     >
       <div className="relative w-full min-w-0 overflow-hidden">
+        <div className="lg:hidden">
+          <SiteFooterMobile />
+        </div>
         {/* Viewport-wide gradient (Figma 10:221) — full footer height so #151515 does not show as top/bottom bars. */}
         <div
-          className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-[#151515]"
+          className="pointer-events-none absolute inset-0 z-0 hidden overflow-hidden bg-[#151515] lg:block"
           aria-hidden
         >
           <div className="absolute inset-[-45%_-55%_-45%_-55%] min-h-[130%] min-w-[120%]">
@@ -90,7 +94,7 @@ export function Footer() {
           </div>
         </div>
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px w-full min-w-0"
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 hidden h-px w-full min-w-0 lg:block"
           data-node-id="10:240"
           aria-hidden={true}
         >
@@ -106,7 +110,7 @@ export function Footer() {
           />
         </div>
         <div
-          className="relative isolate mx-auto h-[590px] w-full max-w-[1440px] overflow-hidden"
+          className="relative isolate mx-auto hidden h-[590px] w-full max-w-[1440px] overflow-hidden lg:block"
           data-node-id="10:237"
           data-name="Footer v2"
         >

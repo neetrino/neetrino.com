@@ -7,8 +7,14 @@ import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults"
 import { interSans } from "@/lib/fonts";
 import {
   MOBILE_HERO_STAT_WIDE,
+  MOBILE_HERO_STAT_WIDE_HAND,
+  MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_LEFT_PX,
+  MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_UP_PX,
+  MOBILE_HERO_STAT_WIDE_VALUE_NUMERAL_CLASS,
   MOBILE_HERO_STATS_TOP,
 } from "@/components/sections/mobile-home-hero.constants";
+import { HERO_CONTACT_FIGMA_241_838_PRIMARY_PILL_CLASSNAME } from "@/lib/hero-contact-figma-pill.constants";
+import { cn } from "@/lib/utils";
 
 function HeroBackground() {
   return (
@@ -102,24 +108,23 @@ function HeroBodyCopy() {
   );
 }
 
+const HERO_CONTACT_CTA_LAYOUT_CLASS =
+  "absolute left-1/2 top-[761px] z-[25] w-[min(393px,calc(100%-48px))] -translate-x-1/2";
+
 function HeroCtas() {
   const t = useTranslations();
-  const baseLink =
-    "absolute left-1/2 z-[25] flex h-14 w-[min(393px,calc(100%-48px))] -translate-x-1/2 items-center justify-center rounded-[28px] text-base font-extrabold transition-opacity hover:opacity-95";
-
-  /** Frosted glass: strong backdrop blur; label stays sharp on a separate layer. */
-  const glassLayer =
-    "pointer-events-none absolute inset-0 rounded-[28px] backdrop-blur-3xl backdrop-saturate-150";
 
   return (
     <>
       <HeroGetQuoteCta />
       <Link
         href="/contact"
-        className={`${baseLink} top-[761px] isolate text-[#a8b4ff] shadow-lg shadow-black/10`}
+        className={cn(
+          HERO_CONTACT_CTA_LAYOUT_CLASS,
+          HERO_CONTACT_FIGMA_241_838_PRIMARY_PILL_CLASSNAME,
+        )}
       >
-        <span className={`${glassLayer} border border-white/75 bg-white/28`} aria-hidden />
-        <span className="relative z-10">{t("cta.contact")}</span>
+        {t("cta.contact")}
       </Link>
     </>
   );
@@ -153,15 +158,22 @@ function HeroStatWide() {
   return (
     <div className="relative z-20 mt-[34px] min-h-[167px] w-full min-w-0 px-6">
       <div
-        className={`relative overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg} w-[calc(100%+24px)] mr-[-24px]`}
+        className={`relative w-full overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}
       >
-        <div className="relative z-[2] max-w-[56%]">
-          <p className={`text-[56px] font-black leading-9 ${s.text}`}>{s.value}</p>
+        <div
+          className="relative z-[2] max-w-[56%]"
+          style={{
+            transform: `translate(calc(-1 * ${MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_LEFT_PX}px), calc(-1 * ${MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_UP_PX}px))`,
+          }}
+        >
+          <p className={cn(MOBILE_HERO_STAT_WIDE_VALUE_NUMERAL_CLASS, s.text)}>{s.value}</p>
           <p className={`mt-1 text-base font-extralight ${s.text}`}>{t(s.labelKey)}</p>
         </div>
         <div
           className="pointer-events-none absolute top-[87%] z-[1] h-[287px] w-[271px] -translate-y-1/2 max-[380px]:top-[85%] max-[380px]:h-[252px] max-[380px]:w-[235px]"
-          style={{ right: "calc(clamp(-999px, calc((393px - 100vw) / 2), 0px) - 12px)" }}
+          style={{
+            right: `calc(clamp(-999px, calc((393px - 100vw) / 2), 0px) - ${MOBILE_HERO_STAT_WIDE_HAND.styleRightPullPx}px)`,
+          }}
           aria-hidden
         >
           <div className="relative size-full overflow-hidden">

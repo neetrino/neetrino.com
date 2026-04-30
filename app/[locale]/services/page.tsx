@@ -70,17 +70,17 @@ export default async function Services({ params }: ServicesPageProps) {
             </p>
           </section>
 
-          <section className="grid grid-cols-1 gap-5 pt-12 sm:gap-6 md:grid-cols-2 md:pt-14">
+          <section className="grid grid-cols-1 items-stretch gap-5 pt-12 sm:gap-6 md:grid-cols-2 md:pt-14">
             {servicesCatalog.map((item, index) => (
               <article
                 key={item.slug}
-                className="group relative min-w-0 overflow-hidden rounded-[32px] border border-white/[0.08] bg-gradient-to-b from-[#1a1a1a] to-[#121212] p-6 shadow-[inset_0_-1px_0_0_rgba(102,148,255,0.12)] sm:p-7"
+                className="group relative flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-[32px] border border-white/[0.08] bg-gradient-to-b from-[#1a1a1a] to-[#121212] p-6 shadow-[inset_0_-1px_0_0_rgba(102,148,255,0.12)] sm:p-7"
               >
                 <div
                   className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_10%_0%,rgba(71,61,255,0.14)_0%,transparent_55%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   aria-hidden
                 />
-                <div className="relative">
+                <div className="relative z-[1] flex min-h-0 flex-1 flex-col">
                   <span className="text-xs font-semibold uppercase tracking-[0.14em] text-white/45">
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -97,7 +97,7 @@ export default async function Services({ params }: ServicesPageProps) {
                   </p>
                   <Link
                     href={serviceDetailHref(item.slug)}
-                    className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#6a92ff] bg-black px-5 py-2.5 text-sm font-medium text-white transition-colors hover:border-[#8aa8ff] hover:bg-[#0a0a0a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]"
+                    className="mt-auto inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-[#6a92ff] bg-black px-5 py-2.5 text-sm font-medium text-white transition-colors hover:border-[#8aa8ff] hover:bg-[#0a0a0a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6a92ff]"
                   >
                     {t("cta.continue")}
                     <ArrowRight className="size-4 opacity-80" aria-hidden strokeWidth={2} />

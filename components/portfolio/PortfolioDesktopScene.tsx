@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { DeferredMount } from "@/components/layout/DeferredMount";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
+import { PortfolioDesktopPagination } from "@/components/portfolio/PortfolioDesktopPagination";
 import { PortfolioDesktopStarRayDeferred } from "@/components/portfolio/PortfolioDesktopStarRayDeferred";
 import { PortfolioDesktopVectorDecorDeferred } from "@/components/portfolio/PortfolioDesktopVectorDecorDeferred";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
@@ -33,10 +34,26 @@ import {
   PORTFOLIO_SECOND_BANNER_ZEPPELIN_TEXT_SIZE_CLASS,
 } from "@/lib/portfolio-second-banner-zeppelin.constants";
 import {
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_ARIA_LABEL,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_ASPECT_RATIO,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_HEIGHT_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_LEFT_BASE_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_NUDGE_RIGHT_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_SRC,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_TOP_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_WIDTH_PX,
+  PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_WRAPPER_BASE_CLASS,
+} from "@/lib/portfolio-second-banner-macbook-video.constants";
+import {
   PORTFOLIO_THIRD_BANNER_LEFT_COPY_LINES,
   PORTFOLIO_THIRD_BANNER_LEFT_OVERLAY_CLASS,
   PORTFOLIO_THIRD_BANNER_LEFT_TEXT_CLASS,
 } from "@/lib/portfolio-third-banner-left-copy.constants";
+import {
+  PORTFOLIO_DESKTOP_PAGINATION_BOTTOM_PADDING_CLASS,
+  PORTFOLIO_DESKTOP_PAGINATION_TOP_MARGIN_CLASS,
+  PORTFOLIO_DESKTOP_SCENE_HEIGHT_PX,
+} from "@/lib/portfolio-desktop-scene-dimensions.constants";
 import { cn } from "@/lib/utils";
 
 function Button({ className }: { className?: string }) {
@@ -144,6 +161,220 @@ function PortfolioFirstBannerSmartphoneMock() {
   );
 }
 
+/** Figma `543:2376` — Digital Implant Clinic showcase; same 631×364 frame. */
+function PortfolioDigitalImplantClinicCard() {
+  return (
+    <div
+      className={cn(
+        "relative shrink-0",
+        PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        PORTFOLIO_FIRST_BANNER_FRAME_CLASS,
+      )}
+      data-name="Frame 14987 1"
+      data-node-id="543:2376"
+    >
+      <div
+        className={cn(
+          "absolute inset-0 overflow-hidden pointer-events-none",
+          PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        )}
+      >
+        <Image
+          alt="Digital Implant Clinic — website mockup on laptop"
+          src={figma.imgDigitalImplantClinicBanner1}
+          fill
+          className="object-cover"
+          quality={DEFAULT_IMAGE_QUALITY}
+          sizes={`${PORTFOLIO_FIRST_BANNER_WIDTH_PX}px`}
+          loading="lazy"
+        />
+      </div>
+      <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ABSOLUTE_WRAPPER_CLASS}>
+        <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ROTATE_CLASS}>
+          <Button className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_INNER_CLASS} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Figma `543:2473` — National Center for Innovation and Entrepreneurship (NCIE). */
+function PortfolioNcieNationalCenterCard() {
+  return (
+    <div
+      className={cn(
+        "relative shrink-0",
+        PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        PORTFOLIO_FIRST_BANNER_FRAME_CLASS,
+      )}
+      data-name="Frame 14986 1"
+      data-node-id="543:2473"
+    >
+      <div
+        className={cn(
+          "absolute inset-0 overflow-hidden pointer-events-none",
+          PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        )}
+      >
+        <Image
+          alt="National Center for Innovation and Entrepreneurship — mobile mockup"
+          src={figma.imgNcieNationalCenterBanner1}
+          fill
+          className="object-cover"
+          quality={DEFAULT_IMAGE_QUALITY}
+          sizes={`${PORTFOLIO_FIRST_BANNER_WIDTH_PX}px`}
+          loading="lazy"
+        />
+      </div>
+      <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ABSOLUTE_WRAPPER_CLASS}>
+        <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ROTATE_CLASS}>
+          <Button className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_INNER_CLASS} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Figma `541:2171` — MAPCO card; same 631×364 frame (row with Borbo). */
+function PortfolioMapcoGroupBannerCard() {
+  return (
+    <div
+      className={cn(
+        "relative shrink-0",
+        PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        PORTFOLIO_FIRST_BANNER_FRAME_CLASS,
+      )}
+      data-name="Frame 14988 1"
+      data-node-id="541:2171"
+    >
+      <div
+        className={cn(
+          "absolute inset-0 overflow-hidden pointer-events-none",
+          PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        )}
+      >
+        <Image
+          alt="MAPCO GROUP presentation"
+          src={figma.imgMapcoGroupBanner1}
+          fill
+          className="object-cover"
+          quality={DEFAULT_IMAGE_QUALITY}
+          sizes={`${PORTFOLIO_FIRST_BANNER_WIDTH_PX}px`}
+          loading="lazy"
+        />
+      </div>
+      <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ABSOLUTE_WRAPPER_CLASS}>
+        <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ROTATE_CLASS}>
+          <Button className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_INNER_CLASS} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Figma `546:2515` — Borbo / Daily Dose Aqua; same 631×364 frame (row with MAPCO). */
+function PortfolioBorboDailyDoseAquaCard() {
+  return (
+    <div
+      className={cn(
+        "relative shrink-0",
+        PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        PORTFOLIO_FIRST_BANNER_FRAME_CLASS,
+      )}
+      data-name="borbo1r 1"
+      data-node-id="546:2515"
+    >
+      <div
+        className={cn(
+          "absolute inset-0 overflow-hidden pointer-events-none",
+          PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        )}
+      >
+        <Image
+          alt="Daily Dose Aqua — laptop and glass sphere mockup"
+          src={figma.imgBorbo1R1}
+          fill
+          className="object-cover"
+          quality={DEFAULT_IMAGE_QUALITY}
+          sizes={`${PORTFOLIO_FIRST_BANNER_WIDTH_PX}px`}
+          loading="lazy"
+        />
+      </div>
+      <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ABSOLUTE_WRAPPER_CLASS}>
+        <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ROTATE_CLASS}>
+          <Button className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_INNER_CLASS} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Figma `543:2375` — fourth card in row with smartphone mock; same 631×364 frame. */
+function PortfolioDegustoStudioBannerCard() {
+  return (
+    <div
+      className={cn(
+        "relative shrink-0",
+        PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        PORTFOLIO_FIRST_BANNER_FRAME_CLASS,
+      )}
+      data-name="Frame 14985 1"
+      data-node-id="543:2375"
+    >
+      <div
+        className={cn(
+          "absolute inset-0 overflow-hidden pointer-events-none",
+          PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+        )}
+      >
+        <Image
+          alt="DEGUSTO STUDIO food presentation"
+          src={figma.imgDegustoStudioBanner1}
+          fill
+          className="object-cover"
+          quality={DEFAULT_IMAGE_QUALITY}
+          sizes={`${PORTFOLIO_FIRST_BANNER_WIDTH_PX}px`}
+          loading="lazy"
+        />
+      </div>
+      <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ABSOLUTE_WRAPPER_CLASS}>
+        <div className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_ROTATE_CLASS}>
+          <Button className={PORTFOLIO_DESKTOP_HERO_CARD_DECOR_BUTTON_INNER_CLASS} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Screen recording over the MacBook display in the second hero card (`166:1236`). */
+function PortfolioSecondBannerMacbookScreenVideo() {
+  return (
+    <div
+      className={PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_WRAPPER_BASE_CLASS}
+      style={{
+        width: PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_WIDTH_PX,
+        height: PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_HEIGHT_PX,
+        aspectRatio: PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_ASPECT_RATIO,
+        left: PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_LEFT_BASE_PX,
+        top: PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_TOP_PX,
+        transform: `translateX(${PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_NUDGE_RIGHT_PX}px)`,
+      }}
+      data-name="macbook-screen-video"
+    >
+      <video
+        aria-label={PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_ARIA_LABEL}
+        className="h-full w-full object-cover"
+        src={PORTFOLIO_SECOND_BANNER_MACBOOK_VIDEO_SRC}
+        autoPlay
+        muted
+        playsInline
+        loop
+        preload="metadata"
+      />
+    </div>
+  );
+}
+
 /** Figma `525:1727` — bottom-right lockup on the second hero card. */
 function PortfolioSecondBannerZeppelinCorner() {
   return (
@@ -214,7 +445,8 @@ export function PortfolioDesktopScene() {
 
   return (
     <div
-      className="bg-[#151515] relative h-[2072px] w-[1440px]"
+      className="bg-[#151515] relative w-[1440px]"
+      style={{ height: PORTFOLIO_DESKTOP_SCENE_HEIGHT_PX }}
       data-name="PORTFOLIO"
       data-node-id="166:1203"
     >
@@ -287,7 +519,10 @@ export function PortfolioDesktopScene() {
         </div>
       </div>
       <div
-        className="absolute content-stretch flex flex-col gap-[53px] items-start leading-[0] left-[73px] top-[374px] w-[1295px]"
+        className={cn(
+          "absolute content-stretch flex flex-col gap-[53px] items-start leading-[0] left-[73px] top-[374px] w-[1295px]",
+          PORTFOLIO_DESKTOP_PAGINATION_BOTTOM_PADDING_CLASS,
+        )}
         data-name="portfolio"
         data-node-id="166:1229"
       >
@@ -365,6 +600,7 @@ export function PortfolioDesktopScene() {
                     loading="lazy"
                   />
                 </div>
+                <PortfolioSecondBannerMacbookScreenVideo />
                 <PortfolioSecondBannerCatLogoCorner />
                 <PortfolioSecondBannerZeppelinCorner />
               </div>
@@ -376,56 +612,28 @@ export function PortfolioDesktopScene() {
             </div>
           </div>
         </div>
-        <PortfolioFirstBannerSmartphoneMock />
-      </div>
-      <div
-        className="-translate-x-1/2 absolute h-[664px] left-[calc(50%-7.5px)] top-[2017px] w-[1437px]"
-        data-node-id="166:1259"
-      >
-        <div className="absolute inset-[-28.94%_-15.66%_-29.47%_-15.66%]">
-          <FigmaFillImage src={figma.imgRectangle17417} />
-        </div>
-      </div>
-      <DeferredMount topClassName="top-[1980px]" rootMargin="280px 0px 280px 0px">
-        <div className="absolute contents left-[597px] top-[2099px]" data-node-id="166:1260">
-          <div
-            className="absolute h-[563px] left-[597px] mix-blend-lighten opacity-70 top-[2102px] w-[633px]"
-            data-name="10"
-            data-node-id="166:1261"
-          >
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <Image
-                alt=""
-                className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
-                src={figma.img10}
-                width={2400}
-                height={2400}
-                quality={DEFAULT_IMAGE_QUALITY}
-                sizes="633px"
-                loading="lazy"
-              />
-            </div>
+        <div
+          className="content-stretch flex w-full shrink-0 flex-col gap-[53px]"
+          data-name="banners2"
+          data-node-id="166:1390"
+        >
+          <div className="flex w-full shrink-0 items-start gap-[26px]">
+            <PortfolioFirstBannerSmartphoneMock />
+            <PortfolioDegustoStudioBannerCard />
           </div>
-          <div
-            className="absolute h-[563px] left-[597px] opacity-70 top-[2099px] w-[633px]"
-            data-name="101"
-            data-node-id="166:1262"
-          >
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <Image
-                alt=""
-                className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
-                src={figma.img10}
-                width={2400}
-                height={2400}
-                quality={DEFAULT_IMAGE_QUALITY}
-                sizes="633px"
-                loading="lazy"
-              />
-            </div>
+          <div className="flex w-full shrink-0 items-start gap-[26px]">
+            <PortfolioMapcoGroupBannerCard />
+            <PortfolioBorboDailyDoseAquaCard />
+          </div>
+          <div className="flex w-full shrink-0 items-start gap-[26px]">
+            <PortfolioNcieNationalCenterCard />
+            <PortfolioDigitalImplantClinicCard />
           </div>
         </div>
-      </DeferredMount>
+        <PortfolioDesktopPagination
+          className={cn("w-full shrink-0", PORTFOLIO_DESKTOP_PAGINATION_TOP_MARGIN_CLASS)}
+        />
+      </div>
     </div>
   );
 }

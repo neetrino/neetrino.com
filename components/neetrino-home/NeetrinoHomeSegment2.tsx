@@ -1,20 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Group2 } from "./Group2";
-
-const LiquidEther = dynamic(() => import("@/components/liquid-ether/LiquidEther"), {
-  ssr: false,
-  loading: () => (
-    <div
-      className="absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_50%_35%,#232445_0%,#111216_66%)]"
-      aria-hidden
-    />
-  ),
-});
-import { imgRectangle17417 } from "./figma-assets";
+import { MeetOurTeamExplorePill } from "@/components/about-us/MeetOurTeamExplorePill";
+import { imgRectangle17417, imgWhoWeAreFigma516 } from "./figma-assets";
 
 export function NeetrinoHomeSegment2() {
   const t = useTranslations();
@@ -90,27 +79,22 @@ export function NeetrinoHomeSegment2() {
             </p>
           </div>
         </div>
-        <Group2
-          className="absolute left-[64px] top-[358px] h-[276px] w-[642px]"
-          exploreHref="/contact"
-          exploreLinkAlign="start"
-        />
+        <div className="absolute left-[64px] top-[358px] z-20 flex h-[276px] w-[642px] items-center justify-start">
+          <MeetOurTeamExplorePill align="start" href="/contact" />
+        </div>
         <div
-          className="pointer-events-none absolute h-[641px] left-[721px] mix-blend-exclusion top-[-34px] w-[685px]"
+          className="pointer-events-none absolute h-[641px] left-[721px] top-[-34px] w-[685px]"
           data-name="* 1"
           data-node-id="10:516"
         >
-          <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_50%_35%,#232445_0%,#111216_66%)] opacity-90" />
-          <div className="absolute inset-0 pointer-events-auto">
-            <LiquidEther
-              colors={["#473dff", "#ff7500", "#cfd7ff"]}
-              mouseForce={18}
-              cursorSize={92}
-              resolution={0.65}
-              autoDemo
-              autoSpeed={0.42}
-              autoIntensity={1.9}
-              className="rounded-[32px]"
+          <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+            <Image
+              alt=""
+              src={imgWhoWeAreFigma516}
+              width={685}
+              height={666}
+              unoptimized
+              className="absolute left-0 top-0 h-[103.85%] w-full max-w-none object-cover object-top"
             />
           </div>
         </div>

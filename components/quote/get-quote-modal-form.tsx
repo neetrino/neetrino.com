@@ -139,13 +139,13 @@ function QuoteFormActions({ pending }: { pending: boolean }) {
       <button
         type="submit"
         disabled={pending}
-        className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full bg-[#4a3aff] px-6 text-sm font-semibold text-white transition hover:bg-[#3d2fe0] disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex min-h-12 flex-1 cursor-pointer items-center justify-center rounded-full bg-[#4a3aff] px-6 text-sm font-semibold text-white transition hover:bg-[#3d2fe0] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {pending ? t("forms.sending") : t("forms.submit")}
       </button>
       <Dialog.Close
         type="button"
-        className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-5 text-sm font-semibold text-white transition hover:bg-white/5"
+        className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full border border-white/25 px-5 text-sm font-semibold text-white transition hover:bg-white/5"
       >
         {t("forms.cancel")}
       </Dialog.Close>

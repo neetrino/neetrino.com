@@ -1,18 +1,18 @@
 /**
- * In-row design-options palette (`AboutUsFigmaBlock2` / mobile). EN/RU keep the Figma icon
- * frame; HY uses a larger frame + stronger vertical nudge for long Armenian copy.
+ * In-row design-options palette (`AboutUsFigmaBlock2` / mobile). EN/RU use the same
+ * enlarged frame as HY; HY-only row tweaks stay in `ABOUT_DESIGN_OPTIONS_FEATURE_COPY_SHIFT_X_HY_CLASS` etc.
  */
-export const ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_DEFAULT = "h-[191px] w-[209px]";
+export const ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_DEFAULT = "h-[220px] w-[240px]";
 export const ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_HY = "h-[220px] w-[240px]";
 
 /** `next/image` `sizes` — match max rendered width per locale palette frame. */
-export const ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_DEFAULT = "209px";
+export const ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_DEFAULT = "240px";
 export const ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_HY = "240px";
 
-export const ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_DEFAULT = "-translate-y-[104px]";
+export const ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_DEFAULT = "-translate-y-[155px]";
 export const ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_HY = "-translate-y-[155px]";
 
-export const ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_DEFAULT = "-translate-y-[102px]";
+export const ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_DEFAULT = "-translate-y-[112px]";
 export const ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_HY = "-translate-y-[112px]";
 
 /** HY: lines under the palette — slight shift right (pairs with vertical translate on same node). */

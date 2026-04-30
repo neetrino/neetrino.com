@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { assetUrl } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
@@ -67,7 +68,7 @@ export function NeetrinoHomeSegment1() {
           data-node-id="10:424"
         >
           <Image
-            src="/NEETRINO.svg"
+            src={assetUrl("NEETRINO.svg")}
             alt="NEETRINO"
             width={1186}
             height={128}

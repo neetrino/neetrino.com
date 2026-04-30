@@ -35,10 +35,10 @@ function servicesAiLowerRowPaddingClass(locale: AppLocale): string {
 }
 
 const SERVICES_MOBILE_LOWER_CARD_BASE_CLASS =
-  "absolute content-stretch flex flex-col h-[463px] items-start left-[108px] overflow-clip px-[40px] rounded-[38px] top-[906px] w-[369px]";
+  "absolute content-stretch flex min-h-0 flex-col h-[463px] items-start left-[108px] overflow-clip px-[40px] rounded-[38px] top-[906px] w-[369px]";
 
 const SERVICES_AI_LOWER_CARD_BASE_CLASS =
-  "absolute content-stretch flex flex-col h-[463px] items-start left-[535px] overflow-clip px-[40px] rounded-[38px] top-[906px] w-[369px]";
+  "absolute content-stretch flex min-h-0 flex-col h-[463px] items-start left-[535px] overflow-clip px-[40px] rounded-[38px] top-[906px] w-[369px]";
 
 function servicesMobileLowerCardClassName(locale: AppLocale): string {
   return `${SERVICES_MOBILE_LOWER_CARD_BASE_CLASS} ${servicesMobileLowerRowPaddingClass(locale)}`;
@@ -68,11 +68,11 @@ export async function ServicesDesktopCardsScene({ locale }: ServicesDesktopCards
   return (
     <>
       <div
-        className="-translate-x-1/2 absolute content-stretch flex gap-[58px] items-center left-[calc(50%+0.5px)] top-[370px]"
+        className="-translate-x-1/2 absolute content-stretch flex gap-[58px] items-stretch left-[calc(50%+0.5px)] top-[370px]"
         data-node-id="165:689"
       >
         <div
-          className="content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]"
+          className="content-stretch flex min-h-0 flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]"
           data-name="Card 4"
           data-node-id="165:690"
         >
@@ -88,7 +88,7 @@ export async function ServicesDesktopCardsScene({ locale }: ServicesDesktopCards
             <FigmaFillImage src={imgShieldDone} sizes="40px" />
           </div>
           <div
-            className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
+            className="content-stretch flex min-h-0 flex-1 flex-col gap-[16px] items-start not-italic relative w-full"
             data-node-id="I165:690;406:2861"
           >
             <p
@@ -122,7 +122,7 @@ export async function ServicesDesktopCardsScene({ locale }: ServicesDesktopCards
           <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-1px_10.8px_0px_rgba(102,148,255,0.2),inset_0px_-30px_12px_-1px_rgba(35,101,255,0.15),inset_0px_-24px_16.7px_-9px_rgba(255,255,255,0.64),inset_0px_-34px_26.7px_-10px_rgba(102,148,255,0.5),inset_0px_-30px_46.8px_-33px_#144ccd]" />
         </div>
         <div
-          className="content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]"
+          className="content-stretch flex min-h-0 flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]"
           data-name="Card 2"
           data-node-id="165:691"
         >
@@ -138,7 +138,7 @@ export async function ServicesDesktopCardsScene({ locale }: ServicesDesktopCards
             <LayoutGrid aria-hidden className="size-[40px]" strokeWidth={1.5} />
           </div>
           <div
-            className="content-stretch flex flex-col gap-[16px] items-start not-italic relative shrink-0 w-full"
+            className="content-stretch flex min-h-0 flex-1 flex-col gap-[16px] items-start not-italic relative w-full"
             data-node-id="I165:691;406:3047"
           >
             <p
@@ -172,7 +172,7 @@ export async function ServicesDesktopCardsScene({ locale }: ServicesDesktopCards
           <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-1px_10.8px_0px_rgba(255,237,102,0.2),inset_0px_-30px_12px_-1px_rgba(255,233,177,0.17),inset_0px_-37px_16px_-36px_rgba(255,255,255,0.25),inset_0px_-34px_26.7px_-15px_rgba(255,240,126,0.5),inset_0px_-40px_46.8px_-30px_#e63e28]" />
         </div>
         <ServicesCard1
-          className="content-stretch flex flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]"
+          className="content-stretch flex min-h-0 flex-col gap-[30px] h-[463px] items-start overflow-clip px-[40px] py-[60px] relative rounded-[38px] shrink-0 w-[369px]"
           title={bySlug["website-development"].title}
           description={bySlug["website-development"].description}
           continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["website-development"].title)}`}
@@ -200,7 +200,7 @@ export async function ServicesDesktopCardsScene({ locale }: ServicesDesktopCards
         continueHref={serviceDetailHref("ai-product-development")}
       />
       <ServicesLowerCard3
-        className="absolute content-stretch flex flex-col gap-[30px] h-[463px] items-start left-[962px] overflow-clip px-[40px] py-[60px] rounded-[38px] top-[906px] w-[369px]"
+        className="absolute content-stretch flex min-h-0 flex-col gap-[30px] h-[463px] items-start left-[962px] overflow-clip px-[40px] py-[60px] rounded-[38px] top-[906px] w-[369px]"
         title={bySlug["erp-system"].title}
         description={bySlug["erp-system"].description}
         continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["erp-system"].title)}`}

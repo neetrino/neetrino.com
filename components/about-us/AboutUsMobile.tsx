@@ -31,6 +31,7 @@ import {
   imgChatGptImageMar272026At064658Pm1,
   imgLayer1,
 } from "@/lib/about-us-figma-asset-urls";
+import { MeetOurTeamHeading } from "@/components/about-us/MeetOurTeamHeading";
 
 const FEATURE_KEYS = [
   ["feature1Line1", "feature1Line2"],
@@ -109,6 +110,7 @@ export function AboutUsMobile() {
           worldMapAlt={t("worldMapAlt")}
         />
         <BottomStatsSection bottomStats={bottomStats} />
+        <MeetOurTeamHeading variant="mobile" />
       </div>
     </div>
   );

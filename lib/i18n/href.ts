@@ -20,12 +20,12 @@ export function stripLocalePrefix(href: string): string {
   return withoutPrefix.length > 0 ? `/${withoutPrefix}` : "/";
 }
 
-export function localizeHref(href: string, locale: AppLocale): string {
+/** Path for links when `localePrefix` is `never` (no `/{locale}` in URLs). */
+export function localizeHref(href: string, _locale: AppLocale): string {
   if (!href.startsWith("/") || EXTERNAL_LINK_PREFIX.test(href)) {
     return href;
   }
 
   const normalized = stripLocalePrefix(href);
-  const localePrefix = `/${locale}`;
-  return normalized === "/" ? localePrefix : `${localePrefix}${normalized}`;
+  return normalized.length > 0 ? normalized : "/";
 }

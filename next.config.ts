@@ -20,6 +20,13 @@ const adminServerActionAllowedOrigins = parseAdminServerActionAllowedOrigins();
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["localhost", "127.0.0.1", "192.168.15.237", "192.168.18.52"],
+  /**
+   * Browsers request `/favicon.ico` by default; App Router only exposes `app/icon.png` as `/icon.png`.
+   * Without a real `.ico` file, many tabs stay blank. Rewrite keeps a single PNG source of truth.
+   */
+  async rewrites() {
+    return [{ source: "/favicon.ico", destination: "/icon.png" }];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [60, 65, 70, 75],
@@ -27,6 +34,11 @@ const nextConfig: NextConfig = {
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.neetrino.com",
+        pathname: "/**",
+      },
       {
         protocol: "https",
         hostname: "www.figma.com",

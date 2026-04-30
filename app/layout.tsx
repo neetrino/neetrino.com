@@ -22,6 +22,7 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
+/** Tab / PWA icons: `app/icon.png`, `app/apple-icon.png` (+ `next.config` rewrite `/favicon.ico` → `/icon.png`). */
 export const metadata: Metadata = {
   title: "NEETRINO — Web",
   description: "NEETRINO digital agency",

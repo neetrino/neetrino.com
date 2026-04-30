@@ -52,7 +52,5 @@ function readPostId(formData: FormData): string {
 
 function revalidateBlogPaths(): void {
   revalidatePath("/admin/blog");
-  revalidatePath("/en/blog");
-  revalidatePath("/ru/blog");
-  revalidatePath("/hy/blog");
+  revalidatePath("/blog", "layout");
 }

@@ -6,7 +6,6 @@ import { WhoWeAre } from "@/components/sections/WhoWeAre";
 import { WhatWeDo } from "@/components/sections/WhatWeDo";
 import { Projects } from "@/components/sections/Projects";
 import { Partners } from "@/components/sections/Partners";
-import { DeviceShowcase } from "@/components/sections/DeviceShowcase";
 import { CanvasScaler } from "@/components/layout/CanvasScaler";
 import {
   HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX,
@@ -53,9 +52,6 @@ export default function Home() {
           <WhoWeAre />
           <WhatWeDo />
           <Projects />
-          <div className="hidden">
-            <DeviceShowcase />
-          </div>
           <Partners />
         </main>
       </div>

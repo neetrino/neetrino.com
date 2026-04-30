@@ -8,6 +8,11 @@ import {
   isWhatWeDoCardCopyCenteredLocale,
   whatWeDoRuWebsiteSubtitleNudgeUpClassName,
 } from "@/lib/what-we-do-desktop-continue-cta-layout";
+import {
+  whatWeDoContinuePillArrowImageClassName,
+  whatWeDoContinuePillLabelClassName,
+  whatWeDoContinuePillLinkInteractiveClassName,
+} from "@/lib/what-we-do-continue-pill.classes";
 import { cn } from "@/lib/utils";
 import { imgPc, imgSafearea } from "./figma-assets";
 
@@ -75,28 +80,18 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
       </div>
       <Link
         href={serviceDetailHref("website-development")}
-        className="pointer-events-auto absolute bottom-[3.25%] left-1/2 z-30 flex -translate-x-1/2 gap-[4px] overflow-clip rounded-[40px] bg-white px-[24px] py-[16px] content-stretch items-center no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+        className={cn(
+          "pointer-events-auto absolute bottom-[3.25%] left-1/2 z-30 -translate-x-1/2",
+          whatWeDoContinuePillLinkInteractiveClassName,
+        )}
         data-name="Button 12"
         data-node-id="1:713"
       >
-        <div
-          className="absolute bg-[#46fff4] blur-[7.5px] inset-[69px_0_-103px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-          data-name="glow"
-          data-node-id="I1:713;13:52"
-        />
-        <p
-          className="font-medium leading-[24px] not-italic relative shrink-0 text-[#252525] text-[18px] whitespace-nowrap"
-          data-node-id="I1:713;13:33"
-        >
+        <p className={whatWeDoContinuePillLabelClassName} data-node-id="I1:713;13:33">
           {t("cta.continue")}
         </p>
         <div
-          className="absolute bg-[#46fff4] blur-[7.5px] inset-[64px_0_-98px_0] opacity-0 rounded-tl-[60px] rounded-tr-[60px]"
-          data-name="glow"
-          data-node-id="I1:713;13:44"
-        />
-        <div
-          className="overflow-clip relative shrink-0 size-[20px]"
+          className="relative size-[20px] shrink-0 overflow-clip"
           data-name="Right"
           data-node-id="I1:713;13:34"
         >
@@ -109,7 +104,7 @@ export function Group1({ className, property1 = "Default" }: Group1Props) {
               alt=""
               width={2400}
               height={2400}
-              className="absolute block max-w-none size-full"
+              className={whatWeDoContinuePillArrowImageClassName}
               src={imgSafearea}
             />
           </div>

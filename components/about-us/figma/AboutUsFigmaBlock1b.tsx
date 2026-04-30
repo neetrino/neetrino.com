@@ -24,6 +24,8 @@ import {
   ABOUT_DESKTOP_HERO_HEADLINE_LEADING_HY_CLASS,
   ABOUT_DESKTOP_HERO_HEADLINE_TEXT_DEFAULT_CLASS,
   ABOUT_DESKTOP_HERO_HEADLINE_TEXT_HY_CLASS,
+  ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX,
+  ABOUT_VECTOR_GRID_UNIFORM_SCALE,
 } from "@/lib/about-us-figma-layout.constants";
 import { cn } from "@/lib/utils";
 
@@ -50,10 +52,16 @@ export function AboutUsFigmaBlock1b() {
   return (
     <>
       <div
-        className="-translate-x-1/2 absolute flex h-[3723px] items-center justify-center left-[calc(50%-38px)] mix-blend-overlay top-[-40px] w-[1722px]"
-        style={transformStyle}
+        className="-translate-x-1/2 absolute flex items-center justify-center overflow-hidden left-[calc(50%-38px)] mix-blend-overlay top-[-40px] w-[1722px]"
+        style={{ ...transformStyle, height: ABOUT_VECTOR_GRID_OUTER_HEIGHT_PX }}
       >
-        <div className="flex-none rotate-90">
+        <div
+          className="flex-none"
+          style={{
+            transform: `rotate(90deg) scale(${ABOUT_VECTOR_GRID_UNIFORM_SCALE})`,
+            transformOrigin: "center center",
+          }}
+        >
           <div className="h-[1722px] relative w-[3723px]" data-name="Vector" data-node-id="335:931">
             <FigmaFillImage src={imgVector1} />
           </div>

@@ -25,7 +25,8 @@
     "assets:about-us-webp": "node scripts/assets/localize-about-us-mcp-assets.mjs",
     "assets:optimize-large-webp": "node scripts/assets/optimize-large-public-images.mjs",
     "assets:optimize-local": "node scripts/assets/optimize-local-assets.mjs",
-    "assets:convert-png-webp": "node scripts/convert-images.mjs"
+    "assets:convert-png-webp": "node scripts/convert-images.mjs",
+    "assets:r2-upload": "node scripts/assets/r2-upload-assets.mjs"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json,md,css}": [
@@ -63,6 +64,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1038.0",
     "@commitlint/cli": "^20.0.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@tailwindcss/postcss": "^4",

@@ -1,11 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getRequestRedirectOrigin } from "@/lib/server/auth/request-redirect-origin";
 import {
   getAdminSessionCookieAttributes,
   getAdminSessionCookieName,
 } from "@/lib/server/auth/session";
 
 export function POST(request: NextRequest): NextResponse {
-  const response = NextResponse.redirect(new URL("/admin/login", request.url));
+  const response = NextResponse.redirect(
+    new URL("/admin/login", `${getRequestRedirectOrigin(request)}/`),
+  );
 
   response.cookies.delete({
     name: getAdminSessionCookieName(),
@@ -16,5 +19,5 @@ export function POST(request: NextRequest): NextResponse {
 }
 
 export function GET(request: NextRequest): NextResponse {
-  return NextResponse.redirect(new URL("/admin/blog", request.url));
+  return NextResponse.redirect(new URL("/admin/blog", `${getRequestRedirectOrigin(request)}/`));
 }

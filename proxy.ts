@@ -6,6 +6,7 @@ import {
   getRequestHost,
   isAdminAuthDebugEnabled,
 } from "@/lib/server/auth/admin-auth-debug";
+import { getRequestRedirectOrigin } from "@/lib/server/auth/request-redirect-origin";
 import {
   getAdminSessionCookieName,
   verifyAdminSessionTokenWithReason,
@@ -35,7 +36,9 @@ export const config = {
     "/admin/:path*",
     "/api/admin",
     "/api/admin/:path*",
-    "/((?!api|_next|_vercel|.*\\..*).*)",
+    // Exclude `icon` / `apple-icon` — Next metadata routes have no “.” so `.*\\..*` would not skip them;
+    // without this, next-intl proxy intercepts `/icon` and the tab icon never loads.
+    "/((?!api|_next|_vercel|icon$|icon/|apple-icon$|apple-icon/|.*\\..*).*)",
   ],
 };
 
@@ -95,7 +98,7 @@ async function handleAdminRequest(request: NextRequest): Promise<NextResponse> {
       });
     }
 
-    const loginUrl = new URL("/admin/login", request.url);
+    const loginUrl = new URL("/admin/login", `${getRequestRedirectOrigin(request)}/`);
     loginUrl.searchParams.set("next", pathname);
     logAdminProxyDebug({
       pathname,
@@ -166,7 +169,7 @@ async function handleAdminRequest(request: NextRequest): Promise<NextResponse> {
     });
   }
 
-  const loginUrl = new URL("/admin/login", request.url);
+  const loginUrl = new URL("/admin/login", `${getRequestRedirectOrigin(request)}/`);
   loginUrl.searchParams.set("next", pathname);
   logAdminProxyDebug({
     pathname,
