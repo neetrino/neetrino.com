@@ -8,41 +8,14 @@ import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.const
 import {
   ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
   ABOUT_MOBILE_HERO_HEADLINE_TEXT_HY_CLASS,
-  ABOUT_VALUES_HY_VALUE1_HEART_LINE_SHIFT_LEFT_CLASS,
-  ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
-  ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
-  ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
 } from "@/lib/about-us-figma-layout.constants";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
-import {
-  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_SHIFT_X_HY_CLASS,
-  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_DEFAULT,
-  ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_HY,
-  ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_DEFAULT,
-  ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_HY,
-  ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_DEFAULT,
-  ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_HY,
-  ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_DEFAULT,
-  ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_HY,
-} from "@/lib/about-us-why-choose-feature-icons.constants";
-import {
-  img02A0Ab86C3Fe4B8381Ab86B982Bb800C1,
-  imgAboutPaletteDesignOptions,
-  imgChatGptImageApr32026At011015Pm1,
-  imgChatGptImageMar272026At064658Pm1,
-  imgLayer1,
-} from "@/lib/about-us-figma-asset-urls";
+import { imgLayer1 } from "@/lib/about-us-figma-asset-urls";
+import { AboutUsMobileMissionMeetTube } from "@/components/about-us/AboutUsMobileMissionMeetTube";
+import { AboutUsMobileMissionMeetTubeBottom } from "@/components/about-us/AboutUsMobileMissionMeetTubeBottom";
+import { AboutUsMobileWhyChooseUs } from "@/components/about-us/AboutUsMobileWhyChooseUs";
 import { MeetOurTeamHeading } from "@/components/about-us/MeetOurTeamHeading";
-
-const FEATURE_KEYS = [
-  ["feature1Line1", "feature1Line2"],
-  ["feature2Line1", "feature2Line2"],
-  ["feature3Line1", "feature3Line2"],
-  ["feature4Line1", "feature4Line2"],
-] as const;
-
-const VALUE_KEYS = ["value1", "value2", "value3", "value4"] as const;
 
 /**
  * Mobile/tablet (<lg) About Us layout. Mirrors the same content/order/CTA copy as the
@@ -64,7 +37,6 @@ export function AboutUsMobile() {
     { value: "380+", label: t("statsBottom.activeUsers"), gradient: GRADIENT_PURPLE() },
     { value: "400+", label: t("statsBottom.projectsDone"), gradient: GRADIENT_ORANGE() },
     { value: "25+", label: t("statsBottom.members"), gradient: GRADIENT_WHITE_PEACH() },
-    { value: "8", label: t("statsBottom.yearsExperience"), gradient: GRADIENT_CYAN() },
   ];
 
   return (
@@ -80,39 +52,28 @@ export function AboutUsMobile() {
           heroPossible={t("hero.possible")}
         />
         <NeetrinoIntroSection intro={t("mobileNeetrinoIntro")} />
-        <MissionVisionSection
-          missionHeading={missionVisionHeading(t("the"), t("mission"))}
-          missionBody={t("missionBody")}
-          visionHeading={missionVisionHeading(t("the"), t("vision"))}
-          visionBody={t("visionBody")}
-        />
-        <WhyChooseUsSection
-          heading={
-            <>
-              {t("why")} <span className="text-[#ff7500]">{t("choose")}</span>
-              {t("usQuestion")}
-            </>
-          }
-          featureKeys={FEATURE_KEYS}
-          t={t}
-        />
-        <ValuesSection
-          heading={
-            <>
-              {prefixThe(t("the"))}
-              <span className="text-[#ff7500]">{t("values")}</span> {t("valuesSuffix")}
-            </>
-          }
-          valueKeys={VALUE_KEYS}
-          t={t}
-        />
-        <CountriesSection
-          countriesPrefix={t("countriesPrefix")}
-          countriesAccent={t("countriesAccent")}
-          worldMapAlt={t("worldMapAlt")}
-        />
-        <BottomStatsSection bottomStats={bottomStats} />
-        <MeetOurTeamHeading variant="mobile" />
+        <div className="relative">
+          <AboutUsMobileMissionMeetTube />
+          <div className="relative z-10 isolate">
+            <MissionVisionSection
+              missionHeading={missionVisionHeading(t("the"), t("mission"))}
+              missionBody={t("missionBody")}
+              visionHeading={missionVisionHeading(t("the"), t("vision"))}
+              visionBody={t("visionBody")}
+            />
+            <AboutUsMobileWhyChooseUs />
+            <CountriesSection
+              countriesPrefix={t("countriesPrefix")}
+              countriesAccent={t("countriesAccent")}
+              worldMapAlt={t("worldMapAlt")}
+            />
+            <BottomStatsSection bottomStats={bottomStats} />
+          </div>
+          <AboutUsMobileMissionMeetTubeBottom />
+        </div>
+        <div className="mt-10 sm:mt-12">
+          <MeetOurTeamHeading variant="mobile" />
+        </div>
       </div>
     </div>
   );
@@ -148,11 +109,6 @@ function GRADIENT_GREEN_CYAN(): string {
 function GRADIENT_WHITE_PEACH(): string {
   return "linear-gradient(180deg, #ffffff 0%, #ffd0a9 100%)";
 }
-function GRADIENT_CYAN(): string {
-  return "linear-gradient(265deg, #acf0ff 22%, #00c6f3 85%)";
-}
-
-type AboutPageT = ReturnType<typeof useTranslations<"aboutPage">>;
 
 function HeroSection({
   heroParagraphs,
@@ -285,158 +241,6 @@ function SectionHeading({ children }: { children: ReactNode }) {
   );
 }
 
-function WhyChooseUsSection({
-  heading,
-  featureKeys,
-  t,
-}: {
-  heading: ReactNode;
-  featureKeys: typeof FEATURE_KEYS;
-  t: AboutPageT;
-}) {
-  const locale = useLocale();
-  const isHy = locale === "hy";
-
-  return (
-    <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-7">
-      <SectionHeading>{heading}</SectionHeading>
-      <div
-        className={cn(
-          "mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5",
-          isHy && "-translate-x-[15px] -translate-y-[30px]",
-        )}
-      >
-        {featureKeys.map(([line1Key, line2Key]) => (
-          <div
-            key={line1Key}
-            className="rounded-2xl border border-white/8 bg-white/[0.02] overflow-visible p-4 text-[#f5f5f5]"
-          >
-            {line1Key === "feature2Line1" ? (
-              <div
-                className={cn(
-                  "relative z-10 mx-auto mb-3 shrink-0",
-                  isHy
-                    ? `${ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_HY} ${ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_HY}`
-                    : `${ABOUT_DESIGN_OPTIONS_PALETTE_FRAME_CLASS_DEFAULT} ${ABOUT_DESIGN_OPTIONS_PALETTE_TRANSLATE_Y_CLASS_DEFAULT}`,
-                )}
-              >
-                <Image
-                  alt=""
-                  className="object-contain"
-                  fill
-                  sizes={
-                    isHy
-                      ? ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_HY
-                      : ABOUT_DESIGN_OPTIONS_PALETTE_IMAGE_SIZES_DEFAULT
-                  }
-                  src={imgAboutPaletteDesignOptions}
-                  quality={DEFAULT_IMAGE_QUALITY}
-                  loading="lazy"
-                />
-              </div>
-            ) : null}
-            {line1Key === "feature2Line1" ? (
-              <div
-                className={cn(
-                  isHy
-                    ? ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_HY
-                    : ABOUT_DESIGN_OPTIONS_FEATURE_COPY_TRANSLATE_Y_CLASS_DEFAULT,
-                  isHy && ABOUT_DESIGN_OPTIONS_FEATURE_COPY_SHIFT_X_HY_CLASS,
-                  isHy && "w-full text-left",
-                )}
-              >
-                <p className="text-sm font-extrabold leading-snug">{t(line1Key)}</p>
-                <p
-                  className={cn(
-                    "text-sm font-extrabold leading-snug",
-                    isHy && t(line2Key).includes("\n") && "whitespace-pre-line",
-                  )}
-                >
-                  {t(line2Key)}
-                </p>
-              </div>
-            ) : (
-              <>
-                <p className="text-sm font-extrabold leading-snug">{t(line1Key)}</p>
-                <p
-                  className={cn(
-                    "text-sm font-extrabold leading-snug",
-                    isHy && t(line2Key).includes("\n") && "whitespace-pre-line",
-                  )}
-                >
-                  {t(line2Key)}
-                </p>
-              </>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function ValuesSection({
-  heading,
-  valueKeys,
-  t,
-}: {
-  heading: ReactNode;
-  valueKeys: typeof VALUE_KEYS;
-  t: AboutPageT;
-}) {
-  const locale = useLocale();
-  const isHy = locale === "hy";
-
-  return (
-    <section className="py-10">
-      <SectionHeading>{heading}</SectionHeading>
-      <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {valueKeys.map((key) => (
-          <li
-            key={key}
-            className={cn(
-              "rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-4 text-sm font-extrabold leading-snug text-[#f5f5f5]",
-              isHy ? (key === "value1" ? "text-right" : "text-left") : "text-center",
-              isHy && key === "value1" && ABOUT_VALUES_HY_VALUE1_HEART_LINE_SHIFT_LEFT_CLASS,
-              isHy && key === "value2" && ABOUT_VALUES_HY_VALUE2_LINE_SHIFT_RIGHT_CLASS,
-              isHy && key === "value3" && ABOUT_VALUES_HY_VALUE3_LINE_SHIFT_LEFT_CLASS,
-              isHy && key === "value4" && ABOUT_VALUES_HY_VALUE4_LINE_SHIFT_LEFT_CLASS,
-            )}
-          >
-            {t(key)}
-          </li>
-        ))}
-      </ul>
-      <ValueImagesRow />
-    </section>
-  );
-}
-
-function ValueImagesRow() {
-  const images: ReadonlyArray<{ src: string; alt: string }> = [
-    { src: imgChatGptImageMar272026At064658Pm1, alt: "" },
-    { src: imgChatGptImageApr32026At011015Pm1, alt: "" },
-    { src: img02A0Ab86C3Fe4B8381Ab86B982Bb800C1, alt: "" },
-  ];
-  return (
-    <div className="mt-6 grid grid-cols-3 gap-3">
-      {images.map((img, i) => (
-        <div key={img.src} className="relative aspect-square overflow-hidden rounded-2xl">
-          <Image
-            alt={img.alt}
-            src={img.src}
-            fill
-            sizes="(max-width: 640px) 33vw, 220px"
-            className="object-cover"
-            quality={DEFAULT_IMAGE_QUALITY}
-            loading={i === 0 ? "eager" : "lazy"}
-          />
-        </div>
-      ))}
-    </div>
-  );
-}
-
 function CountriesSection({
   countriesPrefix,
   countriesAccent,
@@ -447,7 +251,7 @@ function CountriesSection({
   worldMapAlt: string;
 }) {
   return (
-    <section className="py-10">
+    <section className="pt-2 pb-10">
       <h2 className="text-center font-['Inter:Black_Italic',sans-serif] text-[clamp(1.25rem,5.5vw,1.875rem)] font-black italic uppercase leading-tight text-white">
         {countriesPrefix} <span className="text-[#ff7500]">{countriesAccent}</span>
       </h2>
@@ -468,12 +272,12 @@ function CountriesSection({
 
 function BottomStatsSection({ bottomStats }: { bottomStats: ReadonlyArray<StatItem> }) {
   return (
-    <section className="pt-5">
-      <div className="grid grid-cols-2 gap-5 rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:grid-cols-4 sm:gap-3 sm:p-6">
+    <section className="pt-3">
+      <div className="flex flex-wrap items-start justify-center gap-x-6 gap-y-4 sm:gap-x-12">
         {bottomStats.map((s) => (
           <div key={s.value + s.label} className="min-w-0 text-center">
             <p
-              className="bg-clip-text text-4xl font-black leading-tight text-transparent sm:text-5xl"
+              className="bg-clip-text text-3xl font-black leading-none text-transparent sm:text-4xl"
               style={{ backgroundImage: s.gradient }}
             >
               {s.value}
