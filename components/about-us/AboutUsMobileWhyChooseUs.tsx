@@ -19,6 +19,12 @@ import {
   ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_NUDGE_LEFT_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_PULL_UP_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_STACK_GAP_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_COPY_NUDGE_LEFT_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_COPY_PULL_UP_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ICON_FRAME_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ROW_NUDGE_RIGHT_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ROW_PULL_UP_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ROW_STACK_GAP_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_FEATURE_ICON_MIRROR_X_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_COPY_NUDGE_RIGHT_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_COPY_PULL_UP_CLASS,
@@ -273,23 +279,38 @@ export function AboutUsMobileWhyChooseUs() {
             </div>
           </div>
 
-          <div className="flex w-full flex-col items-end gap-3 sm:gap-4">
+          <div
+            className={cn(
+              "flex w-full flex-col items-end",
+              ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ROW_NUDGE_RIGHT_CLASS,
+              ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ROW_PULL_UP_CLASS,
+              ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ROW_STACK_GAP_CLASS,
+            )}
+          >
             <SideIcon
               src={img02A0Ab86C3Fe4B8381Ab86B982Bb800C1}
               alt=""
-              sizes="150px"
-              className={cn(ABOUT_MOBILE_WHY_CHOOSE_SIDE_ICON_FRAME_CLASS)}
+              sizes="220px"
+              className={cn(ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ICON_FRAME_CLASS)}
               imageClassName={cn(
-                "object-cover object-center",
+                "object-cover object-top",
                 ABOUT_MOBILE_WHY_CHOOSE_FEATURE_ICON_MIRROR_X_CLASS,
               )}
             />
-            <FeatureCopyBlock
-              line1Key="feature4Line1"
-              line2Key="feature4Line2"
-              align="right"
-              t={t}
-            />
+            <div
+              className={cn(
+                ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_COPY_PULL_UP_CLASS,
+                ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_COPY_NUDGE_LEFT_CLASS,
+                "min-w-0 self-end",
+              )}
+            >
+              <FeatureCopyBlock
+                line1Key="feature4Line1"
+                line2Key="feature4Line2"
+                align="right"
+                t={t}
+              />
+            </div>
           </div>
         </div>
       </section>

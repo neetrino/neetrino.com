@@ -30,6 +30,30 @@ export const ABOUT_MOBILE_WHY_CHOOSE_SIDE_ICON_FRAME_CLASS =
 export const ABOUT_MOBILE_WHY_CHOOSE_FEATURE_ICON_MIRROR_X_CLASS = "-scale-x-100";
 
 /**
+ * Astronaut / support row (feature 4): larger head read than `SIDE_ICON`, lifted with copy.
+ * `object-top` on the image pairs with `object-cover` to keep the helmet in frame.
+ */
+export const ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ICON_FRAME_CLASS =
+  "relative h-[min(52vw,220px)] w-[min(52vw,220px)] max-w-full shrink-0 -translate-y-30 sm:-translate-y-4";
+
+/** Pull astronaut + feature-4 copy higher toward the lightning block. */
+export const ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ROW_PULL_UP_CLASS = "-mt-20 sm:-mt-12";
+
+/** Shift astronaut + feature-4 copy toward the trailing edge (LTR: right). */
+export const ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ROW_NUDGE_RIGHT_CLASS =
+  "translate-x-[30px] sm:translate-x-[16px]";
+
+/** Tight stack under the astronaut art. */
+export const ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_ROW_STACK_GAP_CLASS = "gap-0 sm:gap-1";
+
+/** Tuck feature-4 copy higher under the enlarged astronaut frame. */
+export const ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_COPY_PULL_UP_CLASS = "-mt-25 sm:-mt-6";
+
+/** Shift feature-4 copy left (LTR) under the right-aligned astronaut art. */
+export const ABOUT_MOBILE_WHY_CHOOSE_ASTRONAUT_COPY_NUDGE_LEFT_CLASS =
+  "-translate-x-[32px] sm:-translate-x-[43px]";
+
+/**
  * Lightning / speed row (feature 3): larger than `SIDE_ICON`.
  * Horizontal nudge applies **only** to the art frame, not feature-3 copy.
  */
