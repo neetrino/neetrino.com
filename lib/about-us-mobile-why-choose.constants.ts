@@ -26,6 +26,28 @@ export const ABOUT_MOBILE_WHY_CHOOSE_PANEL_INNER_PAD_CLASS = "px-4 md:px-6";
 export const ABOUT_MOBILE_WHY_CHOOSE_SIDE_ICON_FRAME_CLASS =
   "relative h-[min(36vw,150px)] w-[min(36vw,150px)] shrink-0";
 
+/** Horizontal mirror on the feature `Image` for lightning + astronaut rows. */
+export const ABOUT_MOBILE_WHY_CHOOSE_FEATURE_ICON_MIRROR_X_CLASS = "-scale-x-100";
+
+/**
+ * Lightning / speed row (feature 3): larger than `SIDE_ICON`.
+ * Horizontal nudge applies **only** to the art frame, not feature-3 copy.
+ */
+export const ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_ICON_FRAME_CLASS =
+  "relative h-[min(72vw,300px)] w-[min(72vw,300px)] max-w-full shrink-0 -translate-x-16 -translate-y-10 sm:-translate-x-8 sm:-translate-y-5 md:-translate-x-10";
+
+/** Pull lightning + copy a bit closer to the palette row above. */
+export const ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_ROW_PULL_UP_CLASS = "-mt-18 sm:-mt-12";
+
+/** Tight stack under the lightning art (matches rocket / palette rhythm). */
+export const ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_ROW_STACK_GAP_CLASS = "gap-0 sm:gap-1";
+
+/** Tuck feature-3 copy higher under the enlarged lightning frame. */
+export const ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_COPY_PULL_UP_CLASS = "-mt-24 sm:-mt-8";
+
+/** Shift feature-3 copy right in LTR (lightning art sits left). */
+export const ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_COPY_NUDGE_RIGHT_CLASS = "pl-[16px] sm:pl-[20px]";
+
 /**
  * Rocket frame (feature 1): `width: 292.049px`, `height: 290.751px`, `transform: rotate(-1.366deg)`.
  * Slight `-translate-x` / `-translate-y` nudge the frame vs copy.
@@ -52,14 +74,17 @@ export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_FRAME_CLASS =
 /** Tighter stack between palette tile and feature-2 copy (rocket row uses the same rhythm). */
 export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_STACK_GAP_CLASS = "gap-0 sm:gap-1";
 
-/** Pull palette + feature-2 copy up toward the rocket block. */
-export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_PULL_UP_CLASS = "-mt-38 sm:-mt-8";
+/** Vertical offset for palette + feature-2 row: positive pushes block lower under the rocket. */
+export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_PULL_UP_CLASS = "-mt-28 sm:mt-8";
 
 /** Shift palette + feature-2 copy toward the trailing edge (LTR: right). */
 export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_NUDGE_RIGHT_CLASS = "translate-x-[35px]";
 
 /** Shift feature-2 copy left (LTR) while the palette tile keeps row nudge. */
 export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_NUDGE_LEFT_CLASS = "-translate-x-[35px]";
+
+/** Nudge feature-2 copy slightly up toward the palette tile. */
+export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_PULL_UP_CLASS = "-mt-3 sm:-mt-3";
 
 /** Gap between reflected title stack and first feature row. */
 export const ABOUT_MOBILE_WHY_CHOOSE_TITLE_TO_ROWS_MARGIN_TOP_CLASS = "mt-8";

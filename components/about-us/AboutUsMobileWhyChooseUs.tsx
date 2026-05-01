@@ -17,7 +17,14 @@ import {
   ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_PULL_UP_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_NUDGE_RIGHT_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_NUDGE_LEFT_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_PULL_UP_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_STACK_GAP_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_FEATURE_ICON_MIRROR_X_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_COPY_NUDGE_RIGHT_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_COPY_PULL_UP_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_ICON_FRAME_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_ROW_PULL_UP_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_ROW_STACK_GAP_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_REFLECTION_BLUR_OFFSET_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_REFLECTION_FIGMA_BLUR_OPACITY_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_ROW_GAP_CLASS,
@@ -219,6 +226,7 @@ export function AboutUsMobileWhyChooseUs() {
             />
             <div
               className={cn(
+                ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_PULL_UP_CLASS,
                 ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_NUDGE_LEFT_CLASS,
                 "min-w-0 self-end",
               )}
@@ -232,20 +240,37 @@ export function AboutUsMobileWhyChooseUs() {
             </div>
           </div>
 
-          <div className="flex w-full flex-col items-start gap-3 sm:gap-4">
+          <div
+            className={cn(
+              "flex w-full flex-col items-start",
+              ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_ROW_PULL_UP_CLASS,
+              ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_ROW_STACK_GAP_CLASS,
+            )}
+          >
             <SideIcon
               src={imgChatGptImageApr32026At011015Pm1}
               alt=""
-              sizes="150px"
-              className={cn(ABOUT_MOBILE_WHY_CHOOSE_SIDE_ICON_FRAME_CLASS)}
-              imageClassName="object-contain object-bottom"
+              sizes="300px"
+              className={cn(ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_ICON_FRAME_CLASS)}
+              imageClassName={cn(
+                "object-contain object-left object-bottom",
+                ABOUT_MOBILE_WHY_CHOOSE_FEATURE_ICON_MIRROR_X_CLASS,
+              )}
             />
-            <FeatureCopyBlock
-              line1Key="feature3Line1"
-              line2Key="feature3Line2"
-              align="left"
-              t={t}
-            />
+            <div
+              className={cn(
+                ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_COPY_PULL_UP_CLASS,
+                ABOUT_MOBILE_WHY_CHOOSE_LIGHTNING_COPY_NUDGE_RIGHT_CLASS,
+                "min-w-0 w-full",
+              )}
+            >
+              <FeatureCopyBlock
+                line1Key="feature3Line1"
+                line2Key="feature3Line2"
+                align="left"
+                t={t}
+              />
+            </div>
           </div>
 
           <div className="flex w-full flex-col items-end gap-3 sm:gap-4">
@@ -254,7 +279,10 @@ export function AboutUsMobileWhyChooseUs() {
               alt=""
               sizes="150px"
               className={cn(ABOUT_MOBILE_WHY_CHOOSE_SIDE_ICON_FRAME_CLASS)}
-              imageClassName="object-cover object-center"
+              imageClassName={cn(
+                "object-cover object-center",
+                ABOUT_MOBILE_WHY_CHOOSE_FEATURE_ICON_MIRROR_X_CLASS,
+              )}
             />
             <FeatureCopyBlock
               line1Key="feature4Line1"
