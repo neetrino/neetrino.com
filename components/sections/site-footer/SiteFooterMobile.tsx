@@ -166,6 +166,7 @@ export function SiteFooterMobile() {
                     alt=""
                     src={SITE_FOOTER_MOBILE_539.contactAddress}
                     fill
+                    unoptimized
                     className="object-contain"
                     sizes="16px"
                   />
@@ -178,6 +179,7 @@ export function SiteFooterMobile() {
                     alt=""
                     src={SITE_FOOTER_MOBILE_539.contactEmail}
                     fill
+                    unoptimized
                     className="object-contain"
                     sizes="20px"
                   />
@@ -195,6 +197,7 @@ export function SiteFooterMobile() {
                     alt=""
                     src={SITE_FOOTER_MOBILE_539.contactPhone}
                     fill
+                    unoptimized
                     className="object-contain"
                     sizes="16px"
                   />
@@ -212,6 +215,7 @@ export function SiteFooterMobile() {
                     alt=""
                     src={SITE_FOOTER_MOBILE_539.contactHours}
                     fill
+                    unoptimized
                     className="object-contain"
                     sizes="20px"
                   />
@@ -246,6 +250,7 @@ export function SiteFooterMobile() {
                   alt=""
                   src={SITE_FOOTER_MOBILE_539.sendArrow}
                   fill
+                  unoptimized
                   className="object-contain"
                   sizes="42px"
                 />
@@ -269,11 +274,25 @@ export function SiteFooterMobile() {
                   <span
                     className={cn("pointer-events-none relative block size-full", item.innerClass)}
                   >
-                    <Image alt="" src={item.src} fill className="object-contain" sizes="32px" />
+                    <Image
+                      alt=""
+                      unoptimized
+                      src={item.src}
+                      fill
+                      className="object-contain"
+                      sizes="32px"
+                    />
                   </span>
                 ) : (
                   <span className="pointer-events-none relative block size-full">
-                    <Image alt="" src={item.src} fill className="object-contain" sizes="32px" />
+                    <Image
+                      alt=""
+                      unoptimized
+                      src={item.src}
+                      fill
+                      className="object-contain"
+                      sizes="32px"
+                    />
                   </span>
                 )}
               </span>

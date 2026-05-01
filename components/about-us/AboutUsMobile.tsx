@@ -72,9 +72,9 @@ export function AboutUsMobile() {
           <div className="relative z-10 isolate">
             <AboutUsMobileMissionVisionSection
               missionHeading={missionVisionHeading(t("the"), t("mission"))}
-              missionBody={t("missionBody")}
+              missionBody={t("missionBodyMobile")}
               visionHeading={missionVisionHeading(t("the"), t("vision"))}
-              visionBody={t("visionBody")}
+              visionBody={t("visionBodyMobile")}
             />
             <AboutUsMobileWhyChooseUs />
             <CountriesSection

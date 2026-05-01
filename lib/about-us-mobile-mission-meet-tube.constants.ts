@@ -1,10 +1,19 @@
 /**
  * Mobile “tube” Mission → bottom stats (stops before Meet our team) — Figma NEETRINO-WEB `479:1275`
- * (`Rectangle 17418`, width 128px, rounded capsule).
+ * (`Rectangle 17418`: Figma width **128px** — rendered a touch wider on mobile, height **2190px**, radius **151px**).
  */
 
-/** Figma frame width (px). */
-export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_PX = 128;
+/** Max tube width (px) on mobile — slightly above Figma 128 for readability. */
+export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_PX = 140;
+
+/** Fluid lower bound inside `min(WIDTH_PX, max(rem, vw))` (`AboutUsMobileMissionMeetTube`). */
+export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_FLUID_MIN_REM = 3.25;
+
+/** Fluid vw segment for narrow viewports. */
+export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_FLUID_VW = 20;
+
+/** Figma `479:1275` corner radius (MCP `rounded-[151px]`). */
+export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_BORDER_RADIUS_PX = 151;
 
 /**
  * Capsule extends this many pixels **below** the mission stack (negative `bottom` inset).

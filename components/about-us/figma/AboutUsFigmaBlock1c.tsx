@@ -20,7 +20,7 @@ export function AboutUsFigmaBlock1c() {
         className="z-10 -translate-x-full -translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[552px] not-italic text-[16px] text-right text-white top-[1464px] w-[371px]"
         data-node-id="335:978"
       >
-        <p className="whitespace-pre-line leading-[24px]">{t("aboutPage.missionBody")}</p>
+        <p className="leading-[24px]">{t("aboutPage.missionBody")}</p>
       </div>
       <div
         className="z-10 -translate-y-1/2 absolute flex flex-col font-['Inter:Extra_Light',sans-serif] font-extralight justify-center leading-[0] left-[869px] not-italic text-[16px] text-white top-[1596px] w-[371px]"

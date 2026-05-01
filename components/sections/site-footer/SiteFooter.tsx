@@ -13,32 +13,13 @@ import {
   footerSendCtaWidthWideClassName,
   isFooterSendCtaWideLocale,
 } from "@/lib/footer-send-cta-layout";
-import { FIGMA_ASSETS as NeetrinoGlobalFigmaAssets } from "@/lib/figma-assets";
+import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { SITE_FOOTER_DESKTOP_FOOTER_BOTTOM_TOP_PX } from "@/lib/site-footer-copyright-strip.constants";
 import { SITE_FOOTER_DESKTOP_ATMOSPHERE_IMAGE_INSET } from "@/lib/site-footer-desktop-atmosphere-166-1259.constants";
 import { cn } from "@/lib/utils";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { SiteFooterDesktopGridBackdrop } from "./SiteFooterDesktopGridBackdrop";
 import { SiteFooterMobile } from "./SiteFooterMobile";
-
-const FIGMA_ASSETS = {
-  img101: "https://www.figma.com/api/mcp/asset/26540830-c404-450b-ae0a-f864a9101164",
-  imgFooterBottom: "https://www.figma.com/api/mcp/asset/1a751c68-9306-47f6-a46d-7d04ea04b131",
-  imgVector: "https://www.figma.com/api/mcp/asset/fd0e6229-31db-42f5-9e11-a01733527caa",
-  imgVector1: "https://www.figma.com/api/mcp/asset/c3fd9b1d-1c61-4a23-b92b-8f8b584cf5f0",
-  imgVector2: "https://www.figma.com/api/mcp/asset/ec7ee90a-99d7-46a5-942d-d93c19c46444",
-  imgGroup2087329580: "https://www.figma.com/api/mcp/asset/d815eacc-e9f9-4c51-b2b5-06b541416f73",
-  imgGroup221: "https://www.figma.com/api/mcp/asset/a5859f03-1f95-41d1-95bd-3f02b7b33614",
-  imgSocialMediaIconSquareFacebook:
-    "https://www.figma.com/api/mcp/asset/dcb1289b-bdc9-406c-af0c-f3d951d31145",
-  imgSocialMediaIconSquareInstagram:
-    "https://www.figma.com/api/mcp/asset/91e49aab-256e-4c70-bc37-aa9b385913f0",
-  imgGroup73: "https://www.figma.com/api/mcp/asset/6c8a1029-1e21-47a8-ae71-b0883a035e2f",
-  imgGroup: "https://www.figma.com/api/mcp/asset/55a91980-34f2-4d91-99a9-249bc7f5f08c",
-  imgGroup74: "https://www.figma.com/api/mcp/asset/0ee0b92d-ae16-4581-bf64-c243fca8bf18",
-  imgVector3: "https://www.figma.com/api/mcp/asset/5ec474d6-f3cc-4535-a13e-f46ce87dab7f",
-  imgVector4: "https://www.figma.com/api/mcp/asset/7b4ba32f-546a-4d51-bf49-e9bc47f586e9",
-} as const;
 
 const SOCIAL_ICON_HREFS = [
   CONTACT_SOCIAL_LINKS[0].href,
@@ -98,7 +79,7 @@ export function Footer() {
               style={{ inset: SITE_FOOTER_DESKTOP_ATMOSPHERE_IMAGE_INSET }}
             >
               <FigmaFillImage
-                src={NeetrinoGlobalFigmaAssets.imgRectangle17417}
+                src={FIGMA_ASSETS.imgRectangle17417}
                 className="max-w-none object-cover object-center"
                 loading="eager"
               />
@@ -125,7 +106,7 @@ export function Footer() {
                   height={2400}
                   unoptimized
                   className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
-                  src={FIGMA_ASSETS.img101}
+                  src={FIGMA_ASSETS.img10}
                 />
               </div>
             </div>
@@ -141,7 +122,7 @@ export function Footer() {
                   height={2400}
                   unoptimized
                   className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
-                  src={FIGMA_ASSETS.img101}
+                  src={FIGMA_ASSETS.img10}
                 />
               </div>
             </div>
