@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { AboutUsMobileWhyChooseUsPanelBackdrop } from "@/components/about-us/AboutUsMobileWhyChooseUsPanelBackdrop";
 import { interSans } from "@/lib/fonts";
 import {
@@ -14,9 +14,18 @@ import {
   ABOUT_MOBILE_WHY_CHOOSE_PANEL_INNER_PAD_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_PANEL_OUTER_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_PALETTE_FRAME_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_PULL_UP_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_NUDGE_RIGHT_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_NUDGE_LEFT_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_STACK_GAP_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_REFLECTION_BLUR_OFFSET_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_REFLECTION_FIGMA_BLUR_OPACITY_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_ROW_GAP_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ROCKET_ROW_NUDGE_LEFT_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ROCKET_ROW_STACK_GAP_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ROCKET_COPY_PULL_UP_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ROCKET_COPY_NUDGE_RIGHT_CLASS,
+  ABOUT_MOBILE_WHY_CHOOSE_ROCKET_ICON_FRAME_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_SIDE_ICON_FRAME_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_TITLE_TO_ROWS_MARGIN_TOP_CLASS,
 } from "@/lib/about-us-mobile-why-choose.constants";
@@ -94,24 +103,17 @@ function FeatureCopyBlock({
   line2Key,
   align,
   t,
-  isHy,
 }: {
   line1Key: "feature1Line1" | "feature2Line1" | "feature3Line1" | "feature4Line1";
   line2Key: "feature1Line2" | "feature2Line2" | "feature3Line2" | "feature4Line2";
   align: "left" | "right";
   t: AboutPageT;
-  isHy: boolean;
 }) {
   const line2 = t(line2Key);
-  const preLine = isHy && line2.includes("\n");
+  const preLine = line2.includes("\n");
+  const alignClass = align === "right" ? "text-right" : "text-left";
   return (
-    <div
-      className={cn(
-        WHY_CHOOSE_BODY_CLASS,
-        "min-w-0 flex-1",
-        align === "right" ? "text-right" : "text-left",
-      )}
-    >
+    <div className={cn(WHY_CHOOSE_BODY_CLASS, "min-w-0 w-full max-w-md", alignClass)}>
       <p className="mb-0">{t(line1Key)}</p>
       <p className={cn(preLine && "whitespace-pre-line")}>{line2}</p>
     </div>
@@ -151,8 +153,6 @@ function SideIcon({
  */
 export function AboutUsMobileWhyChooseUs() {
   const t = useTranslations("aboutPage");
-  const locale = useLocale();
-  const isHy = locale === "hy";
 
   return (
     <div className={ABOUT_MOBILE_WHY_CHOOSE_PANEL_OUTER_CLASS}>
@@ -172,31 +172,44 @@ export function AboutUsMobileWhyChooseUs() {
             ABOUT_MOBILE_WHY_CHOOSE_ROW_GAP_CLASS,
           )}
         >
-          <div className="flex flex-row items-center justify-between gap-3 sm:gap-5">
+          <div
+            className={cn(
+              "flex w-full flex-col items-start",
+              ABOUT_MOBILE_WHY_CHOOSE_ROCKET_ROW_NUDGE_LEFT_CLASS,
+              ABOUT_MOBILE_WHY_CHOOSE_ROCKET_ROW_STACK_GAP_CLASS,
+            )}
+          >
             <SideIcon
               src={imgChatGptImageMar272026At064658Pm1}
               alt=""
-              sizes="150px"
-              className={cn(ABOUT_MOBILE_WHY_CHOOSE_SIDE_ICON_FRAME_CLASS)}
+              sizes="292px"
+              className={cn(ABOUT_MOBILE_WHY_CHOOSE_ROCKET_ICON_FRAME_CLASS)}
               imageClassName="object-contain object-center"
             />
-            <FeatureCopyBlock
-              line1Key="feature1Line1"
-              line2Key="feature1Line2"
-              align="left"
-              t={t}
-              isHy={isHy}
-            />
+            <div
+              className={cn(
+                ABOUT_MOBILE_WHY_CHOOSE_ROCKET_COPY_PULL_UP_CLASS,
+                ABOUT_MOBILE_WHY_CHOOSE_ROCKET_COPY_NUDGE_RIGHT_CLASS,
+                "min-w-0 w-full",
+              )}
+            >
+              <FeatureCopyBlock
+                line1Key="feature1Line1"
+                line2Key="feature1Line2"
+                align="left"
+                t={t}
+              />
+            </div>
           </div>
 
-          <div className="flex flex-row items-center justify-between gap-3 sm:gap-5">
-            <FeatureCopyBlock
-              line1Key="feature2Line1"
-              line2Key="feature2Line2"
-              align="right"
-              t={t}
-              isHy={isHy}
-            />
+          <div
+            className={cn(
+              "flex w-full flex-col items-end",
+              ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_PULL_UP_CLASS,
+              ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_NUDGE_RIGHT_CLASS,
+              ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_STACK_GAP_CLASS,
+            )}
+          >
             <SideIcon
               src={imgAboutPaletteDesignOptions}
               alt=""
@@ -204,9 +217,22 @@ export function AboutUsMobileWhyChooseUs() {
               className={cn(ABOUT_MOBILE_WHY_CHOOSE_PALETTE_FRAME_CLASS)}
               imageClassName="object-contain object-center"
             />
+            <div
+              className={cn(
+                ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_NUDGE_LEFT_CLASS,
+                "min-w-0 self-end",
+              )}
+            >
+              <FeatureCopyBlock
+                line1Key="feature2Line1"
+                line2Key="feature2Line2"
+                align="right"
+                t={t}
+              />
+            </div>
           </div>
 
-          <div className="flex flex-row items-center justify-between gap-3 sm:gap-5">
+          <div className="flex w-full flex-col items-start gap-3 sm:gap-4">
             <SideIcon
               src={imgChatGptImageApr32026At011015Pm1}
               alt=""
@@ -219,24 +245,22 @@ export function AboutUsMobileWhyChooseUs() {
               line2Key="feature3Line2"
               align="left"
               t={t}
-              isHy={isHy}
             />
           </div>
 
-          <div className="flex flex-row items-center justify-between gap-3 sm:gap-5">
-            <FeatureCopyBlock
-              line1Key="feature4Line1"
-              line2Key="feature4Line2"
-              align="right"
-              t={t}
-              isHy={isHy}
-            />
+          <div className="flex w-full flex-col items-end gap-3 sm:gap-4">
             <SideIcon
               src={img02A0Ab86C3Fe4B8381Ab86B982Bb800C1}
               alt=""
               sizes="150px"
               className={cn(ABOUT_MOBILE_WHY_CHOOSE_SIDE_ICON_FRAME_CLASS)}
               imageClassName="object-cover object-center"
+            />
+            <FeatureCopyBlock
+              line1Key="feature4Line1"
+              line2Key="feature4Line2"
+              align="right"
+              t={t}
             />
           </div>
         </div>

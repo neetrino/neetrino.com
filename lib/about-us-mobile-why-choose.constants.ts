@@ -26,9 +26,40 @@ export const ABOUT_MOBILE_WHY_CHOOSE_PANEL_INNER_PAD_CLASS = "px-4 md:px-6";
 export const ABOUT_MOBILE_WHY_CHOOSE_SIDE_ICON_FRAME_CLASS =
   "relative h-[min(36vw,150px)] w-[min(36vw,150px)] shrink-0";
 
+/**
+ * Rocket frame (feature 1): `width: 292.049px`, `height: 290.751px`, `transform: rotate(-1.366deg)`.
+ * Slight `-translate-x` / `-translate-y` nudge the frame vs copy.
+ */
+export const ABOUT_MOBILE_WHY_CHOOSE_ROCKET_ICON_FRAME_CLASS =
+  "relative h-[290.751px] w-[292.049px] max-w-full shrink-0 -translate-x-10 -translate-y-10 -rotate-[1.366deg]";
+
+/** Shift rocket + feature-1 copy 10px left (LTR) as one column. */
+export const ABOUT_MOBILE_WHY_CHOOSE_ROCKET_ROW_NUDGE_LEFT_CLASS = "-translate-x-[10px]";
+
+/** Tighter stack under the rocket than other feature rows (`gap-3 sm:gap-4`). */
+export const ABOUT_MOBILE_WHY_CHOOSE_ROCKET_ROW_STACK_GAP_CLASS = "gap-0 sm:gap-1";
+
+/** Nudge feature-1 copy up toward the rocket (large frame + `object-contain` leaves footroom). */
+export const ABOUT_MOBILE_WHY_CHOOSE_ROCKET_COPY_PULL_UP_CLASS = "-mt-25 sm:-mt-3";
+
+/** Shift feature-1 copy toward the trailing edge in LTR (was requested as right nudge). */
+export const ABOUT_MOBILE_WHY_CHOOSE_ROCKET_COPY_NUDGE_RIGHT_CLASS = "pl-[20px]";
+
 /** Palette tile — Figma `479:1285` sits beside right-aligned copy. */
 export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_FRAME_CLASS =
   "relative h-[min(52vw,210px)] w-[min(58vw,240px)] shrink-0";
+
+/** Tighter stack between palette tile and feature-2 copy (rocket row uses the same rhythm). */
+export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_STACK_GAP_CLASS = "gap-0 sm:gap-1";
+
+/** Pull palette + feature-2 copy up toward the rocket block. */
+export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_PULL_UP_CLASS = "-mt-38 sm:-mt-8";
+
+/** Shift palette + feature-2 copy toward the trailing edge (LTR: right). */
+export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_ROW_NUDGE_RIGHT_CLASS = "translate-x-[35px]";
+
+/** Shift feature-2 copy left (LTR) while the palette tile keeps row nudge. */
+export const ABOUT_MOBILE_WHY_CHOOSE_PALETTE_COPY_NUDGE_LEFT_CLASS = "-translate-x-[35px]";
 
 /** Gap between reflected title stack and first feature row. */
 export const ABOUT_MOBILE_WHY_CHOOSE_TITLE_TO_ROWS_MARGIN_TOP_CLASS = "mt-8";
