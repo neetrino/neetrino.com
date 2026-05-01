@@ -186,7 +186,7 @@
     "values": "VALUES",
     "valuesSuffix": "THAT ALWAYS DRIVE US",
     "countriesPrefix": "WE WORK WITH MORE THAN",
-    "countriesAccent": "10 COUNTRIES",
+    "countriesAccent": "10\u00a0COUNTRIES",
     "hero": {
       "with": "WITH",
       "us": "US",

@@ -14,6 +14,7 @@ import {
   ABOUT_US_MOBILE_MISSION_MEET_TUBE_BOTTOM_CB_FRAME_HEIGHT_PX,
   ABOUT_US_MOBILE_MISSION_MEET_TUBE_BOTTOM_CB_FRAME_WIDTH_PX,
   ABOUT_US_MOBILE_MISSION_MEET_TUBE_BOTTOM_Z_INDEX,
+  ABOUT_US_MOBILE_MISSION_MEET_TUBE_EXTEND_BELOW_PX,
 } from "@/lib/about-us-mobile-mission-meet-tube.constants";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { cn } from "@/lib/utils";
@@ -79,8 +80,11 @@ export function AboutUsMobileMissionMeetTubeBottom() {
 
   return (
     <div
-      className="pointer-events-none absolute bottom-0 left-1/2 w-[min(220px,58vw)] max-w-none -translate-x-1/2 overflow-visible select-none"
-      style={{ zIndex: ABOUT_US_MOBILE_MISSION_MEET_TUBE_BOTTOM_Z_INDEX }}
+      className="pointer-events-none absolute left-1/2 w-[min(220px,58vw)] max-w-none -translate-x-1/2 overflow-visible select-none"
+      style={{
+        zIndex: ABOUT_US_MOBILE_MISSION_MEET_TUBE_BOTTOM_Z_INDEX,
+        bottom: -ABOUT_US_MOBILE_MISSION_MEET_TUBE_EXTEND_BELOW_PX,
+      }}
       data-name="Background Lights — tube end (mobile)"
       aria-hidden
     >

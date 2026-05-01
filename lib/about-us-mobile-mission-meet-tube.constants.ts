@@ -6,6 +6,12 @@
 /** Figma frame width (px). */
 export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_PX = 128;
 
+/**
+ * Capsule extends this many pixels **below** the mission stack (negative `bottom` inset).
+ * Lengthens the tube on mobile without changing layout flow.
+ */
+export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_EXTEND_BELOW_PX = 160;
+
 /** Stacking: under section copy. */
 export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_Z_INDEX = 0;
 

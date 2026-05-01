@@ -9,6 +9,7 @@ import {
   ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
   ABOUT_MOBILE_HERO_HEADLINE_TEXT_HY_CLASS,
 } from "@/lib/about-us-figma-layout.constants";
+import { AboutUsMobileCountriesHeading } from "@/components/about-us/AboutUsMobileCountriesHeading";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { imgLayer1 } from "@/lib/about-us-figma-asset-urls";
@@ -16,6 +17,11 @@ import { AboutUsMobileMissionMeetTube } from "@/components/about-us/AboutUsMobil
 import { AboutUsMobileMissionMeetTubeBottom } from "@/components/about-us/AboutUsMobileMissionMeetTubeBottom";
 import { AboutUsMobileWhyChooseUs } from "@/components/about-us/AboutUsMobileWhyChooseUs";
 import { MeetOurTeamHeading } from "@/components/about-us/MeetOurTeamHeading";
+import {
+  ABOUT_MOBILE_COUNTRIES_MAP_FLOW_MARGIN_TOP_CLASS,
+  ABOUT_MOBILE_COUNTRIES_MAP_VISUAL_TRANSLATE_Y_CLASS,
+} from "@/lib/about-us-mobile-countries-map.constants";
+import { ABOUT_MEET_OUR_TEAM_MOBILE_MARGIN_TOP_CLASS } from "@/lib/about-us-meet-our-team.constants";
 
 /**
  * Mobile/tablet (<lg) About Us layout. Mirrors the same content/order/CTA copy as the
@@ -71,7 +77,7 @@ export function AboutUsMobile() {
           </div>
           <AboutUsMobileMissionMeetTubeBottom />
         </div>
-        <div className="mt-10 sm:mt-12">
+        <div className={ABOUT_MEET_OUR_TEAM_MOBILE_MARGIN_TOP_CLASS}>
           <MeetOurTeamHeading variant="mobile" />
         </div>
       </div>
@@ -251,16 +257,23 @@ function CountriesSection({
   worldMapAlt: string;
 }) {
   return (
-    <section className="pt-2 pb-10">
-      <h2 className="text-center font-['Inter:Black_Italic',sans-serif] text-[clamp(1.25rem,5.5vw,1.875rem)] font-black italic uppercase leading-tight text-white">
-        {countriesPrefix} <span className="text-[#ff7500]">{countriesAccent}</span>
-      </h2>
-      <div className="relative mt-6 aspect-[1195/460] w-full overflow-hidden rounded-2xl">
+    <section className="pt-6 pb-10" aria-labelledby="about-mobile-countries-heading">
+      <AboutUsMobileCountriesHeading
+        countriesPrefix={countriesPrefix}
+        countriesAccent={countriesAccent}
+      />
+      <div
+        className={cn(
+          "relative -mx-3 aspect-[1195/520] w-[calc(100%+1.5rem)] max-w-none overflow-hidden rounded-2xl sm:-mx-4 sm:w-[calc(100%+2rem)]",
+          ABOUT_MOBILE_COUNTRIES_MAP_FLOW_MARGIN_TOP_CLASS,
+          ABOUT_MOBILE_COUNTRIES_MAP_VISUAL_TRANSLATE_Y_CLASS,
+        )}
+      >
         <Image
           alt={worldMapAlt}
           src={imgLayer1}
           fill
-          sizes="(max-width: 720px) 100vw, 720px"
+          sizes="(max-width: 720px) 100vw, min(900px, 95vw)"
           className="object-contain"
           quality={DEFAULT_IMAGE_QUALITY}
           loading="lazy"
@@ -272,7 +285,7 @@ function CountriesSection({
 
 function BottomStatsSection({ bottomStats }: { bottomStats: ReadonlyArray<StatItem> }) {
   return (
-    <section className="pt-3">
+    <section className="translate-y-13 pt-8">
       <div className="flex flex-wrap items-start justify-center gap-x-6 gap-y-4 sm:gap-x-12">
         {bottomStats.map((s) => (
           <div key={s.value + s.label} className="min-w-0 text-center">

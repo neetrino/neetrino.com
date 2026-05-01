@@ -16,8 +16,9 @@ export const ABOUT_MOBILE_WHY_CHOOSE_PANEL_FLIP_CLASS = "";
  * Slight bleed beyond `.section-container` so panel does not hard-stick to viewport edges.
  * Silhouette comes from SVG, not `rounded-*`.
  */
+/** `mb-5` — 20px air below the frosted panel before the “countries” block (`AboutUsMobile`). */
 export const ABOUT_MOBILE_WHY_CHOOSE_PANEL_OUTER_CLASS =
-  "relative isolate bg-transparent -mx-2 w-[calc(100%+1rem)] overflow-hidden md:-mx-3 md:w-[calc(100%+1.5rem)]";
+  "relative isolate mb-5 bg-transparent -mx-2 w-[calc(100%+1rem)] overflow-hidden md:-mx-3 md:w-[calc(100%+1.5rem)]";
 
 /** Inner horizontal padding — restores alignment with sibling sections after bleed. */
 export const ABOUT_MOBILE_WHY_CHOOSE_PANEL_INNER_PAD_CLASS = "px-4 md:px-6";

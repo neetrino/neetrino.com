@@ -40,6 +40,9 @@ export const ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_ROW_WIDTH_PERCENT = 90;
 /** Decode hint for Next/Image `sizes` on mobile art. */
 export const ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_DECODE_TARGET_PX = 600;
 
+/** Space above Meet our team on mobile About (`AboutUsMobile`, below `lg`). */
+export const ABOUT_MEET_OUR_TEAM_MOBILE_MARGIN_TOP_CLASS = "mt-[300px]";
+
 /** Gap below mobile Meet our team block before the page footer (`MeetOurTeamHeading` section). */
 export const ABOUT_MEET_OUR_TEAM_MOBILE_GAP_ABOVE_FOOTER_PX = 30;
 
