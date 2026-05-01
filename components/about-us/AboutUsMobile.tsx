@@ -53,7 +53,14 @@ export function AboutUsMobile() {
   ];
 
   return (
-    <div className={cn("lg:hidden", "about-mobile-about-page-atmosphere")}>
+    <div
+      className={cn(
+        "lg:hidden",
+        "about-mobile-about-page-atmosphere",
+        /* Clear fixed `MobileHeader`; background paints in padding so atmosphere runs under the bar */
+        "pt-24",
+      )}
+    >
       <div className="section-container max-w-[720px] pb-0">
         <AboutUsMobileHero
           heroParagraphs={heroParagraphs}
