@@ -17,6 +17,7 @@ import {
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { imgLayer1 } from "@/lib/about-us-figma-asset-urls";
+import { AboutUsMobileMissionVisionSection } from "@/components/about-us/AboutUsMobileMissionVisionBlock";
 import { AboutUsMobileMissionMeetTube } from "@/components/about-us/AboutUsMobileMissionMeetTube";
 import { AboutUsMobileMissionMeetTubeBottom } from "@/components/about-us/AboutUsMobileMissionMeetTubeBottom";
 import { AboutUsMobileWhyChooseUs } from "@/components/about-us/AboutUsMobileWhyChooseUs";
@@ -54,7 +55,7 @@ export function AboutUsMobile() {
   ];
 
   return (
-    <div className="lg:hidden">
+    <div className={cn("lg:hidden", "about-mobile-about-page-atmosphere")}>
       <div className="section-container max-w-[720px] pb-0">
         <HeroSection
           heroParagraphs={heroParagraphs}
@@ -69,7 +70,7 @@ export function AboutUsMobile() {
         <div className="relative">
           <AboutUsMobileMissionMeetTube />
           <div className="relative z-10 isolate">
-            <MissionVisionSection
+            <AboutUsMobileMissionVisionSection
               missionHeading={missionVisionHeading(t("the"), t("mission"))}
               missionBody={t("missionBody")}
               visionHeading={missionVisionHeading(t("the"), t("vision"))}
@@ -219,39 +220,6 @@ function NeetrinoIntroSection({ intro }: { intro: string }) {
         {intro}
       </p>
     </section>
-  );
-}
-
-function MissionVisionSection({
-  missionHeading,
-  missionBody,
-  visionHeading,
-  visionBody,
-}: {
-  missionHeading: ReactNode;
-  missionBody: string;
-  visionHeading: ReactNode;
-  visionBody: string;
-}) {
-  return (
-    <section className="grid grid-cols-1 gap-8 py-10 sm:grid-cols-2 sm:gap-6">
-      <article className="min-w-0">
-        <SectionHeading>{missionHeading}</SectionHeading>
-        <p className="mt-4 text-[15px] font-extralight leading-7 text-white/85">{missionBody}</p>
-      </article>
-      <article className="min-w-0">
-        <SectionHeading>{visionHeading}</SectionHeading>
-        <p className="mt-4 text-[15px] font-extralight leading-7 text-white/85">{visionBody}</p>
-      </article>
-    </section>
-  );
-}
-
-function SectionHeading({ children }: { children: ReactNode }) {
-  return (
-    <h2 className="font-['Inter:Black_Italic',sans-serif] text-[clamp(1.5rem,6.5vw,2.125rem)] font-black italic uppercase leading-tight text-white">
-      {children}
-    </h2>
   );
 }
 

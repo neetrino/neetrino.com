@@ -2,6 +2,17 @@
  * Mobile “Why choose us” — NEETRINO-WEB ~`479:1287`–`479:1295` (inside panel `479:1284`).
  */
 
+/** Line box for title spans under `leading-[0]` on the wrapping `<p>` (`479:1288`). */
+export const ABOUT_MOBILE_REFLECTED_HEADING_TITLE_LEADING_CLASS = "leading-tight";
+
+/** Reflected heading scale — paired with `font-black italic` on the `<h2>`. */
+export const ABOUT_MOBILE_REFLECTED_HEADING_TITLE_SIZE_CLASS =
+  "uppercase text-[clamp(1.375rem,6vw,2rem)]";
+
+/** Zigzag feature copy inside the panel — rhythm aligned with mobile mission/vision body. */
+export const ABOUT_MOBILE_REFLECTED_PANEL_BODY_TEXT_CLASS =
+  "text-[15px] font-extralight leading-7 text-white sm:text-base sm:leading-8";
+
 /** Figma `479:1284` panel silhouette (`viewBox="0 0 417 865"`). */
 export const ABOUT_MOBILE_WHY_CHOOSE_PANEL_PATH_D =
   "M417 120.313C417 89.9374 392.376 65.3131 362 65.3131H347.764C329.469 65.3131 312.371 56.2159 302.15 41.0426L290.85 24.2704C280.629 9.09721 263.531 0 245.236 0H55C24.6243 0 0 24.6243 0 55V810C0 840.376 24.6243 865 55 865H362C392.376 865 417 840.376 417 810V120.313Z";

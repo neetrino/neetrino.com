@@ -11,6 +11,9 @@ import {
   imgChatGptImageMar272026At064658Pm1,
 } from "@/lib/about-us-figma-asset-urls";
 import {
+  ABOUT_MOBILE_REFLECTED_HEADING_TITLE_LEADING_CLASS,
+  ABOUT_MOBILE_REFLECTED_HEADING_TITLE_SIZE_CLASS,
+  ABOUT_MOBILE_REFLECTED_PANEL_BODY_TEXT_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_PANEL_INNER_PAD_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_PANEL_OUTER_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_PALETTE_FRAME_CLASS,
@@ -45,31 +48,26 @@ import {
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { cn } from "@/lib/utils";
 
-const WHY_CHOOSE_TITLE_SIZE_CLASS = "text-[clamp(1.5rem,6.5vw,1.875rem)]";
-const WHY_CHOOSE_TITLE_LEADING_CLASS = "leading-[clamp(2rem,8vw,2.1875rem)]";
-const WHY_CHOOSE_BODY_CLASS = cn(
-  interSans.className,
-  "text-base font-extrabold leading-[22px] text-[#f5f5f5] not-italic",
-);
+const WHY_CHOOSE_BODY_CLASS = cn(interSans.className, ABOUT_MOBILE_REFLECTED_PANEL_BODY_TEXT_CLASS);
 
 const WHY_CHOOSE_SHARP_TITLE_CLASS = cn(
   interSans.className,
   "relative z-[1] m-0 inline-flex max-w-full flex-col items-start justify-center leading-[0] font-black italic text-white",
-  WHY_CHOOSE_TITLE_SIZE_CLASS,
+  ABOUT_MOBILE_REFLECTED_HEADING_TITLE_SIZE_CLASS,
 );
 
 /** Same type metrics as sharp line so reflection width matches the word (`479:1289`). */
 const WHY_CHOOSE_BLUR_TITLE_CLASS = cn(
   interSans.className,
   "relative inline-flex max-w-full flex-col items-start justify-center leading-[0] font-black italic text-white",
-  WHY_CHOOSE_TITLE_SIZE_CLASS,
+  ABOUT_MOBILE_REFLECTED_HEADING_TITLE_SIZE_CLASS,
   ABOUT_MOBILE_WHY_CHOOSE_REFLECTION_FIGMA_BLUR_OPACITY_CLASS,
 );
 
 type AboutPageT = ReturnType<typeof useTranslations<"aboutPage">>;
 
 function WhyChooseUsTitleLineParts({ t }: { t: AboutPageT }) {
-  const lineClass = WHY_CHOOSE_TITLE_LEADING_CLASS;
+  const lineClass = ABOUT_MOBILE_REFLECTED_HEADING_TITLE_LEADING_CLASS;
   return (
     <>
       <span className={cn(lineClass)}>{t("why")} </span>

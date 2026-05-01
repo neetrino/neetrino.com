@@ -409,6 +409,25 @@ html[lang="hy"] body {
   }
 
   /**
+   * About mobile About Us root (`AboutUsMobile` outer wrapper): faint blue grid + cool top wash (Figma ref).
+   */
+  .about-mobile-about-page-atmosphere {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(30, 42, 72, 0.45) 0%,
+        rgba(18, 22, 34, 0.2) 38%,
+        transparent 72%
+      ),
+      linear-gradient(rgba(120, 150, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120, 150, 255, 0.04) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      22px 22px,
+      22px 22px;
+  }
+
+  /**
    * Meet our team mobile: reserves height for art (`absolute bottom-0`). Row vw factor must match
    * `ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_ROW_WIDTH_PERCENT` in `about-us-meet-our-team.constants.ts`; raster `326×356`.
    */
