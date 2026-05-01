@@ -69,7 +69,7 @@ export function AboutUsMobile() {
 
   return (
     <div className="lg:hidden">
-      <div className="section-container max-w-[720px] pb-16">
+      <div className="section-container max-w-[720px] pb-0">
         <HeroSection
           heroParagraphs={heroParagraphs}
           heroStats={heroStats}
@@ -468,8 +468,8 @@ function CountriesSection({
 
 function BottomStatsSection({ bottomStats }: { bottomStats: ReadonlyArray<StatItem> }) {
   return (
-    <section className="pt-6">
-      <div className="grid grid-cols-2 gap-4 rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:grid-cols-4 sm:gap-3 sm:p-6">
+    <section className="pt-5">
+      <div className="grid grid-cols-2 gap-5 rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:grid-cols-4 sm:gap-3 sm:p-6">
         {bottomStats.map((s) => (
           <div key={s.value + s.label} className="min-w-0 text-center">
             <p

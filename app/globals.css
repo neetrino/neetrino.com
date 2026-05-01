@@ -407,4 +407,36 @@ html[lang="hy"] body {
   .dm-sans-opsz-14 {
     font-variation-settings: "opsz" 14;
   }
+
+  /**
+   * Meet our team mobile: reserves height for art (`absolute bottom-0`). Row vw factor must match
+   * `ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_ROW_WIDTH_PERCENT` in `about-us-meet-our-team.constants.ts`; raster `326×356`.
+   */
+  .meet-our-team-mobile-section {
+    padding-bottom: calc(90vw * 356 / 326);
+  }
+
+  .about-meet-our-team-mobile-illustration-row {
+    width: 90%;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .about-meet-our-team-mobile-illustration-frame {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding-bottom: calc(356 * 100% / 326);
+    line-height: 0;
+  }
+
+  .about-meet-our-team-mobile-illustration-img {
+    display: block;
+    object-fit: cover !important;
+    object-position: center;
+  }
 }

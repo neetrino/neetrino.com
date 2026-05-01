@@ -224,7 +224,8 @@
     },
     "meetOurTeamPrefix": "MEET OUR ",
     "meetOurTeamAccent": "TEAM",
-    "meetOurTeamIntro": "We envision a world where businesses of all sizes can effortlessly establish\na strong digital presence using our fast, cutting-edge technological\nsolutions. Our aim is to lead the transformation of website and app\ndevelopment, making these tools accessible to everyone, everywhere.",
+    "meetOurTeamIntro": "We envision a world where businesses of all sizes can effortlessly establish a strong digital presence using our fast, cutting-edge technological solutions. Our aim is to lead the transformation of website and app development, making these tools accessible to everyone, everywhere.",
+    "meetOurTeamIntroMobile": "We envision a world where businesses of \nall sizes can effortlessly establish a strong \ndigital presence using our fast, cutting-\nedge technological solutions. Our aim is to \nlead the transformation of website and \napp development, making these tools \naccessible to everyone, everywhere.",
     "mobileNeetrinoIntro": "Neetrino is the first company to offer website sales through a Platform that provides access to over 100,000 professional designs. Our Platform enables businesses to quickly and affordably create fully functional websites, perfectly tailored to modern business needs. We not only save you time and resources but also guarantee high quality, advanced functionality, and ongoing support—maximizing the efficiency and competitiveness of your online presence.",
     "worldMapAlt": "World map"
   },

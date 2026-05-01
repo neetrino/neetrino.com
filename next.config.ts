@@ -21,11 +21,11 @@ const adminServerActionAllowedOrigins = parseAdminServerActionAllowedOrigins();
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["localhost", "127.0.0.1", "192.168.15.237", "192.168.18.52"],
   /**
-   * Browsers request `/favicon.ico` by default; App Router only exposes `app/icon.png` as `/icon.png`.
-   * Without a real `.ico` file, many tabs stay blank. Rewrite keeps a single PNG source of truth.
+   * Browsers request `/favicon.ico` by default; App Router serves `app/icon.svg` as `/icon.svg`.
+   * Rewrite so legacy `/favicon.ico` requests resolve to the same asset.
    */
   async rewrites() {
-    return [{ source: "/favicon.ico", destination: "/icon.png" }];
+    return [{ source: "/favicon.ico", destination: "/icon.svg" }];
   },
   images: {
     formats: ["image/avif", "image/webp"],
