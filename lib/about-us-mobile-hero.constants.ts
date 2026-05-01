@@ -1,21 +1,13 @@
 /**
  * Mobile About hero — Figma NEETRINO-WEB `479:1237`–`479:1251` (inside frame `479:1144`).
+ * Robot: `lib/about-us-mobile-hero-robot.constants.ts` + `AboutUsMobileHeroRobot`.
  */
-
-/** Figma `479:1236` — `13 B` frame size in design px. */
-export const ABOUT_US_MOBILE_HERO_ROBOT_DESIGN_WIDTH_PX = 655;
-export const ABOUT_US_MOBILE_HERO_ROBOT_DESIGN_HEIGHT_PX = 723;
 
 /**
- * Inner raster crop vs frame — Figma `479:1236` (`overflow-hidden` + positioned `img`).
+ * Right padding on headline column so copy clears the robot (`479:1237`).
  */
-export const ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_WIDTH_PCT = 100.03;
-export const ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_HEIGHT_PCT = 160.83;
-export const ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_LEFT_PCT = -0.02;
-export const ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_TOP_PCT = -40.09;
-
-/** Nudge the hero robot frame toward the right (screen edge). */
-export const ABOUT_US_MOBILE_HERO_ROBOT_TRANSLATE_X_PX = 136;
+export const ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS =
+  "pr-[min(50vw,12.5rem)] sm:pr-[min(58vw,18rem)]" as const;
 
 /** Figma headline `tracking-[1.2691px]` on ~46px lines. */
 export const ABOUT_US_MOBILE_HERO_HEADLINE_LETTER_SPACING_PX = 1.27;

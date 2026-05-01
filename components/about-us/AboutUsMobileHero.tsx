@@ -1,68 +1,23 @@
 "use client";
 
-import Image from "next/image";
 import { useLocale } from "next-intl";
 import type { AppLocale } from "@/lib/i18n/locales";
 import {
   ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
   ABOUT_MOBILE_HERO_HEADLINE_TEXT_HY_CLASS,
 } from "@/lib/about-us-figma-layout.constants";
-import { img13B } from "@/lib/about-us-figma-asset-urls";
 import {
   ABOUT_US_MOBILE_HERO_HEADLINE_LETTER_SPACING_PX,
   ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX,
-  ABOUT_US_MOBILE_HERO_ROBOT_DESIGN_HEIGHT_PX,
-  ABOUT_US_MOBILE_HERO_ROBOT_DESIGN_WIDTH_PX,
-  ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_HEIGHT_PCT,
-  ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_LEFT_PCT,
-  ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_TOP_PCT,
-  ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_WIDTH_PCT,
-  ABOUT_US_MOBILE_HERO_ROBOT_TRANSLATE_X_PX,
+  ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
   ABOUT_US_MOBILE_HERO_STAT_GLOW_BLUR_PX,
   ABOUT_US_MOBILE_HERO_STAT_GLOW_OPACITY,
   ABOUT_US_MOBILE_ABOUT_GLASS_TILE_CLASS,
 } from "@/lib/about-us-mobile-hero.constants";
+import { AboutUsMobileHeroRobot } from "@/components/about-us/AboutUsMobileHeroRobot";
 import { cn } from "@/lib/utils";
-import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 
 export type AboutUsMobileHeroStat = { value: string; label: string; gradient: string };
-
-/** Figma `479:1236` — `13 B` robot: clipped frame + raster position/size from MCP output. */
-function AboutUsMobileHeroRobot1236() {
-  return (
-    <div
-      className="pointer-events-none absolute right-0 top-[-4px] z-0 w-[min(92vw,22rem)] sm:w-[min(90vw,24rem)]"
-      style={{
-        aspectRatio: `${ABOUT_US_MOBILE_HERO_ROBOT_DESIGN_WIDTH_PX} / ${ABOUT_US_MOBILE_HERO_ROBOT_DESIGN_HEIGHT_PX}`,
-        transform: `translateX(${ABOUT_US_MOBILE_HERO_ROBOT_TRANSLATE_X_PX}px)`,
-      }}
-      aria-hidden
-      data-name="13 B"
-      data-node-id="479:1236"
-    >
-      <div className="size-full scale-x-[-1]">
-        <div className="relative size-full overflow-hidden">
-          <Image
-            alt=""
-            src={img13B}
-            width={ABOUT_US_MOBILE_HERO_ROBOT_DESIGN_WIDTH_PX}
-            height={ABOUT_US_MOBILE_HERO_ROBOT_DESIGN_HEIGHT_PX}
-            sizes="(max-width: 720px) 92vw, 24rem"
-            className="pointer-events-none absolute max-w-none"
-            style={{
-              width: `${ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_WIDTH_PCT}%`,
-              height: `${ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_HEIGHT_PCT}%`,
-              left: `${ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_LEFT_PCT}%`,
-              top: `${ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_TOP_PCT}%`,
-            }}
-            quality={DEFAULT_IMAGE_QUALITY}
-            priority
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export type AboutUsMobileHeroProps = {
   heroParagraphs: readonly [string, string];
@@ -91,13 +46,18 @@ export function AboutUsMobileHero({
 
   return (
     <section
-      className="relative isolate overflow-x-clip pb-10 pt-0 sm:pb-12"
+      className="relative isolate overflow-visible pb-10 pt-0 sm:pb-12"
       data-name="About mobile hero"
       data-node-id="479:1237"
     >
-      <AboutUsMobileHeroRobot1236 />
+      <AboutUsMobileHeroRobot />
 
-      <div className="relative z-[1] max-w-[min(100%,22rem)] pr-[min(28vw,6.5rem)] sm:max-w-none sm:pr-[min(32vw,10rem)]">
+      <div
+        className={cn(
+          "relative z-[10] max-w-[min(100%,22rem)] overflow-x-clip sm:max-w-none",
+          ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
+        )}
+      >
         <h1
           className={cn(
             "font-normal text-white",
@@ -107,7 +67,7 @@ export function AboutUsMobileHero({
           style={{ letterSpacing: `${ABOUT_US_MOBILE_HERO_HEADLINE_LETTER_SPACING_PX}px` }}
         >
           <span
-            className="block"
+            className="block whitespace-nowrap"
             style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
           >
             {heroWith}
@@ -119,7 +79,11 @@ export function AboutUsMobileHero({
             ) : null}
           </span>
           <span
-            className={cn("block", locale === "hy" && ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS)}
+            className={cn(
+              "block",
+              (locale === "en" || locale === "ru") && "whitespace-nowrap",
+              locale === "hy" && ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
+            )}
             style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
           >
             {heroEveryIdea}
@@ -140,7 +104,7 @@ export function AboutUsMobileHero({
         </div>
       </div>
 
-      <AboutUsMobileHeroStatsRow stats={heroStats} className="relative z-[2] mt-10" />
+      <AboutUsMobileHeroStatsRow stats={heroStats} className="relative z-[20] mt-10" />
     </section>
   );
 }
