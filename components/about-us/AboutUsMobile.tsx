@@ -10,6 +10,10 @@ import {
   ABOUT_MOBILE_HERO_HEADLINE_TEXT_HY_CLASS,
 } from "@/lib/about-us-figma-layout.constants";
 import { AboutUsMobileCountriesHeading } from "@/components/about-us/AboutUsMobileCountriesHeading";
+import {
+  ABOUT_MOBILE_BOTTOM_STAT_VALUE_380_PLUS_GRADIENT,
+  aboutMobileBottomStatGlowBackdropTextClass,
+} from "@/lib/about-us-mobile-bottom-stats.constants";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { imgLayer1 } from "@/lib/about-us-figma-asset-urls";
@@ -40,7 +44,11 @@ export function AboutUsMobile() {
   ];
 
   const bottomStats: ReadonlyArray<StatItem> = [
-    { value: "380+", label: t("statsBottom.activeUsers"), gradient: GRADIENT_PURPLE() },
+    {
+      value: "380+",
+      label: t("statsBottom.activeUsers"),
+      gradient: ABOUT_MOBILE_BOTTOM_STAT_VALUE_380_PLUS_GRADIENT,
+    },
     { value: "400+", label: t("statsBottom.projectsDone"), gradient: GRADIENT_ORANGE() },
     { value: "25+", label: t("statsBottom.members"), gradient: GRADIENT_WHITE_PEACH() },
   ];
@@ -289,13 +297,24 @@ function BottomStatsSection({ bottomStats }: { bottomStats: ReadonlyArray<StatIt
       <div className="flex flex-wrap items-start justify-center gap-x-6 gap-y-4 sm:gap-x-12">
         {bottomStats.map((s) => (
           <div key={s.value + s.label} className="min-w-0 text-center">
-            <p
-              className="bg-clip-text text-3xl font-black leading-none text-transparent sm:text-4xl"
-              style={{ backgroundImage: s.gradient }}
-            >
-              {s.value}
-            </p>
-            <p className="mt-2 text-xs font-light text-[#99a1af] sm:text-sm">{s.label}</p>
+            <div className="relative inline-grid place-items-center overflow-visible">
+              <span
+                aria-hidden
+                className={cn(
+                  "pointer-events-none col-start-1 row-start-1 text-3xl font-black leading-none opacity-55 blur-md sm:text-4xl sm:opacity-50 sm:blur-lg",
+                  aboutMobileBottomStatGlowBackdropTextClass(s.value),
+                )}
+              >
+                {s.value}
+              </span>
+              <p
+                className="relative z-[1] col-start-1 row-start-1 bg-clip-text text-3xl font-black leading-none text-transparent sm:text-4xl"
+                style={{ backgroundImage: s.gradient }}
+              >
+                {s.value}
+              </p>
+            </div>
+            <p className="mt-2 text-xs font-light text-white sm:text-sm">{s.label}</p>
           </div>
         ))}
       </div>
