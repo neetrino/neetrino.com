@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import type { AppLocale } from "@/lib/i18n/locales";
 import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
@@ -20,6 +20,7 @@ import { imgLayer1 } from "@/lib/about-us-figma-asset-urls";
 import { AboutUsMobileMissionVisionSection } from "@/components/about-us/AboutUsMobileMissionVisionBlock";
 import { AboutUsMobileMissionMeetTube } from "@/components/about-us/AboutUsMobileMissionMeetTube";
 import { AboutUsMobileMissionMeetTubeBottom } from "@/components/about-us/AboutUsMobileMissionMeetTubeBottom";
+import { AboutUsMobileStickyCone } from "@/components/about-us/AboutUsMobileStickyCone";
 import { AboutUsMobileWhyChooseUs } from "@/components/about-us/AboutUsMobileWhyChooseUs";
 import { MeetOurTeamHeading } from "@/components/about-us/MeetOurTeamHeading";
 import {
@@ -34,6 +35,7 @@ import { ABOUT_MEET_OUR_TEAM_MOBILE_MARGIN_TOP_CLASS } from "@/lib/about-us-meet
  * with responsive Tailwind utilities. Desktop layout is untouched (kept in `figma/`).
  */
 export function AboutUsMobile() {
+  const missionTubeStackRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("aboutPage");
 
   const heroParagraphs = [t("storyShort"), t("storySpecialization")] as const;
@@ -67,8 +69,9 @@ export function AboutUsMobile() {
           heroPossible={t("hero.possible")}
         />
         <NeetrinoIntroSection intro={t("mobileNeetrinoIntro")} />
-        <div className="relative">
+        <div className="relative" ref={missionTubeStackRef}>
           <AboutUsMobileMissionMeetTube />
+          <AboutUsMobileStickyCone containerRef={missionTubeStackRef} />
           <div className="relative z-10 isolate">
             <AboutUsMobileMissionVisionSection
               missionHeading={missionVisionHeading(t("the"), t("mission"))}

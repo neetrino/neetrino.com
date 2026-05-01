@@ -3,14 +3,20 @@
  * (`Rectangle 17418`: Figma width **128px** — rendered a touch wider on mobile, height **2190px**, radius **151px**).
  */
 
-/** Max tube width (px) on mobile — slightly above Figma 128 for readability. */
-export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_PX = 140;
+/** Max tube width (px) on mobile — wider than Figma 128 for presence on small screens. */
+export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_PX = 172;
 
 /** Fluid lower bound inside `min(WIDTH_PX, max(rem, vw))` (`AboutUsMobileMissionMeetTube`). */
-export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_FLUID_MIN_REM = 3.25;
+export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_FLUID_MIN_REM = 3.85;
 
 /** Fluid vw segment for narrow viewports. */
-export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_FLUID_VW = 20;
+export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_WIDTH_FLUID_VW = 24;
+
+/**
+ * Tube-end glow stack — slightly wider than the capsule (`AboutUsMobileMissionMeetTubeBottom`).
+ */
+export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_BOTTOM_MAX_WIDTH_PX = 260;
+export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_BOTTOM_MAX_WIDTH_VW = 66;
 
 /** Figma `479:1275` corner radius (MCP `rounded-[151px]`). */
 export const ABOUT_US_MOBILE_MISSION_MEET_TUBE_BORDER_RADIUS_PX = 151;
