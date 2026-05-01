@@ -409,9 +409,12 @@ html[lang="hy"] body {
   }
 
   /**
-   * About mobile About Us root (`AboutUsMobile` outer wrapper): faint blue grid + cool top wash (Figma ref).
+   * About mobile About Us: same surface under fixed header (`<main class="max-lg:…">` + `pt-24`)
+   * and on `AboutUsMobile` root — faint blue grid + cool top wash (Figma ref).
    */
   .about-mobile-about-page-atmosphere {
+    /* Same base as `body` / desktop About so grids + washes read as one surface */
+    background-color: #151515;
     background-image:
       linear-gradient(
         180deg,
