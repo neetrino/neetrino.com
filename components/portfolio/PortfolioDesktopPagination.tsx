@@ -1,11 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useMemo, useState } from "react";
-import {
-  PORTFOLIO_DESKTOP_PAGINATION_GAP_CLASS,
-  PORTFOLIO_DESKTOP_PAGINATION_PLACEHOLDER_PAGE_COUNT,
-} from "@/lib/portfolio-desktop-pagination.constants";
+import { useMemo } from "react";
+import { PORTFOLIO_DESKTOP_PAGINATION_GAP_CLASS } from "@/lib/portfolio-desktop-pagination.constants";
 import { assetUrl } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 
@@ -16,34 +13,33 @@ const PAGINATION_ARROW_RIGHT_SRC = assetUrl(
 
 const PAGINATION_ARROW_PX = 18;
 
-type PortfolioDesktopPaginationProps = {
-  /** When project data exists, pass the real page count. */
-  totalPages?: number;
+export type PortfolioPublicPaginationProps = {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
   className?: string;
 };
 
 /**
- * Figma `541:2334` — pagination for future portfolio pages (state only until data is wired).
+ * Figma-styled portfolio pagination — fully controlled (no internal page state).
  */
 export function PortfolioDesktopPagination({
-  totalPages = PORTFOLIO_DESKTOP_PAGINATION_PLACEHOLDER_PAGE_COUNT,
+  currentPage,
+  totalPages,
+  onPageChange,
   className,
-}: PortfolioDesktopPaginationProps) {
-  const [page, setPage] = useState(1);
-  const canPrev = page > 1;
-  const canNext = page < totalPages;
+}: PortfolioPublicPaginationProps) {
   const pages = useMemo(
     () => Array.from({ length: totalPages }, (_, index) => index + 1),
     [totalPages],
   );
 
-  const goPrev = useCallback(() => {
-    setPage((current) => (current > 1 ? current - 1 : current));
-  }, []);
+  if (totalPages <= 1) {
+    return null;
+  }
 
-  const goNext = useCallback(() => {
-    setPage((current) => (current < totalPages ? current + 1 : current));
-  }, [totalPages]);
+  const canPrev = currentPage > 1;
+  const canNext = currentPage < totalPages;
 
   return (
     <nav
@@ -59,7 +55,9 @@ export function PortfolioDesktopPagination({
       <button
         type="button"
         disabled={!canPrev}
-        onClick={goPrev}
+        onClick={() => {
+          onPageChange(currentPage - 1);
+        }}
         aria-label="Previous page"
         className={cn(
           "flex h-[32px] min-w-[32px] shrink-0 items-center justify-center rounded-[6px] border-0 bg-white px-[11px] disabled:cursor-default",
@@ -76,13 +74,13 @@ export function PortfolioDesktopPagination({
         />
       </button>
       {pages.map((pageNumber) => {
-        const isActive = pageNumber === page;
+        const isActive = pageNumber === currentPage;
         return (
           <button
             key={pageNumber}
             type="button"
             onClick={() => {
-              setPage(pageNumber);
+              onPageChange(pageNumber);
             }}
             aria-current={isActive ? "page" : undefined}
             aria-label={`Page ${pageNumber}`}
@@ -109,7 +107,9 @@ export function PortfolioDesktopPagination({
       <button
         type="button"
         disabled={!canNext}
-        onClick={goNext}
+        onClick={() => {
+          onPageChange(currentPage + 1);
+        }}
         aria-label="Next page"
         className={cn(
           "flex h-[32px] min-w-[32px] shrink-0 items-center justify-center overflow-clip rounded-[6px] border-0 bg-white px-[11px] disabled:cursor-default",

@@ -2,9 +2,9 @@
 
 import dynamic from "next/dynamic";
 import { useSyncExternalStore } from "react";
-import { PORTFOLIO_DESKTOP_CANVAS_MIN_H_CLASS } from "@/lib/canvas-route-placeholders";
+import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
 
-/** Matches Tailwind `lg` — desktop portfolio canvas only mounts at this width and up. */
+/** Matches Tailwind `lg` — desktop portfolio only mounts at this width and up. */
 const PORTFOLIO_DESKTOP_MEDIA_QUERY = "(min-width: 1024px)" as const;
 
 const PortfolioDesktop = dynamic(
@@ -15,7 +15,7 @@ const PortfolioDesktop = dynamic(
   {
     loading: () => (
       <div
-        className={`pointer-events-none w-full bg-[#151515] ${PORTFOLIO_DESKTOP_CANVAS_MIN_H_CLASS}`}
+        className={`pointer-events-none hidden min-h-[60vh] w-full bg-[#151515] lg:block`}
         aria-hidden
       />
     ),
@@ -37,11 +37,15 @@ function getServerSnapshot() {
   return false;
 }
 
+type PortfolioDesktopConditionalProps = {
+  items: readonly PublicPortfolioCard[];
+};
+
 /**
- * Renders the heavy desktop canvas only when the viewport matches `lg+`.
- * Mobile never downloads the desktop chunk (no ~5MB decorative assets).
+ * Renders desktop portfolio only when the viewport matches `lg+`.
+ * Mobile never downloads the desktop chunk.
  */
-export function PortfolioDesktopConditional() {
+export function PortfolioDesktopConditional({ items }: PortfolioDesktopConditionalProps) {
   const isDesktop = useSyncExternalStore(
     subscribeMediaQuery,
     getMediaQueryMatches,
@@ -52,5 +56,5 @@ export function PortfolioDesktopConditional() {
     return null;
   }
 
-  return <PortfolioDesktop />;
+  return <PortfolioDesktop items={items} />;
 }

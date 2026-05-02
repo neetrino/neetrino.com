@@ -1,23 +1,40 @@
 "use client";
 
-import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
+import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
+import { PortfolioCardMedia } from "@/components/portfolio/PortfolioCardMedia";
 import { PortfolioDesktopPagination } from "@/components/portfolio/PortfolioDesktopPagination";
-import { PortfolioMobileBiotechCard } from "@/components/portfolio/PortfolioMobileBiotechCard";
-import {
-  MOBILE_PORTFOLIO_CARD_IMAGE_SIZES,
-  getMobilePortfolioItems,
-} from "@/components/portfolio/portfolio-data";
-import { imgBiotechLogo1 } from "@/components/portfolio/portfolio-figma-assets";
-import type { AppLocale } from "@/lib/i18n/locales";
+import { MOBILE_PORTFOLIO_CARD_IMAGE_SIZES } from "@/components/portfolio/portfolio-data";
+import { generateAltFromFileName } from "@/lib/portfolio/portfolio-alt";
+import { clampPage, paginateItems, totalPagesForCount } from "@/lib/portfolio/paginate-portfolio";
+import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
+import { PUBLIC_PORTFOLIO_MOBILE_PAGE_SIZE } from "@/lib/constants/public-portfolio-pagination.constants";
 import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import { PORTFOLIO_DESKTOP_PAGINATION_TOP_MARGIN_CLASS } from "@/lib/portfolio-desktop-scene-dimensions.constants";
 import { cn } from "@/lib/utils";
+import type { AppLocale } from "@/lib/i18n/locales";
+import { useLocale } from "next-intl";
 
-export function PortfolioMobile() {
+type PortfolioMobileProps = {
+  items: readonly PublicPortfolioCard[];
+};
+
+export function PortfolioMobile({ items }: PortfolioMobileProps) {
   const t = useTranslations();
   const locale = useLocale() as AppLocale;
-  const portfolioItems = getMobilePortfolioItems(locale);
+  const pageSize = PUBLIC_PORTFOLIO_MOBILE_PAGE_SIZE;
+  const total = items.length;
+  const totalPages = totalPagesForCount(total, pageSize);
+  const [currentPage, setCurrentPage] = useState(1);
+  const effectivePage = useMemo(
+    () => clampPage(currentPage, total, pageSize),
+    [currentPage, total, pageSize],
+  );
+
+  const pageItems = useMemo(
+    () => paginateItems(items, effectivePage, pageSize),
+    [items, effectivePage, pageSize],
+  );
 
   return (
     <div className="w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
@@ -37,38 +54,31 @@ export function PortfolioMobile() {
         </section>
 
         <section className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
-          {portfolioItems.map((item, index) =>
-            item.image === imgBiotechLogo1 ? (
-              <PortfolioMobileBiotechCard
-                key={item.image}
-                alt={item.title}
-                src={item.image}
-                loading={index === 0 ? "eager" : "lazy"}
-                priority={index === 0}
-                decoding="async"
-              />
-            ) : (
-              <div key={item.image} className="min-w-0">
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[24px]">
-                  <Image
-                    alt={item.title}
-                    src={item.image}
-                    fill
-                    sizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
-                    className="object-cover"
-                    loading={index === 0 ? "eager" : "lazy"}
-                    priority={index === 0}
-                    decoding="async"
-                  />
-                </div>
+          {pageItems.map((item, index) => (
+            <article
+              key={item.id}
+              className="min-w-0 overflow-hidden rounded-[24px] border border-white/12 bg-[#1a1a1a]"
+            >
+              <div className="relative aspect-[16/10] w-full overflow-hidden">
+                <PortfolioCardMedia
+                  url={item.url}
+                  alt={generateAltFromFileName(item.fileName)}
+                  mediaType={item.mediaType}
+                  imageSizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
+                  priority={effectivePage === 1 && index === 0}
+                  loading={effectivePage === 1 && index === 0 ? "eager" : "lazy"}
+                />
               </div>
-            ),
-          )}
+            </article>
+          ))}
           <PortfolioDesktopPagination
             className={cn(
               "col-span-full w-full shrink-0",
               PORTFOLIO_DESKTOP_PAGINATION_TOP_MARGIN_CLASS,
             )}
+            currentPage={effectivePage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
           />
         </section>
       </main>
