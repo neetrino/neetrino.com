@@ -34,7 +34,7 @@ export function AboutUsMobile() {
   const missionTubeStackRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("aboutPage");
 
-  const heroParagraphs = [t("storyShort"), t("storySpecialization")] as const;
+  const heroParagraphs = [t("storyShortMobile"), t("storySpecialization")] as const;
 
   const heroStats: ReadonlyArray<StatItem> = [
     { value: "450+", label: t("statsHero.projectsDelivered"), gradient: GRADIENT_PURPLE() },

@@ -4,6 +4,18 @@
  */
 
 /**
+ * Headline + intro + stats sit above the absolute robot (`z-[10]` on robot shell).
+ */
+export const ABOUT_US_MOBILE_HERO_COPY_STACK_CLASS = "relative z-[50] min-w-0 w-full" as const;
+
+/**
+ * Hero intro (`storyShortMobile` + `storySpecialization`, mobile About only): Figma 198px max width; 14 / 22.75 / -0.15px;
+ * `rgba(255,255,255,0.9)`; `whitespace-pre-line` for `\n` in messages. Inter: `interSans.className` on copy stack (`en`/`ru`) in `AboutUsMobileHero`.
+ */
+export const ABOUT_US_MOBILE_HERO_STORY_INTRO_PARAGRAPH_CLASS =
+  "max-w-[min(100%,198px)] text-[14px] font-normal leading-[22.75px] tracking-[-0.15px] text-[rgba(255,255,255,0.9)] whitespace-pre-line" as const;
+
+/**
  * Right padding on headline column so copy clears the robot (`479:1237`).
  */
 export const ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS =

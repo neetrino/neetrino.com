@@ -9,12 +9,15 @@ import {
 import {
   ABOUT_US_MOBILE_HERO_HEADLINE_LETTER_SPACING_PX,
   ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX,
+  ABOUT_US_MOBILE_HERO_COPY_STACK_CLASS,
   ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
+  ABOUT_US_MOBILE_HERO_STORY_INTRO_PARAGRAPH_CLASS,
   ABOUT_US_MOBILE_HERO_STAT_GLOW_BLUR_PX,
   ABOUT_US_MOBILE_HERO_STAT_GLOW_OPACITY,
   ABOUT_US_MOBILE_ABOUT_GLASS_TILE_CLASS,
 } from "@/lib/about-us-mobile-hero.constants";
 import { AboutUsMobileHeroRobot } from "@/components/about-us/AboutUsMobileHeroRobot";
+import { interSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 
 export type AboutUsMobileHeroStat = { value: string; label: string; gradient: string };
@@ -54,57 +57,74 @@ export function AboutUsMobileHero({
 
       <div
         className={cn(
-          "relative z-[10] max-w-[min(100%,22rem)] overflow-x-clip sm:max-w-none",
-          ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
+          ABOUT_US_MOBILE_HERO_COPY_STACK_CLASS,
+          (locale === "en" || locale === "ru") && interSans.className,
         )}
       >
-        <h1
+        <div
           className={cn(
-            "font-normal text-white",
-            "text-[clamp(1.875rem,10.5vw,2.875rem)] leading-[0.95] tracking-normal",
-            hyHeadline,
+            "relative max-w-[min(100%,22rem)] overflow-x-clip sm:max-w-none",
+            ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
           )}
-          style={{ letterSpacing: `${ABOUT_US_MOBILE_HERO_HEADLINE_LETTER_SPACING_PX}px` }}
         >
-          <span
-            className="block whitespace-nowrap"
-            style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
-          >
-            {heroWith}
-            {heroUs ? (
-              <>
-                {" "}
-                <span className="font-black italic">{heroUs}</span>
-              </>
-            ) : null}
-          </span>
-          <span
+          <h1
             className={cn(
-              "block",
-              (locale === "en" || locale === "ru") && "whitespace-nowrap",
-              locale === "hy" && ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
+              "font-normal text-white",
+              "text-[clamp(1.875rem,10.5vw,2.875rem)] leading-[0.95] tracking-normal",
+              hyHeadline,
             )}
-            style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
+            style={{ letterSpacing: `${ABOUT_US_MOBILE_HERO_HEADLINE_LETTER_SPACING_PX}px` }}
           >
-            {heroEveryIdea}
-          </span>
-          <span
-            className="block"
-            style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
-          >
-            {heroBecomes}
-          </span>
-          <span className="block font-black italic">{heroPossible}</span>
-        </h1>
+            <span
+              className="block whitespace-nowrap"
+              style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
+            >
+              {heroWith}
+              {heroUs ? (
+                <>
+                  {" "}
+                  <span className="font-black italic">{heroUs}</span>
+                </>
+              ) : null}
+            </span>
+            <span
+              className={cn(
+                "block",
+                (locale === "en" || locale === "ru") && "whitespace-nowrap",
+                locale === "hy" && ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
+              )}
+              style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
+            >
+              {heroEveryIdea}
+            </span>
+            <span
+              className="block"
+              style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
+            >
+              {heroBecomes}
+            </span>
+            <span className="block font-black italic">{heroPossible}</span>
+          </h1>
+        </div>
 
-        <div className="mt-8 max-w-[17.5rem] space-y-4 text-[14px] font-normal leading-[1.62] tracking-[-0.01em] text-white/90 sm:max-w-[20rem] sm:text-[15px] sm:leading-relaxed">
-          {heroParagraphs.map((p) => (
-            <p key={p}>{p}</p>
+        <div
+          className={cn(
+            "mt-8 flex max-w-[min(100%,22rem)] flex-col gap-4 overflow-x-visible",
+            ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
+          )}
+        >
+          {heroParagraphs.map((p, i) => (
+            <p
+              key={`about-mobile-hero-intro-${i}`}
+              className={ABOUT_US_MOBILE_HERO_STORY_INTRO_PARAGRAPH_CLASS}
+            >
+              {p}
+            </p>
           ))}
         </div>
-      </div>
 
-      <AboutUsMobileHeroStatsRow stats={heroStats} className="relative z-[20] mt-10" />
+        <AboutUsMobileHeroStatsRow stats={heroStats} className="relative mt-10" />
+      </div>
     </section>
   );
 }

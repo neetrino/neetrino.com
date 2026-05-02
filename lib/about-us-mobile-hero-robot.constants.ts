@@ -7,9 +7,9 @@
  * `ABOUT_US_MOBILE_HERO_ROBOT_VISUAL_SCALE` (or raise the `vw` share) to grow the robot on phones.
  */
 
-/** Position + hit-testing inside the hero section. */
+/** Below hero copy stack (`z-[50]`); absolute overlay. */
 export const ABOUT_US_MOBILE_HERO_ROBOT_ROOT_CLASS =
-  "pointer-events-none absolute right-0 top-[-4px] z-[5]" as const;
+  "pointer-events-none absolute right-0 top-[-4px] z-[10]" as const;
 
 /** Figma `479:1236` — `13 B` frame size in design px. */
 export const ABOUT_US_MOBILE_HERO_ROBOT_DESIGN_WIDTH_PX = 655;
