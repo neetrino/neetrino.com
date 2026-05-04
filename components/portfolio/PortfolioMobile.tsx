@@ -37,7 +37,7 @@ export function PortfolioMobile({ items }: PortfolioMobileProps) {
   );
 
   return (
-    <div className="w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
+    <div className="relative isolate w-full min-w-0 overflow-x-hidden bg-transparent lg:hidden">
       <main className="section-container pt-24 pb-14">
         <section className="py-10">
           <h1

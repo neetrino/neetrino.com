@@ -59,7 +59,6 @@ export function AboutUsMobile() {
     <div
       className={cn(
         "lg:hidden",
-        "about-mobile-about-page-atmosphere",
         /* Clear fixed `MobileHeader`; background paints in padding so atmosphere runs under the bar */
         "pt-24",
       )}

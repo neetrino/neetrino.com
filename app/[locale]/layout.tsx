@@ -34,7 +34,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <QuoteModalProvider>
         <AppHeader />
         <NeetrinoDesktopScaleReference />
-        <div className="relative isolate w-full min-w-0 overflow-x-hidden bg-[#151515]">
+        <div className="mobile-site-page-atmosphere relative isolate w-full min-w-0 overflow-x-hidden bg-[#151515]">
           <DesktopFlowServicesVectorGrid />
           <div className="relative z-[1]">{children}</div>
         </div>

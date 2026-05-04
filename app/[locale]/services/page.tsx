@@ -49,7 +49,7 @@ export default async function Services({ params }: ServicesPageProps) {
   return (
     <>
       <div
-        className={`relative isolate w-full min-w-0 overflow-x-hidden bg-[#151515] pb-10 lg:hidden ${interSans.className}`}
+        className={`relative isolate w-full min-w-0 overflow-x-hidden bg-transparent pb-10 lg:hidden ${interSans.className}`}
       >
         <ServicesMobilePageBackdrop />
         <main className="section-container relative z-0 pb-16 pt-24">
