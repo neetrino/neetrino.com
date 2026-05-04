@@ -182,7 +182,11 @@ export function AboutUsFigmaBlock1b() {
           data-node-id="335:951"
         >
           <p>
-            <span className="leading-[28px]">{t("aboutPage.platformParagraph")}</span>
+            <span className="whitespace-pre-line leading-[28px]">
+              {t.rich("aboutPage.platformParagraph", {
+                bold: (chunks) => <strong className="font-bold not-italic">{chunks}</strong>,
+              })}
+            </span>
           </p>
         </div>
         <div className="absolute z-0 flex h-[1000px] items-center justify-center left-[744px] top-[138px] w-[749px]">
