@@ -43,6 +43,29 @@ export const ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_DECODE_TARGET_PX = 600;
 /** Space above Meet our team on mobile About (`AboutUsMobile`, below `lg`). */
 export const ABOUT_MEET_OUR_TEAM_MOBILE_MARGIN_TOP_CLASS = "mt-[300px]";
 
+/** Figma `479:1151` Ellipse 30 — flatter ellipse (`viewBox` height 660), same blue stops as countries `479:1235`. */
+export const ABOUT_MEET_OUR_TEAM_BELOW_ATMOSPHERE_ELLIPSE_SVG_SRC =
+  "/images/about-us/mobile-meet-team-below-atmosphere-ellipse-30.svg" as const;
+
+/** Dev Mode export wrapper for `479:1151` (differs from hero ellipse inset). */
+export const ABOUT_MEET_OUR_TEAM_BELOW_ATMOSPHERE_INSET_WRAPPER_CLASS =
+  "absolute inset-[-115%_-33.19%]" as const;
+
+/**
+ * Title / intro / pill — always above Ellipse `479:1151` (`z-0`) when that layer is in the mobile column.
+ */
+export const ABOUT_MEET_OUR_TEAM_MOBILE_COPY_ABOVE_ATMOSPHERE_CLASS = "relative z-[1]" as const;
+
+/** Positioning context for `MeetOurTeamBelowAtmosphere` — only title + reflection (`top-full` = under “MEET OUR TEAM”). */
+export const ABOUT_MEET_OUR_TEAM_MOBILE_TITLE_ATMOSPHERE_ANCHOR_CLASS =
+  "relative w-full min-w-0 shrink-0 overflow-visible" as const;
+
+/**
+ * `top-full` = bottom edge of **title + reflection** wrapper (mobile); tuned to sit under the heading line.
+ */
+export const ABOUT_MEET_OUR_TEAM_BELOW_ATMOSPHERE_SLOT_CLASS =
+  "pointer-events-none absolute left-1/2 top-full z-0 h-[min(30rem,90vw)] w-[min(195vw,98rem)] max-w-none -translate-x-1/2 -translate-y-[52%]" as const;
+
 /** Gap below mobile Meet our team block before the page footer (`MeetOurTeamHeading` section). */
 export const ABOUT_MEET_OUR_TEAM_MOBILE_GAP_ABOVE_FOOTER_PX = 30;
 

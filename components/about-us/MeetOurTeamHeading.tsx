@@ -1,16 +1,20 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { MeetOurTeamCollaborationImage } from "@/components/about-us/MeetOurTeamCollaborationImage";
 import { MeetOurTeamCollaborationImageMobile } from "@/components/about-us/MeetOurTeamCollaborationImageMobile";
 import { MeetOurTeamExplorePill } from "@/components/about-us/MeetOurTeamExplorePill";
 import { interSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { MeetOurTeamBelowAtmosphere } from "@/components/about-us/MeetOurTeamBelowAtmosphere";
 import {
   ABOUT_MEET_OUR_TEAM_EXPLORE_PILL_MARGIN_TOP_PX,
   ABOUT_MEET_OUR_TEAM_HEADING_INSET_FROM_CANVAS_LEFT_PX,
   ABOUT_MEET_OUR_TEAM_MOBILE_EXPLORE_PILL_MARGIN_TOP_PX,
+  ABOUT_MEET_OUR_TEAM_MOBILE_COPY_ABOVE_ATMOSPHERE_CLASS,
   ABOUT_MEET_OUR_TEAM_MOBILE_GAP_ABOVE_FOOTER_PX,
+  ABOUT_MEET_OUR_TEAM_MOBILE_TITLE_ATMOSPHERE_ANCHOR_CLASS,
   ABOUT_MEET_OUR_TEAM_HEADING_TOP_PX,
   ABOUT_MEET_OUR_TEAM_ILLUSTRATION_INSET_RIGHT_PX,
   ABOUT_MEET_OUR_TEAM_MOBILE_TEXT_COLUMN_MAX_WIDTH_PX,
@@ -50,42 +54,15 @@ function MeetOurTeamTitleLineParts() {
 
 type MeetOurTeamIntroTranslationKey = "meetOurTeamIntro" | "meetOurTeamIntroMobile";
 
-function MeetOurTeamHeadingStack({
-  align,
-  explorePillMarginTopPx = ABOUT_MEET_OUR_TEAM_EXPLORE_PILL_MARGIN_TOP_PX,
-  meetOurTeamIntroTranslationKey = "meetOurTeamIntro",
-  textColumnMaxWidthPx,
+function MeetOurTeamTitleReflectionBlock({
+  isLeft,
+  widthClass,
 }: {
-  align: "left" | "center";
-  /** Gap intro → Explore pill (desktop default from constants). */
-  explorePillMarginTopPx?: number;
-  /** `meetOurTeamIntro` = desktop flow copy; `meetOurTeamIntroMobile` = manual line breaks. */
-  meetOurTeamIntroTranslationKey?: MeetOurTeamIntroTranslationKey;
-  /** Desktop row with illustration — cap copy width so it does not overlap art. */
-  textColumnMaxWidthPx?: number;
+  isLeft: boolean;
+  widthClass: string;
 }) {
-  const t = useTranslations("aboutPage");
-  const isLeft = align === "left";
-  const widthClass = isLeft
-    ? textColumnMaxWidthPx !== undefined
-      ? "whitespace-normal"
-      : "max-w-[min(100%,52rem)] whitespace-normal"
-    : "w-full px-1";
-
-  const textColumnStyle =
-    isLeft && textColumnMaxWidthPx !== undefined
-      ? ({ maxWidth: `min(100%, ${textColumnMaxWidthPx}px)` } as const)
-      : undefined;
-
   return (
-    <div
-      className={cn(
-        "relative flex w-full min-w-0 flex-col",
-        isLeft ? "items-start" : "items-center",
-        widthClass,
-      )}
-      style={textColumnStyle}
-    >
+    <>
       <h2
         className={cn(
           MEET_OUR_TEAM_SHARP_TITLE_BASE_CLASS,
@@ -121,10 +98,71 @@ function MeetOurTeamHeadingStack({
           </div>
         </div>
       </div>
+    </>
+  );
+}
+
+function MeetOurTeamHeadingStack({
+  align,
+  explorePillMarginTopPx = ABOUT_MEET_OUR_TEAM_EXPLORE_PILL_MARGIN_TOP_PX,
+  meetOurTeamIntroTranslationKey = "meetOurTeamIntro",
+  textColumnMaxWidthPx,
+  betweenTitleAndIntroSlot,
+}: {
+  align: "left" | "center";
+  /** Gap intro → Explore pill (desktop default from constants). */
+  explorePillMarginTopPx?: number;
+  /** `meetOurTeamIntro` = desktop flow copy; `meetOurTeamIntroMobile` = manual line breaks. */
+  meetOurTeamIntroTranslationKey?: MeetOurTeamIntroTranslationKey;
+  /** Desktop row with illustration — cap copy width so it does not overlap art. */
+  textColumnMaxWidthPx?: number;
+  /** Mobile: Ellipse `479:1151` — anchored under “MEET OUR TEAM” + reflection only. */
+  betweenTitleAndIntroSlot?: ReactNode;
+}) {
+  const t = useTranslations("aboutPage");
+  const isLeft = align === "left";
+  const widthClass = isLeft
+    ? textColumnMaxWidthPx !== undefined
+      ? "whitespace-normal"
+      : "max-w-[min(100%,52rem)] whitespace-normal"
+    : "w-full px-1";
+
+  const textColumnStyle =
+    isLeft && textColumnMaxWidthPx !== undefined
+      ? ({ maxWidth: `min(100%, ${textColumnMaxWidthPx}px)` } as const)
+      : undefined;
+
+  return (
+    <div
+      className={cn(
+        "relative flex w-full min-w-0 flex-col",
+        isLeft ? "items-start" : "items-center",
+        widthClass,
+      )}
+      style={textColumnStyle}
+    >
+      {betweenTitleAndIntroSlot !== undefined ? (
+        <div className={ABOUT_MEET_OUR_TEAM_MOBILE_TITLE_ATMOSPHERE_ANCHOR_CLASS}>
+          <div
+            className={cn(
+              "flex w-full min-w-0 flex-col",
+              isLeft ? "items-start" : "items-center",
+              ABOUT_MEET_OUR_TEAM_MOBILE_COPY_ABOVE_ATMOSPHERE_CLASS,
+            )}
+          >
+            <MeetOurTeamTitleReflectionBlock isLeft={isLeft} widthClass={widthClass} />
+          </div>
+          {betweenTitleAndIntroSlot}
+        </div>
+      ) : (
+        <MeetOurTeamTitleReflectionBlock isLeft={isLeft} widthClass={widthClass} />
+      )}
       <div
         className={cn(
           "mt-6 w-full shrink-0",
           isLeft ? "text-left" : "mx-auto max-w-[min(100%,36rem)] text-left",
+          betweenTitleAndIntroSlot !== undefined &&
+            ABOUT_MEET_OUR_TEAM_MOBILE_COPY_ABOVE_ATMOSPHERE_CLASS,
         )}
         data-node-id="453:2103"
       >
@@ -134,6 +172,8 @@ function MeetOurTeamHeadingStack({
         className={cn(
           "relative z-10 flex w-full shrink-0",
           isLeft ? "justify-start" : "justify-center",
+          betweenTitleAndIntroSlot !== undefined &&
+            ABOUT_MEET_OUR_TEAM_MOBILE_COPY_ABOVE_ATMOSPHERE_CLASS,
         )}
         style={{ marginTop: explorePillMarginTopPx }}
       >
@@ -161,6 +201,7 @@ export function MeetOurTeamHeading({ variant }: MeetOurTeamHeadingProps) {
         <div className="relative z-10">
           <MeetOurTeamHeadingStack
             align="left"
+            betweenTitleAndIntroSlot={<MeetOurTeamBelowAtmosphere />}
             explorePillMarginTopPx={ABOUT_MEET_OUR_TEAM_MOBILE_EXPLORE_PILL_MARGIN_TOP_PX}
             meetOurTeamIntroTranslationKey="meetOurTeamIntroMobile"
             textColumnMaxWidthPx={ABOUT_MEET_OUR_TEAM_MOBILE_TEXT_COLUMN_MAX_WIDTH_PX}
