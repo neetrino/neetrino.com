@@ -15,6 +15,7 @@ const ABOUT_MOBILE_COUNTRIES_HEADING_STACK_NUDGE_DOWN_CLASS = "translate-y-16";
 /**
  * Mobile countries title + blurred mirror line — same pattern as `WhyChooseUsReflectedHeading`
  * (`479:1289`: `pt-[5px]`, `-scale-y-100`, `blur-[8px] opacity-50`).
+ * Title stack stays centered; Ellipse 29 is rendered in `CountriesSection` (`AboutUsMobile`).
  */
 export function AboutUsMobileCountriesHeading({
   countriesPrefix,

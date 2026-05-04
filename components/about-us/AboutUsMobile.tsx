@@ -5,6 +5,7 @@ import { useRef, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { AboutUsMobileHero } from "@/components/about-us/AboutUsMobileHero";
 import { AboutUsMobileCountriesHeading } from "@/components/about-us/AboutUsMobileCountriesHeading";
+import { AboutUsMobileCountriesHeadingAtmosphere } from "@/components/about-us/AboutUsMobileCountriesHeadingAtmosphere";
 import {
   ABOUT_MOBILE_BOTTOM_STAT_VALUE_380_PLUS_GRADIENT,
   aboutMobileBottomStatGlowBackdropTextClass,
@@ -21,9 +22,12 @@ import { MeetOurTeamHeading } from "@/components/about-us/MeetOurTeamHeading";
 import {
   ABOUT_MOBILE_COUNTRIES_MAP_FLOW_MARGIN_TOP_CLASS,
   ABOUT_MOBILE_COUNTRIES_MAP_VISUAL_TRANSLATE_Y_CLASS,
+  ABOUT_MOBILE_COUNTRIES_SECTION_CLASS,
+  ABOUT_MOBILE_COUNTRIES_SECTION_FOREGROUND_STACK_CLASS,
 } from "@/lib/about-us-mobile-countries-map.constants";
 import { ABOUT_MEET_OUR_TEAM_MOBILE_MARGIN_TOP_CLASS } from "@/lib/about-us-meet-our-team.constants";
 import { ABOUT_US_MOBILE_ABOUT_GLASS_TILE_CLASS } from "@/lib/about-us-mobile-hero.constants";
+import { ABOUT_MOBILE_WHY_CHOOSE_ABOVE_COUNTRIES_ATMOSPHERE_STACK_CLASS } from "@/lib/about-us-mobile-why-choose.constants";
 
 /**
  * Mobile/tablet (<lg) About Us layout. Mirrors the same content/order/CTA copy as the
@@ -82,7 +86,9 @@ export function AboutUsMobile() {
               visionHeading={missionVisionHeading(t("the"), t("vision"))}
               visionBody={t("visionBodyMobile")}
             />
-            <AboutUsMobileWhyChooseUs />
+            <div className={ABOUT_MOBILE_WHY_CHOOSE_ABOVE_COUNTRIES_ATMOSPHERE_STACK_CLASS}>
+              <AboutUsMobileWhyChooseUs />
+            </div>
             <CountriesSection
               countriesPrefix={t("countriesPrefix")}
               countriesAccent={t("countriesAccent")}
@@ -153,27 +159,33 @@ function CountriesSection({
   worldMapAlt: string;
 }) {
   return (
-    <section className="pt-6 pb-10" aria-labelledby="about-mobile-countries-heading">
-      <AboutUsMobileCountriesHeading
-        countriesPrefix={countriesPrefix}
-        countriesAccent={countriesAccent}
-      />
-      <div
-        className={cn(
-          "relative -mx-3 aspect-[1195/520] w-[calc(100%+1.5rem)] max-w-none overflow-hidden rounded-2xl sm:-mx-4 sm:w-[calc(100%+2rem)]",
-          ABOUT_MOBILE_COUNTRIES_MAP_FLOW_MARGIN_TOP_CLASS,
-          ABOUT_MOBILE_COUNTRIES_MAP_VISUAL_TRANSLATE_Y_CLASS,
-        )}
-      >
-        <Image
-          alt={worldMapAlt}
-          src={imgLayer1}
-          fill
-          sizes="(max-width: 720px) 100vw, min(900px, 95vw)"
-          className="object-contain"
-          quality={DEFAULT_IMAGE_QUALITY}
-          loading="lazy"
+    <section
+      className={ABOUT_MOBILE_COUNTRIES_SECTION_CLASS}
+      aria-labelledby="about-mobile-countries-heading"
+    >
+      <AboutUsMobileCountriesHeadingAtmosphere />
+      <div className={ABOUT_MOBILE_COUNTRIES_SECTION_FOREGROUND_STACK_CLASS}>
+        <AboutUsMobileCountriesHeading
+          countriesPrefix={countriesPrefix}
+          countriesAccent={countriesAccent}
         />
+        <div
+          className={cn(
+            "relative -mx-3 aspect-[1195/520] w-[calc(100%+1.5rem)] max-w-none overflow-hidden rounded-2xl sm:-mx-4 sm:w-[calc(100%+2rem)]",
+            ABOUT_MOBILE_COUNTRIES_MAP_FLOW_MARGIN_TOP_CLASS,
+            ABOUT_MOBILE_COUNTRIES_MAP_VISUAL_TRANSLATE_Y_CLASS,
+          )}
+        >
+          <Image
+            alt={worldMapAlt}
+            src={imgLayer1}
+            fill
+            sizes="(max-width: 720px) 100vw, min(900px, 95vw)"
+            className="object-contain"
+            quality={DEFAULT_IMAGE_QUALITY}
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
   );

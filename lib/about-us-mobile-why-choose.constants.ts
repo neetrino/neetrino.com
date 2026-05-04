@@ -2,6 +2,12 @@
  * Mobile “Why choose us” — NEETRINO-WEB ~`479:1287`–`479:1295` (inside panel `479:1284`).
  */
 
+/**
+ * Wrapper in `AboutUsMobile` tube column — countries Ellipse `479:1235` bleeds up; this layer stays above it.
+ */
+export const ABOUT_MOBILE_WHY_CHOOSE_ABOVE_COUNTRIES_ATMOSPHERE_STACK_CLASS =
+  "relative z-[1]" as const;
+
 /** Line box for title spans under `leading-[0]` on the wrapping `<p>` (`479:1288`). */
 export const ABOUT_MOBILE_REFLECTED_HEADING_TITLE_LEADING_CLASS = "leading-tight";
 
