@@ -35,8 +35,7 @@ export const MOBILE_HERO_STAT_WIDE_VALUE_NUMERAL_CLASS = "text-[52px] font-black
 /**
  * Robot-hand overlay on the 450+ card (mobile hero only).
  * Vertical: `HeroStatWide` uses `top-[87%]` / `-translate-y-1/2` (narrow: `top-[85%]`).
- * Sizes: `w-[271px] h-[287px]` (narrow: `235×252`). Horizontal: `style.right` in `HeroSection`
- * uses `calc(clamp(-999px, (393px - 100vw) / 2, 0px) - styleRightPullPx)` in `HeroSection` so the hand
+ * Sizes: `w-[271px] h-[287px]` (narrow: `235×252`). Horizontal: `getMobileHomeHeroHandSlotRightCss()` so the hand
  * aligns to the viewport right; larger `styleRightPullPx` moves the sprite further right.
  * Purple card: full width of the `px-6` column (`w-full`), symmetric (no negative margin bleed).
  * Text column: literal `max-w-[56%]` in `HeroSection`, optional `translate(-left,-up)` via
@@ -52,3 +51,25 @@ export const MOBILE_HERO_STAT_WIDE_HAND = {
   /** Subtracted inside `right: calc(... - X)` — higher → hand sits slightly further right on screen. */
   styleRightPullPx: 24,
 } as const;
+
+/** Same `right` as robot-hand slot in `HeroStatWide` / `HeroStatHandAtmosphereLayer`. */
+export function getMobileHomeHeroHandSlotRightCss(): string {
+  return `calc(clamp(-999px, calc((393px - 100vw) / 2), 0px) - ${MOBILE_HERO_STAT_WIDE_HAND.styleRightPullPx}px)`;
+}
+
+/**
+ * Top edge of the stats column slice — must match `HeroSection` `pt-[88px]` + `min-h-[853px]` before
+ * `HeroStatsRegionWithGrid`.
+ */
+export const MOBILE_HERO_STAT_HAND_ATMOSPHERE_STATS_COLUMN_TOP_CLASS =
+  "top-[calc(88px+853px)]" as const;
+
+/**
+ * Vertical anchor (px) inside that slice for `241:824` — matches former `top-[87%]` on the purple card
+ * (stats row + gaps + ~87% of card body); tune if copy wraps.
+ */
+export const MOBILE_HERO_STAT_HAND_ATMOSPHERE_ANCHOR_OFFSET_Y_PX = 362 as const;
+
+/** Shared absolute box for hand sprite — same `right` calc as glow; glow uses `HeroStatHandAtmosphereLayer`. */
+export const MOBILE_HERO_STAT_WIDE_HAND_SLOT_LAYOUT_CLASS =
+  "pointer-events-none absolute top-[87%] h-[287px] w-[271px] -translate-y-1/2 max-[380px]:top-[85%] max-[380px]:h-[252px] max-[380px]:w-[235px]" as const;
