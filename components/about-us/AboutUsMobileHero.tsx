@@ -11,7 +11,7 @@ import {
   ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX,
   ABOUT_US_MOBILE_HERO_COPY_STACK_CLASS,
   ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
-  ABOUT_US_MOBILE_HERO_STORY_INTRO_PARAGRAPH_CLASS,
+  ABOUT_US_MOBILE_HERO_STORY_INTRO_PARAGRAPH_BASE_CLASS,
   ABOUT_US_MOBILE_HERO_STAT_GLOW_BLUR_PX,
   ABOUT_US_MOBILE_HERO_STAT_GLOW_OPACITY,
   ABOUT_US_MOBILE_ABOUT_GLASS_TILE_CLASS,
@@ -109,18 +109,20 @@ export function AboutUsMobileHero({
 
         <div
           className={cn(
-            "mt-8 flex max-w-[min(100%,22rem)] flex-col gap-4 overflow-x-visible",
+            "mt-3 max-w-[min(100%,22rem)] overflow-x-auto overflow-y-visible",
             ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
           )}
         >
-          {heroParagraphs.map((p, i) => (
-            <p
-              key={`about-mobile-hero-intro-${i}`}
-              className={ABOUT_US_MOBILE_HERO_STORY_INTRO_PARAGRAPH_CLASS}
-            >
-              {p}
-            </p>
-          ))}
+          <p
+            className={cn(
+              ABOUT_US_MOBILE_HERO_STORY_INTRO_PARAGRAPH_BASE_CLASS,
+              locale === "en" ? "whitespace-pre" : "whitespace-pre-line",
+            )}
+          >
+            {heroParagraphs[0]}
+            {"\n\n"}
+            {heroParagraphs[1]}
+          </p>
         </div>
 
         <AboutUsMobileHeroStatsRow stats={heroStats} className="relative mt-10" />

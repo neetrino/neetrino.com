@@ -7,7 +7,7 @@
  * `ABOUT_US_MOBILE_HERO_ROBOT_VISUAL_SCALE` (or raise the `vw` share) to grow the robot on phones.
  */
 
-/** Below hero copy stack (`z-[50]`); absolute overlay. */
+/** Below hero copy stack (`z-[100]`); absolute overlay. */
 export const ABOUT_US_MOBILE_HERO_ROBOT_ROOT_CLASS =
   "pointer-events-none absolute right-0 top-[-4px] z-[10]" as const;
 
@@ -24,13 +24,13 @@ export const ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_LEFT_PCT = -0.02;
 export const ABOUT_US_MOBILE_HERO_ROBOT_IMAGE_TOP_PCT = -40.09;
 
 /** Frame offset in px (positive X = toward the right edge of the hero). */
-export const ABOUT_US_MOBILE_HERO_ROBOT_TRANSLATE_X_PX = 256;
+export const ABOUT_US_MOBILE_HERO_ROBOT_TRANSLATE_X_PX = 273;
 export const ABOUT_US_MOBILE_HERO_ROBOT_TRANSLATE_Y_PX = 0;
 
 /**
  * Extra uniform scale (applied with `transform-origin: top right`). Works when width is vw-capped.
  */
-export const ABOUT_US_MOBILE_HERO_ROBOT_VISUAL_SCALE = 1.3;
+export const ABOUT_US_MOBILE_HERO_ROBOT_VISUAL_SCALE = 1.38;
 
 /**
  * Frame width (`aspect-ratio` box). Larger `rem` caps help on wide phones / `sm+`.
