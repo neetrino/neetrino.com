@@ -15,9 +15,9 @@ export const ABOUT_MOBILE_REFLECTED_HEADING_TITLE_LEADING_CLASS = "leading-tight
 export const ABOUT_MOBILE_REFLECTED_HEADING_TITLE_SIZE_CLASS =
   "uppercase text-[clamp(1.375rem,6vw,2rem)]";
 
-/** Zigzag feature copy inside the panel — rhythm aligned with mobile mission/vision body. */
+/** Zigzag feature copy inside the panel — bold for readability on small screens. */
 export const ABOUT_MOBILE_REFLECTED_PANEL_BODY_TEXT_CLASS =
-  "text-[15px] font-extralight leading-7 text-white sm:text-base sm:leading-8";
+  "text-[15px] font-bold leading-7 text-white sm:text-base sm:leading-8";
 
 /** Figma `479:1284` panel silhouette (`viewBox="0 0 417 865"`). */
 export const ABOUT_MOBILE_WHY_CHOOSE_PANEL_PATH_D =
