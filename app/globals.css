@@ -412,13 +412,13 @@ html[lang="hy"] body {
    * About mobile About Us root (`AboutUsMobile`): `pt-24` + this class — grid/wash continue under the navbar.
    */
   .about-mobile-about-page-atmosphere {
-    /* Same base as `body` / desktop About so grids + washes read as one surface */
+    /* Same base as `body` / desktop About; top wash pairs with hero Ellipse 27 (`479:1234`). */
     background-color: #151515;
     background-image:
       linear-gradient(
         180deg,
-        rgba(30, 42, 72, 0.45) 0%,
-        rgba(18, 22, 34, 0.2) 38%,
+        rgba(30, 42, 72, 0.22) 0%,
+        rgba(18, 22, 34, 0.14) 40%,
         transparent 72%
       ),
       linear-gradient(rgba(120, 150, 255, 0.04) 1px, transparent 1px),

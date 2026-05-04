@@ -20,6 +20,7 @@ import {
   ABOUT_US_MOBILE_HERO_STATS_PANEL_BG_SRC,
   ABOUT_US_MOBILE_HERO_STATS_PANEL_SHELF_CLASS,
 } from "@/lib/about-us-mobile-hero.constants";
+import { AboutUsMobileHeroAtmosphere } from "@/components/about-us/AboutUsMobileHeroAtmosphere";
 import { AboutUsMobileHeroRobot } from "@/components/about-us/AboutUsMobileHeroRobot";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { interSans } from "@/lib/fonts";
@@ -36,6 +37,101 @@ export type AboutUsMobileHeroProps = {
   heroBecomes: string;
   heroPossible: string;
 };
+
+type AboutUsMobileHeroHeadlineProps = {
+  locale: AppLocale;
+  hyHeadline: string | false;
+  heroWith: string;
+  heroUs: string;
+  heroEveryIdea: string;
+  heroBecomes: string;
+  heroPossible: string;
+};
+
+function AboutUsMobileHeroHeadline({
+  locale,
+  hyHeadline,
+  heroWith,
+  heroUs,
+  heroEveryIdea,
+  heroBecomes,
+  heroPossible,
+}: AboutUsMobileHeroHeadlineProps) {
+  return (
+    <div
+      className={cn(
+        "relative max-w-[min(100%,22rem)] overflow-x-clip sm:max-w-none",
+        ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
+      )}
+    >
+      <h1
+        className={cn(
+          "font-normal text-white",
+          "text-[clamp(1.875rem,10.5vw,2.875rem)] leading-[0.95] tracking-normal",
+          hyHeadline,
+        )}
+        style={{ letterSpacing: `${ABOUT_US_MOBILE_HERO_HEADLINE_LETTER_SPACING_PX}px` }}
+      >
+        <span
+          className="block whitespace-nowrap"
+          style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
+        >
+          {heroWith}
+          {heroUs ? (
+            <>
+              {" "}
+              <span className="font-black italic">{heroUs}</span>
+            </>
+          ) : null}
+        </span>
+        <span
+          className={cn(
+            "block",
+            (locale === "en" || locale === "ru") && "whitespace-nowrap",
+            locale === "hy" && ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
+          )}
+          style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
+        >
+          {heroEveryIdea}
+        </span>
+        <span
+          className="block"
+          style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
+        >
+          {heroBecomes}
+        </span>
+        <span className="block font-black italic">{heroPossible}</span>
+      </h1>
+    </div>
+  );
+}
+
+type AboutUsMobileHeroIntroProps = {
+  locale: AppLocale;
+  heroParagraphs: readonly [string, string];
+};
+
+function AboutUsMobileHeroIntro({ locale, heroParagraphs }: AboutUsMobileHeroIntroProps) {
+  return (
+    <div
+      className={cn(
+        "mt-3 max-w-[min(100%,22rem)] overflow-x-auto overflow-y-visible",
+        ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
+      )}
+    >
+      <p
+        className={cn(
+          ABOUT_US_MOBILE_HERO_STORY_INTRO_PARAGRAPH_BASE_CLASS,
+          locale === "en" ? "whitespace-pre" : "whitespace-pre-line",
+        )}
+      >
+        {heroParagraphs[0]}
+        {"\n\n"}
+        {heroParagraphs[1]}
+      </p>
+    </div>
+  );
+}
 
 /**
  * Mobile About hero — Figma `479:1237`–`479:1251`: stacked headline + robot `479:1236` + intro + stat row.
@@ -58,6 +154,7 @@ export function AboutUsMobileHero({
       data-name="About mobile hero"
       data-node-id="479:1237"
     >
+      <AboutUsMobileHeroAtmosphere />
       <AboutUsMobileHeroRobot />
 
       <div
@@ -66,70 +163,16 @@ export function AboutUsMobileHero({
           (locale === "en" || locale === "ru") && interSans.className,
         )}
       >
-        <div
-          className={cn(
-            "relative max-w-[min(100%,22rem)] overflow-x-clip sm:max-w-none",
-            ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
-          )}
-        >
-          <h1
-            className={cn(
-              "font-normal text-white",
-              "text-[clamp(1.875rem,10.5vw,2.875rem)] leading-[0.95] tracking-normal",
-              hyHeadline,
-            )}
-            style={{ letterSpacing: `${ABOUT_US_MOBILE_HERO_HEADLINE_LETTER_SPACING_PX}px` }}
-          >
-            <span
-              className="block whitespace-nowrap"
-              style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
-            >
-              {heroWith}
-              {heroUs ? (
-                <>
-                  {" "}
-                  <span className="font-black italic">{heroUs}</span>
-                </>
-              ) : null}
-            </span>
-            <span
-              className={cn(
-                "block",
-                (locale === "en" || locale === "ru") && "whitespace-nowrap",
-                locale === "hy" && ABOUT_MOBILE_HERO_EVERY_IDEA_SHIFT_HY_CLASS,
-              )}
-              style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
-            >
-              {heroEveryIdea}
-            </span>
-            <span
-              className="block"
-              style={{ marginBottom: ABOUT_US_MOBILE_HERO_HEADLINE_STACK_GAP_PX }}
-            >
-              {heroBecomes}
-            </span>
-            <span className="block font-black italic">{heroPossible}</span>
-          </h1>
-        </div>
-
-        <div
-          className={cn(
-            "mt-3 max-w-[min(100%,22rem)] overflow-x-auto overflow-y-visible",
-            ABOUT_US_MOBILE_HERO_HEADLINE_PR_FOR_ROBOT_CLASS,
-          )}
-        >
-          <p
-            className={cn(
-              ABOUT_US_MOBILE_HERO_STORY_INTRO_PARAGRAPH_BASE_CLASS,
-              locale === "en" ? "whitespace-pre" : "whitespace-pre-line",
-            )}
-          >
-            {heroParagraphs[0]}
-            {"\n\n"}
-            {heroParagraphs[1]}
-          </p>
-        </div>
-
+        <AboutUsMobileHeroHeadline
+          locale={locale}
+          hyHeadline={hyHeadline}
+          heroWith={heroWith}
+          heroUs={heroUs}
+          heroEveryIdea={heroEveryIdea}
+          heroBecomes={heroBecomes}
+          heroPossible={heroPossible}
+        />
+        <AboutUsMobileHeroIntro locale={locale} heroParagraphs={heroParagraphs} />
         <div className={ABOUT_US_MOBILE_HERO_STATS_BREAKOUT_CLASS}>
           <AboutUsMobileHeroStatsRow stats={heroStats} />
         </div>
