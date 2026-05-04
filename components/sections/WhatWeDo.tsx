@@ -4,6 +4,14 @@ import { Link } from "@/i18n/navigation";
 import { serviceDetailHref, type ServiceSlug } from "@/components/services/service-pages-data";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
+import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
+import {
+  WHAT_WE_DO_MOBILE_AI_LAST_CARD_ATMOSPHERE_NUDGE_Y_CLASS,
+  WHAT_WE_DO_MOBILE_FIRST_CARD_ARTICLE_ABOVE_ATMOSPHERE_CLASS,
+  WHAT_WE_DO_MOBILE_FIRST_CARD_ATMOSPHERE_241_854_INSET_WRAPPER_CLASS,
+  WHAT_WE_DO_MOBILE_FIRST_CARD_ATMOSPHERE_BELOW_CARD_CLASS,
+  WHAT_WE_DO_MOBILE_FIRST_CARD_STACK_ROOT_CLASS,
+} from "@/lib/what-we-do-mobile-first-card-atmosphere-241-854.constants";
 import {
   isWhatWeDoCardCopyCenteredLocale,
   whatWeDoHyCrmSubtitleLiftOnlyClassName,
@@ -152,11 +160,52 @@ export async function WhatWeDo() {
               WHAT_WE_DO_MOBILE_CARD_CONTINUE_BUTTON_LIFT_Y_CLASS,
             );
 
-            return (
-              <article
-                key={service.titleLines.join("-")}
-                className={`relative flex h-[194px] min-h-[194px] w-full overflow-hidden rounded-[19px] ${service.bg}`}
+            const isWhatWeDoMobileAtmosphereStackCard =
+              service.slug === "website-development" ||
+              service.slug === "saas-development" ||
+              service.slug === "ai-product-development";
+
+            const rowKey = service.titleLines.join("-");
+
+            const whatWeDoCardShellClass = cn(
+              "relative flex h-[194px] min-h-[194px] w-full overflow-hidden rounded-[19px]",
+              service.bg,
+            );
+
+            const atmosphereBelowCard = isWhatWeDoMobileAtmosphereStackCard ? (
+              <div
+                className={cn(
+                  WHAT_WE_DO_MOBILE_FIRST_CARD_ATMOSPHERE_BELOW_CARD_CLASS,
+                  service.slug === "ai-product-development" &&
+                    WHAT_WE_DO_MOBILE_AI_LAST_CARD_ATMOSPHERE_NUDGE_Y_CLASS,
+                )}
+                aria-hidden
+                data-node-id="241:854"
+                data-what-we-do-atmosphere-stack={service.slug}
               >
+                <div className="relative size-full min-h-px min-w-px">
+                  <div
+                    className={WHAT_WE_DO_MOBILE_FIRST_CARD_ATMOSPHERE_241_854_INSET_WRAPPER_CLASS}
+                  >
+                    <div className="relative size-full min-h-px min-w-px">
+                      <Image
+                        src={FIGMA_ASSETS.imgRectangle17417}
+                        alt=""
+                        fill
+                        unoptimized
+                        className="pointer-events-none block max-w-none object-fill select-none"
+                        sizes="(max-width: 480px) 100vw, 512px"
+                        quality={DEFAULT_IMAGE_QUALITY}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : null;
+
+            const whatWeDoCardInner = (
+              <>
                 <div className="relative h-full w-[48%] shrink-0 overflow-hidden">
                   <Image
                     src={service.image}
@@ -255,6 +304,28 @@ export async function WhatWeDo() {
                     </Link>
                   )}
                 </div>
+              </>
+            );
+
+            if (isWhatWeDoMobileAtmosphereStackCard) {
+              return (
+                <div key={rowKey} className={WHAT_WE_DO_MOBILE_FIRST_CARD_STACK_ROOT_CLASS}>
+                  {atmosphereBelowCard}
+                  <article
+                    className={cn(
+                      whatWeDoCardShellClass,
+                      WHAT_WE_DO_MOBILE_FIRST_CARD_ARTICLE_ABOVE_ATMOSPHERE_CLASS,
+                    )}
+                  >
+                    {whatWeDoCardInner}
+                  </article>
+                </div>
+              );
+            }
+
+            return (
+              <article key={rowKey} className={whatWeDoCardShellClass}>
+                {whatWeDoCardInner}
               </article>
             );
           })}

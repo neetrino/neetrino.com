@@ -16,6 +16,10 @@ import {
   MOBILE_HERO_STATS_TOP,
 } from "@/components/sections/mobile-home-hero.constants";
 import { HERO_CONTACT_FIGMA_241_838_PRIMARY_PILL_CLASSNAME } from "@/lib/hero-contact-figma-pill.constants";
+import {
+  MOBILE_HOME_HERO_STAT_HAND_ATMOSPHERE_241_824_INSET_WRAPPER_CLASS,
+  MOBILE_HOME_HERO_STAT_HAND_ATMOSPHERE_241_824_TRANSLATE_X_CLASS,
+} from "@/lib/mobile-home-hero-stat-hand-atmosphere-241-824.constants";
 import { cn } from "@/lib/utils";
 
 function HeroBackground() {
@@ -214,7 +218,31 @@ function HeroStatWide() {
           }}
           aria-hidden
         >
-          <div className="relative size-full overflow-hidden">
+          {/* Figma `241:824` — Rectangle 17416 glow under hand (`imgRectangle17416`). */}
+          <div
+            className={cn(
+              "pointer-events-none absolute inset-0 z-0 overflow-visible",
+              MOBILE_HOME_HERO_STAT_HAND_ATMOSPHERE_241_824_TRANSLATE_X_CLASS,
+            )}
+          >
+            <div className="relative size-full min-h-px min-w-px">
+              <div className={MOBILE_HOME_HERO_STAT_HAND_ATMOSPHERE_241_824_INSET_WRAPPER_CLASS}>
+                <div className="relative size-full min-h-px min-w-px">
+                  <Image
+                    src={FIGMA_ASSETS.imgRectangle17416}
+                    alt=""
+                    fill
+                    unoptimized
+                    className="pointer-events-none block max-w-none object-fill select-none"
+                    sizes="(max-width: 768px) 400px, 400px"
+                    quality={DEFAULT_IMAGE_QUALITY}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="relative z-[1] size-full overflow-hidden">
             <div className="absolute inset-0 -scale-y-100 rotate-180">
               <Image
                 src={FIGMA_ASSETS.img28A}
