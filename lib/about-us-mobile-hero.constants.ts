@@ -34,7 +34,30 @@ export const ABOUT_US_MOBILE_HERO_STAT_GLOW_BLUR_PX = 8;
 export const ABOUT_US_MOBILE_HERO_STAT_GLOW_OPACITY = 0.3;
 
 /**
- * Shared glass tile on mobile About (hero stats, intro) — matches mission tube `ring-white/[0.06]`.
+ * Shared glass tile on mobile About (intro, bottom stats) — matches mission tube `ring-white/[0.06]`.
  */
 export const ABOUT_US_MOBILE_ABOUT_GLASS_TILE_CLASS =
   "rounded-2xl bg-[rgba(255,255,255,0.04)] ring-1 ring-white/[0.06] backdrop-blur-sm" as const;
+
+/**
+ * Figma `479:1246` — single frosted panel behind hero stats (`Rectangle 17399`); SVG in `public/`.
+ */
+export const ABOUT_US_MOBILE_HERO_STATS_PANEL_BG_SRC =
+  "/images/about-us/mobile-hero-stats-panel-bg.svg" as const;
+
+/**
+ * Escape `.section-container` horizontal padding (`1rem` / `1.5rem` @ `sm`) so the stats panel can
+ * bleed past the content box like the hero robot (`AboutUsMobile`, &lt; `lg` only).
+ */
+export const ABOUT_US_MOBILE_HERO_STATS_BREAKOUT_CLASS =
+  "-mx-4 w-[calc(100%+2rem)] overflow-x-visible sm:-mx-6 sm:w-[calc(100%+3rem)]" as const;
+
+/**
+ * Panel width + rightward nudge; overflow is visible on ancestors so the SVG can extend past edges.
+ */
+export const ABOUT_US_MOBILE_HERO_STATS_PANEL_SHELF_CLASS =
+  "relative w-[min(150vw,40rem)] max-w-none translate-x-3 overflow-visible sm:translate-x-20" as const;
+
+/** Shift stat values, labels, and glows left relative to the panel shape. */
+export const ABOUT_US_MOBILE_HERO_STATS_FOREGROUND_SHIFT_CLASS =
+  "-translate-x-4 sm:-translate-x-5" as const;

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "next-intl";
 import type { AppLocale } from "@/lib/i18n/locales";
 import {
@@ -14,9 +15,13 @@ import {
   ABOUT_US_MOBILE_HERO_STORY_INTRO_PARAGRAPH_BASE_CLASS,
   ABOUT_US_MOBILE_HERO_STAT_GLOW_BLUR_PX,
   ABOUT_US_MOBILE_HERO_STAT_GLOW_OPACITY,
-  ABOUT_US_MOBILE_ABOUT_GLASS_TILE_CLASS,
+  ABOUT_US_MOBILE_HERO_STATS_BREAKOUT_CLASS,
+  ABOUT_US_MOBILE_HERO_STATS_FOREGROUND_SHIFT_CLASS,
+  ABOUT_US_MOBILE_HERO_STATS_PANEL_BG_SRC,
+  ABOUT_US_MOBILE_HERO_STATS_PANEL_SHELF_CLASS,
 } from "@/lib/about-us-mobile-hero.constants";
 import { AboutUsMobileHeroRobot } from "@/components/about-us/AboutUsMobileHeroRobot";
+import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { interSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 
@@ -125,7 +130,9 @@ export function AboutUsMobileHero({
           </p>
         </div>
 
-        <AboutUsMobileHeroStatsRow stats={heroStats} className="relative mt-10" />
+        <div className={ABOUT_US_MOBILE_HERO_STATS_BREAKOUT_CLASS}>
+          <AboutUsMobileHeroStatsRow stats={heroStats} />
+        </div>
       </div>
     </section>
   );
@@ -145,64 +152,74 @@ function AboutUsMobileHeroStatsRow({
   className?: string;
 }) {
   return (
-    <div className={cn("grid grid-cols-3 gap-2 sm:gap-4", className)} data-node-id="479:1251">
-      {stats.map((s, i) => (
-        <AboutUsMobileHeroStatCell
-          key={s.value + s.label}
-          value={s.value}
-          label={s.label}
-          gradient={s.gradient}
-          glowFrom={STAT_GLOW_PRESETS[i]?.from ?? "#473dff"}
-          glowTo={STAT_GLOW_PRESETS[i]?.to ?? "#6b5fff"}
-        />
-      ))}
-    </div>
-  );
-}
-
-function AboutUsMobileHeroStatCell({
-  value,
-  label,
-  gradient,
-  glowFrom,
-  glowTo,
-}: {
-  value: string;
-  label: string;
-  gradient: string;
-  glowFrom: string;
-  glowTo: string;
-}) {
-  return (
     <div
       className={cn(
-        "relative flex min-w-0 flex-1 flex-col items-center px-2 pb-4 pt-7 sm:px-3 sm:pb-5 sm:pt-8",
-        ABOUT_US_MOBILE_ABOUT_GLASS_TILE_CLASS,
+        "mt-4 min-h-[13rem] aspect-[826/217] sm:mt-5",
+        ABOUT_US_MOBILE_HERO_STATS_PANEL_SHELF_CLASS,
+        className,
       )}
+      data-name="Rectangle 17399"
+      data-node-id="479:1246"
     >
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <Image
+          src={ABOUT_US_MOBILE_HERO_STATS_PANEL_BG_SRC}
+          alt=""
+          fill
+          unoptimized
+          quality={DEFAULT_IMAGE_QUALITY}
+          className="pointer-events-none object-fill select-none scale-x-[-1]"
+          sizes="100vw"
+        />
+      </div>
       <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-9 w-[min(5.25rem,28vw)] -translate-x-1/2 rounded-full bg-gradient-to-r"
-        style={{
-          filter: `blur(${ABOUT_US_MOBILE_HERO_STAT_GLOW_BLUR_PX}px)`,
-          opacity: ABOUT_US_MOBILE_HERO_STAT_GLOW_OPACITY,
-          backgroundImage: `linear-gradient(90deg, ${glowFrom}, ${glowTo})`,
-        }}
-      />
-      <p
-        className="relative bg-clip-text text-center text-[clamp(1.75rem,7.5vw,2.8125rem)] font-black leading-none tracking-[0.02em] text-transparent"
-        style={{ backgroundImage: gradient }}
-      >
-        {value}
-      </p>
-      <p
         className={cn(
-          "relative mt-2 text-center text-[11px] font-normal leading-4 text-[#d9e0ed] sm:text-xs sm:leading-4",
-          label.includes("\n") && "whitespace-pre-line",
+          "relative z-[2] grid w-full grid-cols-3 gap-2 px-2 pb-8 pt-18 sm:gap-2 sm:px-4 sm:pb-9 sm:pt-14",
+          ABOUT_US_MOBILE_HERO_STATS_FOREGROUND_SHIFT_CLASS,
         )}
+        data-node-id="479:1251"
       >
-        {label}
-      </p>
+        {stats.map((s, statIndex) => {
+          const glowPreset = STAT_GLOW_PRESETS[statIndex] ?? STAT_GLOW_PRESETS[0];
+          return (
+            <div
+              key={s.value + s.label}
+              className={cn(
+                "flex min-w-0 flex-col items-center px-0.5",
+                statIndex === 1 && "translate-x-[calc(-5rem+5px)] sm:translate-x-0",
+                statIndex === 2 && "-translate-x-39 sm:translate-x-0",
+              )}
+            >
+              <div className="relative flex h-[4rem] w-full items-center justify-center sm:h-[4.5rem]">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-12 w-[min(7.25rem,36vw)] max-w-[min(100%,7.25rem)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r sm:h-14 sm:w-[min(7.75rem,30vw)] sm:max-w-none"
+                  data-name="Stat glow"
+                  style={{
+                    filter: `blur(${ABOUT_US_MOBILE_HERO_STAT_GLOW_BLUR_PX}px)`,
+                    opacity: ABOUT_US_MOBILE_HERO_STAT_GLOW_OPACITY,
+                    backgroundImage: `linear-gradient(90deg, ${glowPreset.from}, ${glowPreset.to})`,
+                  }}
+                />
+                <p
+                  className="relative z-[1] bg-clip-text text-center text-[clamp(2.25rem,9vw,3.35rem)] font-black leading-none tracking-[0.02em] text-transparent"
+                  style={{ backgroundImage: s.gradient }}
+                >
+                  {s.value}
+                </p>
+              </div>
+              <p
+                className={cn(
+                  "relative z-[1] mt-2 max-w-[15rem] text-center text-xs font-normal leading-tight text-[#d9e0ed] sm:mt-3 sm:max-w-none sm:text-xl sm:leading-8",
+                  s.label.includes("\n") && "whitespace-pre-line",
+                )}
+              >
+                {s.label}
+              </p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
