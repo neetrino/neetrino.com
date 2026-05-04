@@ -2,6 +2,18 @@
  * Mobile About — mission / vision block (`AboutUsMobileMissionVisionSection`).
  */
 
+/**
+ * Mission column stacks above the vision atmosphere ellipse (it bleeds upward with negative `top`).
+ * Vision column stays lower so glow does not paint over mission copy.
+ */
+export const ABOUT_MOBILE_MISSION_ARTICLE_STACK_CLASS = "relative z-[2]" as const;
+
+/** Vision column — atmosphere `z-0`, copy wrapper uses `ABOUT_MOBILE_VISION_COLUMN_CONTENT_ABOVE_ATMOSPHERE_CLASS`. */
+export const ABOUT_MOBILE_VISION_ARTICLE_STACK_CLASS = "relative isolate z-[1]" as const;
+
+/** Keeps heading + body above in-column atmosphere (`z-0`). */
+export const ABOUT_MOBILE_VISION_COLUMN_CONTENT_ABOVE_ATMOSPHERE_CLASS = "relative z-[1]" as const;
+
 /** Nudge reflected “THE MISSION” title stack toward the trailing edge (LTR: right), `< sm` only. */
 export const ABOUT_MOBILE_MISSION_HEADING_NUDGE_CLASS = "translate-x-[10px] sm:translate-x-0";
 
@@ -39,3 +51,10 @@ export const ABOUT_MOBILE_VISION_BODY_TEXT_ALIGN_CLASS = "text-left";
 
 /** Nudge vision **body** copy toward the trailing edge (LTR: right); `< sm` only — heading stays put. */
 export const ABOUT_MOBILE_VISION_BODY_NUDGE_CLASS = "translate-x-[120px] sm:translate-x-0";
+
+/**
+ * Ellipse atmosphere behind THE VISION — Figma `479:1273` (same SVG as hero `479:1234`, inset match).
+ * Right-anchored so the blue wash sits under the reflected title stack.
+ */
+export const ABOUT_MOBILE_MISSION_VISION_ATMOSPHERE_ELLIPSE_SLOT_CLASS =
+  "pointer-events-none absolute -top-90 right-0 z-0 h-[min(34rem,92vw)] w-[min(140vw,72rem)] max-w-none translate-x-[42%] sm:-top-44 sm:translate-x-[31%]" as const;
