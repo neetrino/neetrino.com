@@ -2,7 +2,10 @@ import Image from "next/image";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { SITE_FOOTER_MOBILE_539_1826_ATMOSPHERE_CLASS } from "@/lib/site-footer-mobile-539-1826-atmosphere.constants";
 import { SITE_FOOTER_MOBILE_539 } from "@/lib/site-footer-mobile-539-assets.constants";
-import { cn } from "@/lib/utils";
+import {
+  SITE_FOOTER_MOBILE_ROBOT_IMAGE_CLASS,
+  SITE_FOOTER_MOBILE_ROBOT_STRIP_CLASS,
+} from "@/lib/site-footer-mobile-robot.constants";
 
 /** Grid SVG natural size — `aspect-ratio` matches local asset. */
 const GRID_NATURAL_H = 855;
@@ -19,12 +22,6 @@ const FOOTER_GRID_PRE_ROTATE_WIDTH_CLASS =
 /** Full-bleed grid shell — entire footer (`inset-0`), centered artwork; under atmosphere (`z-0`). */
 const FOOTER_MOBILE_GRID_SHELL_CLASS =
   "absolute inset-0 z-0 flex items-center justify-center overflow-hidden mix-blend-overlay" as const;
-
-const FOOTER_MOBILE_ROBOT_STRIP_CLASS =
-  "pointer-events-none absolute inset-y-0 right-0 z-[2] w-[min(82vw,620px)] min-w-[260px] overflow-hidden";
-
-const FOOTER_MOBILE_ROBOT_IMAGE_CLASS =
-  "object-cover object-left-top origin-left-top scale-[1.35] -translate-y-[22%]";
 
 /**
  * Decorative layers for mobile footer — Figma `539:1824` grid/line/robot; atmosphere `539:1826` (blue L→R).
@@ -63,14 +60,14 @@ export function SiteFooterMobileBackdrop539() {
         </div>
       </div>
 
-      <div className={FOOTER_MOBILE_ROBOT_STRIP_CLASS}>
+      <div className={SITE_FOOTER_MOBILE_ROBOT_STRIP_CLASS}>
         <div className="relative h-full min-h-[380px] w-full mix-blend-hard-light">
           <Image
             alt=""
             src={FIGMA_ASSETS.imgMobileFooterRobotProfile}
             fill
             sizes="(max-width: 1024px) 82vw, 0"
-            className={cn("pointer-events-none", FOOTER_MOBILE_ROBOT_IMAGE_CLASS)}
+            className={SITE_FOOTER_MOBILE_ROBOT_IMAGE_CLASS}
           />
         </div>
       </div>

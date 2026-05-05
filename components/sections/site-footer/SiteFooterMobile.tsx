@@ -7,6 +7,16 @@ import { serviceDetailHref } from "@/components/services/service-pages-data";
 import { CONTACT_DETAILS } from "@/components/contact/content";
 import { FOOTER_SOCIAL_ICON_HREFS } from "@/lib/site-footer-social-hrefs";
 import { SITE_FOOTER_MOBILE_539 } from "@/lib/site-footer-mobile-539-assets.constants";
+import {
+  SITE_FOOTER_MOBILE_BOTTOM_BLEED_CLASS,
+  SITE_FOOTER_MOBILE_COMPANY_SERVICES_COLUMN_CLASS,
+  SITE_FOOTER_MOBILE_COMPANY_SERVICES_ROW_CLASS,
+  SITE_FOOTER_MOBILE_SERVICES_COLUMN_CLASS,
+  SITE_FOOTER_MOBILE_COPYRIGHT_CLASS,
+  SITE_FOOTER_MOBILE_COPYRIGHT_RULE_CLASS,
+  SITE_FOOTER_MOBILE_SHELL_CLASS,
+  SITE_FOOTER_MOBILE_SOCIAL_ROW_CLASS,
+} from "@/lib/site-footer-mobile-tablet-layout.constants";
 import { interSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { SiteFooterMobileBackdrop539 } from "./SiteFooterMobileBackdrop539";
@@ -83,79 +93,81 @@ export function SiteFooterMobile() {
       )}
     >
       <SiteFooterMobileBackdrop539 />
-      <div className="relative z-10 mx-auto max-w-[min(100%,22.75rem)] px-4 pb-10 pt-[2.875rem] sm:px-5">
+      <div className={SITE_FOOTER_MOBILE_SHELL_CLASS}>
         <nav className="flex flex-col gap-8" aria-label={t("footer.company")}>
-          <section>
-            <h2 className={SECTION_TITLE_CLASS}>{t("footer.company")}</h2>
-            <ul className="mt-4 flex flex-col gap-3">
-              <li>
-                <Link href="/about-us" className={LINK_CLASS}>
-                  {t("nav.about")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/team" className={LINK_CLASS}>
-                  {t("nav.team")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className={LINK_CLASS}>
-                  {t("footer.contactUs")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/portfolio" className={LINK_CLASS}>
-                  {t("nav.portfolio")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className={LINK_CLASS}>
-                  {t("nav.services")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className={LINK_CLASS}>
-                  {t("nav.blog")}
-                </Link>
-              </li>
-            </ul>
-          </section>
+          <div className={SITE_FOOTER_MOBILE_COMPANY_SERVICES_ROW_CLASS}>
+            <section className={SITE_FOOTER_MOBILE_COMPANY_SERVICES_COLUMN_CLASS}>
+              <h2 className={SECTION_TITLE_CLASS}>{t("footer.company")}</h2>
+              <ul className="mt-4 flex flex-col gap-3">
+                <li>
+                  <Link href="/about-us" className={LINK_CLASS}>
+                    {t("nav.about")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/team" className={LINK_CLASS}>
+                    {t("nav.team")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className={LINK_CLASS}>
+                    {t("footer.contactUs")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/portfolio" className={LINK_CLASS}>
+                    {t("nav.portfolio")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className={LINK_CLASS}>
+                    {t("nav.services")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className={LINK_CLASS}>
+                    {t("nav.blog")}
+                  </Link>
+                </li>
+              </ul>
+            </section>
 
-          <section>
-            <h2 className={SECTION_TITLE_CLASS}>{t("footer.services")}</h2>
-            <ul className="mt-4 flex flex-col gap-3">
-              <li>
-                <Link href={serviceDetailHref("website-development")} className={LINK_CLASS}>
-                  {t("footer.serviceLabels.website")}
-                </Link>
-              </li>
-              <li>
-                <Link href={serviceDetailHref("mobile-app-development")} className={LINK_CLASS}>
-                  {t("footer.serviceLabels.mobileApp")}
-                </Link>
-              </li>
-              <li>
-                <Link href={serviceDetailHref("crm-systems")} className={LINK_CLASS}>
-                  {t("footer.serviceLabels.crmSystems")}
-                </Link>
-              </li>
-              <li>
-                <Link href={serviceDetailHref("saas-development")} className={LINK_CLASS}>
-                  {t("footer.serviceLabels.saasPlatforms")}
-                </Link>
-              </li>
-              <li>
-                <Link href={serviceDetailHref("ai-product-development")} className={LINK_CLASS}>
-                  {t("footer.serviceLabels.aiIntegration")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className={LINK_CLASS}>
-                  {t("footer.serviceLabels.all")}
-                </Link>
-              </li>
-            </ul>
-          </section>
+            <section className={SITE_FOOTER_MOBILE_SERVICES_COLUMN_CLASS}>
+              <h2 className={SECTION_TITLE_CLASS}>{t("footer.services")}</h2>
+              <ul className="mt-4 flex flex-col gap-3">
+                <li>
+                  <Link href={serviceDetailHref("website-development")} className={LINK_CLASS}>
+                    {t("footer.serviceLabels.website")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={serviceDetailHref("mobile-app-development")} className={LINK_CLASS}>
+                    {t("footer.serviceLabels.mobileApp")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={serviceDetailHref("crm-systems")} className={LINK_CLASS}>
+                    {t("footer.serviceLabels.crmSystems")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={serviceDetailHref("saas-development")} className={LINK_CLASS}>
+                    {t("footer.serviceLabels.saasPlatforms")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={serviceDetailHref("ai-product-development")} className={LINK_CLASS}>
+                    {t("footer.serviceLabels.aiIntegration")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className={LINK_CLASS}>
+                    {t("footer.serviceLabels.all")}
+                  </Link>
+                </li>
+              </ul>
+            </section>
+          </div>
 
           <section>
             <h2 className={SECTION_TITLE_CLASS}>{t("footer.contact")}</h2>
@@ -258,8 +270,10 @@ export function SiteFooterMobile() {
             </Link>
           </section>
         </nav>
+      </div>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 px-4">
+      <div className={SITE_FOOTER_MOBILE_BOTTOM_BLEED_CLASS}>
+        <div className={SITE_FOOTER_MOBILE_SOCIAL_ROW_CLASS}>
           {SOCIAL_ICONS.map((item) => (
             <a
               key={item.label}
@@ -300,10 +314,8 @@ export function SiteFooterMobile() {
           ))}
         </div>
 
-        <div className="mt-6 border-t border-white/10 pt-6">
-          <p className="text-center text-xs font-normal leading-4 text-[#dcd5d5]">
-            {t("footer.copyright")}
-          </p>
+        <div className={SITE_FOOTER_MOBILE_COPYRIGHT_RULE_CLASS}>
+          <p className={SITE_FOOTER_MOBILE_COPYRIGHT_CLASS}>{t("footer.copyright")}</p>
         </div>
       </div>
     </div>
