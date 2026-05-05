@@ -10,7 +10,7 @@ export const ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX = 3643;
 
 /**
  * Outer ABOUT desktop root: tall enough for Meet Our Team + padding below the 3643px canvas.
- * Also `CanvasScaler` `canvasHeight` on `/about-us` tablet hybrid (`neetrino-layout-desktop`, below `lg`).
+ * `CanvasScaler` `canvasHeight` on `/about-us` (tablet hybrid and `lg+` desktop path).
  */
 export const ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX = ABOUT_FIGMA_ROOT_MIN_HEIGHT_WITH_MEET_TEAM_PX;
 

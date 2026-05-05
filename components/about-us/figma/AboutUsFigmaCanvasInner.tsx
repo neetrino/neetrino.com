@@ -16,8 +16,8 @@ import {
 } from "@/lib/about-us-figma-layout.constants";
 
 /**
- * Figma node 335:905 — desktop About canvas (1440-wide design px). Used full-width at `lg+` and inside
- * `CanvasScaler` on tablet hybrid (`neetrino-layout-desktop`, below `lg`).
+ * Figma node 335:905 — desktop About canvas (1440-wide design px). Always inside `CanvasScaler` when shown
+ * (tablet hybrid in `page.tsx`, `lg+` in `AboutUsFigmaPageContent`).
  */
 export function AboutUsFigmaCanvasInner() {
   const containerRef = useRef<HTMLDivElement>(null);
