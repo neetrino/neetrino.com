@@ -11,7 +11,7 @@ import {
 } from "./portfolio-figma-assets";
 
 /**
- * Mobile portfolio cards — same cases and order as `PortfolioDesktopScene` (lg+ canvas).
+ * Mobile portfolio cards — same cases and order as `PortfolioDesktopScene` (`lg+` canvas).
  */
 const MOBILE_PORTFOLIO_IMAGES = [
   img2661,

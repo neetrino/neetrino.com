@@ -126,7 +126,7 @@ export async function WhatWeDo() {
   const isCenteredTileCopy = isWhatWeDoCardCopyCenteredLocale(locale);
 
   return (
-    <section className={`bg-[#151515] py-12 ${interSans.className}`}>
+    <section className={cn("relative bg-transparent py-12", interSans.className)}>
       <div className="mx-auto w-full max-w-[480px] px-4 md:px-6">
         <header className="mb-8">
           <p className="text-base font-medium uppercase leading-[35px] tracking-normal text-white">

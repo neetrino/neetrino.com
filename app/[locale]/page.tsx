@@ -10,6 +10,9 @@ import { CanvasScaler } from "@/components/layout/CanvasScaler";
 import {
   HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX,
   HOME_DESKTOP_CANVAS_FOOTER_PULL_UP_CLASSNAME,
+  HOME_DESKTOP_HERO_CANVAS_DESIGN_HEIGHT_PX,
+  HOME_TABLET_HYBRID_HERO_NAV_GAP_OUTER_CLASS,
+  HOME_TABLET_HYBRID_HERO_NAV_GAP_PULL_UP_CLASS,
 } from "@/lib/home-desktop-layout";
 import { getLocaleAlternates } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
@@ -25,6 +28,30 @@ const NeetrinoHome = dynamic(
         <div className="relative min-h-[min(100vh,5006px)] w-full bg-[#151515]" aria-hidden />
       </>
     ),
+  },
+);
+
+const NeetrinoHomeHeroCanvas = dynamic(
+  () =>
+    import("@/components/neetrino-home/NeetrinoHomeHeroCanvas").then((m) => ({
+      default: m.NeetrinoHomeHeroCanvas,
+    })),
+  {
+    loading: () => (
+      <>
+        {/* 1149px = HOME_DESKTOP_HERO_CANVAS_DESIGN_HEIGHT_PX */}
+        <div className={HOME_TABLET_HYBRID_HERO_NAV_GAP_OUTER_CLASS}>
+          <div
+            className={cn(
+              "relative min-h-[min(100vh,1149px)] w-full bg-[#151515]",
+              HOME_TABLET_HYBRID_HERO_NAV_GAP_PULL_UP_CLASS,
+            )}
+            aria-hidden
+          />
+        </div>
+      </>
+    ),
+    ssr: true,
   },
 );
 
@@ -47,10 +74,24 @@ export default async function Home({ params }: HomePageProps) {
 
   return (
     <div className="w-full min-w-0 overflow-x-hidden">
-      {/* Mobile layout: section-based, hidden on lg+ */}
+      {/* Below lg: one main — mobile hero, optional desktop hero canvas (tablet), then mobile stack. */}
       <div className="lg:hidden">
         <main>
-          <HeroSection locale={locale} />
+          <div className="neetrino-layout-desktop:hidden">
+            <HeroSection locale={locale} />
+          </div>
+          <div
+            className={cn(
+              "hidden w-full min-w-0 neetrino-layout-desktop:block",
+              HOME_TABLET_HYBRID_HERO_NAV_GAP_OUTER_CLASS,
+            )}
+          >
+            <div className={HOME_TABLET_HYBRID_HERO_NAV_GAP_PULL_UP_CLASS}>
+              <CanvasScaler canvasHeight={HOME_DESKTOP_HERO_CANVAS_DESIGN_HEIGHT_PX}>
+                <NeetrinoHomeHeroCanvas />
+              </CanvasScaler>
+            </div>
+          </div>
           <WhoWeAre />
           <WhatWeDo />
           <Projects />
@@ -58,13 +99,13 @@ export default async function Home({ params }: HomePageProps) {
         </main>
       </div>
 
-      {/* Desktop: scaled canvas; Partners in normal flow so the strip sits flush above `<Footer>` in layout (no gap scroll). */}
-      <div className={cn("hidden lg:block relative", HOME_DESKTOP_CANVAS_FOOTER_PULL_UP_CLASSNAME)}>
+      {/* lg+: full desktop canvas; Partners in flow above footer */}
+      <div className={cn("relative hidden lg:block", HOME_DESKTOP_CANVAS_FOOTER_PULL_UP_CLASSNAME)}>
         <CanvasScaler canvasHeight={HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX}>
           <NeetrinoHome />
         </CanvasScaler>
       </div>
-      <div className="hidden lg:block w-full min-w-0">
+      <div className="hidden w-full min-w-0 lg:block">
         <Partners />
       </div>
     </div>

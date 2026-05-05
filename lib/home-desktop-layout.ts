@@ -47,3 +47,23 @@ export const HOME_DESKTOP_VECTOR_GRID_TOP_TAIL_PX = 40;
 
 export const HOME_DESKTOP_VECTOR_GRID_WRAP_HEIGHT_PX =
   HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX + HOME_DESKTOP_VECTOR_GRID_TOP_TAIL_PX;
+
+/**
+ * Desktop home hero only — Figma `10:421` outer frame height. Tablet hybrid home (≈744px–1023px, Tailwind
+ * `neetrino-layout-desktop` / `app/globals.css` 46.5rem): scaled desktop hero, then mobile sections.
+ */
+export const HOME_DESKTOP_HERO_CANVAS_DESIGN_HEIGHT_PX = 1149;
+
+export const HOME_DESKTOP_HERO_VECTOR_GRID_WRAP_HEIGHT_PX =
+  HOME_DESKTOP_HERO_CANVAS_DESIGN_HEIGHT_PX + HOME_DESKTOP_VECTOR_GRID_TOP_TAIL_PX;
+
+/**
+ * Tablet hybrid hero on `/` (`neetrino-layout-desktop`, below `lg`): 30px clearance under fixed `MobileHeader`.
+ * Outer `pt-[30px]` reserves flow space; inner `-mt-[30px]` (pair with outer) pulls the canvas up so hero
+ * backgrounds fill the band — avoids a solid strip under the navbar.
+ * **Literals** for Tailwind JIT.
+ */
+export const HOME_TABLET_HYBRID_HERO_NAV_GAP_OUTER_CLASS =
+  "relative overflow-x-clip overflow-y-visible pt-[30px]" as const;
+
+export const HOME_TABLET_HYBRID_HERO_NAV_GAP_PULL_UP_CLASS = "-mt-[30px]" as const;

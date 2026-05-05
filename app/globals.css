@@ -98,6 +98,8 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  /* 744px — home hybrid hero (`app/[locale]/page.tsx`); keep in sync with copy in `lib/home-desktop-layout.ts` JSDoc. */
+  --breakpoint-neetrino-layout-desktop: 46.5rem;
 }
 
 html {
@@ -222,10 +224,9 @@ html[lang="hy"] body {
 }
 
 /*
-  Neetrino: fluid canvas — 1440×5006 design scales proportionally to any viewport.
-  Used by CanvasScaler for the desktop (lg+) layout.
-  JS (CanvasScaler) measures the actual container width and applies scale().
-  Height must match HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX in lib/home-desktop-layout.ts.
+  Neetrino: fluid canvas — 1440×N design scales proportionally to any viewport.
+  JS (CanvasScaler) sets inner min-height from `canvasHeight` and applies scale().
+  Full home: HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX; hybrid tablet hero: HOME_DESKTOP_HERO_CANVAS_DESIGN_HEIGHT_PX.
 */
 .neetrino-canvas-wrap {
   position: relative;
@@ -236,7 +237,6 @@ html[lang="hy"] body {
 
 .neetrino-canvas-inner {
   width: 1440px;
-  min-height: 5006px;
   transform-origin: top left;
   background-color: #151515;
 }

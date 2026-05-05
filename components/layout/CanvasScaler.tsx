@@ -59,7 +59,7 @@ export function CanvasScaler({
 
   return (
     <div ref={wrapRef} className="neetrino-canvas-wrap overflow-hidden" data-neetrino-canvas>
-      <div ref={innerRef} className="neetrino-canvas-inner">
+      <div ref={innerRef} className="neetrino-canvas-inner" style={{ minHeight: canvasHeight }}>
         {children}
       </div>
     </div>
