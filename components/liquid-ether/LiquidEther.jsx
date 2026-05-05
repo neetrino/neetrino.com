@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/unsupported-syntax -- WebGL helpers use file-local classes inside the mount effect. */
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import {
@@ -844,7 +845,7 @@ export default function LiquidEther({
             Common.renderer.dispose();
             Common.renderer.forceContextLoss();
           }
-        } catch (e) {
+        } catch {
           void 0;
         }
       }
@@ -924,14 +925,14 @@ export default function LiquidEther({
       if (resizeObserverRef.current) {
         try {
           resizeObserverRef.current.disconnect();
-        } catch (e) {
+        } catch {
           void 0;
         }
       }
       if (intersectionObserverRef.current) {
         try {
           intersectionObserverRef.current.disconnect();
-        } catch (e) {
+        } catch {
           void 0;
         }
       }

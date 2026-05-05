@@ -19,7 +19,6 @@ type CardProps = {
 
 export function ServicesCard({
   className,
-  property1 = "Secure Transactions default",
   title,
   description,
   continueHref,
@@ -96,7 +95,6 @@ type Card1Props = {
 
 export function ServicesCard1({
   className,
-  property1 = "Secure Transactions default",
   title,
   description,
   continueHref,

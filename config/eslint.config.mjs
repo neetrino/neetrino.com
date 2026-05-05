@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Raw Figma export reference (dozens of `<img>`); not app runtime.
+    "docs/reference/figma-exports/**",
+    // Generated / snapshot home markup — not maintained as hand-written app code.
+    "scripts/neetrino/NeetrinoHome.full.tsx",
   ]),
 ]);
 

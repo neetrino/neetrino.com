@@ -21,7 +21,7 @@ type Group1Props = {
   property1?: "Default" | "Variant2";
 };
 
-export function Group1({ className, property1 = "Default" }: Group1Props) {
+export function Group1({ className }: Group1Props) {
   const t = useTranslations();
   const locale = useLocale();
   const isCenteredTileCopy = isWhatWeDoCardCopyCenteredLocale(locale);

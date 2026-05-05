@@ -86,7 +86,9 @@ export function getBlogPosts(locale: AppLocale): readonly BlogPost[] {
 
 export function getBlogIndexItems(locale: AppLocale): readonly BlogIndexItem[] {
   return getBlogPosts(locale).map((post) => {
-    const { intro: _intro, sections: _sections, ...indexItem } = post;
+    const { intro, sections, ...indexItem } = post;
+    void intro;
+    void sections;
     return indexItem;
   });
 }
