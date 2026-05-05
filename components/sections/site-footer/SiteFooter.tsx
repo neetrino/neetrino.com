@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { CONTACT_DETAILS, CONTACT_SOCIAL_LINKS } from "@/components/contact/content";
+import { CONTACT_DETAILS } from "@/components/contact/content";
 import {
   footerSendCtaIconLeftDefaultClassName,
   footerSendCtaIconLeftRuClassName,
@@ -22,21 +22,13 @@ import {
   SITE_FOOTER_DESKTOP_CANVAS_WIDTH_PX,
   SITE_FOOTER_DESKTOP_CANVAS_WRAP_MODIFIER_CLASS,
 } from "@/lib/site-footer-desktop-canvas.constants";
+import { SITE_FOOTER_MOBILE_539 } from "@/lib/site-footer-mobile-539-assets.constants";
+import { SITE_FOOTER_SOCIAL_ROW_ICONS } from "@/lib/site-footer-social-row-icons.constants";
 import { SITE_FOOTER_DESKTOP_ATMOSPHERE_IMAGE_INSET } from "@/lib/site-footer-desktop-atmosphere-166-1259.constants";
 import { cn } from "@/lib/utils";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { SiteFooterDesktopGridBackdrop } from "./SiteFooterDesktopGridBackdrop";
 import { SiteFooterMobile } from "./SiteFooterMobile";
-
-const SOCIAL_ICON_HREFS = [
-  CONTACT_SOCIAL_LINKS[0].href,
-  CONTACT_SOCIAL_LINKS[1].href,
-  CONTACT_SOCIAL_LINKS[2].href,
-  "https://www.behance.net/",
-  "https://www.youtube.com/",
-  CONTACT_SOCIAL_LINKS[4].href,
-  CONTACT_SOCIAL_LINKS[3].href,
-] as const;
 
 /**
  * Footer v2 — Figma `10:237` (NEETRINO-WEB). Desktop `lg+`: `CanvasScaler` under 1440px (iPad Pro); wrap/inner modifiers
@@ -459,17 +451,17 @@ export function Footer() {
                           data-name="Master Link"
                         >
                           <div
-                            className="h-[18px] relative shrink-0 w-[14px]"
+                            className="relative h-[18px] w-[14px] shrink-0"
                             data-node-id="10:310"
                             data-name="Vector"
                           >
                             <Image
                               alt=""
-                              width={32}
-                              height={32}
+                              fill
                               unoptimized
-                              className="absolute block inset-0 max-w-none size-full"
-                              src={FIGMA_ASSETS.imgVector}
+                              className="object-contain"
+                              src={SITE_FOOTER_MOBILE_539.contactAddress}
+                              sizes="14px"
                             />
                           </div>
                           <p
@@ -486,17 +478,17 @@ export function Footer() {
                         data-node-id="10:313"
                       >
                         <div
-                          className="h-[15px] relative shrink-0 w-[20px]"
+                          className="relative h-[15px] w-[20px] shrink-0"
                           data-node-id="10:314"
                           data-name="Vector"
                         >
                           <Image
                             alt=""
-                            width={32}
-                            height={32}
+                            fill
                             unoptimized
-                            className="absolute block inset-0 max-w-none size-full"
-                            src={FIGMA_ASSETS.imgVector1}
+                            className="object-contain"
+                            src={SITE_FOOTER_MOBILE_539.contactEmail}
+                            sizes="20px"
                           />
                         </div>
                         <a
@@ -520,17 +512,17 @@ export function Footer() {
                         data-node-id="10:316"
                       >
                         <div
-                          className="relative shrink-0 size-[18px]"
+                          className="relative size-[18px] shrink-0"
                           data-node-id="10:317"
                           data-name="Vector"
                         >
                           <Image
                             alt=""
-                            width={32}
-                            height={32}
+                            fill
                             unoptimized
-                            className="absolute block inset-0 max-w-none size-full"
-                            src={FIGMA_ASSETS.imgVector2}
+                            className="object-contain"
+                            src={SITE_FOOTER_MOBILE_539.contactPhone}
+                            sizes="18px"
                           />
                         </div>
                         <a
@@ -554,16 +546,16 @@ export function Footer() {
                         data-node-id="10:319"
                       >
                         <div
-                          className="h-[21px] relative shrink-0 w-[21.5px]"
+                          className="relative h-[21px] w-[21.5px] shrink-0"
                           data-node-id="10:320"
                         >
                           <Image
                             alt=""
-                            width={32}
-                            height={32}
+                            fill
                             unoptimized
-                            className="absolute block inset-0 max-w-none size-full"
-                            src={FIGMA_ASSETS.imgGroup2087329580}
+                            className="object-contain"
+                            src={SITE_FOOTER_MOBILE_539.contactHours}
+                            sizes="22px"
                           />
                         </div>
                         <p
@@ -666,11 +658,11 @@ export function Footer() {
                       >
                         <Image
                           alt=""
-                          width={84}
-                          height={84}
+                          fill
                           unoptimized
-                          className="absolute block inset-0 max-w-none size-full"
-                          src={FIGMA_ASSETS.imgGroup221}
+                          className="object-contain"
+                          src={SITE_FOOTER_MOBILE_539.sendArrow}
+                          sizes="42px"
                         />
                       </div>
                     </Link>
@@ -682,136 +674,47 @@ export function Footer() {
                 data-node-id="10:343"
                 data-name="Social Media Container"
               >
-                <a
-                  href={SOCIAL_ICON_HREFS[0]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative block h-[19px] shrink-0 w-[11px]"
-                  aria-label="Facebook"
-                >
-                  <span className="pointer-events-none relative block size-full">
-                    <Image
-                      alt=""
-                      width={32}
-                      height={32}
-                      unoptimized
-                      className="absolute block inset-0 max-w-none size-full"
-                      src={FIGMA_ASSETS.imgSocialMediaIconSquareFacebook}
-                    />
-                  </span>
-                </a>
-                <a
-                  href={SOCIAL_ICON_HREFS[1]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative block shrink-0 size-[19px]"
-                  aria-label="Instagram"
-                >
-                  <span className="pointer-events-none relative block size-full">
-                    <Image
-                      alt=""
-                      width={32}
-                      height={32}
-                      unoptimized
-                      className="absolute block inset-0 max-w-none size-full"
-                      src={FIGMA_ASSETS.imgSocialMediaIconSquareInstagram}
-                    />
-                  </span>
-                </a>
-                <a
-                  href={SOCIAL_ICON_HREFS[2]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative block h-[18px] shrink-0 w-[19px]"
-                  aria-label="LinkedIn"
-                >
-                  <span className="pointer-events-none relative block size-full">
-                    <div className="absolute inset-[4.58%_0.79%_0.19%_4.47%]" data-node-id="10:355">
-                      <Image
-                        alt=""
-                        width={32}
-                        height={32}
-                        unoptimized
-                        className="absolute block inset-0 max-w-none size-full"
-                        src={FIGMA_ASSETS.imgGroup73}
-                      />
-                    </div>
-                  </span>
-                </a>
-                <a
-                  href={SOCIAL_ICON_HREFS[3]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative block h-[15px] shrink-0 w-[24px]"
-                  aria-label="Behance"
-                >
-                  <span className="pointer-events-none relative block size-full">
-                    <Image
-                      alt=""
-                      width={32}
-                      height={32}
-                      unoptimized
-                      className="absolute block inset-0 max-w-none size-full"
-                      src={FIGMA_ASSETS.imgGroup}
-                    />
-                  </span>
-                </a>
-                <a
-                  href={SOCIAL_ICON_HREFS[4]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative block h-[15px] shrink-0 w-[21px]"
-                  aria-label="YouTube"
-                >
-                  <span className="pointer-events-none relative block size-full">
-                    <div className="absolute inset-[2.64%_1.19%_4.05%_4.52%]" data-node-id="10:361">
-                      <Image
-                        alt=""
-                        width={32}
-                        height={32}
-                        unoptimized
-                        className="absolute block inset-0 max-w-none size-full"
-                        src={FIGMA_ASSETS.imgGroup74}
-                      />
-                    </div>
-                  </span>
-                </a>
-                <a
-                  href={SOCIAL_ICON_HREFS[5]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative block shrink-0 size-[20px]"
-                  aria-label="WhatsApp"
-                >
-                  <span className="pointer-events-none relative block size-full">
-                    <Image
-                      alt=""
-                      width={32}
-                      height={32}
-                      unoptimized
-                      className="absolute block inset-0 max-w-none size-full"
-                      src={FIGMA_ASSETS.imgVector3}
-                    />
-                  </span>
-                </a>
-                <a
-                  href={SOCIAL_ICON_HREFS[6]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative block h-[20.472px] shrink-0 w-[18.796px]"
-                  aria-label="Telegram"
-                >
-                  <span className="pointer-events-none relative block size-full">
-                    <Image
-                      alt=""
-                      width={32}
-                      height={32}
-                      unoptimized
-                      className="absolute block inset-0 max-w-none size-full"
-                      src={FIGMA_ASSETS.imgVector4}
-                    />
-                  </span>
-                </a>
+                {SITE_FOOTER_SOCIAL_ROW_ICONS.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.label}
+                    className="relative block shrink-0 text-white transition-opacity hover:opacity-80"
+                  >
+                    <span className={cn("relative block", item.wrapperClass)}>
+                      {item.innerClass ? (
+                        <span
+                          className={cn(
+                            "pointer-events-none relative block size-full",
+                            item.innerClass,
+                          )}
+                        >
+                          <Image
+                            alt=""
+                            fill
+                            unoptimized
+                            className="object-contain"
+                            src={item.src}
+                            sizes="32px"
+                          />
+                        </span>
+                      ) : (
+                        <span className="pointer-events-none relative block size-full">
+                          <Image
+                            alt=""
+                            fill
+                            unoptimized
+                            className="object-contain"
+                            src={item.src}
+                            sizes="32px"
+                          />
+                        </span>
+                      )}
+                    </span>
+                  </a>
+                ))}
               </div>
               <p
                 className="absolute z-10 font-['DM_Sans:Regular',sans-serif] font-normal leading-[20px] left-[110px] text-[#dcd5d5] text-[18px] top-[536.01px] whitespace-nowrap"

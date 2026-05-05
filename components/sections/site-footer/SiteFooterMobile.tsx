@@ -5,8 +5,8 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
 import { CONTACT_DETAILS } from "@/components/contact/content";
-import { FOOTER_SOCIAL_ICON_HREFS } from "@/lib/site-footer-social-hrefs";
 import { SITE_FOOTER_MOBILE_539 } from "@/lib/site-footer-mobile-539-assets.constants";
+import { SITE_FOOTER_SOCIAL_ROW_ICONS } from "@/lib/site-footer-social-row-icons.constants";
 import {
   SITE_FOOTER_MOBILE_BOTTOM_BLEED_CLASS,
   SITE_FOOTER_MOBILE_COMPANY_SERVICES_COLUMN_CLASS,
@@ -24,59 +24,6 @@ import { SiteFooterMobileBackdrop539 } from "./SiteFooterMobileBackdrop539";
 const LINK_CLASS =
   "block text-left text-sm font-normal leading-5 tracking-[-0.15px] text-white transition-opacity hover:opacity-85";
 const SECTION_TITLE_CLASS = "text-lg font-bold leading-7 tracking-[-0.44px] text-white";
-
-const SOCIAL_ICONS: ReadonlyArray<{
-  href: (typeof FOOTER_SOCIAL_ICON_HREFS)[number];
-  label: string;
-  src: string;
-  wrapperClass: string;
-  innerClass?: string;
-}> = [
-  {
-    href: FOOTER_SOCIAL_ICON_HREFS[0],
-    label: "Facebook",
-    src: SITE_FOOTER_MOBILE_539.socialFacebook,
-    wrapperClass: "h-[19px] w-[11px]",
-  },
-  {
-    href: FOOTER_SOCIAL_ICON_HREFS[1],
-    label: "Instagram",
-    src: SITE_FOOTER_MOBILE_539.socialInstagram,
-    wrapperClass: "size-[19px]",
-  },
-  {
-    href: FOOTER_SOCIAL_ICON_HREFS[2],
-    label: "LinkedIn",
-    src: SITE_FOOTER_MOBILE_539.socialLinkedIn,
-    wrapperClass: "h-[18px] w-[19px]",
-    innerClass: "absolute inset-[4.58%_0.79%_0.19%_4.47%]",
-  },
-  {
-    href: FOOTER_SOCIAL_ICON_HREFS[3],
-    label: "Behance",
-    src: SITE_FOOTER_MOBILE_539.socialBehance,
-    wrapperClass: "h-[15px] w-[24px]",
-  },
-  {
-    href: FOOTER_SOCIAL_ICON_HREFS[4],
-    label: "YouTube",
-    src: SITE_FOOTER_MOBILE_539.socialYouTube,
-    wrapperClass: "h-[15px] w-[21px]",
-    innerClass: "absolute inset-[2.64%_1.19%_4.05%_4.52%]",
-  },
-  {
-    href: FOOTER_SOCIAL_ICON_HREFS[5],
-    label: "WhatsApp",
-    src: SITE_FOOTER_MOBILE_539.socialWhatsApp,
-    wrapperClass: "size-[20px]",
-  },
-  {
-    href: FOOTER_SOCIAL_ICON_HREFS[6],
-    label: "Telegram",
-    src: SITE_FOOTER_MOBILE_539.socialTelegram,
-    wrapperClass: "h-[20.472px] w-[18.796px]",
-  },
-];
 
 /**
  * Mobile footer — Figma `539:1824` (NEETRINO-WEB): #151515, grid + `539:1826` blue L→R atmosphere,
@@ -274,7 +221,7 @@ export function SiteFooterMobile() {
 
       <div className={SITE_FOOTER_MOBILE_BOTTOM_BLEED_CLASS}>
         <div className={SITE_FOOTER_MOBILE_SOCIAL_ROW_CLASS}>
-          {SOCIAL_ICONS.map((item) => (
+          {SITE_FOOTER_SOCIAL_ROW_ICONS.map((item) => (
             <a
               key={item.label}
               href={item.href}
