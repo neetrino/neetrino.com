@@ -29,7 +29,7 @@ import { ABOUT_MEET_OUR_TEAM_MOBILE_MARGIN_TOP_CLASS } from "@/lib/about-us-meet
 import { ABOUT_MOBILE_WHY_CHOOSE_ABOVE_COUNTRIES_ATMOSPHERE_STACK_CLASS } from "@/lib/about-us-mobile-why-choose.constants";
 
 /**
- * Mobile/tablet (<lg) About Us layout. Mirrors the same content/order/CTA copy as the
+ * Phone-only About Us layout (&lt; `md`, 768px). Mirrors the same content/order/CTA copy as the
  * Figma-pixel desktop blocks (`AboutUsFigmaBlock1a..3`) but renders it in normal flow
  * with responsive Tailwind utilities. Desktop layout is untouched (kept in `figma/`).
  */
@@ -58,7 +58,7 @@ export function AboutUsMobile() {
   return (
     <div
       className={cn(
-        "lg:hidden",
+        "md:hidden",
         /* Clear fixed `MobileHeader`; background paints in padding so atmosphere runs under the bar */
         "pt-24",
       )}

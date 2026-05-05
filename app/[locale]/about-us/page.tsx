@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: AboutUsPageProps): Promise<Me
 export default function AboutUsRoutePage() {
   return (
     <div className="w-full min-w-0 overflow-x-hidden bg-transparent">
-      <main className={`w-full min-w-0 pb-0 lg:pb-20 ${interSans.className}`}>
+      <main className={`w-full min-w-0 pb-0 md:pb-20 ${interSans.className}`}>
         <AboutUsMobile />
         <AboutUsFigmaPageContent />
       </main>

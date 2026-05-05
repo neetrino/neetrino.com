@@ -22,7 +22,7 @@ export function AboutUsFigmaPageContent() {
   return (
     <div
       ref={containerRef}
-      className="relative isolate hidden w-full min-w-0 overflow-hidden bg-[#151515] lg:block"
+      className="relative isolate hidden w-full min-w-0 overflow-hidden bg-[#151515] md:block"
       style={{ minHeight: ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX }}
       data-name="ABOUT"
       data-node-id="335:905"
