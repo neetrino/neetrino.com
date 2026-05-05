@@ -226,7 +226,7 @@ html[lang="hy"] body {
 /*
   Neetrino: fluid canvas — 1440×N design scales proportionally to any viewport.
   JS (CanvasScaler) sets inner min-height from `canvasHeight` and applies scale().
-  Full home: HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX; hybrid tablet hero: HOME_DESKTOP_HERO_CANVAS_DESIGN_HEIGHT_PX.
+  Full home: HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX; hybrid tablet hero: `HOME_DESKTOP_HERO_TABLET_CANVAS_DESIGN_HEIGHT_PX` (taller — 450+ hand bleed).
 */
 .neetrino-canvas-wrap {
   position: relative;
@@ -239,6 +239,20 @@ html[lang="hy"] body {
   width: 1440px;
   transform-origin: top left;
   background-color: #151515;
+}
+
+/* Tablet hybrid home hero (`/` below `lg`, `neetrino-layout-desktop`): blue head behind translucent `MobileHeader`. */
+.neetrino-canvas-wrap.neetrino-canvas-wrap--tablet-hero {
+  background-color: #151515;
+  background-image: linear-gradient(
+    180deg,
+    rgb(42, 58, 118) 0%,
+    rgb(28, 36, 72) 38%,
+    rgba(21, 21, 21, 0) 100%
+  );
+  background-size: 100% 200px;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
 /*

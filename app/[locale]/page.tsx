@@ -10,9 +10,11 @@ import { CanvasScaler } from "@/components/layout/CanvasScaler";
 import {
   HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX,
   HOME_DESKTOP_CANVAS_FOOTER_PULL_UP_CLASSNAME,
-  HOME_DESKTOP_HERO_CANVAS_DESIGN_HEIGHT_PX,
+  HOME_DESKTOP_HERO_TABLET_CANVAS_DESIGN_HEIGHT_PX,
+  HOME_TABLET_HYBRID_CANVAS_WRAP_MODIFIER_CLASS,
   HOME_TABLET_HYBRID_HERO_NAV_GAP_OUTER_CLASS,
   HOME_TABLET_HYBRID_HERO_NAV_GAP_PULL_UP_CLASS,
+  HOME_TABLET_HYBRID_WHO_WE_ARE_PULL_UP_CLASSNAME,
 } from "@/lib/home-desktop-layout";
 import { getLocaleAlternates } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
@@ -39,13 +41,15 @@ const NeetrinoHomeHeroCanvas = dynamic(
   {
     loading: () => (
       <>
-        {/* 1149px = HOME_DESKTOP_HERO_CANVAS_DESIGN_HEIGHT_PX */}
         <div className={HOME_TABLET_HYBRID_HERO_NAV_GAP_OUTER_CLASS}>
           <div
             className={cn(
-              "relative min-h-[min(100vh,1149px)] w-full bg-[#151515]",
+              "relative w-full bg-[#151515]",
               HOME_TABLET_HYBRID_HERO_NAV_GAP_PULL_UP_CLASS,
             )}
+            style={{
+              minHeight: `min(100vh, ${HOME_DESKTOP_HERO_TABLET_CANVAS_DESIGN_HEIGHT_PX}px)`,
+            }}
             aria-hidden
           />
         </div>
@@ -87,12 +91,17 @@ export default async function Home({ params }: HomePageProps) {
             )}
           >
             <div className={HOME_TABLET_HYBRID_HERO_NAV_GAP_PULL_UP_CLASS}>
-              <CanvasScaler canvasHeight={HOME_DESKTOP_HERO_CANVAS_DESIGN_HEIGHT_PX}>
+              <CanvasScaler
+                canvasHeight={HOME_DESKTOP_HERO_TABLET_CANVAS_DESIGN_HEIGHT_PX}
+                wrapClassName={HOME_TABLET_HYBRID_CANVAS_WRAP_MODIFIER_CLASS}
+              >
                 <NeetrinoHomeHeroCanvas />
               </CanvasScaler>
             </div>
           </div>
-          <WhoWeAre />
+          <div className={HOME_TABLET_HYBRID_WHO_WE_ARE_PULL_UP_CLASSNAME}>
+            <WhoWeAre />
+          </div>
           <WhatWeDo />
           <Projects />
           <Partners />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
+import { cn } from "@/lib/utils";
 
 const DEFAULT_CANVAS_W = 1440;
 const DEFAULT_CANVAS_H = 4652;
@@ -11,10 +12,13 @@ export function CanvasScaler({
   children,
   canvasWidth = DEFAULT_CANVAS_W,
   canvasHeight = DEFAULT_CANVAS_H,
+  wrapClassName,
 }: {
   children: React.ReactNode;
   canvasWidth?: number;
   canvasHeight?: number;
+  /** Merged onto `.neetrino-canvas-wrap` (e.g. tablet hero top bleed + overflow overrides). */
+  wrapClassName?: string;
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
@@ -58,7 +62,11 @@ export function CanvasScaler({
   }, [updateScale]);
 
   return (
-    <div ref={wrapRef} className="neetrino-canvas-wrap overflow-hidden" data-neetrino-canvas>
+    <div
+      ref={wrapRef}
+      className={cn("neetrino-canvas-wrap overflow-hidden", wrapClassName)}
+      data-neetrino-canvas
+    >
       <div ref={innerRef} className="neetrino-canvas-inner" style={{ minHeight: canvasHeight }}>
         {children}
       </div>
