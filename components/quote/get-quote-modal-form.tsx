@@ -28,8 +28,6 @@ type GetQuoteModalFormProps = {
 };
 
 export function GetQuoteModalForm({ onSubmit, pending, errorMessage }: GetQuoteModalFormProps) {
-  const t = useTranslations();
-
   return (
     <form className="mx-auto grid w-full max-w-sm gap-4" onSubmit={onSubmit}>
       <QuoteNamePhoneFields />

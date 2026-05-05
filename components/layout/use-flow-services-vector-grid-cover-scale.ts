@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
+import { useCallback, useEffect, useState, type RefObject } from "react";
 import { SERVICES_DESKTOP_VECTOR_GRID_PATTERN_OUTER_HEIGHT_PX } from "@/lib/services-desktop-vector-grid-pattern.constants";
 
 const CANVAS_DESIGN_WIDTH_PX = 1440 as const;
@@ -46,7 +46,7 @@ export function useFlowServicesVectorGridCoverScale(
       ro.disconnect();
       window.removeEventListener("resize", updateScale);
     };
-  }, [updateScale]);
+  }, [updateScale, shellRef]);
 
   return scale;
 }

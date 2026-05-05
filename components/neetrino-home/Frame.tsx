@@ -9,7 +9,7 @@ type FrameProps = {
   property1?: "Default" | "Variant2" | "Variant3" | "Variant4";
 };
 
-export function Frame({ className, property1 = "Default" }: FrameProps) {
+export function Frame({ className }: FrameProps) {
   return (
     <div className={className || "h-[905px] relative w-[1609px]"} data-node-id="90:380">
       <div className="-translate-x-1/2 absolute flex h-[239px] items-center justify-center left-[calc(50%+2.5px)] top-[64px] w-[332px]">

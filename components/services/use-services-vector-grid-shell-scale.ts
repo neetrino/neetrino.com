@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
+import { useCallback, useEffect, useState, type RefObject } from "react";
 
 const CANVAS_DESIGN_WIDTH_PX = 1440 as const;
 
@@ -34,7 +34,7 @@ export function useServicesVectorGridShellScale(
       ro.disconnect();
       window.removeEventListener("resize", updateScale);
     };
-  }, [updateScale]);
+  }, [updateScale, shellRef]);
 
   return scale;
 }

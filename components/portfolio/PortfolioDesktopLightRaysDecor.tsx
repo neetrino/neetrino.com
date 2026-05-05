@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
@@ -61,13 +62,15 @@ export function PortfolioDesktopLightRaysDecor() {
         className="-translate-x-1/2 absolute bottom-[70.05%] left-[calc(50%+62.8px)] top-[-21.87%] w-[1047.338px]"
         data-node-id="166:1209"
       >
-        <div className="absolute inset-[-52.12%_-48.95%]">
-          <img
+        <div className="absolute inset-[-52.12%_-48.95%] relative">
+          <Image
             alt=""
-            className="block max-w-none size-full"
+            className="object-cover"
             src={figma.imgEllipse27}
+            fill
+            sizes="1100px"
             loading="lazy"
-            decoding="async"
+            unoptimized
           />
         </div>
       </div>
@@ -75,28 +78,30 @@ export function PortfolioDesktopLightRaysDecor() {
         className="-translate-x-1/2 absolute bottom-[61.34%] left-[calc(50%+793.12px)] top-[-13.17%] w-[1047.338px]"
         data-node-id="166:1210"
       >
-        <div className="absolute inset-[-52.12%_-48.95%]">
-          <img
+        <div className="absolute inset-[-52.12%_-48.95%] relative">
+          <Image
             alt=""
-            className="block max-w-none size-full"
+            className="object-cover"
             src={figma.imgEllipse28}
+            fill
+            sizes="1100px"
             loading="lazy"
-            decoding="async"
+            unoptimized
           />
         </div>
       </div>
       <div className="absolute flex h-[5878.103px] items-center justify-center left-[-797.93px] mix-blend-plus-lighter top-[-3956.96px] w-[5638.546px]">
         <div className="flex-none rotate-[24.39deg]">
           <div className="h-[4590.797px] relative w-[4109.595px]" data-node-id="166:1211">
-            <div className="absolute inset-[-2.59%_-2.9%]">
-              <img
+            <div className="absolute inset-[-2.59%_-2.9%] relative">
+              <Image
                 alt=""
-                className="block max-w-none size-full"
-                height={4829}
+                className="object-cover"
                 src={figma.imgStar22}
-                width={4348}
+                fill
+                sizes="4200px"
                 loading="lazy"
-                decoding="async"
+                unoptimized
               />
             </div>
           </div>

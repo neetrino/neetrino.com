@@ -21,7 +21,8 @@ export function stripLocalePrefix(href: string): string {
 }
 
 /** Path for links when `localePrefix` is `never` (no `/{locale}` in URLs). */
-export function localizeHref(href: string, _locale: AppLocale): string {
+export function localizeHref(href: string, locale: AppLocale): string {
+  void locale;
   if (!href.startsWith("/") || EXTERNAL_LINK_PREFIX.test(href)) {
     return href;
   }
