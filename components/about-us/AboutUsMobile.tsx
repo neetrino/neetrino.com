@@ -26,6 +26,7 @@ import {
   ABOUT_MOBILE_COUNTRIES_SECTION_FOREGROUND_STACK_CLASS,
 } from "@/lib/about-us-mobile-countries-map.constants";
 import { ABOUT_MEET_OUR_TEAM_MOBILE_MARGIN_TOP_CLASS } from "@/lib/about-us-meet-our-team.constants";
+import { ABOUT_MOBILE_NEETRINO_INTRO_PARAGRAPH_CLASS } from "@/lib/about-us-mobile-neetrino-intro.constants";
 import { ABOUT_MOBILE_WHY_CHOOSE_ABOVE_COUNTRIES_ATMOSPHERE_STACK_CLASS } from "@/lib/about-us-mobile-why-choose.constants";
 
 /**
@@ -133,7 +134,7 @@ function NeetrinoIntroSection() {
   const introT = useTranslations("aboutPage");
   return (
     <section className="-mt-3 flex -translate-y-[2px] justify-center pt-3 pb-9 sm:-mt-2 sm:pt-4 sm:pb-10">
-      <p className="m-0 w-max max-w-full whitespace-pre-line text-left text-[15px] font-normal leading-7 text-white sm:text-base sm:leading-8">
+      <p className={ABOUT_MOBILE_NEETRINO_INTRO_PARAGRAPH_CLASS}>
         {introT.rich("mobileNeetrinoIntro", {
           bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
         })}

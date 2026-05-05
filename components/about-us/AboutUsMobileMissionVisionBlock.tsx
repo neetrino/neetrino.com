@@ -8,11 +8,13 @@ import {
   ABOUT_MOBILE_MISSION_HEADING_NUDGE_CLASS,
   ABOUT_MOBILE_MISSION_STACK_OFFSET_DOWN_CLASS,
   ABOUT_MOBILE_MISSION_VISION_BODY_MARGIN_TOP_CLASS,
+  ABOUT_MOBILE_MISSION_VISION_BODY_COPY_TEXT_CLASS,
   ABOUT_MOBILE_VISION_ARTICLE_STACK_CLASS,
   ABOUT_MOBILE_VISION_BODY_NUDGE_CLASS,
   ABOUT_MOBILE_VISION_BODY_PLACEMENT_CLASS,
   ABOUT_MOBILE_VISION_BODY_TEXT_ALIGN_CLASS,
   ABOUT_MOBILE_VISION_COLUMN_CONTENT_ABOVE_ATMOSPHERE_CLASS,
+  ABOUT_MOBILE_MISSION_VISION_TITLE_TEXT_CLASS,
   ABOUT_MOBILE_VISION_HEADING_NUDGE_CLASS,
   ABOUT_MOBILE_VISION_STACK_OFFSET_UP_CLASS,
 } from "@/lib/about-us-mobile-mission-vision.constants";
@@ -23,9 +25,7 @@ import {
 import { AboutUsMobileMissionVisionAtmosphere } from "@/components/about-us/AboutUsMobileMissionVisionAtmosphere";
 import { cn } from "@/lib/utils";
 
-const MISSION_VISION_TITLE_SHARP_CLASS = cn(
-  "font-['Inter:Black_Italic',sans-serif] text-[clamp(1.5rem,6.5vw,2.125rem)] font-black italic uppercase leading-tight text-white",
-);
+const MISSION_VISION_TITLE_SHARP_CLASS = cn(ABOUT_MOBILE_MISSION_VISION_TITLE_TEXT_CLASS);
 
 const MISSION_VISION_TITLE_BLUR_CLASS = cn(
   MISSION_VISION_TITLE_SHARP_CLASS,
@@ -92,7 +92,7 @@ export function AboutUsMobileMissionVisionSection({
           <p
             className={cn(
               ABOUT_MOBILE_MISSION_VISION_BODY_MARGIN_TOP_CLASS,
-              "text-[15px] font-extralight leading-7 text-white sm:text-base sm:leading-8",
+              ABOUT_MOBILE_MISSION_VISION_BODY_COPY_TEXT_CLASS,
               "whitespace-pre-line",
               ABOUT_MOBILE_MISSION_BODY_PLACEMENT_CLASS,
               ABOUT_MOBILE_MISSION_BODY_TEXT_ALIGN_CLASS,
@@ -123,7 +123,7 @@ export function AboutUsMobileMissionVisionSection({
           <p
             className={cn(
               ABOUT_MOBILE_MISSION_VISION_BODY_MARGIN_TOP_CLASS,
-              "text-[15px] font-extralight leading-7 text-white sm:text-base sm:leading-8",
+              ABOUT_MOBILE_MISSION_VISION_BODY_COPY_TEXT_CLASS,
               "whitespace-pre-line",
               ABOUT_MOBILE_VISION_BODY_PLACEMENT_CLASS,
               ABOUT_MOBILE_VISION_BODY_TEXT_ALIGN_CLASS,
