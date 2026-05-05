@@ -241,6 +241,16 @@ html[lang="hy"] body {
   background-color: #151515;
 }
 
+/* Desktop footer: transparent wrap only — does not replace `166:1259` / grid; avoids opaque `.neetrino-canvas-wrap` over `z-[1]`. */
+.neetrino-canvas-wrap.neetrino-canvas-wrap--footer-scaler {
+  background-color: transparent;
+}
+
+/* Desktop footer: transparent inner so `SiteFooterDesktopGridBackdrop` blends through (default inner is solid `#151515`). */
+.neetrino-canvas-inner.neetrino-canvas-inner--footer-desktop {
+  background-color: transparent;
+}
+
 /* Tablet hybrid home hero (`/` below `lg`, `neetrino-layout-desktop`): blue head behind translucent `MobileHeader`. */
 .neetrino-canvas-wrap.neetrino-canvas-wrap--tablet-hero {
   background-color: #151515;
