@@ -7,7 +7,10 @@ import {
   type ServiceCatalogEntry,
   type ServiceSlug,
 } from "./service-pages-data";
-import { SERVICES_MOBILE_CATALOG_CARD_OUTER_CLASS } from "./services-mobile-catalog-cards.constants";
+import {
+  SERVICES_MOBILE_CATALOG_CARD_OUTER_CLASS,
+  SERVICES_MOBILE_CATALOG_GRID_CLASS,
+} from "./services-mobile-catalog-cards.constants";
 import { ServicesCatalogCrmCard } from "./ServicesCatalogCrmCard";
 import { ServicesCatalogSaasCard } from "./ServicesCatalogSaasCard";
 import {
@@ -20,7 +23,7 @@ type ServicesMobileCatalogCardsProps = {
   locale: AppLocale;
 };
 
-/** /services `<lg`: same six service tiles as desktop (gradients, orbit art, Continue pill). */
+/** /services `<lg`: same six service tiles as desktop (gradients, orbit art, Continue pill). Two columns from `neetrino-layout-desktop`. */
 export async function ServicesMobileCatalogCards({ locale }: ServicesMobileCatalogCardsProps) {
   const t = await getTranslations();
   const continueLabel = t("cta.continue");
@@ -36,7 +39,7 @@ export async function ServicesMobileCatalogCards({ locale }: ServicesMobileCatal
   const shell = SERVICES_MOBILE_CATALOG_CARD_OUTER_CLASS;
 
   return (
-    <section className="grid grid-cols-1 gap-6 pt-12 sm:gap-8 md:gap-10 md:pt-14">
+    <section className={SERVICES_MOBILE_CATALOG_GRID_CLASS}>
       <ServicesCatalogSaasCard
         className={shell}
         title={bySlug["saas-development"].title}
