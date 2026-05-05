@@ -29,9 +29,9 @@ import { ABOUT_MEET_OUR_TEAM_MOBILE_MARGIN_TOP_CLASS } from "@/lib/about-us-meet
 import { ABOUT_MOBILE_WHY_CHOOSE_ABOVE_COUNTRIES_ATMOSPHERE_STACK_CLASS } from "@/lib/about-us-mobile-why-choose.constants";
 
 /**
- * Phone-only About Us layout (&lt; `md`, 768px). Mirrors the same content/order/CTA copy as the
+ * Narrow About Us layout below `neetrino-layout-desktop` (~744px). Mirrors the same content/order/CTA copy as the
  * Figma-pixel desktop blocks (`AboutUsFigmaBlock1a..3`) but renders it in normal flow
- * with responsive Tailwind utilities. Desktop layout is untouched (kept in `figma/`).
+ * with responsive Tailwind utilities. Tablet hybrid uses scaled `AboutUsFigmaCanvasInner` on `/about-us`.
  */
 export function AboutUsMobile() {
   const missionTubeStackRef = useRef<HTMLDivElement>(null);
@@ -56,13 +56,7 @@ export function AboutUsMobile() {
   ];
 
   return (
-    <div
-      className={cn(
-        "md:hidden",
-        /* Clear fixed `MobileHeader`; background paints in padding so atmosphere runs under the bar */
-        "pt-24",
-      )}
-    >
+    <div className="pt-24">
       <div className="section-container max-w-[720px] pb-0">
         <AboutUsMobileHero
           heroParagraphs={heroParagraphs}

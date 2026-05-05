@@ -13,6 +13,17 @@ const ABOUT_WORLD_MAP_BOTTOM_PX = ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX * (1 
 const ABOUT_CAPSULE_BOTTOM_PX = ABOUT_WORLD_MAP_BOTTOM_PX;
 const ABOUT_CAPSULE_START_TOP_PX = Math.max(ABOUT_CONE_INITIAL_TOP_PX, ABOUT_CAPSULE_TOP_PX);
 
+/** `top`/`left` use layout px inside the 1440-wide canvas; `getBoundingClientRect` is post-transform when `CanvasScaler` applies `scale()`. */
+function readVisualToLayoutScale(container: HTMLElement): number {
+  const layoutW = container.offsetWidth;
+  if (layoutW <= 0) {
+    return 1;
+  }
+  const visualW = container.getBoundingClientRect().width;
+  const scale = visualW / layoutW;
+  return scale > 0 && Number.isFinite(scale) ? scale : 1;
+}
+
 type AboutUsStickyConeProps = {
   containerRef: RefObject<HTMLDivElement | null>;
 };
@@ -30,15 +41,17 @@ export function AboutUsStickyCone({ containerRef }: AboutUsStickyConeProps) {
       }
 
       const rect = container.getBoundingClientRect();
-      const containerTopPage = window.scrollY + rect.top;
-      const viewportCenteredTop = window.innerHeight / 2 - CONE_WRAPPER_HEIGHT_PX / 2;
+      const layoutScale = readVisualToLayoutScale(container);
+      const coneHalfHeightViewportPx = (CONE_WRAPPER_HEIGHT_PX * layoutScale) / 2;
+      const viewportCenteredTop = window.innerHeight / 2 - coneHalfHeightViewportPx;
       const finalAbsoluteTop = ABOUT_CAPSULE_BOTTOM_PX - CONE_WRAPPER_HEIGHT_PX;
-      const centeredAbsoluteTop = window.scrollY - containerTopPage + viewportCenteredTop;
+      const centeredInViewportPx = viewportCenteredTop - rect.top;
+      const centeredAbsoluteTopLayout = centeredInViewportPx / layoutScale;
 
       setAbsoluteTop(
-        Math.min(finalAbsoluteTop, Math.max(ABOUT_CAPSULE_START_TOP_PX, centeredAbsoluteTop)),
+        Math.min(finalAbsoluteTop, Math.max(ABOUT_CAPSULE_START_TOP_PX, centeredAbsoluteTopLayout)),
       );
-      setAbsoluteLeft(rect.width / 2);
+      setAbsoluteLeft(container.offsetWidth / 2);
     };
 
     updatePosition();

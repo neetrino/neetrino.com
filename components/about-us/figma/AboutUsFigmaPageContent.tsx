@@ -1,50 +1,12 @@
 "use client";
 
-import { useRef } from "react";
-import { AboutUsFigmaBlock1a } from "@/components/about-us/figma/AboutUsFigmaBlock1a";
-import { AboutUsFigmaBlock1b } from "@/components/about-us/figma/AboutUsFigmaBlock1b";
-import { AboutUsFigmaBlock1bLower } from "@/components/about-us/figma/AboutUsFigmaBlock1bLower";
-import { AboutUsFigmaBlock1c } from "@/components/about-us/figma/AboutUsFigmaBlock1c";
-import { AboutUsFigmaBlock2 } from "@/components/about-us/figma/AboutUsFigmaBlock2";
-import { AboutUsFigmaBlock3 } from "@/components/about-us/figma/AboutUsFigmaBlock3";
-import { MeetOurTeamHeading } from "@/components/about-us/MeetOurTeamHeading";
-import { DesktopServicesMeshTiledColumn } from "@/components/services/DesktopServicesMeshTiledColumn";
-import {
-  ABOUT_DESKTOP_SERVICES_MESH_WRAP_HEIGHT_PX,
-  ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX,
-  ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX,
-} from "@/lib/about-us-figma-layout.constants";
+import { AboutUsFigmaCanvasInner } from "@/components/about-us/figma/AboutUsFigmaCanvasInner";
 
-/** Figma node 335:905 - page body only (no Awwwards / no Footer v2 per master prompt §3.2). */
+/** Full-width desktop About (`lg+`). Tablet hybrid uses `CanvasScaler` + `AboutUsFigmaCanvasInner` in `page.tsx`. */
 export function AboutUsFigmaPageContent() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div
-      ref={containerRef}
-      className="relative isolate hidden w-full min-w-0 overflow-hidden bg-[#151515] md:block"
-      style={{ minHeight: ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX }}
-      data-name="ABOUT"
-      data-node-id="335:905"
-    >
-      <DesktopServicesMeshTiledColumn
-        wrapHeightDesignPx={ABOUT_DESKTOP_SERVICES_MESH_WRAP_HEIGHT_PX}
-      />
-      <div className="relative z-[1]">
-        <div
-          className="relative w-full overflow-visible"
-          style={{ height: ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX }}
-          data-name="about-figma-positioning-canvas"
-        >
-          <AboutUsFigmaBlock1a containerRef={containerRef} />
-          <AboutUsFigmaBlock1b />
-          <AboutUsFigmaBlock1bLower />
-          <AboutUsFigmaBlock1c />
-          <AboutUsFigmaBlock2 />
-          <AboutUsFigmaBlock3 />
-        </div>
-        <MeetOurTeamHeading variant="desktop-figma" />
-      </div>
+    <div className="hidden w-full min-w-0 lg:block">
+      <AboutUsFigmaCanvasInner />
     </div>
   );
 }
