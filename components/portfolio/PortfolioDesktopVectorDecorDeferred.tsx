@@ -3,6 +3,7 @@
 import { DeferAfterPaint } from "@/components/layout/DeferAfterPaint";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
+import { imgVector2 } from "@/components/services/services-assets";
 
 /**
  * Large mix-blend vector / line stack above the fold — deferred after first scene commit.
@@ -18,7 +19,7 @@ export function PortfolioDesktopVectorDecorDeferred() {
               data-name="Vector"
               data-node-id="166:1214"
             >
-              <FigmaFillImage src={figma.imgVector2} />
+              <FigmaFillImage src={imgVector2} />
             </div>
           </div>
         </div>

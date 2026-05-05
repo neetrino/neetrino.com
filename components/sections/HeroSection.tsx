@@ -2,12 +2,16 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
+import { HeroStatHandAtmosphereLayer } from "@/components/sections/HeroStatHandAtmosphereLayer";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
+import type { AppLocale } from "@/lib/i18n/locales";
 import { interSans } from "@/lib/fonts";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import {
+  getMobileHomeHeroHandSlotRightCss,
   MOBILE_HERO_STAT_WIDE,
-  MOBILE_HERO_STAT_WIDE_HAND,
+  MOBILE_HERO_STAT_WIDE_HAND_SLOT_LAYOUT_CLASS,
   MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_LEFT_PX,
   MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_UP_PX,
   MOBILE_HERO_STAT_WIDE_VALUE_NUMERAL_CLASS,
@@ -19,7 +23,7 @@ import { cn } from "@/lib/utils";
 function HeroBackground() {
   return (
     <>
-      <div className="pointer-events-none absolute inset-0 z-0">
+      <div className="pointer-events-none absolute inset-0 z-[1]">
         <Image
           src={FIGMA_ASSETS.imgPhilippHubertDVVjhUcdb30Unsplash1}
           alt=""
@@ -32,7 +36,7 @@ function HeroBackground() {
           priority
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 z-[6] mix-blend-lighten opacity-60">
+      <div className="pointer-events-none absolute inset-0 z-[8] mix-blend-lighten opacity-60">
         <Image
           src={FIGMA_ASSETS.imgEricaAnderson1}
           alt=""
@@ -50,11 +54,16 @@ function HeroBackground() {
 /**
  * Figma 241:827–828 — absolute title + robot (fixed px match 393px frame; no vh min-height).
  */
-function HeroTitleAndRobot() {
+function HeroTitleAndRobot({ locale }: { locale: AppLocale }) {
   return (
     <>
       {/* Min left 24px — see MOBILE_HERO_TITLE_MIN_INSET_PX; keeps megatrox title off the edge on narrow viewports. */}
-      <h1 className="absolute left-[max(24px,calc(50%-191px))] top-[66px] z-30 max-w-[260px] font-[family-name:var(--font-megatrox)] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]">
+      <h1
+        className={cn(
+          "absolute left-[max(24px,calc(50%-191px))] top-[66px] z-30 max-w-[260px] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]",
+          pageTitleMegatroxFontClass(locale),
+        )}
+      >
         <span className="block">NEET</span>
         <span className="block">RIN</span>
         <span className="block">O</span>
@@ -134,7 +143,7 @@ function HeroStatsTop() {
   const t = useTranslations();
 
   return (
-    <div className="relative z-20 mt-0 grid grid-cols-2 gap-3 px-6">
+    <div className="relative z-40 mt-0 grid grid-cols-2 gap-3 px-6">
       {MOBILE_HERO_STATS_TOP.map((item) => (
         <div
           key={item.value}
@@ -152,16 +161,49 @@ function HeroStatsTop() {
   );
 }
 
+/**
+ * Stat block (8+ / 97+ → 450+) — same blue + cell SVG as desktop hero lower band (`NeetrinoHomeSegment1`, Figma `10:426`).
+ * Full-bleed strip at `z-0`. Wrapper `z-[18]` clears the lower frosted panel (`z-[16]`). Top pair `z-40` above
+ * `HeroStatWide` (`z-10`). `241:824` glow is `HeroStatHandAtmosphereLayer` at section `z-0` under backgrounds.
+ */
+function HeroStatsRegionWithGrid() {
+  return (
+    <div className="relative z-[18] w-full">
+      <div
+        className="pointer-events-none absolute top-0 bottom-0 left-1/2 z-0 w-screen max-w-[100vw] -translate-x-1/2"
+        aria-hidden
+      >
+        <div className="relative h-full w-full min-h-[1px]">
+          <div className="absolute inset-0 -scale-y-100 rotate-180">
+            <Image
+              alt=""
+              src={FIGMA_ASSETS.imgRectangle17399}
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+              quality={DEFAULT_IMAGE_QUALITY}
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+      <HeroStatsTop />
+      <HeroStatWide />
+    </div>
+  );
+}
+
 function HeroStatWide() {
   const t = useTranslations();
   const s = MOBILE_HERO_STAT_WIDE;
+
   return (
-    <div className="relative z-20 mt-[34px] min-h-[167px] w-full min-w-0 px-6">
+    <div className="relative z-10 mt-[34px] min-h-[167px] w-full min-w-0 px-6">
       <div
         className={`relative w-full overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}
       >
         <div
-          className="relative z-[2] max-w-[56%]"
+          className="relative z-20 max-w-[56%]"
           style={{
             transform: `translate(calc(-1 * ${MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_LEFT_PX}px), calc(-1 * ${MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_UP_PX}px))`,
           }}
@@ -170,10 +212,8 @@ function HeroStatWide() {
           <p className={`mt-1 text-base font-extralight ${s.text}`}>{t(s.labelKey)}</p>
         </div>
         <div
-          className="pointer-events-none absolute top-[87%] z-[1] h-[287px] w-[271px] -translate-y-1/2 max-[380px]:top-[85%] max-[380px]:h-[252px] max-[380px]:w-[235px]"
-          style={{
-            right: `calc(clamp(-999px, calc((393px - 100vw) / 2), 0px) - ${MOBILE_HERO_STAT_WIDE_HAND.styleRightPullPx}px)`,
-          }}
+          className={cn(MOBILE_HERO_STAT_WIDE_HAND_SLOT_LAYOUT_CLASS, "z-[1]")}
+          style={{ right: getMobileHomeHeroHandSlotRightCss() }}
           aria-hidden
         >
           <div className="relative size-full overflow-hidden">
@@ -203,11 +243,12 @@ function HeroStatWide() {
 const HERO_LOWER_BLUR_TOP = "top-[calc(88px+660px)]";
 const HERO_LOWER_BLUR_RADIUS = "rounded-[32px]";
 
-export function HeroSection() {
+export function HeroSection({ locale }: { locale: AppLocale }) {
   return (
     <section
-      className={`relative min-w-0 overflow-x-clip touch-pan-y [overscroll-behavior-x:contain] bg-[#151515] pb-10 ${interSans.className}`}
+      className={`relative isolate min-w-0 overflow-x-clip touch-pan-y [overscroll-behavior-x:contain] bg-[#151515] pb-10 ${interSans.className}`}
     >
+      <HeroStatHandAtmosphereLayer />
       <HeroBackground />
       {/* Full viewport width: absolutes are laid out from the 393px column but overflow must clip at the screen edge, not the column edge. */}
       <div className="relative z-20 w-full min-w-0 overflow-x-clip">
@@ -217,12 +258,11 @@ export function HeroSection() {
             aria-hidden
           />
           <div className="relative min-h-[853px] w-full min-w-0">
-            <HeroTitleAndRobot />
+            <HeroTitleAndRobot locale={locale} />
             <HeroBodyCopy />
             <HeroCtas />
           </div>
-          <HeroStatsTop />
-          <HeroStatWide />
+          <HeroStatsRegionWithGrid />
         </div>
       </div>
     </section>

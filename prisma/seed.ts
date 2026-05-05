@@ -1,5 +1,6 @@
 import { config } from "dotenv";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { withPgSslLibpqCompatFlag } from "../lib/postgres-connection-string";
 import { PrismaClient, BlogPostStatus } from "../lib/generated/prisma/client";
 import { locales } from "../i18n/routing";
 import { getBlogPosts } from "../lib/blog-posts-data";
@@ -15,7 +16,7 @@ function getDatabaseUrl(): string {
     throw new Error("DATABASE_URL is required to seed blog posts.");
   }
 
-  return databaseUrl;
+  return withPgSslLibpqCompatFlag(databaseUrl);
 }
 
 function escapeMarkdown(text: string): string {

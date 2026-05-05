@@ -1,6 +1,7 @@
 import "server-only";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "@/lib/generated/prisma/client";
+import { withPgSslLibpqCompatFlag } from "@/lib/postgres-connection-string";
 
 const globalForPrisma = globalThis as unknown as {
   prisma?: PrismaClient;
@@ -14,8 +15,10 @@ function createPrismaClient(): PrismaClient {
     throw new Error("DATABASE_URL is required for database access.");
   }
 
+  const connectionString = withPgSslLibpqCompatFlag(databaseUrl);
+
   const adapter = new PrismaPg({
-    connectionString: databaseUrl,
+    connectionString,
   });
 
   return new PrismaClient({ adapter });

@@ -82,13 +82,13 @@ export function ServicesCard3({
         data-node-id="165:632"
       >
         <p
-          className="font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]"
+          className="relative w-full shrink-0 text-[32px] font-black leading-[40px] text-white"
           data-node-id="165:633"
         >
           {title}
         </p>
         <p
-          className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+          className="relative w-full shrink-0 text-[16px] font-light leading-[26px] text-[#d1d5dc]"
           data-node-id="165:634"
         >
           {description}
@@ -164,7 +164,7 @@ export function ServicesCard2({
         >
           <p
             className={cn(
-              "font-black leading-[40px] relative shrink-0 text-[32px] text-white w-[282px]",
+              "relative w-full shrink-0 text-[32px] font-black leading-[40px] text-white",
               titlePreLine && "whitespace-pre-line",
             )}
             data-node-id="165:614"
@@ -172,7 +172,7 @@ export function ServicesCard2({
             {titleBody}
           </p>
           <p
-            className="font-light leading-[26px] relative shrink-0 text-[#d1d5dc] text-[16px] w-[273px]"
+            className="relative w-full shrink-0 text-[16px] font-light leading-[26px] text-[#d1d5dc]"
             data-node-id="165:615"
           >
             {description}

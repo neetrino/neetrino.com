@@ -13,7 +13,7 @@ import { NeetrinoHomeVerticalPipe } from "./NeetrinoHomeVerticalPipe";
 export function NeetrinoHome() {
   return (
     <div
-      className="relative w-full min-h-full min-w-0 bg-[#151515]"
+      className="relative w-full min-h-full min-w-0 bg-transparent"
       data-name="HOME"
       data-node-id="10:219"
     >

@@ -20,6 +20,9 @@ export const MEDIA_EXT = new Set([
   ".svg",
   ".avif",
   ".ico",
+  ".mp4",
+  ".mov",
+  ".webm",
 ]);
 
 export const SCAN_ROOTS = ["public", "app", "components", "src"];
@@ -34,6 +37,9 @@ export const EXT_TO_CONTENT_TYPE = {
   ".svg": "image/svg+xml",
   ".avif": "image/avif",
   ".ico": "image/x-icon",
+  ".mp4": "video/mp4",
+  ".mov": "video/quicktime",
+  ".webm": "video/webm",
 };
 
 export function shouldSkipDir(fullPath) {

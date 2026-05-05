@@ -1,20 +1,21 @@
 import type { CSSProperties } from "react";
 
-/**
- * URL used **on the iPhone mockup** (slot 0) — must be the **portrait** capture.
- * On disk this is `other-devices.mp4` (592×1280); `iphone-screen.mov` is landscape despite its name.
- */
-export const DEVICE_SHOWCASE_IPHONE_VIDEO_SRC = "/device-showcase/other-devices.mp4" as const;
+import { assetUrl } from "@/lib/assets";
 
 /**
- * URL for iPad / MacBook / iMac (ids 1–3) — **landscape** capture.
- * On disk: `iphone-screen.mov` (2940×1912).
+ * URL used **on the iPhone mockup** (slot 0) — portrait slot; file on disk is named `iphone-screen`.
  */
-export const DEVICE_SHOWCASE_OTHER_DEVICES_VIDEO_SRC =
-  "/device-showcase/iphone-screen.mov" as const;
+export const DEVICE_SHOWCASE_IPHONE_VIDEO_SRC = assetUrl("device-showcase/iphone-screen.MP4");
 
 /**
- * Bias `object-cover` so a thin baked-in letterbox at the **top** of `iphone-screen.mov` is cropped
+ * URL for iPad / MacBook / iMac (ids 1–3) — landscape; file on disk is named `other-devices`.
+ */
+export const DEVICE_SHOWCASE_OTHER_DEVICES_VIDEO_SRC = assetUrl(
+  "device-showcase/other-devices.mov",
+);
+
+/**
+ * Bias `object-cover` so a thin baked-in letterbox at the **top** of the landscape capture is cropped
  * (iPad / MacBook / iMac). Tune the second value if the strip reappears on different exports.
  */
 export const DEVICE_SHOWCASE_LANDSCAPE_VIDEO_OBJECT_POSITION_CLASS = "object-[50%_38%]" as const;

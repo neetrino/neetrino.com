@@ -9,6 +9,7 @@ type ServicesDesktopSceneProps = {
   locale: AppLocale;
 };
 
+/** Figma `165:666` — height literal must match `SERVICES_DESKTOP_CANVAS_TOTAL_HEIGHT_PX`. */
 export function ServicesDesktopScene({ locale }: ServicesDesktopSceneProps) {
   return (
     <div

@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { ServicesHeroTitle } from "@/components/services/ServicesHeroTitle";
 import { useIdleMount } from "@/lib/hooks/useIdleMount";
+import type { AppLocale } from "@/lib/i18n/locales";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
+import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
   imgEllipse27,
@@ -25,6 +28,7 @@ const STAR22_HEIGHT = 2048;
 /** Hero rays + title + line art inside the Light Rays layer (above the card row). */
 export function ServicesDesktopLightRaysDecor() {
   const t = useTranslations("servicesPage");
+  const locale = useLocale() as AppLocale;
   const showStarRay = useIdleMount();
 
   return (
@@ -70,7 +74,10 @@ export function ServicesDesktopLightRaysDecor() {
         before={t("heroTitleBefore")}
         accent={t("heroTitleAccent")}
         after={t("heroTitleAfter")}
-        className="absolute font-[family-name:var(--font-megatrox)] leading-[normal] left-[calc(50%-646px)] not-italic text-[90px] top-[152px] whitespace-nowrap"
+        className={cn(
+          "absolute left-[calc(50%-646px)] top-[152px] whitespace-nowrap text-[90px] leading-[normal] not-italic",
+          pageTitleMegatroxFontClass(locale),
+        )}
         neutralClassName="text-[#fffcfc]"
         data-node-id="165:677"
       />

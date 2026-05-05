@@ -12,6 +12,7 @@ import { locales } from "@/i18n/routing";
 import type { AppLocale } from "@/lib/i18n/locales";
 import { interSans } from "@/lib/fonts";
 import { getLocaleAlternates } from "@/lib/metadata";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import {
   NEETRINO_DESKTOP_CANVAS_WIDTH_PX,
   NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX,
@@ -78,7 +79,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const isMultilineServiceTitle = service.title.replace(/\r\n/g, "\n").includes("\n");
 
   return (
-    <div className={`w-full min-w-0 overflow-x-hidden bg-[#151515] ${interSans.className}`}>
+    <div className={`w-full min-w-0 overflow-x-hidden bg-transparent ${interSans.className}`}>
       <main
         className={`section-container pb-20 pt-28 lg:pt-[calc(${NEETRINO_DESKTOP_HEADER_CLEARANCE_RELAXED_DESIGN_PX}*100vw/${NEETRINO_DESKTOP_CANVAS_WIDTH_PX})]`}
       >
@@ -107,7 +108,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </p>
           <h1
             className={cn(
-              "mt-3 max-w-4xl font-[family-name:var(--font-megatrox)] text-4xl font-normal leading-[0.98] tracking-[-0.04em] text-[#fffcfc] md:text-5xl lg:text-[56px] lg:leading-[1.02]",
+              "mt-3 max-w-4xl text-4xl font-normal leading-[0.98] tracking-[-0.04em] text-[#fffcfc] md:text-5xl lg:text-[56px] lg:leading-[1.02]",
+              pageTitleMegatroxFontClass(locale),
               isMultilineServiceTitle && "whitespace-pre-line",
             )}
           >

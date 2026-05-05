@@ -98,6 +98,8 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  /* 744px — home hybrid hero (`app/[locale]/page.tsx`); keep in sync with copy in `lib/home-desktop-layout.ts` JSDoc. */
+  --breakpoint-neetrino-layout-desktop: 46.5rem;
 }
 
 html {
@@ -133,11 +135,98 @@ html[lang="hy"] body {
     var(--font-noto-sans-armenian), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
+/**
+ * Figma Latin wordmarks (e.g. portfolio `166:1213`): keep the local `Megatrox` @font-face first.
+ * `var(--font-megatrox)` is replaced on `html[lang="hy"]` with Noto+Inter only, so headings that
+ * used the token would never match the Megatrox export; glyphs missing in Megatrox still fall
+ * through to Noto / Inter.
+ */
+.font-megatrox-figma {
+  font-family:
+    "Megatrox", var(--font-noto-sans-armenian), var(--font-inter), ui-sans-serif, system-ui,
+    sans-serif;
+}
+
 /*
-  Neetrino: fluid canvas — 1440×5006 design scales proportionally to any viewport.
-  Used by CanvasScaler for the desktop (lg+) layout.
-  JS (CanvasScaler) measures the actual container width and applies scale().
-  Height must match HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX in lib/home-desktop-layout.ts.
+ * Mobile site footer backdrop — Figma NEETRINO-WEB `539:1826` (Ellipse 31).
+ * Kept in CSS (not Tailwind arbitrary in `lib/`) so it always ships: blue left → fade right.
+ * Above vector grid (`z-0`); footer copy uses `z-10` in `SiteFooterMobile` (restore: commit `0276c18`).
+ *
+ * Tuning (horizontal):
+ * - `--footer-atmosphere-fade-end` — where the linear wash hits full transparent (right edge of blue).
+ *   Higher % = blue reaches further right (e.g. 85% vs 70%).
+ * - `--footer-atmosphere-mid` — shoulder of the linear gradient; keep a bit below fade-end.
+ * - `--footer-atmosphere-radial-fade-end` — how wide the soft blob is on the left (higher = wider glow).
+ */
+/* Figma NEETRINO-WEB `373:974` — Line 135 at top of `<footer>` on lg (Neutral/400); sits flush under page grid. */
+.site-footer-desktop-top-rule {
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 1px;
+  height: 1px;
+  flex-shrink: 0;
+  background-color: #d9dbe9;
+}
+
+@media (min-width: 1024px) {
+  .site-footer-desktop-top-rule {
+    display: block;
+  }
+}
+
+.site-footer-mobile-backdrop-atmosphere {
+  --footer-atmosphere-fade-end: 98%;
+  --footer-atmosphere-mid: 95%;
+  --footer-atmosphere-radial-fade-end: 70%;
+
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(
+      ellipse 100% 88% at 0% 30%,
+      rgba(70, 132, 255, 0.48) 0%,
+      transparent var(--footer-atmosphere-radial-fade-end)
+    ),
+    linear-gradient(
+      90deg,
+      rgba(36, 92, 235, 0.42) 0%,
+      rgba(20, 55, 160, 0.16) var(--footer-atmosphere-mid),
+      rgba(21, 21, 21, 0) var(--footer-atmosphere-fade-end)
+    );
+}
+
+/* Desktop `166:1259` — stronger luminance + chroma (see `SiteFooter.tsx`). */
+.site-footer-desktop-atmosphere-fig {
+  filter: brightness(1.3) saturate(1.52) contrast(1.06);
+}
+
+/*
+ * Desktop footer only — saturated blue wash on top of `166:1259` so mesh squares do not read through.
+ */
+.site-footer-desktop-atmosphere-bluewash {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 56% at 50% 46%, rgba(72, 135, 255, 0.22) 0%, transparent 48%),
+    linear-gradient(
+      90deg,
+      rgba(32, 82, 245, 0.52) 0%,
+      rgba(28, 72, 220, 0.34) 36%,
+      rgba(24, 52, 165, 0.18) 50%,
+      rgba(28, 68, 200, 0.34) 64%,
+      rgba(24, 36, 92, 0.5) 100%
+    );
+}
+
+/*
+  Neetrino: fluid canvas — 1440×N design scales proportionally to any viewport.
+  JS (CanvasScaler) sets inner min-height from `canvasHeight` and applies scale().
+  Full home: HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX; hybrid tablet hero: `HOME_DESKTOP_HERO_TABLET_CANVAS_DESIGN_HEIGHT_PX` (taller — 450+ hand bleed).
 */
 .neetrino-canvas-wrap {
   position: relative;
@@ -148,9 +237,32 @@ html[lang="hy"] body {
 
 .neetrino-canvas-inner {
   width: 1440px;
-  min-height: 5006px;
   transform-origin: top left;
   background-color: #151515;
+}
+
+/* Desktop footer: transparent wrap only — does not replace `166:1259` / grid; avoids opaque `.neetrino-canvas-wrap` over `z-[1]`. */
+.neetrino-canvas-wrap.neetrino-canvas-wrap--footer-scaler {
+  background-color: transparent;
+}
+
+/* Desktop footer: transparent inner so `SiteFooterDesktopGridBackdrop` blends through (default inner is solid `#151515`). */
+.neetrino-canvas-inner.neetrino-canvas-inner--footer-desktop {
+  background-color: transparent;
+}
+
+/* Tablet hybrid home hero (`/` below `lg`, `neetrino-layout-desktop`): blue head behind translucent `MobileHeader`. */
+.neetrino-canvas-wrap.neetrino-canvas-wrap--tablet-hero {
+  background-color: #151515;
+  background-image: linear-gradient(
+    180deg,
+    rgb(42, 58, 118) 0%,
+    rgb(28, 36, 72) 38%,
+    rgba(21, 21, 21, 0) 100%
+  );
+  background-size: 100% 200px;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
 /*
@@ -207,6 +319,57 @@ html[lang="hy"] body {
 
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+/* Desktop home (NeetrinoHomeSegment4): projects marquee — row loop duration (slower = larger value) */
+@keyframes home-projects-marquee-to-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes home-projects-marquee-to-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.home-projects-marquee-clip {
+  --home-projects-marquee-row-duration: 60s;
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.home-projects-marquee-row-inner {
+  display: flex;
+  width: max-content;
+  align-items: flex-end;
+  gap: 11px;
+  animation-duration: var(--home-projects-marquee-row-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.home-projects-marquee-row-inner--to-left {
+  animation-name: home-projects-marquee-to-left;
+}
+
+.home-projects-marquee-row-inner--to-right {
+  animation-name: home-projects-marquee-to-right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-projects-marquee-row-inner {
+    animation: none !important;
+  }
 }
 
 .liquid-ether-container {
@@ -267,5 +430,65 @@ html[lang="hy"] body {
   /* DM Sans variable font — избегаем inline style={{ fontVariationSettings }} в футере */
   .dm-sans-opsz-14 {
     font-variation-settings: "opsz" 14;
+  }
+
+  /**
+   * Mobile (&lt; `lg`) page shell — same subtle 22px grid + blue wash as About Us mobile (`479:1234`).
+   * Applied on `[locale]/layout` main wrapper; reset at `lg` so desktop keeps `DesktopFlowServicesVectorGrid` only.
+   */
+  .mobile-site-page-atmosphere {
+    background-color: #151515;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(30, 42, 72, 0.22) 0%,
+        rgba(18, 22, 34, 0.14) 40%,
+        transparent 72%
+      ),
+      linear-gradient(rgba(120, 150, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120, 150, 255, 0.04) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      22px 22px,
+      22px 22px;
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-site-page-atmosphere {
+      background-image: none;
+      background-size: auto;
+    }
+  }
+
+  /**
+   * Meet our team mobile: reserves height for art (`absolute bottom-0`). Row vw factor must match
+   * `ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_ROW_WIDTH_PERCENT` in `about-us-meet-our-team.constants.ts`; raster `326×356`.
+   */
+  .meet-our-team-mobile-section {
+    padding-bottom: calc(90vw * 356 / 326);
+  }
+
+  .about-meet-our-team-mobile-illustration-row {
+    width: 90%;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .about-meet-our-team-mobile-illustration-frame {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding-bottom: calc(356 * 100% / 326);
+    line-height: 0;
+  }
+
+  .about-meet-our-team-mobile-illustration-img {
+    display: block;
+    object-fit: cover !important;
+    object-position: center;
   }
 }

@@ -1,39 +1,51 @@
 "use client";
 
-import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
-import {
-  MOBILE_PORTFOLIO_CARD_IMAGE_SIZES,
-  MOBILE_PORTFOLIO_INITIAL_VISIBLE,
-  MOBILE_PORTFOLIO_LOAD_MORE_STEP,
-  getMobilePortfolioItems,
-} from "@/components/portfolio/portfolio-data";
-import { useIntersectionLoadMore } from "@/lib/hooks/useIntersectionLoadMore";
+import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
+import { PortfolioCardMedia } from "@/components/portfolio/PortfolioCardMedia";
+import { PortfolioDesktopPagination } from "@/components/portfolio/PortfolioDesktopPagination";
+import { MOBILE_PORTFOLIO_CARD_IMAGE_SIZES } from "@/components/portfolio/portfolio-data";
+import { generateAltFromFileName } from "@/lib/portfolio/portfolio-alt";
+import { clampPage, paginateItems, totalPagesForCount } from "@/lib/portfolio/paginate-portfolio";
+import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
+import { PUBLIC_PORTFOLIO_MOBILE_PAGE_SIZE } from "@/lib/constants/public-portfolio-pagination.constants";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
+import { PORTFOLIO_DESKTOP_PAGINATION_TOP_MARGIN_CLASS } from "@/lib/portfolio-desktop-scene-dimensions.constants";
+import { cn } from "@/lib/utils";
 import type { AppLocale } from "@/lib/i18n/locales";
+import { useLocale } from "next-intl";
 
-export function PortfolioMobile() {
+type PortfolioMobileProps = {
+  items: readonly PublicPortfolioCard[];
+};
+
+export function PortfolioMobile({ items }: PortfolioMobileProps) {
   const t = useTranslations();
   const locale = useLocale() as AppLocale;
-  const portfolioItems = getMobilePortfolioItems(locale);
-  const total = portfolioItems.length;
-  const { visibleCount, sentinelRef } = useIntersectionLoadMore({
-    totalCount: total,
-    initialVisible: MOBILE_PORTFOLIO_INITIAL_VISIBLE,
-    step: MOBILE_PORTFOLIO_LOAD_MORE_STEP,
-  });
+  const pageSize = PUBLIC_PORTFOLIO_MOBILE_PAGE_SIZE;
+  const total = items.length;
+  const totalPages = totalPagesForCount(total, pageSize);
+  const [currentPage, setCurrentPage] = useState(1);
+  const effectivePage = useMemo(
+    () => clampPage(currentPage, total, pageSize),
+    [currentPage, total, pageSize],
+  );
 
-  const visibleItems = portfolioItems.slice(0, visibleCount);
-  const hasMore = visibleCount < total;
+  const pageItems = useMemo(
+    () => paginateItems(items, effectivePage, pageSize),
+    [items, effectivePage, pageSize],
+  );
 
   return (
-    <div className="w-full min-w-0 overflow-x-hidden bg-[#151515] lg:hidden">
+    <div className="relative isolate w-full min-w-0 overflow-x-hidden bg-transparent lg:hidden">
       <main className="section-container pt-24 pb-14">
         <section className="py-10">
-          <p className="text-sm font-medium uppercase tracking-[0.12em] text-white/80">
-            {t("portfolioPage.eyebrow")}
-          </p>
-          <h1 className="mt-3 font-['Megatrox',sans-serif] text-4xl leading-tight text-white">
+          <h1
+            className={cn(
+              "text-4xl font-normal leading-tight text-white",
+              pageTitleMegatroxFontClass(locale),
+            )}
+          >
             {t("portfolioPage.metaTitle")}
           </h1>
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/75">
@@ -42,37 +54,32 @@ export function PortfolioMobile() {
         </section>
 
         <section className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
-          {visibleItems.map((item, index) => (
+          {pageItems.map((item, index) => (
             <article
-              key={item.title}
+              key={item.id}
               className="min-w-0 overflow-hidden rounded-[24px] border border-white/12 bg-[#1a1a1a]"
             >
               <div className="relative aspect-[16/10] w-full overflow-hidden">
-                <Image
-                  alt={item.title}
-                  src={item.image}
-                  fill
-                  sizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
-                  className="object-cover"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  priority={index === 0}
-                  decoding="async"
+                <PortfolioCardMedia
+                  url={item.url}
+                  alt={generateAltFromFileName(item.fileName)}
+                  mediaType={item.mediaType}
+                  imageSizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
+                  priority={effectivePage === 1 && index === 0}
+                  loading={effectivePage === 1 && index === 0 ? "eager" : "lazy"}
                 />
-              </div>
-              <div className="p-4 sm:p-5">
-                <h2 className="text-lg font-semibold text-white">{item.title}</h2>
-                <Link
-                  href="/contact"
-                  className="mt-4 inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-medium text-[#252525]"
-                >
-                  {t("cta.viewCase")}
-                </Link>
               </div>
             </article>
           ))}
-          {hasMore ? (
-            <div ref={sentinelRef} className="col-span-full h-1 w-full min-h-[1px]" aria-hidden />
-          ) : null}
+          <PortfolioDesktopPagination
+            className={cn(
+              "col-span-full w-full shrink-0",
+              PORTFOLIO_DESKTOP_PAGINATION_TOP_MARGIN_CLASS,
+            )}
+            currentPage={effectivePage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
         </section>
       </main>
     </div>

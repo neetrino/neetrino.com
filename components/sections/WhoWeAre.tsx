@@ -8,7 +8,7 @@ export function WhoWeAre() {
   return (
     <section
       id="story"
-      className={`section-container py-10 md:py-16 ${interSans.className}`}
+      className={`section-container relative overflow-x-clip py-10 md:py-16 ${interSans.className}`}
       aria-labelledby="who-we-are-heading"
     >
       <div className="flex flex-col gap-5">

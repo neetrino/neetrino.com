@@ -2,11 +2,14 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
 import { Globe } from "lucide-react";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { useLocaleSwitch } from "@/lib/hooks/useLocaleSwitch";
 import { locales } from "@/i18n/routing";
-import { stripLocalePrefix } from "@/lib/i18n/href";
+import {
+  LOCALE_SWITCHER_DEFAULT_DROPDOWN_PANEL_CLASS,
+  LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_ACTIVE_CLASS,
+  LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_CLASS,
+} from "@/lib/locale-switcher-dropdown.constants";
 import { LOCALE_LABELS, LOCALE_SHORT_LABELS, type AppLocale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
 
@@ -19,9 +22,7 @@ type LocaleSwitcherProps = {
 export function LocaleSwitcher({ className, compact = false, style }: LocaleSwitcherProps) {
   const t = useTranslations();
   const locale = useLocale() as AppLocale;
-  const pathname = usePathname();
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const { switchLocale: applyLocale } = useLocaleSwitch();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -42,12 +43,8 @@ export function LocaleSwitcher({ className, compact = false, style }: LocaleSwit
 
   const activeLabel = LOCALE_SHORT_LABELS[locale];
 
-  const switchLocale = (nextLocale: AppLocale) => {
-    const query = searchParams.toString();
-    const normalizedPath = stripLocalePrefix(pathname);
-    const target = query.length > 0 ? `${normalizedPath}?${query}` : normalizedPath;
-    router.replace(target, { locale: nextLocale });
-    router.refresh();
+  const pickLocale = (nextLocale: AppLocale) => {
+    applyLocale(nextLocale);
     setOpen(false);
   };
 
@@ -76,7 +73,7 @@ export function LocaleSwitcher({ className, compact = false, style }: LocaleSwit
         <ul
           role="menu"
           aria-label={t("language.switcherLabel")}
-          className="absolute right-0 z-[130] mt-2 min-w-[122px] rounded-2xl border border-white/15 bg-[#1b1b21] p-1.5 shadow-[0_16px_30px_rgba(0,0,0,0.35)]"
+          className={LOCALE_SWITCHER_DEFAULT_DROPDOWN_PANEL_CLASS}
         >
           {locales.map((nextLocale) => {
             const active = locale === nextLocale;
@@ -86,10 +83,10 @@ export function LocaleSwitcher({ className, compact = false, style }: LocaleSwit
                   type="button"
                   role="menuitemradio"
                   aria-checked={active}
-                  onClick={() => switchLocale(nextLocale)}
+                  onClick={() => pickLocale(nextLocale)}
                   className={cn(
-                    "flex w-full min-w-0 cursor-pointer items-center gap-3 rounded-xl px-3 py-2 text-sm text-white transition-colors hover:bg-white/10",
-                    active && "bg-white/10",
+                    LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_CLASS,
+                    active && LOCALE_SWITCHER_DEFAULT_OPTION_BUTTON_ACTIVE_CLASS,
                   )}
                 >
                   <span className="shrink-0">{LOCALE_SHORT_LABELS[nextLocale]}</span>

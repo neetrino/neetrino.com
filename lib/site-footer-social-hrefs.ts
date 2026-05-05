@@ -1,6 +1,6 @@
 import { CONTACT_SOCIAL_LINKS } from "@/components/contact/content";
 
-/** Footer social row order — matches desktop `SiteFooter` (Facebook → … → Telegram). */
+/** Footer social row order — shared with `SITE_FOOTER_SOCIAL_ROW_ICONS` (Facebook → … → Telegram). */
 export const FOOTER_SOCIAL_ICON_HREFS = [
   CONTACT_SOCIAL_LINKS[0].href,
   CONTACT_SOCIAL_LINKS[1].href,

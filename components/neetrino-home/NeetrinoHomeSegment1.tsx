@@ -6,13 +6,30 @@ import { assetUrl } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
+  HOME_DESKTOP_HERO_450_HAND_IMAGE_SIZES,
+  HOME_DESKTOP_HERO_450_HAND_SLOT_CLASS,
+  HOME_DESKTOP_HERO_TABLET_BAN2_WRAP_STACK_CLASS,
+  HOME_DESKTOP_HERO_TABLET_STATS_ROW_STACK_CLASS,
+} from "@/lib/home-desktop-hero-450-hand.constants";
+import {
+  HOME_DESKTOP_HERO_TABLET_SKY_FRAME_INNER_CLASS,
+  HOME_DESKTOP_HERO_TABLET_SKY_FRAME_OUTER_CLASS,
+} from "@/lib/home-desktop-hero-tablet-sky.constants";
+import { HOME_DESKTOP_HERO_TABLET_ROBOT_WRAPPER_TOP_CLASS } from "@/lib/home-desktop-hero-tablet-robot.constants";
+import {
+  img28A,
   img30,
   imgEricaAnderson1,
   imgPhilippHubertDVVjhUcdb30Unsplash1,
   imgRectangle17399,
 } from "./figma-assets";
 
-export function NeetrinoHomeSegment1() {
+export type NeetrinoHomeSegment1Props = {
+  /** Tablet hybrid `/` hero: sky bleed, robot offset, 450+ hand (`img28A`) on scaled canvas. */
+  readonly showTabletHero450Hand?: boolean;
+};
+
+export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: NeetrinoHomeSegment1Props) {
   const t = useTranslations();
   const locale = useLocale();
   const isRuHeroSatisfiedClientsStacked = locale === "ru";
@@ -20,10 +37,22 @@ export function NeetrinoHomeSegment1() {
   return (
     <>
       <div className="absolute h-[1149px] left-0 top-0 w-[1440px]" data-node-id="10:421">
-        <div className="absolute flex h-[844px] items-center justify-center left-0 top-0 w-[1440px]">
+        <div
+          className={cn(
+            "absolute flex items-center justify-center left-0 w-[1440px]",
+            showTabletHero450Hand
+              ? HOME_DESKTOP_HERO_TABLET_SKY_FRAME_OUTER_CLASS
+              : "top-0 h-[844px]",
+          )}
+        >
           <div className="-scale-y-100 flex-none">
             <div
-              className="h-[844px] relative w-[1440px]"
+              className={cn(
+                "relative w-[1440px]",
+                showTabletHero450Hand
+                  ? HOME_DESKTOP_HERO_TABLET_SKY_FRAME_INNER_CLASS
+                  : "h-[844px]",
+              )}
               data-name="philipp-hubert-dVVjhUcdb30-unsplash 1"
               data-node-id="10:422"
             >
@@ -78,7 +107,10 @@ export function NeetrinoHomeSegment1() {
           />
         </div>
         <div
-          className="-translate-x-1/2 absolute h-[975px] left-[calc(50%+0.5px)] top-[45px] w-[629px]"
+          className={cn(
+            "-translate-x-1/2 absolute h-[975px] left-[calc(50%+0.5px)] w-[629px]",
+            showTabletHero450Hand ? HOME_DESKTOP_HERO_TABLET_ROBOT_WRAPPER_TOP_CLASS : "top-[45px]",
+          )}
           data-name="30"
           data-node-id="10:425"
         >
@@ -132,7 +164,10 @@ export function NeetrinoHomeSegment1() {
           </p>
         </div>
         <div
-          className="absolute content-stretch flex gap-[17.2%] items-center leading-[0] left-[3.5%] top-[76.3%]"
+          className={cn(
+            "absolute content-stretch flex gap-[17.2%] items-center overflow-visible leading-[0] left-[3.5%] top-[76.3%]",
+            showTabletHero450Hand && HOME_DESKTOP_HERO_TABLET_STATS_ROW_STACK_CLASS,
+          )}
           data-node-id="10:428"
         >
           <div
@@ -200,26 +235,58 @@ export function NeetrinoHomeSegment1() {
             </div>
           </div>
           <div
-            className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0"
-            data-name="BAN2"
-            data-node-id="10:438"
+            className={cn(
+              "relative shrink-0",
+              showTabletHero450Hand && "overflow-visible",
+              showTabletHero450Hand && HOME_DESKTOP_HERO_TABLET_BAN2_WRAP_STACK_CLASS,
+            )}
+            data-name={showTabletHero450Hand ? "BAN2-wrap" : undefined}
           >
-            <div
-              className="bg-[#473dff] col-1 h-[167px] ml-0 mt-0 rounded-[39px] row-1 w-[517px]"
-              data-node-id="10:439"
-            />
-            <div
-              className="col-1 flex flex-col font-black justify-center ml-[44px] mt-[33px] not-italic relative row-1 text-[#fffcfc] text-[56px] whitespace-nowrap"
-              data-node-id="10:440"
-            >
-              <p className="leading-[36px]">450+</p>
+            <div className={cn("relative shrink-0", showTabletHero450Hand && "z-0")}>
+              <div
+                className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0"
+                data-name="BAN2"
+                data-node-id="10:438"
+              >
+                <div
+                  className="bg-[#473dff] col-1 h-[167px] ml-0 mt-0 rounded-[39px] row-1 w-[517px]"
+                  data-node-id="10:439"
+                />
+                <div
+                  className="col-1 flex flex-col font-black justify-center ml-[44px] mt-[33px] not-italic relative row-1 text-[#fffcfc] text-[56px] whitespace-nowrap"
+                  data-node-id="10:440"
+                >
+                  <p className="leading-[36px]">450+</p>
+                </div>
+                <div
+                  className="col-1 flex flex-col font-extralight justify-center ml-[44px] mt-[87px] not-italic relative row-1 text-[#fffcfc] text-[20px] text-right whitespace-nowrap"
+                  data-node-id="10:441"
+                >
+                  <p className="leading-[25px]">{t("home.hero.stats.creations")}</p>
+                </div>
+              </div>
             </div>
-            <div
-              className="col-1 flex flex-col font-extralight justify-center ml-[44px] mt-[87px] not-italic relative row-1 text-[#fffcfc] text-[20px] text-right whitespace-nowrap"
-              data-node-id="10:441"
-            >
-              <p className="leading-[25px]">{t("home.hero.stats.creations")}</p>
-            </div>
+            {showTabletHero450Hand ? (
+              <div
+                className={HOME_DESKTOP_HERO_450_HAND_SLOT_CLASS}
+                aria-hidden
+                data-name="450-hand"
+              >
+                <div className="relative size-full overflow-visible">
+                  <div className="absolute inset-0 -scale-y-100 rotate-180">
+                    <Image
+                      alt=""
+                      src={img28A}
+                      fill
+                      className="object-contain object-[right_bottom]"
+                      sizes={HOME_DESKTOP_HERO_450_HAND_IMAGE_SIZES}
+                      quality={DEFAULT_IMAGE_QUALITY}
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

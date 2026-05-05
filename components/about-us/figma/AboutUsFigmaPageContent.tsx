@@ -1,43 +1,19 @@
 "use client";
 
-import { useRef } from "react";
-import { AboutUsFigmaBlock1a } from "@/components/about-us/figma/AboutUsFigmaBlock1a";
-import { AboutUsFigmaBlock1b } from "@/components/about-us/figma/AboutUsFigmaBlock1b";
-import { AboutUsFigmaBlock1bLower } from "@/components/about-us/figma/AboutUsFigmaBlock1bLower";
-import { AboutUsFigmaBlock1c } from "@/components/about-us/figma/AboutUsFigmaBlock1c";
-import { AboutUsFigmaBlock2 } from "@/components/about-us/figma/AboutUsFigmaBlock2";
-import { AboutUsFigmaBlock3 } from "@/components/about-us/figma/AboutUsFigmaBlock3";
-import { MeetOurTeamHeading } from "@/components/about-us/MeetOurTeamHeading";
-import {
-  ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX,
-  ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX,
-} from "@/lib/about-us-figma-layout.constants";
+import { AboutUsFigmaCanvasInner } from "@/components/about-us/figma/AboutUsFigmaCanvasInner";
+import { CanvasScaler } from "@/components/layout/CanvasScaler";
+import { ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX } from "@/lib/about-us-figma-layout.constants";
 
-/** Figma node 335:905 - page body only (no Awwwards / no Footer v2 per master prompt §3.2). */
+/**
+ * Desktop About (`lg+`): scale the 1440px Figma canvas to the viewport (iPad Pro, laptops) — same contract as
+ * `/` and tablet hybrid on this route (`page.tsx`). Without `CanvasScaler`, fixed layout px overflow below 1440.
+ */
 export function AboutUsFigmaPageContent() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div
-      ref={containerRef}
-      className="relative isolate mx-auto hidden w-full max-w-[1440px] overflow-hidden bg-[#151515] lg:block"
-      style={{ minHeight: ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX }}
-      data-name="ABOUT"
-      data-node-id="335:905"
-    >
-      <div
-        className="relative w-full overflow-visible"
-        style={{ height: ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX }}
-        data-name="about-figma-positioning-canvas"
-      >
-        <AboutUsFigmaBlock1a containerRef={containerRef} />
-        <AboutUsFigmaBlock1b />
-        <AboutUsFigmaBlock1bLower />
-        <AboutUsFigmaBlock1c />
-        <AboutUsFigmaBlock2 />
-        <AboutUsFigmaBlock3 />
-      </div>
-      <MeetOurTeamHeading variant="desktop-figma" />
+    <div className="hidden w-full min-w-0 lg:block">
+      <CanvasScaler canvasHeight={ABOUT_FIGMA_ROOT_MIN_HEIGHT_PX}>
+        <AboutUsFigmaCanvasInner />
+      </CanvasScaler>
     </div>
   );
 }

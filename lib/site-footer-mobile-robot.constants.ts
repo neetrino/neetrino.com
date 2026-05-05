@@ -1,15 +1,10 @@
 /**
- * Mobile footer robot — tall right strip behind copy (`z-0`); Figma mobile footer art.
- * Composite Tailwind strings for JIT.
+ * Mobile footer robot strip + image — `SiteFooterMobileBackdrop539` (Figma `539:1824`).
+ * `translate` nudges the profile vs the export; tune here only (avoid inline magic in the component).
  */
-/** Wider strip + higher min so the robot reads larger on small screens. */
-export const SITE_FOOTER_MOBILE_ROBOT_DECORATION_CLASS =
-  "pointer-events-none absolute inset-y-0 right-0 z-[1] w-[min(82vw,620px)] min-w-[260px] overflow-hidden" as const;
+export const SITE_FOOTER_MOBILE_ROBOT_STRIP_CLASS =
+  "pointer-events-none absolute inset-y-0 right-0 z-[2] w-[min(82vw,620px)] min-w-[260px] overflow-hidden" as const;
 
-/**
- * Figma `722:742` — profile faces left; strip is viewport-right. `scale` zooms figure inside the strip
- * (`origin-left-top` keeps head anchored while growing). Negative `translate-y` nudges the bitmap upward
- * inside the strip; less negative = figure sits slightly lower (mobile tweak vs Figma).
- */
+/** Phones: legacy offset; tablets (`md`+): stronger nudge for iPad layout. */
 export const SITE_FOOTER_MOBILE_ROBOT_IMAGE_CLASS =
-  "object-cover object-left-top origin-left-top scale-[1.35] -translate-y-[22%]" as const;
+  "pointer-events-none object-cover object-left-top origin-left-top scale-[1.35] max-md:-translate-y-[22%] md:-translate-y-[35%] md:translate-x-[25%]" as const;

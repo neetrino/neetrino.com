@@ -1,0 +1,2 @@
+-- Placeholder: historical migration folder had no SQL file; Prisma requires migration.sql.
+-- PortfolioItem is created in a later migration if not already present.

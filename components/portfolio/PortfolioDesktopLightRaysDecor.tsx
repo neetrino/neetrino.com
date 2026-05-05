@@ -1,14 +1,20 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import { SERVICES_LIGHT_RAYS_DECOR_IDLE_TIMEOUT_MS } from "@/lib/desktop-scene-mount.constants";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
+import { SERVICES_LIGHT_RAYS_DECOR_IDLE_TIMEOUT_MS } from "@/lib/desktop-scene-mount.constants";
+import type { AppLocale } from "@/lib/i18n/locales";
+import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
+import { cn } from "@/lib/utils";
 
 /**
  * Light rays + star + noise + title — deferred so the ~5MB star WebP does not block first paint.
  * (Asset is also resized/compressed on disk; see public/figma-assets/638bcc05-*.webp.)
  */
 export function PortfolioDesktopLightRaysDecor() {
+  const t = useTranslations();
+  const locale = useLocale() as AppLocale;
   const [showDecor, setShowDecor] = useState(false);
 
   useEffect(() => {
@@ -108,10 +114,13 @@ export function PortfolioDesktopLightRaysDecor() {
         />
       </div>
       <p
-        className="absolute font-['Megatrox',sans-serif] leading-[normal] left-[calc(50%-646px)] not-italic text-[#fffcfc] text-[90px] top-[152px] whitespace-nowrap"
+        className={cn(
+          "absolute left-[calc(50%-646px)] top-[152px] whitespace-nowrap text-[90px] font-normal leading-[normal] not-italic text-[#fffcfc]",
+          pageTitleMegatroxFontClass(locale),
+        )}
         data-node-id="166:1213"
       >
-        PORTFOLIO
+        {t("portfolioPage.metaTitle")}
       </p>
     </div>
   );

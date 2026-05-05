@@ -1,86 +1,49 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { NavbarMobileShell } from "@/components/nav/NavbarMobileShell";
 import { useScrolledPastThreshold } from "@/lib/hooks/useScrolledPastThreshold";
-import { PrimaryNavMoreDropdown } from "@/components/shared/PrimaryNavMoreDropdown";
-import { LocaleSwitcher } from "@/components/shared/LocaleSwitcher";
-import { isNavHrefActive } from "@/lib/nav-href-active";
+import { PRIMARY_NAV_LINKS } from "@/lib/nav-links";
 import {
-  PRIMARY_NAV_LINK_DESKTOP_CLASS,
-  PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
-  PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
-  PRIMARY_NAV_LINKS,
-} from "@/lib/nav-links";
+  MOBILE_HEADER_BAR_PADDING_CLASS,
+  MOBILE_HEADER_BAR_SCROLLED_ENHANCEMENT_CLASS,
+  MOBILE_HEADER_BAR_SURFACE_CLASS,
+  MOBILE_HEADER_LOGO_LINK_CLASS,
+  MOBILE_HEADER_ROOT_TOP_PADDING_CLASS,
+} from "@/lib/mobile-header-bar.constants";
 import { cn } from "@/lib/utils";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 
 /**
- * Single mobile/tablet site header — same markup and behavior as the former Home `Navbar`
- * (fixed bar, scroll frosted chrome, logo, locale, burger + overlay, PRIMARY_NAV_LINKS).
- * Shown under `lg` via parent `lg:hidden` in `AppHeader`.
+ * Mobile/tablet header — Figma `479:1416`: single pill bar (tinted surface, logo, Menu) + drawer from `NavbarMobileShell`.
  */
 export function MobileHeader() {
-  const t = useTranslations();
-  const pathname = usePathname();
   const stickyChrome = useScrolledPastThreshold();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pt-2">
-      <div
-        className={cn(
-          "mx-auto w-[calc(100%-24px)] max-w-[1120px] py-2.5 pl-4 pr-1 transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-out md:w-[calc(100%-40px)] md:pl-5 md:pr-1 lg:w-[calc(100%-56px)] lg:pl-5 lg:pr-1",
-          stickyChrome
-            ? "rounded-2xl border border-white/10 bg-[#0f0f14]/60 shadow-lg shadow-black/25 backdrop-blur-xl backdrop-saturate-150"
-            : "border border-transparent bg-transparent backdrop-blur-md",
-        )}
-      >
-        <div className="flex items-center justify-between gap-2 lg:grid lg:grid-cols-[210px_1fr_auto] lg:gap-4">
-          <Link
-            href="/"
-            className="relative h-9 w-[118px] shrink-0 min-[360px]:w-[140px] sm:w-[170px] md:w-[190px] lg:w-[210px]"
-          >
+    <header className={cn("fixed top-0 left-0 right-0 z-50", MOBILE_HEADER_ROOT_TOP_PADDING_CLASS)}>
+      <div className="mx-auto w-[calc(100%-24px)] max-w-[1120px] md:w-[calc(100%-40px)]">
+        <div
+          className={cn(
+            "flex items-center justify-between gap-3 transition-[background-color,box-shadow,backdrop-filter,border-color] duration-300 ease-out",
+            MOBILE_HEADER_BAR_SURFACE_CLASS,
+            MOBILE_HEADER_BAR_PADDING_CLASS,
+            stickyChrome && MOBILE_HEADER_BAR_SCROLLED_ENHANCEMENT_CLASS,
+          )}
+        >
+          <Link href="/" className={MOBILE_HEADER_LOGO_LINK_CLASS}>
             <Image
               alt="Neetrino"
               width={400}
               height={400}
-              sizes="(max-width: 1024px) 190px, 210px"
-              className="h-full w-full object-contain"
+              sizes="(max-width: 1024px) 140px, 0"
+              className="h-full w-full object-contain object-left"
               src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1}
               priority
             />
           </Link>
-
-          <nav
-            className="hidden lg:flex items-center justify-center gap-5 lg:gap-6 min-w-0"
-            aria-label={t("nav.mainAria")}
-          >
-            {PRIMARY_NAV_LINKS.map((item) =>
-              item.kind === "link" ? (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    PRIMARY_NAV_LINK_DESKTOP_CLASS,
-                    "relative pb-0.5",
-                    PRIMARY_NAV_LINK_UNDERLINE_TRACK_CLASS,
-                    isNavHrefActive(pathname, item.href) && PRIMARY_NAV_LINK_UNDERLINE_ACTIVE_CLASS,
-                  )}
-                >
-                  {t(`nav.${item.labelKey}`)}
-                </Link>
-              ) : (
-                <PrimaryNavMoreDropdown key={item.labelKey} variant="bar" items={item.items} />
-              ),
-            )}
-          </nav>
-
-          <div className="flex items-center gap-1 min-[360px]:gap-2 sm:gap-3">
-            <LocaleSwitcher compact className="lg:hidden" />
-            <NavbarMobileShell links={PRIMARY_NAV_LINKS} />
-          </div>
+          <NavbarMobileShell links={PRIMARY_NAV_LINKS} />
         </div>
       </div>
     </header>
