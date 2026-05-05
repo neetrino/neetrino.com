@@ -5,6 +5,6 @@
 export const SITE_FOOTER_MOBILE_ROBOT_STRIP_CLASS =
   "pointer-events-none absolute inset-y-0 right-0 z-[2] w-[min(82vw,620px)] min-w-[260px] overflow-hidden" as const;
 
-/** `translate` nudges the profile vs the export — higher = more negative `-translate-y`; right = larger positive `translate-x`. */
+/** Phones: legacy offset; tablets (`md`+): stronger nudge for iPad layout. */
 export const SITE_FOOTER_MOBILE_ROBOT_IMAGE_CLASS =
-  "pointer-events-none object-cover object-left-top origin-left-top scale-[1.35] -translate-y-[35%] translate-x-[25%]" as const;
+  "pointer-events-none object-cover object-left-top origin-left-top scale-[1.35] max-md:-translate-y-[22%] md:-translate-y-[35%] md:translate-x-[25%]" as const;
