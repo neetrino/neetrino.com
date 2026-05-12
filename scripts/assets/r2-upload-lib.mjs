@@ -154,9 +154,7 @@ export function parseArgs(argv) {
  * @returns {Record<string, string>}
  */
 export function readConfigFile(configPath, repoRoot) {
-  const resolved = path.isAbsolute(configPath)
-    ? configPath
-    : path.join(repoRoot, configPath);
+  const resolved = path.isAbsolute(configPath) ? configPath : path.join(repoRoot, configPath);
   let raw;
   try {
     raw = fs.readFileSync(resolved, "utf8");

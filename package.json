@@ -4,8 +4,8 @@
   "private": true,
   "packageManager": "pnpm@9.15.9",
   "scripts": {
-    "dev": "next dev --hostname 0.0.0.0",
-    "dev:webpack": "next dev --hostname 0.0.0.0 --webpack",
+    "dev": "next dev",
+    "dev:webpack": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint -c config/eslint.config.mjs .",
@@ -39,8 +39,15 @@
       "eslint -c config/eslint.config.mjs"
     ]
   },
+  "pnpm": {
+    "overrides": {
+      "vite": ">=7.3.2",
+      "fast-uri": ">=3.1.2",
+      "fast-xml-builder": ">=1.1.7"
+    }
+  },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.1038.0",
+    "@aws-sdk/client-s3": "^3.1045.0",
     "@base-ui/react": "^1.3.0",
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/sortable": "^10.0.0",
@@ -55,7 +62,7 @@
     "jose": "^6.2.3",
     "liquid-glass-react": "^1.1.1",
     "lucide-react": "^1.7.0",
-    "next": "16.2.1",
+    "next": "16.2.6",
     "next-intl": "^4.9.1",
     "pg": "^8.20.0",
     "react": "19.2.4",
@@ -81,7 +88,7 @@
     "@types/three": "^0.183.1",
     "@vitejs/plugin-react": "^5.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.2.1",
+    "eslint-config-next": "16.2.6",
     "husky": "^9.1.7",
     "jsdom": "^27.0.0",
     "lint-staged": "^16.0.0",

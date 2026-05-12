@@ -36,9 +36,7 @@ async function convertPngInDir(dir) {
     if (!name.toLowerCase().endsWith(".png")) continue;
 
     const outputPath = fullPath.replace(/\.png$/i, ".webp");
-    await sharp(fullPath)
-      .webp({ quality: WEBP_QUALITY })
-      .toFile(outputPath);
+    await sharp(fullPath).webp({ quality: WEBP_QUALITY }).toFile(outputPath);
     console.log("Converted:", path.relative(process.cwd(), outputPath));
   }
 }
