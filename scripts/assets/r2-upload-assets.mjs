@@ -10,11 +10,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import {
-  HeadObjectCommand,
-  PutObjectCommand,
-  S3Client,
-} from "@aws-sdk/client-s3";
+import { HeadObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import {
   REPO_ROOT,
   SCAN_ROOTS,
@@ -43,17 +39,14 @@ const UPLOAD_PROGRESS_EVERY = 25;
  */
 async function headIntegritySha256(client, bucket, key) {
   try {
-    const out = await client.send(
-      new HeadObjectCommand({ Bucket: bucket, Key: key }),
-    );
+    const out = await client.send(new HeadObjectCommand({ Bucket: bucket, Key: key }));
     const meta = out.Metadata ?? {};
     return meta["integrity-sha256"] ?? null;
   } catch (e) {
     const name = e && typeof e === "object" && "name" in e ? String(e.name) : "";
     const status =
       e && typeof e === "object" && "$metadata" in e
-        ? /** @type {{ $metadata?: { httpStatusCode?: number } }} */ (e).$metadata
-            ?.httpStatusCode
+        ? /** @type {{ $metadata?: { httpStatusCode?: number } }} */ (e).$metadata?.httpStatusCode
         : undefined;
     if (name === "NotFound" || name === "NoSuchKey" || status === 404) {
       return null;
@@ -62,14 +55,7 @@ async function headIntegritySha256(client, bucket, key) {
   }
 }
 
-function buildReportMarkdown(
-  rows,
-  results,
-  uploaded,
-  skipped,
-  failed,
-  generatedAtIso,
-) {
+function buildReportMarkdown(rows, results, uploaded, skipped, failed, generatedAtIso) {
   const md = [];
   md.push("# R2 upload report");
   md.push("");
@@ -90,22 +76,17 @@ function buildReportMarkdown(
   md.push("| --- | --- | --- |");
   for (const r of results) {
     const u = r.url.replace(/\|/g, "\\|");
-    const detail =
-      r.status === "failed" && r.detail ? ` **(${r.detail})**` : "";
+    const detail = r.status === "failed" && r.detail ? ` **(${r.detail})**` : "";
     md.push(`| ${r.rel} | ${r.key} | ${u} |${detail}`);
   }
   md.push("");
   md.push("## Next steps (later migration)");
   md.push("");
-  md.push(
-    "1. Add `NEXT_PUBLIC_ASSETS_URL` (or similar) pointing at your R2 public base URL.",
-  );
+  md.push("1. Add `NEXT_PUBLIC_ASSETS_URL` (or similar) pointing at your R2 public base URL.");
   md.push(
     "2. Replace `/…` references under `public/` with `${ASSETS_URL}/…` keys that match the R2 object keys above.",
   );
-  md.push(
-    "3. For `next/image`, add `images.remotePatterns` for your R2 public hostname.",
-  );
+  md.push("3. For `next/image`, add `images.remotePatterns` for your R2 public hostname.");
   md.push(
     "4. Keep local files until production is verified; then optionally remove binaries from git.",
   );
@@ -174,11 +155,7 @@ async function main() {
     try {
       const localSha = await sha256File(abs);
       if (!cli.force) {
-        const remoteSha = await headIntegritySha256(
-          client,
-          cred.r2BucketName,
-          key,
-        );
+        const remoteSha = await headIntegritySha256(client, cred.r2BucketName, key);
         if (remoteSha && remoteSha === localSha) {
           skipped += 1;
           results.push({ rel, key, url, status: "skipped" });

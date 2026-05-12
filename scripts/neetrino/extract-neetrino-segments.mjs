@@ -8,9 +8,7 @@ const slice = (a, b) => lines.slice(a - 1, b).join("\n");
 function figmaImports(body) {
   const imgs = [
     ...new Set(
-      [...body.matchAll(/\b(img[A-Za-z0-9_]+)\b/g)]
-        .map((m) => m[1])
-        .filter((x) => x !== "img"),
+      [...body.matchAll(/\b(img[A-Za-z0-9_]+)\b/g)].map((m) => m[1]).filter((x) => x !== "img"),
     ),
   ].sort();
   if (imgs.length === 0) return "";

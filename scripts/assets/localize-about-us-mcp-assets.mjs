@@ -19,7 +19,13 @@ const PUBLIC_PREFIX = "/about-us-figma";
 
 const INPUT_FILES = [
   path.join(PROJECT_ROOT, "lib", "about-us-figma-asset-urls.ts"),
-  path.join(PROJECT_ROOT, "docs", "reference", "figma-exports", "get-design-context-node-335-905-RAW.tsx"),
+  path.join(
+    PROJECT_ROOT,
+    "docs",
+    "reference",
+    "figma-exports",
+    "get-design-context-node-335-905-RAW.tsx",
+  ),
 ];
 
 const MCP_ASSET_RE =

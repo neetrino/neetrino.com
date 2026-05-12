@@ -60,7 +60,9 @@ async function main() {
       const r = await optimizeWebp(f);
       if (r) {
         results.push(r);
-        console.log(`OK ${r.file}: ${(r.before / 1024).toFixed(1)} KB → ${(r.after / 1024).toFixed(1)} KB`);
+        console.log(
+          `OK ${r.file}: ${(r.before / 1024).toFixed(1)} KB → ${(r.after / 1024).toFixed(1)} KB`,
+        );
       }
     } catch (err) {
       console.warn(`Skip ${path.relative(PROJECT_ROOT, f)}:`, err.message ?? err);
@@ -71,7 +73,9 @@ async function main() {
   const totalAfter = results.reduce((s, r) => s + r.after, 0);
   console.log(`\nWebP files optimized: ${results.length}`);
   if (results.length) {
-    console.log(`Total: ${(totalBefore / 1024).toFixed(1)} KB → ${(totalAfter / 1024).toFixed(1)} KB`);
+    console.log(
+      `Total: ${(totalBefore / 1024).toFixed(1)} KB → ${(totalAfter / 1024).toFixed(1)} KB`,
+    );
   }
 }
 

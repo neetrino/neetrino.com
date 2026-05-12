@@ -12,10 +12,7 @@ function sliceLines(path, start, end) {
 
 /** Services */
 const servicesPath = "app/services/page.tsx";
-fs.writeFileSync(
-  "app/services/services-assets.ts",
-  sliceLines(servicesPath, 6, 34) + "\n",
-);
+fs.writeFileSync("app/services/services-assets.ts", sliceLines(servicesPath, 6, 34) + "\n");
 fs.writeFileSync(
   "app/services/services-constants.ts",
   `export ${sliceLines(servicesPath, 36, 67)}\n`,
