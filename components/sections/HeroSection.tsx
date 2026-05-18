@@ -43,7 +43,7 @@ function HeroBackground() {
           fill
           className="object-cover"
           sizes="100vw"
-          loading="lazy"
+          loading="eager"
           unoptimized
         />
       </div>
@@ -182,7 +182,7 @@ function HeroStatsRegionWithGrid() {
               className="object-cover object-center"
               sizes="100vw"
               quality={DEFAULT_IMAGE_QUALITY}
-              loading="lazy"
+              loading="eager"
             />
           </div>
         </div>
@@ -225,7 +225,8 @@ function HeroStatWide() {
                 className="object-cover object-right"
                 sizes="(max-width: 768px) 271px, 271px"
                 quality={DEFAULT_IMAGE_QUALITY}
-                loading="lazy"
+                loading="eager"
+                priority
               />
             </div>
           </div>

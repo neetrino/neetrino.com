@@ -84,7 +84,7 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
                 unoptimized
                 width={2400}
                 height={2400}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none size-full"
                 src={imgEricaAnderson1}
@@ -146,7 +146,7 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
                 src={imgRectangle17399}
                 sizes="1440px"
                 quality={DEFAULT_IMAGE_QUALITY}
-                loading="lazy"
+                loading="eager"
               />
             </div>
           </div>
@@ -281,7 +281,8 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
                       className="object-contain object-[right_bottom]"
                       sizes={HOME_DESKTOP_HERO_450_HAND_IMAGE_SIZES}
                       quality={DEFAULT_IMAGE_QUALITY}
-                      loading="lazy"
+                      loading="eager"
+                      priority
                     />
                   </div>
                 </div>

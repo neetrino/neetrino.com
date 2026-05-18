@@ -16,6 +16,7 @@ export function NeetrinoHomeEndCap() {
                 height={2400}
                 className="absolute h-[214.48%] left-0 max-w-none top-[-70.38%] w-full"
                 src={img28A}
+                loading="eager"
               />
             </div>
           </div>
