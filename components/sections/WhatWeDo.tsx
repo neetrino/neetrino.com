@@ -33,6 +33,10 @@ import {
   WHAT_WE_DO_MOBILE_CARD_SAAS_IMAGE_SCALE_CLASS,
   WHAT_WE_DO_MOBILE_CARD_WEBSITE_IMAGE_SCALE_CLASS,
 } from "@/lib/what-we-do-mobile-card-image.constants";
+import {
+  WHAT_WE_DO_MOBILE_LAST_CARD_GALAXY_Z_FOLD_COVER_COPY_NUDGE_X_CLASS,
+  WHAT_WE_DO_MOBILE_LAST_CARD_SLUG,
+} from "@/lib/what-we-do-galaxy-z-fold-cover-layout.constants";
 
 const services: readonly {
   titleLines: readonly string[];
@@ -160,10 +164,12 @@ export async function WhatWeDo() {
               WHAT_WE_DO_MOBILE_CARD_CONTINUE_BUTTON_LIFT_Y_CLASS,
             );
 
+            const isLastWhatWeDoCard = service.slug === WHAT_WE_DO_MOBILE_LAST_CARD_SLUG;
+
             const isWhatWeDoMobileAtmosphereStackCard =
               service.slug === "website-development" ||
               service.slug === "saas-development" ||
-              service.slug === "ai-product-development";
+              isLastWhatWeDoCard;
 
             const rowKey = service.titleLines.join("-");
 
@@ -220,6 +226,8 @@ export async function WhatWeDo() {
                   className={cn(
                     "flex min-h-0 min-w-0 flex-1 flex-col justify-between",
                     WHAT_WE_DO_MOBILE_CARD_COPY_COLUMN_PAD_CLASS,
+                    isLastWhatWeDoCard &&
+                      WHAT_WE_DO_MOBILE_LAST_CARD_GALAXY_Z_FOLD_COVER_COPY_NUDGE_X_CLASS,
                   )}
                 >
                   <div
