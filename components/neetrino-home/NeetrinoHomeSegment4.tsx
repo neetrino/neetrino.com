@@ -1,10 +1,15 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
 import { Group } from "./Group";
 import { NeetrinoHomeProjectsMarquee } from "./NeetrinoHomeProjectsMarquee";
 
-export function NeetrinoHomeSegment4() {
+type NeetrinoHomeSegment4Props = {
+  portfolioItems: readonly PublicPortfolioCard[];
+};
+
+export function NeetrinoHomeSegment4({ portfolioItems }: NeetrinoHomeSegment4Props) {
   const t = useTranslations();
 
   return (
@@ -40,7 +45,7 @@ export function NeetrinoHomeSegment4() {
           exploreHref="/portfolio"
         />
       </div>
-      <NeetrinoHomeProjectsMarquee />
+      <NeetrinoHomeProjectsMarquee items={portfolioItems} />
     </>
   );
 }

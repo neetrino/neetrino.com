@@ -1,6 +1,5 @@
 "use client";
 
-import { DeferredMount } from "@/components/layout/DeferredMount";
 import { NeetrinoHomeDesktopVectorGrid } from "./NeetrinoHomeDesktopVectorGrid";
 import { NeetrinoHomeBelowFold } from "./NeetrinoHomeBelowFold";
 import { NeetrinoHomeEndCap } from "./NeetrinoHomeEndCap";
@@ -9,8 +8,13 @@ import { NeetrinoHomeSegment2 } from "./NeetrinoHomeSegment2";
 import { NeetrinoHomeSegment3 } from "./NeetrinoHomeSegment3";
 import { NeetrinoHomeSegment4 } from "./NeetrinoHomeSegment4";
 import { NeetrinoHomeVerticalPipe } from "./NeetrinoHomeVerticalPipe";
+import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
 
-export function NeetrinoHome() {
+type NeetrinoHomeProps = {
+  portfolioItems: readonly PublicPortfolioCard[];
+};
+
+export function NeetrinoHome({ portfolioItems }: NeetrinoHomeProps) {
   return (
     <div
       className="relative w-full min-h-full min-w-0 bg-transparent"
@@ -19,15 +23,12 @@ export function NeetrinoHome() {
     >
       <NeetrinoHomeDesktopVectorGrid />
       <NeetrinoHomeSegment1 />
-      {/* ~below first screen on most viewports — defers images + Three chunk until scroll */}
-      <DeferredMount topClassName="top-[1500px]" rootMargin="120px 0px 120px 0px">
-        <NeetrinoHomeSegment2 />
-        <NeetrinoHomeSegment3 />
-        <NeetrinoHomeSegment4 />
-        <NeetrinoHomeVerticalPipe />
-        <NeetrinoHomeBelowFold />
-        <NeetrinoHomeEndCap />
-      </DeferredMount>
+      <NeetrinoHomeSegment2 />
+      <NeetrinoHomeSegment3 />
+      <NeetrinoHomeSegment4 portfolioItems={portfolioItems} />
+      <NeetrinoHomeVerticalPipe />
+      <NeetrinoHomeBelowFold />
+      <NeetrinoHomeEndCap />
     </div>
   );
 }

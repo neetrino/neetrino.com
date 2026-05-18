@@ -1,25 +1,35 @@
 "use client";
 
-import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { HomeProjectCard } from "@/components/home/HomeProjectCard";
+import { HOME_PROJECTS_MARQUEE_IMAGE_SIZES } from "@/lib/home-projects.constants";
 import {
-  neetrinoHomeProjectsMarqueeDoubledStrip,
-  neetrinoHomeProjectsMarqueeRowA,
-  neetrinoHomeProjectsMarqueeRowB,
-  type NeetrinoHomeProjectMarqueeItem,
-} from "@/lib/neetrino-home-projects-marquee.constants";
+  HOME_PROJECTS_MARQUEE_CLIP_HEIGHT_CLASS,
+  HOME_PROJECTS_MARQUEE_FIRST_ROW_TOP_CLASS,
+  HOME_PROJECTS_MARQUEE_SECOND_ROW_TOP_CLASS,
+} from "@/lib/home-projects-marquee-layout.constants";
+import { splitPortfolioItemsForHomeMarquee } from "@/lib/home-projects-marquee-rows";
+import { neetrinoHomeProjectsMarqueeDoubledStrip } from "@/lib/neetrino-home-projects-marquee.constants";
+import {
+  PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+  PORTFOLIO_FIRST_BANNER_FRAME_CLASS,
+} from "@/lib/portfolio-desktop-first-banner.constants";
+import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
+import { cn } from "@/lib/utils";
 
 type MarqueeRowProps = {
   direction: "left" | "right";
-  items: readonly NeetrinoHomeProjectMarqueeItem[];
+  items: readonly PublicPortfolioCard[];
 };
 
 function MarqueeRow({ direction, items }: MarqueeRowProps) {
-  const t = useTranslations();
+  if (items.length === 0) {
+    return null;
+  }
+
   const looped = neetrinoHomeProjectsMarqueeDoubledStrip(items);
 
   return (
-    <div className="home-projects-marquee-clip h-[378px]">
+    <div className={cn("home-projects-marquee-clip", HOME_PROJECTS_MARQUEE_CLIP_HEIGHT_CLASS)}>
       <div
         className={
           direction === "right"
@@ -29,20 +39,18 @@ function MarqueeRow({ direction, items }: MarqueeRowProps) {
       >
         {looped.map((item, index) => (
           <article
-            key={`${item.titleKey}-${String(index)}`}
-            className="group relative h-[378px] w-[420px] shrink-0 overflow-hidden rounded-[31px]"
+            key={`${item.id}-${String(index)}`}
+            className={cn(
+              "relative shrink-0 overflow-hidden",
+              PORTFOLIO_FIRST_BANNER_FRAME_CLASS,
+              PORTFOLIO_DESKTOP_HERO_BANNER_RADIUS_CLASS,
+            )}
           >
-            <Image
-              src={item.image}
-              alt={t(item.titleKey)}
-              fill
-              sizes="420px"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            <HomeProjectCard
+              item={item}
+              imageSizes={HOME_PROJECTS_MARQUEE_IMAGE_SIZES}
+              frameClassName="size-full"
               loading="lazy"
-            />
-            <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-black/55 to-transparent"
-              aria-hidden
             />
           </article>
         ))}
@@ -51,14 +59,30 @@ function MarqueeRow({ direction, items }: MarqueeRowProps) {
   );
 }
 
-export function NeetrinoHomeProjectsMarquee() {
+type NeetrinoHomeProjectsMarqueeProps = {
+  items: readonly PublicPortfolioCard[];
+};
+
+export function NeetrinoHomeProjectsMarquee({ items }: NeetrinoHomeProjectsMarqueeProps) {
+  const { rowA, rowB } = splitPortfolioItemsForHomeMarquee(items);
+
   return (
     <>
-      <div className="absolute top-[2334px] left-0 z-[11] w-[1440px]">
-        <MarqueeRow direction="right" items={neetrinoHomeProjectsMarqueeRowA} />
+      <div
+        className={cn(
+          "absolute left-0 z-[11] w-[1440px]",
+          HOME_PROJECTS_MARQUEE_FIRST_ROW_TOP_CLASS,
+        )}
+      >
+        <MarqueeRow direction="right" items={rowA} />
       </div>
-      <div className="absolute top-[2757px] left-0 z-[12] w-[1440px]">
-        <MarqueeRow direction="left" items={neetrinoHomeProjectsMarqueeRowB} />
+      <div
+        className={cn(
+          "absolute left-0 z-[12] w-[1440px]",
+          HOME_PROJECTS_MARQUEE_SECOND_ROW_TOP_CLASS,
+        )}
+      >
+        <MarqueeRow direction="left" items={rowB} />
       </div>
     </>
   );

@@ -55,7 +55,7 @@ export function HeroStatHandAtmosphereLayer() {
                       className="pointer-events-none block max-w-none object-fill select-none"
                       sizes="(max-width: 768px) 400px, 400px"
                       quality={DEFAULT_IMAGE_QUALITY}
-                      loading="lazy"
+                      loading="eager"
                     />
                   </div>
                 </div>
