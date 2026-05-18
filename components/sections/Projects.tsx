@@ -1,23 +1,18 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { HomeProjectsGrid } from "@/components/home/HomeProjectsGrid";
 import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
+import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
 
-const projects = [
-  { image: FIGMA_ASSETS.imgStanislavHristov3, titleKey: "home.projects.items.webDesign" },
-  { image: FIGMA_ASSETS.imgUiDesign21, titleKey: "home.projects.items.uiDesign" },
-  { image: FIGMA_ASSETS.img2661, titleKey: "home.projects.items.ecommerce" },
-  { image: FIGMA_ASSETS.imgBiotechLogo1, titleKey: "home.projects.items.biotech" },
-  {
-    image: FIGMA_ASSETS.imgKleverKleverIoInstagramPhotosAndVideos3,
-    titleKey: "home.projects.items.blockchain",
-  },
-] as const;
+type ProjectsProps = {
+  items: readonly PublicPortfolioCard[];
+};
 
-export function Projects() {
-  const t = useTranslations();
+export async function Projects({ items }: ProjectsProps) {
+  const t = await getTranslations();
 
   return (
     <section
@@ -38,26 +33,7 @@ export function Projects() {
         </h2>
       </header>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-6 lg:gap-6">
-        {projects.map((project, index) => (
-          <article key={project.titleKey} className={index < 3 ? "lg:col-span-2" : "lg:col-span-3"}>
-            <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl md:rounded-3xl">
-              <Image
-                src={project.image}
-                alt={t(project.titleKey)}
-                fill
-                sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 50vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-black/55 to-transparent"
-                aria-hidden
-              />
-            </div>
-          </article>
-        ))}
-      </div>
+      <HomeProjectsGrid items={items} />
 
       <div className="mt-10 flex justify-center">
         <div className="group relative inline-flex items-center justify-center">

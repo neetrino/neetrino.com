@@ -17,6 +17,7 @@ import {
   HOME_TABLET_HYBRID_WHO_WE_ARE_PULL_UP_CLASSNAME,
 } from "@/lib/home-desktop-layout";
 import { getLocaleAlternates } from "@/lib/metadata";
+import { loadPublicPortfolioCards } from "@/lib/server/portfolio/load-public-portfolio-cards";
 import { cn } from "@/lib/utils";
 import type { AppLocale } from "@/lib/i18n/locales";
 
@@ -75,6 +76,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 
 export default async function Home({ params }: HomePageProps) {
   const { locale } = await params;
+  const portfolioItems = await loadPublicPortfolioCards();
 
   return (
     <div className="w-full min-w-0 overflow-x-hidden">
@@ -103,7 +105,7 @@ export default async function Home({ params }: HomePageProps) {
             <WhoWeAre />
           </div>
           <WhatWeDo />
-          <Projects />
+          <Projects items={portfolioItems} />
           <Partners />
         </main>
       </div>
@@ -111,7 +113,7 @@ export default async function Home({ params }: HomePageProps) {
       {/* lg+: full desktop canvas; Partners in flow above footer */}
       <div className={cn("relative hidden lg:block", HOME_DESKTOP_CANVAS_FOOTER_PULL_UP_CLASSNAME)}>
         <CanvasScaler canvasHeight={HOME_DESKTOP_CANVAS_DESIGN_HEIGHT_PX}>
-          <NeetrinoHome />
+          <NeetrinoHome portfolioItems={portfolioItems} />
         </CanvasScaler>
       </div>
       <div className="hidden w-full min-w-0 lg:block">
