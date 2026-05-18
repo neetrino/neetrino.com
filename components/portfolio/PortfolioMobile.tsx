@@ -2,10 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
-import { PortfolioCardMedia } from "@/components/portfolio/PortfolioCardMedia";
 import { PortfolioDesktopPagination } from "@/components/portfolio/PortfolioDesktopPagination";
+import { PortfolioMobileGridCard } from "@/components/portfolio/PortfolioMobileGridCard";
 import { MOBILE_PORTFOLIO_CARD_IMAGE_SIZES } from "@/components/portfolio/portfolio-data";
-import { generateAltFromFileName } from "@/lib/portfolio/portfolio-alt";
 import { clampPage, paginateItems, totalPagesForCount } from "@/lib/portfolio/paginate-portfolio";
 import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
 import { PUBLIC_PORTFOLIO_MOBILE_PAGE_SIZE } from "@/lib/constants/public-portfolio-pagination.constants";
@@ -55,21 +54,13 @@ export function PortfolioMobile({ items }: PortfolioMobileProps) {
 
         <section className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
           {pageItems.map((item, index) => (
-            <article
+            <PortfolioMobileGridCard
               key={item.id}
-              className="min-w-0 overflow-hidden rounded-[24px] border border-white/12 bg-[#1a1a1a]"
-            >
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
-                <PortfolioCardMedia
-                  url={item.url}
-                  alt={generateAltFromFileName(item.fileName)}
-                  mediaType={item.mediaType}
-                  imageSizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
-                  priority={effectivePage === 1 && index === 0}
-                  loading={effectivePage === 1 && index === 0 ? "eager" : "lazy"}
-                />
-              </div>
-            </article>
+              item={item}
+              imageSizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
+              priority={effectivePage === 1 && index === 0}
+              loading={effectivePage === 1 && index === 0 ? "eager" : "lazy"}
+            />
           ))}
           <PortfolioDesktopPagination
             className={cn(

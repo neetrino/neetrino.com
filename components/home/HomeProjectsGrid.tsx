@@ -1,7 +1,7 @@
 "use client";
 
-import { HomeProjectCard } from "@/components/home/HomeProjectCard";
-import { HOME_PROJECTS_GRID_IMAGE_SIZES } from "@/lib/home-projects.constants";
+import { PortfolioMobileGridCard } from "@/components/portfolio/PortfolioMobileGridCard";
+import { MOBILE_PORTFOLIO_CARD_IMAGE_SIZES } from "@/components/portfolio/portfolio-data";
 import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
 
 type HomeProjectsGridProps = {
@@ -14,17 +14,15 @@ export function HomeProjectsGrid({ items }: HomeProjectsGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+    <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
       {items.map((item, index) => (
-        <article key={item.id}>
-          <HomeProjectCard
-            item={item}
-            imageSizes={HOME_PROJECTS_GRID_IMAGE_SIZES}
-            frameClassName="aspect-[4/3] rounded-2xl md:rounded-3xl"
-            priority={index === 0}
-            loading={index === 0 ? "eager" : "lazy"}
-          />
-        </article>
+        <PortfolioMobileGridCard
+          key={item.id}
+          item={item}
+          imageSizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
+          priority={index === 0}
+          loading={index === 0 ? "eager" : "lazy"}
+        />
       ))}
     </div>
   );
