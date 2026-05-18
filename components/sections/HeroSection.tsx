@@ -18,6 +18,10 @@ import {
   MOBILE_HERO_STATS_TOP,
 } from "@/components/sections/mobile-home-hero.constants";
 import { HERO_CONTACT_FIGMA_241_838_PRIMARY_PILL_CLASSNAME } from "@/lib/hero-contact-figma-pill.constants";
+import {
+  HOME_MOBILE_HERO_SURFACE_DUO_BODY_CLASS,
+  HOME_MOBILE_HERO_SURFACE_DUO_TITLE_CLASS,
+} from "@/lib/home-mobile-hero-surface-duo-layout.constants";
 import { cn } from "@/lib/utils";
 
 function HeroBackground() {
@@ -62,6 +66,7 @@ function HeroTitleAndRobot({ locale }: { locale: AppLocale }) {
         className={cn(
           "absolute left-[max(24px,calc(50%-191px))] top-[66px] z-30 max-w-[260px] text-[91px] font-normal leading-[78px] tracking-[-0.04em] text-[#fffcfc]",
           pageTitleMegatroxFontClass(locale),
+          HOME_MOBILE_HERO_SURFACE_DUO_TITLE_CLASS,
         )}
       >
         <span className="block">NEET</span>
@@ -101,7 +106,12 @@ function HeroBodyCopy() {
   const t = useTranslations();
 
   return (
-    <div className="absolute left-6 top-[461px] z-30 flex h-[200px] w-[227px] -translate-y-1/2 flex-col justify-center text-left text-base font-extralight leading-[23px] text-white">
+    <div
+      className={cn(
+        "absolute left-6 top-[461px] z-30 flex h-[200px] w-[227px] -translate-y-1/2 flex-col justify-center text-left text-base font-extralight leading-[23px] text-white",
+        HOME_MOBILE_HERO_SURFACE_DUO_BODY_CLASS,
+      )}
+    >
       <p>{t("home.hero.body.line1")}</p>
       <p className="font-black">{t("home.hero.body.line2")}</p>
       <p className="mb-0">
