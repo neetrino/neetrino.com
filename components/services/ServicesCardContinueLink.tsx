@@ -18,6 +18,7 @@ type ServicesCardContinueLinkProps = {
   glowVariant: ServicesContinueGlowVariant;
   ariaLabel: string;
   label: string;
+  className?: string;
 };
 
 /** Desktop service cards: Continue pill — same interaction as What we do, accent per card. */
@@ -26,6 +27,7 @@ export function ServicesCardContinueLink({
   glowVariant,
   ariaLabel,
   label,
+  className,
 }: ServicesCardContinueLinkProps) {
   return (
     <Link
@@ -34,6 +36,7 @@ export function ServicesCardContinueLink({
         servicesContinueLinkClassName(glowVariant),
         /* Mobile: lift only the pill visually; margin would tighten flex layout of the card. */
         "max-lg:-translate-y-3",
+        className,
       )}
       aria-label={ariaLabel}
     >

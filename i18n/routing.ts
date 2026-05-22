@@ -6,7 +6,7 @@ export type AppLocale = (typeof locales)[number];
 export const routing = defineRouting({
   locales: [...locales],
   defaultLocale: "en",
-  /** User-facing URLs have no locale segment; locale from cookie / detection. */
+  /** User-facing URLs have no locale segment; locale from cookie, else `defaultLocale` (see `proxy.ts`). */
   localePrefix: "never",
   /** Same pathname for all locales — hreflang via middleware is not applicable. */
   alternateLinks: false,

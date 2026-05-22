@@ -14,6 +14,13 @@ import {
 
 const intlMiddleware = createMiddleware(routing);
 
+/** First visit uses `routing.defaultLocale`; returning users keep `NEXT_LOCALE` from the switcher. */
+function requestWithoutAcceptLanguage(request: NextRequest): NextRequest {
+  const headers = new Headers(request.headers);
+  headers.delete("accept-language");
+  return new NextRequest(request.url, { headers });
+}
+
 const PUBLIC_ADMIN_PATHS = new Set([
   "/admin/login",
   "/api/admin/auth/login",
@@ -27,7 +34,7 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
     return handleAdminRequest(request);
   }
 
-  return intlMiddleware(request);
+  return intlMiddleware(requestWithoutAcceptLanguage(request));
 }
 
 export const config = {

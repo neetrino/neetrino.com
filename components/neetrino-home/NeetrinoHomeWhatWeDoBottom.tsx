@@ -1,22 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
+import { WhatWeDoContinueLink } from "@/components/sections/WhatWeDoContinueLink";
 import {
   isWhatWeDoCardCopyCenteredLocale,
   whatWeDoDesktopContinueCenterLeftClassName,
 } from "@/lib/what-we-do-desktop-continue-cta-layout";
-import {
-  whatWeDoContinuePillArrowImageClassName,
-  whatWeDoContinuePillLabelClassName,
-  whatWeDoContinuePillLinkInteractiveClassName,
-} from "@/lib/what-we-do-continue-pill.classes";
 import { cn } from "@/lib/utils";
 import { Group } from "./Group";
 import { Group1 } from "./Group1";
-import { img2761, imgCloudInfrastructure, imgPc1, imgSafearea } from "./figma-assets";
+import { img2761, imgCloudInfrastructure, imgPc1 } from "./figma-assets";
 
 export function NeetrinoHomeWhatWeDoBottom() {
   const t = useTranslations();
@@ -134,72 +129,24 @@ export function NeetrinoHomeWhatWeDoBottom() {
         </div>
       </div>
       <Group1 className="absolute h-[553px] left-[50px] top-[129px] w-[258px]" />
-      <Link
+      <WhatWeDoContinueLink
+        slug="saas-development"
         href={serviceDetailHref("saas-development")}
+        label={t("cta.continue")}
         className={cn(
           "pointer-events-auto absolute z-30 -translate-x-1/2 top-[608px]",
-          whatWeDoContinuePillLinkInteractiveClassName,
           whatWeDoDesktopContinueCenterLeftClassName.saas,
         )}
-        data-name="Button 15"
-        data-node-id="90:547"
-      >
-        <p className={whatWeDoContinuePillLabelClassName} data-node-id="I90:547;13:33">
-          {t("cta.continue")}
-        </p>
-        <div
-          className="relative size-[20px] shrink-0 overflow-clip"
-          data-name="Right"
-          data-node-id="I90:547;13:34"
-        >
-          <div
-            className="absolute inset-[8.33%]"
-            data-name="safearea"
-            data-node-id="I90:547;13:34;21:1594"
-          >
-            <Image
-              alt=""
-              width={2400}
-              height={2400}
-              className={whatWeDoContinuePillArrowImageClassName}
-              src={imgSafearea}
-            />
-          </div>
-        </div>
-      </Link>
-      <Link
+      />
+      <WhatWeDoContinueLink
+        slug="ai-product-development"
         href={serviceDetailHref("ai-product-development")}
+        label={t("cta.continue")}
         className={cn(
           "pointer-events-auto absolute z-30 -translate-x-1/2 top-[607px]",
-          whatWeDoContinuePillLinkInteractiveClassName,
           whatWeDoDesktopContinueCenterLeftClassName.ai,
         )}
-        data-name="Button 16"
-        data-node-id="90:541"
-      >
-        <p className={whatWeDoContinuePillLabelClassName} data-node-id="I90:541;13:33">
-          {t("cta.continue")}
-        </p>
-        <div
-          className="relative size-[20px] shrink-0 overflow-clip"
-          data-name="Right"
-          data-node-id="I90:541;13:34"
-        >
-          <div
-            className="absolute inset-[8.33%]"
-            data-name="safearea"
-            data-node-id="I90:541;13:34;21:1594"
-          >
-            <Image
-              alt=""
-              width={2400}
-              height={2400}
-              className={whatWeDoContinuePillArrowImageClassName}
-              src={imgSafearea}
-            />
-          </div>
-        </div>
-      </Link>
+      />
     </>
   );
 }

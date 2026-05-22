@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
+import { WhatWeDoContinueLink } from "@/components/sections/WhatWeDoContinueLink";
 import {
   isWhatWeDoCardCopyCenteredLocale,
   whatWeDoDesktopContinueCenterLeftClassName,
@@ -13,13 +13,8 @@ import {
   whatWeDoHyCrmSubtitleToContinueGapClassName,
   whatWeDoRuOrangeMobileSubtitleTopClassName,
 } from "@/lib/what-we-do-desktop-continue-cta-layout";
-import {
-  whatWeDoContinuePillArrowImageClassName,
-  whatWeDoContinuePillLabelClassName,
-  whatWeDoContinuePillLinkInteractiveClassName,
-} from "@/lib/what-we-do-continue-pill.classes";
 import { cn } from "@/lib/utils";
-import { imgSafearea, imgSports00065 } from "./figma-assets";
+import { imgSports00065 } from "./figma-assets";
 
 export function NeetrinoHomeWhatWeDoTop() {
   const t = useTranslations();
@@ -148,39 +143,15 @@ export function NeetrinoHomeWhatWeDoTop() {
           </div>
         </div>
       </div>
-      <Link
+      <WhatWeDoContinueLink
+        slug="mobile-app-development"
         href={serviceDetailHref("mobile-app-development")}
+        label={t("cta.continue")}
         className={cn(
           "pointer-events-auto absolute z-30 -translate-x-1/2 top-[607px]",
-          whatWeDoContinuePillLinkInteractiveClassName,
           whatWeDoDesktopContinueCenterLeftClassName.mobile,
         )}
-        data-name="Button 13"
-        data-node-id="90:533"
-      >
-        <p className={whatWeDoContinuePillLabelClassName} data-node-id="I90:533;13:33">
-          {t("cta.continue")}
-        </p>
-        <div
-          className="relative size-[20px] shrink-0 overflow-clip"
-          data-name="Right"
-          data-node-id="I90:533;13:34"
-        >
-          <div
-            className="absolute inset-[8.33%]"
-            data-name="safearea"
-            data-node-id="I90:533;13:34;21:1594"
-          >
-            <Image
-              alt=""
-              width={2400}
-              height={2400}
-              className={whatWeDoContinuePillArrowImageClassName}
-              src={imgSafearea}
-            />
-          </div>
-        </div>
-      </Link>
+      />
       {isCenteredTileCopy ? (
         <div
           className={cn(
@@ -200,73 +171,23 @@ export function NeetrinoHomeWhatWeDoTop() {
             <p className="leading-[25px]">{t("home.whatWeDo.cards.crm.subtitle1")}</p>
             <p className="leading-[25px]">{t("home.whatWeDo.cards.crm.subtitle2")}</p>
           </div>
-          <Link
+          <WhatWeDoContinueLink
+            slug="crm-systems"
             href={serviceDetailHref("crm-systems")}
-            className={cn(
-              "pointer-events-auto relative z-30",
-              whatWeDoContinuePillLinkInteractiveClassName,
-            )}
-            data-name="Button 14"
-            data-node-id="90:540"
-          >
-            <p className={whatWeDoContinuePillLabelClassName} data-node-id="I90:540;13:33">
-              {t("cta.continue")}
-            </p>
-            <div
-              className="relative size-[20px] shrink-0 overflow-clip"
-              data-name="Right"
-              data-node-id="I90:540;13:34"
-            >
-              <div
-                className="absolute inset-[8.33%]"
-                data-name="safearea"
-                data-node-id="I90:540;13:34;21:1594"
-              >
-                <Image
-                  alt=""
-                  width={2400}
-                  height={2400}
-                  className={whatWeDoContinuePillArrowImageClassName}
-                  src={imgSafearea}
-                />
-              </div>
-            </div>
-          </Link>
+            label={t("cta.continue")}
+            className="pointer-events-auto relative z-30"
+          />
         </div>
       ) : (
-        <Link
+        <WhatWeDoContinueLink
+          slug="crm-systems"
           href={serviceDetailHref("crm-systems")}
+          label={t("cta.continue")}
           className={cn(
             "pointer-events-auto absolute z-30 -translate-x-1/2 top-[609px]",
-            whatWeDoContinuePillLinkInteractiveClassName,
             whatWeDoDesktopContinueCenterLeftClassName.crm,
           )}
-          data-name="Button 14"
-          data-node-id="90:540"
-        >
-          <p className={whatWeDoContinuePillLabelClassName} data-node-id="I90:540;13:33">
-            {t("cta.continue")}
-          </p>
-          <div
-            className="relative size-[20px] shrink-0 overflow-clip"
-            data-name="Right"
-            data-node-id="I90:540;13:34"
-          >
-            <div
-              className="absolute inset-[8.33%]"
-              data-name="safearea"
-              data-node-id="I90:540;13:34;21:1594"
-            >
-              <Image
-                alt=""
-                width={2400}
-                height={2400}
-                className={whatWeDoContinuePillArrowImageClassName}
-                src={imgSafearea}
-              />
-            </div>
-          </div>
-        </Link>
+        />
       )}
     </>
   );
