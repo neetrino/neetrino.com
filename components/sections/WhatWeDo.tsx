@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
-import { serviceDetailHref, type ServiceSlug } from "@/components/services/service-pages-data";
+import { serviceDetailHref } from "@/components/services/service-pages-data";
+import type { WhatWeDoCardSlug } from "@/lib/what-we-do-continue-glow";
+import { WhatWeDoContinueLink } from "@/components/sections/WhatWeDoContinueLink";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { interSans } from "@/lib/fonts";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
@@ -47,7 +48,7 @@ const services: readonly {
   textColor: string;
   image: string;
   imageClassName: string;
-  slug: ServiceSlug;
+  slug: WhatWeDoCardSlug;
 }[] = [
   {
     titleLines: ["WEBSITE"],
@@ -160,9 +161,10 @@ export async function WhatWeDo() {
             const isCrmStacked = isCenteredTileCopy && service.slug === "crm-systems";
             const isAiNoWrap = isCenteredTileCopy && service.slug === "ai-product-development";
             const continueLinkClassName = cn(
-              "mx-auto inline-flex w-fit items-center gap-2 rounded-[40px] bg-white px-5 py-3 text-[18px] font-medium text-[#252525] transition-opacity hover:opacity-90",
+              "mx-auto w-fit",
               WHAT_WE_DO_MOBILE_CARD_CONTINUE_BUTTON_LIFT_Y_CLASS,
             );
+            const continueLabel = t("cta.continue");
 
             const isLastWhatWeDoCard = service.slug === WHAT_WE_DO_MOBILE_LAST_CARD_SLUG;
 
@@ -285,31 +287,20 @@ export async function WhatWeDo() {
                           <p key={lineKey}>{t(lineKey)}</p>
                         ))}
                       </div>
-                      <Link
+                      <WhatWeDoContinueLink
+                        slug={service.slug}
                         href={serviceDetailHref(service.slug)}
+                        label={continueLabel}
                         className={continueLinkClassName}
-                      >
-                        {t("cta.continue")}
-                        <Image
-                          src={FIGMA_ASSETS.imgSafearea}
-                          alt=""
-                          width={20}
-                          height={20}
-                          className="size-5 shrink-0"
-                        />
-                      </Link>
+                      />
                     </div>
                   ) : (
-                    <Link href={serviceDetailHref(service.slug)} className={continueLinkClassName}>
-                      {t("cta.continue")}
-                      <Image
-                        src={FIGMA_ASSETS.imgSafearea}
-                        alt=""
-                        width={20}
-                        height={20}
-                        className="size-5 shrink-0"
-                      />
-                    </Link>
+                    <WhatWeDoContinueLink
+                      slug={service.slug}
+                      href={serviceDetailHref(service.slug)}
+                      label={continueLabel}
+                      className={continueLinkClassName}
+                    />
                   )}
                 </div>
               </>
