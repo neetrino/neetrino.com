@@ -25,7 +25,7 @@ Database:
 Auth:
 
 - `ADMIN_EMAIL` — email allowed to sign in.
-- `ADMIN_PASSWORD_HASH` — bcrypt hash for the admin password.
+- `ADMIN_PASSWORD` — plain-text admin password (store only in env / secrets manager, never commit).
 - `AUTH_SECRET` — secret used to sign the httpOnly admin session cookie.
 - `ADMIN_SESSION_COOKIE_NAME` — optional cookie name override.
 - `ADMIN_SESSION_TTL_SECONDS` — optional session TTL override.
@@ -54,15 +54,7 @@ pnpm db:migrate
 pnpm db:seed
 ```
 
-## Generate Admin Password Hash
-
-Run:
-
-```bash
-pnpm tsx scripts/generate-admin-password-hash.ts "your-password"
-```
-
-Copy the printed hash into `ADMIN_PASSWORD_HASH`.
+Set `ADMIN_PASSWORD` in `.env.local` (local) or your hosting secrets (production).
 
 ## Creating And Editing Posts
 
@@ -103,7 +95,7 @@ Public blog detail renders Markdown with `react-markdown`, `remark-gfm`, and `re
 
 ## Deployment Notes
 
-- Set `DATABASE_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`, and `AUTH_SECRET` in the hosting environment.
+- Set `DATABASE_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `AUTH_SECRET` in the hosting environment.
 - Run `pnpm db:deploy` during deployment or as a release step.
 - Run `pnpm db:seed` once when migrating the legacy posts.
 - The public blog routes are dynamic because admin content is database-backed.
@@ -111,8 +103,7 @@ Public blog detail renders Markdown with `react-markdown`, `remark-gfm`, and `re
 ## Troubleshooting
 
 - `DATABASE_URL is required to seed blog posts.`: add `DATABASE_URL` to `.env.local` or production env.
-- Admin login always fails: verify `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`, and `AUTH_SECRET`.
-- `Invalid ADMIN_PASSWORD_HASH format.`: ensure the bcrypt hash starts with `$2a$`, `$2b$`, or `$2y$`. In `.env.local`, wrap bcrypt hashes in quotes and escape dollar signs, for example `ADMIN_PASSWORD_HASH="\$2b\$12\$..."`.
+- Admin login always fails: verify `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `AUTH_SECRET` match what you expect (restart the dev server after env changes).
 - `AUTH_SECRET must be at least 32 characters for admin sessions.`: replace `AUTH_SECRET` with a longer random value and restart the dev server.
 - External cover image does not render: confirm the URL starts with `https://`.
 - Published post does not appear publicly: verify status, `publishedAt`, `coverImageUrl`, and at least one complete translation.

@@ -34,7 +34,7 @@ docs/                # BRIEF, TECH_CARD, архитектура; планы — 
 - **Стили:** Tailwind + при необходимости глобальные классы в `app/globals.css` (например типографика DM Sans).
 - **Клиентские компоненты:** `"use client"` только где нужны хуки браузера или интерактив.
 - **БД:** Prisma + PostgreSQL для Blog admin.
-- **Auth:** simple single-admin auth через env, bcrypt, `jose`, httpOnly cookie.
+- **Auth:** simple single-admin auth через env, `jose`, httpOnly cookie.
 
 ## Эволюция
 

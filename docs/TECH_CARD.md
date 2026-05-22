@@ -37,7 +37,7 @@ Blog admin MVP использует backend внутри Next.js:
 
 - **DB:** PostgreSQL через Prisma.
 - **Schema:** `prisma/schema.prisma`.
-- **Admin auth:** single-admin env credentials, bcrypt hash, JWT через `jose`, httpOnly cookie.
+- **Admin auth:** single-admin env credentials (`ADMIN_EMAIL`, `ADMIN_PASSWORD`), JWT через `jose`, httpOnly cookie.
 - **Admin routes:** `/admin/blog`, `/admin/blog/new`, `/admin/blog/[id]/edit`.
 - **Public blog:** DB-backed published posts only.
 - **Images:** upload/storage не реализованы; `coverImageUrl` вводится вручную.
