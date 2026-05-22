@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   HOME_DESKTOP_VERTICAL_PIPE_HEIGHT_PX,
@@ -6,18 +6,14 @@ import {
   HOME_DESKTOP_VERTICAL_PIPE_WIDTH_PX,
 } from "@/lib/home-desktop-layout";
 
-/** Slight dark veil so `backdrop-filter` reads as frosted / “mutno” over the canvas. */
 const PIPE_INTERIOR_TINT_ALPHA = 0.07;
-const PIPE_INTERIOR_BLUR_PX = 8;
 
-/** Left: thin bright rim, then ease into interior (px stops along width). */
 const PIPE_LEFT_RIM_PEAK_ALPHA = 0.72;
 const PIPE_LEFT_RIM_STOP_1_PX = 1;
 const PIPE_LEFT_RIM_STOP_2_PX = 4;
 const PIPE_LEFT_RIM_STOP_3_PX = 9;
 const PIPE_LEFT_RIM_FADE_END_PX = 18;
 
-/** Right: soft shadow ramp into interior. */
 const PIPE_RIGHT_RIM_PEAK_ALPHA = 0.5;
 const PIPE_RIGHT_RIM_STOP_1_PX = 5;
 const PIPE_RIGHT_RIM_STOP_2_PX = 11;
@@ -39,11 +35,6 @@ const pipeRimBackgroundImage = [
 
 const pipeInteriorBackground = `rgba(12,12,12,${PIPE_INTERIOR_TINT_ALPHA})`;
 
-const pipeBackdropBlur = `blur(${PIPE_INTERIOR_BLUR_PX}px)`;
-
-/**
- * Figma node `55:391` — centered vertical rail: frosted interior, soft white left rim + dark right ramp; stack order.
- */
 export function NeetrinoHomeVerticalPipe() {
   return (
     <div
@@ -57,8 +48,6 @@ export function NeetrinoHomeVerticalPipe() {
         height: HOME_DESKTOP_VERTICAL_PIPE_HEIGHT_PX,
         backgroundColor: pipeInteriorBackground,
         backgroundImage: pipeRimBackgroundImage,
-        backdropFilter: pipeBackdropBlur,
-        WebkitBackdropFilter: pipeBackdropBlur,
       }}
     />
   );

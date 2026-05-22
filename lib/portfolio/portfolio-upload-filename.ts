@@ -23,6 +23,9 @@ export function mimeFromExtension(ext: PortfolioUploadExtension): string {
   if (ext === ".gif") {
     return "image/gif";
   }
+  if (ext === ".webm") {
+    return "video/webm";
+  }
   if (ext === ".png") {
     return "image/png";
   }

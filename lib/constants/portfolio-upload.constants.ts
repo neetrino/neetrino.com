@@ -1,4 +1,4 @@
-/** Max upload size for portfolio card images/GIFs (10 MiB). */
+/** Max upload size for portfolio card images, GIFs, and WebM (10 MiB). */
 export const PORTFOLIO_UPLOAD_MAX_BYTES = 10 * 1024 * 1024;
 
 /** Form field name for multipart upload. */
@@ -13,6 +13,7 @@ export const PORTFOLIO_UPLOAD_ALLOWED_EXTENSIONS = [
   ".jpg",
   ".jpeg",
   ".gif",
+  ".webm",
 ] as const;
 
 export type PortfolioUploadExtension = (typeof PORTFOLIO_UPLOAD_ALLOWED_EXTENSIONS)[number];
@@ -22,6 +23,7 @@ export const PORTFOLIO_UPLOAD_ALLOWED_MIME_TYPES = [
   "image/png",
   "image/jpeg",
   "image/gif",
+  "video/webm",
 ] as const;
 
 export type PortfolioUploadMimeType = (typeof PORTFOLIO_UPLOAD_ALLOWED_MIME_TYPES)[number];

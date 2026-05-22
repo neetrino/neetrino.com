@@ -28,7 +28,7 @@ const FIGMA_ASSETS = {
   imgPhilippHubertDVVjhUcdb30Unsplash1: assetUrl(
     "figma-assets/62b9fa74-22e0-4457-865e-43c6218500b5.webp",
   ),
-  imgEricaAnderson1: assetUrl("figma-assets/64738b5b-84dc-4cc4-a77f-049e3df52d77.gif"),
+  heroHandAnimationVideoSrc: assetUrl("figma-assets/hero-animation.webm"),
   img30: assetUrl("figma-assets/4e1596f7-d4cd-49d3-bb93-922d629919db.webp"),
   imgStanislavHristov3: assetUrl("figma-assets/7b7b391f-6dd1-4383-bb7b-84682d2ef6ef.webp"),
   imgUiDesign21: assetUrl("figma-assets/b281255c-1686-47f8-b45d-f6d1a7738309.webp"),
@@ -95,7 +95,7 @@ const imgIPhone14Pro1 = FIGMA_ASSETS.imgIPhone14Pro1;
 const imgNeetrinoItComapny2Png1 = FIGMA_ASSETS.imgNeetrinoItComapny2Png1;
 const imgVector = FIGMA_ASSETS.imgVector;
 const imgPhilippHubertDVVjhUcdb30Unsplash1 = FIGMA_ASSETS.imgPhilippHubertDVVjhUcdb30Unsplash1;
-const imgEricaAnderson1 = FIGMA_ASSETS.imgEricaAnderson1;
+const heroHandAnimationVideoSrc = FIGMA_ASSETS.heroHandAnimationVideoSrc;
 const img30 = FIGMA_ASSETS.img30;
 const imgStanislavHristov3 = FIGMA_ASSETS.imgStanislavHristov3;
 const imgUiDesign21 = FIGMA_ASSETS.imgUiDesign21;
@@ -736,13 +736,15 @@ export function NeetrinoHome() {
               data-name="Erica Anderson 1"
               data-node-id="10:232"
             >
-              <Image
-                alt=""
-                unoptimized
-                width={2400}
-                height={2400}
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden
                 className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none size-full"
-                src={imgEricaAnderson1}
+                src={heroHandAnimationVideoSrc}
               />
             </div>
           </div>

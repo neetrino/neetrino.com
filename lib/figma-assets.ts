@@ -25,7 +25,8 @@ export const FIGMA_ASSETS = {
   imgPhilippHubertDVVjhUcdb30Unsplash1: assetUrl(
     "figma-assets/62b9fa74-22e0-4457-865e-43c6218500b5.webp",
   ),
-  imgEricaAnderson1: assetUrl("figma-assets/64738b5b-84dc-4cc4-a77f-049e3df52d77.gif"),
+  /** Hero hand wash — WebM (replaces legacy GIF `64738b5b-…`; use `HeroHandAnimationVideo`). */
+  heroHandAnimationVideoSrc: assetUrl("figma-assets/hero-animation.webm"),
   img30: assetUrl("figma-assets/4e1596f7-d4cd-49d3-bb93-922d629919db.webp"),
   /** Same file as `imgWhoWeAreFigma516` in `components/neetrino-home/figma-assets.ts` (Figma HOME 10:516). */
   img1: assetUrl("figma-assets/e13d4cdd-fff7-4529-b579-81b60d56576b.gif"),
@@ -87,3 +88,5 @@ export const FIGMA_ASSETS = {
   /** Mobile footer robot — Figma `722:742`; `SiteFooterMobileBackdrop539` + `mix-blend-hard-light`. */
   imgMobileFooterRobotProfile: assetUrl("figma-assets/27e4f1f7-b16b-46db-96dc-0d5f564ddf5f.png"),
 } as const;
+
+export const heroHandAnimationVideoSrc = FIGMA_ASSETS.heroHandAnimationVideoSrc;

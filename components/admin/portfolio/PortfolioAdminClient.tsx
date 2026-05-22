@@ -18,7 +18,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { GripVertical } from "lucide-react";
-import Image from "next/image";
+import { PortfolioAdminMediaThumb } from "@/components/admin/portfolio/PortfolioAdminMediaThumb";
 import { PORTFOLIO_UPLOAD_FORM_FIELD } from "@/lib/constants/portfolio-upload.constants";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
@@ -71,12 +71,7 @@ function SortableAdminRow({
         <GripVertical className="size-5" aria-hidden />
       </button>
       <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-lg bg-black/5">
-        {row.mediaType === "gif" ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={row.url} alt="" className="size-full object-cover" />
-        ) : (
-          <Image src={row.url} alt="" fill className="object-cover" sizes="96px" />
-        )}
+        <PortfolioAdminMediaThumb url={row.url} mediaType={row.mediaType} fileName={row.fileName} />
       </div>
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-medium text-black">{row.fileName}</p>
@@ -275,7 +270,8 @@ export function PortfolioAdminClient({ initialRows }: PortfolioAdminClientProps)
       <div>
         <h1 className="text-3xl font-semibold tracking-[-0.04em]">Portfolio</h1>
         <p className="mt-2 text-sm text-black/55">
-          Upload images or GIFs, reorder cards, and toggle visibility. Slots update automatically.
+          Upload images, WebM animations, or GIF fallbacks. Reorder cards and toggle visibility.
+          Slots update automatically.
         </p>
       </div>
 
@@ -289,7 +285,7 @@ export function PortfolioAdminClient({ initialRows }: PortfolioAdminClientProps)
         <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#151515] px-5 py-2.5 text-sm font-semibold text-white hover:bg-black">
           <input
             type="file"
-            accept=".webp,.png,.jpg,.jpeg,.gif,image/webp,image/png,image/jpeg,image/gif"
+            accept=".webp,.png,.jpg,.jpeg,.gif,.webm,image/webp,image/png,image/jpeg,image/gif,video/webm"
             className="sr-only"
             disabled={busy}
             onChange={(e) => {
@@ -300,8 +296,11 @@ export function PortfolioAdminClient({ initialRows }: PortfolioAdminClientProps)
               }
             }}
           />
-          Upload image / GIF
+          Upload animation / image
         </label>
+        <p className="w-full text-xs text-black/50">
+          Recommended: WebM for better performance. GIF is supported as fallback. Max 10 MB.
+        </p>
         <button
           type="button"
           className="rounded-full border border-black/15 px-5 py-2.5 text-sm font-semibold text-black/80 hover:bg-black/5"

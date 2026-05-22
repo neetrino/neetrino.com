@@ -1,3 +1,5 @@
+import { assetUrl } from "@/lib/assets";
+
 /**
  * World map frame in `CountriesSection` (`AboutUsMobile`, &lt; `lg`).
  *
@@ -16,8 +18,9 @@ export const ABOUT_MOBILE_COUNTRIES_SECTION_CLASS =
 export const ABOUT_MOBILE_COUNTRIES_SECTION_FOREGROUND_STACK_CLASS = "relative z-[1]" as const;
 
 /** Figma `479:1235` Ellipse 29 — left wash behind the reflected countries title. */
-export const ABOUT_MOBILE_COUNTRIES_ATMOSPHERE_ELLIPSE_SVG_SRC =
-  "/images/about-us/mobile-countries-atmosphere-ellipse-29.svg" as const;
+export const ABOUT_MOBILE_COUNTRIES_ATMOSPHERE_ELLIPSE_SVG_SRC = assetUrl(
+  "images/about-us/mobile-countries-atmosphere-ellipse-29.svg",
+);
 
 /**
  * Decorative wash — first layer in `ABOUT_MOBILE_COUNTRIES_SECTION_CLASS` (`z-0`); heading + map sit in

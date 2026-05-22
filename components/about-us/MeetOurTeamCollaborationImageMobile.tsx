@@ -7,7 +7,7 @@ import {
 } from "@/lib/about-us-meet-our-team.constants";
 
 /**
- * Mobile Meet our team — author art from `public/images/about-us/`; overlay in `MeetOurTeamHeading`.
+ * Mobile Meet our team — author art from CDN (`ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_PUBLIC_PATH`).
  * Layout: `globals.css` `.about-meet-our-team-mobile-illustration-*`.
  */
 export function MeetOurTeamCollaborationImageMobile() {

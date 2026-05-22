@@ -1,3 +1,5 @@
+import { assetUrl } from "@/lib/assets";
+
 /** Stats strip `AboutUsFigmaBlock3` — `top-[3527px]`, height 92px (Figma 335:1441). */
 export const ABOUT_STATS_BOTTOM_ROW_TOP_PX = 3527;
 export const ABOUT_STATS_BOTTOM_ROW_HEIGHT_PX = 92;
@@ -24,9 +26,10 @@ export const ABOUT_MEET_OUR_TEAM_HEADING_INSET_FROM_CANVAS_LEFT_PX = 132;
 export const ABOUT_MEET_OUR_TEAM_ILLUSTRATION_FRAME_WIDTH_PX = 620;
 export const ABOUT_MEET_OUR_TEAM_ILLUSTRATION_FRAME_HEIGHT_PX = 402;
 
-/** Served from `public/` — mobile Meet our team hero (326×356 PNG). */
-export const ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_PUBLIC_PATH =
-  "/images/about-us/meet-our-team-collaboration-mobile.png";
+/** Mobile Meet our team hero (326×356 PNG) — CDN. */
+export const ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_PUBLIC_PATH = assetUrl(
+  "images/about-us/meet-our-team-collaboration-mobile.png",
+);
 
 /** Intrinsic pixels of that file; must match asset + `globals.css` aspect calcs. */
 export const ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_SOURCE_WIDTH_PX = 326;
@@ -44,8 +47,9 @@ export const ABOUT_MEET_OUR_TEAM_MOBILE_ILLUSTRATION_DECODE_TARGET_PX = 600;
 export const ABOUT_MEET_OUR_TEAM_MOBILE_MARGIN_TOP_CLASS = "mt-[300px]";
 
 /** Figma `479:1151` Ellipse 30 — flatter ellipse (`viewBox` height 660), same blue stops as countries `479:1235`. */
-export const ABOUT_MEET_OUR_TEAM_BELOW_ATMOSPHERE_ELLIPSE_SVG_SRC =
-  "/images/about-us/mobile-meet-team-below-atmosphere-ellipse-30.svg" as const;
+export const ABOUT_MEET_OUR_TEAM_BELOW_ATMOSPHERE_ELLIPSE_SVG_SRC = assetUrl(
+  "images/about-us/mobile-meet-team-below-atmosphere-ellipse-30.svg",
+);
 
 /** Dev Mode export wrapper for `479:1151` (differs from hero ellipse inset). */
 export const ABOUT_MEET_OUR_TEAM_BELOW_ATMOSPHERE_INSET_WRAPPER_CLASS =

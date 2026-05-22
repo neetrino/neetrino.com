@@ -116,7 +116,7 @@ export async function POST(request: Request): Promise<NextResponse<OkJson | ErrJ
   const ext = getExtensionLower(file.name || "");
   if (!isAllowedPortfolioExtension(ext)) {
     return NextResponse.json(
-      { success: false, error: "Invalid file type. Allowed: WebP, PNG, JPEG, GIF." },
+      { success: false, error: "Invalid file type. Allowed: WebP, PNG, JPEG, GIF, WebM." },
       { status: 400 },
     );
   }
@@ -124,7 +124,7 @@ export async function POST(request: Request): Promise<NextResponse<OkJson | ErrJ
   const declaredMime = file.type?.trim() || mimeFromExtension(ext);
   if (!isAllowedPortfolioUploadMimeType(declaredMime)) {
     return NextResponse.json(
-      { success: false, error: "Invalid file type. Allowed: WebP, PNG, JPEG, GIF." },
+      { success: false, error: "Invalid file type. Allowed: WebP, PNG, JPEG, GIF, WebM." },
       { status: 400 },
     );
   }
@@ -138,7 +138,10 @@ export async function POST(request: Request): Promise<NextResponse<OkJson | ErrJ
 
   if (!bufferMatchesPortfolioMediaMime(buffer, declaredMime)) {
     return NextResponse.json(
-      { success: false, error: "File content does not match the declared image type." },
+      {
+        success: false,
+        error: "File content does not match the declared type (image or WebM).",
+      },
       { status: 400 },
     );
   }

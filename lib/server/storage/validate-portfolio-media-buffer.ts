@@ -11,6 +11,14 @@ function isGif(buffer: Buffer): boolean {
   return sig === "GIF87a" || sig === "GIF89a";
 }
 
+/** WebM / Matroska EBML header */
+function isWebm(buffer: Buffer): boolean {
+  if (buffer.length < 4) {
+    return false;
+  }
+  return buffer[0] === 0x1a && buffer[1] === 0x45 && buffer[2] === 0xdf && buffer[3] === 0xa3;
+}
+
 /**
  * Verifies buffer matches declared portfolio MIME (reduces Content-Type spoofing).
  */
@@ -41,6 +49,10 @@ export function bufferMatchesPortfolioMediaMime(
     );
   }
 
+  if (mime === "video/webm") {
+    return isWebm(buffer);
+  }
+
   return false;
 }
 
@@ -49,6 +61,7 @@ export function isAllowedPortfolioUploadMimeType(value: string): value is Portfo
     value === "image/webp" ||
     value === "image/png" ||
     value === "image/jpeg" ||
-    value === "image/gif"
+    value === "image/gif" ||
+    value === "video/webm"
   );
 }

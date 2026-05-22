@@ -1,4 +1,5 @@
 import "server-only";
+import { normalizePortfolioCardMediaType } from "@/lib/portfolio/portfolio-media-type";
 import type { PortfolioCardMediaType } from "@/lib/portfolio/portfolio-media-type";
 import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
 import { sortPortfolioItemsBySlot } from "@/lib/portfolio/portfolio-slot";
@@ -6,7 +7,7 @@ import { getPrisma } from "@/lib/server/db";
 import type { PortfolioItem } from "@/lib/generated/prisma/client";
 
 function storedMediaType(row: PortfolioItem): PortfolioCardMediaType {
-  return row.mediaType === "gif" ? "gif" : "image";
+  return normalizePortfolioCardMediaType(row.mediaType, row.url);
 }
 
 function toPublicCard(row: PortfolioItem): PublicPortfolioCard {

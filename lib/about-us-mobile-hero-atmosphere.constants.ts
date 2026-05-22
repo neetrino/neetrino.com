@@ -1,3 +1,5 @@
+import { assetUrl } from "@/lib/assets";
+
 /**
  * Mobile About hero atmosphere — Figma NEETRINO-WEB (back → front):
  * - `479:1172` Rectangle 17417
@@ -5,14 +7,17 @@
  * - `479:1234` Ellipse 27
  */
 
-export const ABOUT_US_MOBILE_HERO_ATMOSPHERE_BASE_RECT_SVG_SRC =
-  "/images/about-us/mobile-hero-atmosphere-rectangle-17417.svg" as const;
+export const ABOUT_US_MOBILE_HERO_ATMOSPHERE_BASE_RECT_SVG_SRC = assetUrl(
+  "images/about-us/mobile-hero-atmosphere-rectangle-17417.svg",
+);
 
-export const ABOUT_US_MOBILE_HERO_ATMOSPHERE_LOWER_VECTOR_SVG_SRC =
-  "/images/about-us/mobile-hero-atmosphere-vector-27398.svg" as const;
+export const ABOUT_US_MOBILE_HERO_ATMOSPHERE_LOWER_VECTOR_SVG_SRC = assetUrl(
+  "images/about-us/mobile-hero-atmosphere-vector-27398.svg",
+);
 
-export const ABOUT_US_MOBILE_HERO_ATMOSPHERE_ELLIPSE_SVG_SRC =
-  "/images/about-us/mobile-hero-atmosphere-ellipse-27.svg" as const;
+export const ABOUT_US_MOBILE_HERO_ATMOSPHERE_ELLIPSE_SVG_SRC = assetUrl(
+  "images/about-us/mobile-hero-atmosphere-ellipse-27.svg",
+);
 
 /**
  * Rectangle `479:1172` — lowest wash (~y≈405 in frame); SVG blur ~102.
