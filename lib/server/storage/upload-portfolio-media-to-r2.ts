@@ -12,6 +12,7 @@ const MIME_TO_EXT: Record<PortfolioUploadMimeType, string> = {
   "image/png": "png",
   "image/webp": "webp",
   "image/gif": "gif",
+  "video/webm": "webm",
 };
 
 function utcDateSlug(): string {
@@ -39,7 +40,7 @@ export type UploadPortfolioMediaToR2Result = {
 };
 
 /**
- * Uploads validated image/GIF buffer to R2 under {@link PORTFOLIO_UPLOAD_R2_PREFIX}.
+ * Uploads validated image/GIF/WebM buffer to R2 under {@link PORTFOLIO_UPLOAD_R2_PREFIX}.
  */
 export async function uploadPortfolioMediaToR2(
   config: BlogCoverR2Config,

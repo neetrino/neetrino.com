@@ -363,6 +363,7 @@ html[lang="hy"] body {
   width: max-content;
   align-items: flex-end;
   gap: 11px;
+  will-change: transform;
   animation-duration: var(--home-projects-marquee-row-duration);
   animation-timing-function: linear;
   animation-iteration-count: infinite;

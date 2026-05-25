@@ -146,6 +146,19 @@
     "metaTitle": "Contact us",
     "metaDescription": "Contact Neetrino to discuss your website, mobile, AI, or product development project."
   },
+  "paymentPage": {
+    "successTitle": "Payment successful",
+    "successMessage": "Thank you. Your payment was verified and recorded.",
+    "successMetaTitle": "Payment successful",
+    "successMetaDescription": "Your Neetrino payment was completed successfully.",
+    "failTitle": "Payment not completed",
+    "failMessage": "The payment was cancelled or could not be verified. You can try again or contact us for help.",
+    "failMetaTitle": "Payment failed",
+    "failMetaDescription": "Your Neetrino payment was not completed.",
+    "orderNumberLabel": "Order number",
+    "home": "Home",
+    "contact": "Contact us"
+  },
   "servicesPage": {
     "heroTitleBefore": "SERV",
     "heroTitleAccent": "ICE",

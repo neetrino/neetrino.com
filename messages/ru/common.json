@@ -146,6 +146,19 @@
     "metaTitle": "Контакты",
     "metaDescription": "Свяжитесь с Neetrino для обсуждения сайта, мобильного приложения, AI-решения или продуктовой разработки."
   },
+  "paymentPage": {
+    "successTitle": "Оплата прошла успешно",
+    "successMessage": "Спасибо. Платёж проверен и сохранён.",
+    "successMetaTitle": "Оплата успешна",
+    "successMetaDescription": "Ваш платёж Neetrino успешно завершён.",
+    "failTitle": "Оплата не завершена",
+    "failMessage": "Платёж отменён или не удалось подтвердить оплату. Попробуйте снова или свяжитесь с нами.",
+    "failMetaTitle": "Оплата не выполнена",
+    "failMetaDescription": "Ваш платёж Neetrino не был завершён.",
+    "orderNumberLabel": "Номер заказа",
+    "home": "На главную",
+    "contact": "Связаться с нами"
+  },
   "servicesPage": {
     "heroTitleBefore": "УСЛ",
     "heroTitleAccent": "УГ",

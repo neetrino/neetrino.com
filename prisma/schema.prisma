@@ -1,65 +1,163 @@
-generator client {
-  provider            = "prisma-client"
-  output              = "../lib/generated/prisma"
-  runtime             = "nodejs"
-  moduleFormat        = "esm"
-  importFileExtension = "ts"
-}
-
-datasource db {
-  provider = "postgresql"
-}
-
-enum BlogPostStatus {
-  DRAFT
-  PUBLISHED
-}
-
-model BlogPost {
-  id            String                @id @default(cuid())
-  status        BlogPostStatus        @default(DRAFT)
-  coverImageUrl String?
-  publishedAt   DateTime?
-  createdAt     DateTime              @default(now())
-  updatedAt     DateTime              @updatedAt
-  translations  BlogPostTranslation[]
-
-  @@index([status])
-  @@index([publishedAt])
-}
-
-model BlogPostTranslation {
-  id             String   @id @default(cuid())
-  postId         String
-  post           BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
-  locale         String
-  slug           String
-  title          String
-  excerpt        String
-  content        String
-  imageAlt       String?
-  seoTitle       String?
-  seoDescription String?
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-
-  @@unique([locale, slug])
-  @@unique([postId, locale])
-  @@index([postId])
-  @@index([locale])
-}
-
-model PortfolioItem {
-  id        String   @id @default(cuid())
-  key       String   @unique
-  url       String
-  fileName  String
-  mediaType String
-  slot      String   @unique
-  active    Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([active])
-  @@index([slot])
-}
+generator client {
+  provider            = "prisma-client"
+  output              = "../lib/generated/prisma"
+  runtime             = "nodejs"
+  moduleFormat        = "esm"
+  importFileExtension = "ts"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum BlogPostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model BlogPost {
+  id            String                @id @default(cuid())
+  status        BlogPostStatus        @default(DRAFT)
+  coverImageUrl String?
+  publishedAt   DateTime?
+  createdAt     DateTime              @default(now())
+  updatedAt     DateTime              @updatedAt
+  translations  BlogPostTranslation[]
+
+  @@index([status])
+  @@index([publishedAt])
+}
+
+model BlogPostTranslation {
+  id             String   @id @default(cuid())
+  postId         String
+  post           BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  locale         String
+  slug           String
+  title          String
+  excerpt        String
+  content        String
+  imageAlt       String?
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([locale, slug])
+  @@unique([postId, locale])
+  @@index([postId])
+  @@index([locale])
+}
+
+model PortfolioItem {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  url       String
+  fileName  String
+  mediaType String
+  slot      String   @unique
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([active])
+  @@index([slot])
+}
+
+enum ProductType {
+  ONE_TIME
+  PERMANENT
+}
+
+enum ProductStatus {
+  ACTIVE
+  INACTIVE
+  SOLD
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  FAILED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  CANCELLED
+}
+
+enum PaymentProvider {
+  IDBANK_ARCA
+}
+
+model Product {
+  id          String        @id @default(cuid())
+  name        String
+  description String?
+  price       Decimal       @db.Decimal(12, 2)
+  currency    String        @default("AMD")
+  type        ProductType
+  status      ProductStatus @default(ACTIVE)
+  secretSlug  String        @unique
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  orders      Order[]
+
+  @@index([status])
+  @@index([type])
+  @@index([secretSlug])
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  orderNumber   String      @unique
+  productId     String
+  product       Product     @relation(fields: [productId], references: [id], onDelete: Restrict)
+  productName   String
+  amount        Decimal     @db.Decimal(12, 2)
+  currency      String      @default("AMD")
+  customerName  String?
+  customerEmail String?
+  customerPhone String?
+  status        OrderStatus @default(PENDING)
+  paidAt        DateTime?
+  failedAt      DateTime?
+  cancelledAt   DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  payments      Payment[]
+
+  @@index([productId])
+  @@index([status])
+  @@index([orderNumber])
+  @@index([createdAt])
+}
+
+model Payment {
+  id                    String          @id @default(cuid())
+  orderId               String
+  order                 Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  provider              PaymentProvider @default(IDBANK_ARCA)
+  status                PaymentStatus   @default(PENDING)
+  amount                Decimal         @db.Decimal(12, 2)
+  currency              String          @default("AMD")
+  providerTransactionId String?
+  arcaOrderId           String?
+  arcaOrderNumber       String?
+  rawRegisterResponse   Json?
+  rawStatusResponse     Json?
+  paidAt                DateTime?
+  failedAt              DateTime?
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+
+  @@index([orderId])
+  @@index([providerTransactionId])
+  @@index([arcaOrderId])
+  @@index([status])
+  @@index([createdAt])
+}
+

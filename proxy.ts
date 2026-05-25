@@ -45,7 +45,7 @@ export const config = {
     "/api/admin/:path*",
     // Exclude `icon` / `apple-icon` — Next metadata routes have no “.” so `.*\\..*` would not skip them;
     // without this, next-intl proxy intercepts `/icon` and the tab icon never loads.
-    "/((?!api|_next|_vercel|icon$|icon/|apple-icon$|apple-icon/|.*\\..*).*)",
+    "/((?!api|wc-api|_next|_vercel|icon$|icon/|apple-icon$|apple-icon/|.*\\..*).*)",
   ],
 };
 

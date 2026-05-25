@@ -16,10 +16,10 @@ import {
   HOME_DESKTOP_HERO_TABLET_SKY_FRAME_OUTER_CLASS,
 } from "@/lib/home-desktop-hero-tablet-sky.constants";
 import { HOME_DESKTOP_HERO_TABLET_ROBOT_WRAPPER_TOP_CLASS } from "@/lib/home-desktop-hero-tablet-robot.constants";
+import { HeroHandAnimationVideo } from "@/components/sections/HeroHandAnimationVideo";
 import {
   img28A,
   img30,
-  imgEricaAnderson1,
   imgPhilippHubertDVVjhUcdb30Unsplash1,
   imgRectangle17399,
 } from "./figma-assets";
@@ -79,16 +79,7 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
               data-name="Erica Anderson 1"
               data-node-id="10:232"
             >
-              <Image
-                alt=""
-                unoptimized
-                width={2400}
-                height={2400}
-                loading="eager"
-                decoding="async"
-                className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none size-full"
-                src={imgEricaAnderson1}
-              />
+              <HeroHandAnimationVideo className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none size-full" />
             </div>
           </div>
         </div>

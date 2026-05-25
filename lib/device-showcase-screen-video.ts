@@ -5,13 +5,13 @@ import { assetUrl } from "@/lib/assets";
 /**
  * URL used **on the iPhone mockup** (slot 0) — portrait slot; file on disk is named `iphone-screen`.
  */
-export const DEVICE_SHOWCASE_IPHONE_VIDEO_SRC = assetUrl("device-showcase/iphone-screen.MP4");
+export const DEVICE_SHOWCASE_IPHONE_VIDEO_SRC = assetUrl("device-showcase/iphone-screen.webm");
 
 /**
  * URL for iPad / MacBook / iMac (ids 1–3) — landscape; file on disk is named `other-devices`.
  */
 export const DEVICE_SHOWCASE_OTHER_DEVICES_VIDEO_SRC = assetUrl(
-  "device-showcase/other-devices.mov",
+  "device-showcase/other-devices.webm",
 );
 
 /**

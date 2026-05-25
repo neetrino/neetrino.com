@@ -1,3 +1,5 @@
+import { assetUrl } from "@/lib/assets";
+
 /**
  * Mobile About hero — Figma NEETRINO-WEB `479:1237`–`479:1251` (inside frame `479:1144`).
  * Robot: `lib/about-us-mobile-hero-robot.constants.ts` + `AboutUsMobileHeroRobot`.
@@ -39,11 +41,10 @@ export const ABOUT_US_MOBILE_HERO_STAT_GLOW_OPACITY = 0.3;
 export const ABOUT_US_MOBILE_ABOUT_GLASS_TILE_CLASS =
   "rounded-2xl bg-[rgba(255,255,255,0.04)] ring-1 ring-white/[0.06] backdrop-blur-sm" as const;
 
-/**
- * Figma `479:1246` — single frosted panel behind hero stats (`Rectangle 17399`); SVG in `public/`.
- */
-export const ABOUT_US_MOBILE_HERO_STATS_PANEL_BG_SRC =
-  "/images/about-us/mobile-hero-stats-panel-bg.svg" as const;
+/** Figma `479:1246` — single frosted panel behind hero stats (`Rectangle 17399`). */
+export const ABOUT_US_MOBILE_HERO_STATS_PANEL_BG_SRC = assetUrl(
+  "images/about-us/mobile-hero-stats-panel-bg.svg",
+);
 
 /**
  * Escape `.section-container` horizontal padding (`1rem` / `1.5rem` @ `sm`) so the stats panel can
