@@ -15,6 +15,12 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             <Link href="/admin/portfolio" className="font-medium text-black/70 hover:text-black">
               Portfolio
             </Link>
+            <Link href="/admin/products" className="font-medium text-black/70 hover:text-black">
+              Products
+            </Link>
+            <Link href="/admin/orders" className="font-medium text-black/70 hover:text-black">
+              Orders
+            </Link>
             <form action="/admin/logout" method="post">
               <button type="submit" className="font-medium text-black/55 hover:text-black">
                 Logout

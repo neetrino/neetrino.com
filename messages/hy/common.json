@@ -146,6 +146,19 @@
     "metaTitle": "Կապ",
     "metaDescription": "Կապ հաստատեք Neetrino-ի հետ՝ կայքի, մոբայլ հավելվածի, AI լուծման կամ թվային պրոդուկտի մշակման համար։"
   },
+  "paymentPage": {
+    "successTitle": "Վճարումը հաջող էր",
+    "successMessage": "Շնորհակալություն։ Ձեր վճարումը հաստատված և գրանցված է։",
+    "successMetaTitle": "Վճարումը հաջող էր",
+    "successMetaDescription": "Ձեր Neetrino վճարումը հաջողությամբ ավարտվել է։",
+    "failTitle": "Վճարումը չի ավարտվել",
+    "failMessage": "Վճարումը չեղարկվել է կամ չհաջողվեց հաստատել։ Կարող եք կրկին փորձել կամ կապվել մեզ հետ։",
+    "failMetaTitle": "Վճարումը չի ավարտվել",
+    "failMetaDescription": "Ձեր Neetrino վճարումը չի ավարտվել։",
+    "orderNumberLabel": "Պատվերի համար",
+    "home": "Գլխավոր",
+    "contact": "Կապ մեզ հետ"
+  },
   "servicesPage": {
     "heroTitleBefore": "Ծառայո",
     "heroTitleAccent": "ւթյո",

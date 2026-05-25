@@ -73,7 +73,7 @@ export function CanvasScaler({
       <div
         ref={innerRef}
         className={cn("neetrino-canvas-inner", innerClassName)}
-        style={{ minHeight: canvasHeight }}
+        style={{ minHeight: canvasHeight, willChange: "transform" }}
       >
         {children}
       </div>
