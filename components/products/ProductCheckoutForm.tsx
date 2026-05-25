@@ -1,19 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import type { PaymentLanguageCode } from "@/lib/payment.constants";
 
 type ProductCheckoutFormProps = {
   readonly secretSlug: string;
+  readonly language?: PaymentLanguageCode;
 };
 
-export function ProductCheckoutForm({ secretSlug }: ProductCheckoutFormProps) {
-  const [message, setMessage] = useState<string | null>(null);
+export function ProductCheckoutForm({ secretSlug, language }: ProductCheckoutFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
-    setMessage(null);
     setError(null);
     setLoading(true);
 
@@ -28,27 +28,29 @@ export function ProductCheckoutForm({ secretSlug }: ProductCheckoutFormProps) {
           customerName: formData.get("customerName"),
           customerEmail: formData.get("customerEmail"),
           customerPhone: formData.get("customerPhone"),
+          ...(language ? { language } : {}),
         }),
       });
 
       const data = (await res.json()) as {
         success?: boolean;
-        message?: string;
         error?: string;
-        orderNumber?: string;
+        redirectUrl?: string;
       };
 
       if (!res.ok || !data.success) {
-        setError(data.error ?? "Could not start order.");
+        setError(data.error ?? "Could not start payment.");
         return;
       }
 
-      setMessage(
-        data.message ?? `Order ${data.orderNumber ?? ""} created. Payment will be connected soon.`,
-      );
-      form.reset();
+      if (data.redirectUrl) {
+        window.location.assign(data.redirectUrl);
+        return;
+      }
+
+      setError("Payment could not be started. Please try again.");
     } catch {
-      setError("Could not start order. Please try again.");
+      setError("Could not start payment. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -91,18 +93,13 @@ export function ProductCheckoutForm({ secretSlug }: ProductCheckoutFormProps) {
           {error}
         </p>
       ) : null}
-      {message ? (
-        <p className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-100">
-          {message}
-        </p>
-      ) : null}
 
       <button
         type="submit"
         disabled={loading}
         className="w-full rounded-full bg-[#473dff] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-95 disabled:opacity-50"
       >
-        {loading ? "Processing…" : "Pay"}
+        {loading ? "Redirecting to bank…" : "Pay"}
       </button>
     </form>
   );

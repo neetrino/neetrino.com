@@ -7,7 +7,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
     const callbackInput = parseIdbankCallbackQuery(request.nextUrl.searchParams);
     const result = await handleIdbankFailedCallback(callbackInput);
-    const target = buildPaymentResultRedirect(result.redirectPath, result.orderId);
+    const target = buildPaymentResultRedirect(result.redirectPath, result.orderNumber);
     return NextResponse.redirect(target, { status: 303 });
   } catch (error) {
     console.error("[idbank-failed] Callback handler failed.", error);

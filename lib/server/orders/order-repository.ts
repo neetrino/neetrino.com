@@ -92,6 +92,10 @@ export async function findOrderById(orderId: string): Promise<Order | null> {
   return getPrisma().order.findUnique({ where: { id: orderId } });
 }
 
+export async function findOrderByNumber(orderNumber: string): Promise<Order | null> {
+  return getPrisma().order.findUnique({ where: { orderNumber } });
+}
+
 export async function createPendingProductOrder(input: CreateProductOrderInput): Promise<Order> {
   return getPrisma().order.create({
     data: {

@@ -1,3 +1,5 @@
+import type { Prisma } from "@/lib/generated/prisma/client";
+
 /**
  * Converts AMD major units to ArCa minor units (AMD × 100).
  */
@@ -12,4 +14,11 @@ export function amountAmdToMinorUnits(amountAmd: number): number {
   }
 
   return minor;
+}
+
+/**
+ * Converts a Prisma Decimal order amount (AMD major units) to ArCa minor units.
+ */
+export function amountDecimalToMinorUnits(amount: Prisma.Decimal): number {
+  return amountAmdToMinorUnits(Number(amount.toString()));
 }

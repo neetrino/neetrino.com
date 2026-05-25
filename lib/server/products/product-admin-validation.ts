@@ -1,5 +1,6 @@
 import { ProductStatus, ProductType } from "@/lib/generated/prisma/client";
 import { z } from "zod";
+import { PAYMENT_LANGUAGE_CODES } from "@/lib/payment.constants";
 
 export const createProductSchema = z.object({
   name: z.string().trim().min(1).max(200),
@@ -20,4 +21,5 @@ export const startOrderBodySchema = z.object({
   customerName: z.string().trim().min(1).max(200),
   customerEmail: z.email().max(254),
   customerPhone: z.string().trim().min(5).max(40),
+  language: z.enum(PAYMENT_LANGUAGE_CODES).optional(),
 });

@@ -1,6 +1,6 @@
 import "server-only";
 import { OrderStatus } from "@/lib/generated/prisma/client";
-import { findOrderById } from "@/lib/server/orders/order-repository";
+import { findOrderById, findOrderByNumber } from "@/lib/server/orders/order-repository";
 
 export type PublicOrderSummary = {
   readonly id: string;
@@ -12,13 +12,14 @@ export type PublicOrderSummary = {
 };
 
 export async function getPublicOrderSummary(
-  orderId: string | undefined,
+  orderRef: string | undefined,
 ): Promise<PublicOrderSummary | null> {
-  if (!orderId?.trim()) {
+  if (!orderRef?.trim()) {
     return null;
   }
 
-  const order = await findOrderById(orderId.trim());
+  const ref = orderRef.trim();
+  const order = (await findOrderByNumber(ref)) ?? (await findOrderById(ref));
   if (!order) {
     return null;
   }
