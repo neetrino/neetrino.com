@@ -39,7 +39,7 @@ export type VerifyIdbankCallbackInput = {
 
 export type VerifyIdbankCallbackResult = {
   readonly success: boolean;
-  readonly orderId: string;
+  readonly orderNumber: string;
   readonly redirectPath: string;
 };
 
@@ -88,7 +88,7 @@ export async function verifyIdbankSuccessCallback(
   if (!order) {
     return {
       success: false,
-      orderId: input.localOrderId ?? "",
+      orderNumber: input.localOrderNumber ?? "",
       redirectPath: PAYMENT_FAIL_PATH,
     };
   }
@@ -97,7 +97,7 @@ export async function verifyIdbankSuccessCallback(
   if (!payment) {
     return {
       success: false,
-      orderId: order.id,
+      orderNumber: order.orderNumber,
       redirectPath: PAYMENT_FAIL_PATH,
     };
   }
@@ -105,7 +105,7 @@ export async function verifyIdbankSuccessCallback(
   if (payment.status === PaymentStatus.PAID && order.status === OrderStatus.PAID) {
     return {
       success: true,
-      orderId: order.id,
+      orderNumber: order.orderNumber,
       redirectPath: PAYMENT_SUCCESS_PATH,
     };
   }
@@ -116,7 +116,7 @@ export async function verifyIdbankSuccessCallback(
     await markOrderAndPaymentFailed(order.id, payment.id);
     return {
       success: false,
-      orderId: order.id,
+      orderNumber: order.orderNumber,
       redirectPath: PAYMENT_FAIL_PATH,
     };
   }
@@ -127,7 +127,7 @@ export async function verifyIdbankSuccessCallback(
       await markOrderAndPaymentPaid(order.id, payment.id, statusResponse);
       return {
         success: true,
-        orderId: order.id,
+        orderNumber: order.orderNumber,
         redirectPath: PAYMENT_SUCCESS_PATH,
       };
     }
@@ -135,7 +135,7 @@ export async function verifyIdbankSuccessCallback(
     await markOrderAndPaymentFailed(order.id, payment.id, statusResponse);
     return {
       success: false,
-      orderId: order.id,
+      orderNumber: order.orderNumber,
       redirectPath: PAYMENT_FAIL_PATH,
     };
   } catch (error) {
@@ -146,7 +146,7 @@ export async function verifyIdbankSuccessCallback(
     });
     return {
       success: false,
-      orderId: order.id,
+      orderNumber: order.orderNumber,
       redirectPath: PAYMENT_FAIL_PATH,
     };
   }
@@ -159,7 +159,7 @@ export async function handleIdbankFailedCallback(
   if (!order) {
     return {
       success: false,
-      orderId: input.localOrderId ?? "",
+      orderNumber: input.localOrderNumber ?? "",
       redirectPath: PAYMENT_FAIL_PATH,
     };
   }
@@ -168,7 +168,7 @@ export async function handleIdbankFailedCallback(
   if (!payment) {
     return {
       success: false,
-      orderId: order.id,
+      orderNumber: order.orderNumber,
       redirectPath: PAYMENT_FAIL_PATH,
     };
   }
@@ -181,7 +181,7 @@ export async function handleIdbankFailedCallback(
         await markOrderAndPaymentPaid(order.id, payment.id, statusResponse);
         return {
           success: true,
-          orderId: order.id,
+          orderNumber: order.orderNumber,
           redirectPath: PAYMENT_SUCCESS_PATH,
         };
       }
@@ -195,7 +195,7 @@ export async function handleIdbankFailedCallback(
 
   return {
     success: false,
-    orderId: order.id,
+    orderNumber: order.orderNumber,
     redirectPath: PAYMENT_FAIL_PATH,
   };
 }

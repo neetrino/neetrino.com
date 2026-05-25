@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { ProductCheckoutForm } from "@/components/products/ProductCheckoutForm";
 import { interSans } from "@/lib/fonts";
 import type { AppLocale } from "@/lib/i18n/locales";
+import type { PaymentLanguageCode } from "@/lib/payment.constants";
+import { PAYMENT_LANGUAGE_CODES } from "@/lib/payment.constants";
 import { getProductAvailability } from "@/lib/server/products/product-availability";
 import { getProductBySecretSlug } from "@/lib/server/products/product-repository";
 
@@ -33,8 +35,14 @@ function unavailableMessage(reason: string): string {
   }
 }
 
+function toPaymentLanguage(locale: AppLocale): PaymentLanguageCode {
+  return PAYMENT_LANGUAGE_CODES.includes(locale as PaymentLanguageCode)
+    ? (locale as PaymentLanguageCode)
+    : "hy";
+}
+
 export default async function SecretProductPage({ params }: SecretProductPageProps) {
-  const { secretSlug } = await params;
+  const { locale, secretSlug } = await params;
   const product = await getProductBySecretSlug(secretSlug);
 
   if (!product) {
@@ -62,7 +70,10 @@ export default async function SecretProductPage({ params }: SecretProductPagePro
               {unavailableMessage(availability.reason)}
             </p>
           ) : (
-            <ProductCheckoutForm secretSlug={product.secretSlug} />
+            <ProductCheckoutForm
+              secretSlug={product.secretSlug}
+              language={toPaymentLanguage(locale)}
+            />
           )}
         </article>
       </div>

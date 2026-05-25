@@ -11,9 +11,9 @@ Admin-only products with secret URLs (`/p/{secretSlug}`). Not linked from the pu
 
 `https://neetrino.com/p/{secretSlug}` — `noindex, nofollow`. Slug is generated on create (24-byte base64url).
 
-## Start order (payment prep)
+## Start order + IDBank redirect
 
-`POST /api/products/{secretSlug}/start-order` — creates `PENDING` order; does not mark paid.
+`POST /api/products/{secretSlug}/start-order` — creates `PENDING` order and payment, registers with ArCa, returns `redirectUrl` for the bank form. Optional body field `language`: `hy` | `ru` | `en`.
 
 ## Product types
 

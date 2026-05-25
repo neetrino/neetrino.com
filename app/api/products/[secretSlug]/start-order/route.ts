@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { ArcaClientError } from "@/lib/server/payment/arca-types";
 import { startOrderBodySchema } from "@/lib/server/products/product-admin-validation";
 import {
   StartProductOrderError,
@@ -30,13 +31,14 @@ export async function POST(request: NextRequest, context: RouteContext): Promise
       customerName: parsed.data.customerName,
       customerEmail: parsed.data.customerEmail,
       customerPhone: parsed.data.customerPhone,
+      language: parsed.data.language,
     });
 
     return NextResponse.json({
       success: true,
       orderId: result.orderId,
       orderNumber: result.orderNumber,
-      message: "Order created. Payment integration will be connected next.",
+      redirectUrl: result.redirectUrl,
     });
   } catch (error) {
     if (error instanceof StartProductOrderError) {
@@ -45,7 +47,27 @@ export async function POST(request: NextRequest, context: RouteContext): Promise
         { status: error.status },
       );
     }
+
+    if (error instanceof ArcaClientError) {
+      console.error("[start-order] ArCa error.", { code: error.code, message: error.message });
+      return NextResponse.json(
+        { success: false, error: "Payment registration failed. Please try again." },
+        { status: 502 },
+      );
+    }
+
+    if (error instanceof Error && error.message.startsWith("Missing required environment")) {
+      console.error("[start-order] Configuration error.", error.message);
+      return NextResponse.json(
+        { success: false, error: "Payment service is not configured." },
+        { status: 503 },
+      );
+    }
+
     console.error("[start-order] failed.", error);
-    return NextResponse.json({ success: false, error: "Could not create order." }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: "Could not start payment." },
+      { status: 500 },
+    );
   }
 }
