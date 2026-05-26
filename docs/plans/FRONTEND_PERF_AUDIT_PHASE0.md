@@ -21,7 +21,7 @@
 | P0-03 | Quote modal backdrop blur            | `get-quote-modal.tsx`                                    | Medium           | Low                      | Remove blur, darker rgba                       | done    |
 | P0-04 | 4× showcase videos always mounted    | `EllipseDeviceShowcaseDevices.tsx`                       | Medium GPU       | High                     | Keep; pause off-center ✓                       | keep    |
 | P0-05 | Marquees (Partners, projects, tech)  | `Partners.tsx`, etc.                                     | Medium CPU       | Medium                   | Keep; `usePauseAnimationWhenOffScreen` ✓       | keep    |
-| P0-06 | `mix-blend-*` hero/footer/about      | many figma blocks                                        | **High**         | Medium glow              | Tier B: reduce layers                          | pending |
+| P0-06 | `mix-blend-*` hero/footer/about      | many figma blocks                                        | **High**         | Medium glow              | Home hero/segments: opacity not blend          | done    |
 | P0-07 | About `Block1a` blur+gradient stacks | `AboutUsFigmaBlock1a.tsx`                                | **Very high**    | Low (decor)              | Remove gradient/blur stacks; opacity not blend | done    |
 | P0-08 | Services light rays blur stacks      | `ServicesDesktopLightRaysDecor.tsx`                      | High             | Medium                   | Defer to phase 3 or simplify                   | pending |
 | P0-09 | Footer mobile `radial+linear` CSS    | `globals.css` `.site-footer-mobile-backdrop-atmosphere`  | Medium           | High brand               | Keep (Tier C) until redesign                   | keep    |
@@ -72,3 +72,4 @@ Chrome DevTools → Performance → record 5s scroll. Target: no long tasks >50m
 | 2026-05-26 | P0-11: tablet hybrid hero — gradient → solid top band                 |
 | 2026-05-26 | P0-07: About Block1a — removed gradient/blur decor, opacity not blend |
 | 2026-05-26 | P0-06: home hero + segments — mix-blend replaced with opacity         |
+| 2026-05-26 | P0-08: services light rays — gradient/blur stacks removed             |
