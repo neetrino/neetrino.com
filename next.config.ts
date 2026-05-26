@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import createNextIntlPlugin from "next-intl/plugin";
 import { getBlogImageRemotePatterns } from "./lib/build/blog-image-remote-patterns";
+import { getDevAllowedOrigins } from "./lib/build/dev-allowed-origins";
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
@@ -24,24 +25,8 @@ function parseAdminServerActionAllowedOrigins(): string[] | undefined {
 
 const adminServerActionAllowedOrigins = parseAdminServerActionAllowedOrigins();
 
-function parseAllowedDevOrigins(): string[] {
-  const defaults = ["localhost", "127.0.0.1", "192.168.15.126", "192.168.15.237", "192.168.18.52"];
-
-  const raw = process.env.DEV_ALLOWED_ORIGINS?.trim();
-  if (!raw) {
-    return defaults;
-  }
-
-  const extra = raw
-    .split(",")
-    .map((origin) => origin.trim())
-    .filter(Boolean);
-
-  return [...new Set([...defaults, ...extra])];
-}
-
 const nextConfig: NextConfig = {
-  allowedDevOrigins: parseAllowedDevOrigins(),
+  allowedDevOrigins: getDevAllowedOrigins(),
   /**
    * Browsers request `/favicon.ico` by default; App Router serves `app/icon.svg` as `/icon.svg`.
    * Rewrite so legacy `/favicon.ico` requests resolve to the same asset.
