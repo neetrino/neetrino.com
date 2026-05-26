@@ -8,7 +8,7 @@ import {
 } from "@/lib/about-us-stats-strip.constants";
 
 /**
- * Hero stat strip (335:956). Layers: text (z-10) → glass blur panel → robot (z-0 in Block1b).
+ * Hero stat strip (335:956). Layers: text (z-10) → opaque panel → robot (z-0 in Block1b).
  * Layout numbers: `lib/about-us-stats-strip.constants.ts`.
  */
 export function AboutUsFigmaBlock1bLower() {
@@ -23,7 +23,7 @@ export function AboutUsFigmaBlock1bLower() {
       data-node-id="335:956"
     >
       <div
-        className="pointer-events-none absolute inset-0 z-0 origin-center rounded-[24px] bg-[rgba(40,43,103,0.38)] backdrop-blur-[16px]"
+        className="pointer-events-none absolute inset-0 z-0 origin-center rounded-[24px] bg-[rgba(40,43,103,0.52)]"
         style={{
           transform: `scale(${ABOUT_STATS_STRIP_GLASS_SCALE_X}, ${ABOUT_STATS_STRIP_GLASS_SCALE_Y})`,
         }}

@@ -261,18 +261,21 @@ html[lang="hy"] body {
   background-color: transparent;
 }
 
-/* Tablet hybrid home hero (`/` below `lg`, `neetrino-layout-desktop`): blue head behind translucent `MobileHeader`. */
+/* Tablet hybrid home hero (`/` below `lg`, `neetrino-layout-desktop`): solid blue head behind translucent `MobileHeader`. */
 .neetrino-canvas-wrap.neetrino-canvas-wrap--tablet-hero {
+  position: relative;
   background-color: #151515;
-  background-image: linear-gradient(
-    180deg,
-    rgb(42, 58, 118) 0%,
-    rgb(28, 36, 72) 38%,
-    rgba(21, 21, 21, 0) 100%
-  );
-  background-size: 100% 200px;
-  background-repeat: no-repeat;
-  background-position: top center;
+}
+
+.neetrino-canvas-wrap.neetrino-canvas-wrap--tablet-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  z-index: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+  background-color: rgb(35, 47, 95);
 }
 
 /*

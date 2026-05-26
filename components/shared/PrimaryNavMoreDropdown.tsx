@@ -26,10 +26,10 @@ const triggerBase =
   "flex shrink-0 flex-row items-center gap-0.5 border-0 bg-transparent p-0 font-semibold text-white cursor-pointer outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60";
 
 const panelBase =
-  "w-fit rounded-[28px] border border-white/10 bg-[rgba(40,43,103,0.82)] py-2 shadow-[0_16px_40px_rgba(8,10,28,0.38)] backdrop-blur-xl backdrop-saturate-150";
+  "w-fit rounded-[28px] border border-white/10 bg-[rgba(40,43,103,0.92)] py-2 shadow-[0_16px_40px_rgba(8,10,28,0.38)]";
 
 /**
- * “More” disclosure — timed hover + focus; panel matches desktop header glass / pill tokens.
+ * “More” disclosure — timed hover + focus; panel matches desktop header pill tokens.
  */
 export function PrimaryNavMoreDropdown({ items, variant }: PrimaryNavMoreDropdownProps) {
   const t = useTranslations();

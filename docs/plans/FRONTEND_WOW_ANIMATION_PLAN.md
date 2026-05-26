@@ -42,8 +42,8 @@
 | #   | Задача                                                  | Статус                              |
 | --- | ------------------------------------------------------- | ----------------------------------- |
 | 0.1 | Audit-таблица: cost vs visual value                     | см. `FRONTEND_PERF_AUDIT_PHASE0.md` |
-| 0.2 | Убрать `backdrop-blur` где уже есть opaque fill         | in progress                         |
-| 0.3 | Упростить декоративные gradient/blur/mix-blend (Tier B) | pending                             |
+| 0.2 | Убрать `backdrop-blur` где уже есть opaque fill         | done                                |
+| 0.3 | Упростить декоративные gradient/blur/mix-blend (Tier B) | in progress (P0-07, P0-06 pending)  |
 | 0.4 | Проверить pause off-screen: marquees, showcase videos   | done (hooks на месте)               |
 | 0.5 | Baseline scroll smoke (375 / 1024 / 1440)               | pending                             |
 | 0.6 | Не добавлять gradient в новых UI                        | policy                              |
