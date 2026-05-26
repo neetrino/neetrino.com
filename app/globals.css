@@ -695,7 +695,7 @@ html[lang="hy"] body {
 }
 
 /**
- * 450+ robot hand — rounded arc tap; finger ~70° at rest → ~35° on press.
+ * 450+ robot hand — one rounded approach, straight press (R→L), straight release, home.
  */
 @keyframes home-450-hand-point {
   0%,
@@ -703,28 +703,32 @@ html[lang="hy"] body {
     transform: translate3d(0, 0, 0) rotate(var(--home-450-hand-angle-rest, 16deg));
   }
 
-  22% {
+  8% {
+    transform: translate3d(0, 0, 0) rotate(var(--home-450-hand-angle-rest, 16deg));
+  }
+
+  20% {
     transform: translate3d(
-        calc(var(--home-450-hand-arc-x-mid, -10px) * 0.35),
-        calc(var(--home-450-hand-arc-y-mid, -8px) * 0.35),
+        calc(var(--home-450-hand-arc-x-mid, -8px) * 0.4),
+        calc(var(--home-450-hand-arc-y-mid, -6px) * 0.4),
         0
       )
       rotate(var(--home-450-hand-angle-rest, 16deg));
   }
 
-  40% {
+  38% {
     transform: translate3d(
-        var(--home-450-hand-arc-x-mid, -10px),
-        var(--home-450-hand-arc-y-mid, -8px),
+        var(--home-450-hand-arc-x-mid, -8px),
+        var(--home-450-hand-arc-y-mid, -6px),
         0
       )
       rotate(var(--home-450-hand-angle-mid, 5deg));
   }
 
-  50% {
+  52% {
     transform: translate3d(
-        var(--home-450-hand-arc-x-press, -20px),
-        var(--home-450-hand-arc-y-press, -13px),
+        calc(var(--home-450-hand-arc-x-mid, -8px) + var(--home-450-hand-straight-x-press, -31px)),
+        calc(var(--home-450-hand-arc-y-mid, -6px) + var(--home-450-hand-straight-y-press, -19px)),
         0
       )
       rotate(var(--home-450-hand-angle-press, -6deg));
@@ -732,20 +736,24 @@ html[lang="hy"] body {
 
   60% {
     transform: translate3d(
-        var(--home-450-hand-arc-x-mid, -10px),
-        var(--home-450-hand-arc-y-mid, -8px),
+        calc(var(--home-450-hand-arc-x-mid, -8px) + var(--home-450-hand-straight-x-press, -31px)),
+        calc(var(--home-450-hand-arc-y-mid, -6px) + var(--home-450-hand-straight-y-press, -19px)),
+        0
+      )
+      rotate(var(--home-450-hand-angle-press, -6deg));
+  }
+
+  72% {
+    transform: translate3d(
+        var(--home-450-hand-arc-x-mid, -8px),
+        var(--home-450-hand-arc-y-mid, -6px),
         0
       )
       rotate(var(--home-450-hand-angle-mid, 5deg));
   }
 
-  78% {
-    transform: translate3d(
-        calc(var(--home-450-hand-arc-x-mid, -10px) * 0.35),
-        calc(var(--home-450-hand-arc-y-mid, -8px) * 0.35),
-        0
-      )
-      rotate(var(--home-450-hand-angle-rest, 16deg));
+  90% {
+    transform: translate3d(0, 0, 0) rotate(var(--home-450-hand-angle-rest, 16deg));
   }
 }
 
