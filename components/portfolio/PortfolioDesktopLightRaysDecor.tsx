@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import * as figma from "@/components/portfolio/portfolio-figma-assets";
 import { SERVICES_LIGHT_RAYS_DECOR_IDLE_TIMEOUT_MS } from "@/lib/desktop-scene-mount.constants";
+import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import type { AppLocale } from "@/lib/i18n/locales";
 import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
 import { cn } from "@/lib/utils";
@@ -69,8 +70,8 @@ export function PortfolioDesktopLightRaysDecor() {
             src={figma.imgEllipse27}
             fill
             sizes="1100px"
+            quality={DEFAULT_IMAGE_QUALITY}
             loading="lazy"
-            unoptimized
           />
         </div>
       </div>
@@ -85,8 +86,8 @@ export function PortfolioDesktopLightRaysDecor() {
             src={figma.imgEllipse28}
             fill
             sizes="1100px"
+            quality={DEFAULT_IMAGE_QUALITY}
             loading="lazy"
-            unoptimized
           />
         </div>
       </div>
@@ -100,8 +101,8 @@ export function PortfolioDesktopLightRaysDecor() {
                 src={figma.imgStar22}
                 fill
                 sizes="4200px"
+                quality={DEFAULT_IMAGE_QUALITY}
                 loading="lazy"
-                unoptimized
               />
             </div>
           </div>

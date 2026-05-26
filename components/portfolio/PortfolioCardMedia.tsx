@@ -19,6 +19,7 @@ const COVER_CLASS = "absolute inset-0 size-full object-cover" as const;
 
 /**
  * Portfolio card media: `next/image` for static images, `<img>` for GIF, `<video>` for WebM/video.
+ * Prefer WebM uploads in admin for animated cases (smaller than GIF).
  */
 export function PortfolioCardMedia({
   url,

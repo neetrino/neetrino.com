@@ -40,7 +40,7 @@ export function MobileHeader() {
               sizes="(max-width: 1024px) 140px, 0"
               className="h-full w-full object-contain object-left"
               src={FIGMA_ASSETS.imgNeetrinoItComapny2Png1}
-              priority
+              loading="eager"
             />
           </Link>
           <NavbarMobileShell links={PRIMARY_NAV_LINKS} />

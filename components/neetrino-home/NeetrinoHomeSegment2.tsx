@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { MeetOurTeamExplorePill } from "@/components/about-us/MeetOurTeamExplorePill";
 import { imgRectangle17417, imgWhoWeAreFigma516 } from "@/lib/figma-assets";
+import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 
 export function NeetrinoHomeSegment2() {
   const t = useTranslations();
@@ -93,7 +94,9 @@ export function NeetrinoHomeSegment2() {
               src={imgWhoWeAreFigma516}
               width={685}
               height={666}
-              unoptimized
+              sizes="685px"
+              quality={DEFAULT_IMAGE_QUALITY}
+              loading="lazy"
               className="absolute left-0 top-0 h-[103.85%] w-full max-w-none object-cover object-top"
             />
           </div>

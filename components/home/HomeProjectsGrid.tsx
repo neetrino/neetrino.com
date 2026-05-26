@@ -15,13 +15,12 @@ export function HomeProjectsGrid({ items }: HomeProjectsGridProps) {
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
-      {items.map((item, index) => (
+      {items.map((item) => (
         <PortfolioMobileGridCard
           key={item.id}
           item={item}
           imageSizes={MOBILE_PORTFOLIO_CARD_IMAGE_SIZES}
-          priority={index === 0}
-          loading={index === 0 ? "eager" : "lazy"}
+          loading="lazy"
         />
       ))}
     </div>

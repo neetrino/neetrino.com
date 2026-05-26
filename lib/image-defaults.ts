@@ -8,3 +8,10 @@ export const HERO_IMAGE_QUALITY = 70;
 export const SIZES_DESKTOP_MAX_1440 = "(max-width: 1440px) 100vw, 1440px";
 
 export const SIZES_FULL_VIEWPORT = "100vw";
+
+/**
+ * Per route, mark at most one above-the-fold raster as `priority` (LCP).
+ * Header logos and below-fold cards use `loading="eager"` or `lazy` without `priority`.
+ */
+export const LCP_PRIORITY_GUIDANCE =
+  "Use priority on a single hero/LCP raster per viewport; avoid priority on header logos and below-fold grids." as const;

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { imageUnoptimizedForSrc } from "@/lib/image-asset-optimization";
+import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { SITE_FOOTER_DESKTOP_FOOTER_BOTTOM_TOP_PX } from "@/lib/site-footer-copyright-strip.constants";
 
 /** Figma desktop footer — decorative glow layers and bottom strip (`10:223`–`10:238`). */
@@ -17,9 +19,11 @@ export function SiteFooterDesktopArt() {
               alt=""
               width={2400}
               height={2400}
-              unoptimized
               className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
               src={FIGMA_ASSETS.img10}
+              sizes="633px"
+              quality={DEFAULT_IMAGE_QUALITY}
+              loading="lazy"
             />
           </div>
         </div>
@@ -33,9 +37,11 @@ export function SiteFooterDesktopArt() {
               alt=""
               width={2400}
               height={2400}
-              unoptimized
               className="absolute h-[200.1%] left-0 max-w-none top-[-68.6%] w-full"
               src={FIGMA_ASSETS.img10}
+              sizes="633px"
+              quality={DEFAULT_IMAGE_QUALITY}
+              loading="lazy"
             />
           </div>
         </div>
@@ -51,9 +57,11 @@ export function SiteFooterDesktopArt() {
             alt=""
             width={2400}
             height={2400}
-            unoptimized
+            unoptimized={imageUnoptimizedForSrc(FIGMA_ASSETS.imgFooterBottom)}
             className="block max-w-none size-full"
             src={FIGMA_ASSETS.imgFooterBottom}
+            sizes="1241px"
+            loading="lazy"
           />
         </div>
       </div>

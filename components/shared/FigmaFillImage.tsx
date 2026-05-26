@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { imageUnoptimizedForSrc } from "@/lib/image-asset-optimization";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY, SIZES_DESKTOP_MAX_1440 } from "@/lib/image-defaults";
 
@@ -32,6 +33,7 @@ export function FigmaFillImage({
       sizes={sizes}
       quality={quality}
       priority={priority}
+      unoptimized={imageUnoptimizedForSrc(src)}
       loading={priority ? "eager" : (loading ?? "lazy")}
       className={cn("object-fill", className)}
     />

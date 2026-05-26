@@ -93,8 +93,8 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
             width={1186}
             height={128}
             className="neetrino-hero-neetrino-svg block"
-            priority
             unoptimized
+            loading="eager"
           />
         </div>
         <div
@@ -115,7 +115,6 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
               sizes="629px"
               quality={HERO_IMAGE_QUALITY}
               loading="eager"
-              priority
             />
           </div>
         </div>
@@ -274,8 +273,7 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
                       className="object-contain object-[right_bottom]"
                       sizes={HOME_DESKTOP_HERO_450_HAND_IMAGE_SIZES}
                       quality={DEFAULT_IMAGE_QUALITY}
-                      loading="eager"
-                      priority
+                      loading="lazy"
                     />
                   </div>
                 </div>

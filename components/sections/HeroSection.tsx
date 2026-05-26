@@ -83,10 +83,10 @@ function HeroTitleAndRobot({ locale }: { locale: AppLocale }) {
                 alt=""
                 width={836}
                 height={1491}
-                priority
                 quality={HERO_IMAGE_QUALITY}
                 className="absolute left-[-22.58%] top-[-60.36%] h-[196.49%] w-[145.15%] max-w-none object-cover"
                 sizes="576px"
+                loading="eager"
               />
             </div>
           </div>
@@ -230,8 +230,7 @@ function HeroStatWide() {
                 className="object-cover object-right"
                 sizes="(max-width: 768px) 271px, 271px"
                 quality={DEFAULT_IMAGE_QUALITY}
-                loading="eager"
-                priority
+                loading="lazy"
               />
             </div>
           </div>

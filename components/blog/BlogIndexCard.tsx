@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { BlogIndexItem } from "@/lib/blog-page.constants";
+import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import { cn } from "@/lib/utils";
 
 export type BlogIndexCardProps = {
@@ -32,6 +33,9 @@ export function BlogIndexCard({ item, className }: BlogIndexCardProps) {
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          quality={DEFAULT_IMAGE_QUALITY}
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div className="flex flex-1 flex-col gap-3 px-5 py-5">

@@ -1,6 +1,10 @@
 /** Max upload size for portfolio card images, GIFs, and WebM (10 MiB). */
 export const PORTFOLIO_UPLOAD_MAX_BYTES = 10 * 1024 * 1024;
 
+/**
+ * Allowed extensions. Prefer `.webm` over `.gif` for motion — smaller and uses `<video>` in cards.
+ */
+
 /** Form field name for multipart upload. */
 export const PORTFOLIO_UPLOAD_FORM_FIELD = "file" as const;
 

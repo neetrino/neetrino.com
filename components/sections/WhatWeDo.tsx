@@ -4,6 +4,7 @@ import { serviceDetailHref } from "@/components/services/service-pages-data";
 import type { WhatWeDoCardSlug } from "@/lib/what-we-do-continue-glow";
 import { WhatWeDoContinueLink } from "@/components/sections/WhatWeDoContinueLink";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { imageUnoptimizedForSrc } from "@/lib/image-asset-optimization";
 import { interSans } from "@/lib/fonts";
 import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
@@ -200,7 +201,7 @@ export async function WhatWeDo() {
                         src={FIGMA_ASSETS.imgRectangle17417}
                         alt=""
                         fill
-                        unoptimized
+                        unoptimized={imageUnoptimizedForSrc(FIGMA_ASSETS.imgRectangle17417)}
                         className="pointer-events-none block max-w-none object-fill select-none"
                         sizes="(max-width: 480px) 100vw, 512px"
                         quality={DEFAULT_IMAGE_QUALITY}
