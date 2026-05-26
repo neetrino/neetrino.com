@@ -274,45 +274,20 @@ export function PortfolioAdminClient({ initialRows }: PortfolioAdminClientProps)
     }
   };
 
-  const syncFromR2 = async () => {
-    setBusy(true);
-    setMessage(null);
-    try {
-      const res = await fetch("/api/admin/portfolio/sync", {
-        method: "POST",
-        credentials: "include",
-      });
-      const data = (await res.json()) as { success?: boolean; imported?: number; error?: string };
-      if (!res.ok || !data.success) {
-        throw new Error(data.error ?? "Sync failed.");
-      }
-      setMessage(`Imported ${data.imported ?? 0} new object(s).`);
-      refresh();
-    } catch (e: unknown) {
-      setMessage(e instanceof Error ? e.message : "Sync failed.");
-    } finally {
-      setBusy(false);
-    }
-  };
-
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-semibold tracking-[-0.04em]">Portfolio</h1>
-        <p className="mt-2 text-sm text-black/55">
-          Upload images, WebM animations, or GIF fallbacks. Reorder cards and toggle visibility.
-          Slots update automatically.
-        </p>
-      </div>
-
-      {message ? (
-        <p className="rounded-lg border border-black/10 bg-white px-4 py-3 text-sm text-black/80">
-          {message}
-        </p>
-      ) : null}
-
-      <div className="flex flex-wrap items-center gap-3">
-        <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#151515] px-5 py-2.5 text-sm font-semibold text-white hover:bg-black">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 className="text-3xl font-semibold tracking-[-0.04em]">Portfolio</h1>
+          <p className="mt-2 text-sm text-black/55">
+            Upload images, WebM animations, or GIF fallbacks. Reorder cards and toggle visibility.
+            Slots update automatically.
+          </p>
+          <p className="mt-1 text-xs text-black/45">
+            Recommended: WebM for better performance. GIF is supported as fallback. Max 10 MB.
+          </p>
+        </div>
+        <label className="inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full bg-[#151515] px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50">
           <input
             type="file"
             accept=".webp,.png,.jpg,.jpeg,.gif,.webm,image/webp,image/png,image/jpeg,image/gif,video/webm"
@@ -328,20 +303,13 @@ export function PortfolioAdminClient({ initialRows }: PortfolioAdminClientProps)
           />
           Upload animation / image
         </label>
-        <p className="w-full text-xs text-black/50">
-          Recommended: WebM for better performance. GIF is supported as fallback. Max 10 MB.
-        </p>
-        <button
-          type="button"
-          className="rounded-full border border-black/15 px-5 py-2.5 text-sm font-semibold text-black/80 hover:bg-black/5"
-          disabled={busy}
-          onClick={() => {
-            void syncFromR2();
-          }}
-        >
-          Sync from R2
-        </button>
       </div>
+
+      {message ? (
+        <p className="rounded-lg border border-black/10 bg-white px-4 py-3 text-sm text-black/80">
+          {message}
+        </p>
+      ) : null}
 
       {rows.length === 0 ? (
         <AdminListEmpty message="No portfolio items yet." />

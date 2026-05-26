@@ -14,6 +14,7 @@ type ProductFormProps = {
   readonly productId?: string;
   readonly embedded?: boolean;
   readonly onSaved?: () => void;
+  readonly onCancel?: () => void;
   readonly initial?: {
     readonly name: string;
     readonly description: string;
@@ -30,6 +31,7 @@ export function ProductForm({
   initial,
   embedded = false,
   onSaved,
+  onCancel,
 }: ProductFormProps) {
   const router = useRouter();
   const [name, setName] = useState(initial?.name ?? "");
@@ -80,6 +82,12 @@ export function ProductForm({
       }
 
       if (mode === "create" && data.product?.id) {
+        if (onSaved) {
+          onSaved();
+          router.refresh();
+          return;
+        }
+
         if (data.product.publicUrl) {
           setCreatedUrl(data.product.publicUrl);
         }
@@ -204,7 +212,15 @@ export function ProductForm({
         >
           {saving ? "Saving…" : "Save"}
         </button>
-        {embedded ? null : (
+        {embedded && onCancel ? (
+          <button
+            type="button"
+            onClick={onCancel}
+            className="rounded-full border border-black/15 px-5 py-2.5 text-sm font-semibold text-black/70"
+          >
+            Cancel
+          </button>
+        ) : embedded ? null : (
           <Link
             href="/admin/products"
             className="rounded-full border border-black/15 px-5 py-2.5 text-sm font-semibold text-black/70"
