@@ -7,6 +7,7 @@ import { NeetrinoDesktopScaleReference } from "@/components/layout/NeetrinoDeskt
 import { QuoteModalProvider } from "@/components/quote/quote-modal-context";
 import { AppHeader } from "@/components/sections/AppHeader";
 import { Footer } from "@/components/sections/Footer";
+import { SiteScrollReveal } from "@/components/motion/SiteScrollReveal";
 import { FloatingContactFab } from "@/components/shared/FloatingContactFab";
 import { routing } from "@/i18n/routing";
 
@@ -35,6 +36,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <AppHeader />
         <NeetrinoDesktopScaleReference />
         <div className="mobile-site-page-atmosphere relative isolate w-full min-w-0 overflow-x-hidden bg-[#151515]">
+          <SiteScrollReveal />
           <DesktopFlowServicesVectorGrid />
           <div className="relative z-[1]">{children}</div>
         </div>

@@ -35,4 +35,22 @@ export function createDrawerTransition({ durationMs }: DrawerTransitionOptions):
   };
 }
 
+export const scrollRevealHidden = {
+  opacity: 0,
+  y: 24,
+} as const;
+
+export const scrollRevealVisible = {
+  opacity: 1,
+  y: 0,
+} as const;
+
+export function createScrollRevealTransition(durationMs: number, delayMs = 0): Transition {
+  return {
+    duration: durationMs / 1000,
+    delay: delayMs / 1000,
+    ease: MOTION_EASE.out,
+  };
+}
+
 export const DRAWER_MOTION_DURATION_MS = MOTION_DURATION_MS.subtle;

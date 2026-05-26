@@ -1,6 +1,10 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { MeetOurTeamExplorePill } from "@/components/about-us/MeetOurTeamExplorePill";
+import { Reveal } from "@/components/motion/Reveal";
 import { interSans } from "@/lib/fonts";
+import { SCROLL_REVEAL_SLOW_STAGGER_MS } from "@/lib/motion/scroll-reveal.constants";
 
 export function WhoWeAre() {
   const t = useTranslations();
@@ -11,7 +15,7 @@ export function WhoWeAre() {
       className={`section-container relative overflow-x-clip py-10 md:py-16 ${interSans.className}`}
       aria-labelledby="who-we-are-heading"
     >
-      <div className="flex flex-col gap-5">
+      <Reveal profile="slow" className="flex flex-col gap-5">
         <div className="w-full shrink-0">
           <p className="text-sm font-medium uppercase tracking-wider text-white">
             {t("home.whoWeAre.eyebrow")}
@@ -38,11 +42,15 @@ export function WhoWeAre() {
             </p>
           </div>
         </div>
-      </div>
+      </Reveal>
 
-      <div className="relative z-10 mt-5 flex justify-start">
+      <Reveal
+        profile="slow"
+        className="relative z-10 mt-5 flex justify-start"
+        delayMs={SCROLL_REVEAL_SLOW_STAGGER_MS}
+      >
         <MeetOurTeamExplorePill align="start" href="/contact" />
-      </div>
+      </Reveal>
     </section>
   );
 }

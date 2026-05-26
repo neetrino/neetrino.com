@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { PageBlockReveal } from "@/components/motion/PageBlockReveal";
 import { interSans } from "@/lib/fonts";
 import { getLocaleAlternates } from "@/lib/metadata";
 import { pageTitleMegatroxFontClass } from "@/lib/page-title-megatrox-font.constants";
@@ -37,17 +38,19 @@ export default async function TeamPage({ params }: TeamPageProps) {
           interSans.className,
         )}
       >
-        <header className="mt-9">
-          <h1
-            className={cn(
-              "text-3xl font-normal text-white md:text-4xl",
-              pageTitleMegatroxFontClass(locale),
-            )}
-          >
-            {t("teamPage.title")}
-          </h1>
-          <p className="mt-4 text-lg text-white/70">{t("teamPage.placeholder")}</p>
-        </header>
+        <PageBlockReveal index={0}>
+          <header className="mt-9">
+            <h1
+              className={cn(
+                "text-3xl font-normal text-white md:text-4xl",
+                pageTitleMegatroxFontClass(locale),
+              )}
+            >
+              {t("teamPage.title")}
+            </h1>
+            <p className="mt-4 text-lg text-white/70">{t("teamPage.placeholder")}</p>
+          </header>
+        </PageBlockReveal>
       </main>
     </div>
   );

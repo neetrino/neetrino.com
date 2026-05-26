@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { PageBlockReveal } from "@/components/motion/PageBlockReveal";
 import { DeferredMount } from "@/components/layout/DeferredMount";
 import { FigmaFillImage } from "@/components/shared/FigmaFillImage";
 import { PortfolioDesktopSceneDbCards } from "@/components/portfolio/PortfolioDesktopSceneDbCards";
@@ -122,15 +123,17 @@ export function PortfolioDesktopScene({
             }}
           />
         </div>
-        <p
-          className={cn(
-            "absolute left-[calc(50%-646px)] top-[152px] whitespace-nowrap text-[90px] font-normal leading-[normal] not-italic text-[#fffcfc]",
-            pageTitleMegatroxFontClass(locale),
-          )}
-          data-node-id="166:1213"
-        >
-          {t("portfolioPage.metaTitle")}
-        </p>
+        <PageBlockReveal index={0}>
+          <p
+            className={cn(
+              "absolute left-[calc(50%-646px)] top-[152px] whitespace-nowrap text-[90px] font-normal leading-[normal] not-italic text-[#fffcfc]",
+              pageTitleMegatroxFontClass(locale),
+            )}
+            data-node-id="166:1213"
+          >
+            {t("portfolioPage.metaTitle")}
+          </p>
+        </PageBlockReveal>
       </div>
       <PortfolioDesktopVectorDecorDeferred />
       <div
@@ -157,16 +160,16 @@ export function PortfolioDesktopScene({
           <FigmaFillImage src={figma.imgRectangle17414} />
         </div>
       </div>
-      <div
+      <PageBlockReveal
+        index={1}
         className={cn(
           "absolute left-[73px] top-[374px] flex w-[1295px] flex-col items-start gap-[53px] leading-[0]",
           PORTFOLIO_DESKTOP_PAGINATION_BOTTOM_PADDING_CLASS,
         )}
-        data-name="portfolio"
         data-node-id="166:1229"
       >
         <PortfolioDesktopSceneDbCards pageCards={pageCards} pagination={pagination} />
-      </div>
+      </PageBlockReveal>
     </div>
   );
 }

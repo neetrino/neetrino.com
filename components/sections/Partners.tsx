@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
+import { Reveal } from "@/components/motion/Reveal";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { usePauseAnimationWhenOffScreen } from "@/lib/hooks/use-pause-animation-when-off-screen";
 
@@ -78,40 +79,42 @@ export function Partners() {
           }
         }
       `}</style>
-      <div className="marquee-inner will-change-transform">
-        {doubledPartnerLogos.map((logo, i) => {
-          const { width, height } = logoDimensions(logo);
-          return (
-            <Image
-              key={`${logo.src}-${i}`}
-              src={logo.src}
-              alt={t("partners.logoAlt")}
-              width={width}
-              height={height}
-              className="block shrink-0 self-end opacity-70"
-              sizes="(max-width: 1024px) 96px, 128px"
-              loading="lazy"
-            />
-          );
-        })}
-      </div>
-      <div className="marquee-inner mobile-extra-row will-change-transform">
-        {doubledPartnerLogos.map((logo, i) => {
-          const { width, height } = logoDimensions(logo);
-          return (
-            <Image
-              key={`mobile-${logo.src}-${i}`}
-              src={logo.src}
-              alt={t("partners.logoAlt")}
-              width={width}
-              height={height}
-              className="block shrink-0 self-end opacity-70"
-              sizes="(max-width: 1024px) 96px, 128px"
-              loading="lazy"
-            />
-          );
-        })}
-      </div>
+      <Reveal profile="slow">
+        <div className="marquee-inner will-change-transform">
+          {doubledPartnerLogos.map((logo, i) => {
+            const { width, height } = logoDimensions(logo);
+            return (
+              <Image
+                key={`${logo.src}-${i}`}
+                src={logo.src}
+                alt={t("partners.logoAlt")}
+                width={width}
+                height={height}
+                className="block shrink-0 self-end opacity-70"
+                sizes="(max-width: 1024px) 96px, 128px"
+                loading="lazy"
+              />
+            );
+          })}
+        </div>
+        <div className="marquee-inner mobile-extra-row will-change-transform">
+          {doubledPartnerLogos.map((logo, i) => {
+            const { width, height } = logoDimensions(logo);
+            return (
+              <Image
+                key={`mobile-${logo.src}-${i}`}
+                src={logo.src}
+                alt={t("partners.logoAlt")}
+                width={width}
+                height={height}
+                className="block shrink-0 self-end opacity-70"
+                sizes="(max-width: 1024px) 96px, 128px"
+                loading="lazy"
+              />
+            );
+          })}
+        </div>
+      </Reveal>
     </section>
   );
 }

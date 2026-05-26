@@ -6,6 +6,7 @@ import {
   type ServiceCatalogEntry,
   type ServiceSlug,
 } from "./service-pages-data";
+import { PageBlockReveal } from "@/components/motion/PageBlockReveal";
 import { ServicesCatalogCrmCard } from "./ServicesCatalogCrmCard";
 import { ServicesCatalogSaasCard } from "./ServicesCatalogSaasCard";
 import {
@@ -14,9 +15,15 @@ import {
 } from "./ServicesCardsBlockA";
 import { ServicesCard, ServicesCard1 } from "./ServicesCardsBlockB";
 import type { AppLocale } from "@/lib/i18n/locales";
+import { cn } from "@/lib/utils";
 
 const SERVICES_LOWER_ROW_DENSE_STACK_CLASS = "gap-[24px] pt-[32px] pb-[60px]";
 const SERVICES_LOWER_ROW_DEFAULT_STACK_CLASS = "gap-[30px] py-[60px]";
+
+const SERVICES_LOWER_CARD_SHELL_CLASS = "absolute h-[463px] w-[369px]";
+
+const SERVICES_LOWER_CARD_BODY_CLASS =
+  "content-stretch relative flex h-full w-full min-h-0 flex-col items-start overflow-clip rounded-[38px] px-[40px]";
 
 /** Mobile card: lift inner stack for long copy (hy + ru). */
 function servicesMobileLowerRowPaddingClass(locale: AppLocale): string {
@@ -30,20 +37,6 @@ function servicesAiLowerRowPaddingClass(locale: AppLocale): string {
   return locale === "hy"
     ? SERVICES_LOWER_ROW_DENSE_STACK_CLASS
     : SERVICES_LOWER_ROW_DEFAULT_STACK_CLASS;
-}
-
-const SERVICES_MOBILE_LOWER_CARD_BASE_CLASS =
-  "absolute content-stretch flex min-h-0 flex-col h-[463px] items-start left-[108px] overflow-clip px-[40px] rounded-[38px] top-[906px] w-[369px]";
-
-const SERVICES_AI_LOWER_CARD_BASE_CLASS =
-  "absolute content-stretch flex min-h-0 flex-col h-[463px] items-start left-[535px] overflow-clip px-[40px] rounded-[38px] top-[906px] w-[369px]";
-
-function servicesMobileLowerCardClassName(locale: AppLocale): string {
-  return `${SERVICES_MOBILE_LOWER_CARD_BASE_CLASS} ${servicesMobileLowerRowPaddingClass(locale)}`;
-}
-
-function servicesAiLowerCardClassName(locale: AppLocale): string {
-  return `${SERVICES_AI_LOWER_CARD_BASE_CLASS} ${servicesAiLowerRowPaddingClass(locale)}`;
 }
 
 /** Top card row + lower cards (inside Light Rays layer). */
@@ -65,7 +58,8 @@ export async function ServicesDesktopCardsScene({ locale }: ServicesDesktopCards
 
   return (
     <>
-      <div
+      <PageBlockReveal
+        index={0}
         className="-translate-x-1/2 absolute content-stretch flex gap-[58px] items-stretch left-[calc(50%+0.5px)] top-[370px]"
         data-node-id="165:689"
       >
@@ -92,34 +86,49 @@ export async function ServicesDesktopCardsScene({ locale }: ServicesDesktopCards
           continueGlow="violet"
           continueHref={serviceDetailHref("website-development")}
         />
-      </div>
-      <ServicesCard
-        className={servicesMobileLowerCardClassName(locale)}
-        title={bySlug["mobile-app-development"].title}
-        description={bySlug["mobile-app-development"].description}
-        continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["mobile-app-development"].title)}`}
-        continueLabel={continueLabel}
-        continueGlow="cyan"
-        continueHref={serviceDetailHref("mobile-app-development")}
-      />
-      <ServicesLowerCard2
-        className={servicesAiLowerCardClassName(locale)}
-        title={bySlug["ai-product-development"].title}
-        description={bySlug["ai-product-development"].description}
-        continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["ai-product-development"].title)}`}
-        continueLabel={continueLabel}
-        continueGlow="green"
-        continueHref={serviceDetailHref("ai-product-development")}
-      />
-      <ServicesLowerCard3
-        className="absolute content-stretch flex min-h-0 flex-col gap-[30px] h-[463px] items-start left-[962px] overflow-clip px-[40px] py-[60px] rounded-[38px] top-[906px] w-[369px]"
-        title={bySlug["erp-system"].title}
-        description={bySlug["erp-system"].description}
-        continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["erp-system"].title)}`}
-        continueLabel={continueLabel}
-        continueGlow="pink"
-        continueHref={serviceDetailHref("erp-system")}
-      />
+      </PageBlockReveal>
+      <PageBlockReveal
+        index={1}
+        className={cn(SERVICES_LOWER_CARD_SHELL_CLASS, "left-[108px] top-[906px]")}
+      >
+        <ServicesCard
+          className={cn(SERVICES_LOWER_CARD_BODY_CLASS, servicesMobileLowerRowPaddingClass(locale))}
+          title={bySlug["mobile-app-development"].title}
+          description={bySlug["mobile-app-development"].description}
+          continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["mobile-app-development"].title)}`}
+          continueLabel={continueLabel}
+          continueGlow="cyan"
+          continueHref={serviceDetailHref("mobile-app-development")}
+        />
+      </PageBlockReveal>
+      <PageBlockReveal
+        index={2}
+        className={cn(SERVICES_LOWER_CARD_SHELL_CLASS, "left-[535px] top-[906px]")}
+      >
+        <ServicesLowerCard2
+          className={cn(SERVICES_LOWER_CARD_BODY_CLASS, servicesAiLowerRowPaddingClass(locale))}
+          title={bySlug["ai-product-development"].title}
+          description={bySlug["ai-product-development"].description}
+          continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["ai-product-development"].title)}`}
+          continueLabel={continueLabel}
+          continueGlow="green"
+          continueHref={serviceDetailHref("ai-product-development")}
+        />
+      </PageBlockReveal>
+      <PageBlockReveal
+        index={3}
+        className={cn(SERVICES_LOWER_CARD_SHELL_CLASS, "left-[962px] top-[906px]")}
+      >
+        <ServicesLowerCard3
+          className={cn(SERVICES_LOWER_CARD_BODY_CLASS, SERVICES_LOWER_ROW_DEFAULT_STACK_CLASS)}
+          title={bySlug["erp-system"].title}
+          description={bySlug["erp-system"].description}
+          continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["erp-system"].title)}`}
+          continueLabel={continueLabel}
+          continueGlow="pink"
+          continueHref={serviceDetailHref("erp-system")}
+        />
+      </PageBlockReveal>
     </>
   );
 }

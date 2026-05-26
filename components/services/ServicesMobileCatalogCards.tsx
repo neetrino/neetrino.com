@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/lib/i18n/locales";
+import { PageBlockReveal } from "@/components/motion/PageBlockReveal";
 import {
   getServicesCatalog,
   serviceDetailHref,
@@ -37,61 +38,74 @@ export async function ServicesMobileCatalogCards({ locale }: ServicesMobileCatal
   );
 
   const shell = SERVICES_MOBILE_CATALOG_CARD_OUTER_CLASS;
+  const fill = "h-full w-full";
 
   return (
     <section className={SERVICES_MOBILE_CATALOG_GRID_CLASS}>
-      <ServicesCatalogSaasCard
-        className={shell}
-        title={bySlug["saas-development"].title}
-        description={bySlug["saas-development"].description}
-        continueLabel={continueLabel}
-        continueHref={serviceDetailHref("saas-development")}
-        continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["saas-development"].title)}`}
-      />
-      <ServicesCatalogCrmCard
-        className={shell}
-        title={bySlug["crm-systems"].title}
-        description={bySlug["crm-systems"].description}
-        continueLabel={continueLabel}
-        continueHref={serviceDetailHref("crm-systems")}
-        continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["crm-systems"].title)}`}
-      />
-      <ServicesCard1
-        className={shell}
-        title={bySlug["website-development"].title}
-        description={bySlug["website-development"].description}
-        continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["website-development"].title)}`}
-        continueLabel={continueLabel}
-        continueGlow="violet"
-        continueHref={serviceDetailHref("website-development")}
-      />
-      <ServicesCard
-        className={shell}
-        title={bySlug["mobile-app-development"].title}
-        description={bySlug["mobile-app-development"].description}
-        continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["mobile-app-development"].title)}`}
-        continueLabel={continueLabel}
-        continueGlow="cyan"
-        continueHref={serviceDetailHref("mobile-app-development")}
-      />
-      <ServicesLowerCard2
-        className={shell}
-        title={bySlug["ai-product-development"].title}
-        description={bySlug["ai-product-development"].description}
-        continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["ai-product-development"].title)}`}
-        continueLabel={continueLabel}
-        continueGlow="green"
-        continueHref={serviceDetailHref("ai-product-development")}
-      />
-      <ServicesLowerCard3
-        className={shell}
-        title={bySlug["erp-system"].title}
-        description={bySlug["erp-system"].description}
-        continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["erp-system"].title)}`}
-        continueLabel={continueLabel}
-        continueGlow="pink"
-        continueHref={serviceDetailHref("erp-system")}
-      />
+      <PageBlockReveal index={0} className={shell}>
+        <ServicesCatalogSaasCard
+          className={fill}
+          title={bySlug["saas-development"].title}
+          description={bySlug["saas-development"].description}
+          continueLabel={continueLabel}
+          continueHref={serviceDetailHref("saas-development")}
+          continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["saas-development"].title)}`}
+        />
+      </PageBlockReveal>
+      <PageBlockReveal index={1} className={shell}>
+        <ServicesCatalogCrmCard
+          className={fill}
+          title={bySlug["crm-systems"].title}
+          description={bySlug["crm-systems"].description}
+          continueLabel={continueLabel}
+          continueHref={serviceDetailHref("crm-systems")}
+          continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["crm-systems"].title)}`}
+        />
+      </PageBlockReveal>
+      <PageBlockReveal index={2} className={shell}>
+        <ServicesCard1
+          className={fill}
+          title={bySlug["website-development"].title}
+          description={bySlug["website-development"].description}
+          continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["website-development"].title)}`}
+          continueLabel={continueLabel}
+          continueGlow="violet"
+          continueHref={serviceDetailHref("website-development")}
+        />
+      </PageBlockReveal>
+      <PageBlockReveal index={3} className={shell}>
+        <ServicesCard
+          className={fill}
+          title={bySlug["mobile-app-development"].title}
+          description={bySlug["mobile-app-development"].description}
+          continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["mobile-app-development"].title)}`}
+          continueLabel={continueLabel}
+          continueGlow="cyan"
+          continueHref={serviceDetailHref("mobile-app-development")}
+        />
+      </PageBlockReveal>
+      <PageBlockReveal index={4} className={shell}>
+        <ServicesLowerCard2
+          className={fill}
+          title={bySlug["ai-product-development"].title}
+          description={bySlug["ai-product-development"].description}
+          continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["ai-product-development"].title)}`}
+          continueLabel={continueLabel}
+          continueGlow="green"
+          continueHref={serviceDetailHref("ai-product-development")}
+        />
+      </PageBlockReveal>
+      <PageBlockReveal index={5} className={shell}>
+        <ServicesLowerCard3
+          className={fill}
+          title={bySlug["erp-system"].title}
+          description={bySlug["erp-system"].description}
+          continueAriaLabel={`${continueLabel}: ${serviceTitleSingleLine(bySlug["erp-system"].title)}`}
+          continueLabel={continueLabel}
+          continueGlow="pink"
+          continueHref={serviceDetailHref("erp-system")}
+        />
+      </PageBlockReveal>
     </section>
   );
 }

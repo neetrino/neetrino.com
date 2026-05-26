@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { ServicesMobileCatalogCards } from "@/components/services/ServicesMobileCatalogCards";
 import { ServicesMobilePageBackdrop } from "@/components/services/ServicesMobilePageBackdrop";
 import { cn } from "@/lib/utils";
+import { PageBlockReveal } from "@/components/motion/PageBlockReveal";
 import { ServicesHeroTitle } from "@/components/services/ServicesHeroTitle";
 import { ServicesTechMarquee } from "@/components/services/ServicesTechMarquee";
 import { getLocaleAlternates } from "@/lib/metadata";
@@ -53,22 +54,27 @@ export default async function Services({ params }: ServicesPageProps) {
       >
         <ServicesMobilePageBackdrop />
         <main className="section-container relative z-0 pb-16 pt-24">
-          <section className="border-b border-white/[0.06] pb-12 pt-6 md:pb-14 md:pt-8">
-            <ServicesHeroTitle
-              as="h1"
-              before={t("servicesPage.heroTitleBefore")}
-              accent={t("servicesPage.heroTitleAccent")}
-              after={t("servicesPage.heroTitleAfter")}
-              className={cn(
-                "max-w-[18ch] text-4xl font-normal leading-[0.95] tracking-[-0.04em] text-[#fffcfc] md:text-5xl",
-                pageTitleMegatroxFontClass(locale),
-              )}
-              neutralClassName="text-white"
-            />
-            <p className="mt-6 max-w-2xl text-base font-light leading-relaxed text-white/80 md:text-lg">
-              {t("servicesPage.description")}
-            </p>
-          </section>
+          <PageBlockReveal
+            index={0}
+            className="border-b border-white/[0.06] pb-12 pt-6 md:pb-14 md:pt-8"
+          >
+            <section>
+              <ServicesHeroTitle
+                as="h1"
+                before={t("servicesPage.heroTitleBefore")}
+                accent={t("servicesPage.heroTitleAccent")}
+                after={t("servicesPage.heroTitleAfter")}
+                className={cn(
+                  "max-w-[18ch] text-4xl font-normal leading-[0.95] tracking-[-0.04em] text-[#fffcfc] md:text-5xl",
+                  pageTitleMegatroxFontClass(locale),
+                )}
+                neutralClassName="text-white"
+              />
+              <p className="mt-6 max-w-2xl text-base font-light leading-relaxed text-white/80 md:text-lg">
+                {t("servicesPage.description")}
+              </p>
+            </section>
+          </PageBlockReveal>
 
           <ServicesMobileCatalogCards locale={locale} />
         </main>

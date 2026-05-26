@@ -2,7 +2,9 @@ import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import { serviceDetailHref } from "@/components/services/service-pages-data";
 import type { WhatWeDoCardSlug } from "@/lib/what-we-do-continue-glow";
+import { Reveal } from "@/components/motion/Reveal";
 import { WhatWeDoContinueLink } from "@/components/sections/WhatWeDoContinueLink";
+import { SCROLL_REVEAL_SLOW_STAGGER_MS } from "@/lib/motion/scroll-reveal.constants";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { imageUnoptimizedForSrc } from "@/lib/image-asset-optimization";
 import { interSans } from "@/lib/fonts";
@@ -134,18 +136,20 @@ export async function WhatWeDo() {
   return (
     <section className={cn("relative bg-transparent py-12", interSans.className)}>
       <div className="mx-auto w-full max-w-[480px] px-4 md:px-6">
-        <header className="mb-8">
-          <p className="text-base font-medium uppercase leading-[35px] tracking-normal text-white">
-            {t("nav.services")}
-          </p>
-          <h2 className="mt-1 font-black italic text-[35px] leading-[35px] text-white">
-            {t("home.whatWeDo.titleBefore")}{" "}
-            <span className="text-[#ff7500]">{t("home.whatWeDo.titleAccent")}</span>
-          </h2>
-        </header>
+        <Reveal profile="slow" className="mb-8">
+          <header>
+            <p className="text-base font-medium uppercase leading-[35px] tracking-normal text-white">
+              {t("nav.services")}
+            </p>
+            <h2 className="mt-1 font-black italic text-[35px] leading-[35px] text-white">
+              {t("home.whatWeDo.titleBefore")}{" "}
+              <span className="text-[#ff7500]">{t("home.whatWeDo.titleAccent")}</span>
+            </h2>
+          </header>
+        </Reveal>
 
         <div className="flex flex-col gap-4">
-          {services.map((service) => {
+          {services.map((service, cardIndex) => {
             const isHyTitleCenterSlug =
               locale === "hy" &&
               (service.slug === "mobile-app-development" ||
@@ -307,26 +311,30 @@ export async function WhatWeDo() {
               </>
             );
 
+            const cardDelayMs = cardIndex * SCROLL_REVEAL_SLOW_STAGGER_MS;
+
             if (isWhatWeDoMobileAtmosphereStackCard) {
               return (
-                <div key={rowKey} className={WHAT_WE_DO_MOBILE_FIRST_CARD_STACK_ROOT_CLASS}>
-                  {atmosphereBelowCard}
-                  <article
-                    className={cn(
-                      whatWeDoCardShellClass,
-                      WHAT_WE_DO_MOBILE_FIRST_CARD_ARTICLE_ABOVE_ATMOSPHERE_CLASS,
-                    )}
-                  >
-                    {whatWeDoCardInner}
-                  </article>
-                </div>
+                <Reveal key={rowKey} profile="slow" delayMs={cardDelayMs}>
+                  <div className={WHAT_WE_DO_MOBILE_FIRST_CARD_STACK_ROOT_CLASS}>
+                    {atmosphereBelowCard}
+                    <article
+                      className={cn(
+                        whatWeDoCardShellClass,
+                        WHAT_WE_DO_MOBILE_FIRST_CARD_ARTICLE_ABOVE_ATMOSPHERE_CLASS,
+                      )}
+                    >
+                      {whatWeDoCardInner}
+                    </article>
+                  </div>
+                </Reveal>
               );
             }
 
             return (
-              <article key={rowKey} className={whatWeDoCardShellClass}>
-                {whatWeDoCardInner}
-              </article>
+              <Reveal key={rowKey} profile="slow" delayMs={cardDelayMs}>
+                <article className={whatWeDoCardShellClass}>{whatWeDoCardInner}</article>
+              </Reveal>
             );
           })}
         </div>

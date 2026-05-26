@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageBlockReveal } from "@/components/motion/PageBlockReveal";
 import { BlogIndexPageFrame } from "@/components/blog/BlogIndexPageFrame";
 import { BlogIndexCard } from "@/components/blog/BlogIndexCard";
 import { getPublishedBlogIndexItems } from "@/lib/server/blog/public";
@@ -30,19 +31,21 @@ export default async function BlogPage({ params }: BlogPageProps) {
   return (
     <BlogIndexPageFrame
       title={
-        <h1
-          className={cn(
-            "text-3xl font-normal tracking-[-0.04em] text-white md:text-4xl",
-            pageTitleMegatroxFontClass(locale),
-          )}
-        >
-          {t("blogPage.title")}
-        </h1>
+        <PageBlockReveal index={0}>
+          <h1
+            className={cn(
+              "text-3xl font-normal tracking-[-0.04em] text-white md:text-4xl",
+              pageTitleMegatroxFontClass(locale),
+            )}
+          >
+            {t("blogPage.title")}
+          </h1>
+        </PageBlockReveal>
       }
       cards={
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-7 lg:mt-14 lg:grid-cols-3 lg:gap-8">
-          {blogItems.map((item) => (
-            <BlogIndexCard key={item.id} item={item} />
+          {blogItems.map((item, index) => (
+            <BlogIndexCard key={item.id} item={item} revealIndex={index} />
           ))}
         </div>
       }

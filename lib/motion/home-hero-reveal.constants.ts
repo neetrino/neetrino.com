@@ -12,7 +12,13 @@ export const HOME_HERO_REVEAL_DELAY_ROBOT_MS = 420;
 
 export const HOME_HERO_REVEAL_DELAY_BODY_MS = 780;
 
+export const HOME_HERO_REVEAL_DELAY_CTA_MS = 940;
+
+export const HOME_HERO_REVEAL_CTA_STAGGER_MS = 80;
+
 export const HOME_HERO_REVEAL_DELAY_STATS_MS = 1160;
+
+export const HOME_HERO_REVEAL_DELAY_STAT_WIDE_MS = 1320;
 
 /** Mobile title lines (`NEET` / `RIN` / `O`) — gap after previous line (ms). */
 export const HOME_HERO_TITLE_LINE_STAGGER_MS = 160;

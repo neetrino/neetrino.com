@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { PageBlockReveal } from "@/components/motion/PageBlockReveal";
 import { AboutUsFigmaBlock1a } from "@/components/about-us/figma/AboutUsFigmaBlock1a";
 import { AboutUsFigmaBlock1b } from "@/components/about-us/figma/AboutUsFigmaBlock1b";
 import { AboutUsFigmaBlock1bLower } from "@/components/about-us/figma/AboutUsFigmaBlock1bLower";
@@ -39,14 +40,28 @@ export function AboutUsFigmaCanvasInner() {
           style={{ height: ABOUT_FIGMA_POSITIONING_CANVAS_HEIGHT_PX }}
           data-name="about-figma-positioning-canvas"
         >
-          <AboutUsFigmaBlock1a containerRef={containerRef} />
-          <AboutUsFigmaBlock1b />
-          <AboutUsFigmaBlock1bLower />
-          <AboutUsFigmaBlock1c />
-          <AboutUsFigmaBlock2 />
-          <AboutUsFigmaBlock3 />
+          <PageBlockReveal index={0}>
+            <AboutUsFigmaBlock1a containerRef={containerRef} />
+          </PageBlockReveal>
+          <PageBlockReveal index={1}>
+            <AboutUsFigmaBlock1b />
+          </PageBlockReveal>
+          <PageBlockReveal index={2}>
+            <AboutUsFigmaBlock1bLower />
+          </PageBlockReveal>
+          <PageBlockReveal index={3}>
+            <AboutUsFigmaBlock1c />
+          </PageBlockReveal>
+          <PageBlockReveal index={4}>
+            <AboutUsFigmaBlock2 />
+          </PageBlockReveal>
+          <PageBlockReveal index={5}>
+            <AboutUsFigmaBlock3 />
+          </PageBlockReveal>
         </div>
-        <MeetOurTeamHeading variant="desktop-figma" />
+        <PageBlockReveal index={6}>
+          <MeetOurTeamHeading variant="desktop-figma" />
+        </PageBlockReveal>
       </div>
     </div>
   );

@@ -8,7 +8,11 @@ import { HeroBackgroundAtmosphere } from "@/components/sections/HeroBackgroundAt
 import { HeroReveal, HeroTitleLine } from "@/components/motion/HeroReveal";
 import {
   HOME_HERO_MOBILE_BODY_DELAY_MS,
+  HOME_HERO_REVEAL_CTA_STAGGER_MS,
+  HOME_HERO_REVEAL_DELAY_CTA_MS,
   HOME_HERO_REVEAL_DELAY_ROBOT_MS,
+  HOME_HERO_REVEAL_DELAY_STAT_WIDE_MS,
+  HOME_HERO_REVEAL_DELAY_STATS_MS,
 } from "@/lib/motion/home-hero-reveal.constants";
 import { HeroStatHandAtmosphereLayer } from "@/components/sections/HeroStatHandAtmosphereLayer";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
@@ -146,16 +150,19 @@ function HeroCtas() {
 
   return (
     <>
-      <HeroGetQuoteCta />
-      <Link
-        href="/contact"
+      <HeroGetQuoteCta revealDelayMs={HOME_HERO_REVEAL_DELAY_CTA_MS} />
+      <HeroReveal
+        profile="homeHero"
+        delayMs={HOME_HERO_REVEAL_DELAY_CTA_MS + HOME_HERO_REVEAL_CTA_STAGGER_MS}
         className={cn(
           HERO_CONTACT_CTA_LAYOUT_CLASS,
           HERO_CONTACT_FIGMA_241_838_PRIMARY_PILL_CLASSNAME,
         )}
       >
-        {t("cta.contact")}
-      </Link>
+        <Link href="/contact" className="block w-full text-center">
+          {t("cta.contact")}
+        </Link>
+      </HeroReveal>
     </>
   );
 }
@@ -164,7 +171,11 @@ function HeroStatsTop() {
   const t = useTranslations();
 
   return (
-    <div className="relative z-40 mt-0 grid grid-cols-2 gap-3 px-6">
+    <HeroReveal
+      profile="homeHero"
+      delayMs={HOME_HERO_REVEAL_DELAY_STATS_MS}
+      className="relative z-40 mt-0 grid grid-cols-2 gap-3 px-6"
+    >
       {MOBILE_HERO_STATS_TOP.map((item) => (
         <div
           key={item.value}
@@ -178,7 +189,7 @@ function HeroStatsTop() {
           </div>
         </div>
       ))}
-    </div>
+    </HeroReveal>
   );
 }
 
@@ -219,7 +230,11 @@ function HeroStatWide() {
   const s = MOBILE_HERO_STAT_WIDE;
 
   return (
-    <div className="relative z-10 mt-[34px] min-h-[167px] w-full min-w-0 px-6">
+    <HeroReveal
+      profile="homeHero"
+      delayMs={HOME_HERO_REVEAL_DELAY_STAT_WIDE_MS}
+      className="relative z-10 mt-[34px] min-h-[167px] w-full min-w-0 px-6"
+    >
       <div
         className={`relative w-full overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}
       >
@@ -252,7 +267,7 @@ function HeroStatWide() {
           </div>
         </div>
       </div>
-    </div>
+    </HeroReveal>
   );
 }
 
