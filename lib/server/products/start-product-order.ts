@@ -17,9 +17,6 @@ import { getProductBySecretSlug } from "@/lib/server/products/product-repository
 
 export type StartProductOrderInput = {
   readonly secretSlug: string;
-  readonly customerName: string;
-  readonly customerEmail: string;
-  readonly customerPhone: string;
   readonly language?: PaymentLanguageCode;
 };
 
@@ -66,12 +63,7 @@ export async function startProductOrder(
 
   const activeProduct = product!;
 
-  const order = await createPendingProductOrder({
-    product: activeProduct,
-    customerName: input.customerName,
-    customerEmail: input.customerEmail,
-    customerPhone: input.customerPhone,
-  });
+  const order = await createPendingProductOrder({ product: activeProduct });
 
   const payment = await createPendingPaymentForOrder(order.id);
 

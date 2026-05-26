@@ -20,17 +20,11 @@ export async function POST(request: NextRequest, context: RouteContext): Promise
     const body: unknown = await request.json();
     const parsed = startOrderBodySchema.safeParse(body);
     if (!parsed.success) {
-      return NextResponse.json(
-        { success: false, error: "Invalid customer details." },
-        { status: 400 },
-      );
+      return NextResponse.json({ success: false, error: "Invalid request." }, { status: 400 });
     }
 
     const result = await startProductOrder({
       secretSlug,
-      customerName: parsed.data.customerName,
-      customerEmail: parsed.data.customerEmail,
-      customerPhone: parsed.data.customerPhone,
       language: parsed.data.language,
     });
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { formatMoneyAMDWithCurrency } from "@/lib/format-money-amd";
 import type { AdminOrderRow } from "@/lib/server/orders/order-repository";
 
 export function OrderTable({ orders }: { orders: readonly AdminOrderRow[] }) {
@@ -36,7 +37,7 @@ export function OrderTable({ orders }: { orders: readonly AdminOrderRow[] }) {
                 <p className="text-xs">{order.customerPhone ?? ""}</p>
               </td>
               <td className="px-5 py-4">
-                {order.amount} {order.currency}
+                {formatMoneyAMDWithCurrency(order.amount, order.currency)}
               </td>
               <td className="px-5 py-4">{order.status}</td>
               <td className="px-5 py-4 text-black/60">{formatDate(order.createdAt)}</td>

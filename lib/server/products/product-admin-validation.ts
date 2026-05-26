@@ -18,8 +18,5 @@ export const updateProductSchema = z.object({
 });
 
 export const startOrderBodySchema = z.object({
-  customerName: z.string().trim().min(1).max(200),
-  customerEmail: z.email().max(254),
-  customerPhone: z.string().trim().min(5).max(40),
   language: z.enum(PAYMENT_LANGUAGE_CODES).optional(),
 });

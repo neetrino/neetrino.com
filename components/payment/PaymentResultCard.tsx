@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CheckCircle2, Home, XCircle } from "lucide-react";
+import { formatMoneyAMDWithCurrency } from "@/lib/format-money-amd";
 import type { PublicOrderSummary } from "@/lib/server/payment/get-public-order-summary";
 import { cn } from "@/lib/utils";
 
@@ -48,9 +49,7 @@ export function PaymentResultCard({
           ) : null}
           <div className="flex flex-wrap justify-between gap-2">
             <dt className="text-white/55">Amount</dt>
-            <dd>
-              {order.amount} {order.currency}
-            </dd>
+            <dd>{formatMoneyAMDWithCurrency(order.amount, order.currency)}</dd>
           </div>
         </dl>
       ) : null}
