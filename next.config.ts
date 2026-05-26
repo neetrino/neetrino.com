@@ -24,8 +24,24 @@ function parseAdminServerActionAllowedOrigins(): string[] | undefined {
 
 const adminServerActionAllowedOrigins = parseAdminServerActionAllowedOrigins();
 
+function parseAllowedDevOrigins(): string[] {
+  const defaults = ["localhost", "127.0.0.1", "192.168.15.126", "192.168.15.237", "192.168.18.52"];
+
+  const raw = process.env.DEV_ALLOWED_ORIGINS?.trim();
+  if (!raw) {
+    return defaults;
+  }
+
+  const extra = raw
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
+  return [...new Set([...defaults, ...extra])];
+}
+
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["localhost", "127.0.0.1", "192.168.15.237", "192.168.18.52"],
+  allowedDevOrigins: parseAllowedDevOrigins(),
   /**
    * Browsers request `/favicon.ico` by default; App Router serves `app/icon.svg` as `/icon.svg`.
    * Rewrite so legacy `/favicon.ico` requests resolve to the same asset.
