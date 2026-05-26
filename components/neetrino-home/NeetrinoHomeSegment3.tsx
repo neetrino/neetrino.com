@@ -6,10 +6,10 @@ import { imgRectangle17411, imgRectangle17414, imgRectangle17415 } from "@/lib/f
 export function NeetrinoHomeSegment3() {
   return (
     <>
-      <div className="pointer-events-none absolute z-0 flex h-[536px] items-center justify-center left-[-1150px] mix-blend-color top-[4832px] w-[604px]">
+      <div className="pointer-events-none absolute z-0 flex h-[536px] items-center justify-center left-[-1150px] opacity-20 top-[4832px] w-[604px]">
         <div className="-scale-y-100 flex-none rotate-180">
           <div
-            className="bg-[#473dff] h-[536px] w-[604px]"
+            className="h-[536px] w-[604px] bg-[#473dff]"
             data-name="color"
             data-node-id="43:448"
           />

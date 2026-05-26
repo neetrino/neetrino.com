@@ -71,3 +71,4 @@ Chrome DevTools → Performance → record 5s scroll. Target: no long tasks >50m
 | 2026-05-26 | P0-03, P0-17, P0-18: quote, More dropdown, About stats — blur removed |
 | 2026-05-26 | P0-11: tablet hybrid hero — gradient → solid top band                 |
 | 2026-05-26 | P0-07: About Block1a — removed gradient/blur decor, opacity not blend |
+| 2026-05-26 | P0-06: home hero + segments — mix-blend replaced with opacity         |

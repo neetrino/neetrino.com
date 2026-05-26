@@ -11,7 +11,7 @@ export function NeetrinoHomeSegment2() {
 
   return (
     <>
-      <div className="-translate-x-1/2 absolute z-0 flex h-[1306px] items-center justify-center left-[calc(50%+11px)] mix-blend-screen top-[3245px] w-[664px]">
+      <div className="-translate-x-1/2 absolute z-0 flex h-[1306px] items-center justify-center left-[calc(50%+11px)] opacity-50 top-[3245px] w-[664px]">
         <div className="flex-none rotate-90">
           <div className="h-[664px] relative w-[1306px]" data-node-id="10:220">
             <div className="absolute inset-[-28.36%_-17.23%_-28.95%_-17.23%]">

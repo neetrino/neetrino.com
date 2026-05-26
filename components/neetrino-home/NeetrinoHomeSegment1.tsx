@@ -72,7 +72,7 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
             </div>
           </div>
         </div>
-        <div className="-translate-x-1/2 absolute flex items-center justify-center left-[calc(50%-256px)] mix-blend-lighten size-[824px] top-[83px]">
+        <div className="-translate-x-1/2 absolute flex items-center justify-center left-[calc(50%-256px)] size-[824px] top-[83px]">
           <div className="flex-none rotate-90">
             <div
               className="relative size-[824px]"

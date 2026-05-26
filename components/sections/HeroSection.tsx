@@ -43,7 +43,7 @@ function HeroBackground() {
           priority
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 z-[8] mix-blend-lighten opacity-60">
+      <div className="pointer-events-none absolute inset-0 z-[8] opacity-70">
         <HeroHandAnimationVideo className="absolute inset-0 size-full object-cover" />
       </div>
     </>
