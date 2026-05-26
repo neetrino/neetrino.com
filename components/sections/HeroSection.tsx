@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
-import { HeroHandAnimationVideo } from "@/components/sections/HeroHandAnimationVideo";
+import { HeroBackgroundAtmosphere } from "@/components/sections/HeroBackgroundAtmosphere";
 import { HeroStatHandAtmosphereLayer } from "@/components/sections/HeroStatHandAtmosphereLayer";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
@@ -43,9 +43,7 @@ function HeroBackground() {
           priority
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 z-[8] opacity-70">
-        <HeroHandAnimationVideo className="absolute inset-0 size-full object-cover" />
-      </div>
+      <HeroBackgroundAtmosphere variant="mobile" className="absolute inset-0 z-[8] opacity-80" />
     </>
   );
 }

@@ -25,11 +25,7 @@ export const FIGMA_ASSETS = {
   imgPhilippHubertDVVjhUcdb30Unsplash1: assetUrl(
     "figma-assets/62b9fa74-22e0-4457-865e-43c6218500b5.webp",
   ),
-  /** Hero hand wash — WebM (replaces legacy GIF `64738b5b-…`; use `HeroHandAnimationVideo`). */
-  heroHandAnimationVideoSrc: assetUrl("figma-assets/hero-animation.webm"),
   img30: assetUrl("figma-assets/4e1596f7-d4cd-49d3-bb93-922d629919db.webp"),
-  /** Legacy GIF loop; prefer `imgWhoWeAreFigma516` (transparent WebP) on desktop home. */
-  img1: assetUrl("figma-assets/e13d4cdd-fff7-4529-b579-81b60d56576b.gif"),
   /** Figma HOME `10:516` — octahedron loop; transparent WebP. */
   imgWhoWeAreFigma516: assetUrl("figma-assets/who-we-are-figma-516-transparent.webp"),
   imgStanislavHristov3: assetUrl("figma-assets/7b7b391f-6dd1-4383-bb7b-84682d2ef6ef.webp"),
@@ -90,8 +86,6 @@ export const FIGMA_ASSETS = {
   /** Mobile footer robot — Figma `722:742`; `SiteFooterMobileBackdrop539` + `mix-blend-hard-light`. */
   imgMobileFooterRobotProfile: assetUrl("figma-assets/27e4f1f7-b16b-46db-96dc-0d5f564ddf5f.png"),
 } as const;
-
-export const heroHandAnimationVideoSrc = FIGMA_ASSETS.heroHandAnimationVideoSrc;
 
 export const imgPc = FIGMA_ASSETS.imgPc;
 export const imgSafearea = FIGMA_ASSETS.imgSafearea;

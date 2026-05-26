@@ -506,3 +506,39 @@ html[lang="hy"] body {
     object-position: center;
   }
 }
+
+/* Hero atmosphere — vertical light streaks (opacity + transform only; no video/GIF). */
+@keyframes hero-background-atmosphere-pulse {
+  0%,
+  100% {
+    opacity: calc(var(--hero-beam-opacity) * 0.55);
+    transform: translate3d(0, 0, 0) scaleY(0.9);
+  }
+
+  50% {
+    opacity: var(--hero-beam-opacity);
+    transform: translate3d(10px, 0, 0) scaleY(1);
+  }
+}
+
+.hero-background-atmosphere {
+  isolation: isolate;
+}
+
+.hero-background-atmosphere-beam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 999px;
+  background-color: rgba(148, 186, 255, 0.55);
+  animation: hero-background-atmosphere-pulse var(--hero-atmosphere-cycle-ms, 7200ms) ease-in-out
+    infinite;
+  transform-origin: center center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-background-atmosphere-beam {
+    animation: none;
+    opacity: calc(var(--hero-beam-opacity) * 0.65);
+  }
+}

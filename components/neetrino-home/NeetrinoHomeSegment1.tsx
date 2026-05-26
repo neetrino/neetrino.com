@@ -16,7 +16,7 @@ import {
   HOME_DESKTOP_HERO_TABLET_SKY_FRAME_OUTER_CLASS,
 } from "@/lib/home-desktop-hero-tablet-sky.constants";
 import { HOME_DESKTOP_HERO_TABLET_ROBOT_WRAPPER_TOP_CLASS } from "@/lib/home-desktop-hero-tablet-robot.constants";
-import { HeroHandAnimationVideo } from "@/components/sections/HeroHandAnimationVideo";
+import { HeroBackgroundAtmosphere } from "@/components/sections/HeroBackgroundAtmosphere";
 import {
   img28A,
   img30,
@@ -72,17 +72,10 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
             </div>
           </div>
         </div>
-        <div className="-translate-x-1/2 absolute flex items-center justify-center left-[calc(50%-256px)] size-[824px] top-[83px]">
-          <div className="flex-none rotate-90">
-            <div
-              className="relative size-[824px]"
-              data-name="Erica Anderson 1"
-              data-node-id="10:232"
-            >
-              <HeroHandAnimationVideo className="absolute inset-0 max-w-none object-cover opacity-60 pointer-events-none size-full" />
-            </div>
-          </div>
-        </div>
+        <HeroBackgroundAtmosphere
+          variant="desktop"
+          className="absolute left-[2%] top-[4%] z-[2] h-[82%] w-[34%]"
+        />
         <div
           className="absolute left-0 right-0 top-[18.9%] flex justify-center px-4"
           data-node-id="10:424"
