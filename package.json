@@ -4,8 +4,8 @@
   "private": true,
   "packageManager": "pnpm@9.15.9",
   "scripts": {
-    "dev": "next dev",
-    "dev:webpack": "next dev --webpack",
+    "dev": "node scripts/dev.mjs",
+    "dev:webpack": "node scripts/dev.mjs --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint -c config/eslint.config.mjs .",

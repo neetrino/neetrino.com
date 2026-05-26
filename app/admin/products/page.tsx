@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AdminShell } from "@/components/admin/AdminShell";
-import { ProductTable } from "@/components/admin/products/ProductTable";
+import { ProductsAdminPanel } from "@/components/admin/products/ProductsAdminPanel";
 import { requireAdminSession } from "@/lib/server/auth/guards";
 import { listAdminProducts } from "@/lib/server/products/product-repository";
 
@@ -24,7 +24,7 @@ export default async function AdminProductsPage() {
           New product
         </Link>
       </div>
-      <ProductTable products={products} />
+      <ProductsAdminPanel products={products} />
     </AdminShell>
   );
 }

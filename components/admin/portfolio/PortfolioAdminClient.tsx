@@ -17,9 +17,15 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { GripVertical } from "lucide-react";
+import { GripVertical, ImageIcon } from "lucide-react";
 import { PortfolioAdminMediaThumb } from "@/components/admin/portfolio/PortfolioAdminMediaThumb";
+import { AdminDetailField, AdminDetailSection } from "@/components/admin/ui/admin-detail-field";
+import { AdminDetailSheet } from "@/components/admin/ui/admin-detail-sheet";
+import { AdminList, AdminListEmpty } from "@/components/admin/ui/admin-list";
+import { useAdminDetailSheet } from "@/components/admin/ui/use-admin-detail-sheet";
+import { ADMIN_LIST_ROW_CLASS } from "@/lib/admin/admin-ui.constants";
 import { PORTFOLIO_UPLOAD_FORM_FIELD } from "@/lib/constants/portfolio-upload.constants";
+import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 
@@ -39,10 +45,12 @@ export type PortfolioAdminClientProps = {
 
 function SortableAdminRow({
   row,
+  onOpen,
   onToggleActive,
   onDelete,
 }: {
   row: AdminPortfolioRow;
+  onOpen: (id: string) => void;
   onToggleActive: (id: string, active: boolean) => void;
   onDelete: (id: string) => void;
 }) {
@@ -56,56 +64,75 @@ function SortableAdminRow({
   };
 
   return (
-    <div
-      ref={setNodeRef}
-      style={style}
-      className="flex flex-wrap items-center gap-3 rounded-xl border border-black/10 bg-white p-4 shadow-sm"
-    >
+    <div ref={setNodeRef} style={style} className={cn(ADMIN_LIST_ROW_CLASS, "cursor-default p-0")}>
       <button
         type="button"
-        className="flex h-10 w-10 shrink-0 cursor-grab touch-none items-center justify-center rounded-lg border border-black/10 bg-[#f5f5f7] text-black/60 active:cursor-grabbing"
-        aria-label="Drag to reorder"
-        {...attributes}
-        {...listeners}
+        className="flex h-full w-full cursor-pointer items-center gap-4 px-5 py-4 text-left"
+        onClick={() => onOpen(row.id)}
       >
-        <GripVertical className="size-5" aria-hidden />
+        <div className="relative h-14 w-20 shrink-0 overflow-hidden rounded-xl bg-[#151515]/[0.04]">
+          <PortfolioAdminMediaThumb
+            url={row.url}
+            mediaType={row.mediaType}
+            fileName={row.fileName}
+          />
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-semibold text-[#151515]">{row.fileName}</p>
+          <p className="mt-0.5 truncate text-sm text-[#151515]/55">
+            Slot {row.slot} · {row.mediaType}
+          </p>
+          <p className="mt-1 text-xs text-[#151515]/45">{row.active ? "Visible" : "Hidden"}</p>
+        </div>
       </button>
-      <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-lg bg-black/5">
-        <PortfolioAdminMediaThumb url={row.url} mediaType={row.mediaType} fileName={row.fileName} />
-      </div>
-      <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-medium text-black">{row.fileName}</p>
-        <p className="mt-1 truncate text-xs text-black/50">{row.url}</p>
-        <p className="mt-1 font-mono text-xs text-black/45">Slot: {row.slot}</p>
-      </div>
-      <label className="flex shrink-0 items-center gap-2 text-sm text-black/70">
-        <input
-          type="checkbox"
-          checked={row.active}
-          onChange={(e) => {
-            onToggleActive(row.id, e.target.checked);
+
+      <div className="flex shrink-0 items-center gap-2 pr-4">
+        <button
+          type="button"
+          className="flex size-9 cursor-grab touch-none items-center justify-center rounded-xl border border-[#151515]/10 bg-[#f8f8fa] text-[#151515]/50 active:cursor-grabbing"
+          aria-label="Drag to reorder"
+          onClick={(event) => event.stopPropagation()}
+          {...attributes}
+          {...listeners}
+        >
+          <GripVertical className="size-4" aria-hidden />
+        </button>
+        <label
+          className="flex items-center gap-2 rounded-xl border border-[#151515]/10 bg-[#f8f8fa] px-3 py-2 text-xs font-medium text-[#151515]/70"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <input
+            type="checkbox"
+            checked={row.active}
+            onChange={(event) => {
+              onToggleActive(row.id, event.target.checked);
+            }}
+          />
+          Active
+        </label>
+        <button
+          type="button"
+          className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs font-medium text-red-800 hover:bg-red-100"
+          onClick={(event) => {
+            event.stopPropagation();
+            onDelete(row.id);
           }}
-        />
-        Active
-      </label>
-      <button
-        type="button"
-        className="shrink-0 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-medium text-red-800 hover:bg-red-100"
-        onClick={() => {
-          onDelete(row.id);
-        }}
-      >
-        Delete
-      </button>
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }
 
 export function PortfolioAdminClient({ initialRows }: PortfolioAdminClientProps) {
   const router = useRouter();
+  const sheet = useAdminDetailSheet<string>();
   const [rows, setRows] = useState<AdminPortfolioRow[]>(() => [...initialRows]);
   const [message, setMessage] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+
+  const selectedRow = rows.find((row) => row.id === sheet.selectedId) ?? null;
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
@@ -236,6 +263,9 @@ export function PortfolioAdminClient({ initialRows }: PortfolioAdminClientProps)
         );
         throw new Error(parts.length > 0 ? parts.join(" — ") : `Delete failed (${res.status}).`);
       }
+      if (sheet.selectedId === id) {
+        sheet.close();
+      }
       refresh();
     } catch (e: unknown) {
       setMessage(e instanceof Error ? e.message : "Delete failed.");
@@ -313,20 +343,81 @@ export function PortfolioAdminClient({ initialRows }: PortfolioAdminClientProps)
         </button>
       </div>
 
-      <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-        <SortableContext items={rows.map((r) => r.id)} strategy={verticalListSortingStrategy}>
-          <div className="space-y-3">
-            {rows.map((row) => (
-              <SortableAdminRow
-                key={row.id}
-                row={row}
-                onToggleActive={toggleActive}
-                onDelete={deleteRow}
+      {rows.length === 0 ? (
+        <AdminListEmpty message="No portfolio items yet." />
+      ) : (
+        <AdminList>
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext items={rows.map((r) => r.id)} strategy={verticalListSortingStrategy}>
+              {rows.map((row) => (
+                <SortableAdminRow
+                  key={row.id}
+                  row={row}
+                  onOpen={sheet.open}
+                  onToggleActive={toggleActive}
+                  onDelete={deleteRow}
+                />
+              ))}
+            </SortableContext>
+          </DndContext>
+        </AdminList>
+      )}
+
+      <AdminDetailSheet
+        open={sheet.isOpen}
+        onClose={sheet.close}
+        title={selectedRow?.fileName ?? "Portfolio item"}
+        subtitle={selectedRow ? `Slot ${selectedRow.slot}` : undefined}
+        icon={<ImageIcon className="size-4" aria-hidden />}
+        badge={
+          selectedRow ? (
+            <span className="inline-flex rounded-full bg-[#151515]/[0.06] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#151515]/70">
+              {selectedRow.active ? "Active" : "Hidden"}
+            </span>
+          ) : null
+        }
+        footer={
+          selectedRow ? (
+            <button
+              type="button"
+              className="text-sm font-medium text-red-600 hover:text-red-700"
+              onClick={() => void deleteRow(selectedRow.id)}
+            >
+              Delete item
+            </button>
+          ) : null
+        }
+      >
+        {selectedRow ? (
+          <div className="space-y-6">
+            <div className="overflow-hidden rounded-2xl border border-[#151515]/10 bg-[#151515]/[0.03]">
+              <div className="relative aspect-video w-full">
+                <PortfolioAdminMediaThumb
+                  url={selectedRow.url}
+                  mediaType={selectedRow.mediaType}
+                  fileName={selectedRow.fileName}
+                />
+              </div>
+            </div>
+
+            <AdminDetailSection title="Item">
+              <AdminDetailField label="File name" value={selectedRow.fileName} />
+              <AdminDetailField label="Media type" value={selectedRow.mediaType} />
+              <AdminDetailField label="Slot" value={selectedRow.slot} mono />
+              <AdminDetailField label="Storage key" value={selectedRow.key} mono />
+              <AdminDetailField label="URL" value={selectedRow.url} mono />
+              <AdminDetailField
+                label="Visibility"
+                value={selectedRow.active ? "Visible on site" : "Hidden"}
               />
-            ))}
+            </AdminDetailSection>
           </div>
-        </SortableContext>
-      </DndContext>
+        ) : null}
+      </AdminDetailSheet>
     </div>
   );
 }

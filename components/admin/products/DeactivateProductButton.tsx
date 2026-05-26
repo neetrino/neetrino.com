@@ -5,9 +5,13 @@ import { useState } from "react";
 
 type DeactivateProductButtonProps = {
   readonly productId: string;
+  readonly onDeactivated?: () => void;
 };
 
-export function DeactivateProductButton({ productId }: DeactivateProductButtonProps) {
+export function DeactivateProductButton({
+  productId,
+  onDeactivated,
+}: DeactivateProductButtonProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -26,6 +30,7 @@ export function DeactivateProductButton({ productId }: DeactivateProductButtonPr
         return;
       }
       router.refresh();
+      onDeactivated?.();
     } catch {
       window.alert("Could not deactivate product.");
     } finally {

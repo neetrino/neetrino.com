@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AdminShell } from "@/components/admin/AdminShell";
-import { BlogPostTable } from "@/components/admin/blog/BlogPostTable";
+import { BlogAdminPanel } from "@/components/admin/blog/BlogAdminPanel";
 import { requireAdminSession } from "@/lib/server/auth/guards";
 import { getAdminBlogPosts } from "@/lib/server/blog/admin";
 
@@ -22,7 +22,7 @@ export default async function AdminBlogPage() {
           Create new post
         </Link>
       </div>
-      <BlogPostTable posts={posts} />
+      <BlogAdminPanel posts={posts} />
     </AdminShell>
   );
 }

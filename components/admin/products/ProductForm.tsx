@@ -12,6 +12,8 @@ type ProductStatusValue = "ACTIVE" | "INACTIVE" | "SOLD";
 type ProductFormProps = {
   readonly mode: "create" | "edit";
   readonly productId?: string;
+  readonly embedded?: boolean;
+  readonly onSaved?: () => void;
   readonly initial?: {
     readonly name: string;
     readonly description: string;
@@ -22,7 +24,13 @@ type ProductFormProps = {
   };
 };
 
-export function ProductForm({ mode, productId, initial }: ProductFormProps) {
+export function ProductForm({
+  mode,
+  productId,
+  initial,
+  embedded = false,
+  onSaved,
+}: ProductFormProps) {
   const router = useRouter();
   const [name, setName] = useState(initial?.name ?? "");
   const [description, setDescription] = useState(initial?.description ?? "");
@@ -80,6 +88,12 @@ export function ProductForm({ mode, productId, initial }: ProductFormProps) {
         return;
       }
 
+      if (embedded) {
+        onSaved?.();
+        router.refresh();
+        return;
+      }
+
       router.push("/admin/products");
       router.refresh();
     } catch {
@@ -92,7 +106,11 @@ export function ProductForm({ mode, productId, initial }: ProductFormProps) {
   return (
     <form
       onSubmit={(e) => void handleSubmit(e)}
-      className="max-w-xl space-y-5 rounded-3xl border border-black/10 bg-white p-8"
+      className={
+        embedded
+          ? "space-y-5"
+          : "max-w-xl space-y-5 rounded-3xl border border-black/10 bg-white p-8"
+      }
     >
       {createdUrl ? (
         <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
@@ -186,12 +204,14 @@ export function ProductForm({ mode, productId, initial }: ProductFormProps) {
         >
           {saving ? "Saving…" : "Save"}
         </button>
-        <Link
-          href="/admin/products"
-          className="rounded-full border border-black/15 px-5 py-2.5 text-sm font-semibold text-black/70"
-        >
-          Cancel
-        </Link>
+        {embedded ? null : (
+          <Link
+            href="/admin/products"
+            className="rounded-full border border-black/15 px-5 py-2.5 text-sm font-semibold text-black/70"
+          >
+            Cancel
+          </Link>
+        )}
       </div>
     </form>
   );

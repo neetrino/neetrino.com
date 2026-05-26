@@ -32,6 +32,16 @@ export async function updateBlogPostAction(formData: FormData): Promise<void> {
   redirect(`/admin/blog/${postId}/edit`);
 }
 
+export async function updateBlogPostInSheetAction(formData: FormData): Promise<void> {
+  await logAdminServerActionDebug("updateBlogPostInSheet");
+  await requireAdminSession();
+  const postId = readPostId(formData);
+  const input = parseBlogPostFormData(formData);
+
+  await updateAdminBlogPost(postId, input);
+  revalidateBlogPaths();
+}
+
 export async function deleteBlogPostAction(formData: FormData): Promise<void> {
   await logAdminServerActionDebug("deleteBlogPost");
   await requireAdminSession();
@@ -39,6 +49,14 @@ export async function deleteBlogPostAction(formData: FormData): Promise<void> {
 
   revalidateBlogPaths();
   redirect("/admin/blog");
+}
+
+export async function deleteBlogPostInSheetAction(formData: FormData): Promise<void> {
+  await logAdminServerActionDebug("deleteBlogPostInSheet");
+  await requireAdminSession();
+  await deleteAdminBlogPost(readPostId(formData));
+
+  revalidateBlogPaths();
 }
 
 function readPostId(formData: FormData): string {
