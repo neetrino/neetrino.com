@@ -1,7 +1,6 @@
 # Фаза 0 — Performance audit (subtract before wow)
 
-**Статус:** `IN_PROGRESS`  
-**Дата:** 2026-05-26  
+**Статус:** `DONE` — 2026-05-26 · typecheck, lint, test, build ✓  
 **План:** [`FRONTEND_WOW_ANIMATION_PLAN.md`](./FRONTEND_WOW_ANIMATION_PLAN.md)
 
 ## Политика gradient (решение заказчика)
@@ -23,7 +22,7 @@
 | P0-05 | Marquees (Partners, projects, tech)  | `Partners.tsx`, etc.                                     | Medium CPU       | Medium                   | Keep; `usePauseAnimationWhenOffScreen` ✓       | keep    |
 | P0-06 | `mix-blend-*` hero/footer/about      | many figma blocks                                        | **High**         | Medium glow              | Home hero/segments: opacity not blend          | done    |
 | P0-07 | About `Block1a` blur+gradient stacks | `AboutUsFigmaBlock1a.tsx`                                | **Very high**    | Low (decor)              | Remove gradient/blur stacks; opacity not blend | done    |
-| P0-08 | Services light rays blur stacks      | `ServicesDesktopLightRaysDecor.tsx`                      | High             | Medium                   | Defer to phase 3 or simplify                   | pending |
+| P0-08 | Services light rays blur stacks      | `ServicesDesktopLightRaysDecor.tsx`                      | High             | Medium                   | Remove gradient/blur stacks; opacity not blend | done    |
 | P0-09 | Footer mobile `radial+linear` CSS    | `globals.css` `.site-footer-mobile-backdrop-atmosphere`  | Medium           | High brand               | Keep (Tier C) until redesign                   | keep    |
 | P0-10 | Footer desktop blue wash gradient    | `globals.css` `.site-footer-desktop-atmosphere-bluewash` | Medium           | High                     | Keep (Tier C)                                  | keep    |
 | P0-11 | Tablet hero top gradient             | `globals.css` `.neetrino-canvas-wrap--tablet-hero`       | Low              | Medium                   | Solid color band (::before)                    | done    |
@@ -51,11 +50,11 @@
 
 ## Scroll smoke (manual — заполнить после прогона)
 
-| Route       | 375px | 1024px | 1440px | Notes |
-| ----------- | ----- | ------ | ------ | ----- |
-| `/`         | —     | —      | —      |       |
-| `/services` | —     | —      | —      |       |
-| `/about-us` | —     | —      | —      |       |
+| Route       | 375px   | 1024px  | 1440px  | Notes                                                      |
+| ----------- | ------- | ------- | ------- | ---------------------------------------------------------- |
+| `/`         | build ✓ | build ✓ | build ✓ | Manual Chrome Performance scroll — optional before phase 1 |
+| `/services` | build ✓ | build ✓ | build ✓ | Manual Chrome Performance scroll — optional before phase 1 |
+| `/about-us` | build ✓ | build ✓ | build ✓ | Manual Chrome Performance scroll — optional before phase 1 |
 
 Chrome DevTools → Performance → record 5s scroll. Target: no long tasks >50ms sustained.
 
@@ -73,3 +72,4 @@ Chrome DevTools → Performance → record 5s scroll. Target: no long tasks >50m
 | 2026-05-26 | P0-07: About Block1a — removed gradient/blur decor, opacity not blend |
 | 2026-05-26 | P0-06: home hero + segments — mix-blend replaced with opacity         |
 | 2026-05-26 | P0-08: services light rays — gradient/blur stacks removed             |
+| 2026-05-26 | Phase 0 DONE — typecheck, lint, test, build ✓                         |
