@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
 import { HeroBackgroundAtmosphere } from "@/components/sections/HeroBackgroundAtmosphere";
+import { HeroReveal, HeroTitleLine } from "@/components/motion/HeroReveal";
 import { HeroStatHandAtmosphereLayer } from "@/components/sections/HeroStatHandAtmosphereLayer";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
@@ -43,7 +44,6 @@ function HeroBackground() {
           priority
         />
       </div>
-      <HeroBackgroundAtmosphere variant="mobile" className="absolute inset-0 z-[8] opacity-80" />
     </>
   );
 }
@@ -62,9 +62,15 @@ function HeroTitleAndRobot({ locale }: { locale: AppLocale }) {
           HOME_MOBILE_HERO_SURFACE_DUO_TITLE_CLASS,
         )}
       >
-        <span className="block">NEET</span>
-        <span className="block">RIN</span>
-        <span className="block">O</span>
+        <HeroTitleLine className="block" index={0}>
+          NEET
+        </HeroTitleLine>
+        <HeroTitleLine className="block" index={1}>
+          RIN
+        </HeroTitleLine>
+        <HeroTitleLine className="block" index={2}>
+          O
+        </HeroTitleLine>
       </h1>
 
       {/* Full-bleed clip at viewport width; inner column preserves Figma left/% math vs 393px frame. */}
@@ -74,7 +80,7 @@ function HeroTitleAndRobot({ locale }: { locale: AppLocale }) {
       >
         <div className="relative mx-auto h-full w-full max-w-[393px]">
           <div className="pointer-events-none absolute left-[calc(50%+207px)] top-0 h-full w-[576px] max-w-[min(576px,148vw)] -translate-x-1/2 overflow-hidden">
-            <div className="relative h-full w-full">
+            <div className="hero-robot-live relative h-full w-full">
               {/* Figma 241:828 — crop inside 576×759 */}
               <Image
                 src={FIGMA_ASSETS.img30}
@@ -99,11 +105,12 @@ function HeroBodyCopy() {
   const t = useTranslations();
 
   return (
-    <div
+    <HeroReveal
       className={cn(
         "absolute left-6 top-[461px] z-30 flex h-[200px] w-[227px] -translate-y-1/2 flex-col justify-center text-left text-base font-extralight leading-[23px] text-white",
         HOME_MOBILE_HERO_SURFACE_DUO_BODY_CLASS,
       )}
+      delayMs={240}
     >
       <p>{t("home.hero.body.line1")}</p>
       <p className="font-black">{t("home.hero.body.line2")}</p>
@@ -116,7 +123,7 @@ function HeroBodyCopy() {
       <p>{t("home.hero.body.line6")}</p>
       <p>{t("home.hero.body.line7")}</p>
       <p>{t("home.hero.body.line8")}</p>
-    </div>
+    </HeroReveal>
   );
 }
 
@@ -261,6 +268,7 @@ export function HeroSection({ locale }: { locale: AppLocale }) {
             aria-hidden
           />
           <div className="relative min-h-[853px] w-full min-w-0">
+            <HeroBackgroundAtmosphere variant="mobile" className="absolute inset-0 z-[2]" />
             <HeroTitleAndRobot locale={locale} />
             <HeroBodyCopy />
             <HeroCtas />

@@ -17,6 +17,7 @@ import {
 } from "@/lib/home-desktop-hero-tablet-sky.constants";
 import { HOME_DESKTOP_HERO_TABLET_ROBOT_WRAPPER_TOP_CLASS } from "@/lib/home-desktop-hero-tablet-robot.constants";
 import { HeroBackgroundAtmosphere } from "@/components/sections/HeroBackgroundAtmosphere";
+import { HeroReveal } from "@/components/motion/HeroReveal";
 import {
   img28A,
   img30,
@@ -72,14 +73,8 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
             </div>
           </div>
         </div>
-        <HeroBackgroundAtmosphere
-          variant="desktop"
-          className="absolute left-[2%] top-[4%] z-[2] h-[82%] w-[34%]"
-        />
-        <div
-          className="absolute left-0 right-0 top-[18.9%] flex justify-center px-4"
-          data-node-id="10:424"
-        >
+        <HeroBackgroundAtmosphere variant="desktop" className="absolute inset-0 z-[3]" />
+        <HeroReveal className="absolute left-0 right-0 top-[18.9%] z-[4] flex justify-center px-4">
           <Image
             src={assetUrl("NEETRINO.svg")}
             alt="NEETRINO"
@@ -89,16 +84,16 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
             unoptimized
             loading="eager"
           />
-        </div>
+        </HeroReveal>
         <div
           className={cn(
-            "-translate-x-1/2 absolute h-[975px] left-[calc(50%+0.5px)] w-[629px]",
+            "-translate-x-1/2 absolute h-[975px] left-[calc(50%+0.5px)] w-[629px] z-[5]",
             showTabletHero450Hand ? HOME_DESKTOP_HERO_TABLET_ROBOT_WRAPPER_TOP_CLASS : "top-[45px]",
           )}
           data-name="30"
           data-node-id="10:425"
         >
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="hero-robot-live absolute inset-0 overflow-hidden pointer-events-none">
             <Image
               alt=""
               width={2400}
@@ -136,8 +131,9 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
             </div>
           </div>
         </div>
-        <div
-          className="-translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[3.5%] not-italic text-[24px] text-white top-[68%] w-[35.8%]"
+        <HeroReveal
+          className="-translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[3.5%] not-italic text-[24px] text-white top-[68%] w-[35.8%] z-[6]"
+          delayMs={180}
           data-node-id="10:427"
         >
           <p>
@@ -147,12 +143,13 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
             </span>
             <span className="leading-[35px]">{` ${t("home.hero.body.line4")} ${t("home.hero.body.line5")} ${t("home.hero.body.line6")} ${t("home.hero.body.line7")} ${t("home.hero.body.line8")}`}</span>
           </p>
-        </div>
-        <div
+        </HeroReveal>
+        <HeroReveal
           className={cn(
-            "absolute content-stretch flex gap-[17.2%] items-center overflow-visible leading-[0] left-[3.5%] top-[76.3%]",
+            "absolute content-stretch flex gap-[17.2%] items-center overflow-visible leading-[0] left-[3.5%] top-[76.3%] z-[6]",
             showTabletHero450Hand && HOME_DESKTOP_HERO_TABLET_STATS_ROW_STACK_CLASS,
           )}
+          delayMs={320}
           data-node-id="10:428"
         >
           <div
@@ -273,7 +270,7 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
               </div>
             ) : null}
           </div>
-        </div>
+        </HeroReveal>
       </div>
     </>
   );
