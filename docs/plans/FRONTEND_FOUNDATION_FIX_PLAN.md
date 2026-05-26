@@ -2,7 +2,7 @@
 
 **Статус:** `DONE` (P0) — 2026-05-26 · проверки: typecheck, lint, test, build ✓  
 **Дата:** 2026-05-26  
-**Следующий документ:** [`FRONTEND_WOW_ANIMATION_PLAN.md`](./FRONTEND_WOW_ANIMATION_PLAN.md) (только после завершения и проверки плана 1)
+**Следующий документ:** [`FRONTEND_WOW_ANIMATION_PLAN.md`](./FRONTEND_WOW_ANIMATION_PLAN.md) — **IN_PROGRESS** (фаза 0)
 
 ---
 

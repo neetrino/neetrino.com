@@ -12,7 +12,7 @@ export type BlogIndexCardProps = {
 };
 
 /**
- * Blog index tile — dark glass card aligned with site header tokens (border-white/10, soft shadow).
+ * Blog index tile — dark card aligned with site header tokens (border-white/10, soft shadow).
  */
 export function BlogIndexCard({ item, className }: BlogIndexCardProps) {
   const t = useTranslations();
@@ -22,7 +22,7 @@ export function BlogIndexCard({ item, className }: BlogIndexCardProps) {
     <article
       id={item.id}
       className={cn(
-        "flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[rgba(40,43,103,0.22)] shadow-[0_12px_40px_rgba(8,10,24,0.35)] backdrop-blur-sm",
+        "flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[rgba(40,43,103,0.32)] shadow-[0_12px_40px_rgba(8,10,24,0.35)]",
         className,
       )}
     >
