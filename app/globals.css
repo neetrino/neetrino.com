@@ -701,10 +701,10 @@ html[lang="hy"] body {
 .home-desktop-hero-lower-matte-band {
   position: absolute;
   left: 0;
-  top: 792px;
+  top: 876px;
   z-index: 5;
   width: 1440px;
-  height: 357px;
+  height: 273px;
   pointer-events: none;
   isolation: isolate;
   -webkit-backdrop-filter: blur(20px) saturate(1.1);
