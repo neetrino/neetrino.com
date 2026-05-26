@@ -107,13 +107,9 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
           </div>
         </div>
         <div
-          className="absolute left-0 top-[692px] w-[1440px] h-[457px] pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to bottom, transparent 0%, rgba(21,21,21,0.55) 50%, rgba(21,21,21,0.88) 100%)",
-            maskImage: "linear-gradient(to bottom, transparent 0%, black 50%)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 50%)",
-          }}
+          className="home-desktop-hero-lower-matte-band"
+          aria-hidden
+          data-name="hero-lower-matte"
         />
         <div className="-translate-x-1/2 absolute flex h-[457px] items-center justify-center left-1/2 top-[692px] w-[1440px]">
           <div className="-scale-y-100 flex-none rotate-180">
