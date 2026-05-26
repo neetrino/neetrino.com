@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CopyProductUrlButton } from "@/components/admin/products/CopyProductUrlButton";
 import { DeactivateProductButton } from "@/components/admin/products/DeactivateProductButton";
+import { formatMoneyAMDWithCurrency } from "@/lib/format-money-amd";
 import { getPublicProductUrl } from "@/lib/products/public-product-url";
 import type { AdminProductRow } from "@/lib/server/products/product-repository";
 
@@ -34,7 +35,7 @@ export function ProductTable({ products }: { products: readonly AdminProductRow[
               <tr key={product.id}>
                 <td className="px-5 py-4 font-medium">{product.name}</td>
                 <td className="px-5 py-4">
-                  {product.price} {product.currency}
+                  {formatMoneyAMDWithCurrency(product.price, product.currency)}
                 </td>
                 <td className="px-5 py-4">{product.type}</td>
                 <td className="px-5 py-4">{product.status}</td>

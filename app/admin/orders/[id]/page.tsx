@@ -4,6 +4,7 @@ import { AdminShell } from "@/components/admin/AdminShell";
 import { CopyProductUrlButton } from "@/components/admin/products/CopyProductUrlButton";
 import { requireAdminSession } from "@/lib/server/auth/guards";
 import { getAdminOrderById } from "@/lib/server/orders/order-repository";
+import { formatMoneyAMDWithCurrency } from "@/lib/format-money-amd";
 import { getPublicProductUrl } from "@/lib/products/public-product-url";
 
 type AdminOrderDetailPageProps = {
@@ -35,7 +36,7 @@ export default async function AdminOrderDetailPage({ params }: AdminOrderDetailP
       <dl className="max-w-2xl space-y-4 rounded-3xl border border-black/10 bg-white p-8 text-sm">
         <Row label="Status" value={order.status} />
         <Row label="Product" value={order.productName} />
-        <Row label="Amount" value={`${order.amount} ${order.currency}`} />
+        <Row label="Amount" value={formatMoneyAMDWithCurrency(order.amount, order.currency)} />
         <Row label="Customer name" value={order.customerName ?? "—"} />
         <Row label="Customer email" value={order.customerEmail ?? "—"} />
         <Row label="Customer phone" value={order.customerPhone ?? "—"} />

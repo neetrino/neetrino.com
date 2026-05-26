@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProductCheckoutForm } from "@/components/products/ProductCheckoutForm";
+import { formatMoneyAMDWithCurrency } from "@/lib/format-money-amd";
 import { interSans } from "@/lib/fonts";
 import type { AppLocale } from "@/lib/i18n/locales";
 import type { PaymentLanguageCode } from "@/lib/payment.constants";
@@ -61,8 +62,8 @@ export default async function SecretProductPage({ params }: SecretProductPagePro
             <p className="mt-4 text-base leading-relaxed text-white/75">{product.description}</p>
           ) : null}
 
-          <p className="mt-6 text-2xl font-semibold text-white">
-            {product.price.toString()} {product.currency}
+          <p className="mt-8 text-3xl font-semibold tracking-[-0.02em] text-white md:text-4xl">
+            {formatMoneyAMDWithCurrency(product.price.toString(), product.currency)}
           </p>
 
           {!availability.available ? (

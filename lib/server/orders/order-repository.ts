@@ -34,9 +34,6 @@ export type AdminOrderDetail = AdminOrderRow & {
 
 export type CreateProductOrderInput = {
   readonly product: Product;
-  readonly customerName: string;
-  readonly customerEmail: string;
-  readonly customerPhone: string;
 };
 
 function toAdminRow(order: Order): AdminOrderRow {
@@ -104,9 +101,9 @@ export async function createPendingProductOrder(input: CreateProductOrderInput):
       productName: input.product.name,
       amount: input.product.price,
       currency: input.product.currency,
-      customerName: input.customerName.trim(),
-      customerEmail: input.customerEmail.trim(),
-      customerPhone: input.customerPhone.trim(),
+      customerName: null,
+      customerEmail: null,
+      customerPhone: null,
       status: OrderStatus.PENDING,
     },
   });
