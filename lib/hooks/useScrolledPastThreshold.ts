@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /** Pixels from top before sticky header glass/blur activates. */
 export const NAVBAR_STICKY_SCROLL_THRESHOLD_PX = 12;
@@ -12,10 +12,15 @@ export function useScrolledPastThreshold(
   thresholdPx: number = NAVBAR_STICKY_SCROLL_THRESHOLD_PX,
 ): boolean {
   const [scrolled, setScrolled] = useState(false);
+  const prevRef = useRef(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > thresholdPx);
+      const next = window.scrollY > thresholdPx;
+      if (next !== prevRef.current) {
+        prevRef.current = next;
+        setScrolled(next);
+      }
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });

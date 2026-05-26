@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
+import { usePauseAnimationWhenOffScreen } from "@/lib/hooks/use-pause-animation-when-off-screen";
 
 const partnerLogos = [
   { src: FIGMA_ASSETS.imgLayer1, w: 78, h: 73 },
@@ -27,9 +31,12 @@ const doubledPartnerLogos = [...marqueeBaseLogos, ...marqueeBaseLogos];
 
 export function Partners() {
   const t = useTranslations();
+  const containerRef = useRef<HTMLElement>(null);
+  usePauseAnimationWhenOffScreen(containerRef, ".marquee-inner");
 
   return (
     <section
+      ref={containerRef}
       aria-label={t("partners.sectionAria")}
       className="max-w-full min-w-0 bg-transparent pt-0 pb-15 mt-0 lg:mt-0 lg:bg-[#151515] lg:px-0 lg:pb-8 lg:pt-0 lg:leading-none lg:[&_span]:m-0 lg:[&_span]:block lg:[&_span]:leading-none"
       style={{
@@ -71,7 +78,7 @@ export function Partners() {
           }
         }
       `}</style>
-      <div className="marquee-inner">
+      <div className="marquee-inner will-change-transform">
         {doubledPartnerLogos.map((logo, i) => {
           const { width, height } = logoDimensions(logo);
           return (
@@ -88,7 +95,7 @@ export function Partners() {
           );
         })}
       </div>
-      <div className="marquee-inner mobile-extra-row">
+      <div className="marquee-inner mobile-extra-row will-change-transform">
         {doubledPartnerLogos.map((logo, i) => {
           const { width, height } = logoDimensions(logo);
           return (

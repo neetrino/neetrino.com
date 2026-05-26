@@ -3,7 +3,7 @@
  * Background a touch lighter than `rgba(40,43,103,0.38)` so the bar does not merge with saturated blue content.
  */
 export const MOBILE_HEADER_BAR_SURFACE_CLASS =
-  "rounded-full border border-white/[0.08] bg-[rgba(56,62,132,0.42)] backdrop-blur-md backdrop-saturate-150" as const;
+  "rounded-full border border-white/[0.08] bg-[rgba(56,62,132,0.52)]" as const;
 
 export const MOBILE_HEADER_BAR_PADDING_CLASS = "px-6 py-3" as const;
 

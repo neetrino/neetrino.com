@@ -1,6 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import { HomeProjectCard } from "@/components/home/HomeProjectCard";
+import { usePauseAnimationWhenOffScreen } from "@/lib/hooks/use-pause-animation-when-off-screen";
 import { HOME_PROJECTS_MARQUEE_IMAGE_SIZES } from "@/lib/home-projects.constants";
 import {
   HOME_PROJECTS_MARQUEE_CLIP_HEIGHT_CLASS,
@@ -33,8 +35,8 @@ function MarqueeRow({ direction, items }: MarqueeRowProps) {
       <div
         className={
           direction === "right"
-            ? "home-projects-marquee-row-inner home-projects-marquee-row-inner--to-right"
-            : "home-projects-marquee-row-inner home-projects-marquee-row-inner--to-left"
+            ? "home-projects-marquee-row-inner home-projects-marquee-row-inner--to-right will-change-transform"
+            : "home-projects-marquee-row-inner home-projects-marquee-row-inner--to-left will-change-transform"
         }
       >
         {looped.map((item, index) => (
@@ -63,27 +65,42 @@ type NeetrinoHomeProjectsMarqueeProps = {
   items: readonly PublicPortfolioCard[];
 };
 
+function MarqueeRowContainer({
+  className,
+  direction,
+  items,
+}: MarqueeRowProps & { className: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  usePauseAnimationWhenOffScreen(containerRef, ".home-projects-marquee-row-inner");
+
+  return (
+    <div ref={containerRef} className={className}>
+      <MarqueeRow direction={direction} items={items} />
+    </div>
+  );
+}
+
 export function NeetrinoHomeProjectsMarquee({ items }: NeetrinoHomeProjectsMarqueeProps) {
   const { rowA, rowB } = splitPortfolioItemsForHomeMarquee(items);
 
   return (
     <>
-      <div
+      <MarqueeRowContainer
         className={cn(
           "absolute left-0 z-[11] w-[1440px]",
           HOME_PROJECTS_MARQUEE_FIRST_ROW_TOP_CLASS,
         )}
-      >
-        <MarqueeRow direction="right" items={rowA} />
-      </div>
-      <div
+        direction="right"
+        items={rowA}
+      />
+      <MarqueeRowContainer
         className={cn(
           "absolute left-0 z-[12] w-[1440px]",
           HOME_PROJECTS_MARQUEE_SECOND_ROW_TOP_CLASS,
         )}
-      >
-        <MarqueeRow direction="left" items={rowB} />
-      </div>
+        direction="left"
+        items={rowB}
+      />
     </>
   );
 }

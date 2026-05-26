@@ -69,10 +69,15 @@ export function EllipseDeviceShowcase() {
   const videoSlotRefs = useRef<(HTMLVideoElement | null)[]>([null, null, null, null]);
 
   const [deviceAtSlot, setDeviceAtSlot] = useState<OrbitSlotOrder>(INITIAL_ORDER);
+  const [videoMountEpoch, setVideoMountEpoch] = useState(0);
   const orbitAngles = useDeviceOrbitAngles(deviceAtSlot);
   const isNearViewportCenter = useIsNearViewportCenter(rootRef);
 
   const frontDeviceId = deviceAtSlot[2];
+
+  const onVideoSlotMounted = useCallback(() => {
+    setVideoMountEpoch((epoch) => epoch + 1);
+  }, []);
 
   useEffect(() => {
     syncShowcaseVideosToViewportCenter(
@@ -82,7 +87,7 @@ export function EllipseDeviceShowcase() {
       frontDeviceId,
       previousFrontWhileCenteredRef,
     );
-  }, [isNearViewportCenter, frontDeviceId]);
+  }, [isNearViewportCenter, frontDeviceId, videoMountEpoch]);
 
   const fillVideoSlot = useCallback(
     (id: OrbitDeviceId) => (el: HTMLVideoElement | null) => {
@@ -124,6 +129,7 @@ export function EllipseDeviceShowcase() {
         deviceAtSlot={deviceAtSlot}
         orbitAngles={orbitAngles}
         fillVideoSlot={fillVideoSlot}
+        onVideoSlotMounted={onVideoSlotMounted}
       />
 
       <div

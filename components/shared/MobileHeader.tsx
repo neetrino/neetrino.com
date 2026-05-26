@@ -26,7 +26,7 @@ export function MobileHeader() {
       <div className="mx-auto w-[calc(100%-24px)] max-w-[1120px] md:w-[calc(100%-40px)]">
         <div
           className={cn(
-            "flex items-center justify-between gap-3 transition-[background-color,box-shadow,backdrop-filter,border-color] duration-300 ease-out",
+            "flex items-center justify-between gap-3 transition-[background-color,box-shadow,border-color] duration-300 ease-out",
             MOBILE_HEADER_BAR_SURFACE_CLASS,
             MOBILE_HEADER_BAR_PADDING_CLASS,
             stickyChrome && MOBILE_HEADER_BAR_SCROLLED_ENHANCEMENT_CLASS,
