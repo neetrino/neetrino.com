@@ -22,6 +22,12 @@ import {
 import { HOME_DESKTOP_HERO_TABLET_ROBOT_WRAPPER_TOP_CLASS } from "@/lib/home-desktop-hero-tablet-robot.constants";
 import { HeroBackgroundAtmosphere } from "@/components/sections/HeroBackgroundAtmosphere";
 import { HeroReveal } from "@/components/motion/HeroReveal";
+import {
+  HOME_HERO_REVEAL_DELAY_BODY_MS,
+  HOME_HERO_REVEAL_DELAY_LOGO_MS,
+  HOME_HERO_REVEAL_DELAY_ROBOT_MS,
+  HOME_HERO_REVEAL_DELAY_STATS_MS,
+} from "@/lib/motion/home-hero-reveal.constants";
 import { img30, imgPhilippHubertDVVjhUcdb30Unsplash1, imgRectangle17399 } from "@/lib/figma-assets";
 
 export type NeetrinoHomeSegment1Props = {
@@ -73,7 +79,11 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
           </div>
         </div>
         <HeroBackgroundAtmosphere variant="desktop" className="absolute inset-0 z-[3]" />
-        <HeroReveal className="absolute left-0 right-0 top-[18.9%] z-[4] flex justify-center px-4">
+        <HeroReveal
+          profile="homeHero"
+          delayMs={HOME_HERO_REVEAL_DELAY_LOGO_MS}
+          className="absolute left-0 right-0 top-[18.9%] z-[4] flex justify-center px-4"
+        >
           <Image
             src={assetUrl("NEETRINO.svg")}
             alt="NEETRINO"
@@ -84,7 +94,9 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
             loading="eager"
           />
         </HeroReveal>
-        <div
+        <HeroReveal
+          profile="homeHero"
+          delayMs={HOME_HERO_REVEAL_DELAY_ROBOT_MS}
           className={cn(
             "-translate-x-1/2 absolute h-[975px] left-[calc(50%+0.5px)] w-[629px] z-[5]",
             showTabletHero450Hand ? HOME_DESKTOP_HERO_TABLET_ROBOT_WRAPPER_TOP_CLASS : "top-[45px]",
@@ -104,7 +116,7 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
               loading="eager"
             />
           </div>
-        </div>
+        </HeroReveal>
         <div
           className="home-desktop-hero-lower-matte-band"
           aria-hidden
@@ -127,8 +139,9 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
           </div>
         </div>
         <HeroReveal
+          profile="homeHero"
           className="-translate-y-1/2 absolute flex flex-col font-extralight justify-center leading-[0] left-[3.5%] not-italic text-[24px] text-white top-[68%] w-[35.8%] z-[6]"
-          delayMs={180}
+          delayMs={HOME_HERO_REVEAL_DELAY_BODY_MS}
           data-node-id="10:427"
         >
           <p>
@@ -140,11 +153,12 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
           </p>
         </HeroReveal>
         <HeroReveal
+          profile="homeHero"
           className={cn(
             "absolute content-stretch flex gap-[17.2%] items-center overflow-visible leading-[0] left-[3.5%] top-[76.3%] z-[6]",
             showTabletHero450Hand && HOME_DESKTOP_HERO_TABLET_STATS_ROW_STACK_CLASS,
           )}
-          delayMs={320}
+          delayMs={HOME_HERO_REVEAL_DELAY_STATS_MS}
           data-node-id="10:428"
         >
           <div

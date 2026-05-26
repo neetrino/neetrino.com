@@ -6,6 +6,10 @@ import { Link } from "@/i18n/navigation";
 import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
 import { HeroBackgroundAtmosphere } from "@/components/sections/HeroBackgroundAtmosphere";
 import { HeroReveal, HeroTitleLine } from "@/components/motion/HeroReveal";
+import {
+  HOME_HERO_MOBILE_BODY_DELAY_MS,
+  HOME_HERO_REVEAL_DELAY_ROBOT_MS,
+} from "@/lib/motion/home-hero-reveal.constants";
 import { HeroStatHandAtmosphereLayer } from "@/components/sections/HeroStatHandAtmosphereLayer";
 import { FIGMA_ASSETS } from "@/lib/figma-assets";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
@@ -62,13 +66,13 @@ function HeroTitleAndRobot({ locale }: { locale: AppLocale }) {
           HOME_MOBILE_HERO_SURFACE_DUO_TITLE_CLASS,
         )}
       >
-        <HeroTitleLine className="block" index={0}>
+        <HeroTitleLine profile="homeHero" className="block" index={0}>
           NEET
         </HeroTitleLine>
-        <HeroTitleLine className="block" index={1}>
+        <HeroTitleLine profile="homeHero" className="block" index={1}>
           RIN
         </HeroTitleLine>
-        <HeroTitleLine className="block" index={2}>
+        <HeroTitleLine profile="homeHero" className="block" index={2}>
           O
         </HeroTitleLine>
       </h1>
@@ -80,19 +84,25 @@ function HeroTitleAndRobot({ locale }: { locale: AppLocale }) {
       >
         <div className="relative mx-auto h-full w-full max-w-[393px]">
           <div className="pointer-events-none absolute left-[calc(50%+207px)] top-0 h-full w-[576px] max-w-[min(576px,148vw)] -translate-x-1/2 overflow-hidden">
-            <div className="hero-robot-live relative h-full w-full">
-              {/* Figma 241:828 — crop inside 576×759 */}
-              <Image
-                src={FIGMA_ASSETS.img30}
-                alt=""
-                width={836}
-                height={1491}
-                quality={HERO_IMAGE_QUALITY}
-                className="absolute left-[-22.58%] top-[-60.36%] h-[196.49%] w-[145.15%] max-w-none object-cover"
-                sizes="576px"
-                loading="eager"
-              />
-            </div>
+            <HeroReveal
+              profile="homeHero"
+              delayMs={HOME_HERO_REVEAL_DELAY_ROBOT_MS}
+              className="relative h-full w-full"
+            >
+              <div className="hero-robot-live relative h-full w-full">
+                {/* Figma 241:828 — crop inside 576×759 */}
+                <Image
+                  src={FIGMA_ASSETS.img30}
+                  alt=""
+                  width={836}
+                  height={1491}
+                  quality={HERO_IMAGE_QUALITY}
+                  className="absolute left-[-22.58%] top-[-60.36%] h-[196.49%] w-[145.15%] max-w-none object-cover"
+                  sizes="576px"
+                  loading="eager"
+                />
+              </div>
+            </HeroReveal>
           </div>
         </div>
       </div>
@@ -106,11 +116,12 @@ function HeroBodyCopy() {
 
   return (
     <HeroReveal
+      profile="homeHero"
       className={cn(
         "absolute left-6 top-[461px] z-30 flex h-[200px] w-[227px] -translate-y-1/2 flex-col justify-center text-left text-base font-extralight leading-[23px] text-white",
         HOME_MOBILE_HERO_SURFACE_DUO_BODY_CLASS,
       )}
-      delayMs={240}
+      delayMs={HOME_HERO_MOBILE_BODY_DELAY_MS}
     >
       <p>{t("home.hero.body.line1")}</p>
       <p className="font-black">{t("home.hero.body.line2")}</p>
