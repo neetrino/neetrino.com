@@ -32,8 +32,7 @@ export function HomeDesktopHeader({ className }: { className?: string }) {
     <div
       className={cn(
         "z-[100]",
-        className ??
-          "relative h-[64px] w-full rounded-[72px] bg-[rgba(255,255,255,0.21)] backdrop-blur-xl backdrop-saturate-150",
+        className ?? "relative h-[64px] w-full rounded-[72px] bg-[rgba(255,255,255,0.31)]",
       )}
       data-name="Awwwards"
       data-node-id="335:1424"

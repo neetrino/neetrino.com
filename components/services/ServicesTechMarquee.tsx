@@ -1,4 +1,8 @@
+"use client";
+
+import { useRef } from "react";
 import type { IconType } from "react-icons";
+import { usePauseAnimationWhenOffScreen } from "@/lib/hooks/use-pause-animation-when-off-screen";
 import { FaJava } from "react-icons/fa6";
 import {
   SiFlutter,
@@ -57,8 +61,12 @@ function ServicesTechLogo({
 }
 
 export function ServicesTechMarquee({ className = "", compact = false }: ServicesTechMarqueeProps) {
+  const containerRef = useRef<HTMLElement>(null);
+  usePauseAnimationWhenOffScreen(containerRef, ".services-tech-marquee-track");
+
   return (
     <section
+      ref={containerRef}
       aria-label="Technology stack marquee"
       className={["overflow-hidden", className].join(" ")}
       style={{
@@ -100,7 +108,7 @@ export function ServicesTechMarquee({ className = "", compact = false }: Service
             <div key={rowIndex} className="overflow-hidden">
               <div
                 className={[
-                  "services-tech-marquee-track",
+                  "services-tech-marquee-track will-change-transform",
                   compact ? "gap-12 md:gap-16" : "gap-16 md:gap-24",
                   row.reverse
                     ? "services-tech-marquee-track--reverse"

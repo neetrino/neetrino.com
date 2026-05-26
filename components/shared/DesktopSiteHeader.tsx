@@ -17,18 +17,18 @@ export function DesktopSiteHeader() {
 
   return (
     <div
-      className="pointer-events-none fixed left-1/2 z-[100] hidden -translate-x-1/2 lg:block"
+      className="pointer-events-none fixed left-1/2 z-[100] hidden -translate-x-1/2 will-change-transform lg:block"
       style={{ top: topPx }}
     >
       <div
-        className="pointer-events-auto"
+        className="pointer-events-auto will-change-transform"
         style={{
-          transform: `scale(${scale})`,
+          transform: `scale(${scale}) translateZ(0)`,
           transformOrigin: "top center",
           width: NEETRINO_DESKTOP_HEADER_BAR_WIDTH_PX,
         }}
       >
-        <HomeDesktopHeader className="relative h-[64px] w-full rounded-[72px] bg-[rgba(255,255,255,0.21)] backdrop-blur-sm backdrop-saturate-150" />
+        <HomeDesktopHeader className="relative h-[64px] w-full rounded-[72px] bg-[rgba(255,255,255,0.31)]" />
       </div>
     </div>
   );

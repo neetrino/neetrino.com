@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
+import { useShowDeviceVideoAfterOrbit } from "@/lib/hooks/use-show-device-video-after-orbit";
 import { EllipseDeviceScreenVideo } from "@/components/neetrino-home/EllipseDeviceScreenVideo";
 import { DEVICE_SHOWCASE_FRAMES } from "@/lib/device-showcase-assets";
 import {
@@ -25,7 +26,6 @@ import {
   DEVICE_MACBOOK_VIDEO_WHEN_FRONT_SHELL_TOP_CLASS,
   DEVICE_MACBOOK_VIDEO_WHEN_FRONT_WIDTH_CLASS,
   DEVICE_MACBOOK_VIDEO_FRONT_MOVE_CLASS,
-  DEVICE_MACBOOK_ORBIT_VIDEO_TRANSFORM_CLASS,
   DEVICE_MACBOOK_ORBIT_WRAPPER_TRANSLATE_WHEN_IPHONE_FRONT_CLASS,
   DEVICE_SHOWCASE_LANDSCAPE_VIDEO_OBJECT_POSITION_CLASS,
   deviceShowcaseScreenVideoSrc,
@@ -119,14 +119,28 @@ export type EllipseDeviceShowcaseDevicesProps = Readonly<{
   deviceAtSlot: OrbitSlotOrder;
   orbitAngles: Record<OrbitDeviceId, number>;
   fillVideoSlot: (id: OrbitDeviceId) => (el: HTMLVideoElement | null) => void;
+  /** Fired when a screen video mounts after orbit (re-sync playback). */
+  onVideoSlotMounted?: () => void;
 }>;
 
 export function EllipseDeviceShowcaseDevices({
   deviceAtSlot,
   orbitAngles,
   fillVideoSlot,
+  onVideoSlotMounted,
 }: EllipseDeviceShowcaseDevicesProps) {
   const frontDeviceId = deviceAtSlot[2];
+
+  const showIphoneVideo = useShowDeviceVideoAfterOrbit(frontDeviceId === 0);
+  const showIpadVideo = useShowDeviceVideoAfterOrbit(frontDeviceId === 1);
+  const showMacbookVideo = useShowDeviceVideoAfterOrbit(frontDeviceId === 2);
+  const showImacVideo = useShowDeviceVideoAfterOrbit(frontDeviceId === 3);
+
+  useEffect(() => {
+    if (showIphoneVideo || showIpadVideo || showMacbookVideo || showImacVideo) {
+      onVideoSlotMounted?.();
+    }
+  }, [showIphoneVideo, showIpadVideo, showMacbookVideo, showImacVideo, onVideoSlotMounted]);
 
   const slotForDevice = useCallback(
     (deviceId: OrbitDeviceId) => deviceAtSlot.indexOf(deviceId) as 0 | 1 | 2 | 3,
@@ -170,19 +184,21 @@ export function EllipseDeviceShowcaseDevices({
               alt=""
               src={FIGMA_ASSETS.imgIPhone14Pro1}
               fill
-              className="z-[1] object-cover object-center drop-shadow-lg"
+              className="z-[1] object-cover object-center shadow-lg"
               sizes="(max-width: 768px) 100px, 140px"
               quality={DEFAULT_IMAGE_QUALITY}
             />
-            <EllipseDeviceScreenVideo
-              src={deviceShowcaseScreenVideoSrc(0)}
-              inset={DEVICE_IPHONE_VERTICAL_VIDEO_INSET_PCT}
-              objectFit="cover"
-              screenSurfaceClassName={DEVICE_IPHONE_VERTICAL_VIDEO_SURFACE_ROUNDED}
-              videoClassName={DEVICE_IPHONE_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS}
-              className="z-[3]"
-              setVideoRef={fillVideoSlot(0)}
-            />
+            {showIphoneVideo ? (
+              <EllipseDeviceScreenVideo
+                src={deviceShowcaseScreenVideoSrc(0)}
+                inset={DEVICE_IPHONE_VERTICAL_VIDEO_INSET_PCT}
+                objectFit="cover"
+                screenSurfaceClassName={DEVICE_IPHONE_VERTICAL_VIDEO_SURFACE_ROUNDED}
+                videoClassName={DEVICE_IPHONE_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS}
+                className="z-[3]"
+                setVideoRef={fillVideoSlot(0)}
+              />
+            ) : null}
           </div>
         </div>
       </div>
@@ -225,27 +241,29 @@ export function EllipseDeviceShowcaseDevices({
               src={FIGMA_ASSETS.imgSpaceGray1}
               width={305}
               height={213}
-              className="relative z-[1] h-auto w-full max-w-full object-cover drop-shadow-lg"
+              className="relative z-[1] h-auto w-full max-w-full object-cover shadow-lg"
               sizes="(max-width: 768px) 160px, 240px"
               quality={DEFAULT_IMAGE_QUALITY}
             />
-            <EllipseDeviceScreenVideo
-              src={deviceShowcaseScreenVideoSrc(2)}
-              inset={DEVICE_MACBOOK_SCREEN_VIDEO_INSET_PCT}
-              objectFit="contain"
-              clipShellPositionStyle={deviceIpadScreenVideoClipShellPositionStyle({
-                ipadIsFrontDevice: frontDeviceId === 1,
-                ipadOrbitSlot: slotForDevice(1),
-              })}
-              className="z-[3]"
-              screenSurfaceClassName={DEVICE_IPAD_SCREEN_VIDEO_SURFACE_CLASS}
-              videoClassName={cn(
-                DEVICE_INNER_TRANSITION,
-                "origin-center rotate-[270deg]",
-                DEVICE_IPAD_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS,
-              )}
-              setVideoRef={fillVideoSlot(1)}
-            />
+            {showIpadVideo ? (
+              <EllipseDeviceScreenVideo
+                src={deviceShowcaseScreenVideoSrc(2)}
+                inset={DEVICE_MACBOOK_SCREEN_VIDEO_INSET_PCT}
+                objectFit="contain"
+                clipShellPositionStyle={deviceIpadScreenVideoClipShellPositionStyle({
+                  ipadIsFrontDevice: frontDeviceId === 1,
+                  ipadOrbitSlot: slotForDevice(1),
+                })}
+                className="z-[3]"
+                screenSurfaceClassName={DEVICE_IPAD_SCREEN_VIDEO_SURFACE_CLASS}
+                videoClassName={cn(
+                  DEVICE_INNER_TRANSITION,
+                  "origin-center rotate-[270deg]",
+                  DEVICE_IPAD_SCREEN_VIDEO_ELEMENT_ROUNDED_CLASS,
+                )}
+                setVideoRef={fillVideoSlot(1)}
+              />
+            ) : null}
           </div>
         </div>
       </div>
@@ -293,10 +311,10 @@ export function EllipseDeviceShowcaseDevices({
               src={DEVICE_SHOWCASE_FRAMES.macbook}
               width={DEVICE_MACBOOK_FRAME_ASSET_WIDTH_PX}
               height={360}
-              className="relative z-[1] h-auto w-full object-contain drop-shadow-xl"
+              className="relative z-[1] h-auto w-full object-contain shadow-xl"
               quality={DEFAULT_IMAGE_QUALITY}
             />
-            {frontDeviceId === 2 ? (
+            {frontDeviceId === 2 && showMacbookVideo ? (
               <div
                 className={cn(
                   "pointer-events-none absolute z-[3] max-w-full -translate-x-1/2 -translate-y-1/2 overflow-hidden",
@@ -323,18 +341,7 @@ export function EllipseDeviceShowcaseDevices({
                   />
                 </div>
               </div>
-            ) : (
-              <EllipseDeviceScreenVideo
-                src={deviceShowcaseScreenVideoSrc(2)}
-                inset={DEVICE_MACBOOK_SCREEN_VIDEO_INSET_PCT}
-                className={cn("z-[3]", DEVICE_SHOWCASE_LANDSCAPE_VIDEO_OBJECT_POSITION_CLASS)}
-                videoClassName={cn(
-                  DEVICE_INNER_TRANSITION,
-                  DEVICE_MACBOOK_ORBIT_VIDEO_TRANSFORM_CLASS,
-                )}
-                setVideoRef={fillVideoSlot(2)}
-              />
-            )}
+            ) : null}
           </div>
         </div>
       </div>
@@ -371,22 +378,24 @@ export function EllipseDeviceShowcaseDevices({
             alt=""
             src={FIGMA_ASSETS.imgAppleIMac27201911}
             fill
-            className="z-[1] object-cover object-center drop-shadow-lg"
+            className="z-[1] object-cover object-center shadow-lg"
             sizes="(max-width: 768px) 200px, 320px"
             quality={DEFAULT_IMAGE_QUALITY}
           />
-          <EllipseDeviceScreenVideo
-            src={deviceShowcaseScreenVideoSrc(3)}
-            inset={DEVICE_IMAC_SCREEN_VIDEO_INSET_PCT}
-            className={cn("z-[3]", DEVICE_SHOWCASE_LANDSCAPE_VIDEO_OBJECT_POSITION_CLASS)}
-            videoClassName={cn(
-              DEVICE_INNER_TRANSITION,
-              frontDeviceId === 3
-                ? DEVICE_IMAC_VIDEO_WHEN_FRONT_MOVE_CLASS
-                : DEVICE_IMAC_ORBIT_VIDEO_TRANSFORM_CLASS,
-            )}
-            setVideoRef={fillVideoSlot(3)}
-          />
+          {showImacVideo ? (
+            <EllipseDeviceScreenVideo
+              src={deviceShowcaseScreenVideoSrc(3)}
+              inset={DEVICE_IMAC_SCREEN_VIDEO_INSET_PCT}
+              className={cn("z-[3]", DEVICE_SHOWCASE_LANDSCAPE_VIDEO_OBJECT_POSITION_CLASS)}
+              videoClassName={cn(
+                DEVICE_INNER_TRANSITION,
+                frontDeviceId === 3
+                  ? DEVICE_IMAC_VIDEO_WHEN_FRONT_MOVE_CLASS
+                  : DEVICE_IMAC_ORBIT_VIDEO_TRANSFORM_CLASS,
+              )}
+              setVideoRef={fillVideoSlot(3)}
+            />
+          ) : null}
         </div>
       </div>
     </>

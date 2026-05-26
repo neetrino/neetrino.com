@@ -258,7 +258,7 @@ export function HeroSection({ locale }: { locale: AppLocale }) {
       <div className="relative z-20 w-full min-w-0 overflow-x-clip">
         <div className="relative mx-auto w-full max-w-[393px] pt-[88px] text-left">
           <div
-            className={`pointer-events-none absolute inset-x-0 ${HERO_LOWER_BLUR_TOP} bottom-0 z-[16] ${HERO_LOWER_BLUR_RADIUS} bg-[#151515]/30 backdrop-blur-2xl backdrop-saturate-150`}
+            className={`pointer-events-none absolute inset-x-0 ${HERO_LOWER_BLUR_TOP} bottom-0 z-[16] ${HERO_LOWER_BLUR_RADIUS} bg-gradient-to-b from-[#151515]/25 to-[#151515]/80`}
             aria-hidden
           />
           <div className="relative min-h-[853px] w-full min-w-0">

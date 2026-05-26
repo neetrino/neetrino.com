@@ -1,6 +1,6 @@
 "use client";
 
-import { type RefObject, useEffect, useState } from "react";
+import { type RefObject, useEffect, useRef, useState } from "react";
 
 /** Max vertical distance (fraction of `innerHeight`) between block midline and viewport midline. */
 const VIEWPORT_CENTER_VERTICAL_TOLERANCE = 0.22;
@@ -32,6 +32,7 @@ export function useIsNearViewportCenter<T extends HTMLElement>(
   rootRef: RefObject<T | null>,
 ): boolean {
   const [isNearCenter, setIsNearCenter] = useState(false);
+  const prevRef = useRef<boolean | null>(null);
 
   useEffect(() => {
     const el = rootRef.current;
@@ -41,7 +42,11 @@ export function useIsNearViewportCenter<T extends HTMLElement>(
     const run = () => {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
-        setIsNearCenter(computeIsNearViewportCenter(el));
+        const next = computeIsNearViewportCenter(el);
+        if (next !== prevRef.current) {
+          prevRef.current = next;
+          setIsNearCenter(next);
+        }
       });
     };
 
