@@ -22,7 +22,7 @@ import {
   img30,
   imgPhilippHubertDVVjhUcdb30Unsplash1,
   imgRectangle17399,
-} from "./figma-assets";
+} from "@/lib/figma-assets";
 
 export type NeetrinoHomeSegment1Props = {
   /** Tablet hybrid `/` hero: sky bleed, robot offset, 450+ hand (`img28A`) on scaled canvas. */

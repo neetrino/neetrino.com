@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { PortfolioDesktopPagination } from "@/components/portfolio/PortfolioDesktopPagination";
 import { PortfolioMobileGridCard } from "@/components/portfolio/PortfolioMobileGridCard";
-import { MOBILE_PORTFOLIO_CARD_IMAGE_SIZES } from "@/components/portfolio/portfolio-data";
+import { MOBILE_PORTFOLIO_CARD_IMAGE_SIZES } from "@/lib/portfolio/portfolio-image-sizes";
 import { clampPage, paginateItems, totalPagesForCount } from "@/lib/portfolio/paginate-portfolio";
 import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
 import { PUBLIC_PORTFOLIO_MOBILE_PAGE_SIZE } from "@/lib/constants/public-portfolio-pagination.constants";

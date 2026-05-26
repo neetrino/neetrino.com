@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import bundleAnalyzer from "@next/bundle-analyzer";
 import createNextIntlPlugin from "next-intl/plugin";
+import { getBlogImageRemotePatterns } from "./lib/build/blog-image-remote-patterns";
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
@@ -38,22 +39,7 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.neetrino.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "www.figma.com",
-        pathname: "/api/mcp/**",
-      },
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-    ],
+    remotePatterns: getBlogImageRemotePatterns(),
   },
   ...(adminServerActionAllowedOrigins
     ? {

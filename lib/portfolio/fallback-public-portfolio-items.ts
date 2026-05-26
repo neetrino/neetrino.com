@@ -4,7 +4,7 @@ import { slotFromIndex } from "@/lib/portfolio/portfolio-slot";
 import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
 
 /**
- * CDN keys for legacy portfolio cards (same visual order as `MOBILE_PORTFOLIO_IMAGES` in portfolio-data).
+ * CDN keys for legacy portfolio cards (same visual order as the former static mobile portfolio set).
  * Used only when DB has zero active portfolio items.
  */
 const FALLBACK_PORTFOLIO_KEYS = [

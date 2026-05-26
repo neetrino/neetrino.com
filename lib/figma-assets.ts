@@ -28,8 +28,10 @@ export const FIGMA_ASSETS = {
   /** Hero hand wash — WebM (replaces legacy GIF `64738b5b-…`; use `HeroHandAnimationVideo`). */
   heroHandAnimationVideoSrc: assetUrl("figma-assets/hero-animation.webm"),
   img30: assetUrl("figma-assets/4e1596f7-d4cd-49d3-bb93-922d629919db.webp"),
-  /** Same file as `imgWhoWeAreFigma516` in `components/neetrino-home/figma-assets.ts` (Figma HOME 10:516). */
+  /** Legacy GIF loop; prefer `imgWhoWeAreFigma516` (transparent WebP) on desktop home. */
   img1: assetUrl("figma-assets/e13d4cdd-fff7-4529-b579-81b60d56576b.gif"),
+  /** Figma HOME `10:516` — octahedron loop; transparent WebP. */
+  imgWhoWeAreFigma516: assetUrl("figma-assets/who-we-are-figma-516-transparent.webp"),
   imgStanislavHristov3: assetUrl("figma-assets/7b7b391f-6dd1-4383-bb7b-84682d2ef6ef.webp"),
   imgUiDesign21: assetUrl("figma-assets/b281255c-1686-47f8-b45d-f6d1a7738309.webp"),
   img2661: assetUrl("figma-assets/71e356ef-206c-46d7-8d9e-f2dc83b5109c.webp"),
@@ -90,3 +92,51 @@ export const FIGMA_ASSETS = {
 } as const;
 
 export const heroHandAnimationVideoSrc = FIGMA_ASSETS.heroHandAnimationVideoSrc;
+
+export const imgPc = FIGMA_ASSETS.imgPc;
+export const imgSafearea = FIGMA_ASSETS.imgSafearea;
+export const imgChangeColor1 = FIGMA_ASSETS.imgChangeColor1;
+export const imgChangeColor = FIGMA_ASSETS.imgChangeColor;
+export const imgSafearea1 = FIGMA_ASSETS.imgSafearea1;
+export const imgEllipse3463 = FIGMA_ASSETS.imgEllipse3463;
+export const imgAnimation = FIGMA_ASSETS.imgAnimation;
+export const imgDelete = FIGMA_ASSETS.imgDelete;
+export const imgBody = FIGMA_ASSETS.imgBody;
+export const imgScreen = FIGMA_ASSETS.imgScreen;
+export const imgSpaceGray1 = FIGMA_ASSETS.imgSpaceGray1;
+export const imgAppleIMac27201911 = FIGMA_ASSETS.imgAppleIMac27201911;
+export const imgIPhone14Pro1 = FIGMA_ASSETS.imgIPhone14Pro1;
+export const imgNeetrinoItComapny2Png1 = FIGMA_ASSETS.imgNeetrinoItComapny2Png1;
+export const imgVector = FIGMA_ASSETS.imgVector;
+export const imgPhilippHubertDVVjhUcdb30Unsplash1 =
+  FIGMA_ASSETS.imgPhilippHubertDVVjhUcdb30Unsplash1;
+export const img30 = FIGMA_ASSETS.img30;
+export const imgStanislavHristov3 = FIGMA_ASSETS.imgStanislavHristov3;
+export const imgUiDesign21 = FIGMA_ASSETS.imgUiDesign21;
+export const img2661 = FIGMA_ASSETS.img2661;
+export const img10 = FIGMA_ASSETS.img10;
+export const imgBiotechLogo1 = FIGMA_ASSETS.imgBiotechLogo1;
+export const imgKleverKleverIoInstagramPhotosAndVideos3 =
+  FIGMA_ASSETS.imgKleverKleverIoInstagramPhotosAndVideos3;
+export const imgSports00065 = FIGMA_ASSETS.imgSports00065;
+export const imgCloudInfrastructure = FIGMA_ASSETS.imgCloudInfrastructure;
+export const imgPc1 = FIGMA_ASSETS.imgPc1;
+export const img2761 = FIGMA_ASSETS.img2761;
+export const img28A = FIGMA_ASSETS.img28A;
+export const imgVector2 = FIGMA_ASSETS.imgVector2;
+export const imgRectangle17399 = FIGMA_ASSETS.imgRectangle17399;
+export const imgRectangle17417 = FIGMA_ASSETS.imgRectangle17417;
+export const imgRectangle17416 = FIGMA_ASSETS.imgRectangle17416;
+export const imgRectangle17411 = FIGMA_ASSETS.imgRectangle17411;
+export const imgRectangle17414 = FIGMA_ASSETS.imgRectangle17414;
+export const imgRectangle17415 = FIGMA_ASSETS.imgRectangle17415;
+export const imgVector8 = FIGMA_ASSETS.imgVector8;
+export const imgLayer1 = FIGMA_ASSETS.imgLayer1;
+export const imgLayer2 = FIGMA_ASSETS.imgLayer2;
+export const imgLayer3 = FIGMA_ASSETS.imgLayer3;
+export const imgLayer4 = FIGMA_ASSETS.imgLayer4;
+export const imgVector9 = FIGMA_ASSETS.imgVector9;
+export const imgLayer5 = FIGMA_ASSETS.imgLayer5;
+export const imgLayer6 = FIGMA_ASSETS.imgLayer6;
+export const imgEllipse3459 = FIGMA_ASSETS.imgEllipse3459;
+export const imgWhoWeAreFigma516 = FIGMA_ASSETS.imgWhoWeAreFigma516;

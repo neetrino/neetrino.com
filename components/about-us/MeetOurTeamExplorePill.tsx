@@ -7,7 +7,7 @@ import {
   EXPLORE_PILL_HOVER_FLARE_POSITION_CLASS,
 } from "@/components/neetrino-home/explore-hover-flare.constants";
 import { ExploreHoverFlare } from "@/components/neetrino-home/ExploreHoverFlare";
-import { imgEllipse3463, imgSafearea1 } from "@/components/neetrino-home/figma-assets";
+import { imgEllipse3463, imgSafearea1 } from "@/lib/figma-assets";
 import { Link } from "@/i18n/navigation";
 import {
   homeExplorePillEllipseUnderlayFromStartClassName,

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { imgAnimation, imgBody, imgDelete, imgScreen } from "./figma-assets";
+import { imgAnimation, imgBody, imgDelete, imgScreen } from "@/lib/figma-assets";
 
 export function MacBookPro({ className }: { className?: string }) {
   return (

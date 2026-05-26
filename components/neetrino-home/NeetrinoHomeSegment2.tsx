@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { MeetOurTeamExplorePill } from "@/components/about-us/MeetOurTeamExplorePill";
-import { imgRectangle17417, imgWhoWeAreFigma516 } from "./figma-assets";
+import { imgRectangle17417, imgWhoWeAreFigma516 } from "@/lib/figma-assets";
 
 export function NeetrinoHomeSegment2() {
   const t = useTranslations();

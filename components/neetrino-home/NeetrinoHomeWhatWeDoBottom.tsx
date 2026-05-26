@@ -11,7 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Group } from "./Group";
 import { Group1 } from "./Group1";
-import { img2761, imgCloudInfrastructure, imgPc1 } from "./figma-assets";
+import { img2761, imgCloudInfrastructure, imgPc1 } from "@/lib/figma-assets";
 
 export function NeetrinoHomeWhatWeDoBottom() {
   const t = useTranslations();

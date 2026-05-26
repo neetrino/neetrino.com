@@ -14,7 +14,7 @@ import {
   whatWeDoRuOrangeMobileSubtitleTopClassName,
 } from "@/lib/what-we-do-desktop-continue-cta-layout";
 import { cn } from "@/lib/utils";
-import { imgSports00065 } from "./figma-assets";
+import { imgSports00065 } from "@/lib/figma-assets";
 
 export function NeetrinoHomeWhatWeDoTop() {
   const t = useTranslations();

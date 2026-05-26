@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 import { MacBookPro } from "./MacBookPro";
-import { imgAppleIMac27201911, imgIPhone14Pro1, imgSafearea, imgSpaceGray1 } from "./figma-assets";
+import {
+  imgAppleIMac27201911,
+  imgIPhone14Pro1,
+  imgSafearea,
+  imgSpaceGray1,
+} from "@/lib/figma-assets";
 
 type FrameProps = {
   className?: string;

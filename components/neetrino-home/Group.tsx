@@ -13,7 +13,7 @@ import {
   homeExplorePillWidthRuClassName,
 } from "@/lib/home-explore-pill-layout";
 import { cn } from "@/lib/utils";
-import { imgEllipse3463, imgSafearea1 } from "./figma-assets";
+import { imgEllipse3463, imgSafearea1 } from "@/lib/figma-assets";
 
 type GroupProps = {
   className?: string;

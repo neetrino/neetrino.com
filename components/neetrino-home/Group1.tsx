@@ -9,7 +9,7 @@ import {
   whatWeDoRuWebsiteSubtitleNudgeUpClassName,
 } from "@/lib/what-we-do-desktop-continue-cta-layout";
 import { cn } from "@/lib/utils";
-import { imgPc } from "./figma-assets";
+import { imgPc } from "@/lib/figma-assets";
 
 type Group1Props = {
   className?: string;

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { imgRectangle17411, imgRectangle17414, imgRectangle17415 } from "./figma-assets";
+import { imgRectangle17411, imgRectangle17414, imgRectangle17415 } from "@/lib/figma-assets";
 
 export function NeetrinoHomeSegment3() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { PortfolioMobileGridCard } from "@/components/portfolio/PortfolioMobileGridCard";
-import { MOBILE_PORTFOLIO_CARD_IMAGE_SIZES } from "@/components/portfolio/portfolio-data";
+import { MOBILE_PORTFOLIO_CARD_IMAGE_SIZES } from "@/lib/portfolio/portfolio-image-sizes";
 import type { PublicPortfolioCard } from "@/lib/portfolio/public-portfolio.dto";
 
 type HomeProjectsGridProps = {

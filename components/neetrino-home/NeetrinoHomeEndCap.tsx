@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { img28A } from "./figma-assets";
+import { img28A } from "@/lib/figma-assets";
 
 export function NeetrinoHomeEndCap() {
   return (

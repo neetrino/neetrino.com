@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
-const srcPath = fileURLToPath(new URL("./NeetrinoHome.full.tsx", import.meta.url));
+const srcPath = fileURLToPath(
+  new URL("../archive/neetrino/NeetrinoHome.full.tsx", import.meta.url),
+);
 const lines = fs.readFileSync(srcPath, "utf8").split(/\r?\n/);
 const slice = (a, b) => lines.slice(a - 1, b).join("\n");
 
