@@ -15,19 +15,30 @@ export const MOBILE_HERO_STATS_TOP = [
     text: "text-white",
   },
   {
-    value: "97+",
+    value: "97%",
     labelLineKeys: ["home.hero.stats.satisfiedClients"],
     bg: "bg-white",
     text: "text-[#0d266c]",
   },
 ] as const;
 
+/** 450+ tile base (Figma `10:439`); hover uses brand orange like the “8+” stat card. */
+export const HOME_HERO_CREATIONS_STAT_BG_CLASS = "bg-[#473dff]" as const;
+export const HOME_HERO_CREATIONS_STAT_BG_HOVER_CLASS =
+  "transition-colors duration-300 group-hover:bg-[#ff7500] group-focus-visible:bg-[#ff7500]" as const;
+
 export const MOBILE_HERO_STAT_WIDE = {
   value: "450+",
   labelKey: "home.hero.stats.creations",
-  bg: "bg-[#473dff]",
+  bg: HOME_HERO_CREATIONS_STAT_BG_CLASS,
   text: "text-[#fffcfc]",
 } as const;
+
+/**
+ * 450+ “Creations” tile — portfolio link; lift on hover, color via `HOME_HERO_CREATIONS_STAT_BG_HOVER_CLASS`.
+ */
+export const HOME_HERO_CREATIONS_STAT_LINK_CLASS =
+  "group block rounded-[39px] transition-[transform,background-color] duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.02] active:translate-y-0 active:scale-[0.995] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100" as const;
 
 /** “450+” numeral — Figma frame uses 56px; slightly reduced on narrow viewports for balance. */
 export const MOBILE_HERO_STAT_WIDE_VALUE_NUMERAL_CLASS = "text-[52px] font-black leading-9";

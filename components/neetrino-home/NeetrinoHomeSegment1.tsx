@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { assetUrl } from "@/lib/assets";
+import {
+  HOME_HERO_CREATIONS_STAT_BG_CLASS,
+  HOME_HERO_CREATIONS_STAT_BG_HOVER_CLASS,
+  HOME_HERO_CREATIONS_STAT_LINK_CLASS,
+} from "@/components/sections/mobile-home-hero.constants";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
@@ -21,7 +27,9 @@ import {
 } from "@/lib/home-desktop-hero-tablet-sky.constants";
 import { HOME_DESKTOP_HERO_TABLET_ROBOT_WRAPPER_TOP_CLASS } from "@/lib/home-desktop-hero-tablet-robot.constants";
 import { HeroBackgroundAtmosphere } from "@/components/sections/HeroBackgroundAtmosphere";
+import { CountUp } from "@/components/motion/CountUp";
 import { HeroReveal } from "@/components/motion/HeroReveal";
+import { getHomeHeroCountUpTiming } from "@/lib/motion/home-hero-count-up.constants";
 import {
   HOME_HERO_REVEAL_DELAY_BODY_MS,
   HOME_HERO_REVEAL_DELAY_LOGO_MS,
@@ -178,7 +186,13 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
                 className="col-1 flex flex-col font-black h-[41px] justify-center ml-[18px] mt-[36px] not-italic relative row-1 text-[56px] text-white w-[78px]"
                 data-node-id="10:432"
               >
-                <p className="leading-[36px]">8+</p>
+                <p className="leading-[36px]">
+                  <CountUp
+                    value="8+"
+                    className="inline-block"
+                    {...getHomeHeroCountUpTiming("8+")}
+                  />
+                </p>
               </div>
               <div
                 className="col-1 flex flex-col font-extralight justify-center leading-[25px] ml-[18px] mt-[86px] not-italic relative row-1 text-[#fffcfc] text-[20px] whitespace-nowrap"
@@ -201,7 +215,13 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
                 className="col-1 flex flex-col font-black h-[43px] justify-center ml-[26px] mt-[36px] not-italic relative row-1 text-[#0d266c] text-[56px] w-[122px]"
                 data-node-id="10:436"
               >
-                <p className="leading-[36px]">97%</p>
+                <p className="leading-[36px]">
+                  <CountUp
+                    value="97%"
+                    className="inline-block"
+                    {...getHomeHeroCountUpTiming("97%")}
+                  />
+                </p>
               </div>
               <div
                 className={cn(
@@ -234,21 +254,35 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
             )}
             data-name="BAN2-wrap"
           >
-            <div className="relative z-0 shrink-0">
+            <Link
+              href="/portfolio"
+              className={cn("relative z-0 shrink-0", HOME_HERO_CREATIONS_STAT_LINK_CLASS)}
+              aria-label={t("nav.portfolio")}
+            >
               <div
                 className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0"
                 data-name="BAN2"
                 data-node-id="10:438"
               >
                 <div
-                  className="bg-[#473dff] col-1 h-[167px] ml-0 mt-0 rounded-[39px] row-1 w-[517px]"
+                  className={cn(
+                    HOME_HERO_CREATIONS_STAT_BG_CLASS,
+                    HOME_HERO_CREATIONS_STAT_BG_HOVER_CLASS,
+                    "col-1 h-[167px] ml-0 mt-0 rounded-[39px] row-1 w-[517px]",
+                  )}
                   data-node-id="10:439"
                 />
                 <div
                   className="col-1 flex flex-col font-black justify-center ml-[44px] mt-[33px] not-italic relative row-1 text-[#fffcfc] text-[56px] whitespace-nowrap"
                   data-node-id="10:440"
                 >
-                  <p className="leading-[36px]">450+</p>
+                  <p className="leading-[36px]">
+                    <CountUp
+                      value="450+"
+                      className="inline-block"
+                      {...getHomeHeroCountUpTiming("450+")}
+                    />
+                  </p>
                 </div>
                 <div
                   className="col-1 flex flex-col font-extralight justify-center ml-[44px] mt-[87px] not-italic relative row-1 text-[#fffcfc] text-[20px] text-right whitespace-nowrap"
@@ -257,7 +291,7 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
                   <p className="leading-[25px]">{t("home.hero.stats.creations")}</p>
                 </div>
               </div>
-            </div>
+            </Link>
             <Hero450PointingHand
               slotClassName={
                 showTabletHero450Hand

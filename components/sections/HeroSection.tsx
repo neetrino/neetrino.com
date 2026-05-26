@@ -5,7 +5,9 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { HeroGetQuoteCta } from "@/components/sections/HeroGetQuoteCta";
 import { HeroBackgroundAtmosphere } from "@/components/sections/HeroBackgroundAtmosphere";
+import { CountUp } from "@/components/motion/CountUp";
 import { HeroReveal, HeroTitleLine } from "@/components/motion/HeroReveal";
+import { getHomeHeroCountUpTiming } from "@/lib/motion/home-hero-count-up.constants";
 import {
   HOME_HERO_MOBILE_BODY_DELAY_MS,
   HOME_HERO_REVEAL_CTA_STAGGER_MS,
@@ -28,6 +30,8 @@ import {
   MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_UP_PX,
   MOBILE_HERO_STAT_WIDE_VALUE_NUMERAL_CLASS,
   MOBILE_HERO_STATS_TOP,
+  HOME_HERO_CREATIONS_STAT_BG_HOVER_CLASS,
+  HOME_HERO_CREATIONS_STAT_LINK_CLASS,
 } from "@/components/sections/mobile-home-hero.constants";
 import { HERO_CONTACT_FIGMA_241_838_PRIMARY_PILL_CLASSNAME } from "@/lib/hero-contact-figma-pill.constants";
 import {
@@ -176,19 +180,24 @@ function HeroStatsTop() {
       delayMs={HOME_HERO_REVEAL_DELAY_STATS_MS}
       className="relative z-40 mt-0 grid grid-cols-2 gap-3 px-6"
     >
-      {MOBILE_HERO_STATS_TOP.map((item) => (
-        <div
-          key={item.value}
-          className={`rounded-[39px] px-5 pb-6 pt-7 text-left ${item.bg} ${item.text}`}
-        >
-          <p className="text-[56px] font-black leading-9">{item.value}</p>
-          <div className="mt-2 text-base font-extralight leading-[18px]">
-            {item.labelLineKeys.map((lineKey: string) => (
-              <p key={lineKey}>{t(lineKey)}</p>
-            ))}
+      {MOBILE_HERO_STATS_TOP.map((item) => {
+        const countUp = getHomeHeroCountUpTiming(item.value);
+        return (
+          <div
+            key={item.value}
+            className={`rounded-[39px] px-5 pb-6 pt-7 text-left ${item.bg} ${item.text}`}
+          >
+            <p className="text-[56px] font-black leading-9">
+              <CountUp value={item.value} className="inline-block" {...countUp} />
+            </p>
+            <div className="mt-2 text-base font-extralight leading-[18px]">
+              {item.labelLineKeys.map((lineKey: string) => (
+                <p key={lineKey}>{t(lineKey)}</p>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </HeroReveal>
   );
 }
@@ -228,6 +237,7 @@ function HeroStatsRegionWithGrid() {
 function HeroStatWide() {
   const t = useTranslations();
   const s = MOBILE_HERO_STAT_WIDE;
+  const countUp = getHomeHeroCountUpTiming(s.value);
 
   return (
     <HeroReveal
@@ -235,8 +245,15 @@ function HeroStatWide() {
       delayMs={HOME_HERO_REVEAL_DELAY_STAT_WIDE_MS}
       className="relative z-10 mt-[34px] min-h-[167px] w-full min-w-0 px-6"
     >
-      <div
-        className={`relative w-full overflow-visible rounded-[39px] px-8 pb-8 pt-8 text-left ${s.bg}`}
+      <Link
+        href="/portfolio"
+        className={cn(
+          "relative w-full overflow-visible px-8 pb-8 pt-8 text-left",
+          s.bg,
+          HOME_HERO_CREATIONS_STAT_BG_HOVER_CLASS,
+          HOME_HERO_CREATIONS_STAT_LINK_CLASS,
+        )}
+        aria-label={t("nav.portfolio")}
       >
         <div
           className="relative z-20 max-w-[56%]"
@@ -244,7 +261,9 @@ function HeroStatWide() {
             transform: `translate(calc(-1 * ${MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_LEFT_PX}px), calc(-1 * ${MOBILE_HERO_STAT_WIDE_TEXT_NUDGE_UP_PX}px))`,
           }}
         >
-          <p className={cn(MOBILE_HERO_STAT_WIDE_VALUE_NUMERAL_CLASS, s.text)}>{s.value}</p>
+          <p className={cn(MOBILE_HERO_STAT_WIDE_VALUE_NUMERAL_CLASS, s.text)}>
+            <CountUp value={s.value} className="inline-block" {...countUp} />
+          </p>
           <p className={`mt-1 text-base font-extralight ${s.text}`}>{t(s.labelKey)}</p>
         </div>
         <div
@@ -266,7 +285,7 @@ function HeroStatWide() {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     </HeroReveal>
   );
 }
