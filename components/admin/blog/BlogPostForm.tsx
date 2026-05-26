@@ -1,9 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { BlogPostStatus } from "@/lib/generated/prisma/client";
 import { BlogTranslationTabs } from "@/components/admin/blog/BlogTranslationTabs";
 import type { AdminBlogPost } from "@/lib/server/blog/admin";
+
+type BlogPostStatusValue = "DRAFT" | "PUBLISHED";
+
+const BLOG_POST_STATUS = {
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+} as const satisfies Record<string, BlogPostStatusValue>;
 
 type BlogPostFormProps = {
   post?: AdminBlogPost;
@@ -34,11 +40,11 @@ export function BlogPostForm({ post, action, embedded = false, onSaved }: BlogPo
             <span className="text-sm font-medium text-[#151515]/70">Status</span>
             <select
               className="mt-2 w-full rounded-xl border border-[#151515]/10 bg-white px-4 py-2.5 text-sm outline-none focus:border-[#473dff]"
-              defaultValue={post?.status ?? BlogPostStatus.DRAFT}
+              defaultValue={post?.status ?? BLOG_POST_STATUS.DRAFT}
               name="status"
             >
-              <option value={BlogPostStatus.DRAFT}>Draft</option>
-              <option value={BlogPostStatus.PUBLISHED}>Published</option>
+              <option value={BLOG_POST_STATUS.DRAFT}>Draft</option>
+              <option value={BLOG_POST_STATUS.PUBLISHED}>Published</option>
             </select>
           </label>
           <label className="block">
