@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 /** Tab icon: `app/icon.svg`; Apple: `app/apple-icon.png`. `next.config` rewrites `/favicon.ico` → `/icon.svg`. */
 export const metadata: Metadata = {
   title: "NEETRINO — Web",
-  description: "NEETRINO digital agency",
+  description: "NEETRINO IT company",
 };
 
 export default async function RootLayout({
