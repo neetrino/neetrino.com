@@ -695,16 +695,78 @@ html[lang="hy"] body {
 }
 
 /**
+ * 450+ robot hand — rounded arc tap; finger ~70° at rest → ~35° on press.
+ */
+@keyframes home-450-hand-point {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(var(--home-450-hand-angle-rest, 16deg));
+  }
+
+  22% {
+    transform: translate3d(
+        calc(var(--home-450-hand-arc-x-mid, -10px) * 0.35),
+        calc(var(--home-450-hand-arc-y-mid, -8px) * 0.35),
+        0
+      )
+      rotate(var(--home-450-hand-angle-rest, 16deg));
+  }
+
+  40% {
+    transform: translate3d(
+        var(--home-450-hand-arc-x-mid, -10px),
+        var(--home-450-hand-arc-y-mid, -8px),
+        0
+      )
+      rotate(var(--home-450-hand-angle-mid, 5deg));
+  }
+
+  50% {
+    transform: translate3d(
+        var(--home-450-hand-arc-x-press, -20px),
+        var(--home-450-hand-arc-y-press, -13px),
+        0
+      )
+      rotate(var(--home-450-hand-angle-press, -6deg));
+  }
+
+  60% {
+    transform: translate3d(
+        var(--home-450-hand-arc-x-mid, -10px),
+        var(--home-450-hand-arc-y-mid, -8px),
+        0
+      )
+      rotate(var(--home-450-hand-angle-mid, 5deg));
+  }
+
+  78% {
+    transform: translate3d(
+        calc(var(--home-450-hand-arc-x-mid, -10px) * 0.35),
+        calc(var(--home-450-hand-arc-y-mid, -8px) * 0.35),
+        0
+      )
+      rotate(var(--home-450-hand-angle-rest, 16deg));
+  }
+}
+
+.home-450-hand-point-inner {
+  transform-origin: var(--home-450-hand-transform-origin, 80% 84%);
+  animation: home-450-hand-point var(--home-450-hand-point-cycle-ms, 5400ms)
+    var(--home-450-hand-point-ease, cubic-bezier(0.37, 0, 0.18, 1)) infinite;
+  will-change: transform;
+}
+
+/**
  * Desktop home hero lower band — light frosted glass (Figma `10:421`).
  * Offset below Figma `692` so the wash covers the robot leg cutoff above the stat cards.
  */
 .home-desktop-hero-lower-matte-band {
   position: absolute;
   left: 0;
-  top: 876px;
+  top: 792px;
   z-index: 5;
   width: 1440px;
-  height: 273px;
+  height: 357px;
   pointer-events: none;
   isolation: isolate;
   -webkit-backdrop-filter: blur(20px) saturate(1.1);
@@ -738,6 +800,10 @@ html[lang="hy"] body {
   .hero-tech-scanline,
   .hero-tech-grid-line,
   .hero-robot-live {
+    animation: none;
+  }
+
+  .home-450-hand-point-inner {
     animation: none;
   }
 

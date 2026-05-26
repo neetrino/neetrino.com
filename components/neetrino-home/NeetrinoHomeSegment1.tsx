@@ -6,11 +6,15 @@ import { assetUrl } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 import { DEFAULT_IMAGE_QUALITY, HERO_IMAGE_QUALITY } from "@/lib/image-defaults";
 import {
-  HOME_DESKTOP_HERO_450_HAND_IMAGE_SIZES,
-  HOME_DESKTOP_HERO_450_HAND_SLOT_CLASS,
+  HOME_DESKTOP_FULL_HERO_450_BAN2_WRAP_STACK_CLASS,
+  HOME_DESKTOP_FULL_HERO_450_HAND_IMAGE_SIZES,
+  HOME_DESKTOP_FULL_HERO_450_HAND_SLOT_CLASS,
+  HOME_DESKTOP_HERO_TABLET_450_HAND_IMAGE_SIZES,
+  HOME_DESKTOP_HERO_TABLET_450_HAND_SLOT_CLASS,
   HOME_DESKTOP_HERO_TABLET_BAN2_WRAP_STACK_CLASS,
   HOME_DESKTOP_HERO_TABLET_STATS_ROW_STACK_CLASS,
 } from "@/lib/home-desktop-hero-450-hand.constants";
+import { Hero450PointingHand } from "@/components/neetrino-home/Hero450PointingHand";
 import {
   HOME_DESKTOP_HERO_TABLET_SKY_FRAME_INNER_CLASS,
   HOME_DESKTOP_HERO_TABLET_SKY_FRAME_OUTER_CLASS,
@@ -18,12 +22,7 @@ import {
 import { HOME_DESKTOP_HERO_TABLET_ROBOT_WRAPPER_TOP_CLASS } from "@/lib/home-desktop-hero-tablet-robot.constants";
 import { HeroBackgroundAtmosphere } from "@/components/sections/HeroBackgroundAtmosphere";
 import { HeroReveal } from "@/components/motion/HeroReveal";
-import {
-  img28A,
-  img30,
-  imgPhilippHubertDVVjhUcdb30Unsplash1,
-  imgRectangle17399,
-} from "@/lib/figma-assets";
+import { img30, imgPhilippHubertDVVjhUcdb30Unsplash1, imgRectangle17399 } from "@/lib/figma-assets";
 
 export type NeetrinoHomeSegment1Props = {
   /** Tablet hybrid `/` hero: sky bleed, robot offset, 450+ hand (`img28A`) on scaled canvas. */
@@ -214,13 +213,14 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
           </div>
           <div
             className={cn(
-              "relative shrink-0",
-              showTabletHero450Hand && "overflow-visible",
-              showTabletHero450Hand && HOME_DESKTOP_HERO_TABLET_BAN2_WRAP_STACK_CLASS,
+              "relative shrink-0 overflow-visible",
+              showTabletHero450Hand
+                ? HOME_DESKTOP_HERO_TABLET_BAN2_WRAP_STACK_CLASS
+                : HOME_DESKTOP_FULL_HERO_450_BAN2_WRAP_STACK_CLASS,
             )}
-            data-name={showTabletHero450Hand ? "BAN2-wrap" : undefined}
+            data-name="BAN2-wrap"
           >
-            <div className={cn("relative shrink-0", showTabletHero450Hand && "z-0")}>
+            <div className="relative z-0 shrink-0">
               <div
                 className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0"
                 data-name="BAN2"
@@ -244,27 +244,18 @@ export function NeetrinoHomeSegment1({ showTabletHero450Hand = false }: Neetrino
                 </div>
               </div>
             </div>
-            {showTabletHero450Hand ? (
-              <div
-                className={HOME_DESKTOP_HERO_450_HAND_SLOT_CLASS}
-                aria-hidden
-                data-name="450-hand"
-              >
-                <div className="relative size-full overflow-visible">
-                  <div className="absolute inset-0 -scale-y-100 rotate-180">
-                    <Image
-                      alt=""
-                      src={img28A}
-                      fill
-                      className="object-contain object-[right_bottom]"
-                      sizes={HOME_DESKTOP_HERO_450_HAND_IMAGE_SIZES}
-                      quality={DEFAULT_IMAGE_QUALITY}
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </div>
-            ) : null}
+            <Hero450PointingHand
+              slotClassName={
+                showTabletHero450Hand
+                  ? HOME_DESKTOP_HERO_TABLET_450_HAND_SLOT_CLASS
+                  : HOME_DESKTOP_FULL_HERO_450_HAND_SLOT_CLASS
+              }
+              imageSizes={
+                showTabletHero450Hand
+                  ? HOME_DESKTOP_HERO_TABLET_450_HAND_IMAGE_SIZES
+                  : HOME_DESKTOP_FULL_HERO_450_HAND_IMAGE_SIZES
+              }
+            />
           </div>
         </HeroReveal>
       </div>
