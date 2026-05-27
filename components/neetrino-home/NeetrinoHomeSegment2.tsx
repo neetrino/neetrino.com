@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { MeetOurTeamExplorePill } from "@/components/about-us/MeetOurTeamExplorePill";
-import { imgRectangle17417, imgWhoWeAreFigma516 } from "@/lib/figma-assets";
+import { GenerativeArtScene } from "@/components/ui/anomalous-matter-hero";
+import { imgRectangle17417 } from "@/lib/figma-assets";
 import { Reveal } from "@/components/motion/Reveal";
-import { DEFAULT_IMAGE_QUALITY } from "@/lib/image-defaults";
 
 export function NeetrinoHomeSegment2() {
   const t = useTranslations();
@@ -85,22 +85,11 @@ export function NeetrinoHomeSegment2() {
             <MeetOurTeamExplorePill align="start" href="/contact" />
           </div>
           <div
-            className="pointer-events-none absolute h-[641px] left-[721px] top-[-34px] w-[685px]"
+            className="pointer-events-none absolute left-[721px] top-[-34px] h-[641px] w-[685px]"
             data-name="* 1"
             data-node-id="10:516"
           >
-            <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-              <Image
-                alt=""
-                src={imgWhoWeAreFigma516}
-                width={685}
-                height={666}
-                sizes="685px"
-                quality={DEFAULT_IMAGE_QUALITY}
-                loading="lazy"
-                className="absolute left-0 top-0 h-[103.85%] w-full max-w-none object-cover object-top"
-              />
-            </div>
+            <GenerativeArtScene className="opacity-90" />
           </div>
         </div>
       </Reveal>
