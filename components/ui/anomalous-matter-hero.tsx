@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 
 const ICOSAHEDRON_RADIUS = 1.2;
 const ICOSAHEDRON_DETAIL = 64;
-const SCENE_POINT_LIGHT_DISTANCE = 100;
 const ANIMATION_TIME_SCALE = 0.0003;
 const ROTATION_Y_DELTA = 0.0005;
 const ROTATION_X_DELTA = 0.0002;
@@ -16,7 +15,6 @@ const SKY_300_HSL = "hsl(203, 92%, 53%)";
 const VERTEX_SHADER = `
 uniform float time;
 varying vec3 vNormal;
-varying vec3 vPosition;
 
 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
 vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -68,7 +66,6 @@ float snoise(vec3 v) {
 
 void main() {
   vNormal = normal;
-  vPosition = position;
   float displacement = snoise(position * 2.0 + time * 0.5) * 0.2;
   vec3 newPosition = position + normal * displacement;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
@@ -77,17 +74,13 @@ void main() {
 
 const FRAGMENT_SHADER = `
 uniform vec3 color;
-uniform vec3 pointLightPos;
 varying vec3 vNormal;
-varying vec3 vPosition;
 
 void main() {
   vec3 normal = normalize(vNormal);
-  vec3 lightDir = normalize(pointLightPos - vPosition);
+  vec3 lightDir = normalize(vec3(0.4, 0.6, 1.0));
   float diffuse = max(dot(normal, lightDir), 0.0);
-  float fresnel = 1.0 - dot(normal, vec3(0.0, 0.0, 1.0));
-  fresnel = pow(fresnel, 2.0);
-  vec3 finalColor = color * diffuse + color * fresnel * 0.5;
+  vec3 finalColor = color * (0.35 + diffuse * 0.65);
   gl_FragColor = vec4(finalColor, 1.0);
 }
 `;
@@ -118,7 +111,6 @@ function createScene(mount: HTMLDivElement): {
   scene: THREE.Scene;
   material: THREE.ShaderMaterial;
   mesh: THREE.Mesh;
-  pointLight: THREE.PointLight;
 } {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, mount.clientWidth / mount.clientHeight, 0.1, 1000);
@@ -132,7 +124,6 @@ function createScene(mount: HTMLDivElement): {
   const material = new THREE.ShaderMaterial({
     uniforms: {
       time: { value: 0 },
-      pointLightPos: { value: new THREE.Vector3(0, 0, 5) },
       color: { value: new THREE.Color(SKY_300_HSL) },
     },
     vertexShader: VERTEX_SHADER,
@@ -144,10 +135,6 @@ function createScene(mount: HTMLDivElement): {
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
-  const pointLight = new THREE.PointLight(0xffffff, 1, SCENE_POINT_LIGHT_DISTANCE);
-  pointLight.position.set(0, 0, 5);
-  scene.add(pointLight);
-
   const handles: SceneHandles = {
     frameId: 0,
     renderer,
@@ -156,12 +143,11 @@ function createScene(mount: HTMLDivElement): {
     mesh,
   };
 
-  return { handles, camera, scene, material, mesh, pointLight };
+  return { handles, camera, scene, material, mesh };
 }
 
 export function GenerativeArtScene({ className }: GenerativeArtSceneProps) {
   const mountRef = useRef<HTMLDivElement>(null);
-  const lightRef = useRef<THREE.PointLight | null>(null);
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -169,8 +155,7 @@ export function GenerativeArtScene({ className }: GenerativeArtSceneProps) {
       return;
     }
 
-    const { handles, camera, scene, material, mesh, pointLight } = createScene(mount);
-    lightRef.current = pointLight;
+    const { handles, camera, scene, material, mesh } = createScene(mount);
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -194,32 +179,18 @@ export function GenerativeArtScene({ className }: GenerativeArtSceneProps) {
       handles.renderer.setSize(mount.clientWidth, mount.clientHeight);
     };
 
-    const handleMouseMove = (event: MouseEvent) => {
-      const x = (event.clientX / window.innerWidth) * 2 - 1;
-      const y = -(event.clientY / window.innerHeight) * 2 + 1;
-      const vec = new THREE.Vector3(x, y, 0.5).unproject(camera);
-      const dir = vec.sub(camera.position).normalize();
-      const dist = -camera.position.z / dir.z;
-      const pos = camera.position.clone().add(dir.multiplyScalar(dist));
-      lightRef.current?.position.copy(pos);
-      material.uniforms.pointLightPos.value = pos;
-    };
-
     window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousemove", handleMouseMove);
       disposeScene(handles, mount);
-      lightRef.current = null;
     };
   }, []);
 
   return (
     <div
       ref={mountRef}
-      className={cn("absolute inset-0 z-0 h-full w-full", className)}
+      className={cn("pointer-events-none absolute inset-0 z-0 h-full w-full", className)}
       aria-hidden
     />
   );
