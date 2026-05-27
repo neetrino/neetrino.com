@@ -30,6 +30,7 @@ export function BlogTranslationTabs({ post }: BlogTranslationTabsProps) {
             type="button"
             role="tab"
             aria-selected={activeLocale === locale}
+            onMouseDown={(event) => event.preventDefault()}
             onClick={() => setActiveLocale(locale)}
             className={cn(
               "flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
@@ -43,45 +44,51 @@ export function BlogTranslationTabs({ post }: BlogTranslationTabsProps) {
         ))}
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4 grid">
         {locales.map((locale) => {
           const translation = post?.translations[locale];
           const isActive = activeLocale === locale;
 
           return (
-            <div key={locale} role="tabpanel" hidden={!isActive}>
-              <div className="grid gap-4">
-                <TextInput label="Slug" name={`${locale}.slug`} value={translation?.slug} />
-                <TextInput label="Title" name={`${locale}.title`} value={translation?.title} />
-                <TextareaInput
-                  label="Excerpt / short description"
-                  name={`${locale}.excerpt`}
-                  rows={3}
-                  value={translation?.excerpt}
-                />
-                <TextareaInput
-                  label="Content / full text (Markdown)"
-                  name={`${locale}.content`}
-                  rows={12}
-                  value={translation?.content}
-                />
-                <TextInput
-                  label="Image alt"
-                  name={`${locale}.imageAlt`}
-                  value={translation?.imageAlt}
-                />
-                <TextInput
-                  label="SEO title"
-                  name={`${locale}.seoTitle`}
-                  value={translation?.seoTitle}
-                />
-                <TextareaInput
-                  label="SEO description"
-                  name={`${locale}.seoDescription`}
-                  rows={2}
-                  value={translation?.seoDescription}
-                />
-              </div>
+            <div
+              key={locale}
+              role="tabpanel"
+              aria-hidden={!isActive}
+              className={cn(
+                "col-start-1 row-start-1 grid gap-4",
+                !isActive && "invisible pointer-events-none",
+              )}
+            >
+              <TextInput label="Slug" name={`${locale}.slug`} value={translation?.slug} />
+              <TextInput label="Title" name={`${locale}.title`} value={translation?.title} />
+              <TextareaInput
+                label="Excerpt / short description"
+                name={`${locale}.excerpt`}
+                rows={3}
+                value={translation?.excerpt}
+              />
+              <TextareaInput
+                label="Content / full text (Markdown)"
+                name={`${locale}.content`}
+                rows={12}
+                value={translation?.content}
+              />
+              <TextInput
+                label="Image alt"
+                name={`${locale}.imageAlt`}
+                value={translation?.imageAlt}
+              />
+              <TextInput
+                label="SEO title"
+                name={`${locale}.seoTitle`}
+                value={translation?.seoTitle}
+              />
+              <TextareaInput
+                label="SEO description"
+                name={`${locale}.seoDescription`}
+                rows={2}
+                value={translation?.seoDescription}
+              />
             </div>
           );
         })}

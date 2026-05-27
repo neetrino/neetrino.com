@@ -1,5 +1,8 @@
 export const ADMIN_SHEET_WIDTH_PX = 520;
 
+/** Wider sheet for blog post editor (common fields + translations). */
+export const ADMIN_BLOG_SHEET_WIDTH_PX = ADMIN_SHEET_WIDTH_PX * 2;
+
 export const ADMIN_LIST_CARD_CLASS =
   "overflow-hidden rounded-2xl border border-[#151515]/[0.08] bg-white shadow-[0_1px_2px_rgba(21,21,21,0.04)]";
 

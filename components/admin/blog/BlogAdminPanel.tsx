@@ -8,6 +8,7 @@ import { AdminDetailSheet } from "@/components/admin/ui/admin-detail-sheet";
 import { AdminList, AdminListEmpty, AdminListRow } from "@/components/admin/ui/admin-list";
 import { AdminStatusBadge } from "@/components/admin/ui/admin-status-badge";
 import { useAdminDetailSheet } from "@/components/admin/ui/use-admin-detail-sheet";
+import { ADMIN_BLOG_SHEET_WIDTH_PX } from "@/lib/admin/admin-ui.constants";
 import { formatAdminDate } from "@/lib/admin/admin-format";
 import { locales } from "@/i18n/routing";
 import type { AdminBlogPost } from "@/lib/server/blog/admin";
@@ -55,6 +56,7 @@ export function BlogAdminPanel({ posts }: BlogAdminPanelProps) {
       </AdminList>
 
       <AdminDetailSheet
+        maxWidthPx={ADMIN_BLOG_SHEET_WIDTH_PX}
         open={sheet.isOpen}
         onClose={sheet.close}
         title={selectedPost?.displayTitle ?? "Blog post"}

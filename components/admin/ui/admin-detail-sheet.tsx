@@ -15,6 +15,8 @@ type AdminDetailSheetProps = {
   readonly icon?: ReactNode;
   readonly children: ReactNode;
   readonly footer?: ReactNode;
+  /** Panel max width in px; defaults to {@link ADMIN_SHEET_WIDTH_PX}. */
+  readonly maxWidthPx?: number;
 };
 
 export function AdminDetailSheet({
@@ -26,6 +28,7 @@ export function AdminDetailSheet({
   icon,
   children,
   footer,
+  maxWidthPx = ADMIN_SHEET_WIDTH_PX,
 }: AdminDetailSheetProps) {
   return (
     <Dialog.Root
@@ -45,7 +48,7 @@ export function AdminDetailSheet({
               "flex h-full w-full flex-col bg-white shadow-[-12px_0_40px_rgba(21,21,21,0.12)] outline-none",
               "data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full transition-transform duration-300 ease-out",
             )}
-            style={{ maxWidth: ADMIN_SHEET_WIDTH_PX }}
+            style={{ maxWidth: maxWidthPx }}
           >
             <header className="shrink-0 border-b border-[#151515]/[0.08] px-6 py-5">
               <div className="flex items-start justify-between gap-4">
